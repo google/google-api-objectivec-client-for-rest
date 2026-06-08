@@ -1344,6 +1344,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityIssue_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeDdl;
 /**
+ *  Issue originated during the pull schema process
+ *
+ *  Value: "ISSUE_TYPE_PULL_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypePullSchema;
+/**
  *  Unspecified issue type.
  *
  *  Value: "ISSUE_TYPE_UNSPECIFIED"
@@ -4554,6 +4560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        "ISSUE_TYPE_CONVERT")
  *    @arg @c kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeDdl Issue
  *        originated from the DDL (Value: "ISSUE_TYPE_DDL")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypePullSchema
+ *        Issue originated during the pull schema process (Value:
+ *        "ISSUE_TYPE_PULL_SCHEMA")
  *    @arg @c kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeUnspecified
  *        Unspecified issue type. (Value: "ISSUE_TYPE_UNSPECIFIED")
  */
@@ -7431,7 +7440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @interface GTLRDatabaseMigrationService_QuotaFailureViolation : GTLRObject
 
 /**
- *  The API Service from which the `QuotaFailure.Violation` orginates. In some
+ *  The API Service from which the `QuotaFailure.Violation` originates. In some
  *  cases, Quota issues originate from an API Service other than the one that
  *  was called. In other words, a dependency of the called API Service could be
  *  the cause of the `QuotaFailure`, and this field would have the dependency

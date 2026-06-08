@@ -71,6 +71,11 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationBias;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationRestriction;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestSearchAlongRouteParameters;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1TransitAgency;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1TransitIcon;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1TransitStation;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1TransitStop;
 @class GTLRMapsPlaces_GoogleTypeDate;
 @class GTLRMapsPlaces_GoogleTypeLatLng;
 @class GTLRMapsPlaces_GoogleTypeLocalizedText;
@@ -771,6 +776,142 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecifiedWallOutlet;
 
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine.vehicleType
+
+/**
+ *  Airplane.
+ *
+ *  Value: "AIRPLANE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Airplane;
+/**
+ *  Bus.
+ *
+ *  Value: "BUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Bus;
+/**
+ *  Cable car.
+ *
+ *  Value: "CABLE_CAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_CableCar;
+/**
+ *  Coach.
+ *
+ *  Value: "COACH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Coach;
+/**
+ *  Commuter train.
+ *
+ *  Value: "COMMUTER_TRAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_CommuterTrain;
+/**
+ *  Ferry.
+ *
+ *  Value: "FERRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Ferry;
+/**
+ *  Funicular.
+ *
+ *  Value: "FUNICULAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Funicular;
+/**
+ *  Gondola lift.
+ *
+ *  Value: "GONDOLA_LIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_GondolaLift;
+/**
+ *  Heavy rail.
+ *
+ *  Value: "HEAVY_RAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HeavyRail;
+/**
+ *  High speed train.
+ *
+ *  Value: "HIGH_SPEED_TRAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HighSpeedTrain;
+/**
+ *  Horse carriage.
+ *
+ *  Value: "HORSE_CARRIAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HorseCarriage;
+/**
+ *  Intercity bus.
+ *
+ *  Value: "INTERCITY_BUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_IntercityBus;
+/**
+ *  Long distance train.
+ *
+ *  Value: "LONG_DISTANCE_TRAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_LongDistanceTrain;
+/**
+ *  Metro rail.
+ *
+ *  Value: "METRO_RAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_MetroRail;
+/**
+ *  Monorail.
+ *
+ *  Value: "MONORAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Monorail;
+/**
+ *  Rail.
+ *
+ *  Value: "RAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Rail;
+/**
+ *  Share taxi.
+ *
+ *  Value: "SHARE_TAXI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_ShareTaxi;
+/**
+ *  Special.
+ *
+ *  Value: "SPECIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Special;
+/**
+ *  Subway.
+ *
+ *  Value: "SUBWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Subway;
+/**
+ *  Tram.
+ *
+ *  Value: "TRAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Tram;
+/**
+ *  Trolleybus.
+ *
+ *  Value: "TROLLEYBUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Trolleybus;
+/**
+ *  Default value when vehicle type is not specified.
+ *
+ *  Value: "VEHICLE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_VehicleTypeUnspecified;
+
 /**
  *  A latitude-longitude viewport, represented as two diagonally opposite `low`
  *  and `high` points. A viewport is considered a closed region, i.e. it
@@ -1333,17 +1474,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. Content that is contextual to the place query.
+ *  Content that is contextual to the place query.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent : GTLRObject
 
-/**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. Justifications for the place.
- */
+/** Justifications for the place. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification *> *justifications;
 
 /**
@@ -1359,35 +1494,20 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. Justifications for the place. Justifications answers the
- *  question of why a place could interest an end user.
+ *  Justifications for the place. Justifications answers the question of why a
+ *  place could interest an end user.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification : GTLRObject
 
-/**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details.
- */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification *businessAvailabilityAttributesJustification;
-
-/**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details.
- */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification *reviewJustification;
 
 @end
 
 
 /**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. BusinessAvailabilityAttributes justifications. This shows
- *  some attributes a business has that could interest an end user.
+ *  BusinessAvailabilityAttributes justifications. This shows some attributes a
+ *  business has that could interest an end user.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification : GTLRObject
 
@@ -1416,12 +1536,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
- *  Experimental: See
- *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
- *  for more details. User review justifications. This highlights a section of
- *  the user review that would interest an end user. For instance, if the search
- *  query is "firewood pizza", the review justification highlights the text
- *  relevant to the search query.
+ *  User review justifications. This highlights a section of the user review
+ *  that would interest an end user. For instance, if the search query is
+ *  "firewood pizza", the review justification highlights the text relevant to
+ *  the search query.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification : GTLRObject
 
@@ -1797,10 +1915,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *curbsidePickup;
 
 /**
- *  The hours of operation for the next seven days (including today). The time
- *  period starts at midnight on the date of the request and ends at 11:59 pm
- *  six days later. This field includes the special_days subfield of all hours,
- *  set for dates that have exceptional hours.
+ *  The hours of operation for the next seven days (including today)
+ *  incorporating any special opening hours. The time period starts at midnight
+ *  on the date of the request and ends at 11:59 pm six days later. If the
+ *  actual opening hours are outside of this range, the opening hours will be
+ *  truncated. For example, if a place is open from 10pm yesterday to 6am today,
+ *  the opening hours will be truncated to 12am today to 6am today. This field
+ *  includes the special_days subfield of all hours, set for dates that have
+ *  exceptional hours.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours *currentOpeningHours;
 
@@ -2062,9 +2184,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *rating;
 
 /**
- *  The regular hours of operation. Note that if a place is always open (24
- *  hours), the `close` field will not be set. Clients can rely on always open
- *  (24 hours) being represented as an
+ *  The regular hours are the hours of operation for a place on a typical
+ *  schedule. Note that if a place is always open (24 hours), the `close` field
+ *  will not be set. Clients can rely on always open (24 hours) being
+ *  represented as an
  *  [`open`](https://developers.google.com/maps/documentation/places/web-service/reference/rest/v1/places#Period)
  *  period containing
  *  [`day`](https://developers.google.com/maps/documentation/places/web-service/reference/rest/v1/places#Point)
@@ -2194,6 +2317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** IANA Time Zone Database time zone. For example "America/New_York". */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeTimeZone *timeZone;
+
+/** The transit station information for the place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1TransitStation *transitStation;
 
 /**
  *  A set of type tags for this result. For example, "political" and "locality".
@@ -3566,6 +3692,223 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  the request on Google Maps.
  */
 @property(nonatomic, copy, nullable) NSString *searchUri;
+
+@end
+
+
+/**
+ *  Represents a transit agency.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1TransitAgency : GTLRObject
+
+/** Agency name (e.g. "VTA") in the requested language. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/** The URL of the agency's fare details page. */
+@property(nonatomic, copy, nullable) NSString *fareUrl;
+
+/**
+ *  Icon identifier for localized branded icon of a transit system (e.g. London
+ *  Underground) which should be used instead of TransitLine.vehicle_icon in the
+ *  UI.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1TransitIcon *icon;
+
+/** The transit lines that are served by this agency. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine *> *lines;
+
+/** The URL of the agency's homepage. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Icon for a transit line, vehicle, or agency.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1TransitIcon : GTLRObject
+
+/**
+ *  Whether the name is contained in the icon and there is no need to display it
+ *  next to the icon.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nameIncluded;
+
+/** The URL of the icon. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Represents a single transit line.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine : GTLRObject
+
+/**
+ *  The background color of the labels for this transit line in #RRGGBB hex
+ *  format, e.g. #909CE1. This color can also be used for drawing shapes for
+ *  this transit line.
+ */
+@property(nonatomic, copy, nullable) NSString *backgroundColor;
+
+/** The long name for this transit line (e.g. "Sunnydale local"). */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/**
+ *  Icon identifier for this particular line (e.g. subway lines in New York).
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1TransitIcon *icon;
+
+/**
+ *  The id of the transit line that can be used to uniquely identify the line
+ *  among other transit lines in the same transit station. This identifier is
+ *  not guaranteed to be stable across different responses.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The short name for this transit line (e.g. "S2"). */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *shortDisplayName;
+
+/**
+ *  The text color of labels for this transit line in #RRGGBB hex format, e.g.
+ *  #909CE1.
+ */
+@property(nonatomic, copy, nullable) NSString *textColor;
+
+/** The URL of a webpage with details about this line. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+/** Icon identifier for this particular vehicle type. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1TransitIcon *vehicleIcon;
+
+/**
+ *  The type of vehicle using this line.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Airplane
+ *        Airplane. (Value: "AIRPLANE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Bus Bus.
+ *        (Value: "BUS")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_CableCar
+ *        Cable car. (Value: "CABLE_CAR")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Coach
+ *        Coach. (Value: "COACH")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_CommuterTrain
+ *        Commuter train. (Value: "COMMUTER_TRAIN")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Ferry
+ *        Ferry. (Value: "FERRY")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Funicular
+ *        Funicular. (Value: "FUNICULAR")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_GondolaLift
+ *        Gondola lift. (Value: "GONDOLA_LIFT")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HeavyRail
+ *        Heavy rail. (Value: "HEAVY_RAIL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HighSpeedTrain
+ *        High speed train. (Value: "HIGH_SPEED_TRAIN")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HorseCarriage
+ *        Horse carriage. (Value: "HORSE_CARRIAGE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_IntercityBus
+ *        Intercity bus. (Value: "INTERCITY_BUS")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_LongDistanceTrain
+ *        Long distance train. (Value: "LONG_DISTANCE_TRAIN")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_MetroRail
+ *        Metro rail. (Value: "METRO_RAIL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Monorail
+ *        Monorail. (Value: "MONORAIL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Rail
+ *        Rail. (Value: "RAIL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_ShareTaxi
+ *        Share taxi. (Value: "SHARE_TAXI")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Special
+ *        Special. (Value: "SPECIAL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Subway
+ *        Subway. (Value: "SUBWAY")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Tram
+ *        Tram. (Value: "TRAM")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Trolleybus
+ *        Trolleybus. (Value: "TROLLEYBUS")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_VehicleTypeUnspecified
+ *        Default value when vehicle type is not specified. (Value:
+ *        "VEHICLE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vehicleType;
+
+@end
+
+
+/**
+ *  Represents transit-specific information for a place.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1TransitStation : GTLRObject
+
+/** The transit agencies that serve this station. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1TransitAgency *> *agencies;
+
+/** The name of the station in the local language. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/** Transit stops at this station. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1TransitStop *> *stops;
+
+@end
+
+
+/**
+ *  Represents a transit stop within a station. This is a specific location
+ *  where passengers board and alight transit vehicles, such as a platform or
+ *  bus bay. This is distinct from a `Departure`, which is an event of a vehicle
+ *  leaving a stop at a specific time.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1TransitStop : GTLRObject
+
+/** The name of the stop. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/**
+ *  The id of the transit stop that can be used to uniquely identify the stop
+ *  among other transit stops in the same transit station. This identifier is
+ *  not guaranteed to be stable across different responses.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The stop's location. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLatLng *location;
+
+/**
+ *  The platform code represented by this stop. It can be formatted in any way.
+ *  (eg: "2", "Platform 2", "2-4", or "1x").
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *platformCode;
+
+/**
+ *  The verbatim text written on the signboard for this platform, e.g. "Towards
+ *  Central" or "East side & Brooklyn". When `platform_code` is absent, this
+ *  field is potentially the only identifier for the platform; however, both
+ *  `platform_code` and `signage_text` may be set simultaneously.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *signageText;
+
+/**
+ *  Human readable identifier of the stop, used by transit agencies to
+ *  distinguish stops with the same name.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *stopCode;
+
+/**
+ *  Wheelchair accessibility of this stop. This field indicates whether there is
+ *  an accessible path from outside the station to the stop. It does not
+ *  indicate whether it is possible to board a vehicle from the stop.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wheelchairAccessibleEntrance;
 
 @end
 

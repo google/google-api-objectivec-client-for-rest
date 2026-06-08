@@ -196,6 +196,10 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed = @"NOT_CONSUME
 NSString * const kGTLRLogging_SuppressionInfo_Reason_RateLimit = @"RATE_LIMIT";
 NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
 
+// GTLRLogging_VirtualField.virtualFieldType
+NSString * const kGTLRLogging_VirtualField_VirtualFieldType_Coalesce = @"COALESCE";
+NSString * const kGTLRLogging_VirtualField_VirtualFieldType_VirtualFieldTypeUnspecified = @"VIRTUAL_FIELD_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRLogging_AppHub
@@ -1454,7 +1458,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_ProjectedField
 @dynamic alias, cast, field, operation, regexExtraction, sqlAggregationFunction,
-         truncationGranularity;
+         truncationGranularity, virtualField;
 @end
 
 
@@ -1738,6 +1742,24 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_UpdateBucketRequest
 @dynamic bucket, name, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_VirtualField
+//
+
+@implementation GTLRLogging_VirtualField
+@dynamic underlyingFieldSources, virtualFieldType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"underlyingFieldSources" : [GTLRLogging_FieldSource class]
+  };
+  return map;
+}
+
 @end
 
 

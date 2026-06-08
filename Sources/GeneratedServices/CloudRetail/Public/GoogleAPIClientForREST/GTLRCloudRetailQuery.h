@@ -1920,8 +1920,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Indicates which fields in the provided Catalog to update. If an unsupported
- *  or unknown field is provided, an INVALID_ARGUMENT error is returned.
+ *  Optional. Indicates which fields in the provided Catalog to update. If an
+ *  unsupported or unknown field is provided, an INVALID_ARGUMENT error is
+ *  returned.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2609,9 +2610,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Indicates which fields in the provided AttributesConfig to update. The
- *  following is the only supported field: * AttributesConfig.catalog_attributes
- *  If not set, all supported fields are updated.
+ *  Optional. Indicates which fields in the provided AttributesConfig to update.
+ *  The following is the only supported field: *
+ *  AttributesConfig.catalog_attributes If not set, all supported fields are
+ *  updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2658,10 +2660,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Indicates which fields in the provided CompletionConfig to update. The
- *  following are the only supported fields: * CompletionConfig.matching_order *
- *  CompletionConfig.max_suggestions * CompletionConfig.min_prefix_length *
- *  CompletionConfig.auto_learning If not set, all supported fields are updated.
+ *  Optional. Indicates which fields in the provided CompletionConfig to update.
+ *  The following are the only supported fields: *
+ *  CompletionConfig.matching_order * CompletionConfig.max_suggestions *
+ *  CompletionConfig.min_prefix_length * CompletionConfig.auto_learning If not
+ *  set, all supported fields are updated.
  *
  *  String format is a comma-separated list of fields.
  */

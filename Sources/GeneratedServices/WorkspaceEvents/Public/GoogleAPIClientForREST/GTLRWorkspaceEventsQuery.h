@@ -74,6 +74,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailability
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailabilityReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
@@ -135,6 +137,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailability
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailabilityReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
@@ -196,6 +200,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailability
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailabilityReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
@@ -265,6 +271,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailability
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailabilityReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
@@ -316,6 +324,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailability
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailabilityReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
@@ -410,6 +420,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailability
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailabilityReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
@@ -510,6 +522,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailability
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersAvailabilityReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
  *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive

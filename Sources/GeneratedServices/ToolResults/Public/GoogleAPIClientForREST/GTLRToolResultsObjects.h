@@ -688,6 +688,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosException;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
 /**
+ *  Licensing protection termination (Pairip) was detected.
+ *
+ *  Value: "licensingProtectionTermination"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LicensingProtectionTermination;
+/**
  *  Problems detected while collecting logcat
  *
  *  Value: "logcatCollectionError"
@@ -1865,6 +1871,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  Failed to find the launcher activity of an app.
  */
 @interface GTLRToolResults_LauncherActivityNotFound : GTLRObject
+@end
+
+
+/**
+ *  Licensing protection termination (Pairip) was detected.
+ */
+@interface GTLRToolResults_LicensingProtectionTermination : GTLRObject
 @end
 
 
@@ -3457,6 +3470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *        an exception. (Value: "iosException")
  *    @arg @c kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound Issue
  *        with finding a launcher activity (Value: "launcherActivityNotFound")
+ *    @arg @c kGTLRToolResults_TestIssue_Type_LicensingProtectionTermination
+ *        Licensing protection termination (Pairip) was detected. (Value:
+ *        "licensingProtectionTermination")
  *    @arg @c kGTLRToolResults_TestIssue_Type_LogcatCollectionError Problems
  *        detected while collecting logcat (Value: "logcatCollectionError")
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Issue is a native

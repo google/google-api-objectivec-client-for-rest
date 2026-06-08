@@ -524,6 +524,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionTyp
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAlertCenter_RuleViolationInfo.agentType
+
+/**
+ *  Unspecified agent type.
+ *
+ *  Value: "AGENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_AgentTypeUnspecified;
+/**
+ *  Studio agent type.
+ *
+ *  Value: "STUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_Studio;
+
+// ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.dataSource
 
 /**
@@ -778,6 +794,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.trigger
 
+/**
+ *  Agent execution.
+ *
+ *  Value: "AGENT_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_AgentExecution;
 /**
  *  A Chat attachment is uploaded.
  *
@@ -2709,6 +2731,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 @interface GTLRAlertCenter_RuleViolationInfo : GTLRObject
 
 /**
+ *  Optional. Agent type that triggered the rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_AgentType_AgentTypeUnspecified
+ *        Unspecified agent type. (Value: "AGENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_AgentType_Studio Studio agent
+ *        type. (Value: "STUDIO")
+ */
+@property(nonatomic, copy, nullable) NSString *agentType;
+
+/**
  *  Source of the data.
  *
  *  Likely values:
@@ -2764,6 +2797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Trigger of the rule.
  *
  *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_AgentExecution Agent
+ *        execution. (Value: "AGENT_EXECUTION")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatAttachmentUploaded
  *        A Chat attachment is uploaded. (Value: "CHAT_ATTACHMENT_UPLOADED")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent A Chat

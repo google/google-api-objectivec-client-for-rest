@@ -19,6 +19,8 @@
 @class GTLRHomeGraphService_Device_Attributes;
 @class GTLRHomeGraphService_Device_CustomData;
 @class GTLRHomeGraphService_DeviceInfo;
+@class GTLRHomeGraphService_DeviceMetadata;
+@class GTLRHomeGraphService_DeviceMetadata_TraitCommitTimestamps;
 @class GTLRHomeGraphService_DeviceNames;
 @class GTLRHomeGraphService_EventData;
 @class GTLRHomeGraphService_EventData_Event;
@@ -28,6 +30,7 @@
 @class GTLRHomeGraphService_QueryRequestInput;
 @class GTLRHomeGraphService_QueryRequestPayload;
 @class GTLRHomeGraphService_QueryResponsePayload;
+@class GTLRHomeGraphService_QueryResponsePayload_DeviceMetadata;
 @class GTLRHomeGraphService_QueryResponsePayload_Devices;
 @class GTLRHomeGraphService_QueryResponsePayload_Devices_Device;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice;
@@ -221,6 +224,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Metadata for traits of a single device.
+ */
+@interface GTLRHomeGraphService_DeviceMetadata : GTLRObject
+
+/**
+ *  Map from the Trait ID (e.g., "action.devices.traits.OnOff") to its last
+ *  Spanner commit timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_DeviceMetadata_TraitCommitTimestamps *traitCommitTimestamps;
+
+@end
+
+
+/**
+ *  Map from the Trait ID (e.g., "action.devices.traits.OnOff") to its last
+ *  Spanner commit timestamp.
+ *
+ *  @note This class is documented as having more properties of GTLRDateTime.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_DeviceMetadata_TraitCommitTimestamps : GTLRObject
+@end
+
+
+/**
  *  Identifiers used to describe the device.
  */
 @interface GTLRHomeGraphService_DeviceNames : GTLRObject
@@ -338,6 +368,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *agentUserId;
 
 /**
+ *  Optional. If true, the response will include device metadata in the
+ *  device_metadata field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeDeviceMetadata;
+
+/**
  *  Required. Inputs containing third-party device IDs for which to get the
  *  device states.
  */
@@ -398,11 +436,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHomeGraphService_QueryResponsePayload : GTLRObject
 
 /**
+ *  Map from the Trait ID (e.g., "action.devices.traits.OnOff") to its last
+ *  Spanner commit timestamp. If a trait has no recorded timestamp, it will be
+ *  omitted from this map.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_QueryResponsePayload_DeviceMetadata *deviceMetadata;
+
+/**
  *  States of the devices. Map of third-party device ID to struct of device
  *  states.
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_QueryResponsePayload_Devices *devices;
 
+@end
+
+
+/**
+ *  Map from the Trait ID (e.g., "action.devices.traits.OnOff") to its last
+ *  Spanner commit timestamp. If a trait has no recorded timestamp, it will be
+ *  omitted from this map.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRHomeGraphService_DeviceMetadata. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_QueryResponsePayload_DeviceMetadata : GTLRObject
 @end
 
 
@@ -635,14 +694,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRHomeGraphService_TraitData : GTLRObject
 
-/** Optional. The Home API trait payload. */
+/** The Provider Home API trait payload. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_TraitData_Trait *trait;
 
 @end
 
 
 /**
- *  Optional. The Home API trait payload.
+ *  The Provider Home API trait payload.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

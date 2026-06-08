@@ -105,13 +105,19 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1Document;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentBlobAsset;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkField;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageFooter;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageHeader;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkPageSpan;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkImageChunkField;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkTableChunkField;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayout;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutImageBlock;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListEntry;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutPageSpan;
@@ -6075,6 +6081,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1Document : GTLRObject
 
+/**
+ *  Optional. The blob assets in this document. This is used to store the
+ *  content of the inline blobs in this document, for example, image bytes, such
+ *  that it can be referenced by other fields in the document via asset id.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentBlobAsset *> *blobAssets;
+
 /** Document chunked based on chunking config. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument *chunkedDocument;
 
@@ -6173,6 +6186,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Represents the annotation of a block or a chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations : GTLRObject
+
+/**
+ *  The description of the content with this annotation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  Represents a blob asset. It's used to store the content of the inline blob
+ *  in this document, for example, image bytes, such that it can be referenced
+ *  by other fields in the document via asset ID.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentBlobAsset : GTLRObject
+
+/** Optional. The id of the blob asset. */
+@property(nonatomic, copy, nullable) NSString *assetId;
+
+/**
+ *  Optional. The content of the blob asset, for example, image bytes.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  The mime type of the blob asset. An IANA published [media type (MIME
+ *  type)](https://www.iana.org/assignments/media-types/media-types.xhtml).
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
  *  Represents the chunks that the document is divided into.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocument : GTLRObject
@@ -6187,6 +6242,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Represents a chunk.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunk : GTLRObject
+
+/** Chunk fields inside this chunk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkField *> *chunkFields;
 
 /** ID of the chunk. */
 @property(nonatomic, copy, nullable) NSString *chunkId;
@@ -6205,6 +6263,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** Unused. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceBlockIds;
+
+@end
+
+
+/**
+ *  The chunk field in the chunk. A chunk field could be one of the various
+ *  types (for example, image, table) supported.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkChunkField : GTLRObject
+
+/** The image chunk field in the chunk. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkImageChunkField *imageChunkField;
+
+/** The table chunk field in the chunk. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkTableChunkField *tableChunkField;
 
 @end
 
@@ -6260,6 +6333,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  The image chunk field in the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkImageChunkField : GTLRObject
+
+/** Annotation of the image chunk field. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations *annotations;
+
+/**
+ *  Optional. Asset id of the inline image. If set, find the image content in
+ *  the blob_assets field.
+ */
+@property(nonatomic, copy, nullable) NSString *blobAssetId;
+
+/**
+ *  Optional. Data uri of the image. It is composed of four parts: a prefix
+ *  (data:), a MIME type indicating the type of data, an optional base64 token
+ *  if non-textual, and the data itself: data:,
+ */
+@property(nonatomic, copy, nullable) NSString *dataUri;
+
+/** Optional. Google Cloud Storage uri of the image. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+@end
+
+
+/**
+ *  The table chunk field in the chunk.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentChunkedDocumentChunkTableChunkField : GTLRObject
+
+/** Annotation of the table chunk field. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations *annotations;
+
+@end
+
+
+/**
  *  Represents the parsed layout of a document as a collection of blocks that
  *  the document is divided into.
  */
@@ -6283,6 +6394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Identifies the bounding box for the block. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly *boundingBox;
 
+/** Block consisting of image content. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutImageBlock *imageBlock;
+
 /** Block consisting of list content/structure. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutListBlock *listBlock;
 
@@ -6294,6 +6408,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /** Block consisting of text content. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock *textBlock;
+
+@end
+
+
+/**
+ *  Represents an image type block.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutImageBlock : GTLRObject
+
+/** Annotation of the image block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations *annotations;
+
+/**
+ *  Optional. Asset id of the inline image. If set, find the image content in
+ *  the blob_assets field.
+ */
+@property(nonatomic, copy, nullable) NSString *blobAssetId;
+
+/**
+ *  Optional. Data uri of the image. It is composed of four parts: a prefix
+ *  (data:), a MIME type indicating the type of data, an optional base64 token
+ *  if non-textual, and the data itself: data:,
+ */
+@property(nonatomic, copy, nullable) NSString *dataUri;
+
+/** Optional. Google Cloud Storage uri of the image. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/**
+ *  Text extracted from the image using OCR or alt text describing the image.
+ */
+@property(nonatomic, copy, nullable) NSString *imageText;
+
+/**
+ *  Mime type of the image. An IANA published [media type (MIME type)]
+ *  (https://www.iana.org/assignments/media-types/media-types.xhtml).
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
 
@@ -6356,6 +6508,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableBlock : GTLRObject
 
+/** Annotation of the table block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations *annotations;
+
 /** Body rows containing main table content. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTableRow *> *bodyRows;
 
@@ -6411,6 +6566,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Represents a text type block.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentDocumentLayoutDocumentLayoutBlockLayoutTextBlock : GTLRObject
+
+/** Annotation of the text block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations *annotations;
 
 /**
  *  A text block could further have child blocks. Repeated blocks support

@@ -22,6 +22,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2AdjustmentRule;
 @class GTLRDLP_GooglePrivacyDlpV2AllInfoTypes;
+@class GTLRDLP_GooglePrivacyDlpV2AllMessages;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherBigQueryTables;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherDatabaseResources;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherResources;
@@ -34,6 +35,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2AwsAccount;
 @class GTLRDLP_GooglePrivacyDlpV2AwsAccountRegex;
 @class GTLRDLP_GooglePrivacyDlpV2AwsDiscoveryStartingLocation;
+@class GTLRDLP_GooglePrivacyDlpV2BatchContentItem;
+@class GTLRDLP_GooglePrivacyDlpV2BatchContentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryDiscoveryTarget;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryField;
 @class GTLRDLP_GooglePrivacyDlpV2BigQueryKey;
@@ -71,6 +74,9 @@
 @class GTLRDLP_GooglePrivacyDlpV2ContentItem;
 @class GTLRDLP_GooglePrivacyDlpV2ContentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ContentMetadata;
+@class GTLRDLP_GooglePrivacyDlpV2Conversation;
+@class GTLRDLP_GooglePrivacyDlpV2ConversationLocation;
+@class GTLRDLP_GooglePrivacyDlpV2ConversationMessage;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoKey;
@@ -287,6 +293,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeStats;
 @class GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion;
 @class GTLRDLP_GooglePrivacyDlpV2StoredType;
+@class GTLRDLP_GooglePrivacyDlpV2StringValueBatch;
 @class GTLRDLP_GooglePrivacyDlpV2SummaryResult;
 @class GTLRDLP_GooglePrivacyDlpV2SurrogateType;
 @class GTLRDLP_GooglePrivacyDlpV2Table;
@@ -1180,6 +1187,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_E
  *  Value: "MISSING_CREDENTIALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_MissingCredentials;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2ConversationMessage.messageType
+
+/**
+ *  Message contains content to be inspected.
+ *
+ *  Value: "CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_Content;
+/**
+ *  Message contains context only and will not have findings reported from it
+ *  during inspection or redacted from it during de-identification.
+ *
+ *  Value: "CONTEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_Context;
+/**
+ *  Unused.
+ *
+ *  Value: "MESSAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_MessageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig.commonAlphabet
@@ -3651,23 +3681,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationLoca
 // GTLRDLP_GooglePrivacyDlpV2TransformationResultStatus.resultStatusType
 
 /**
- *  This will be set when a BigQuery transformation was successful but could not
- *  be stored back in BigQuery because the transformed row exceeds BigQuery's
- *  max row size.
+ *  This is set when a transformation is successful but cannot be stored in
+ *  BigQuery because the transformed row exceeds BigQuery's max row size.
  *
  *  Value: "BIGQUERY_MAX_ROW_SIZE_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_BigqueryMaxRowSizeExceeded;
 /**
- *  This will be set when a finding could not be transformed (i.e. outside user
- *  set bucket range).
+ *  This is set when a finding cannot be transformed (i.e. outside user set
+ *  bucket range).
  *
  *  Value: "INVALID_TRANSFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_InvalidTransform;
 /**
- *  This will be set when there is a finding in the custom metadata of a file,
- *  but at the write time of the transformed file, this key / value pair is
+ *  This is set when there is a finding in the custom metadata of a file, but at
+ *  the write time of the transformed file, this key / value pair is
  *  unretrievable.
  *
  *  Value: "METADATA_UNRETRIEVABLE"
@@ -3680,7 +3709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResu
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_StateTypeUnspecified;
 /**
- *  This will be set when the transformation and storing of it is successful.
+ *  This is set when the transformation and its storage are successful.
  *
  *  Value: "SUCCESS"
  */
@@ -3959,6 +3988,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  If set, indicates that the finding applies to all messages in the
+ *  conversation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AllMessages : GTLRObject
+@end
+
+
+/**
  *  Catch-all for all other tables not specified by other filters. Should always
  *  be last, except for single-table configurations, which will only have a
  *  TableReference target.
@@ -4144,6 +4181,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allAssetInventoryAssets;
+
+@end
+
+
+/**
+ *  Represents a batch of content to inspect or redact.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2BatchContentItem : GTLRObject
+
+/** Optional. Represents a batch of string values to inspect or redact. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StringValueBatch *stringValueBatch;
+
+@end
+
+
+/**
+ *  Location within a batch of content.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2BatchContentLocation : GTLRObject
+
+/**
+ *  Matches an index of a batch item in the batch provided in the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *itemIndex;
 
 @end
 
@@ -5355,11 +5418,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentItem : GTLRObject
 
+/** Represents a batch of items to inspect. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BatchContentItem *batchContentItem;
+
 /** Content data to inspect or redact. Replaces `type` and `data`. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ByteContentItem *byteItem;
 
 /** User provided metadata for the content. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentMetadata *contentMetadata;
+
+/**
+ *  Represents a conversation (either complete or a slice). It is assumed that
+ *  all included messages are contiguous and ordered in chronological order.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Conversation *conversation;
 
 /**
  *  Structured content for inspection. See
@@ -5379,6 +5451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  metadata container.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentLocation : GTLRObject
+
+/** Location within a batch of content. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BatchContentLocation *batchContentLocation;
 
 /**
  *  Name of the container where the finding is located. The top level name is
@@ -5404,6 +5479,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *containerVersion;
 
+/** Location within a conversation. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ConversationLocation *conversationLocation;
+
 /** Location data for document files. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DocumentLocation *documentLocation;
 
@@ -5426,6 +5504,77 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** User provided key-value pairs of content metadata. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty *> *properties;
+
+@end
+
+
+/**
+ *  Complete conversation or slice of a conversation. It is assumed that all
+ *  included messages are contiguous and ordered in chronological order.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Conversation : GTLRObject
+
+/**
+ *  Messages exchanged within this conversation. The maximum number of messages
+ *  allowed is 50k. The order of the messages is assumed to be chronological and
+ *  will be used to index findings in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ConversationMessage *> *messages;
+
+@end
+
+
+/**
+ *  Location within a conversation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ConversationLocation : GTLRObject
+
+/**
+ *  If set, indicates that the finding applies to all messages in the
+ *  conversation.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AllMessages *allMessages;
+
+/**
+ *  Matches an index of a message in the conversation provided in the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageIndex;
+
+@end
+
+
+/**
+ *  Single message in a conversation.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ConversationMessage : GTLRObject
+
+/** The contents of this message. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  The type of message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_Content
+ *        Message contains content to be inspected. (Value: "CONTENT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_Context
+ *        Message contains context only and will not have findings reported from
+ *        it during inspection or redacted from it during de-identification.
+ *        (Value: "CONTEXT")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_MessageTypeUnspecified
+ *        Unused. (Value: "MESSAGE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *messageType;
+
+/**
+ *  Optional. The identifier of the participant, for example 'test-user' or
+ *  'gemini'. The participant ID can contain lowercase letters, numbers, and
+ *  hyphens; that is, it must match the regular expression:
+ *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. The maximum length is 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *participantId;
 
 @end
 
@@ -9630,6 +9779,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectTemplate : GTLRObject
 
+/**
+ *  Optional. Enables the use of [limited-availability built-in
+ *  infoTypes](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference#limited-availability-infotypes)
+ *  in inspect_config. These infoTypes are supported only in specific regions
+ *  and can cause scanning errors if used elsewhere.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowLimitedAvailabilityInfoTypes;
+
 /** Output only. The creation timestamp of an inspectTemplate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -12323,6 +12482,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Represents a batch of string values to inspect or redact.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2StringValueBatch : GTLRObject
+
+/** Optional. Represents string data to inspect or redact. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
  *  A collection that informs the user the number of times a particular
  *  `TransformationResultCode` and error details occurred.
  */
@@ -13175,22 +13345,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_BigqueryMaxRowSizeExceeded
- *        This will be set when a BigQuery transformation was successful but
- *        could not be stored back in BigQuery because the transformed row
- *        exceeds BigQuery's max row size. (Value:
- *        "BIGQUERY_MAX_ROW_SIZE_EXCEEDED")
+ *        This is set when a transformation is successful but cannot be stored
+ *        in BigQuery because the transformed row exceeds BigQuery's max row
+ *        size. (Value: "BIGQUERY_MAX_ROW_SIZE_EXCEEDED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_InvalidTransform
- *        This will be set when a finding could not be transformed (i.e. outside
- *        user set bucket range). (Value: "INVALID_TRANSFORM")
+ *        This is set when a finding cannot be transformed (i.e. outside user
+ *        set bucket range). (Value: "INVALID_TRANSFORM")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_MetadataUnretrievable
- *        This will be set when there is a finding in the custom metadata of a
- *        file, but at the write time of the transformed file, this key / value
- *        pair is unretrievable. (Value: "METADATA_UNRETRIEVABLE")
+ *        This is set when there is a finding in the custom metadata of a file,
+ *        but at the write time of the transformed file, this key / value pair
+ *        is unretrievable. (Value: "METADATA_UNRETRIEVABLE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_StateTypeUnspecified
  *        Unused. (Value: "STATE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TransformationResultStatus_ResultStatusType_Success
- *        This will be set when the transformation and storing of it is
- *        successful. (Value: "SUCCESS")
+ *        This is set when the transformation and its storage are successful.
+ *        (Value: "SUCCESS")
  */
 @property(nonatomic, copy, nullable) NSString *resultStatusType;
 

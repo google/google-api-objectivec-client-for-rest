@@ -317,6 +317,33 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesCheckPrewarmedArtifact
+
+@dynamic repository;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_CheckPrewarmedArtifactRequest *)object
+                     repository:(NSString *)repository {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"repository" ];
+  NSString *pathURITemplate = @"v1/{+repository}:checkPrewarmedArtifact";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesCheckPrewarmedArtifact *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.repository = repository;
+  query.expectedObjectClass = [GTLRArtifactRegistry_CheckPrewarmedArtifactResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.checkPrewarmedArtifact";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesCreate
 
 @dynamic parent, repositoryId;
@@ -1182,6 +1209,52 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmArtifact
+
+@dynamic repository;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_PrewarmArtifactRequest *)object
+                     repository:(NSString *)repository {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"repository" ];
+  NSString *pathURITemplate = @"v1/{+repository}:prewarmArtifact";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmArtifact *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.repository = repository;
+  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.prewarmArtifact";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmedArtifactsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/prewarmedArtifacts";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmedArtifactsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ListPrewarmedArtifactsResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.prewarmedArtifacts.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesGet
 
 @dynamic name;
@@ -1215,6 +1288,33 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.parent = parent;
   query.expectedObjectClass = [GTLRArtifactRegistry_ListPythonPackagesResponse class];
   query.loggingName = @"artifactregistry.projects.locations.repositories.pythonPackages.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRemovePrewarmedArtifact
+
+@dynamic repository;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_RemovePrewarmedArtifactRequest *)object
+                     repository:(NSString *)repository {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"repository" ];
+  NSString *pathURITemplate = @"v1/{+repository}:removePrewarmedArtifact";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRemovePrewarmedArtifact *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.repository = repository;
+  query.expectedObjectClass = [GTLRArtifactRegistry_RemovePrewarmedArtifactResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.removePrewarmedArtifact";
   return query;
 }
 

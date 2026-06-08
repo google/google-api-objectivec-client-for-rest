@@ -583,7 +583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_Engine_Default;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_Engine_EngineUnspecified;
 /**
- *  The cluster is a lightning engine cluster.
+ *  The cluster is a Lightning Engine
+ *  (https://cloud.google.com/dataproc/docs/guides/lightning-engine) cluster.
  *
  *  Value: "LIGHTNING"
  */
@@ -703,8 +704,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Updating;
 // GTLRDataproc_ClusterStatus.substate
 
 /**
- *  The agent-reported status is out of date (may occur if Dataproc loses
- *  communication with Agent).Applies to RUNNING state.
+ *  The agent-reported status is out of date (may occur if the service loses
+ *  communication with the Agent).Applies to RUNNING state.
  *
  *  Value: "STALE_STATUS"
  */
@@ -772,8 +773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_CohortInfo_CohortSource_UserPro
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudSupport;
 /**
- *  Google Cloud Dataproc Diagnose service account has read access to the
- *  diagnostic tarball
+ *  The diagnose service account has read access to the diagnostic tarball
  *
  *  Value: "GOOGLE_DATAPROC_DIAGNOSE"
  */
@@ -790,7 +790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballA
 
 /**
  *  Enables bidirectional private IPv6 access between Google Services and the
- *  Dataproc cluster.
+ *  cluster.
  *
  *  Value: "BIDIRECTIONAL"
  */
@@ -803,8 +803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6Goo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork;
 /**
- *  Enables outbound private IPv6 access to Google Services from the Dataproc
- *  cluster.
+ *  Enables outbound private IPv6 access to Google Services from the cluster.
  *
  *  Value: "OUTBOUND"
  */
@@ -1123,7 +1122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified;
 /**
- *  Monitoring agent metrics. If this source is enabled, Dataproc enables the
+ *  Monitoring agent metrics. If this source is enabled, the service enables the
  *  monitoring agent in Compute Engine, and collects monitoring agent metrics,
  *  which are published with an agent.googleapis.com prefix.
  *
@@ -1806,11 +1805,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://cloud.google.com/compute/docs/reference/v1/acceleratorTypes).Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]/acceleratorTypes/nvidia-tesla-t4
  *  projects/[project_id]/zones/[zone]/acceleratorTypes/nvidia-tesla-t4
- *  nvidia-tesla-t4Auto Zone Exception: If you are using the Dataproc Auto Zone
- *  Placement
- *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement)
- *  feature, you must use the short name of the accelerator type resource, for
- *  example, nvidia-tesla-t4.
+ *  nvidia-tesla-t4Auto Zone Exception: If you are using Auto Zone Placement
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement),
+ *  you must use the short name of the accelerator type resource, for example,
+ *  nvidia-tesla-t4.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorTypeUri;
 
@@ -2362,7 +2360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  including projectid and location (region) are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/autoscalingPolicies/[policy_id]
  *  projects/[project_id]/locations/[dataproc_region]/autoscalingPolicies/[policy_id]Note
- *  that the policy must be in the same project and Dataproc region.
+ *  that the policy must be in the same project and region.
  */
 @property(nonatomic, copy, nullable) NSString *policyUri;
 
@@ -2860,8 +2858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Describes the identifying information, config, and status of a Dataproc
- *  cluster
+ *  Describes the identifying information, config, and status of a cluster
  */
 @interface GTLRDataproc_Cluster : GTLRObject
 
@@ -2874,14 +2871,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
 /**
- *  Output only. A cluster UUID (Unique Universal Identifier). Dataproc
+ *  Output only. A cluster UUID (Unique Universal Identifier). The service
  *  generates this value when it creates the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
  *  Optional. The cluster config for a cluster of Compute Engine Instances. Note
- *  that Dataproc may set default values, and values may change when clusters
+ *  that the service may set default values, and values may change when clusters
  *  are updated.Exactly one of ClusterConfig or VirtualClusterConfig must be
  *  specified.
  */
@@ -2916,11 +2913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_ClusterStatus *> *statusHistory;
 
 /**
- *  Optional. The virtual cluster config is used when creating a Dataproc
- *  cluster that does not directly control the underlying compute resources, for
- *  example, when creating a Dataproc-on-GKE cluster
+ *  Optional. The virtual cluster config is used when creating a cluster that
+ *  does not directly control the underlying compute resources, for example,
+ *  when creating a GKE cluster
  *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke-overview).
- *  Dataproc may set default values, and values may change when clusters are
+ *  the service may set default values, and values may change when clusters are
  *  updated. Exactly one of config or virtual_cluster_config must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_VirtualClusterConfig *virtualClusterConfig;
@@ -2992,26 +2989,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. A Cloud Storage bucket used to stage job dependencies, config
  *  files, and job driver console output. If you do not specify a staging
- *  bucket, Dataproc determines a Cloud Storage location (US, ASIA, or EU) for
- *  the cluster staging bucket according to the Compute Engine zone where the
- *  cluster is deployed, and then creates and manages this project-level,
- *  per-location bucket (see Dataproc staging and temp buckets
+ *  bucket, the service will determine a Cloud Storage location (US, ASIA, or
+ *  EU) for your cluster's staging bucket according to the Compute Engine zone
+ *  where your cluster is deployed, and then create and manage this
+ *  project-level, per-location bucket (see staging and temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
  *  Cloud Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
-/** Optional. The config for Dataproc metrics. */
+/** Optional. The config for metrics. */
 @property(nonatomic, strong, nullable) GTLRDataproc_MetricConfig *dataprocMetricConfig;
 
 /**
  *  Optional. A Cloud Storage bucket used to collect checkpoint diagnostic data
  *  (https://cloud.google.com/dataproc/docs/support/diagnose-clusters#checkpoint_diagnostic_data).
- *  If you do not specify a diagnostic bucket, Cloud Dataproc will use the
- *  Dataproc temp bucket to collect the checkpoint diagnostic data. This field
- *  requires a Cloud Storage bucket name, not a gs://... URI to a Cloud Storage
- *  bucket.
+ *  If you do not specify a diagnostic bucket, The service will use the temp
+ *  bucket to collect the checkpoint diagnostic data. This field requires a
+ *  Cloud Storage bucket name, not a gs://... URI to a Cloud Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *diagnosticBucket;
 
@@ -3031,7 +3027,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        not specified. Works the same as ENGINE_DEFAULT. (Value:
  *        "ENGINE_UNSPECIFIED")
  *    @arg @c kGTLRDataproc_ClusterConfig_Engine_Lightning The cluster is a
- *        lightning engine cluster. (Value: "LIGHTNING")
+ *        Lightning Engine
+ *        (https://cloud.google.com/dataproc/docs/guides/lightning-engine)
+ *        cluster. (Value: "LIGHTNING")
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
@@ -3042,8 +3040,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig *gceClusterConfig;
 
 /**
- *  Optional. BETA. The Kubernetes Engine config for Dataproc clusters deployed
- *  to The Kubernetes Engine config for Dataproc clusters deployed to
+ *  Optional. BETA. The Kubernetes Engine config for clusters deployed to
  *  Kubernetes. These config settings are mutually exclusive with Compute
  *  Engine-based options, such as gce_cluster_config, master_config,
  *  worker_config, secondary_worker_config, and autoscaling_config.
@@ -3089,12 +3086,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
  *  data, such as Spark and MapReduce history files. If you do not specify a
- *  temp bucket, Dataproc determines a Cloud Storage location (US, ASIA, or EU)
- *  for the cluster temp bucket according to the Compute Engine zone where the
- *  cluster is deployed, and then creates and manages this project-level,
- *  per-location bucket. The default bucket has a TTL of 90 days, but you can
- *  use any TTL (or none) if you specify a bucket (see Dataproc staging and temp
- *  buckets
+ *  temp bucket, the service will determine a Cloud Storage location (US, ASIA,
+ *  or EU) for your cluster's temp bucket according to the Compute Engine zone
+ *  where your cluster is deployed, and then create and manage this
+ *  project-level, per-location bucket. The default bucket has a TTL of 90 days,
+ *  but you can use any TTL (or none) if you specify a bucket (see staging and
+ *  temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
  *  Cloud Storage bucket.
@@ -3345,8 +3342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_ClusterStatus_Substate_StaleStatus The
- *        agent-reported status is out of date (may occur if Dataproc loses
- *        communication with Agent).Applies to RUNNING state. (Value:
+ *        agent-reported status is out of date (may occur if the service loses
+ *        communication with the Agent).Applies to RUNNING state. (Value:
  *        "STALE_STATUS")
  *    @arg @c kGTLRDataproc_ClusterStatus_Substate_Unhealthy The cluster is
  *        known to be in an unhealthy state (for example, critical daemons are
@@ -3576,8 +3573,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        Google Cloud Support group has read access to the diagnostic tarball
  *        (Value: "GOOGLE_CLOUD_SUPPORT")
  *    @arg @c kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleDataprocDiagnose
- *        Google Cloud Dataproc Diagnose service account has read access to the
- *        diagnostic tarball (Value: "GOOGLE_DATAPROC_DIAGNOSE")
+ *        The diagnose service account has read access to the diagnostic tarball
+ *        (Value: "GOOGLE_DATAPROC_DIAGNOSE")
  *    @arg @c kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_TarballAccessUnspecified
  *        Tarball Access unspecified. Falls back to default access of the bucket
  *        (Value: "TARBALL_ACCESS_UNSPECIFIED")
@@ -4538,9 +4535,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_GceClusterConfig : GTLRObject
 
 /**
- *  Optional. An optional list of Compute Engine zones where the Dataproc
- *  cluster will not be located when Auto Zone is enabled. Only one of zone_uri
- *  or auto_zone_exclude_zone_uris can be set. If both are omitted, the service
+ *  Optional. An optional list of Compute Engine zones where the cluster will
+ *  not be located when Auto Zone is enabled. Only one of zone_uri or
+ *  auto_zone_exclude_zone_uris can be set. If both are omitted, the service
  *  will pick a zone in the cluster Compute Engine region. If
  *  auto_zone_exclude_zone_uris is set and there is more than one non-excluded
  *  zone, the service will pick one of the non-excluded zones. Otherwise,
@@ -4562,10 +4559,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  true by default in clusters created with image versions 2.2.x.When set to
  *  true: All cluster VMs have internal IP addresses. Google Private Access
  *  (https://cloud.google.com/vpc/docs/private-google-access) must be enabled to
- *  access Dataproc and other Google Cloud APIs. Off-cluster dependencies must
- *  be configured to be accessible without external IP addresses.When set to
- *  false: Cluster VMs are not restricted to internal IP addresses. Ephemeral
- *  external IP addresses are assigned to each cluster VM.
+ *  access the Dataproc API and other Google Cloud APIs. Off-cluster
+ *  dependencies must be configured to be accessible without external IP
+ *  addresses.When set to false: Cluster VMs are not restricted to internal IP
+ *  addresses. Ephemeral external IP addresses are assigned to each cluster VM.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4599,14 +4596,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Likely values:
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional
  *        Enables bidirectional private IPv6 access between Google Services and
- *        the Dataproc cluster. (Value: "BIDIRECTIONAL")
+ *        the cluster. (Value: "BIDIRECTIONAL")
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork
  *        Private access to and from Google Services configuration inherited
  *        from the subnetwork configuration. This is the default Compute Engine
  *        behavior. (Value: "INHERIT_FROM_SUBNETWORK")
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound
  *        Enables outbound private IPv6 access to Google Services from the
- *        Dataproc cluster. (Value: "OUTBOUND")
+ *        cluster. (Value: "OUTBOUND")
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified
  *        If unspecified, Compute Engine default behavior will apply, which is
  *        the same as INHERIT_FROM_SUBNETWORK. (Value:
@@ -4620,18 +4617,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. Resource manager tags
  *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)
- *  to add to all instances (see Use secure tags in Dataproc
+ *  to add to all instances (see Use secure tags
  *  (https://cloud.google.com/dataproc/docs/guides/use-secure-tags)).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig_ResourceManagerTags *resourceManagerTags;
 
 /**
- *  Optional. The Dataproc service account
+ *  Optional. The VM service account
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#service_accounts_in_dataproc)
  *  (also see VM Data Plane identity
  *  (https://cloud.google.com/dataproc/docs/concepts/iam/dataproc-principals#vm_service_account_data_plane_identity))
- *  used by Dataproc cluster VM instances to access Google Cloud Platform
- *  services.If not specified, the Compute Engine default service account
+ *  used by cluster VM instances to access Google Cloud Platform services.If not
+ *  specified, the Compute Engine default service account
  *  (https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
  *  is used.
  */
@@ -4673,10 +4670,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /**
- *  Optional. The Compute Engine zone where the Dataproc cluster will be
- *  located. If omitted, the service will pick a zone in the cluster's Compute
- *  Engine region. On a get request, zone will always be present.A full URL,
- *  partial URI, or short name are valid. Examples:
+ *  Optional. The Compute Engine zone where the cluster will be located. If
+ *  omitted, the service will pick a zone in the cluster's Compute Engine
+ *  region. On a get request, zone will always be present.A full URL, partial
+ *  URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]
  *  projects/[project_id]/zones/[zone] [zone]
  */
@@ -4702,7 +4699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. Resource manager tags
  *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)
- *  to add to all instances (see Use secure tags in Dataproc
+ *  to add to all instances (see Use secure tags
  *  (https://cloud.google.com/dataproc/docs/guides/use-secure-tags)).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -5340,7 +5337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  URI can represent an image or image family.Image examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/global/images/[image-id]
  *  projects/[project_id]/global/images/[image-id] image-idImage family
- *  examples. Dataproc will use the most recent image from the family:
+ *  examples. The service will use the most recent image from the family:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/global/images/family/[custom-image-family-name]
  *  projects/[project_id]/global/images/family/[custom-image-family-name]If the
  *  URI is unspecified, it will be inferred from SoftwareConfig.image_version or
@@ -5355,8 +5352,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceFlexibilityPolicy *instanceFlexibilityPolicy;
 
 /**
- *  Output only. The list of instance names. Dataproc derives the names from
- *  cluster_name, num_instances, and the instance group.
+ *  Output only. The list of instance names, derived from cluster_name,
+ *  num_instances, and the instance group.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceNames;
 
@@ -5376,11 +5373,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]/machineTypes/n1-standard-2
  *  projects/[project_id]/zones/[zone]/machineTypes/n1-standard-2
- *  n1-standard-2Auto Zone Exception: If you are using the Dataproc Auto Zone
- *  Placement
- *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement)
- *  feature, you must use the short name of the machine type resource, for
- *  example, n1-standard-2.
+ *  n1-standard-2Auto Zone Exception: If you are using Auto Zone Placement
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement),
+ *  you must use the short name of the machine type resource, for example,
+ *  n1-standard-2.
  */
 @property(nonatomic, copy, nullable) NSString *machineTypeUri;
 
@@ -5392,7 +5388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Specifies the minimum cpu platform for the Instance Group. See
- *  Dataproc -> Minimum CPU Platform
+ *  Minimum CPU Platform
  *  (https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
@@ -5489,10 +5485,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Preference of this instance selection. Lower number means higher
- *  preference. Dataproc will first try to create a VM based on the machine-type
- *  with priority rank and fallback to next rank based on availability. Machine
- *  types and instance selections with the same priority have the same
- *  preference.
+ *  preference. The service will first try to create a VM based on the
+ *  machine-type with priority rank and fallback to next rank based on
+ *  availability. Machine types and instance selections with the same priority
+ *  have the same preference.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6134,8 +6130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *crossRealmTrustKdc;
 
 /**
- *  Optional. The remote realm the Dataproc on-cluster KDC will trust, should
- *  the user enable cross realm trust.
+ *  Optional. The remote realm the on-cluster KDC will trust, should the user
+ *  enable cross realm trust.
  */
 @property(nonatomic, copy, nullable) NSString *crossRealmTrustRealm;
 
@@ -6163,20 +6159,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The Cloud Storage URI of a KMS encrypted file containing the
  *  password to the user provided key. For the self-signed certificate, this
- *  password is generated by Dataproc.
+ *  password is generated by the service.
  */
 @property(nonatomic, copy, nullable) NSString *keyPasswordUri;
 
 /**
  *  Optional. The Cloud Storage URI of a KMS encrypted file containing the
  *  password to the user provided keystore. For the self-signed certificate,
- *  this password is generated by Dataproc.
+ *  this password is generated by the service.
  */
 @property(nonatomic, copy, nullable) NSString *keystorePasswordUri;
 
 /**
  *  Optional. The Cloud Storage URI of the keystore file used for SSL
- *  encryption. If not provided, Dataproc will provide a self-signed
+ *  encryption. If not provided, the service will provide a self-signed
  *  certificate.
  */
 @property(nonatomic, copy, nullable) NSString *keystoreUri;
@@ -6207,13 +6203,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The Cloud Storage URI of a KMS encrypted file containing the
  *  password to the user provided truststore. For the self-signed certificate,
- *  this password is generated by Dataproc.
+ *  this password is generated by the service.
  */
 @property(nonatomic, copy, nullable) NSString *truststorePasswordUri;
 
 /**
  *  Optional. The Cloud Storage URI of the truststore file used for SSL
- *  encryption. If not provided, Dataproc will provide a self-signed
+ *  encryption. If not provided, the service will provide a self-signed
  *  certificate.
  */
 @property(nonatomic, copy, nullable) NSString *truststoreUri;
@@ -6752,7 +6748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_MetastoreConfig : GTLRObject
 
 /**
- *  Required. Resource name of an existing Dataproc Metastore service.Example:
+ *  Required. Resource name of an existing Metastore service.Example:
  *  projects/[project_id]/locations/[dataproc_region]/services/[service-name]
  */
 @property(nonatomic, copy, nullable) NSString *dataprocMetastoreService;
@@ -6761,7 +6757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A Dataproc custom metric.
+ *  A custom metric.
  */
 @interface GTLRDataproc_Metric : GTLRObject
 
@@ -6803,10 +6799,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *    @arg @c kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified Required
  *        unspecified metric source. (Value: "METRIC_SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults
- *        Monitoring agent metrics. If this source is enabled, Dataproc enables
- *        the monitoring agent in Compute Engine, and collects monitoring agent
- *        metrics, which are published with an agent.googleapis.com prefix.
- *        (Value: "MONITORING_AGENT_DEFAULTS")
+ *        Monitoring agent metrics. If this source is enabled, the service
+ *        enables the monitoring agent in Compute Engine, and collects
+ *        monitoring agent metrics, which are published with an
+ *        agent.googleapis.com prefix. (Value: "MONITORING_AGENT_DEFAULTS")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_Spark Spark metric source.
  *        (Value: "SPARK")
  *    @arg @c kGTLRDataproc_Metric_MetricSource_SparkHistoryServer Spark History
@@ -6820,7 +6816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Dataproc metric config.
+ *  Metric config.
  */
 @interface GTLRDataproc_MetricConfig : GTLRObject
 
@@ -6906,8 +6902,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  Dataproc Node Group. The Dataproc NodeGroup resource is not related to the
- *  Dataproc NodeGroupAffinity resource.
+ *  Node Group. The NodeGroup resource is not related to the NodeGroupAffinity
+ *  resource.
  */
 @interface GTLRDataproc_NodeGroup : GTLRObject
 
@@ -6949,9 +6945,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  Node Group Affinity for clusters using sole-tenant node groups. The Dataproc
- *  NodeGroupAffinity resource is not related to the Dataproc NodeGroup
- *  resource.
+ *  Node Group Affinity for clusters using sole-tenant node groups. The
+ *  NodeGroupAffinity resource is not related to the NodeGroup resource.
  */
 @interface GTLRDataproc_NodeGroupAffinity : GTLRObject
 
@@ -7632,19 +7627,18 @@ GTLR_DEPRECATED
 
 
 /**
- *  Defines how Dataproc should create VMs with a mixture of provisioning
- *  models.
+ *  Defines how to create VMs with a mixture of provisioning models.
  */
 @interface GTLRDataproc_ProvisioningModelMix : GTLRObject
 
 /**
  *  Optional. The base capacity that will always use Standard VMs to avoid risk
- *  of more preemption than the minimum capacity you need. Dataproc will create
- *  only standard VMs until it reaches standard_capacity_base, then it will
- *  start using standard_capacity_percent_above_base to mix Spot with Standard
- *  VMs. eg. If 15 instances are requested and standard_capacity_base is 5,
- *  Dataproc will create 5 standard VMs and then start mixing spot and standard
- *  VMs for remaining 10 instances.
+ *  of more preemption than the minimum capacity you need. The service will
+ *  create only standard VMs until it reaches standard_capacity_base, then it
+ *  will start using standard_capacity_percent_above_base to mix Spot with
+ *  Standard VMs. eg. If 15 instances are requested and standard_capacity_base
+ *  is 5, the service will create 5 standard VMs and thenstart mixing spot and
+ *  standard VMs for remaining 10 instances.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7655,8 +7649,9 @@ GTLR_DEPRECATED
  *  remaining percentage will use Spot VMs. The percentage applies only to the
  *  capacity above standard_capacity_base. eg. If 15 instances are requested and
  *  standard_capacity_base is 5 and standard_capacity_percent_above_base is 30,
- *  Dataproc will create 5 standard VMs and then start mixing spot and standard
- *  VMs for remaining 10 instances. The mix will be 30% standard and 70% spot.
+ *  the service will create 5 standard VMs and then start mixing spot and
+ *  standard VMs for remaining 10 instances. The mix will be 30% standard and
+ *  70% spot.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8191,8 +8186,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
- *  Optional. Whether the request is submitted by Dataproc super user. If true,
- *  IAM will check 'dataproc.clusters.repair' permission instead of
+ *  Optional. Whether the request is submitted by a super user. If true, IAM
+ *  will check 'dataproc.clusters.repair' permission instead of
  *  'dataproc.clusters.update' permission. This is to give Dataproc superuser
  *  the ability to repair clusters without granting the overly broad update
  *  permission.
@@ -8209,7 +8204,7 @@ GTLR_DEPRECATED
  *  is 0 for forceful decommissioning, and the maximum timeout period is 1 day.
  *  (see JSON Mapping—Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).graceful_decommission_timeout
- *  is supported in Dataproc image versions 1.2+.
+ *  is supported in image versions 1.2+.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
 
@@ -9572,7 +9567,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. The version of software inside the cluster. It must be one of the
- *  supported Dataproc Versions
+ *  supported Image Versions
  *  (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#supported-dataproc-image-versions),
  *  such as "1.2" (including a subminor version, such as "1.2.29"), or the
  *  "preview" version
@@ -12118,17 +12113,46 @@ GTLR_DEPRECATED
  */
 @interface GTLRDataproc_UsageMetrics : GTLRObject
 
-/** Optional. DEPRECATED Accelerator type being used, if any */
+/**
+ *  Optional. Accelerator type being used, if any Deprecated: This field is only
+ *  used in runtime versions below 3.0.
+ */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
- *  Optional. DEPRECATED Accelerator usage in (milliAccelerator x seconds) (see
+ *  Optional. Accelerator usage in (milliAccelerator x seconds) (see Dataproc
+ *  Serverless pricing (https://cloud.google.com/dataproc-serverless/pricing)).
+ *  Deprecated: This field is only used in runtime versions below 3.0.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorSeconds;
+
+/**
+ *  Optional. A100-40 accelerator usage in (milliAccelerator x seconds) (see
  *  Dataproc Serverless pricing
  *  (https://cloud.google.com/dataproc-serverless/pricing)).
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorSeconds;
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorSecondsA10040;
+
+/**
+ *  Optional. A100-80 accelerator usage in (milliAccelerator x seconds) (see
+ *  Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing)).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorSecondsA10080;
+
+/**
+ *  Optional. L4 accelerator usage in (milliAccelerator x seconds) (see Dataproc
+ *  Serverless pricing (https://cloud.google.com/dataproc-serverless/pricing)).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorSecondsL4;
 
 /**
  *  Optional. DCU (Dataproc Compute Units) usage in (milliDCU x seconds) (see
@@ -12159,16 +12183,47 @@ GTLR_DEPRECATED
  */
 @interface GTLRDataproc_UsageSnapshot : GTLRObject
 
-/** Optional. Accelerator type being used, if any */
+/**
+ *  Optional. Accelerator type being used, if any Deprecated: This field is only
+ *  used in runtime versions below 3.0.
+ */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
  *  Optional. Milli (one-thousandth) accelerator. (see Dataproc Serverless
- *  pricing (https://cloud.google.com/dataproc-serverless/pricing))
+ *  pricing (https://cloud.google.com/dataproc-serverless/pricing)) Deprecated:
+ *  This field is only used in runtime versions below 3.0.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *milliAccelerator;
+
+/**
+ *  Optional. Milli (one-thousandth) accelerator for A100-40 accelerators. (see
+ *  Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing))
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorA10040;
+
+/**
+ *  Optional. Milli (one-thousandth) accelerator for A100-80 accelerators. (see
+ *  Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing))
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorA10080;
+
+/**
+ *  Optional. Milli (one-thousandth) accelerator for L4 accelerators. (see
+ *  Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing))
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *milliAcceleratorL4;
 
 /**
  *  Optional. Milli (one-thousandth) Dataproc Compute Units (DCUs) (see Dataproc
@@ -12239,8 +12294,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  The Dataproc cluster config for a cluster that does not directly control the
- *  underlying compute resources, such as a Dataproc-on-GKE cluster
+ *  The cluster config for a cluster that does not directly control the
+ *  underlying compute resources, such as a GKE cluster
  *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke-overview).
  */
 @interface GTLRDataproc_VirtualClusterConfig : GTLRObject
@@ -12248,18 +12303,16 @@ GTLR_DEPRECATED
 /** Optional. Configuration of auxiliary services used by this cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_AuxiliaryServicesConfig *auxiliaryServicesConfig;
 
-/**
- *  Required. The configuration for running the Dataproc cluster on Kubernetes.
- */
+/** Required. The configuration for running the cluster on Kubernetes. */
 @property(nonatomic, strong, nullable) GTLRDataproc_KubernetesClusterConfig *kubernetesClusterConfig;
 
 /**
  *  Optional. A Cloud Storage bucket used to stage job dependencies, config
  *  files, and job driver console output. If you do not specify a staging
- *  bucket, Dataproc determines a Cloud Storage location (US, ASIA, or EU) for
- *  your cluster's staging bucket according to the Compute Engine zone where
- *  your cluster is deployed, and then create and manage this project-level,
- *  per-location bucket (see Dataproc staging and temp buckets
+ *  bucket, the service will determine a Cloud Storage location (US, ASIA, or
+ *  EU) for your cluster's staging bucket according to the Compute Engine zone
+ *  where your cluster is deployed, and then create and manage this
+ *  project-level, per-location bucket (see staging and temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
  *  Cloud Storage bucket.

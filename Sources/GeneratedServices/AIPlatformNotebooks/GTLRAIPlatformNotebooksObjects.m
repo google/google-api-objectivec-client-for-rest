@@ -21,6 +21,7 @@ NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb 
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH200141gb = @"NVIDIA_H200_141GB";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4 = @"NVIDIA_L4";
+NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaRtx6000 = @"NVIDIA_RTX6000";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100Vws = @"NVIDIA_TESLA_P100_VWS";
@@ -446,7 +447,12 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_ImageRelease
-@dynamic imageName, releaseName;
+@dynamic descriptionProperty, imageFamily, imageName, releaseName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -937,6 +943,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_UpgradeInstanceRequest
+@dynamic imageFamily;
 @end
 
 

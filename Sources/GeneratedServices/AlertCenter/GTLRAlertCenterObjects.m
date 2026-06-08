@@ -104,6 +104,10 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation = @"
 NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox = @"REMOVED_FROM_INBOX";
 NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified = @"SYSTEM_ACTION_TYPE_UNSPECIFIED";
 
+// GTLRAlertCenter_RuleViolationInfo.agentType
+NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_AgentTypeUnspecified = @"AGENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_Studio = @"STUDIO";
+
 // GTLRAlertCenter_RuleViolationInfo.dataSource
 NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Chat = @"CHAT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Chrome = @"CHROME";
@@ -151,6 +155,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleAc
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
 
 // GTLRAlertCenter_RuleViolationInfo.trigger
+NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_AgentExecution = @"AGENT_EXECUTION";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatAttachmentUploaded = @"CHAT_ATTACHMENT_UPLOADED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent = @"CHAT_MESSAGE_SENT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload = @"CHROME_FILE_DOWNLOAD";
@@ -1050,8 +1055,8 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 //
 
 @implementation GTLRAlertCenter_RuleViolationInfo
-@dynamic dataSource, eventType, matchInfo, recipients, resourceInfo, ruleInfo,
-         suppressedActionTypes, trigger, triggeredActionInfo,
+@dynamic agentType, dataSource, eventType, matchInfo, recipients, resourceInfo,
+         ruleInfo, suppressedActionTypes, trigger, triggeredActionInfo,
          triggeredActionTypes, triggeringUserEmail;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

@@ -608,8 +608,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsList : GTLRVMwareEngineQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -4109,6 +4109,49 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsManagementDnsZoneBindingsRepair
  */
 + (instancetype)queryWithObject:(GTLRVMwareEngine_RepairManagementDnsZoneBindingRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Migrates the management VMs of the PC from the current management cluster to
+ *  a workload cluster. Post this migration, the provided workload cluster
+ *  becomes the management cluster
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.migrateManagementVms
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsMigrateManagementVms : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the private cloud whose management vms are
+ *  getting migrated. Resource names are schemeless URIs that follow the
+ *  conventions in https://cloud.google.com/apis/design/resource_names. For
+ *  example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Migrates the management VMs of the PC from the current management cluster to
+ *  a workload cluster. Post this migration, the provided workload cluster
+ *  becomes the management cluster
+ *
+ *  @param object The @c GTLRVMwareEngine_MigrateManagementVmsRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the private cloud whose
+ *    management vms are getting migrated. Resource names are schemeless URIs
+ *    that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsMigrateManagementVms
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_MigrateManagementVmsRequest *)object
                            name:(NSString *)name;
 
 @end

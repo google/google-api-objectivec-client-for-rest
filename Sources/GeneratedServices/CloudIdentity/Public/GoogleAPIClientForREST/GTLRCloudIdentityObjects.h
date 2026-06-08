@@ -3642,9 +3642,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  applies to are represented by a clause like so: entity.groups.exists(group,
  *  group.group_id == groupId('{groupId}')) The Licenses the Policy applies to
  *  are represented by a clause like so: entity.licenses.exists(license, license
- *  in ['/product/{productId}/sku/{skuId}']) The above clauses can be present in
- *  any combination, and used in conjunction with the &&, || and ! operators.
- *  The org_unit and group fields below are helper fields that contain the
+ *  in ['/product/{productId}/sku/{skuId}']) **Note:** The licenses clause is
+ *  not supported in mutate endpoints. The above clauses can be present in any
+ *  combination, and used in conjunction with the &&, || and ! operators. The
+ *  org_unit and group fields below are helper fields that contain the
  *  corresponding value(s) as the query to make the query easier to use.
  */
 @property(nonatomic, copy, nullable) NSString *query;

@@ -786,6 +786,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_Launch
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Instance.restartPolicy
+
+/**
+ *  Always restart the instance.
+ *
+ *  Value: "ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_Always;
+/**
+ *  Never restart the instance.
+ *
+ *  Value: "NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_Never;
+/**
+ *  Restart if the instance terminates with non-zero exit code.
+ *
+ *  Value: "ON_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_OnFailure;
+/**
+ *  Unspecified restart policy.
+ *
+ *  Value: "RESTART_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_RestartPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2InstanceSplit.type
 
 /**
@@ -3586,6 +3614,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
+ *  Optional. Restart policy for the Instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_Always Always
+ *        restart the instance. (Value: "ALWAYS")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_Never Never
+ *        restart the instance. (Value: "NEVER")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_OnFailure
+ *        Restart if the instance terminates with non-zero exit code. (Value:
+ *        "ON_FAILURE")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_RestartPolicyUnspecified
+ *        Unspecified restart policy. (Value: "RESTART_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *restartPolicy;
+
+/**
  *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
@@ -3601,12 +3645,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  reconciliation process in Cloud Run.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Condition *terminalCondition;
-
-/**
- *  Optional. Duration the instance may be active before the system will shut it
- *  down.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
 /**
  *  Output only. Server assigned unique identifier for the trigger. The value is
@@ -7562,7 +7600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pullTiming;
 
-/** Output only. Declaration of results for this build step. */
+/** Declaration of results for this build step. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1StepResult *> *results;
 
 /**

@@ -1181,10 +1181,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_DirectoryEntry : GTLRObject
 
-/** A child directory in the directory. */
+/**
+ *  A child directory in the directory. The path is returned including the full
+ *  folder structure from the root.
+ */
 @property(nonatomic, copy, nullable) NSString *directory;
 
-/** A file in the directory. */
+/**
+ *  A file in the directory. The path is returned including the full folder
+ *  structure from the root.
+ */
 @property(nonatomic, copy, nullable) NSString *file;
 
 /** Entry with metadata. */
@@ -1484,10 +1490,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *authenticationTokenSecretVersion;
 
 /**
- *  Required. The Git remote's default branch name. If not set, `main` will be
- *  used and stored for the repository.
+ *  Optional. The Git remote's default branch name. If not set `main` will be
+ *  used.
  */
 @property(nonatomic, copy, nullable) NSString *defaultBranch;
+
+/**
+ *  Output only. The Git remote's effective default branch name. This is the
+ *  default branch name of the Git remote if it is set, otherwise it is `main`.
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveDefaultBranch;
+
+/**
+ *  Optional. Resource name for the GitRepositoryLink used for machine
+ *  credentials. Must be in the format `projects/ * /locations/ * /connections/
+ *  * /gitRepositoryLinks/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *gitRepositoryLink;
 
 /** Optional. Authentication fields for remote uris using SSH protocol. */
 @property(nonatomic, strong, nullable) GTLRDataform_SshAuthenticationConfig *sshAuthenticationConfig;

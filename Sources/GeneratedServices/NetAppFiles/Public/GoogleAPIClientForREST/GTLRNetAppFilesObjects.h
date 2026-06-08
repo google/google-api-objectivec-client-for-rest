@@ -24,6 +24,7 @@
 @class GTLRNetAppFiles_BackupPolicy;
 @class GTLRNetAppFiles_BackupPolicy_Labels;
 @class GTLRNetAppFiles_BackupRetentionPolicy;
+@class GTLRNetAppFiles_BackupSource;
 @class GTLRNetAppFiles_BackupVault;
 @class GTLRNetAppFiles_BackupVault_Labels;
 @class GTLRNetAppFiles_BlockDevice;
@@ -54,6 +55,8 @@
 @class GTLRNetAppFiles_Location_Metadata;
 @class GTLRNetAppFiles_MonthlySchedule;
 @class GTLRNetAppFiles_MountOption;
+@class GTLRNetAppFiles_OntapSource;
+@class GTLRNetAppFiles_OntapVolumeTarget;
 @class GTLRNetAppFiles_Operation;
 @class GTLRNetAppFiles_Operation_Metadata;
 @class GTLRNetAppFiles_Operation_Response;
@@ -75,6 +78,7 @@
 @class GTLRNetAppFiles_UserCommands;
 @class GTLRNetAppFiles_Volume;
 @class GTLRNetAppFiles_Volume_Labels;
+@class GTLRNetAppFiles_VolumeBackupConfig;
 @class GTLRNetAppFiles_WeeklySchedule;
 
 // Generated comments include content from the discovery document; avoid them
@@ -750,6 +754,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv3;
  *  Value: "NFSV4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv4;
+/**
+ *  NVMe protocol
+ *
+ *  Value: "NVME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nvme;
 /**
  *  Unspecified protocol
  *
@@ -1429,6 +1439,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_Protocols_Nfsv3;
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_Protocols_Nfsv4;
 /**
+ *  NVMe protocol
+ *
+ *  Value: "NVME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_Protocols_Nvme;
+/**
  *  Unspecified protocol
  *
  *  Value: "PROTOCOLS_UNSPECIFIED"
@@ -1845,6 +1861,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Represents source details for ONTAP backups. Either source_volume
+ *  or ontap_source should be provided.
+ */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_OntapSource *ontapSource;
+
+/**
  *  Output only. Reserved for future use
  *
  *  Uses NSNumber of boolValue.
@@ -1867,9 +1889,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *sourceSnapshot;
 
 /**
- *  Volume full name of this backup belongs to. Either source_volume or
- *  ontap_source should be provided. Format:
- *  `projects/{projects_id}/locations/{location}/volumes/{volume_id}`
+ *  The resource name of the volume that this backup belongs to. You must
+ *  provide either `source_volume` or `ontap_source`. Format:
+ *  `projects/{project_id}/locations/{location}/volumes/{volume_id}`
  */
 @property(nonatomic, copy, nullable) NSString *sourceVolume;
 
@@ -2110,6 +2132,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *weeklyBackupImmutable;
+
+@end
+
+
+/**
+ *  Represents the backup source of the restore operation.
+ */
+@interface GTLRNetAppFiles_BackupSource : GTLRObject
+
+/** Required. The backup resource name. */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Optional. List of files to be restored in the form of their absolute path as
+ *  in source volume. If provided, only these files will be restored. If not
+ *  provided, the entire backup will be restored (Full Backup Restore)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileList;
 
 @end
 
@@ -2608,7 +2648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @property(nonatomic, copy, nullable) NSString *peerClusterName;
 
-/** Optional. List of IPv4 ip addresses to be used for peering. */
+/** Optional. List of IPv4 IP addresses to be used for peering. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *peerIpAddresses;
 
 /**
@@ -3092,7 +3132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_KmsConfig_Labels *labels;
 
 /**
- *  Identifier. Name of the KmsConfig. Format:
+ *  Identifier. Name of the `KmsConfig`. Format:
  *  `projects/{project}/locations/{location}/kmsConfigs/{kms_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3156,7 +3196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Configuration for a Large Capacity Volume. A Large Capacity Volume supports
- *  sizes ranging from 4.8 TiB to 20 PiB, it is composed of multiple internal
+ *  sizes ranging from 4.8 TiB to 20 PiB; it is composed of multiple internal
  *  constituents, and must be created in a large capacity pool.
  */
 @interface GTLRNetAppFiles_LargeCapacityConfig : GTLRObject
@@ -3195,6 +3235,36 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing BackupConfigs in an ONTAP StoragePool.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "volumeBackupConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetAppFiles_ListBackupConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The token you can use to retrieve the next page of results. Not returned if
+ *  there are no more results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/**
+ *  A list of backup configurations for volumes in the pool.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetAppFiles_VolumeBackupConfig *> *volumeBackupConfigs;
 
 @end
 
@@ -3693,12 +3763,49 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        (Value: "NFSV3")
  *    @arg @c kGTLRNetAppFiles_MountOption_Protocol_Nfsv4 NFS V4 protocol
  *        (Value: "NFSV4")
+ *    @arg @c kGTLRNetAppFiles_MountOption_Protocol_Nvme NVMe protocol (Value:
+ *        "NVME")
  *    @arg @c kGTLRNetAppFiles_MountOption_Protocol_ProtocolsUnspecified
  *        Unspecified protocol (Value: "PROTOCOLS_UNSPECIFIED")
  *    @arg @c kGTLRNetAppFiles_MountOption_Protocol_Smb SMB protocol (Value:
  *        "SMB")
  */
 @property(nonatomic, copy, nullable) NSString *protocol;
+
+@end
+
+
+/**
+ *  Represents ONTAP source details.
+ */
+@interface GTLRNetAppFiles_OntapSource : GTLRObject
+
+/** Optional. The UUID of the ONTAP source snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotUuid;
+
+/**
+ *  Required. Name of the storage pool. This must be specified for creating
+ *  backups for ONTAP mode volumes. Format:
+ *  `projects/{projects_id}/locations/{location}/storagePools/{storage_pool_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
+/** Required. The UUID of the ONTAP source volume. */
+@property(nonatomic, copy, nullable) NSString *volumeUuid;
+
+@end
+
+
+/**
+ *  Represents the ONTAP volume target of the restore operation.
+ */
+@interface GTLRNetAppFiles_OntapVolumeTarget : GTLRObject
+
+/** Optional. Absolute directory path in the destination volume. */
+@property(nonatomic, copy, nullable) NSString *restoreDestinationPath;
+
+/** Required. The UUID of the ONTAP volume to restore to. */
+@property(nonatomic, copy, nullable) NSString *volumeUuid;
 
 @end
 
@@ -4138,7 +4245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Full name of the backup resource. Format for standard backup:
- *  projects/{project}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}
+ *  projects/{project}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}.
  *  Format for BackupDR backup:
  *  projects/{project}/locations/{location}/backupVaults/{backup_vault}/dataSources/{data_source}/backups/{backup}
  */
@@ -4149,6 +4256,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  projects/{project}/locations/{location}/volumes/{volume}/snapshots/{snapshot}
  */
 @property(nonatomic, copy, nullable) NSString *sourceSnapshot;
+
+@end
+
+
+/**
+ *  Request message for `RestoreVolume` API.
+ */
+@interface GTLRNetAppFiles_RestoreVolumeRequest : GTLRObject
+
+/** The backup source of the restore operation. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupSource *backupSource;
+
+/** The ONTAP volume target of the restore operation. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_OntapVolumeTarget *ontapVolumeTarget;
 
 @end
 
@@ -4600,7 +4721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Optional. Mode of the storage pool. This field is used to control whether
- *  the user can perform the ONTAP operations on the storage pool using the GCNV
+ *  the user can perform ONTAP operations on the storage pool using the GCNV
  *  ONTAP Mode APIs. If not specified during creation, it defaults to `DEFAULT`.
  *
  *  Likely values:
@@ -4879,6 +5000,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** Time when progress was updated last. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Request message for UpdateBackupConfig
+ */
+@interface GTLRNetAppFiles_UpdateBackupConfigRequest : GTLRObject
+
+/** Required. Backup configuration to apply. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupConfig *backupConfig;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  BackupConfig for the Volume. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** Required. The UUID of the ONTAP-mode volume. */
+@property(nonatomic, copy, nullable) NSString *volumeUuid;
 
 @end
 
@@ -5247,6 +5392,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        fetch them all at once.
  */
 @interface GTLRNetAppFiles_Volume_Labels : GTLRObject
+@end
+
+
+/**
+ *  Backup configuration for a volume in a pool.
+ */
+@interface GTLRNetAppFiles_VolumeBackupConfig : GTLRObject
+
+/** Backup configuration for the volume. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupConfig *backupConfig;
+
+/** Provides the Ontap UUID of the volume within the pool. */
+@property(nonatomic, copy, nullable) NSString *volumeUuid;
+
 @end
 
 

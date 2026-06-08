@@ -153,6 +153,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_ClientHistoricalBotActivity;
 /**
+ *  This email domain is a suspected provider of disposable email addresses.
+ *
+ *  Value: "DISPOSABLE_EMAIL_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_DisposableEmailDomain;
+/**
  *  Default unspecified type.
  *
  *  Value: "RISK_REASON_UNSPECIFIED"
@@ -1073,6 +1079,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        the past. This reason incorporates historical reputation and indicates
  *        that the client is known to use bots, even if the current request is
  *        being made by a human. (Value: "CLIENT_HISTORICAL_BOT_ACTIVITY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_DisposableEmailDomain
+ *        This email domain is a suspected provider of disposable email
+ *        addresses. (Value: "DISPOSABLE_EMAIL_DOMAIN")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_RiskReasonUnspecified
  *        Default unspecified type. (Value: "RISK_REASON_UNSPECIFIED")
  */
@@ -1473,7 +1482,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Enumerated string value that indicates the identity of the bot,
- *  formatted in kebab-case.
+ *  formatted in kebab-case. Current example values include the following: *
+ *  google-agent * browser-base * chat-gpt * aws-bedrock * cybaa-bot *
+ *  cloudflare * payhawk Ensure that your applications can handle identifier
+ *  values not explicitly listed here. Deprecated values might take some time to
+ *  stop showing up in responses. New values can be pushed so this list should
+ *  be taken as non exhaustive.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

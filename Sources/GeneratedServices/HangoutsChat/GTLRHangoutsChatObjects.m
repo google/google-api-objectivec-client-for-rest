@@ -349,6 +349,12 @@ NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_Huddle = @"HUDDLE";
 NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_Meeting = @"MEETING";
 NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRHangoutsChat_Membership.affiliation
+NSString * const kGTLRHangoutsChat_Membership_Affiliation_AffiliationUnspecified = @"AFFILIATION_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Membership_Affiliation_External = @"EXTERNAL";
+NSString * const kGTLRHangoutsChat_Membership_Affiliation_Internal = @"INTERNAL";
+NSString * const kGTLRHangoutsChat_Membership_Affiliation_ManagedExternal = @"MANAGED_EXTERNAL";
+
 // GTLRHangoutsChat_Membership.role
 NSString * const kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified = @"MEMBERSHIP_ROLE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Membership_Role_RoleAssistantManager = @"ROLE_ASSISTANT_MANAGER";
@@ -1853,7 +1859,8 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_Membership
-@dynamic createTime, deleteTime, groupMember, member, name, role, state;
+@dynamic affiliation, createTime, deleteTime, groupMember, member, name, role,
+         state;
 @end
 
 

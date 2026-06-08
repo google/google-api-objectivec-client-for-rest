@@ -80,11 +80,12 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_AndroidNotification
-@dynamic body, bodyLocArgs, bodyLocKey, channelId, clickAction, color,
-         defaultLightSettings, defaultSound, defaultVibrateTimings, eventTime,
-         icon, image, lightSettings, localOnly, notificationCount,
-         notificationPriority, proxy, sound, sticky, tag, ticker, title,
-         titleLocArgs, titleLocKey, vibrateTimings, visibility;
+@dynamic body, bodyLocArgs, bodyLocKey, bypassProxyNotification, channelId,
+         clickAction, color, defaultLightSettings, defaultSound,
+         defaultVibrateTimings, eventTime, icon, image, lightSettings,
+         localOnly, notificationCount, notificationPriority, proxy, sound,
+         sticky, tag, ticker, title, titleLocArgs, titleLocKey, vibrateTimings,
+         visibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

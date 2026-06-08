@@ -150,6 +150,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLROnDemandScanning_AISkillAnalysisOccurrence.maxSeverity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_AISkillAnalysisOccurrence_MaxSeverity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_AISkillAnalysisOccurrence_MaxSeverity_High;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_AISkillAnalysisOccurrence_MaxSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROnDemandScanning_AliasContext.kind
 
 /**
@@ -181,120 +203,558 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_AliasContext_Kind_Other
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.attackComplexity
 
-/** Value: "ATTACK_COMPLEXITY_HIGH" */
+/**
+ *  High attack complexity (AC:H). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "ATTACK_COMPLEXITY_HIGH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityHigh;
-/** Value: "ATTACK_COMPLEXITY_LOW" */
+/**
+ *  Low attack complexity (AC:L). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "ATTACK_COMPLEXITY_LOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow;
-/** Value: "ATTACK_COMPLEXITY_MEDIUM" */
+/**
+ *  Medium attack complexity (AC:M). Defined in CVSS v2.
+ *
+ *  Value: "ATTACK_COMPLEXITY_MEDIUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityMedium;
-/** Value: "ATTACK_COMPLEXITY_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "ATTACK_COMPLEXITY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.attackRequirements
+
+/**
+ *  No attack requirements (AT:N). Defined in CVSS v4.
+ *
+ *  Value: "ATTACK_REQUIREMENTS_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackRequirements_AttackRequirementsNone;
+/**
+ *  Attack requirements: Present (AT:P). Defined in CVSS v4.
+ *
+ *  Value: "ATTACK_REQUIREMENTS_PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackRequirements_AttackRequirementsPresent;
+/**
+ *  Unspecified.
+ *
+ *  Value: "ATTACK_REQUIREMENTS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackRequirements_AttackRequirementsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.attackVector
 
-/** Value: "ATTACK_VECTOR_ADJACENT" */
+/**
+ *  Attack Vector: Adjacent (AV:A). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "ATTACK_VECTOR_ADJACENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorAdjacent;
-/** Value: "ATTACK_VECTOR_LOCAL" */
+/**
+ *  Attack Vector: Local (AV:L). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "ATTACK_VECTOR_LOCAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorLocal;
-/** Value: "ATTACK_VECTOR_NETWORK" */
+/**
+ *  Attack Vector: Network (AV:N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "ATTACK_VECTOR_NETWORK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorNetwork;
-/** Value: "ATTACK_VECTOR_PHYSICAL" */
+/**
+ *  Attack Vector: Physical (AV:P). Defined in CVSS v3, v4.
+ *
+ *  Value: "ATTACK_VECTOR_PHYSICAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorPhysical;
-/** Value: "ATTACK_VECTOR_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "ATTACK_VECTOR_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.authentication
 
-/** Value: "AUTHENTICATION_MULTIPLE" */
+/**
+ *  Multiple authentication required (Au:M). Defined in CVSS v2.
+ *
+ *  Value: "AUTHENTICATION_MULTIPLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationMultiple;
-/** Value: "AUTHENTICATION_NONE" */
+/**
+ *  No authentication required (Au:N). Defined in CVSS v2.
+ *
+ *  Value: "AUTHENTICATION_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationNone;
-/** Value: "AUTHENTICATION_SINGLE" */
+/**
+ *  Single authentication required (Au:S). Defined in CVSS v2.
+ *
+ *  Value: "AUTHENTICATION_SINGLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationSingle;
-/** Value: "AUTHENTICATION_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "AUTHENTICATION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.availabilityImpact
 
-/** Value: "IMPACT_COMPLETE" */
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactComplete;
-/** Value: "IMPACT_HIGH" */
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh;
-/** Value: "IMPACT_LOW" */
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow;
-/** Value: "IMPACT_NONE" */
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone;
-/** Value: "IMPACT_PARTIAL" */
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactPartial;
-/** Value: "IMPACT_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.confidentialityImpact
 
-/** Value: "IMPACT_COMPLETE" */
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactComplete;
-/** Value: "IMPACT_HIGH" */
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh;
-/** Value: "IMPACT_LOW" */
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow;
-/** Value: "IMPACT_NONE" */
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone;
-/** Value: "IMPACT_PARTIAL" */
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactPartial;
-/** Value: "IMPACT_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.integrityImpact
 
-/** Value: "IMPACT_COMPLETE" */
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactComplete;
-/** Value: "IMPACT_HIGH" */
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh;
-/** Value: "IMPACT_LOW" */
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow;
-/** Value: "IMPACT_NONE" */
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone;
-/** Value: "IMPACT_PARTIAL" */
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactPartial;
-/** Value: "IMPACT_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.privilegesRequired
 
-/** Value: "PRIVILEGES_REQUIRED_HIGH" */
+/**
+ *  High privileges required (PR:H). Defined in CVSS v3, v4.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_HIGH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredHigh;
-/** Value: "PRIVILEGES_REQUIRED_LOW" */
+/**
+ *  Low privileges required (PR:L). Defined in CVSS v3, v4.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_LOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredLow;
-/** Value: "PRIVILEGES_REQUIRED_NONE" */
+/**
+ *  No privileges required (PR:N). Defined in CVSS v3, v4.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredNone;
-/** Value: "PRIVILEGES_REQUIRED_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.scope
 
-/** Value: "SCOPE_CHANGED" */
+/**
+ *  Scope: Changed (S:C). Defined in CVSS v3.
+ *
+ *  Value: "SCOPE_CHANGED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeChanged;
-/** Value: "SCOPE_UNCHANGED" */
+/**
+ *  Scope: Unchanged (S:U). Defined in CVSS v3.
+ *
+ *  Value: "SCOPE_UNCHANGED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeUnchanged;
-/** Value: "SCOPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.subsequentSystemAvailabilityImpact
+
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactComplete;
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactHigh;
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactLow;
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactNone;
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactPartial;
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.subsequentSystemConfidentialityImpact
+
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactComplete;
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactHigh;
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactLow;
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactNone;
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactPartial;
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.subsequentSystemIntegrityImpact
+
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactComplete;
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactHigh;
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactLow;
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactNone;
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactPartial;
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.userInteraction
 
-/** Value: "USER_INTERACTION_NONE" */
+/**
+ *  Active user interaction required (UI:A). Defined in CVSS v4.
+ *
+ *  Value: "USER_INTERACTION_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionActive;
+/**
+ *  No user interaction required (UI:N). Defined in CVSS v3, v4.
+ *
+ *  Value: "USER_INTERACTION_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionNone;
-/** Value: "USER_INTERACTION_REQUIRED" */
+/**
+ *  Passive user interaction required (UI:P). Defined in CVSS v4.
+ *
+ *  Value: "USER_INTERACTION_PASSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionPassive;
+/**
+ *  User interaction required (UI:R). Defined in CVSS v3.
+ *
+ *  Value: "USER_INTERACTION_REQUIRED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionRequired;
-/** Value: "USER_INTERACTION_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "USER_INTERACTION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.vulnerableSystemAvailabilityImpact
+
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactComplete;
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactHigh;
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactLow;
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactNone;
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactPartial;
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.vulnerableSystemConfidentialityImpact
+
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactComplete;
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactHigh;
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactLow;
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactNone;
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactPartial;
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.vulnerableSystemIntegrityImpact
+
+/**
+ *  Complete impact (C). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactComplete;
+/**
+ *  High impact (H). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactHigh;
+/**
+ *  Low impact (L). Defined in CVSS v3, v4.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactLow;
+/**
+ *  No impact (N). Defined in CVSS v2, v3, v4.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactNone;
+/**
+ *  Partial impact (P). Defined in CVSS v2.
+ *
+ *  Value: "IMPACT_PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactPartial;
+/**
+ *  Unspecified.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_DeploymentOccurrence.platform
@@ -391,6 +851,50 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_Con
  *  Value: "INACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Inactive;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_Finding.scanner
+
+/**
+ *  LLM scanner.
+ *
+ *  Value: "LLM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Scanner_Llm;
+/**
+ *  Unspecified scanner.
+ *
+ *  Value: "SCANNER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Scanner_ScannerUnspecified;
+/**
+ *  Static scanner.
+ *
+ *  Value: "STATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Scanner_Static;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_Finding.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Severity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Severity_High;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Justification.justificationType
@@ -970,11 +1474,29 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VexAssessment_State_Und
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_VulnerabilityOccurrence.cvssVersion
 
-/** Value: "CVSS_VERSION_2" */
+/**
+ *  CVSS v2.
+ *
+ *  Value: "CVSS_VERSION_2"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion2;
-/** Value: "CVSS_VERSION_3" */
+/**
+ *  CVSS v3.
+ *
+ *  Value: "CVSS_VERSION_3"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion3;
-/** Value: "CVSS_VERSION_UNSPECIFIED" */
+/**
+ *  CVSS v4.
+ *
+ *  Value: "CVSS_VERSION_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion4;
+/**
+ *  Unspecified.
+ *
+ *  Value: "CVSS_VERSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1066,7 +1588,17 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** Findings produced by the analysis. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Finding *> *findings;
 
-/** Maximum severity found among findings. */
+/**
+ *  Maximum severity found among findings.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_AISkillAnalysisOccurrence_MaxSeverity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLROnDemandScanning_AISkillAnalysisOccurrence_MaxSeverity_High
+ *        High severity. (Value: "HIGH")
+ *    @arg @c kGTLROnDemandScanning_AISkillAnalysisOccurrence_MaxSeverity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *maxSeverity;
 
 /** Name of the skill that produced this analysis. */
@@ -1663,69 +2195,93 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @interface GTLROnDemandScanning_CVSS : GTLRObject
 
 /**
- *  attackComplexity
+ *  Attack Complexity (AC). Defined in CVSS v2, v3, v4.
  *
  *  Likely values:
  *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityHigh
- *        Value "ATTACK_COMPLEXITY_HIGH"
+ *        High attack complexity (AC:H). Defined in CVSS v2, v3, v4. (Value:
+ *        "ATTACK_COMPLEXITY_HIGH")
  *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow
- *        Value "ATTACK_COMPLEXITY_LOW"
+ *        Low attack complexity (AC:L). Defined in CVSS v2, v3, v4. (Value:
+ *        "ATTACK_COMPLEXITY_LOW")
  *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityMedium
- *        Value "ATTACK_COMPLEXITY_MEDIUM"
+ *        Medium attack complexity (AC:M). Defined in CVSS v2. (Value:
+ *        "ATTACK_COMPLEXITY_MEDIUM")
  *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified
- *        Value "ATTACK_COMPLEXITY_UNSPECIFIED"
+ *        Unspecified. (Value: "ATTACK_COMPLEXITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *attackComplexity;
 
 /**
- *  Base Metrics Represents the intrinsic characteristics of a vulnerability
- *  that are constant over time and across user environments.
+ *  Attack Requirements (AT). Defined in CVSS v4.
  *
  *  Likely values:
- *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorAdjacent Value
- *        "ATTACK_VECTOR_ADJACENT"
- *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorLocal Value
- *        "ATTACK_VECTOR_LOCAL"
- *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorNetwork Value
- *        "ATTACK_VECTOR_NETWORK"
- *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorPhysical Value
- *        "ATTACK_VECTOR_PHYSICAL"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackRequirements_AttackRequirementsNone
+ *        No attack requirements (AT:N). Defined in CVSS v4. (Value:
+ *        "ATTACK_REQUIREMENTS_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackRequirements_AttackRequirementsPresent
+ *        Attack requirements: Present (AT:P). Defined in CVSS v4. (Value:
+ *        "ATTACK_REQUIREMENTS_PRESENT")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackRequirements_AttackRequirementsUnspecified
+ *        Unspecified. (Value: "ATTACK_REQUIREMENTS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attackRequirements;
+
+/**
+ *  Attack Vector (AV). Defined in CVSS v2, v3, v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorAdjacent
+ *        Attack Vector: Adjacent (AV:A). Defined in CVSS v2, v3, v4. (Value:
+ *        "ATTACK_VECTOR_ADJACENT")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorLocal Attack
+ *        Vector: Local (AV:L). Defined in CVSS v2, v3, v4. (Value:
+ *        "ATTACK_VECTOR_LOCAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorNetwork Attack
+ *        Vector: Network (AV:N). Defined in CVSS v2, v3, v4. (Value:
+ *        "ATTACK_VECTOR_NETWORK")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorPhysical
+ *        Attack Vector: Physical (AV:P). Defined in CVSS v3, v4. (Value:
+ *        "ATTACK_VECTOR_PHYSICAL")
  *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorUnspecified
- *        Value "ATTACK_VECTOR_UNSPECIFIED"
+ *        Unspecified. (Value: "ATTACK_VECTOR_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *attackVector;
 
 /**
- *  authentication
+ *  Authentication (Au). Defined in CVSS v2.
  *
  *  Likely values:
  *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationMultiple
- *        Value "AUTHENTICATION_MULTIPLE"
- *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationNone Value
- *        "AUTHENTICATION_NONE"
+ *        Multiple authentication required (Au:M). Defined in CVSS v2. (Value:
+ *        "AUTHENTICATION_MULTIPLE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationNone No
+ *        authentication required (Au:N). Defined in CVSS v2. (Value:
+ *        "AUTHENTICATION_NONE")
  *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationSingle
- *        Value "AUTHENTICATION_SINGLE"
+ *        Single authentication required (Au:S). Defined in CVSS v2. (Value:
+ *        "AUTHENTICATION_SINGLE")
  *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationUnspecified
- *        Value "AUTHENTICATION_UNSPECIFIED"
+ *        Unspecified. (Value: "AUTHENTICATION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *authentication;
 
 /**
- *  availabilityImpact
+ *  Availability Impact (A). Defined in CVSS v2, v3.
  *
  *  Likely values:
- *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactComplete Value
- *        "IMPACT_COMPLETE"
- *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh Value
- *        "IMPACT_HIGH"
- *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow Value
- *        "IMPACT_LOW"
- *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone Value
- *        "IMPACT_NONE"
- *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactPartial Value
- *        "IMPACT_PARTIAL"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactComplete
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh High
+ *        impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow Low impact
+ *        (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone No impact
+ *        (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactPartial
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
  *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified
- *        Value "IMPACT_UNSPECIFIED"
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *availabilityImpact;
 
@@ -1737,21 +2293,21 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, strong, nullable) NSNumber *baseScore;
 
 /**
- *  confidentialityImpact
+ *  Confidentiality Impact (C). Defined in CVSS v2, v3.
  *
  *  Likely values:
  *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactComplete
- *        Value "IMPACT_COMPLETE"
- *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh Value
- *        "IMPACT_HIGH"
- *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow Value
- *        "IMPACT_LOW"
- *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone Value
- *        "IMPACT_NONE"
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh High
+ *        impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow Low
+ *        impact (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone No
+ *        impact (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
  *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactPartial
- *        Value "IMPACT_PARTIAL"
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
  *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified
- *        Value "IMPACT_UNSPECIFIED"
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *confidentialityImpact;
 
@@ -1770,64 +2326,189 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, strong, nullable) NSNumber *impactScore;
 
 /**
- *  integrityImpact
+ *  Integrity Impact (I). Defined in CVSS v2, v3.
  *
  *  Likely values:
- *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactComplete Value
- *        "IMPACT_COMPLETE"
- *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh Value
- *        "IMPACT_HIGH"
- *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow Value
- *        "IMPACT_LOW"
- *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone Value
- *        "IMPACT_NONE"
- *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactPartial Value
- *        "IMPACT_PARTIAL"
- *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified Value
- *        "IMPACT_UNSPECIFIED"
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactComplete Complete
+ *        impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh High impact
+ *        (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow Low impact
+ *        (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone No impact
+ *        (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactPartial Partial
+ *        impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *integrityImpact;
 
 /**
- *  privilegesRequired
+ *  Privileges Required (PR). Defined in CVSS v3, v4.
  *
  *  Likely values:
  *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredHigh
- *        Value "PRIVILEGES_REQUIRED_HIGH"
+ *        High privileges required (PR:H). Defined in CVSS v3, v4. (Value:
+ *        "PRIVILEGES_REQUIRED_HIGH")
  *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredLow
- *        Value "PRIVILEGES_REQUIRED_LOW"
+ *        Low privileges required (PR:L). Defined in CVSS v3, v4. (Value:
+ *        "PRIVILEGES_REQUIRED_LOW")
  *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredNone
- *        Value "PRIVILEGES_REQUIRED_NONE"
+ *        No privileges required (PR:N). Defined in CVSS v3, v4. (Value:
+ *        "PRIVILEGES_REQUIRED_NONE")
  *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified
- *        Value "PRIVILEGES_REQUIRED_UNSPECIFIED"
+ *        Unspecified. (Value: "PRIVILEGES_REQUIRED_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *privilegesRequired;
 
 /**
- *  scope
+ *  Scope (S). Defined in CVSS v3.
  *
  *  Likely values:
- *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeChanged Value
- *        "SCOPE_CHANGED"
- *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeUnchanged Value
- *        "SCOPE_UNCHANGED"
- *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeUnspecified Value
- *        "SCOPE_UNSPECIFIED"
+ *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeChanged Scope: Changed
+ *        (S:C). Defined in CVSS v3. (Value: "SCOPE_CHANGED")
+ *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeUnchanged Scope: Unchanged
+ *        (S:U). Defined in CVSS v3. (Value: "SCOPE_UNCHANGED")
+ *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeUnspecified Unspecified.
+ *        (Value: "SCOPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
 /**
- *  userInteraction
+ *  Subsequent System Availability Impact (SA). Defined in CVSS v4.
  *
  *  Likely values:
- *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionNone
- *        Value "USER_INTERACTION_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactComplete
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactHigh
+ *        High impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactLow
+ *        Low impact (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactNone
+ *        No impact (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactPartial
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemAvailabilityImpact_ImpactUnspecified
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subsequentSystemAvailabilityImpact;
+
+/**
+ *  Subsequent System Confidentiality Impact (SC). Defined in CVSS v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactComplete
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactHigh
+ *        High impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactLow
+ *        Low impact (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactNone
+ *        No impact (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactPartial
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemConfidentialityImpact_ImpactUnspecified
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subsequentSystemConfidentialityImpact;
+
+/**
+ *  Subsequent System Integrity Impact (SI). Defined in CVSS v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactComplete
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactHigh
+ *        High impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactLow
+ *        Low impact (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactNone
+ *        No impact (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactPartial
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_SubsequentSystemIntegrityImpact_ImpactUnspecified
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subsequentSystemIntegrityImpact;
+
+/**
+ *  User Interaction (UI). Defined in CVSS v3, v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionActive
+ *        Active user interaction required (UI:A). Defined in CVSS v4. (Value:
+ *        "USER_INTERACTION_ACTIVE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionNone No
+ *        user interaction required (UI:N). Defined in CVSS v3, v4. (Value:
+ *        "USER_INTERACTION_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionPassive
+ *        Passive user interaction required (UI:P). Defined in CVSS v4. (Value:
+ *        "USER_INTERACTION_PASSIVE")
  *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionRequired
- *        Value "USER_INTERACTION_REQUIRED"
+ *        User interaction required (UI:R). Defined in CVSS v3. (Value:
+ *        "USER_INTERACTION_REQUIRED")
  *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionUnspecified
- *        Value "USER_INTERACTION_UNSPECIFIED"
+ *        Unspecified. (Value: "USER_INTERACTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *userInteraction;
+
+/**
+ *  Vulnerable System Availability Impact (VA). Defined in CVSS v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactComplete
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactHigh
+ *        High impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactLow
+ *        Low impact (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactNone
+ *        No impact (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactPartial
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemAvailabilityImpact_ImpactUnspecified
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerableSystemAvailabilityImpact;
+
+/**
+ *  Vulnerable System Confidentiality Impact (VC). Defined in CVSS v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactComplete
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactHigh
+ *        High impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactLow
+ *        Low impact (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactNone
+ *        No impact (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactPartial
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemConfidentialityImpact_ImpactUnspecified
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerableSystemConfidentialityImpact;
+
+/**
+ *  Vulnerable System Integrity Impact (VI). Defined in CVSS v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactComplete
+ *        Complete impact (C). Defined in CVSS v2. (Value: "IMPACT_COMPLETE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactHigh
+ *        High impact (H). Defined in CVSS v3, v4. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactLow
+ *        Low impact (L). Defined in CVSS v3, v4. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactNone
+ *        No impact (N). Defined in CVSS v2, v3, v4. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactPartial
+ *        Partial impact (P). Defined in CVSS v2. (Value: "IMPACT_PARTIAL")
+ *    @arg @c kGTLROnDemandScanning_CVSS_VulnerableSystemIntegrityImpact_ImpactUnspecified
+ *        Unspecified. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vulnerableSystemIntegrityImpact;
 
 @end
 
@@ -2116,13 +2797,36 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** Category of the finding. */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/** Description of the finding category. */
+@property(nonatomic, copy, nullable) NSString *details;
+
 /** Location (path and line) where the finding was detected. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_FindingLocation *location;
 
-/** Scanner determines which engine (e.g. static, llm) emitted the finding. */
+/**
+ *  Scanner determines which engine (e.g. static, llm) emitted the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_Finding_Scanner_Llm LLM scanner. (Value:
+ *        "LLM")
+ *    @arg @c kGTLROnDemandScanning_Finding_Scanner_ScannerUnspecified
+ *        Unspecified scanner. (Value: "SCANNER_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_Finding_Scanner_Static Static scanner.
+ *        (Value: "STATIC")
+ */
 @property(nonatomic, copy, nullable) NSString *scanner;
 
-/** Severity of the finding. */
+/**
+ *  Severity of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_Finding_Severity_Critical Critical severity.
+ *        (Value: "CRITICAL")
+ *    @arg @c kGTLROnDemandScanning_Finding_Severity_High High severity. (Value:
+ *        "HIGH")
+ *    @arg @c kGTLROnDemandScanning_Finding_Severity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *severity;
 
 @end
@@ -4511,16 +5215,21 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The cvss v3 score for the vulnerability. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_CVSS *cvssv3;
 
+/** The cvss v4 score for the vulnerability. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_CVSS *cvssV4;
+
 /**
  *  Output only. CVSS version used to populate cvss_score and severity.
  *
  *  Likely values:
  *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion2
- *        Value "CVSS_VERSION_2"
+ *        CVSS v2. (Value: "CVSS_VERSION_2")
  *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion3
- *        Value "CVSS_VERSION_3"
+ *        CVSS v3. (Value: "CVSS_VERSION_3")
+ *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersion4
+ *        CVSS v4. (Value: "CVSS_VERSION_4")
  *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_CvssVersion_CvssVersionUnspecified
- *        Value "CVSS_VERSION_UNSPECIFIED"
+ *        Unspecified. (Value: "CVSS_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *cvssVersion;
 

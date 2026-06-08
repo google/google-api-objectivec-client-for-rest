@@ -119,6 +119,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_DataplexConfiguration
+//
+
+@implementation GTLRBigQueryDataTransfer_DataplexConfiguration
+@dynamic entryGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_DataSource
 //
 
@@ -418,6 +428,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_MetadataDestination
+//
+
+@implementation GTLRBigQueryDataTransfer_MetadataDestination
+@dynamic dataplexConfiguration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_PartitionDetail
 //
 
@@ -572,9 +592,10 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 @implementation GTLRBigQueryDataTransfer_TransferConfig
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
          destinationDatasetId, disabled, displayName, emailPreferences,
-         encryptionConfiguration, error, managedTableType, name, nextRunTime,
-         notificationPubsubTopic, ownerInfo, params, schedule, scheduleOptions,
-         scheduleOptionsV2, state, updateTime, userId;
+         encryptionConfiguration, error, managedTableType, metadataDestination,
+         name, nextRunTime, notificationPubsubTopic, ownerInfo, params,
+         schedule, scheduleOptions, scheduleOptionsV2, state, updateTime,
+         userId;
 @end
 
 
@@ -630,8 +651,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 
 @implementation GTLRBigQueryDataTransfer_TransferRun
 @dynamic dataSourceId, destinationDatasetId, emailPreferences, endTime,
-         errorStatus, name, notificationPubsubTopic, params, runTime, schedule,
-         scheduleTime, startTime, state, updateTime, userId;
+         errorStatus, metadataDestination, name, notificationPubsubTopic,
+         params, runTime, schedule, scheduleTime, startTime, state, updateTime,
+         userId;
 @end
 
 

@@ -137,6 +137,30 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecifiedGbT = @"EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecifiedWallOutlet = @"EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET";
 
+// GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine.vehicleType
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Airplane = @"AIRPLANE";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Bus = @"BUS";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_CableCar = @"CABLE_CAR";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Coach = @"COACH";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_CommuterTrain = @"COMMUTER_TRAIN";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Ferry = @"FERRY";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Funicular = @"FUNICULAR";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_GondolaLift = @"GONDOLA_LIFT";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HeavyRail = @"HEAVY_RAIL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HighSpeedTrain = @"HIGH_SPEED_TRAIN";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_HorseCarriage = @"HORSE_CARRIAGE";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_IntercityBus = @"INTERCITY_BUS";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_LongDistanceTrain = @"LONG_DISTANCE_TRAIN";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_MetroRail = @"METRO_RAIL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Monorail = @"MONORAIL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Rail = @"RAIL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_ShareTaxi = @"SHARE_TAXI";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Special = @"SPECIAL";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Subway = @"SUBWAY";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Tram = @"TRAM";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Trolleybus = @"TROLLEYBUS";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_VehicleTypeUnspecified = @"VEHICLE_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRMapsPlaces_GoogleGeoTypeViewport
@@ -557,8 +581,8 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
          reviewSummary, servesBeer, servesBreakfast, servesBrunch,
          servesCocktails, servesCoffee, servesDessert, servesDinner,
          servesLunch, servesVegetarianFood, servesWine, shortFormattedAddress,
-         subDestinations, takeout, timeZone, types, userRatingCount,
-         utcOffsetMinutes, viewport, websiteUri;
+         subDestinations, takeout, timeZone, transitStation, types,
+         userRatingCount, utcOffsetMinutes, viewport, websiteUri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1040,6 +1064,85 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
     @"routingSummaries" : [GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1TransitAgency
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1TransitAgency
+@dynamic displayName, fareUrl, icon, lines, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lines" : [GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1TransitIcon
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1TransitIcon
+@dynamic nameIncluded, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
+@dynamic backgroundColor, displayName, icon, identifier, shortDisplayName,
+         textColor, url, vehicleIcon, vehicleType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1TransitStation
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1TransitStation
+@dynamic agencies, displayName, stops;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agencies" : [GTLRMapsPlaces_GoogleMapsPlacesV1TransitAgency class],
+    @"stops" : [GTLRMapsPlaces_GoogleMapsPlacesV1TransitStop class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1TransitStop
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1TransitStop
+@dynamic displayName, identifier, location, platformCode, signageText, stopCode,
+         wheelchairAccessibleEntrance;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

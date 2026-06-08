@@ -1167,6 +1167,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** List of tool names for selective tool fetching. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *toolNames;
+
 /**
  *  Fetches a @c GTLRConnectors_ListToolsResponse.
  *

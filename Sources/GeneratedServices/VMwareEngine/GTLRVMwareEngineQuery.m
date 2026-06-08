@@ -1662,6 +1662,33 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsMigrateManagementVms
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_MigrateManagementVmsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:migrateManagementVms";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsMigrateManagementVms *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.migrateManagementVms";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPatch
 
 @dynamic name, requestId, updateMask, validateOnly;

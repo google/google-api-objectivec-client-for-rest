@@ -851,7 +851,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDefaults
 @dynamic adaptationModifiers, additionalLicenses, appliedLicense,
-         bootConversion, bootOption, computeScheduling, diskReplicaZones,
+         bootConversion, bootOption, computeScheduling, diskReplicaZones, disks,
          diskType, enableIntegrityMonitoring, enableVtpm, encryption, hostname,
          labels, licenseType, machineType, machineTypeSeries, metadata,
          networkInterfaces, networkTags, secureBoot, serviceAccount,
@@ -866,6 +866,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
     @"adaptationModifiers" : [GTLRVMMigrationService_AdaptationModifier class],
     @"additionalLicenses" : [NSString class],
     @"diskReplicaZones" : [NSString class],
+    @"disks" : [GTLRVMMigrationService_PersistentDiskDefaults class],
     @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
     @"networkTags" : [NSString class]
   };

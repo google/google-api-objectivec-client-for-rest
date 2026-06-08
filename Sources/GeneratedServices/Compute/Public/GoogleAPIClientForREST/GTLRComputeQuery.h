@@ -113,11 +113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 // ----------------------------------------------------------------------------
 // view
 
-/**
- *  This view includes basic information about the reservation block
- *
- *  Value: "BASIC"
- */
+/** Value: "BASIC" */
 FOUNDATION_EXTERN NSString * const kGTLRComputeViewBasic;
 /**
  *  The default / unset value. The API will default to the BASIC view.
@@ -125,11 +121,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewBasic;
  *  Value: "BLOCK_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRComputeViewBlockViewUnspecified;
-/**
- *  Includes detailed topology view.
- *
- *  Value: "FULL"
- */
+/** Value: "FULL" */
 FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
 /**
  *  This view includes basic information about the reservation sub block
@@ -7393,6 +7385,17 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  view
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic The default view of a ForwardingRule, which
+ *        includes the basic fields. (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull The full view, including the
+ *        ForwardingRule.`attached_extensions` field. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRCompute_ForwardingRule.
  *
  *  Returns the specified ForwardingRule resource.
@@ -8777,6 +8780,17 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  view
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic The default view of a ForwardingRule, which
+ *        includes the basic fields. (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull The full view, including the
+ *        ForwardingRule.`attached_extensions` field. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCompute_ForwardingRule.
@@ -53532,6 +53546,56 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Advances a Rollout to the next wave, or completes it if no waves remain.
+ *
+ *  Method: compute.rollouts.advance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RolloutsAdvance : GTLRComputeQuery
+
+/** Required. Wave number of the current wave. */
+@property(nonatomic, assign) long long currentWaveNumber;
+
+/** Required. Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. Name of the Rollout resource to advance. */
+@property(nonatomic, copy, nullable) NSString *rollout;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Advances a Rollout to the next wave, or completes it if no waves remain.
+ *
+ *  @param project Required. Project ID for this request.
+ *  @param rollout Required. Name of the Rollout resource to advance.
+ *
+ *  @return GTLRComputeQuery_RolloutsAdvance
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                         rollout:(NSString *)rollout;
+
+@end
+
+/**
  *  Cancels a Rollout.
  *
  *  Method: compute.rollouts.cancel
@@ -53789,6 +53853,114 @@ GTLR_DEPRECATED
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Pauses a Rollout.
+ *
+ *  Method: compute.rollouts.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RolloutsPause : GTLRComputeQuery
+
+/**
+ *  The etag of the Rollout.
+ *  If this is provided, the request will only succeed if the etag matches
+ *  the current etag of the Rollout.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. Name of the Rollout resource to pause. */
+@property(nonatomic, copy, nullable) NSString *rollout;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Pauses a Rollout.
+ *
+ *  @param project Required. Project ID for this request.
+ *  @param rollout Required. Name of the Rollout resource to pause.
+ *
+ *  @return GTLRComputeQuery_RolloutsPause
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                         rollout:(NSString *)rollout;
+
+@end
+
+/**
+ *  Resumes a Rollout.
+ *
+ *  Method: compute.rollouts.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RolloutsResume : GTLRComputeQuery
+
+/**
+ *  The etag of the Rollout.
+ *  If this is provided, the request will only succeed if the etag matches
+ *  the current etag of the Rollout.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. Name of the Rollout resource to resume. */
+@property(nonatomic, copy, nullable) NSString *rollout;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Resumes a Rollout.
+ *
+ *  @param project Required. Project ID for this request.
+ *  @param rollout Required. Name of the Rollout resource to resume.
+ *
+ *  @return GTLRComputeQuery_RolloutsResume
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                         rollout:(NSString *)rollout;
 
 @end
 

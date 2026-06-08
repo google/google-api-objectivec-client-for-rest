@@ -4931,8 +4931,7 @@ GTLR_DEPRECATED
 /**
  *  Create a guest user with access to a [subset of Workspace
  *  capabilities](https://support.google.com/a/answer/16558545). This feature is
- *  currently in Alpha. Please reach out to support if you are interested in
- *  trying this feature.
+ *  currently in Open Beta.
  *
  *  Method: directory.users.createGuest
  *
@@ -4946,8 +4945,7 @@ GTLR_DEPRECATED
  *
  *  Create a guest user with access to a [subset of Workspace
  *  capabilities](https://support.google.com/a/answer/16558545). This feature is
- *  currently in Alpha. Please reach out to support if you are interested in
- *  trying this feature.
+ *  currently in Open Beta.
  *
  *  @param object The @c GTLRDirectory_UsersCreateGuestRequest to include in the
  *    query.

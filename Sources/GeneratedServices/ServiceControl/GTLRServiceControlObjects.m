@@ -194,7 +194,8 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_Auth
-@dynamic accessLevels, audiences, claims, oauth, presenter, principal;
+@dynamic accessLevels, audiences, claims, credentialId, oauth, presenter,
+         principal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

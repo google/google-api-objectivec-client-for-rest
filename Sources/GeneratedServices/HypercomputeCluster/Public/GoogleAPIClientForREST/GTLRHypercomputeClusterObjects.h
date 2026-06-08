@@ -2010,8 +2010,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 
 
 /**
- *  A resource representing a form of persistent storage that is accessible to
- *  compute resources in the cluster.
+ *  A resource representing a form of persistent storage that can be mounted
+ *  onto compute resources in the cluster.
  */
 @interface GTLRHypercomputeCluster_StorageResource : GTLRObject
 

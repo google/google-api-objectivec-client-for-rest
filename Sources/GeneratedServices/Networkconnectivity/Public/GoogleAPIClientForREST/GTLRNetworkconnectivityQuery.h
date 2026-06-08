@@ -4086,6 +4086,231 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Create a GatewayAdvertisedRoute
+ *
+ *  Method: networkconnectivity.projects.locations.spokes.gatewayAdvertisedRoutes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesCreate : GTLRNetworkconnectivityQuery
+
+/** Required. Unique id for the route to create. */
+@property(nonatomic, copy, nullable) NSString *gatewayAdvertisedRouteId;
+
+/** Required. The parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Create a GatewayAdvertisedRoute
+ *
+ *  @param object The @c GTLRNetworkconnectivity_GatewayAdvertisedRoute to
+ *    include in the query.
+ *  @param parent Required. The parent resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_GatewayAdvertisedRoute *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a GatewayAdvertisedRoute
+ *
+ *  Method: networkconnectivity.projects.locations.spokes.gatewayAdvertisedRoutes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesDelete : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the gateway advertised route to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Delete a GatewayAdvertisedRoute
+ *
+ *  @param name Required. The name of the gateway advertised route to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a GatewayAdvertisedRoute
+ *
+ *  Method: networkconnectivity.projects.locations.spokes.gatewayAdvertisedRoutes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesGet : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the gateway advertised route to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GatewayAdvertisedRoute.
+ *
+ *  Get a GatewayAdvertisedRoute
+ *
+ *  @param name Required. The name of the gateway advertised route to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List GatewayAdvertisedRoutes
+ *
+ *  Method: networkconnectivity.projects.locations.spokes.gatewayAdvertisedRoutes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesList : GTLRNetworkconnectivityQuery
+
+/** An expression that filters the list of results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results per page that should be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListGatewayAdvertisedRoutes` call. Provide this to retrieve the subsequent
+ *  page. When paginating, all other parameters provided to
+ *  `ListGatewayAdvertisedRoutes` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListGatewayAdvertisedRoutesResponse.
+ *
+ *  List GatewayAdvertisedRoutes
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a GatewayAdvertisedRoute
+ *
+ *  Method: networkconnectivity.projects.locations.spokes.gatewayAdvertisedRoutes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesPatch : GTLRNetworkconnectivityQuery
+
+/**
+ *  Identifier. The name of the gateway advertised route. Route names must be
+ *  unique and use the following form:
+ *  `projects/{project_number}/locations/{region}/spokes/{spoke}/gatewayAdvertisedRoutes/{gateway_advertised_route_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. In the case of an update to an existing group, field mask is used
+ *  to specify the fields to be overwritten. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not provide a mask, then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Update a GatewayAdvertisedRoute
+ *
+ *  @param object The @c GTLRNetworkconnectivity_GatewayAdvertisedRoute to
+ *    include in the query.
+ *  @param name Identifier. The name of the gateway advertised route. Route
+ *    names must be unique and use the following form:
+ *    `projects/{project_number}/locations/{region}/spokes/{spoke}/gatewayAdvertisedRoutes/{gateway_advertised_route_id}`
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGatewayAdvertisedRoutesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_GatewayAdvertisedRoute *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets details about a Network Connectivity Center spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.get

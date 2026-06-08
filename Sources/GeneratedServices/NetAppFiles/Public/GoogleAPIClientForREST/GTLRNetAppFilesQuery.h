@@ -1200,7 +1200,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetAppFilesQuery_ProjectsLocationsKmsConfigsPatch : GTLRNetAppFilesQuery
 
 /**
- *  Identifier. Name of the KmsConfig. Format:
+ *  Identifier. Name of the `KmsConfig`. Format:
  *  `projects/{project}/locations/{location}/kmsConfigs/{kms_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1222,7 +1222,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the Kms config properties with the full spec
  *
  *  @param object The @c GTLRNetAppFiles_KmsConfig to include in the query.
- *  @param name Identifier. Name of the KmsConfig. Format:
+ *  @param name Identifier. Name of the `KmsConfig`. Format:
  *    `projects/{project}/locations/{location}/kmsConfigs/{kms_config}`
  *
  *  @return GTLRNetAppFilesQuery_ProjectsLocationsKmsConfigsPatch
@@ -1496,6 +1496,61 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists backup configurations for all volumes in an ONTAP-mode Storage Pool.
+ *
+ *  Method: netapp.projects.locations.storagePools.backupConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsBackupConfigsList : GTLRNetAppFilesQuery
+
+/** Optional. The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort results. Supported values are "volume_id" or "" */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. The service may return
+ *  fewer than this value. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000. If unspecified or set to 0, a default of 50 will be used.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value to use if there are additional results
+ *  to retrieve for this list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The ONTAP StoragePool for which to retrieve backup configuration
+ *  information, in the format
+ *  `projects/{project}/locations/{location}/storagePools/{storage_pool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_ListBackupConfigsResponse.
+ *
+ *  Lists backup configurations for all volumes in an ONTAP-mode Storage Pool.
+ *
+ *  @param parent Required. The ONTAP StoragePool for which to retrieve backup
+ *    configuration information, in the format
+ *    `projects/{project}/locations/{location}/storagePools/{storage_pool}`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsBackupConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new storage pool.
  *
  *  Method: netapp.projects.locations.storagePools.create
@@ -1632,8 +1687,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  `ExecuteOntapDelete` dispatches the ONTAP `DELETE` request to the
- *  `StoragePool` cluster.
+ *  `ExecuteOntapDelete` sends the ONTAP `DELETE` request to the `StoragePool`
+ *  cluster.
  *
  *  Method: netapp.projects.locations.storagePools.ontap.executeOntapDelete
  *
@@ -1653,8 +1708,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetAppFiles_ExecuteOntapDeleteResponse.
  *
- *  `ExecuteOntapDelete` dispatches the ONTAP `DELETE` request to the
- *  `StoragePool` cluster.
+ *  `ExecuteOntapDelete` sends the ONTAP `DELETE` request to the `StoragePool`
+ *  cluster.
  *
  *  @param ontapPath Required. The resource path of the ONTAP resource. Format:
  *    `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
@@ -1668,7 +1723,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  `ExecuteOntapGet` dispatches the ONTAP `GET` request to the `StoragePool`
+ *  `ExecuteOntapGet` sends the ONTAP `GET` request to the `StoragePool`
  *  cluster.
  *
  *  Method: netapp.projects.locations.storagePools.ontap.executeOntapGet
@@ -1689,7 +1744,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetAppFiles_ExecuteOntapGetResponse.
  *
- *  `ExecuteOntapGet` dispatches the ONTAP `GET` request to the `StoragePool`
+ *  `ExecuteOntapGet` sends the ONTAP `GET` request to the `StoragePool`
  *  cluster.
  *
  *  @param ontapPath Required. The resource path of the ONTAP resource. Format:
@@ -1704,8 +1759,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  `ExecuteOntapPatch` dispatches the ONTAP `PATCH` request to the
- *  `StoragePool` cluster.
+ *  `ExecuteOntapPatch` sends the ONTAP `PATCH` request to the `StoragePool`
+ *  cluster.
  *
  *  Method: netapp.projects.locations.storagePools.ontap.executeOntapPatch
  *
@@ -1725,8 +1780,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetAppFiles_ExecuteOntapPatchResponse.
  *
- *  `ExecuteOntapPatch` dispatches the ONTAP `PATCH` request to the
- *  `StoragePool` cluster.
+ *  `ExecuteOntapPatch` sends the ONTAP `PATCH` request to the `StoragePool`
+ *  cluster.
  *
  *  @param object The @c GTLRNetAppFiles_ExecuteOntapPatchRequest to include in
  *    the query.
@@ -1743,7 +1798,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  `ExecuteOntapPost` dispatches the ONTAP `POST` request to the `StoragePool`
+ *  `ExecuteOntapPost` sends the ONTAP `POST` request to the `StoragePool`
  *  cluster.
  *
  *  Method: netapp.projects.locations.storagePools.ontap.executeOntapPost
@@ -1754,7 +1809,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPost : GTLRNetAppFilesQuery
 
 /**
- *  Required. The resource path of the ONTAP resource. Format:
+ *  Required. The path of the ONTAP resource. Format:
  *  `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
  *  For example:
  *  `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
@@ -1764,12 +1819,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetAppFiles_ExecuteOntapPostResponse.
  *
- *  `ExecuteOntapPost` dispatches the ONTAP `POST` request to the `StoragePool`
+ *  `ExecuteOntapPost` sends the ONTAP `POST` request to the `StoragePool`
  *  cluster.
  *
  *  @param object The @c GTLRNetAppFiles_ExecuteOntapPostRequest to include in
  *    the query.
- *  @param ontapPath Required. The resource path of the ONTAP resource. Format:
+ *  @param ontapPath Required. The path of the ONTAP resource. Format:
  *    `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
  *    For example:
  *    `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
@@ -1821,6 +1876,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Restores a backup to an ONTAP-mode volume.
+ *
+ *  Method: netapp.projects.locations.storagePools.restoreVolume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsRestoreVolume : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource name of the ONTAP mode storage pool, in the format of
+ *  `projects/{project}/locations/{location}/storagePools/{storage_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Restores a backup to an ONTAP-mode volume.
+ *
+ *  @param object The @c GTLRNetAppFiles_RestoreVolumeRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the ONTAP mode storage pool, in
+ *    the format of
+ *    `projects/{project}/locations/{location}/storagePools/{storage_pool}`
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsRestoreVolume
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_RestoreVolumeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  This operation will switch the active/replica zone for a regional
  *  storagePool.
  *
@@ -1847,6 +1936,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsSwitch
  */
 + (instancetype)queryWithObject:(GTLRNetAppFiles_SwitchActiveReplicaZoneRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the backup configuration for an ONTAP-mode volume.
+ *
+ *  Method: netapp.projects.locations.storagePools.updateBackupConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsUpdateBackupConfig : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource name of the StoragePool, in the format:
+ *  projects/{projectNumber}/locations/{locationId}/storagePools/{poolId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Updates the backup configuration for an ONTAP-mode volume.
+ *
+ *  @param object The @c GTLRNetAppFiles_UpdateBackupConfigRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the StoragePool, in the format:
+ *    projects/{projectNumber}/locations/{locationId}/storagePools/{poolId}
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsUpdateBackupConfig
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_UpdateBackupConfigRequest *)object
                            name:(NSString *)name;
 
 @end

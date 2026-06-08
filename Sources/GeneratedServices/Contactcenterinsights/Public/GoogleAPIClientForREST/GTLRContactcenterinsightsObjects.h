@@ -78,11 +78,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeleteQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelRequest;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReport;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReport_Metrics;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReportIntentStats;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReportIntentStats_Metrics;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowInteractionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowSource;
@@ -142,12 +137,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStats_IssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelResult;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1LossPattern;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfig;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigBigQueryDestination;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigGcsDestination;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigGoogleSheetsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1PhraseMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource;
@@ -170,8 +159,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SampleRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SentimentData;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep_ToolOutput;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SilenceData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartComposeSuggestionData_Metadata;
@@ -181,8 +168,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigResponseDetailedCorrelationResults;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ToolCall;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ToolCall_Input;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest;
@@ -265,12 +250,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Diagnostic;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReport;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReport_Metrics;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReportIntentStats;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReportIntentStats_Metrics;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowInteractionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowSource;
@@ -342,7 +321,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStats_IssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelResult;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1LossPattern;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainAnalysis;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainAnalysisResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainAnalysisResultCallAnalysisMetadata;
@@ -396,11 +374,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDeleteQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDeployIssueModelRequest;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReport;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReport_Metrics;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReportIntentStats;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReportIntentStats_Metrics;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDialogflowIntent;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDialogflowInteractionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDialogflowSource;
@@ -460,12 +433,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIssueModelLabelStats_IssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIssueModelLabelStatsIssueStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIssueModelResult;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainLossPattern;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfig;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigBigQueryDestination;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigGcsDestination;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigGoogleSheetsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainPhraseMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswer;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerSource;
@@ -488,8 +455,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSampleConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSampleRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSentimentData;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep_ToolOutput;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSilenceData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSmartComposeSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSmartComposeSuggestionData_Metadata;
@@ -499,21 +464,14 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigResponseDetailedCorrelationResults;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainToolCall;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainToolCall_Input;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainUndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainUpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainUploadConversationRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricDefinition;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteAssessmentNote;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteConversationTurnNote;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1NoteQaQuestionNote;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfig;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigBigQueryDestination;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigGcsDestination;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigGoogleSheetsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchRule;
@@ -547,6 +505,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequestAgentSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedirectAction;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedirectAction_QueryParams;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RegexMatchConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotationUserInput;
@@ -559,8 +518,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SettingsDiagnosticMetricConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SettingsDiagnosticMetricConfig_Metrics;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep_ToolOutput;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SignedAudioUris;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SilenceData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData;
@@ -572,8 +529,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequestConversations;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigResponseDetailedCorrelationResults;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ToolCall;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ToolCall_Input;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest;
@@ -804,50 +759,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset_Type_TypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata_MetricType_Containment;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata_MetricType_DiagnosticMetricTypeUnspecified;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata_MetricType_Escalation;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest_MetricType_Containment;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest_MetricType_DiagnosticMetricTypeUnspecified;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest_MetricType_Escalation;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension.dimensionKey
@@ -1447,28 +1358,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall;
 
 // ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue_MetricType_Containment;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue_MetricType_Escalation;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue_MetricType_MetricTypeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource.sourceType
 
 /**
@@ -1992,50 +1881,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "YEAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Year;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata_MetricType_Containment;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata_MetricType_DiagnosticMetricTypeUnspecified;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata_MetricType_Escalation;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest_MetricType_Containment;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest_MetricType_DiagnosticMetricTypeUnspecified;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest_MetricType_Escalation;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension.dimensionKey
@@ -2919,50 +2764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDataset_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata_MetricType_Containment;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata_MetricType_DiagnosticMetricTypeUnspecified;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata_MetricType_Escalation;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest_MetricType_Containment;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest_MetricType_DiagnosticMetricTypeUnspecified;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest_MetricType_Escalation;
-
-// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDimension.dimensionKey
 
 /**
@@ -3560,28 +3361,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIssueModelInputDataConfig_Medium_PhoneCall;
 
 // ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue_MetricType_Containment;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue_MetricType_Escalation;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue_MetricType_MetricTypeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerSource.sourceType
 
 /**
@@ -3648,28 +3427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "SUGGESTED_QUERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainRuntimeAnnotationUserInput_QuerySource_SuggestedQuery;
-
-// ----------------------------------------------------------------------------
-// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue.metricType
-
-/**
- *  Containment rate.
- *
- *  Value: "CONTAINMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue_MetricType_Containment;
-/**
- *  Escalation rate.
- *
- *  Value: "ESCALATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue_MetricType_Escalation;
-/**
- *  Metric type is unspecified.
- *
- *  Value: "METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue_MetricType_MetricTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher.roleMatch
@@ -5554,6 +5311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** The entry subagent's display name. */
 @property(nonatomic, copy, nullable) NSString *entrySubagentDisplayName;
 
+/** The entry subagent's ID. */
+@property(nonatomic, copy, nullable) NSString *entrySubagentId;
+
 /** The agent's location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -5981,266 +5741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  The response to deploy an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DeployIssueModelResponse : GTLRObject
-@end
-
-
-/**
- *  Metadata for a DiagnoseConversations operation.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata : GTLRObject
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. The diagnostic report containing metrics and intent breakdowns.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReport *diagnosticReport;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. If true, the agent generated a full diagnostic report for all
- *  sub-agents.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fullReport;
-
-/** Output only. The most recent thought or action from the agent. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep *latestStep;
-
-/**
- *  Output only. The type of metric being diagnosed.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata_MetricType_DiagnosticMetricTypeUnspecified
- *        Metric type is unspecified. (Value:
- *        "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsMetadata_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/**
- *  Output only. Deprecated: Use partial_trajectory_steps instead. The
- *  intermediate trajectory updates (partial trajectory).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *partialTrajectories GTLR_DEPRECATED;
-
-/**
- *  Output only. The intermediate trajectory updates. This can be used for live
- *  progress tracking of the agent's thoughts and actions as it works through
- *  the analysis.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep *> *partialTrajectorySteps;
-
-/** Output only. The request that created the operation. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest *request;
-
-@end
-
-
-/**
- *  The request to analyze conversation data using agentic workflows. This RPC
- *  triggers a complex analysis process that may involve several steps of
- *  reasoning and tool execution.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest : GTLRObject
-
-/**
- *  Optional. If true, the request will be validated and a simulation of the
- *  analysis will be performed without actually executing the task.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dryRun;
-
-/** Optional. AIP-160 compliant filter for selecting target conversations. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional. If true, the agent will generate a full diagnostic report for all
- *  sub-agents.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fullReport;
-
-/** Optional. Specific instructions for the agent. */
-@property(nonatomic, copy, nullable) NSString *instructions;
-
-/**
- *  Optional. The maximum number of steps the agent can take during the
- *  execution of the task. Defaults to 10.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSteps;
-
-/**
- *  Optional. The type of metric being diagnosed.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest_MetricType_DiagnosticMetricTypeUnspecified
- *        Metric type is unspecified. (Value:
- *        "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsRequest_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/** Optional. The configuration for the output of the task. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfig *outputConfig;
-
-/** Required. The parent resource where the analysis will be performed. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. Required. A unique ID that identifies the request. If the service
- *  receives two `DiagnoseConversationsRequest`s with the same `request_id`,
- *  then the second request will be ignored; instead, the response of the first
- *  request will be returned. The ID must contain only letters (a-z, A-Z),
- *  numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. A natural language description of the analysis goal or question.
- */
-@property(nonatomic, copy, nullable) NSString *taskQuery;
-
-/**
- *  Optional. If true, the request will only be validated (permissions, filter
- *  syntax, etc.) without actually triggering the analysis.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *validateOnly;
-
-@end
-
-
-/**
- *  The response from a DiagnoseConversations request.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnoseConversationsResponse : GTLRObject
-
-/**
- *  Output only. The final, high-level answer or diagnostic summary returned by
- *  the Sherlock worker.
- */
-@property(nonatomic, copy, nullable) NSString *answer;
-
-/**
- *  Output only. If an external destination was requested, the URI of the
- *  exported data.
- */
-@property(nonatomic, copy, nullable) NSString *exportUri;
-
-/**
- *  Output only. Deprecated: Use full_trajectory_steps instead. The complete
- *  sequence of thoughts and actions (full trajectory).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *fullTrajectories GTLR_DEPRECATED;
-
-/**
- *  Output only. The complete sequence of thoughts and actions taken by the
- *  agent.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep *> *fullTrajectorySteps;
-
-@end
-
-
-/**
- *  A diagnostic report containing aggregate metrics and intent breakdowns.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReport : GTLRObject
-
-/** Output only. A breakdown of metrics grouped by intent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReportIntentStats *> *intentStats;
-
-/**
- *  Output only. A list of loss patterns identified for the entire
- *  project/dataset.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1LossPattern *> *lossPatterns;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReport_Metrics *metrics GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  @note This class is documented as having more properties of
- *        GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReport_Metrics : GTLRObject
-@end
-
-
-/**
- *  A breakdown of metrics grouped by intent.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReportIntentStats : GTLRObject
-
-/**
- *  Output only. The number of conversations associated with this intent.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *conversationCount;
-
-/** Output only. The display name of the intent. */
-@property(nonatomic, copy, nullable) NSString *intentDisplayName;
-
-/**
- *  Output only. The unique identifier for the intent (from Discovery Engine).
- */
-@property(nonatomic, copy, nullable) NSString *intentId;
-
-/** Output only. A list of loss patterns identified for this intent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1LossPattern *> *lossPatterns;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReportIntentStats_Metrics *metrics GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  @note This class is documented as having more properties of
- *        GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DiagnosticReportIntentStats_Metrics : GTLRObject
 @end
 
 
@@ -8054,169 +7554,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  A loss pattern of a virtual agent and suggested fixes.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1LossPattern : GTLRObject
-
-/** Output only. A list of conversation IDs that match this loss pattern. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conversationIds;
-
-/**
- *  Output only. A markdown description of the loss pattern.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. The display name of the loss pattern. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Output only. A markdown of loss pattern examples. */
-@property(nonatomic, copy, nullable) NSString *examples;
-
-/**
- *  Output only. The unique identifier for the loss pattern.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Output only. The percentage of conversations that match this loss pattern.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *percentage;
-
-/** Output only. A markdown description of the suggested fixes. */
-@property(nonatomic, copy, nullable) NSString *suggestedFixes;
-
-@end
-
-
-/**
- *  Deprecated: MetricValue is no longer used for diagnostics.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue : GTLRObject
-
-/**
- *  Output only. The list of conversation names that contributed to this metric
- *  (hits). Format:
- *  `projects/{project}/locations/{location}/conversations/{conversation}`
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conversations;
-
-/**
- *  Output only. The user-visible name of the metric (e.g., "Containment Rate").
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. The number of positive matches (hits) for this metric.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hitCount;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1MetricValue_MetricType_MetricTypeUnspecified
- *        Metric type is unspecified. (Value: "METRIC_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/**
- *  Output only. The resource name of the underlying Insights primitive (e.g.,
- *  Tag or QaQuestion) used to calculate this metric.
- */
-@property(nonatomic, copy, nullable) NSString *sourceId;
-
-/**
- *  Output only. The total number of items evaluated for this metric.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalCount;
-
-/**
- *  Output only. The calculated value of the metric (usually a ratio or rate 0.0
- *  - 1.0).
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *value;
-
-@end
-
-
-/**
- *  Configuration for where to export or return the analysis findings.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfig : GTLRObject
-
-/** Optional. Export to BigQuery. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigBigQueryDestination *bigqueryDestination;
-
-/** Optional. Export to a Cloud Storage bucket. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigGcsDestination *gcsDestination;
-
-/** Optional. Export directly to a Google Sheet. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigGoogleSheetsDestination *googleSheetsDestination;
-
-@end
-
-
-/**
- *  BigQuery destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigBigQueryDestination : GTLRObject
-
-/** Required. The name of the BigQuery dataset. */
-@property(nonatomic, copy, nullable) NSString *dataset;
-
-/** Optional. A project ID or number. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. The BigQuery table name. */
-@property(nonatomic, copy, nullable) NSString *table;
-
-@end
-
-
-/**
- *  Cloud Storage destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigGcsDestination : GTLRObject
-
-/** Required. The Cloud Storage URI to export the results to. */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Google Sheets destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1OutputConfigGoogleSheetsDestination : GTLRObject
-
-/** Optional. The sheet name. */
-@property(nonatomic, copy, nullable) NSString *sheet;
-
-/** Optional. An existing Google Sheets ID. */
-@property(nonatomic, copy, nullable) NSString *spreadsheetId;
-
-@end
-
-
-/**
  *  The data for a matched phrase matcher. Represents information identifying a
  *  phrase matcher for a given match.
  */
@@ -9438,38 +8775,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  A step in the agent's reasoning process (Trajectory Step).
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep : GTLRObject
-
-/** Output only. Natural language input stimulus. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *textInput;
-
-/** Output only. The reasoning or internal monologue of the agent. */
-@property(nonatomic, copy, nullable) NSString *thought;
-
-/** Output only. The tool call issued by the agent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ToolCall *> *toolCalls;
-
-/** Output only. The output response from the tool execution. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep_ToolOutput *toolOutput;
-
-@end
-
-
-/**
- *  Output only. The output response from the tool execution.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SherlockStep_ToolOutput : GTLRObject
-@end
-
-
-/**
  *  The data for a silence annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SilenceData : GTLRObject
@@ -9693,32 +8998,6 @@ GTLR_DEPRECATED
 /** A list of join key correlation results for each conversation tested. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResult *> *joinKeyResults;
 
-@end
-
-
-/**
- *  A tool call from the agent.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ToolCall : GTLRObject
-
-/** Output only. The input arguments to the tool. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ToolCall_Input *input;
-
-/** Output only. The name of the tool being called. */
-@property(nonatomic, copy, nullable) NSString *toolName;
-
-@end
-
-
-/**
- *  Output only. The input arguments to the tool.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ToolCall_Input : GTLRObject
 @end
 
 
@@ -11947,6 +11226,9 @@ GTLR_DEPRECATED
 /** The entry subagent's display name. */
 @property(nonatomic, copy, nullable) NSString *entrySubagentDisplayName;
 
+/** The entry subagent's ID. */
+@property(nonatomic, copy, nullable) NSString *entrySubagentId;
+
 /** The agent's location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -12554,295 +11836,6 @@ GTLR_DEPRECATED
  *  The request to deploy a QaScorecardRevision
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployQaScorecardRevisionRequest : GTLRObject
-@end
-
-
-/**
- *  Metadata for a DiagnoseConversations operation.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata : GTLRObject
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. The diagnostic report containing metrics and intent breakdowns.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReport *diagnosticReport;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. If true, the agent generated a full diagnostic report for all
- *  sub-agents.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fullReport;
-
-/** Output only. The most recent thought or action from the agent. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep *latestStep;
-
-/**
- *  Output only. The type of metric being diagnosed.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata_MetricType_DiagnosticMetricTypeUnspecified
- *        Metric type is unspecified. (Value:
- *        "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsMetadata_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/**
- *  Output only. Deprecated: Use partial_trajectory_steps instead. The
- *  intermediate trajectory updates (partial trajectory).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *partialTrajectories GTLR_DEPRECATED;
-
-/**
- *  Output only. The intermediate trajectory updates. This can be used for live
- *  progress tracking of the agent's thoughts and actions as it works through
- *  the analysis.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep *> *partialTrajectorySteps;
-
-/** Output only. The request that created the operation. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest *request;
-
-@end
-
-
-/**
- *  The request to analyze conversation data using agentic workflows. This RPC
- *  triggers a complex analysis process that may involve several steps of
- *  reasoning and tool execution.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest : GTLRObject
-
-/**
- *  Optional. If true, the request will be validated and a simulation of the
- *  analysis will be performed without actually executing the task.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dryRun;
-
-/** Optional. AIP-160 compliant filter for selecting target conversations. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional. If true, the agent will generate a full diagnostic report for all
- *  sub-agents.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fullReport;
-
-/** Optional. Specific instructions for the agent. */
-@property(nonatomic, copy, nullable) NSString *instructions;
-
-/**
- *  Optional. The maximum number of steps the agent can take during the
- *  execution of the task. Defaults to 10.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSteps;
-
-/**
- *  Optional. The type of metric being diagnosed.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest_MetricType_DiagnosticMetricTypeUnspecified
- *        Metric type is unspecified. (Value:
- *        "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/** Optional. The configuration for the output of the task. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfig *outputConfig;
-
-/** Required. The parent resource where the analysis will be performed. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. Required. A unique ID that identifies the request. If the service
- *  receives two `DiagnoseConversationsRequest`s with the same `request_id`,
- *  then the second request will be ignored; instead, the response of the first
- *  request will be returned. The ID must contain only letters (a-z, A-Z),
- *  numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. A natural language description of the analysis goal or question.
- */
-@property(nonatomic, copy, nullable) NSString *taskQuery;
-
-/**
- *  Optional. If true, the request will only be validated (permissions, filter
- *  syntax, etc.) without actually triggering the analysis.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *validateOnly;
-
-@end
-
-
-/**
- *  The response from a DiagnoseConversations request.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsResponse : GTLRObject
-
-/**
- *  Output only. The final, high-level answer or diagnostic summary returned by
- *  the Sherlock worker.
- */
-@property(nonatomic, copy, nullable) NSString *answer;
-
-/**
- *  Output only. If an external destination was requested, the URI of the
- *  exported data.
- */
-@property(nonatomic, copy, nullable) NSString *exportUri;
-
-/**
- *  Output only. Deprecated: Use full_trajectory_steps instead. The complete
- *  sequence of thoughts and actions (full trajectory).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *fullTrajectories GTLR_DEPRECATED;
-
-/**
- *  Output only. The complete sequence of thoughts and actions taken by the
- *  agent.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep *> *fullTrajectorySteps;
-
-@end
-
-
-/**
- *  The diagnostic resource.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Diagnostic : GTLRObject
-
-/**
- *  Output only. The complete sequence of thoughts and actions taken by the
- *  agent.
- */
-@property(nonatomic, copy, nullable) NSString *analysisSummary;
-
-/**
- *  Output only. The filter used to select the conversations that were included
- *  in the diagnostic.
- */
-@property(nonatomic, copy, nullable) NSString *conversationFilter;
-
-/** Output only. The time at which the diagnostic was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Immutable. Identifier. The resource name of the diagnostic. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The report containing the findings of the diagnostic. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReport *report;
-
-@end
-
-
-/**
- *  A diagnostic report containing aggregate metrics and intent breakdowns.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReport : GTLRObject
-
-/** Output only. A breakdown of metrics grouped by intent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReportIntentStats *> *intentStats;
-
-/**
- *  Output only. A list of loss patterns identified for the entire
- *  project/dataset.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1LossPattern *> *lossPatterns;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReport_Metrics *metrics GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  @note This class is documented as having more properties of
- *        GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReport_Metrics : GTLRObject
-@end
-
-
-/**
- *  A breakdown of metrics grouped by intent.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReportIntentStats : GTLRObject
-
-/**
- *  Output only. The number of conversations associated with this intent.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *conversationCount;
-
-/** Output only. The display name of the intent. */
-@property(nonatomic, copy, nullable) NSString *intentDisplayName;
-
-/**
- *  Output only. The unique identifier for the intent (from Discovery Engine).
- */
-@property(nonatomic, copy, nullable) NSString *intentId;
-
-/** Output only. A list of loss patterns identified for this intent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1LossPattern *> *lossPatterns;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReportIntentStats_Metrics *metrics GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  @note This class is documented as having more properties of
- *        GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnosticReportIntentStats_Metrics : GTLRObject
 @end
 
 
@@ -15232,33 +14225,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  The response from a ListDiagnostics request.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "diagnostics" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListDiagnosticsResponse : GTLRCollectionObject
-
-/**
- *  Optional. The diagnostics that match the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Diagnostic *> *diagnostics;
-
-/**
- *  Optional. A token, which can be sent as `page_token` to retrieve the next
- *  page. If this field is omitted, there are no subsequent pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  The response for listing feedback labels.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -15489,47 +14455,6 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View *> *views;
-
-@end
-
-
-/**
- *  A loss pattern of a virtual agent and suggested fixes.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1LossPattern : GTLRObject
-
-/** Output only. A list of conversation IDs that match this loss pattern. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conversationIds;
-
-/**
- *  Output only. A markdown description of the loss pattern.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. The display name of the loss pattern. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Output only. A markdown of loss pattern examples. */
-@property(nonatomic, copy, nullable) NSString *examples;
-
-/**
- *  Output only. The unique identifier for the loss pattern.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Output only. The percentage of conversations that match this loss pattern.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *percentage;
-
-/** Output only. A markdown description of the suggested fixes. */
-@property(nonatomic, copy, nullable) NSString *suggestedFixes;
 
 @end
 
@@ -16898,6 +15823,9 @@ GTLR_DEPRECATED
 /** The entry subagent's display name. */
 @property(nonatomic, copy, nullable) NSString *entrySubagentDisplayName;
 
+/** The entry subagent's ID. */
+@property(nonatomic, copy, nullable) NSString *entrySubagentId;
+
 /** The agent's location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -17325,266 +16253,6 @@ GTLR_DEPRECATED
  *  The response to deploy an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDeployIssueModelResponse : GTLRObject
-@end
-
-
-/**
- *  Metadata for a DiagnoseConversations operation.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata : GTLRObject
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. The diagnostic report containing metrics and intent breakdowns.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReport *diagnosticReport;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. If true, the agent generated a full diagnostic report for all
- *  sub-agents.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fullReport;
-
-/** Output only. The most recent thought or action from the agent. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep *latestStep;
-
-/**
- *  Output only. The type of metric being diagnosed.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata_MetricType_DiagnosticMetricTypeUnspecified
- *        Metric type is unspecified. (Value:
- *        "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsMetadata_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/**
- *  Output only. Deprecated: Use partial_trajectory_steps instead. The
- *  intermediate trajectory updates (partial trajectory).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *partialTrajectories GTLR_DEPRECATED;
-
-/**
- *  Output only. The intermediate trajectory updates. This can be used for live
- *  progress tracking of the agent's thoughts and actions as it works through
- *  the analysis.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep *> *partialTrajectorySteps;
-
-/** Output only. The request that created the operation. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest *request;
-
-@end
-
-
-/**
- *  The request to analyze conversation data using agentic workflows. This RPC
- *  triggers a complex analysis process that may involve several steps of
- *  reasoning and tool execution.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest : GTLRObject
-
-/**
- *  Optional. If true, the request will be validated and a simulation of the
- *  analysis will be performed without actually executing the task.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dryRun;
-
-/** Optional. AIP-160 compliant filter for selecting target conversations. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional. If true, the agent will generate a full diagnostic report for all
- *  sub-agents.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fullReport;
-
-/** Optional. Specific instructions for the agent. */
-@property(nonatomic, copy, nullable) NSString *instructions;
-
-/**
- *  Optional. The maximum number of steps the agent can take during the
- *  execution of the task. Defaults to 10.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSteps;
-
-/**
- *  Optional. The type of metric being diagnosed.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest_MetricType_DiagnosticMetricTypeUnspecified
- *        Metric type is unspecified. (Value:
- *        "DIAGNOSTIC_METRIC_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsRequest_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/** Optional. The configuration for the output of the task. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfig *outputConfig;
-
-/** Required. The parent resource where the analysis will be performed. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. Required. A unique ID that identifies the request. If the service
- *  receives two `DiagnoseConversationsRequest`s with the same `request_id`,
- *  then the second request will be ignored; instead, the response of the first
- *  request will be returned. The ID must contain only letters (a-z, A-Z),
- *  numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Optional. A natural language description of the analysis goal or question.
- */
-@property(nonatomic, copy, nullable) NSString *taskQuery;
-
-/**
- *  Optional. If true, the request will only be validated (permissions, filter
- *  syntax, etc.) without actually triggering the analysis.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *validateOnly;
-
-@end
-
-
-/**
- *  The response from a DiagnoseConversations request.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnoseConversationsResponse : GTLRObject
-
-/**
- *  Output only. The final, high-level answer or diagnostic summary returned by
- *  the Sherlock worker.
- */
-@property(nonatomic, copy, nullable) NSString *answer;
-
-/**
- *  Output only. If an external destination was requested, the URI of the
- *  exported data.
- */
-@property(nonatomic, copy, nullable) NSString *exportUri;
-
-/**
- *  Output only. Deprecated: Use full_trajectory_steps instead. The complete
- *  sequence of thoughts and actions (full trajectory).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *fullTrajectories GTLR_DEPRECATED;
-
-/**
- *  Output only. The complete sequence of thoughts and actions taken by the
- *  agent.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep *> *fullTrajectorySteps;
-
-@end
-
-
-/**
- *  A diagnostic report containing aggregate metrics and intent breakdowns.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReport : GTLRObject
-
-/** Output only. A breakdown of metrics grouped by intent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReportIntentStats *> *intentStats;
-
-/**
- *  Output only. A list of loss patterns identified for the entire
- *  project/dataset.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainLossPattern *> *lossPatterns;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReport_Metrics *metrics GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  @note This class is documented as having more properties of
- *        GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReport_Metrics : GTLRObject
-@end
-
-
-/**
- *  A breakdown of metrics grouped by intent.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReportIntentStats : GTLRObject
-
-/**
- *  Output only. The number of conversations associated with this intent.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *conversationCount;
-
-/** Output only. The display name of the intent. */
-@property(nonatomic, copy, nullable) NSString *intentDisplayName;
-
-/**
- *  Output only. The unique identifier for the intent (from Discovery Engine).
- */
-@property(nonatomic, copy, nullable) NSString *intentId;
-
-/** Output only. A list of loss patterns identified for this intent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainLossPattern *> *lossPatterns;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReportIntentStats_Metrics *metrics GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  @note This class is documented as having more properties of
- *        GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDiagnosticReportIntentStats_Metrics : GTLRObject
 @end
 
 
@@ -19398,169 +18066,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  A loss pattern of a virtual agent and suggested fixes.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainLossPattern : GTLRObject
-
-/** Output only. A list of conversation IDs that match this loss pattern. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conversationIds;
-
-/**
- *  Output only. A markdown description of the loss pattern.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. The display name of the loss pattern. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Output only. A markdown of loss pattern examples. */
-@property(nonatomic, copy, nullable) NSString *examples;
-
-/**
- *  Output only. The unique identifier for the loss pattern.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Output only. The percentage of conversations that match this loss pattern.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *percentage;
-
-/** Output only. A markdown description of the suggested fixes. */
-@property(nonatomic, copy, nullable) NSString *suggestedFixes;
-
-@end
-
-
-/**
- *  Deprecated: MetricValue is no longer used for diagnostics.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue : GTLRObject
-
-/**
- *  Output only. The list of conversation names that contributed to this metric
- *  (hits). Format:
- *  `projects/{project}/locations/{location}/conversations/{conversation}`
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conversations;
-
-/**
- *  Output only. The user-visible name of the metric (e.g., "Containment Rate").
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. The number of positive matches (hits) for this metric.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hitCount;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainMetricValue_MetricType_MetricTypeUnspecified
- *        Metric type is unspecified. (Value: "METRIC_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/**
- *  Output only. The resource name of the underlying Insights primitive (e.g.,
- *  Tag or QaQuestion) used to calculate this metric.
- */
-@property(nonatomic, copy, nullable) NSString *sourceId;
-
-/**
- *  Output only. The total number of items evaluated for this metric.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalCount;
-
-/**
- *  Output only. The calculated value of the metric (usually a ratio or rate 0.0
- *  - 1.0).
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *value;
-
-@end
-
-
-/**
- *  Configuration for where to export or return the analysis findings.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfig : GTLRObject
-
-/** Optional. Export to BigQuery. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigBigQueryDestination *bigqueryDestination;
-
-/** Optional. Export to a Cloud Storage bucket. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigGcsDestination *gcsDestination;
-
-/** Optional. Export directly to a Google Sheet. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigGoogleSheetsDestination *googleSheetsDestination;
-
-@end
-
-
-/**
- *  BigQuery destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigBigQueryDestination : GTLRObject
-
-/** Required. The name of the BigQuery dataset. */
-@property(nonatomic, copy, nullable) NSString *dataset;
-
-/** Optional. A project ID or number. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. The BigQuery table name. */
-@property(nonatomic, copy, nullable) NSString *table;
-
-@end
-
-
-/**
- *  Cloud Storage destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigGcsDestination : GTLRObject
-
-/** Required. The Cloud Storage URI to export the results to. */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Google Sheets destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainOutputConfigGoogleSheetsDestination : GTLRObject
-
-/** Optional. The sheet name. */
-@property(nonatomic, copy, nullable) NSString *sheet;
-
-/** Optional. An existing Google Sheets ID. */
-@property(nonatomic, copy, nullable) NSString *spreadsheetId;
-
-@end
-
-
-/**
  *  The data for a matched phrase matcher. Represents information identifying a
  *  phrase matcher for a given match.
  */
@@ -20782,38 +19287,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  A step in the agent's reasoning process (Trajectory Step).
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep : GTLRObject
-
-/** Output only. Natural language input stimulus. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *textInput;
-
-/** Output only. The reasoning or internal monologue of the agent. */
-@property(nonatomic, copy, nullable) NSString *thought;
-
-/** Output only. The tool call issued by the agent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainToolCall *> *toolCalls;
-
-/** Output only. The output response from the tool execution. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep_ToolOutput *toolOutput;
-
-@end
-
-
-/**
- *  Output only. The output response from the tool execution.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSherlockStep_ToolOutput : GTLRObject
-@end
-
-
-/**
  *  The data for a silence annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSilenceData : GTLRObject
@@ -21041,32 +19514,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  A tool call from the agent.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainToolCall : GTLRObject
-
-/** Output only. The input arguments to the tool. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainToolCall_Input *input;
-
-/** Output only. The name of the tool being called. */
-@property(nonatomic, copy, nullable) NSString *toolName;
-
-@end
-
-
-/**
- *  Output only. The input arguments to the tool.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainToolCall_Input : GTLRObject
-@end
-
-
-/**
  *  Metadata for undeploying an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainUndeployIssueModelMetadata : GTLRObject
@@ -21220,69 +19667,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Deprecated: MetricValue is no longer used for diagnostics.
- */
-GTLR_DEPRECATED
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue : GTLRObject
-
-/**
- *  Output only. The list of conversation names that contributed to this metric
- *  (hits). Format:
- *  `projects/{project}/locations/{location}/conversations/{conversation}`
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conversations;
-
-/**
- *  Output only. The user-visible name of the metric (e.g., "Containment Rate").
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. The number of positive matches (hits) for this metric.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hitCount;
-
-/**
- *  Output only. Deprecated: The type of the metric. Metrics for Outcome Based
- *  Insights derived from QueryMetrics.
- *
- *  Likely values:
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue_MetricType_Containment
- *        Containment rate. (Value: "CONTAINMENT")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue_MetricType_Escalation
- *        Escalation rate. (Value: "ESCALATION")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1MetricValue_MetricType_MetricTypeUnspecified
- *        Metric type is unspecified. (Value: "METRIC_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *metricType;
-
-/**
- *  Output only. The resource name of the underlying Insights primitive (e.g.,
- *  Tag or QaQuestion) used to calculate this metric.
- */
-@property(nonatomic, copy, nullable) NSString *sourceId;
-
-/**
- *  Output only. The total number of items evaluated for this metric.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalCount;
-
-/**
- *  Output only. The calculated value of the metric (usually a ratio or rate 0.0
- *  - 1.0).
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *value;
-
-@end
-
-
-/**
  *  The conversation assessment note resource.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Note : GTLRObject
@@ -21349,65 +19733,6 @@ GTLR_DEPRECATED
 
 /** The question resource that the note is associated with. */
 @property(nonatomic, copy, nullable) NSString *qaQuestion;
-
-@end
-
-
-/**
- *  Configuration for where to export or return the analysis findings.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfig : GTLRObject
-
-/** Optional. Export to BigQuery. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigBigQueryDestination *bigqueryDestination;
-
-/** Optional. Export to a Cloud Storage bucket. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigGcsDestination *gcsDestination;
-
-/** Optional. Export directly to a Google Sheet. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigGoogleSheetsDestination *googleSheetsDestination;
-
-@end
-
-
-/**
- *  BigQuery destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigBigQueryDestination : GTLRObject
-
-/** Required. The name of the BigQuery dataset. */
-@property(nonatomic, copy, nullable) NSString *dataset;
-
-/** Optional. A project ID or number. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Required. The BigQuery table name. */
-@property(nonatomic, copy, nullable) NSString *table;
-
-@end
-
-
-/**
- *  Cloud Storage destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigGcsDestination : GTLRObject
-
-/** Required. The Cloud Storage URI to export the results to. */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Google Sheets destination configuration.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1OutputConfigGoogleSheetsDestination : GTLRObject
-
-/** Optional. The sheet name. */
-@property(nonatomic, copy, nullable) NSString *sheet;
-
-/** Optional. An existing Google Sheets ID. */
-@property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 @end
 
@@ -23066,9 +21391,24 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedirectAction : GTLRObject
 
+/** The query params to be added to the redirect path. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedirectAction_QueryParams *queryParams;
+
 /** The relative path to redirect to. */
 @property(nonatomic, copy, nullable) NSString *relativePath;
 
+@end
+
+
+/**
+ *  The query params to be added to the redirect path.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedirectAction_QueryParams : GTLRObject
 @end
 
 
@@ -23547,38 +21887,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  A step in the agent's reasoning process (Trajectory Step).
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep : GTLRObject
-
-/** Output only. Natural language input stimulus. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *textInput;
-
-/** Output only. The reasoning or internal monologue of the agent. */
-@property(nonatomic, copy, nullable) NSString *thought;
-
-/** Output only. The tool call issued by the agent. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ToolCall *> *toolCalls;
-
-/** Output only. The output response from the tool execution. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep_ToolOutput *toolOutput;
-
-@end
-
-
-/**
- *  Output only. The output response from the tool execution.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SherlockStep_ToolOutput : GTLRObject
-@end
-
-
-/**
  *  Signed audio URIs for a conversation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SignedAudioUris : GTLRObject
@@ -23891,32 +22199,6 @@ GTLR_DEPRECATED
 /** A list of join key correlation results for each conversation tested. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationResult *> *joinKeyResults;
 
-@end
-
-
-/**
- *  A tool call from the agent.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ToolCall : GTLRObject
-
-/** Output only. The input arguments to the tool. */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ToolCall_Input *input;
-
-/** Output only. The name of the tool being called. */
-@property(nonatomic, copy, nullable) NSString *toolName;
-
-@end
-
-
-/**
- *  Output only. The input arguments to the tool.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ToolCall_Input : GTLRObject
 @end
 
 

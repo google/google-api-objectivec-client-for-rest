@@ -141,7 +141,7 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Verif
 //
 
 @implementation GTLRMyBusinessVerifications_GenerateInstantVerificationTokenRequest
-@dynamic locationData, locationId;
+@dynamic locationId;
 @end
 
 
@@ -174,16 +174,6 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Verif
   return @"verifications";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMyBusinessVerifications_LocationData
-//
-
-@implementation GTLRMyBusinessVerifications_LocationData
-@dynamic address, name;
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Blogger API (blogger/v3)
+//   blogger API (blogger/v3)
 // Description:
 //   The Blogger API provides access to posts, comments and pages of a Blogger
 //   blog.
@@ -43,7 +43,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBloggerReadonly;
 //
 
 /**
- *  Service for executing Blogger API queries.
+ *  Service for executing blogger API queries.
  *
  *  The Blogger API provides access to posts, comments and pages of a Blogger
  *  blog.

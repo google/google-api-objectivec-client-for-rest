@@ -479,6 +479,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  */
 @interface GTLRGmail_BatchModifyMessagesRequest : GTLRObject
 
+/**
+ *  A list of Classification Label values to add. If a Classification Label with
+ *  the same label ID is already applied to the message, fields with existing
+ *  field IDs will be updated and fields with new field IDs will be added.
+ *  There's a limit of 20 Classification Label values per request. If the
+ *  message is already classified and the final total number of Classification
+ *  Label values exceeds the maximum allowed number of Classification Label
+ *  values per message, the modification fails.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_ClassificationLabelValue *> *addClassificationLabels;
+
 /** A list of label IDs to add to messages. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
 
@@ -486,6 +497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *  The IDs of the messages to modify. There is a limit of 1000 ids per request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
+
+/** A list of Classification Label values to remove from messages. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeClassificationLabelIds;
 
 /** A list of label IDs to remove from messages. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *removeLabelIds;
@@ -1170,7 +1184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *  #f2b2a8, #7a2e0b, #ffc8af, #7a4706, #ffdeb5, \\#594c05, #fbe983, #684e07,
  *  #fdedc1, #0b4f30, #b3efd3, #04502e, #a2dcc1, \\#c2c2c2, #4986e7, #2da2bb,
  *  #b99aff, #994a64, #f691b2, #ff7537, #ffad46, \\#662e37, #ebdbde, #cca6ac,
- *  #094228, #42d692, #16a765
+ *  #094228, #42d692, #16a765, #757575, #1e53b8, \\#007286, #7858c3, #c2185b,
+ *  #d93025, #54240e, #633e04, #521d28, #202124, \\#083018
  */
 @property(nonatomic, copy, nullable) NSString *backgroundColor;
 
@@ -1190,7 +1205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *  #7a2e0b, #ffc8af, #7a4706, #ffdeb5, \\#594c05, #fbe983, #684e07, #fdedc1,
  *  #0b4f30, #b3efd3, #04502e, #a2dcc1, \\#c2c2c2, #4986e7, #2da2bb, #b99aff,
  *  #994a64, #f691b2, #ff7537, #ffad46, \\#662e37, #ebdbde, #cca6ac, #094228,
- *  #42d692, #16a765
+ *  #42d692, #16a765, #757575, #1e53b8, \\#007286, #7858c3, #c2185b, #d93025,
+ *  #54240e, #633e04, #521d28, #202124, \\#083018
  */
 @property(nonatomic, copy, nullable) NSString *textColor;
 
@@ -1495,7 +1511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
  *  schemas can be queried using the Google Drive Labels API. Each
  *  classification label ID must be unique. If duplicate IDs are provided, only
  *  one will be retained, and the selection is arbitrary. Only used for Google
- *  Workspace accounts.
+ *  Workspace accounts. There's a limit of 20 Classification Label values per
+ *  request. If the Classification Label values exceeds the maximum allowed
+ *  number, the request fails.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGmail_ClassificationLabelValue *> *classificationLabelValues;
 
@@ -1533,7 +1551,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
 /**
  *  The entire email message in an RFC 2822 formatted and base64url encoded
  *  string. Returned in `messages.get` and `drafts.get` responses when the
- *  `format=RAW` parameter is supplied.
+ *  `format=RAW` parameter is supplied. \@required gmail.users.drafts.create
+ *  gmail.users.drafts.update
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1661,10 +1680,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
 @interface GTLRGmail_ModifyMessageRequest : GTLRObject
 
 /**
+ *  A list of classification label values to add. If a Classification Label with
+ *  the same label ID is already applied to the message, fields with existing
+ *  field IDs will be updated and fields with new field IDs will be added.
+ *  There's a limit of 20 Classification Label values per request. If the
+ *  message is already classified and the final total number of Classification
+ *  Label values exceeds the maximum allowed number of Classification Label
+ *  values per message, the modification fails.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGmail_ClassificationLabelValue *> *addClassificationLabels;
+
+/**
  *  A list of IDs of labels to add to this message. You can add up to 100 labels
  *  with each update.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addLabelIds;
+
+/** A list of Classification Label values to remove from this message. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeClassificationLabelIds;
 
 /**
  *  A list IDs of labels to remove from this message. You can remove up to 100

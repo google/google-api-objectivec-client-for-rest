@@ -1020,6 +1020,24 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_SchemaSubject
+//
+
+@implementation GTLRManagedKafka_SchemaSubject
+@dynamic name, versions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_SchemaVersion
 //
 

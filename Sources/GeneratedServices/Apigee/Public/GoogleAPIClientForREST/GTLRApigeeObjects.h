@@ -3787,6 +3787,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
 
+/**
+ *  Output only. Whether this proxy revision is detected as an MCP (Model
+ *  Context Protocol) proxy. A proxy revision is identified as MCP if it has a
+ *  proxy endpoint with the `/mcp` base path that routes to the MCP target URL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mcp;
+
 /** Name of the API proxy. */
 @property(nonatomic, copy, nullable) NSString *name;
 

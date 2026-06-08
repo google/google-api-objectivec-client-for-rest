@@ -3084,6 +3084,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
+ *  Create a policy.
+ *
+ *  Method: cloudidentity.policies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPolicies
+ */
+@interface GTLRCloudIdentityQuery_PoliciesCreate : GTLRCloudIdentityQuery
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Create a policy.
+ *
+ *  @param object The @c GTLRCloudIdentity_Policy to include in the query.
+ *
+ *  @return GTLRCloudIdentityQuery_PoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_Policy *)object;
+
+@end
+
+/**
+ *  Delete a policy.
+ *
+ *  Method: cloudidentity.policies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPolicies
+ */
+@interface GTLRCloudIdentityQuery_PoliciesDelete : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The name of the policy to delete. Format: `policies/{policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Delete a policy.
+ *
+ *  @param name Required. The name of the policy to delete. Format:
+ *    `policies/{policy}`.
+ *
+ *  @return GTLRCloudIdentityQuery_PoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Get a policy.
  *
  *  Method: cloudidentity.policies.get
@@ -3126,26 +3178,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  Optional. A CEL expression for filtering the results. Policies can be
- *  filtered by application with this expression:
- *  setting.type.matches('^settings/gmail\\\\..*$') Policies can be filtered by
- *  setting type with this expression:
- *  setting.type.matches('^.*\\\\.service_status$') A maximum of one of the
- *  above setting.type clauses can be used. Policies can be filtered by customer
- *  with this expression: customer == "customers/{customer}" Where `customer` is
- *  the `id` from the [Admin SDK `Customer`
+ *  filtered using the expression in the following ways: - Filter by
+ *  application: `setting.type.matches('^settings/gmail\\\\..*$')` - Filter by
+ *  setting type: `setting.type.matches('^.*\\\\.service_status$')` - Filter by
+ *  customer: `customer == "customers/{customer}"` Where `customer` is the `id`
+ *  from the [Admin SDK `Customer`
  *  resource](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers).
  *  You may use `customers/my_customer` to specify your own organization. When
- *  no customer is mentioned it will be default to customers/my_customer. A
- *  maximum of one customer clause can be used. The above clauses can only be
- *  combined together in a single filter expression with the `&&` operator.
+ *  no `customer` is mentioned it will be default to `customers/my_customer`.
+ *  You may only filter on policies for a single customer at a time. The above
+ *  clauses can be combined together in a single filter expression with the `&&`
+ *  and `||` operators, like in the following example: `customer ==
+ *  "customers/my_customer" && ( setting.type.matches('^settings/gmail\\\\..*$')
+ *  || setting.type.matches('^.*\\\\.service_status$') )`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of results to return. The service can return
- *  fewer than this number. If omitted or set to 0, the default is 50 results
- *  per page. The maximum allowed value is 100. `page_size` values greater than
- *  100 default to 100.
+ *  fewer than this number. If omitted or set to `0`, the default is `50`
+ *  results per page. The maximum allowed value is `100`. `page_size` values
+ *  greater than `100` default to `100`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -3169,6 +3222,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Update a policy.
+ *
+ *  Method: cloudidentity.policies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPolicies
+ */
+@interface GTLRCloudIdentityQuery_PoliciesPatch : GTLRCloudIdentityQuery
+
+/**
+ *  Output only. Identifier. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the Policy.
+ *  Format: policies/{policy}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Update a policy.
+ *
+ *  @param object The @c GTLRCloudIdentity_Policy to include in the query.
+ *  @param name Output only. Identifier. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the Policy.
+ *    Format: policies/{policy}.
+ *
+ *  @return GTLRCloudIdentityQuery_PoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_Policy *)object
+                           name:(NSString *)name;
 
 @end
 

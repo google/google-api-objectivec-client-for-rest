@@ -793,6 +793,33 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
 
 @end
 
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageSend
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/message:send";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageSend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse class];
+  query.loggingName = @"ces.projects.locations.apps.message.send";
+  return query;
+}
+
+@end
+
 @implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsPatch
 
 @dynamic name, updateMask;

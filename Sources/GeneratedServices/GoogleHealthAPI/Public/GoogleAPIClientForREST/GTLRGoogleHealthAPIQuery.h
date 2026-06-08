@@ -277,6 +277,224 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a subscription for a specific user to a specific subscriber. This
+ *  method requires the subscriber to have a `SubscriptionCreatePolicy` set to
+ *  `MANUAL` for the given data types.
+ *
+ *  Method: health.projects.subscribers.subscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPICloudPlatform
+ */
+@interface GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsCreate : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Required. The parent subscriber. Format:
+ *  projects/{project}/subscribers/{subscriber} The {subscriber} ID is
+ *  user-settable (4-36 characters, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/)
+ *  if provided during creation, or system-generated otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The {subscription_id} is user-settable (4-36 chars, matching
+ *  /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) or system-generated otherwise. If
+ *  provided, the ID must be unique within the parent subscriber.
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_Subscription.
+ *
+ *  Creates a subscription for a specific user to a specific subscriber. This
+ *  method requires the subscriber to have a `SubscriptionCreatePolicy` set to
+ *  `MANUAL` for the given data types.
+ *
+ *  @param object The @c GTLRGoogleHealthAPI_CreateSubscriptionPayload to
+ *    include in the query.
+ *  @param parent Required. The parent subscriber. Format:
+ *    projects/{project}/subscribers/{subscriber} The {subscriber} ID is
+ *    user-settable (4-36 characters, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/)
+ *    if provided during creation, or system-generated otherwise.
+ *
+ *  @return GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleHealthAPI_CreateSubscriptionPayload *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific user subscription, stopping notifications for this user
+ *  to this subscriber.
+ *
+ *  Method: health.projects.subscribers.subscriptions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPICloudPlatform
+ */
+@interface GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsDelete : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Required. The resource name of the subscription to delete. Format:
+ *  `projects/{project}/subscribers/{subscriber}/subscriptions/{subscription}`
+ *  Example:
+ *  `projects/my-project/subscribers/my-subscriber-123/subscriptions/my-subscription-456`
+ *  The {subscriber} ID is user-settable (4-36 characters, matching
+ *  /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) if provided during creation, or
+ *  system-generated otherwise. The {subscription} ID is user-settable (4-36
+ *  characters, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) or system-generated
+ *  if not provided during creation.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_Empty.
+ *
+ *  Deletes a specific user subscription, stopping notifications for this user
+ *  to this subscriber.
+ *
+ *  @param name Required. The resource name of the subscription to delete.
+ *    Format:
+ *    `projects/{project}/subscribers/{subscriber}/subscriptions/{subscription}`
+ *    Example:
+ *    `projects/my-project/subscribers/my-subscriber-123/subscriptions/my-subscription-456`
+ *    The {subscriber} ID is user-settable (4-36 characters, matching
+ *    /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) if provided during creation, or
+ *    system-generated otherwise. The {subscription} ID is user-settable (4-36
+ *    characters, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) or system-generated
+ *    if not provided during creation.
+ *
+ *  @return GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all active subscriptions for a given subscriber. This can be filtered,
+ *  for example, by user or data type.
+ *
+ *  Method: health.projects.subscribers.subscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPICloudPlatform
+ */
+@interface GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsList : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Optional. A filter to apply to the list of subscriptions. The filter syntax
+ *  is described in https://google.aip.dev/160. The filter can be applied to the
+ *  following fields: - `user` - `data_type` The `user` identifier (e.g.,
+ *  `user1` in `users/user1`) refers to the public `health_user_id` Example:
+ *  user = "users/user1" Example: user = "users/user1" OR user = "users/user2"
+ *  Example: user = "users/user1" AND (data_type = "sleep" OR data_type =
+ *  "weight")
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of subscriptions to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 subscriptions will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListSubscriptions` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListSubscriptions` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent subscriber. Format:
+ *  projects/{project}/subscribers/{subscriber} The {subscriber} ID is
+ *  user-settable (4-36 characters, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/)
+ *  if provided during creation, or system-generated otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_ListSubscriptionsResponse.
+ *
+ *  Lists all active subscriptions for a given subscriber. This can be filtered,
+ *  for example, by user or data type.
+ *
+ *  @param parent Required. The parent subscriber. Format:
+ *    projects/{project}/subscribers/{subscriber} The {subscriber} ID is
+ *    user-settable (4-36 characters, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/)
+ *    if provided during creation, or system-generated otherwise.
+ *
+ *  @return GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the data types for an existing user subscription.
+ *
+ *  Method: health.projects.subscribers.subscriptions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPICloudPlatform
+ */
+@interface GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsPatch : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Identifier. The resource name of the Subscription. Format:
+ *  `projects/{project}/subscribers/{subscriber}/subscriptions/{subscription}`
+ *  Example:
+ *  `projects/my-project/subscribers/my-subscriber-123/subscriptions/my-subscription-456`
+ *  The {project} ID is mandatory (6-30 characters, matching /a-z{6,30}/) The
+ *  {subscriber} ID is user-settable (4-36 characters, matching
+ *  /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) if provided during creation, or
+ *  system-generated otherwise. The {subscription} ID is user-settable (4-36
+ *  chars, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) or system-generated
+ *  otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_Subscription.
+ *
+ *  Updates the data types for an existing user subscription.
+ *
+ *  @param object The @c GTLRGoogleHealthAPI_Subscription to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the Subscription. Format:
+ *    `projects/{project}/subscribers/{subscriber}/subscriptions/{subscription}`
+ *    Example:
+ *    `projects/my-project/subscribers/my-subscriber-123/subscriptions/my-subscription-456`
+ *    The {project} ID is mandatory (6-30 characters, matching /a-z{6,30}/) The
+ *    {subscriber} ID is user-settable (4-36 characters, matching
+ *    /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) if provided during creation, or
+ *    system-generated otherwise. The {subscription} ID is user-settable (4-36
+ *    chars, matching /[a-z]([a-z0-9-]{2,34}[a-z0-9])/) or system-generated
+ *    otherwise.
+ *
+ *  @return GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleHealthAPI_Subscription *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Delete a batch of identifyable data points.
  *
  *  Method: health.users.dataTypes.dataPoints.batchDelete
@@ -348,6 +566,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Roll up data points over civil time intervals for supported data types.
  *
  *  Method: health.users.dataTypes.dataPoints.dailyRollUp
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsDailyRollUp : GTLRGoogleHealthAPIQuery
 
@@ -379,13 +603,22 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Exports exercise data in TCX format. Note: While the Authorization section
- *  below states that any one of the listed scopes is accepted, this specific
- *  method requires the user to provide both one of the `activity_and_fitness`
- *  scopes (`normal` or `readonly`) AND one of the `location` scopes (`normal`
- *  or `readonly`) in their access token to succeed.
+ *  Exports exercise data in TCX format. **IMPORTANT:** HTTP clients must append
+ *  `?alt=media` to the request URL to download the raw TCX file. Example:
+ *  `https://health.googleapis.com/v4/users/me/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
+ *  Without `alt=media`, the server returns a JSON response
+ *  (`ExportExerciseTcxResponse`) which is intended primarily for gRPC clients.
+ *  **Note:** While the Authorization section below states that any one of the
+ *  listed scopes is accepted, this specific method requires the user to provide
+ *  both one of the `activity_and_fitness` scopes (`normal` or `readonly`) AND
+ *  one of the `location` scopes (`normal` or `readonly`) in their access token
+ *  to succeed.
  *
  *  Method: health.users.dataTypes.dataPoints.exportExerciseTcx
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsExportExerciseTcx : GTLRGoogleHealthAPIQuery
 
@@ -408,11 +641,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleHealthAPI_ExportExerciseTcxResponse.
  *
- *  Exports exercise data in TCX format. Note: While the Authorization section
- *  below states that any one of the listed scopes is accepted, this specific
- *  method requires the user to provide both one of the `activity_and_fitness`
- *  scopes (`normal` or `readonly`) AND one of the `location` scopes (`normal`
- *  or `readonly`) in their access token to succeed.
+ *  Exports exercise data in TCX format. **IMPORTANT:** HTTP clients must append
+ *  `?alt=media` to the request URL to download the raw TCX file. Example:
+ *  `https://health.googleapis.com/v4/users/me/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
+ *  Without `alt=media`, the server returns a JSON response
+ *  (`ExportExerciseTcxResponse`) which is intended primarily for gRPC clients.
+ *  **Note:** While the Authorization section below states that any one of the
+ *  listed scopes is accepted, this specific method requires the user to provide
+ *  both one of the `activity_and_fitness` scopes (`normal` or `readonly`) AND
+ *  one of the `location` scopes (`normal` or `readonly`) in their access token
+ *  to succeed.
  *
  *  @param name Required. The resource name of the exercise data point to
  *    export. Format: `users/{user}/dataTypes/exercise/dataPoints/{data_point}`
@@ -428,11 +666,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Exports exercise data in TCX format. Note: While the Authorization section
- *  below states that any one of the listed scopes is accepted, this specific
- *  method requires the user to provide both one of the `activity_and_fitness`
- *  scopes (`normal` or `readonly`) AND one of the `location` scopes (`normal`
- *  or `readonly`) in their access token to succeed.
+ *  Exports exercise data in TCX format. **IMPORTANT:** HTTP clients must append
+ *  `?alt=media` to the request URL to download the raw TCX file. Example:
+ *  `https://health.googleapis.com/v4/users/me/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
+ *  Without `alt=media`, the server returns a JSON response
+ *  (`ExportExerciseTcxResponse`) which is intended primarily for gRPC clients.
+ *  **Note:** While the Authorization section below states that any one of the
+ *  listed scopes is accepted, this specific method requires the user to provide
+ *  both one of the `activity_and_fitness` scopes (`normal` or `readonly`) AND
+ *  one of the `location` scopes (`normal` or `readonly`) in their access token
+ *  to succeed.
  *
  *  @param name Required. The resource name of the exercise data point to
  *    export. Format: `users/{user}/dataTypes/exercise/dataPoints/{data_point}`
@@ -451,6 +694,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get a single identifyable data point.
  *
  *  Method: health.users.dataTypes.dataPoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsGet : GTLRGoogleHealthAPIQuery
 
@@ -480,6 +729,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Query user health and fitness data points.
  *
  *  Method: health.users.dataTypes.dataPoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsList : GTLRGoogleHealthAPIQuery
 
@@ -517,16 +772,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  operators: `>=`, `<` - Date literal expected in ISO 8601 `YYYY-MM-DD` format
  *  - Supported logical operators: `AND` - Example: -
  *  `daily_heart_rate_variability.date < "2024-08-15"` - Session civil start
- *  time (**Excluding Sleep**): - Pattern:
+ *  time (**Excluding Sleep and ECG**): - Pattern:
  *  `{session_data_type}.interval.civil_start_time` - Supported comparison
  *  operators: `>=`, `<` - Date with optional time literal expected in ISO 8601
  *  `YYYY-MM-DD[THH:mm:ss]` format - Supported logical operators: `AND` -
  *  Example: - `exercise.interval.civil_start_time >= "2023-11-24" AND
  *  exercise.interval.civil_start_time < "2023-11-25"` -
- *  `exercise.interval.civil_start_time >= "2024-08-14T12:34:56"` - Session end
- *  time (**Sleep specific**): - Pattern: `sleep.interval.end_time` - Supported
- *  comparison operators: `>=`, `<` - Timestamp literal expected in RFC-3339
- *  format - Supported logical operators: `AND`, `OR` - Example: -
+ *  `exercise.interval.civil_start_time >= "2024-08-14T12:34:56"` - Session
+ *  start time (**ECG specific**): - Pattern:
+ *  `electrocardiogram.interval.start_time` - Supported comparison operators:
+ *  `>=` - Timestamp literal expected in RFC-3339 format - Example: -
+ *  `electrocardiogram.interval.start_time >= "2024-08-14T12:34:56Z"` - Note:
+ *  Only filtering by start time is supported for ECG. Filtering by end time
+ *  (e.g., `electrocardiogram.interval.end_time`) is not supported. - Session
+ *  end time (**Sleep specific**): - Pattern: `sleep.interval.end_time` -
+ *  Supported comparison operators: `>=`, `<` - Timestamp literal expected in
+ *  RFC-3339 format - Supported logical operators: `AND`, `OR` - Example: -
  *  `sleep.interval.end_time >= "2023-11-24T00:00:00Z" AND
  *  sleep.interval.end_time < "2023-11-25T00:00:00Z"` - Session civil end time
  *  (**Sleep specific**): - Pattern: `sleep.interval.civil_end_time` - Supported
@@ -595,10 +856,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The `{user}` ID is a system-generated identifier, as described in
  *  Identity.health_user_id. The `{data_type}` ID corresponds to the kebab-case
  *  version of the field names in the DataPoint data union field, e.g.
- *  `total-calories` for the `total_calories` field. The `{data_point}` ID can
- *  be client-provided or system-generated. If client-provided, it must be a
- *  string of 4-63 characters, containing only lowercase letters, numbers, and
- *  hyphens.
+ *  `heart-rate` for the `heart_rate` field. The `{data_point}` ID can be
+ *  client-provided or system-generated. If client-provided, it must be a string
+ *  of 4-63 characters, containing only lowercase letters, numbers, and hyphens.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -618,10 +878,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    The `{user}` ID is a system-generated identifier, as described in
  *    Identity.health_user_id. The `{data_type}` ID corresponds to the
  *    kebab-case version of the field names in the DataPoint data union field,
- *    e.g. `total-calories` for the `total_calories` field. The `{data_point}`
- *    ID can be client-provided or system-generated. If client-provided, it must
- *    be a string of 4-63 characters, containing only lowercase letters,
- *    numbers, and hyphens.
+ *    e.g. `heart-rate` for the `heart_rate` field. The `{data_point}` ID can be
+ *    client-provided or system-generated. If client-provided, it must be a
+ *    string of 4-63 characters, containing only lowercase letters, numbers, and
+ *    hyphens.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsPatch
  */
@@ -634,6 +894,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Reconcile data points from multiple data sources into a single data stream.
  *
  *  Method: health.users.dataTypes.dataPoints.reconcile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsReconcile : GTLRGoogleHealthAPIQuery
 
@@ -698,6 +964,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Roll up data points over physical time intervals for supported data types.
  *
  *  Method: health.users.dataTypes.dataPoints.rollUp
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsRollUp : GTLRGoogleHealthAPIQuery
 
@@ -734,6 +1006,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  between the two systems.
  *
  *  Method: health.users.getIdentity
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersGetIdentity : GTLRGoogleHealthAPIQuery
 
@@ -759,9 +1040,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns user's IRN Profile details.
+ *
+ *  Method: health.users.getIrnProfile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
+ */
+@interface GTLRGoogleHealthAPIQuery_UsersGetIrnProfile : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Required. The resource name of the IRN Profile. Format:
+ *  `users/{user}/irnProfile` Example: `users/1234567890/irnProfile` or
+ *  `users/me/irnProfile` The {user} ID is a system-generated Google Health API
+ *  user ID, a string of 1-63 characters consisting of lowercase and uppercase
+ *  letters, numbers, and hyphens. The literal `me` can also be used to refer to
+ *  the authenticated user.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_IrnProfile.
+ *
+ *  Returns user's IRN Profile details.
+ *
+ *  @param name Required. The resource name of the IRN Profile. Format:
+ *    `users/{user}/irnProfile` Example: `users/1234567890/irnProfile` or
+ *    `users/me/irnProfile` The {user} ID is a system-generated Google Health
+ *    API user ID, a string of 1-63 characters consisting of lowercase and
+ *    uppercase letters, numbers, and hyphens. The literal `me` can also be used
+ *    to refer to the authenticated user.
+ *
+ *  @return GTLRGoogleHealthAPIQuery_UsersGetIrnProfile
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns user Profile details.
  *
  *  Method: health.users.getProfile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersGetProfile : GTLRGoogleHealthAPIQuery
 
@@ -785,6 +1107,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns user settings details.
  *
  *  Method: health.users.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersGetSettings : GTLRGoogleHealthAPIQuery
 
@@ -801,6 +1126,85 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleHealthAPIQuery_UsersGetSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns user's Device.
+ *
+ *  Method: health.users.pairedDevices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly
+ */
+@interface GTLRGoogleHealthAPIQuery_UsersPairedDevicesGet : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Required. The name of the device to retrieve. Format:
+ *  users/{user}/devices/{device}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_PairedDevice.
+ *
+ *  Returns user's Device.
+ *
+ *  @param name Required. The name of the device to retrieve. Format:
+ *    users/{user}/devices/{device}
+ *
+ *  @return GTLRGoogleHealthAPIQuery_UsersPairedDevicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the user's list of paired 1P trackers and smartwatches.
+ *
+ *  Method: health.users.pairedDevices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly
+ */
+@interface GTLRGoogleHealthAPIQuery_UsersPairedDevicesList : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Optional. The maximum number of devices to return. The service may return
+ *  fewer than this value. If unspecified, at most 5 devices will be returned.
+ *  The maximum value is 100. values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListPairedDevices` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListPairedDevices` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of devices. Format:
+ *  users/{user}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_ListPairedDevicesResponse.
+ *
+ *  Returns the user's list of paired 1P trackers and smartwatches.
+ *
+ *  @param parent Required. The parent, which owns this collection of devices.
+ *    Format: users/{user}
+ *
+ *  @return GTLRGoogleHealthAPIQuery_UsersPairedDevicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

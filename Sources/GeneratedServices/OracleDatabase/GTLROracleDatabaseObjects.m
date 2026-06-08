@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLROracleDatabase_AmazonS3IcebergStorage.schemeType
+NSString * const kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_S3 = @"S3";
+NSString * const kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_S3a = @"S3A";
+NSString * const kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_SchemeTypeUnspecified = @"SCHEME_TYPE_UNSPECIFIED";
+
 // GTLROracleDatabase_AutonomousDatabaseBackupProperties.lifecycleState
 NSString * const kGTLROracleDatabase_AutonomousDatabaseBackupProperties_LifecycleState_Active = @"ACTIVE";
 NSString * const kGTLROracleDatabase_AutonomousDatabaseBackupProperties_LifecycleState_Creating = @"CREATING";
@@ -404,6 +409,12 @@ NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Terminati
 NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Updating = @"UPDATING";
 NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Upgrading = @"UPGRADING";
 
+// GTLROracleDatabase_DeploymentDiagnosticData.diagnosticState
+NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_DiagnosticStateUnspecified = @"DIAGNOSTIC_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_InProgress = @"IN_PROGRESS";
+NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_Succeeded = @"SUCCEEDED";
+
 // GTLROracleDatabase_EncryptionKey.provider
 NSString * const kGTLROracleDatabase_EncryptionKey_Provider_GoogleManaged = @"GOOGLE_MANAGED";
 NSString * const kGTLROracleDatabase_EncryptionKey_Provider_OracleManaged = @"ORACLE_MANAGED";
@@ -460,6 +471,339 @@ NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Upda
 NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_All = @"ALL";
 NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_GenerateTypeUnspecified = @"GENERATE_TYPE_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_Single = @"SINGLE";
+
+// GTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties.authenticationType
+NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_AzureActiveDirectory = @"AZURE_ACTIVE_DIRECTORY";
+NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_SharedAccessSignature = @"SHARED_ACCESS_SIGNATURE";
+NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_SharedKey = @"SHARED_KEY";
+
+// GTLROracleDatabase_GoldengateBackupSchedule.frequencyBackupScheduled
+NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Daily = @"DAILY";
+NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_FrequencyBackupScheduledUnspecified = @"FREQUENCY_BACKUP_SCHEDULED_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Monthly = @"MONTHLY";
+NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Weekly = @"WEEKLY";
+
+// GTLROracleDatabase_GoldengateConnectionAssignmentProperties.state
+NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Active = @"ACTIVE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Creating = @"CREATING";
+NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Deleting = @"DELETING";
+NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Updating = @"UPDATING";
+
+// GTLROracleDatabase_GoldengateConnectionProperties.connectionType
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonKinesis = @"AMAZON_KINESIS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonRedshift = @"AMAZON_REDSHIFT";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonS3 = @"AMAZON_S3";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AzureDataLakeStorage = @"AZURE_DATA_LAKE_STORAGE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AzureSynapseAnalytics = @"AZURE_SYNAPSE_ANALYTICS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Databricks = @"DATABRICKS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Db2 = @"DB2";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Elasticsearch = @"ELASTICSEARCH";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Generic = @"GENERIC";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Goldengate = @"GOLDENGATE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoldengateConnectionTypeUnspecified = @"GOLDENGATE_CONNECTION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoogleBigquery = @"GOOGLE_BIGQUERY";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoogleCloudStorage = @"GOOGLE_CLOUD_STORAGE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GooglePubsub = @"GOOGLE_PUBSUB";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Hdfs = @"HDFS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Iceberg = @"ICEBERG";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_JavaMessageService = @"JAVA_MESSAGE_SERVICE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Kafka = @"KAFKA";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_KafkaSchemaRegistry = @"KAFKA_SCHEMA_REGISTRY";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_MicrosoftFabric = @"MICROSOFT_FABRIC";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_MicrosoftSqlserver = @"MICROSOFT_SQLSERVER";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Mongodb = @"MONGODB";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Mysql = @"MYSQL";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OciObjectStorage = @"OCI_OBJECT_STORAGE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Oracle = @"ORACLE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OracleAiDataPlatform = @"ORACLE_AI_DATA_PLATFORM";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OracleNosql = @"ORACLE_NOSQL";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Postgresql = @"POSTGRESQL";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Redis = @"REDIS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Snowflake = @"SNOWFLAKE";
+
+// GTLROracleDatabase_GoldengateConnectionProperties.lifecycleState
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Active = @"ACTIVE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Creating = @"CREATING";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Deleted = @"DELETED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Deleting = @"DELETING";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_GoldengateConnectionLifecycleStateUnspecified = @"GOLDENGATE_CONNECTION_LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Updating = @"UPDATING";
+
+// GTLROracleDatabase_GoldengateConnectionProperties.routingMethod
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_DedicatedEndpoint = @"DEDICATED_ENDPOINT";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_GoldengateConnectionRoutingMethodUnspecified = @"GOLDENGATE_CONNECTION_ROUTING_METHOD_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_SharedDeploymentEndpoint = @"SHARED_DEPLOYMENT_ENDPOINT";
+
+// GTLROracleDatabase_GoldengateConnectionType.connectionType
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonKinesis = @"AMAZON_KINESIS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonRedshift = @"AMAZON_REDSHIFT";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonS3 = @"AMAZON_S3";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AzureDataLakeStorage = @"AZURE_DATA_LAKE_STORAGE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AzureSynapseAnalytics = @"AZURE_SYNAPSE_ANALYTICS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Databricks = @"DATABRICKS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Db2 = @"DB2";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Elasticsearch = @"ELASTICSEARCH";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Generic = @"GENERIC";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Goldengate = @"GOLDENGATE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GoogleBigquery = @"GOOGLE_BIGQUERY";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GoogleCloudStorage = @"GOOGLE_CLOUD_STORAGE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GooglePubsub = @"GOOGLE_PUBSUB";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Hdfs = @"HDFS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Iceberg = @"ICEBERG";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_JavaMessageService = @"JAVA_MESSAGE_SERVICE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Kafka = @"KAFKA";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_KafkaSchemaRegistry = @"KAFKA_SCHEMA_REGISTRY";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_MicrosoftFabric = @"MICROSOFT_FABRIC";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_MicrosoftSqlserver = @"MICROSOFT_SQLSERVER";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Mongodb = @"MONGODB";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Mysql = @"MYSQL";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OciObjectStorage = @"OCI_OBJECT_STORAGE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Oracle = @"ORACLE";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OracleAiDataPlatform = @"ORACLE_AI_DATA_PLATFORM";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OracleNosql = @"ORACLE_NOSQL";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Postgresql = @"POSTGRESQL";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Redis = @"REDIS";
+NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Snowflake = @"SNOWFLAKE";
+
+// GTLROracleDatabase_GoldengateDatabricksConnectionProperties.authenticationType
+NSString * const kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_DatabricksAuthenticationTypeUnspecified = @"DATABRICKS_AUTHENTICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_OauthM2m = @"OAUTH_M2M";
+NSString * const kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_PersonalAccessToken = @"PERSONAL_ACCESS_TOKEN";
+
+// GTLROracleDatabase_GoldengateDb2ConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Db2SecurityProtocolUnspecified = @"DB2_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateDeploymentEnvironment.category
+NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DataReplicationCategory = @"DATA_REPLICATION_CATEGORY";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DataTransformsCategory = @"DATA_TRANSFORMS_CATEGORY";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DeploymentCategoryUnspecified = @"DEPLOYMENT_CATEGORY_UNSPECIFIED";
+
+// GTLROracleDatabase_GoldengateDeploymentEnvironment.environmentType
+NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_DeploymentEnvironmentTypeUnspecified = @"DEPLOYMENT_ENVIRONMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_DevelopmentOrTesting = @"DEVELOPMENT_OR_TESTING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_Production = @"PRODUCTION";
+
+// GTLROracleDatabase_GoldengateDeploymentLock.type
+NSString * const kGTLROracleDatabase_GoldengateDeploymentLock_Type_Delete = @"DELETE";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentLock_Type_Full = @"FULL";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentLock_Type_LockTypeUnspecified = @"LOCK_TYPE_UNSPECIFIED";
+
+// GTLROracleDatabase_GoldengateDeploymentProperties.category
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_Category_DataReplication = @"DATA_REPLICATION";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_Category_DataTransforms = @"DATA_TRANSFORMS";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_Category_GoldengateDeploymentCategoryUnspecified = @"GOLDENGATE_DEPLOYMENT_CATEGORY_UNSPECIFIED";
+
+// GTLROracleDatabase_GoldengateDeploymentProperties.deploymentRole
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_GoldengateDeploymentRoleTypeUnspecified = @"GOLDENGATE_DEPLOYMENT_ROLE_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_Primary = @"PRIMARY";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_Standby = @"STANDBY";
+
+// GTLROracleDatabase_GoldengateDeploymentProperties.licenseModel
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_BringYourOwnLicense = @"BRING_YOUR_OWN_LICENSE";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_LicenseIncluded = @"LICENSE_INCLUDED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_LicenseModelUnspecified = @"LICENSE_MODEL_UNSPECIFIED";
+
+// GTLROracleDatabase_GoldengateDeploymentProperties.lifecycleState
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Active = @"ACTIVE";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Cancelled = @"CANCELLED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Cancelling = @"CANCELLING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Creating = @"CREATING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Deleted = @"DELETED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Deleting = @"DELETING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_GoldengateDeploymentLifecycleStateUnspecified = @"GOLDENGATE_DEPLOYMENT_LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Inactive = @"INACTIVE";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_InProgress = @"IN_PROGRESS";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Updating = @"UPDATING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Waiting = @"WAITING";
+
+// GTLROracleDatabase_GoldengateDeploymentProperties.lifecycleSubState
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_BackingUp = @"BACKING_UP";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_GoldengateDeploymentLifecycleSubStateUnspecified = @"GOLDENGATE_DEPLOYMENT_LIFECYCLE_SUB_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Moving = @"MOVING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Recovering = @"RECOVERING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Restoring = @"RESTORING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_RollingBack = @"ROLLING_BACK";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Starting = @"STARTING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Stopping = @"STOPPING";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Upgrading = @"UPGRADING";
+
+// GTLROracleDatabase_GoldengateDeploymentProperties.nextMaintenanceActionType
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_NextMaintenanceActionType_NextMaintenanceActionTypeUnspecified = @"NEXT_MAINTENANCE_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_NextMaintenanceActionType_Upgrade = @"UPGRADE";
+
+// GTLROracleDatabase_GoldengateDeploymentType.category
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_Category_DataReplicationCategory = @"DATA_REPLICATION_CATEGORY";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_Category_DataTransformsCategory = @"DATA_TRANSFORMS_CATEGORY";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_Category_DeploymentCategoryUnspecified = @"DEPLOYMENT_CATEGORY_UNSPECIFIED";
+
+// GTLROracleDatabase_GoldengateDeploymentType.deploymentType
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Bigdata = @"BIGDATA";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseDb2i = @"DATABASE_DB2I";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseDb2zos = @"DATABASE_DB2ZOS";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseMicrosoftSqlserver = @"DATABASE_MICROSOFT_SQLSERVER";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseMysql = @"DATABASE_MYSQL";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseOracle = @"DATABASE_ORACLE";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabasePostgresql = @"DATABASE_POSTGRESQL";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DataTransforms = @"DATA_TRANSFORMS";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DeploymentTypeUnspecified = @"DEPLOYMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Ggsa = @"GGSA";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Ogg = @"OGG";
+
+// GTLROracleDatabase_GoldengateDeploymentVersionProperties.deploymentType
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Bigdata = @"BIGDATA";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseDb2i = @"DATABASE_DB2I";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseDb2zos = @"DATABASE_DB2ZOS";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseMicrosoftSqlserver = @"DATABASE_MICROSOFT_SQLSERVER";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseMysql = @"DATABASE_MYSQL";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseOracle = @"DATABASE_ORACLE";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabasePostgresql = @"DATABASE_POSTGRESQL";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DataTransforms = @"DATA_TRANSFORMS";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DeploymentTypeUnspecified = @"DEPLOYMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Ggsa = @"GGSA";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Ogg = @"OGG";
+
+// GTLROracleDatabase_GoldengateDeploymentVersionProperties.releaseType
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Bundle = @"BUNDLE";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_DeploymentReleaseTypeUnspecified = @"DEPLOYMENT_RELEASE_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Major = @"MAJOR";
+NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Minor = @"MINOR";
+
+// GTLROracleDatabase_GoldengateElasticsearchConnectionProperties.authenticationType
+NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_Basic = @"BASIC";
+NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_ElasticsearchAuthenticationTypeUnspecified = @"ELASTICSEARCH_AUTHENTICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_None = @"NONE";
+
+// GTLROracleDatabase_GoldengateElasticsearchConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_ElasticsearchSecurityProtocolUnspecified = @"ELASTICSEARCH_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties.authenticationType
+NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_Basic = @"BASIC";
+NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_JmsAuthenticationTypeUnspecified = @"JMS_AUTHENTICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_None = @"NONE";
+
+// GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_JmsSecurityProtocolUnspecified = @"JMS_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Mtls = @"MTLS";
+NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateKafkaConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_KafkaSecurityProtocolUnspecified = @"KAFKA_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_Plaintext = @"PLAINTEXT";
+NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_SaslPlaintext = @"SASL_PLAINTEXT";
+NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_SaslSsl = @"SASL_SSL";
+NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_Ssl = @"SSL";
+
+// GTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties.authenticationType
+NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_Basic = @"BASIC";
+NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_Mutual = @"MUTUAL";
+NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_None = @"NONE";
+
+// GTLROracleDatabase_GoldengateMaintenanceWindow.day
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Friday = @"FRIDAY";
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Monday = @"MONDAY";
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Saturday = @"SATURDAY";
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Sunday = @"SUNDAY";
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Thursday = @"THURSDAY";
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Wednesday = @"WEDNESDAY";
+
+// GTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_MicrosoftSqlserverSecurityProtocolUnspecified = @"MICROSOFT_SQLSERVER_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateMongodbConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_MongodbSecurityProtocolUnspecified = @"MONGODB_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Mtls = @"MTLS";
+NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateMysqlConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Mtls = @"MTLS";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_MysqlSecurityProtocolUnspecified = @"MYSQL_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateMysqlConnectionProperties.sslMode
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Disabled = @"DISABLED";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Preferred = @"PREFERRED";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Required = @"REQUIRED";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_SslModeUnspecified = @"SSL_MODE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_VerifyCa = @"VERIFY_CA";
+NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_VerifyIdentity = @"VERIFY_IDENTITY";
+
+// GTLROracleDatabase_GoldengateOggDeployment.credentialStore
+NSString * const kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_CredentialStoreUnspecified = @"CREDENTIAL_STORE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_Goldengate = @"GOLDENGATE";
+NSString * const kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_Iam = @"IAM";
+
+// GTLROracleDatabase_GoldengateOracleConnectionProperties.authenticationMode
+NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_Mtls = @"MTLS";
+NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_OracleAuthenticationModeUnspecified = @"ORACLE_AUTHENTICATION_MODE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateOracleConnectionProperties.sessionMode
+NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_Direct = @"DIRECT";
+NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_Redirect = @"REDIRECT";
+NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_SessionModeUnspecified = @"SESSION_MODE_UNSPECIFIED";
+
+// GTLROracleDatabase_GoldengatePostgresqlConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Mtls = @"MTLS";
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_PostgresqlSecurityProtocolUnspecified = @"POSTGRESQL_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengatePostgresqlConnectionProperties.sslMode
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_PostgresqlSslModeUnspecified = @"POSTGRESQL_SSL_MODE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_Prefer = @"PREFER";
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_Require = @"REQUIRE";
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_VerifyCa = @"VERIFY_CA";
+NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_VerifyFull = @"VERIFY_FULL";
+
+// GTLROracleDatabase_GoldengateRedisConnectionProperties.authenticationType
+NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_Basic = @"BASIC";
+NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_None = @"NONE";
+NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_RedisAuthenticationTypeUnspecified = @"REDIS_AUTHENTICATION_TYPE_UNSPECIFIED";
+
+// GTLROracleDatabase_GoldengateRedisConnectionProperties.securityProtocol
+NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Mtls = @"MTLS";
+NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Plain = @"PLAIN";
+NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_RedisSecurityProtocolUnspecified = @"REDIS_SECURITY_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Tls = @"TLS";
+
+// GTLROracleDatabase_GoldengateSnowflakeConnectionProperties.authenticationType
+NSString * const kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_Basic = @"BASIC";
+NSString * const kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_KeyPair = @"KEY_PAIR";
+
+// GTLROracleDatabase_IcebergCatalog.catalogType
+NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_CatalogTypeUnspecified = @"CATALOG_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Glue = @"GLUE";
+NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Hadoop = @"HADOOP";
+NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Nessie = @"NESSIE";
+NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Polaris = @"POLARIS";
+NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Rest = @"REST";
+
+// GTLROracleDatabase_IcebergStorage.storageType
+NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_AmazonS3 = @"AMAZON_S3";
+NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_AzureDataLakeStorage = @"AZURE_DATA_LAKE_STORAGE";
+NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_GoogleCloudStorage = @"GOOGLE_CLOUD_STORAGE";
+NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
 
 // GTLROracleDatabase_IdentityConnector.connectionState
 NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_Connected = @"CONNECTED";
@@ -564,6 +908,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Thursda
 NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Tuesday = @"TUESDAY";
 NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesday = @"WEDNESDAY";
 
+// GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest.type
+NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_Default = @"DEFAULT";
+NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_TestTypeUnspecified = @"TEST_TYPE_UNSPECIFIED";
+
+// GTLROracleDatabase_TestGoldengateConnectionAssignmentResponse.resultType
+NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_ResultTypeUnspecified = @"RESULT_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_Succeeded = @"SUCCEEDED";
+NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_TimedOut = @"TIMED_OUT";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLROracleDatabase_AllConnectionStrings
@@ -571,6 +925,17 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_AllConnectionStrings
 @dynamic high, low, medium;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_AmazonS3IcebergStorage
+//
+
+@implementation GTLROracleDatabase_AmazonS3IcebergStorage
+@dynamic accessKeyId, bucket, endpoint, region, schemeType,
+         secretAccessKeySecret;
 @end
 
 
@@ -761,6 +1126,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_AutonomousDbVersion
 @dynamic dbWorkload, name, version, workloadUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_AzureDataLakeStorageIcebergStorage
+//
+
+@implementation GTLROracleDatabase_AzureDataLakeStorageIcebergStorage
+@dynamic accountKeySecret, azureAccount, container, endpoint;
 @end
 
 
@@ -1223,6 +1598,22 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_DeploymentDiagnosticData
+//
+
+@implementation GTLROracleDatabase_DeploymentDiagnosticData
+@dynamic bucket, diagnosticEndTime, diagnosticStartTime, diagnosticState,
+         namespaceProperty, object;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_Empty
 //
 
@@ -1421,11 +1812,762 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_GlueIcebergCatalog
+//
+
+@implementation GTLROracleDatabase_GlueIcebergCatalog
+@dynamic glueId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateAmazonKinesisConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateAmazonKinesisConnectionProperties
+@dynamic accessKeyId, awsRegion, endpoint, secretAccessKeySecret,
+         technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateAmazonRedshiftConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateAmazonRedshiftConnectionProperties
+@dynamic connectionUrl, password, passwordSecretVersion, technologyType,
+         username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateAmazonS3ConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateAmazonS3ConnectionProperties
+@dynamic accessKeyId, endpoint, region, secretAccessKeySecret, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties
+@dynamic account, accountKeySecret, authenticationType, azureAuthorityHost,
+         azureTenantId, clientId, clientSecret, endpoint, sasTokenSecret,
+         technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateAzureSynapseAnalyticsConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateAzureSynapseAnalyticsConnectionProperties
+@dynamic connectionString, password, passwordSecretVersion, technologyType,
+         username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateBackupSchedule
+//
+
+@implementation GTLROracleDatabase_GoldengateBackupSchedule
+@dynamic backupScheduledTime, bucket, compartmentId, frequencyBackupScheduled,
+         metadataOnly, namespaceProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateConnection
+//
+
+@implementation GTLROracleDatabase_GoldengateConnection
+@dynamic createTime, entitlementId, gcpOracleZone, labels, name, ociUrl,
+         odbNetwork, odbSubnet, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateConnection_Labels
+//
+
+@implementation GTLROracleDatabase_GoldengateConnection_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateConnectionAssignment
+//
+
+@implementation GTLROracleDatabase_GoldengateConnectionAssignment
+@dynamic createTime, displayName, entitlementId, labels, name, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateConnectionAssignment_Labels
+//
+
+@implementation GTLROracleDatabase_GoldengateConnectionAssignment_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateConnectionAssignmentProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateConnectionAssignmentProperties
+@dynamic alias, goldengateConnection, goldengateDeployment, ocid, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateConnectionProperties
+@dynamic amazonKinesisConnectionProperties, amazonRedshiftConnectionProperties,
+         amazonS3ConnectionProperties, azureDataLakeStorageConnectionProperties,
+         azureSynapseAnalyticsConnectionProperties, connectionType,
+         databricksConnectionProperties, db2ConnectionProperties,
+         descriptionProperty, displayName, elasticsearchConnectionProperties,
+         genericConnectionProperties, goldengateConnectionProperties,
+         googleBigQueryConnectionProperties,
+         googleCloudStorageConnectionProperties,
+         googlePubsubConnectionProperties, hdfsConnectionProperties,
+         icebergConnectionProperties, ingressIpAddresses,
+         javaMessageServiceConnectionProperties, kafkaConnectionProperties,
+         kafkaSchemaRegistryConnectionProperties, lifecycleDetails,
+         lifecycleState, microsoftFabricConnectionProperties,
+         microsoftSqlserverConnectionProperties, mongodbConnectionProperties,
+         mysqlConnectionProperties, ocid, ociObjectStorageConnectionProperties,
+         oracleAiDataPlatformConnectionProperties, oracleConnectionProperties,
+         oracleNosqlConnectionProperties, postgresqlConnectionProperties,
+         redisConnectionProperties, routingMethod,
+         snowflakeConnectionProperties, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingressIpAddresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateConnectionType
+//
+
+@implementation GTLROracleDatabase_GoldengateConnectionType
+@dynamic connectionType, name, technologyTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"technologyTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDatabricksConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateDatabricksConnectionProperties
+@dynamic authenticationType, clientId, clientSecret, connectionUrl, password,
+         passwordSecretVersion, storageCredential, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDb2ConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateDb2ConnectionProperties
+@dynamic additionalAttributes, database, host, password, passwordSecretVersion,
+         port, securityProtocol, sslClientKeystashFile, sslClientKeystoredbFile,
+         sslServerCertificateFile, technologyType, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalAttributes" : [GTLROracleDatabase_NameValuePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeployment
+//
+
+@implementation GTLROracleDatabase_GoldengateDeployment
+@dynamic createTime, displayName, entitlementId, gcpOracleZone, labels, name,
+         ociUrl, odbNetwork, odbSubnet, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeployment_Labels
+//
+
+@implementation GTLROracleDatabase_GoldengateDeployment_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeploymentEnvironment
+//
+
+@implementation GTLROracleDatabase_GoldengateDeploymentEnvironment
+@dynamic autoScalingEnabled, category, defaultCpuCoreCount, displayName,
+         environmentType, maxCpuCoreCount, memoryGbPerCpuCore, minCpuCoreCount,
+         name, networkBandwidthGbpsPerCpuCore, storageUsageLimitGbPerCpuCore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeploymentLock
+//
+
+@implementation GTLROracleDatabase_GoldengateDeploymentLock
+@dynamic compartmentId, createTime, message, relatedResourceId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeploymentProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateDeploymentProperties
+@dynamic backupSchedule, category, cpuCoreCount, deploymentBackupId,
+         deploymentDiagnosticData, deploymentRole, deploymentType,
+         deploymentUrl, descriptionProperty, environmentType, fqdn, healthy,
+         ingressIps, isAutoScalingEnabled, isLatestVersion, isPublic,
+         isStorageUtilizationLimitExceeded, lastBackupScheduleTime,
+         licenseModel, lifecycleDetails, lifecycleState, lifecycleSubState,
+         loadBalancerId, loadBalancerSubnetId, locks, maintenanceConfig,
+         maintenanceWindow, nextBackupScheduleTime, nextMaintenanceActionType,
+         nextMaintenanceDescription, nextMaintenanceTime, nsgIds, ocid, oggData,
+         oggVersionSupportEndTime, placements, privateIpAddress,
+         publicIpAddress, roleChangeTime, storageUtilizationBytes, updateTime,
+         upgradeRequiredTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingressIps" : [GTLROracleDatabase_IngressIp class],
+    @"locks" : [GTLROracleDatabase_GoldengateDeploymentLock class],
+    @"nsgIds" : [NSString class],
+    @"placements" : [GTLROracleDatabase_GoldengatePlacement class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeploymentType
+//
+
+@implementation GTLROracleDatabase_GoldengateDeploymentType
+@dynamic category, connectionTypes, defaultUsername, deploymentType,
+         displayName, name, oggVersion, sourceTechnologies,
+         supportedCapabilities, supportedTechnologiesUrl, targetTechnologies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectionTypes" : [NSString class],
+    @"sourceTechnologies" : [NSString class],
+    @"supportedCapabilities" : [NSString class],
+    @"targetTechnologies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeploymentVersion
+//
+
+@implementation GTLROracleDatabase_GoldengateDeploymentVersion
+@dynamic name, ocid, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateDeploymentVersionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateDeploymentVersionProperties
+@dynamic deploymentType, oggVersion, releaseTime, releaseType, securityFix,
+         supportEndTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateElasticsearchConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateElasticsearchConnectionProperties
+@dynamic authenticationType, fingerprint, password, passwordSecretVersion,
+         securityProtocol, servers, technologyType, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateGenericConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateGenericConnectionProperties
+@dynamic host, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateGoldengateConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateGoldengateConnectionProperties
+@dynamic goldengateDeploymentId, host, password, passwordSecretVersion, port,
+         technologyType, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateGoogleBigQueryConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateGoogleBigQueryConnectionProperties
+@dynamic serviceAccountKeyFile, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateGoogleCloudStorageConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateGoogleCloudStorageConnectionProperties
+@dynamic serviceAccountKeyFile, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateGooglePubsubConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateGooglePubsubConnectionProperties
+@dynamic serviceAccountKeyFile, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateGroupToRolesMapping
+//
+
+@implementation GTLROracleDatabase_GoldengateGroupToRolesMapping
+@dynamic administratorGroupId, operatorGroupId, securityGroupId, userGroupId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateHdfsConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateHdfsConnectionProperties
+@dynamic coreSiteXml, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateIcebergConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateIcebergConnectionProperties
+@dynamic catalog, storage, technologyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties
+@dynamic authenticationType, connectionFactory, connectionUrl,
+         jndiConnectionFactory, jndiInitialContextFactory, jndiProviderUrl,
+         jndiSecurityCredentialsSecret, jndiSecurityPrincipal, keyStoreFile,
+         keyStorePassword, keyStorePasswordSecretVersion, password,
+         passwordSecretVersion, securityProtocol, sslKeyPassword,
+         sslKeyPasswordSecretVersion, technologyType, trustStoreFile,
+         trustStorePassword, trustStorePasswordSecretVersion, useJndi, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateKafkaConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateKafkaConnectionProperties
+@dynamic bootstrapServers, clusterId, consumerPropertiesFile, keyStoreFile,
+         keyStorePassword, keyStorePasswordSecretVersion, password,
+         passwordSecretVersion, producerPropertiesFile, securityProtocol,
+         sslKeyPassword, sslKeyPasswordSecretVersion, streamPoolId,
+         technologyType, trustStoreFile, trustStorePassword,
+         trustStorePasswordSecretVersion, useResourcePrincipal, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bootstrapServers" : [GTLROracleDatabase_KafkaBootstrapServer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties
+@dynamic authenticationType, keyStoreFile, keyStorePassword,
+         keyStorePasswordSecretVersion, password, passwordSecretVersion,
+         sslKeyPassword, sslKeyPasswordSecretVersion, technologyType,
+         trustStoreFile, trustStorePassword, trustStorePasswordSecretVersion,
+         url, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateMaintenanceConfig
+//
+
+@implementation GTLROracleDatabase_GoldengateMaintenanceConfig
+@dynamic bundleReleaseUpgradePeriodDays, interimReleaseUpgradePeriodDays,
+         isInterimReleaseAutoUpgradeEnabled, majorReleaseUpgradePeriodDays,
+         securityPatchUpgradePeriodDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateMaintenanceWindow
+//
+
+@implementation GTLROracleDatabase_GoldengateMaintenanceWindow
+@dynamic day, startHour;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateMicrosoftFabricConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateMicrosoftFabricConnectionProperties
+@dynamic clientId, clientSecret, endpoint, technologyType, tenantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties
+@dynamic additionalAttributes, database, host, password, passwordSecretVersion,
+         port, securityProtocol, serverCertificateValidationRequired, sslCaFile,
+         technologyType, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalAttributes" : [GTLROracleDatabase_NameValuePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateMongodbConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateMongodbConnectionProperties
+@dynamic connectionString, databaseId, password, passwordSecretVersion,
+         securityProtocol, technologyType, tlsCaFile, tlsCertificateKeyFile,
+         tlsCertificateKeyFilePassword,
+         tlsCertificateKeyFilePasswordSecretVersion, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateMysqlConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateMysqlConnectionProperties
+@dynamic additionalAttributes, database, dbSystemId, host, password,
+         passwordSecretVersion, port, securityProtocol, sslCaFile, sslCertFile,
+         sslCrlFile, sslKeyFile, sslMode, technologyType, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalAttributes" : [GTLROracleDatabase_NameValuePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateOciObjectStorageConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateOciObjectStorageConnectionProperties
+@dynamic privateKeyFile, privateKeyPassphraseSecret, publicKeyFingerprint,
+         region, technologyType, tenancyId, useResourcePrincipal, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateOggDeployment
+//
+
+@implementation GTLROracleDatabase_GoldengateOggDeployment
+@dynamic adminPassword, adminPasswordSecretVersion, adminUsername, certificate,
+         credentialStore, deployment, groupRolesMapping, identityDomainId,
+         oggVersion, passwordSecretId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateOracleAIDataPlatformConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateOracleAIDataPlatformConnectionProperties
+@dynamic connectionUrl, privateKeyFile, privateKeyPassphraseSecret,
+         publicKeyFingerprint, region, technologyType, tenancyId,
+         useResourcePrincipal, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateOracleConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateOracleConnectionProperties
+@dynamic authenticationMode, connectionString, gcpOracleDatabaseId, password,
+         passwordSecretVersion, sessionMode, technologyType, username,
+         walletFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateOracleNosqlConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateOracleNosqlConnectionProperties
+@dynamic privateKeyFile, privateKeyPassphraseSecret, publicKeyFingerprint,
+         region, technologyType, tenancyId, useResourcePrincipal, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengatePlacement
+//
+
+@implementation GTLROracleDatabase_GoldengatePlacement
+@dynamic availabilityDomain, faultDomain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengatePostgresqlConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengatePostgresqlConnectionProperties
+@dynamic additionalAttributes, database, dbSystemId, host, password,
+         passwordSecretVersion, port, securityProtocol, sslCaFile, sslCertFile,
+         sslCrlFile, sslKeyFile, sslMode, technologyType, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalAttributes" : [GTLROracleDatabase_NameValuePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateRedisConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateRedisConnectionProperties
+@dynamic authenticationType, keyStoreFile, keyStorePassword,
+         keyStorePasswordSecretVersion, password, passwordSecretVersion,
+         redisClusterId, securityProtocol, servers, technologyType,
+         trustStoreFile, trustStorePassword, trustStorePasswordSecretVersion,
+         username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoldengateSnowflakeConnectionProperties
+//
+
+@implementation GTLROracleDatabase_GoldengateSnowflakeConnectionProperties
+@dynamic authenticationType, connectionUrl, password, passwordSecretVersion,
+         privateKeyFile, privateKeyPassphraseSecret, technologyType, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_GoogleCloudStorageIcebergStorage
+//
+
+@implementation GTLROracleDatabase_GoogleCloudStorageIcebergStorage
+@dynamic bucket, projectId, serviceAccountKeyFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_IcebergCatalog
+//
+
+@implementation GTLROracleDatabase_IcebergCatalog
+@dynamic catalogType, glueIcebergCatalog, nessieIcebergCatalog,
+         polarisIcebergCatalog, restIcebergCatalog;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_IcebergStorage
+//
+
+@implementation GTLROracleDatabase_IcebergStorage
+@dynamic amazonS3IcebergStorage, azureDataLakeStorageIcebergStorage,
+         googleCloudStorageIcebergStorage, storageType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_IdentityConnector
 //
 
 @implementation GTLROracleDatabase_IdentityConnector
 @dynamic connectionState, serviceAgentEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_IngressIp
+//
+
+@implementation GTLROracleDatabase_IngressIp
+@dynamic ingressIpAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_KafkaBootstrapServer
+//
+
+@implementation GTLROracleDatabase_KafkaBootstrapServer
+@dynamic host, port, privateIpAddress;
 @end
 
 
@@ -1833,6 +2975,167 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ListGoldengateConnectionAssignmentsResponse
+//
+
+@implementation GTLROracleDatabase_ListGoldengateConnectionAssignmentsResponse
+@dynamic goldengateConnectionAssignments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goldengateConnectionAssignments" : [GTLROracleDatabase_GoldengateConnectionAssignment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"goldengateConnectionAssignments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListGoldengateConnectionsResponse
+//
+
+@implementation GTLROracleDatabase_ListGoldengateConnectionsResponse
+@dynamic goldengateConnections, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goldengateConnections" : [GTLROracleDatabase_GoldengateConnection class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"goldengateConnections";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListGoldengateConnectionTypesResponse
+//
+
+@implementation GTLROracleDatabase_ListGoldengateConnectionTypesResponse
+@dynamic goldengateConnectionTypes, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goldengateConnectionTypes" : [GTLROracleDatabase_GoldengateConnectionType class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"goldengateConnectionTypes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListGoldengateDeploymentEnvironmentsResponse
+//
+
+@implementation GTLROracleDatabase_ListGoldengateDeploymentEnvironmentsResponse
+@dynamic goldengateDeploymentEnvironments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goldengateDeploymentEnvironments" : [GTLROracleDatabase_GoldengateDeploymentEnvironment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"goldengateDeploymentEnvironments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListGoldengateDeploymentsResponse
+//
+
+@implementation GTLROracleDatabase_ListGoldengateDeploymentsResponse
+@dynamic goldengateDeployments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goldengateDeployments" : [GTLROracleDatabase_GoldengateDeployment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"goldengateDeployments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListGoldengateDeploymentTypesResponse
+//
+
+@implementation GTLROracleDatabase_ListGoldengateDeploymentTypesResponse
+@dynamic goldengateDeploymentTypes, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goldengateDeploymentTypes" : [GTLROracleDatabase_GoldengateDeploymentType class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"goldengateDeploymentTypes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListGoldengateDeploymentVersionsResponse
+//
+
+@implementation GTLROracleDatabase_ListGoldengateDeploymentVersionsResponse
+@dynamic goldengateDeploymentVersions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"goldengateDeploymentVersions" : [GTLROracleDatabase_GoldengateDeploymentVersion class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"goldengateDeploymentVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ListLocationsResponse
 //
 
@@ -2057,6 +3360,26 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_NameValuePair
+//
+
+@implementation GTLROracleDatabase_NameValuePair
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_NessieIcebergCatalog
+//
+
+@implementation GTLROracleDatabase_NessieIcebergCatalog
+@dynamic branch, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_OdbNetwork
 //
 
@@ -2247,6 +3570,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_PolarisIcebergCatalog
+//
+
+@implementation GTLROracleDatabase_PolarisIcebergCatalog
+@dynamic clientId, clientSecret, polarisCatalog, principalRole, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest
 //
 
@@ -2269,6 +3602,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_RestartAutonomousDatabaseRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_RestIcebergCatalog
+//
+
+@implementation GTLROracleDatabase_RestIcebergCatalog
+@dynamic properties, uri;
 @end
 
 
@@ -2308,6 +3651,15 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_StartAutonomousDatabaseRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_StartGoldengateDeploymentRequest
+//
+
+@implementation GTLROracleDatabase_StartGoldengateDeploymentRequest
 @end
 
 
@@ -2354,6 +3706,15 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_StopGoldengateDeploymentRequest
+//
+
+@implementation GTLROracleDatabase_StopGoldengateDeploymentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_StorageSizeDetails
 //
 
@@ -2369,6 +3730,44 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest
 @dynamic peerAutonomousDatabase;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_TestConnectionAssignmentError
+//
+
+@implementation GTLROracleDatabase_TestConnectionAssignmentError
+@dynamic action, code, issue, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest
+//
+
+@implementation GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_TestGoldengateConnectionAssignmentResponse
+//
+
+@implementation GTLROracleDatabase_TestGoldengateConnectionAssignmentResponse
+@dynamic error, errors, resultType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLROracleDatabase_TestConnectionAssignmentError class]
+  };
+  return map;
+}
+
 @end
 
 

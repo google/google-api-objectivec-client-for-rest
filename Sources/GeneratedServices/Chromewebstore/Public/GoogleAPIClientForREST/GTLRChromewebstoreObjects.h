@@ -18,6 +18,8 @@
 @class GTLRChromewebstore_DeployInfo;
 @class GTLRChromewebstore_DistributionChannel;
 @class GTLRChromewebstore_ItemRevisionStatus;
+@class GTLRChromewebstore_Warning;
+@class GTLRChromewebstore_WarningsInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -369,6 +371,17 @@ FOUNDATION_EXTERN NSString * const kGTLRChromewebstore_UploadItemPackageResponse
 @interface GTLRChromewebstore_PublishItemRequest : GTLRObject
 
 /**
+ *  Optional. When set to true the request will fail if there are any warnings
+ *  during validation and the details will be included in the `error.details`.
+ *  Otherwise warnings are treated as non-blocking and will be ignored for
+ *  validation but will be included in the response for inspection. Defaults to
+ *  `false` if unset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blockOnWarnings;
+
+/**
  *  Optional. Additional deploy information including the desired initial
  *  percentage rollout. Defaults to the current value saved in the developer
  *  dashboard if unset.
@@ -437,6 +450,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromewebstore_UploadItemPackageResponse
  *        been approved and is ready to be published. (Value: "STAGED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Non-blocking warnings encountered during the request. */
+@property(nonatomic, strong, nullable) GTLRChromewebstore_WarningsInfo *warningInfo;
 
 @end
 
@@ -509,6 +525,39 @@ FOUNDATION_EXTERN NSString * const kGTLRChromewebstore_UploadItemPackageResponse
  *        The default value. (Value: "UPLOAD_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *uploadState;
+
+@end
+
+
+/**
+ *  Represents a single warning encountered during the request.
+ */
+@interface GTLRChromewebstore_Warning : GTLRObject
+
+/**
+ *  A description of the warning. Developers should use this message to
+ *  understand the warning and take appropriate action to resolve the issue.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The reason for the warning. This is a constant value that identifies the
+ *  proximate cause of the warning.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Message containing details on warnings encountered during PublishItem.
+ */
+@interface GTLRChromewebstore_WarningsInfo : GTLRObject
+
+/** All warnings encountered during the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromewebstore_Warning *> *warnings;
 
 @end
 

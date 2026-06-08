@@ -23,8 +23,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Kubernetes
+ *  Engine data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/container"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeContainer;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
@@ -32,6 +39,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeContainerCloudPlatform;
+/**
+ *  Authorization scope: See your Google Kubernetes Engine data and the email
+ *  address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/container.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeContainerReadOnly;
 
 // ----------------------------------------------------------------------------
 //   GTLRContainerService

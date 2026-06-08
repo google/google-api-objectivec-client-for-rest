@@ -1487,6 +1487,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
+ *  Sends a message to an agent.
+ *
+ *  Method: ces.projects.locations.apps.message.send
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageSend : GTLRCustomerEngagementSuiteQuery
+
+/** Optional. Tenant ID, provided as a path parameter. */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse.
+ *
+ *  Sends a message to an agent.
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest
+ *    to include in the query.
+ *  @param tenant Optional. Tenant ID, provided as a path parameter.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageSend
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
+
+@end
+
+/**
  *  Updates the specified app.
  *
  *  Method: ces.projects.locations.apps.patch

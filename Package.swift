@@ -362,6 +362,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudNaturalLanguage"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudNumberRegistry",
+            targets: ["GoogleAPIClientForREST_CloudNumberRegistry"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudObservability",
             targets: ["GoogleAPIClientForREST_CloudObservability"]
         ),
@@ -990,6 +994,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Reseller"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_SA360",
+            targets: ["GoogleAPIClientForREST_SA360"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_SaaSServiceManagement",
             targets: ["GoogleAPIClientForREST_SaaSServiceManagement"]
         ),
@@ -1180,6 +1188,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Walletobjects",
             targets: ["GoogleAPIClientForREST_Walletobjects"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_WebContentPublisher",
+            targets: ["GoogleAPIClientForREST_WebContentPublisher"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Webfonts",
@@ -1769,6 +1781,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudNaturalLanguage",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudNaturalLanguage",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudNumberRegistry",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudNumberRegistry",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2714,6 +2732,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_SA360",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/SA360",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_SaaSServiceManagement",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/SaaSServiceManagement",
@@ -2999,6 +3023,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Walletobjects",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Walletobjects",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_WebContentPublisher",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/WebContentPublisher",
             publicHeadersPath: "Public"
         ),
         .target(

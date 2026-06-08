@@ -404,6 +404,79 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsCheckEnablementStatus
+
+@dynamic customer;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/enterprise/securityInsights:checkEnablementStatus";
+  GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsCheckEnablementStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse class];
+  query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.checkEnablementStatus";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsDisable
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/enterprise/securityInsights:disable";
+  GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse class];
+  query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsEnable
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsRequest *)object
+                       customer:(NSString *)customer {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/enterprise/securityInsights:enable";
+  GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse class];
+  query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.enable";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersProfilesCommandsCreate
 
 @dynamic parent;
@@ -644,6 +717,25 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.customer = customer;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse class];
   query.loggingName = @"chromemanagement.customers.reports.countChromeHardwareFleetDevices";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsCountChromeProfileVersions
+
+@dynamic customer, filter, orgUnitId, pageSize, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countChromeProfileVersions";
+  GTLRChromeManagementQuery_CustomersReportsCountChromeProfileVersions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeProfileVersionsResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countChromeProfileVersions";
   return query;
 }
 

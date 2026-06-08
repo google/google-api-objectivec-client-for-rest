@@ -16,6 +16,7 @@
 #endif
 
 @class GTLROracleDatabase_AllConnectionStrings;
+@class GTLROracleDatabase_AmazonS3IcebergStorage;
 @class GTLROracleDatabase_AutonomousDatabase;
 @class GTLROracleDatabase_AutonomousDatabase_Labels;
 @class GTLROracleDatabase_AutonomousDatabaseApex;
@@ -28,6 +29,7 @@
 @class GTLROracleDatabase_AutonomousDatabaseProperties;
 @class GTLROracleDatabase_AutonomousDatabaseStandbySummary;
 @class GTLROracleDatabase_AutonomousDbVersion;
+@class GTLROracleDatabase_AzureDataLakeStorageIcebergStorage;
 @class GTLROracleDatabase_BackupDestinationDetails;
 @class GTLROracleDatabase_CloudAccountDetails;
 @class GTLROracleDatabase_CloudExadataInfrastructure;
@@ -62,6 +64,7 @@
 @class GTLROracleDatabase_DbVersionProperties;
 @class GTLROracleDatabase_DefinedTagValue;
 @class GTLROracleDatabase_DefinedTagValue_Tags;
+@class GTLROracleDatabase_DeploymentDiagnosticData;
 @class GTLROracleDatabase_EncryptionKey;
 @class GTLROracleDatabase_EncryptionKeyHistoryEntry;
 @class GTLROracleDatabase_Entitlement;
@@ -74,12 +77,70 @@
 @class GTLROracleDatabase_ExascaleDbStorageVault_Labels;
 @class GTLROracleDatabase_ExascaleDbStorageVaultProperties;
 @class GTLROracleDatabase_GiVersion;
+@class GTLROracleDatabase_GlueIcebergCatalog;
+@class GTLROracleDatabase_GoldengateAmazonKinesisConnectionProperties;
+@class GTLROracleDatabase_GoldengateAmazonRedshiftConnectionProperties;
+@class GTLROracleDatabase_GoldengateAmazonS3ConnectionProperties;
+@class GTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties;
+@class GTLROracleDatabase_GoldengateAzureSynapseAnalyticsConnectionProperties;
+@class GTLROracleDatabase_GoldengateBackupSchedule;
+@class GTLROracleDatabase_GoldengateConnection;
+@class GTLROracleDatabase_GoldengateConnection_Labels;
+@class GTLROracleDatabase_GoldengateConnectionAssignment;
+@class GTLROracleDatabase_GoldengateConnectionAssignment_Labels;
+@class GTLROracleDatabase_GoldengateConnectionAssignmentProperties;
+@class GTLROracleDatabase_GoldengateConnectionProperties;
+@class GTLROracleDatabase_GoldengateConnectionType;
+@class GTLROracleDatabase_GoldengateDatabricksConnectionProperties;
+@class GTLROracleDatabase_GoldengateDb2ConnectionProperties;
+@class GTLROracleDatabase_GoldengateDeployment;
+@class GTLROracleDatabase_GoldengateDeployment_Labels;
+@class GTLROracleDatabase_GoldengateDeploymentEnvironment;
+@class GTLROracleDatabase_GoldengateDeploymentLock;
+@class GTLROracleDatabase_GoldengateDeploymentProperties;
+@class GTLROracleDatabase_GoldengateDeploymentType;
+@class GTLROracleDatabase_GoldengateDeploymentVersion;
+@class GTLROracleDatabase_GoldengateDeploymentVersionProperties;
+@class GTLROracleDatabase_GoldengateElasticsearchConnectionProperties;
+@class GTLROracleDatabase_GoldengateGenericConnectionProperties;
+@class GTLROracleDatabase_GoldengateGoldengateConnectionProperties;
+@class GTLROracleDatabase_GoldengateGoogleBigQueryConnectionProperties;
+@class GTLROracleDatabase_GoldengateGoogleCloudStorageConnectionProperties;
+@class GTLROracleDatabase_GoldengateGooglePubsubConnectionProperties;
+@class GTLROracleDatabase_GoldengateGroupToRolesMapping;
+@class GTLROracleDatabase_GoldengateHdfsConnectionProperties;
+@class GTLROracleDatabase_GoldengateIcebergConnectionProperties;
+@class GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties;
+@class GTLROracleDatabase_GoldengateKafkaConnectionProperties;
+@class GTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties;
+@class GTLROracleDatabase_GoldengateMaintenanceConfig;
+@class GTLROracleDatabase_GoldengateMaintenanceWindow;
+@class GTLROracleDatabase_GoldengateMicrosoftFabricConnectionProperties;
+@class GTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties;
+@class GTLROracleDatabase_GoldengateMongodbConnectionProperties;
+@class GTLROracleDatabase_GoldengateMysqlConnectionProperties;
+@class GTLROracleDatabase_GoldengateOciObjectStorageConnectionProperties;
+@class GTLROracleDatabase_GoldengateOggDeployment;
+@class GTLROracleDatabase_GoldengateOracleAIDataPlatformConnectionProperties;
+@class GTLROracleDatabase_GoldengateOracleConnectionProperties;
+@class GTLROracleDatabase_GoldengateOracleNosqlConnectionProperties;
+@class GTLROracleDatabase_GoldengatePlacement;
+@class GTLROracleDatabase_GoldengatePostgresqlConnectionProperties;
+@class GTLROracleDatabase_GoldengateRedisConnectionProperties;
+@class GTLROracleDatabase_GoldengateSnowflakeConnectionProperties;
+@class GTLROracleDatabase_GoogleCloudStorageIcebergStorage;
+@class GTLROracleDatabase_IcebergCatalog;
+@class GTLROracleDatabase_IcebergStorage;
 @class GTLROracleDatabase_IdentityConnector;
+@class GTLROracleDatabase_IngressIp;
+@class GTLROracleDatabase_KafkaBootstrapServer;
 @class GTLROracleDatabase_Location;
 @class GTLROracleDatabase_Location_Labels;
 @class GTLROracleDatabase_Location_Metadata;
 @class GTLROracleDatabase_MaintenanceWindow;
 @class GTLROracleDatabase_MinorVersion;
+@class GTLROracleDatabase_NameValuePair;
+@class GTLROracleDatabase_NessieIcebergCatalog;
 @class GTLROracleDatabase_OdbNetwork;
 @class GTLROracleDatabase_OdbNetwork_Labels;
 @class GTLROracleDatabase_OdbSubnet;
@@ -94,11 +155,14 @@
 @class GTLROracleDatabase_PluggableDatabaseProperties;
 @class GTLROracleDatabase_PluggableDatabaseProperties_DefinedTags;
 @class GTLROracleDatabase_PluggableDatabaseProperties_FreeformTags;
+@class GTLROracleDatabase_PolarisIcebergCatalog;
+@class GTLROracleDatabase_RestIcebergCatalog;
 @class GTLROracleDatabase_ScheduledOperationDetails;
 @class GTLROracleDatabase_SourceConfig;
 @class GTLROracleDatabase_Status;
 @class GTLROracleDatabase_Status_Details_Item;
 @class GTLROracleDatabase_StorageSizeDetails;
+@class GTLROracleDatabase_TestConnectionAssignmentError;
 @class GTLROracleDatabase_TimeOfDay;
 @class GTLROracleDatabase_TimeZone;
 
@@ -111,6 +175,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_AmazonS3IcebergStorage.schemeType
+
+/**
+ *  S3 scheme.
+ *
+ *  Value: "S3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_S3;
+/**
+ *  S3A scheme.
+ *
+ *  Value: "S3A"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_S3a;
+/**
+ *  Scheme type not specified.
+ *
+ *  Value: "SCHEME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_SchemeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_AutonomousDatabaseBackupProperties.lifecycleState
@@ -1904,7 +1990,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemInitialStorageSiz
 // GTLROracleDatabase_DbSystemOptions.storageManagement
 
 /**
- *  Automatic storage management.
+ *  Automatic storage management. This option is not supported. Only LVM is
+ *  supported.
  *
  *  Value: "ASM"
  */
@@ -2063,6 +2150,34 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_Lifecy
  *  Value: "UPGRADING"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DeploymentDiagnosticData.diagnosticState
+
+/**
+ *  The diagnostic state is unspecified.
+ *
+ *  Value: "DIAGNOSTIC_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_DiagnosticStateUnspecified;
+/**
+ *  The diagnostic failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_Failed;
+/**
+ *  The diagnostic is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_InProgress;
+/**
+ *  The diagnostic completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_EncryptionKey.provider
@@ -2333,6 +2448,1662 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GenerateAutonomousDatabas
  *  Value: "SINGLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_Single;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties.authenticationType
+
+/**
+ *  Authentication type not specified.
+ *
+ *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified;
+/**
+ *  Azure active directory authentication.
+ *
+ *  Value: "AZURE_ACTIVE_DIRECTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_AzureActiveDirectory;
+/**
+ *  Shared access signature authentication.
+ *
+ *  Value: "SHARED_ACCESS_SIGNATURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_SharedAccessSignature;
+/**
+ *  Shared key authentication.
+ *
+ *  Value: "SHARED_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_SharedKey;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateBackupSchedule.frequencyBackupScheduled
+
+/**
+ *  The frequency backup scheduled is daily.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Daily;
+/**
+ *  The frequency backup scheduled is unspecified.
+ *
+ *  Value: "FREQUENCY_BACKUP_SCHEDULED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_FrequencyBackupScheduledUnspecified;
+/**
+ *  The frequency backup scheduled is monthly.
+ *
+ *  Value: "MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Monthly;
+/**
+ *  The frequency backup scheduled is weekly.
+ *
+ *  Value: "WEEKLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateConnectionAssignmentProperties.state
+
+/**
+ *  Connection assignment is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Active;
+/**
+ *  Connection assignment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Creating;
+/**
+ *  Connection assignment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Deleting;
+/**
+ *  Connection assignment failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Failed;
+/**
+ *  Lifecycle state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_StateUnspecified;
+/**
+ *  Connection assignment is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateConnectionProperties.connectionType
+
+/**
+ *  Amazon Kinesis connection type.
+ *
+ *  Value: "AMAZON_KINESIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonKinesis;
+/**
+ *  Amazon Redshift connection type.
+ *
+ *  Value: "AMAZON_REDSHIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonRedshift;
+/**
+ *  Amazon S3 connection type.
+ *
+ *  Value: "AMAZON_S3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonS3;
+/**
+ *  Azure data lake storage connection type.
+ *
+ *  Value: "AZURE_DATA_LAKE_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AzureDataLakeStorage;
+/**
+ *  Azure synapse analytics connection type.
+ *
+ *  Value: "AZURE_SYNAPSE_ANALYTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AzureSynapseAnalytics;
+/**
+ *  Databricks connection type.
+ *
+ *  Value: "DATABRICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Databricks;
+/**
+ *  DB2 connection type.
+ *
+ *  Value: "DB2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Db2;
+/**
+ *  Elasticsearch connection type.
+ *
+ *  Value: "ELASTICSEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Elasticsearch;
+/**
+ *  Generic connection type.
+ *
+ *  Value: "GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Generic;
+/**
+ *  Goldengate connection type.
+ *
+ *  Value: "GOLDENGATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Goldengate;
+/**
+ *  Connection type unspecified.
+ *
+ *  Value: "GOLDENGATE_CONNECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoldengateConnectionTypeUnspecified;
+/**
+ *  Google BigQuery connection type.
+ *
+ *  Value: "GOOGLE_BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoogleBigquery;
+/**
+ *  Google Cloud Storage connection type.
+ *
+ *  Value: "GOOGLE_CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoogleCloudStorage;
+/**
+ *  Google Pub/Sub connection type.
+ *
+ *  Value: "GOOGLE_PUBSUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GooglePubsub;
+/**
+ *  HDFS connection type.
+ *
+ *  Value: "HDFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Hdfs;
+/**
+ *  Iceberg connection type.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Iceberg;
+/**
+ *  Java message service connection type.
+ *
+ *  Value: "JAVA_MESSAGE_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_JavaMessageService;
+/**
+ *  Kafka connection type.
+ *
+ *  Value: "KAFKA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Kafka;
+/**
+ *  Kafka schema registry connection type.
+ *
+ *  Value: "KAFKA_SCHEMA_REGISTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_KafkaSchemaRegistry;
+/**
+ *  Microsoft Fabric connection type.
+ *
+ *  Value: "MICROSOFT_FABRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_MicrosoftFabric;
+/**
+ *  Microsoft SQL Server connection type.
+ *
+ *  Value: "MICROSOFT_SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_MicrosoftSqlserver;
+/**
+ *  MongoDB connection type.
+ *
+ *  Value: "MONGODB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Mongodb;
+/**
+ *  MySQL connection type.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Mysql;
+/**
+ *  OCI object storage connection type.
+ *
+ *  Value: "OCI_OBJECT_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OciObjectStorage;
+/**
+ *  Oracle connection type.
+ *
+ *  Value: "ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Oracle;
+/**
+ *  Oracle AI data platform connection type.
+ *
+ *  Value: "ORACLE_AI_DATA_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OracleAiDataPlatform;
+/**
+ *  Oracle NoSQL connection type.
+ *
+ *  Value: "ORACLE_NOSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OracleNosql;
+/**
+ *  PostgreSQL connection type.
+ *
+ *  Value: "POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Postgresql;
+/**
+ *  Redis connection type.
+ *
+ *  Value: "REDIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Redis;
+/**
+ *  Snowflake connection type.
+ *
+ *  Value: "SNOWFLAKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Snowflake;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateConnectionProperties.lifecycleState
+
+/**
+ *  Indicates that the resource is in active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Active;
+/**
+ *  Indicates that the resource is in provisioning state.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Creating;
+/**
+ *  Indicates that the resource is in deleted state.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Deleted;
+/**
+ *  Indicates that the resource is in deleting state.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Deleting;
+/**
+ *  Indicates that the resource is in failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Failed;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "GOLDENGATE_CONNECTION_LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_GoldengateConnectionLifecycleStateUnspecified;
+/**
+ *  Indicates that the resource is in updating state.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateConnectionProperties.routingMethod
+
+/**
+ *  A dedicated private endpoint is created in the target VCN subnet for the
+ *  connection.
+ *
+ *  Value: "DEDICATED_ENDPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_DedicatedEndpoint;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "GOLDENGATE_CONNECTION_ROUTING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_GoldengateConnectionRoutingMethodUnspecified;
+/**
+ *  Network traffic flows from the assigned deployment's private endpoint
+ *  through the deployment's subnet.
+ *
+ *  Value: "SHARED_DEPLOYMENT_ENDPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_SharedDeploymentEndpoint;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateConnectionType.connectionType
+
+/**
+ *  Goldengate Connection Type category is AMAZON_KINESIS.
+ *
+ *  Value: "AMAZON_KINESIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonKinesis;
+/**
+ *  Goldengate Connection Type category is AMAZON_REDSHIFT.
+ *
+ *  Value: "AMAZON_REDSHIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonRedshift;
+/**
+ *  Goldengate Connection Type category is AMAZON_S3.
+ *
+ *  Value: "AMAZON_S3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonS3;
+/**
+ *  Goldengate Connection Type category is AZURE_DATA_LAKE_STORAGE.
+ *
+ *  Value: "AZURE_DATA_LAKE_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AzureDataLakeStorage;
+/**
+ *  Goldengate Connection Type category is AZURE_SYNAPSE_ANALYTICS.
+ *
+ *  Value: "AZURE_SYNAPSE_ANALYTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AzureSynapseAnalytics;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "CONNECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_ConnectionTypeUnspecified;
+/**
+ *  Goldengate Connection Type category is DATABRICKS.
+ *
+ *  Value: "DATABRICKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Databricks;
+/**
+ *  Goldengate Connection Type category is DB2.
+ *
+ *  Value: "DB2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Db2;
+/**
+ *  Goldengate Connection Type category is ELASTICSEARCH.
+ *
+ *  Value: "ELASTICSEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Elasticsearch;
+/**
+ *  Goldengate Connection Type category is GENERIC.
+ *
+ *  Value: "GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Generic;
+/**
+ *  Goldengate Connection Type category is GOLDENGATE.
+ *
+ *  Value: "GOLDENGATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Goldengate;
+/**
+ *  Goldengate Connection Type category is GOOGLE_BIGQUERY.
+ *
+ *  Value: "GOOGLE_BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GoogleBigquery;
+/**
+ *  Goldengate Connection Type category is GOOGLE_CLOUD_STORAGE.
+ *
+ *  Value: "GOOGLE_CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GoogleCloudStorage;
+/**
+ *  Goldengate Connection Type category is GOOGLE_PUBSUB.
+ *
+ *  Value: "GOOGLE_PUBSUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GooglePubsub;
+/**
+ *  Goldengate Connection Type category is HDFS.
+ *
+ *  Value: "HDFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Hdfs;
+/**
+ *  Goldengate Connection Type category is ICEBERG.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Iceberg;
+/**
+ *  Goldengate Connection Type category is JAVA_MESSAGE_SERVICE.
+ *
+ *  Value: "JAVA_MESSAGE_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_JavaMessageService;
+/**
+ *  Goldengate Connection Type category is KAFKA.
+ *
+ *  Value: "KAFKA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Kafka;
+/**
+ *  Goldengate Connection Type category is KAFKA_SCHEMA_REGISTRY.
+ *
+ *  Value: "KAFKA_SCHEMA_REGISTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_KafkaSchemaRegistry;
+/**
+ *  Goldengate Connection Type category is MICROSOFT_FABRIC.
+ *
+ *  Value: "MICROSOFT_FABRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_MicrosoftFabric;
+/**
+ *  Goldengate Connection Type category is MICROSOFT_SQLSERVER.
+ *
+ *  Value: "MICROSOFT_SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_MicrosoftSqlserver;
+/**
+ *  Goldengate Connection Type category is MONGODB.
+ *
+ *  Value: "MONGODB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Mongodb;
+/**
+ *  Goldengate Connection Type category is MYSQL.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Mysql;
+/**
+ *  Goldengate Connection Type category is OCI_OBJECT_STORAGE.
+ *
+ *  Value: "OCI_OBJECT_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OciObjectStorage;
+/**
+ *  Goldengate Connection Type category is ORACLE.
+ *
+ *  Value: "ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Oracle;
+/**
+ *  Goldengate Connection Type category is ORACLE_AI_DATA_PLATFORM.
+ *
+ *  Value: "ORACLE_AI_DATA_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OracleAiDataPlatform;
+/**
+ *  Goldengate Connection Type category is ORACLE_NOSQL.
+ *
+ *  Value: "ORACLE_NOSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OracleNosql;
+/**
+ *  Goldengate Connection Type category is POSTGRESQL.
+ *
+ *  Value: "POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Postgresql;
+/**
+ *  Goldengate Connection Type category is REDIS.
+ *
+ *  Value: "REDIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Redis;
+/**
+ *  Goldengate Connection Type category is SNOWFLAKE.
+ *
+ *  Value: "SNOWFLAKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Snowflake;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDatabricksConnectionProperties.authenticationType
+
+/**
+ *  Authentication type not specified.
+ *
+ *  Value: "DATABRICKS_AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_DatabricksAuthenticationTypeUnspecified;
+/**
+ *  OAuth M2M authentication.
+ *
+ *  Value: "OAUTH_M2M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_OauthM2m;
+/**
+ *  Personal access token authentication.
+ *
+ *  Value: "PERSONAL_ACCESS_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_PersonalAccessToken;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDb2ConnectionProperties.securityProtocol
+
+/**
+ *  Security protocol not specified.
+ *
+ *  Value: "DB2_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Db2SecurityProtocolUnspecified;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentEnvironment.category
+
+/**
+ *  Goldengate Deployment Environment category is DATA_REPLICATION_CATEGORY.
+ *
+ *  Value: "DATA_REPLICATION_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DataReplicationCategory;
+/**
+ *  Goldengate Deployment Environment category is DATA_TRANSFORMS_CATEGORY.
+ *
+ *  Value: "DATA_TRANSFORMS_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DataTransformsCategory;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DEPLOYMENT_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DeploymentCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentEnvironment.environmentType
+
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DEPLOYMENT_ENVIRONMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_DeploymentEnvironmentTypeUnspecified;
+/**
+ *  Goldengate Deployment Environment type is DEVELOPMENT_OR_TESTING.
+ *
+ *  Value: "DEVELOPMENT_OR_TESTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_DevelopmentOrTesting;
+/**
+ *  Goldengate Deployment Environment type is PRODUCTION.
+ *
+ *  Value: "PRODUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_Production;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentLock.type
+
+/**
+ *  The lock type is delete.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentLock_Type_Delete;
+/**
+ *  The lock type is full.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentLock_Type_Full;
+/**
+ *  The lock type is unspecified.
+ *
+ *  Value: "LOCK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentLock_Type_LockTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentProperties.category
+
+/**
+ *  The deployment is data replication.
+ *
+ *  Value: "DATA_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_Category_DataReplication;
+/**
+ *  The deployment is data transforms.
+ *
+ *  Value: "DATA_TRANSFORMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_Category_DataTransforms;
+/**
+ *  The category is unspecified.
+ *
+ *  Value: "GOLDENGATE_DEPLOYMENT_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_Category_GoldengateDeploymentCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentProperties.deploymentRole
+
+/**
+ *  The deployment role type is unspecified.
+ *
+ *  Value: "GOLDENGATE_DEPLOYMENT_ROLE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_GoldengateDeploymentRoleTypeUnspecified;
+/**
+ *  The deployment role type is primary.
+ *
+ *  Value: "PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_Primary;
+/**
+ *  The deployment role type is standby.
+ *
+ *  Value: "STANDBY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_Standby;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentProperties.licenseModel
+
+/**
+ *  The license model is bring your own license.
+ *
+ *  Value: "BRING_YOUR_OWN_LICENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_BringYourOwnLicense;
+/**
+ *  The license model is included.
+ *
+ *  Value: "LICENSE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_LicenseIncluded;
+/**
+ *  The license model is unspecified.
+ *
+ *  Value: "LICENSE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_LicenseModelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentProperties.lifecycleState
+
+/**
+ *  The deployment is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Active;
+/**
+ *  The deployment is canceled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Cancelled;
+/**
+ *  The deployment is canceling.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Cancelling;
+/**
+ *  The deployment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Creating;
+/**
+ *  The deployment is deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Deleted;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Deleting;
+/**
+ *  The deployment failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Failed;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "GOLDENGATE_DEPLOYMENT_LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_GoldengateDeploymentLifecycleStateUnspecified;
+/**
+ *  The deployment is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Inactive;
+/**
+ *  The deployment is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_InProgress;
+/**
+ *  The deployment needs attention.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_NeedsAttention;
+/**
+ *  The deployment succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Succeeded;
+/**
+ *  The deployment is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Updating;
+/**
+ *  The deployment is waiting.
+ *
+ *  Value: "WAITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Waiting;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentProperties.lifecycleSubState
+
+/**
+ *  The deployment is backing up.
+ *
+ *  Value: "BACKING_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_BackingUp;
+/**
+ *  The lifecycle sub-state is unspecified.
+ *
+ *  Value: "GOLDENGATE_DEPLOYMENT_LIFECYCLE_SUB_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_GoldengateDeploymentLifecycleSubStateUnspecified;
+/**
+ *  The deployment is moving.
+ *
+ *  Value: "MOVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Moving;
+/**
+ *  The deployment is recovering.
+ *
+ *  Value: "RECOVERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Recovering;
+/**
+ *  The deployment is restoring.
+ *
+ *  Value: "RESTORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Restoring;
+/**
+ *  The deployment is rolling back.
+ *
+ *  Value: "ROLLING_BACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_RollingBack;
+/**
+ *  The deployment is starting.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Starting;
+/**
+ *  The deployment is stopping.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Stopping;
+/**
+ *  The deployment is upgrading.
+ *
+ *  Value: "UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentProperties.nextMaintenanceActionType
+
+/**
+ *  The next maintenance action type is unspecified.
+ *
+ *  Value: "NEXT_MAINTENANCE_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_NextMaintenanceActionType_NextMaintenanceActionTypeUnspecified;
+/**
+ *  The next maintenance action type is upgrade.
+ *
+ *  Value: "UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentProperties_NextMaintenanceActionType_Upgrade;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentType.category
+
+/**
+ *  Goldengate Deployment Type category is DATA_REPLICATION_CATEGORY.
+ *
+ *  Value: "DATA_REPLICATION_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_Category_DataReplicationCategory;
+/**
+ *  Goldengate Deployment Type category is DATA_TRANSFORMS_CATEGORY.
+ *
+ *  Value: "DATA_TRANSFORMS_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_Category_DataTransformsCategory;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DEPLOYMENT_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_Category_DeploymentCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentType.deploymentType
+
+/**
+ *  Goldengate Deployment Type category is BIGDATA.
+ *
+ *  Value: "BIGDATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Bigdata;
+/**
+ *  Goldengate Deployment Type category is DATABASE_DB2I.
+ *
+ *  Value: "DATABASE_DB2I"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseDb2i;
+/**
+ *  Goldengate Deployment Type category is DATABASE_DB2ZOS.
+ *
+ *  Value: "DATABASE_DB2ZOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseDb2zos;
+/**
+ *  Goldengate Deployment Type category is DATABASE_MICROSOFT_SQLSERVER.
+ *
+ *  Value: "DATABASE_MICROSOFT_SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseMicrosoftSqlserver;
+/**
+ *  Goldengate Deployment Type category is DATABASE_MYSQL.
+ *
+ *  Value: "DATABASE_MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseMysql;
+/**
+ *  Goldengate Deployment Type category is DATABASE_ORACLE.
+ *
+ *  Value: "DATABASE_ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseOracle;
+/**
+ *  Goldengate Deployment Type category is DATABASE_POSTGRESQL.
+ *
+ *  Value: "DATABASE_POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabasePostgresql;
+/**
+ *  Goldengate Deployment Type category is DATA_TRANSFORMS.
+ *
+ *  Value: "DATA_TRANSFORMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DataTransforms;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DEPLOYMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DeploymentTypeUnspecified;
+/**
+ *  Goldengate Deployment Type category is GGSA.
+ *
+ *  Value: "GGSA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Ggsa;
+/**
+ *  Goldengate Deployment Type category is OGG.
+ *
+ *  Value: "OGG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Ogg;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentVersionProperties.deploymentType
+
+/**
+ *  Goldengate Deployment Type category is BIGDATA.
+ *
+ *  Value: "BIGDATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Bigdata;
+/**
+ *  Goldengate Deployment Type category is DATABASE_DB2I.
+ *
+ *  Value: "DATABASE_DB2I"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseDb2i;
+/**
+ *  Goldengate Deployment Type category is DATABASE_DB2ZOS.
+ *
+ *  Value: "DATABASE_DB2ZOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseDb2zos;
+/**
+ *  Goldengate Deployment Type category is DATABASE_MICROSOFT_SQLSERVER.
+ *
+ *  Value: "DATABASE_MICROSOFT_SQLSERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseMicrosoftSqlserver;
+/**
+ *  Goldengate Deployment Type category is DATABASE_MYSQL.
+ *
+ *  Value: "DATABASE_MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseMysql;
+/**
+ *  Goldengate Deployment Type category is DATABASE_ORACLE.
+ *
+ *  Value: "DATABASE_ORACLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseOracle;
+/**
+ *  Goldengate Deployment Type category is DATABASE_POSTGRESQL.
+ *
+ *  Value: "DATABASE_POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabasePostgresql;
+/**
+ *  Goldengate Deployment Type category is DATA_TRANSFORMS.
+ *
+ *  Value: "DATA_TRANSFORMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DataTransforms;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DEPLOYMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DeploymentTypeUnspecified;
+/**
+ *  Goldengate Deployment Type category is GGSA.
+ *
+ *  Value: "GGSA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Ggsa;
+/**
+ *  Goldengate Deployment Type category is OGG.
+ *
+ *  Value: "OGG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Ogg;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateDeploymentVersionProperties.releaseType
+
+/**
+ *  Goldengate Deployment Version release type is BUNDLE.
+ *
+ *  Value: "BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Bundle;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DEPLOYMENT_RELEASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_DeploymentReleaseTypeUnspecified;
+/**
+ *  Goldengate Deployment Version release type is MAJOR.
+ *
+ *  Value: "MAJOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Major;
+/**
+ *  Goldengate Deployment Version release type is MINOR.
+ *
+ *  Value: "MINOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Minor;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateElasticsearchConnectionProperties.authenticationType
+
+/**
+ *  Basic authentication.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_Basic;
+/**
+ *  Authentication type not specified.
+ *
+ *  Value: "ELASTICSEARCH_AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_ElasticsearchAuthenticationTypeUnspecified;
+/**
+ *  No authentication.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_None;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateElasticsearchConnectionProperties.securityProtocol
+
+/**
+ *  Security protocol not specified.
+ *
+ *  Value: "ELASTICSEARCH_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_ElasticsearchSecurityProtocolUnspecified;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties.authenticationType
+
+/**
+ *  Basic authentication.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_Basic;
+/**
+ *  Authentication type not specified.
+ *
+ *  Value: "JMS_AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_JmsAuthenticationTypeUnspecified;
+/**
+ *  No authentication.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_None;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties.securityProtocol
+
+/**
+ *  Security protocol not specified.
+ *
+ *  Value: "JMS_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_JmsSecurityProtocolUnspecified;
+/**
+ *  Mutual Transport Layer Security.
+ *
+ *  Value: "MTLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Mtls;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateKafkaConnectionProperties.securityProtocol
+
+/**
+ *  Security type not specified.
+ *
+ *  Value: "KAFKA_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_KafkaSecurityProtocolUnspecified;
+/**
+ *  Plaintext security protocol.
+ *
+ *  Value: "PLAINTEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_Plaintext;
+/**
+ *  SASL Plaintext security protocol.
+ *
+ *  Value: "SASL_PLAINTEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_SaslPlaintext;
+/**
+ *  SASL SSL security protocol.
+ *
+ *  Value: "SASL_SSL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_SaslSsl;
+/**
+ *  SSL security protocol.
+ *
+ *  Value: "SSL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_Ssl;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties.authenticationType
+
+/**
+ *  Authentication type not specified.
+ *
+ *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified;
+/**
+ *  Basic authentication.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_Basic;
+/**
+ *  Mutual authentication.
+ *
+ *  Value: "MUTUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_Mutual;
+/**
+ *  No authentication.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_None;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateMaintenanceWindow.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties.securityProtocol
+
+/**
+ *  Security type not specified.
+ *
+ *  Value: "MICROSOFT_SQLSERVER_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_MicrosoftSqlserverSecurityProtocolUnspecified;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateMongodbConnectionProperties.securityProtocol
+
+/**
+ *  Security type not specified.
+ *
+ *  Value: "MONGODB_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_MongodbSecurityProtocolUnspecified;
+/**
+ *  Mutual Transport Layer Security.
+ *
+ *  Value: "MTLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Mtls;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateMysqlConnectionProperties.securityProtocol
+
+/**
+ *  Mutual Transport Layer Security.
+ *
+ *  Value: "MTLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Mtls;
+/**
+ *  Security type not specified.
+ *
+ *  Value: "MYSQL_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_MysqlSecurityProtocolUnspecified;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateMysqlConnectionProperties.sslMode
+
+/**
+ *  SSL is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Disabled;
+/**
+ *  SSL is preferred.
+ *
+ *  Value: "PREFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Preferred;
+/**
+ *  SSL is required.
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Required;
+/**
+ *  SSL mode not specified.
+ *
+ *  Value: "SSL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_SslModeUnspecified;
+/**
+ *  SSL is required and certificate is verified.
+ *
+ *  Value: "VERIFY_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_VerifyCa;
+/**
+ *  SSL is required and certificate and hostname are verified.
+ *
+ *  Value: "VERIFY_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_VerifyIdentity;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateOggDeployment.credentialStore
+
+/**
+ *  The credential store is unspecified.
+ *
+ *  Value: "CREDENTIAL_STORE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_CredentialStoreUnspecified;
+/**
+ *  The credential store is Goldengate.
+ *
+ *  Value: "GOLDENGATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_Goldengate;
+/**
+ *  The credential store is IAM.
+ *
+ *  Value: "IAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_Iam;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateOracleConnectionProperties.authenticationMode
+
+/**
+ *  MTLS authentication mode.
+ *
+ *  Value: "MTLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_Mtls;
+/**
+ *  Authentication mode not specified.
+ *
+ *  Value: "ORACLE_AUTHENTICATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_OracleAuthenticationModeUnspecified;
+/**
+ *  TLS authentication mode.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateOracleConnectionProperties.sessionMode
+
+/**
+ *  Indicates that the resource is using direct session mode.
+ *
+ *  Value: "DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_Direct;
+/**
+ *  Indicates that the resource is using redirect session mode.
+ *
+ *  Value: "REDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_Redirect;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "SESSION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_SessionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengatePostgresqlConnectionProperties.securityProtocol
+
+/**
+ *  Mutual Transport Layer Security.
+ *
+ *  Value: "MTLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Mtls;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Security protocol not specified.
+ *
+ *  Value: "POSTGRESQL_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_PostgresqlSecurityProtocolUnspecified;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengatePostgresqlConnectionProperties.sslMode
+
+/**
+ *  SSL mode not specified.
+ *
+ *  Value: "POSTGRESQL_SSL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_PostgresqlSslModeUnspecified;
+/**
+ *  Prefer SSL.
+ *
+ *  Value: "PREFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_Prefer;
+/**
+ *  Require SSL.
+ *
+ *  Value: "REQUIRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_Require;
+/**
+ *  Verify Certificate Authority.
+ *
+ *  Value: "VERIFY_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_VerifyCa;
+/**
+ *  Verify Full.
+ *
+ *  Value: "VERIFY_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_VerifyFull;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateRedisConnectionProperties.authenticationType
+
+/**
+ *  Basic authentication.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_Basic;
+/**
+ *  No authentication.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_None;
+/**
+ *  Authentication type not specified.
+ *
+ *  Value: "REDIS_AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_RedisAuthenticationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateRedisConnectionProperties.securityProtocol
+
+/**
+ *  Mutual Transport Layer Security.
+ *
+ *  Value: "MTLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Mtls;
+/**
+ *  Plain text communication.
+ *
+ *  Value: "PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Plain;
+/**
+ *  Security protocol not specified.
+ *
+ *  Value: "REDIS_SECURITY_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_RedisSecurityProtocolUnspecified;
+/**
+ *  Transport Layer Security.
+ *
+ *  Value: "TLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Tls;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_GoldengateSnowflakeConnectionProperties.authenticationType
+
+/**
+ *  Authentication type not specified.
+ *
+ *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified;
+/**
+ *  Basic authentication.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_Basic;
+/**
+ *  Key pair authentication.
+ *
+ *  Value: "KEY_PAIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_KeyPair;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_IcebergCatalog.catalogType
+
+/**
+ *  Catalog type not specified.
+ *
+ *  Value: "CATALOG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_CatalogTypeUnspecified;
+/**
+ *  Glue catalog.
+ *
+ *  Value: "GLUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Glue;
+/**
+ *  Hadoop catalog.
+ *
+ *  Value: "HADOOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Hadoop;
+/**
+ *  Nessie catalog.
+ *
+ *  Value: "NESSIE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Nessie;
+/**
+ *  Polaris catalog.
+ *
+ *  Value: "POLARIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Polaris;
+/**
+ *  REST catalog.
+ *
+ *  Value: "REST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergCatalog_CatalogType_Rest;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_IcebergStorage.storageType
+
+/**
+ *  Amazon S3 storage.
+ *
+ *  Value: "AMAZON_S3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_AmazonS3;
+/**
+ *  Azure Data Lake Storage storage.
+ *
+ *  Value: "AZURE_DATA_LAKE_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_AzureDataLakeStorage;
+/**
+ *  Google Cloud Storage storage.
+ *
+ *  Value: "GOOGLE_CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_GoogleCloudStorage;
+/**
+ *  Storage type not specified.
+ *
+ *  Value: "STORAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IcebergStorage_StorageType_StorageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_IdentityConnector.connectionState
@@ -2857,6 +4628,50 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesday;
 
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest.type
+
+/**
+ *  The default connection test.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_Default;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "TEST_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_TestTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_TestGoldengateConnectionAssignmentResponse.resultType
+
+/**
+ *  Test connection failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_Failed;
+/**
+ *  Result type is unspecified.
+ *
+ *  Value: "RESULT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_ResultTypeUnspecified;
+/**
+ *  Test connection succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_Succeeded;
+/**
+ *  Test connection timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_TimedOut;
+
 /**
  *  A list of all connection strings that can be used to connect to the
  *  Autonomous Database.
@@ -2880,6 +4695,42 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  each SQL statement.
  */
 @property(nonatomic, copy, nullable) NSString *medium;
+
+@end
+
+
+/**
+ *  The Amazon S3 Iceberg storage.
+ */
+@interface GTLROracleDatabase_AmazonS3IcebergStorage : GTLRObject
+
+/** Required. The access key ID of Amazon S3. */
+@property(nonatomic, copy, nullable) NSString *accessKeyId;
+
+/** Required. The bucket of Amazon S3. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Optional. The endpoint of Amazon S3. */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/** Required. The region of Amazon S3. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Required. The scheme type of Amazon S3.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_S3 S3
+ *        scheme. (Value: "S3")
+ *    @arg @c kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_S3a S3A
+ *        scheme. (Value: "S3A")
+ *    @arg @c kGTLROracleDatabase_AmazonS3IcebergStorage_SchemeType_SchemeTypeUnspecified
+ *        Scheme type not specified. (Value: "SCHEME_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schemeType;
+
+/** Optional. The secret access key of Amazon S3. */
+@property(nonatomic, copy, nullable) NSString *secretAccessKeySecret;
 
 @end
 
@@ -4099,6 +5950,26 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The Azure Data Lake Storage Iceberg storage.
+ */
+@interface GTLROracleDatabase_AzureDataLakeStorageIcebergStorage : GTLRObject
+
+/** Optional. The account key of Azure Data Lake Storage. */
+@property(nonatomic, copy, nullable) NSString *accountKeySecret;
+
+/** Required. The account of Azure Data Lake Storage. */
+@property(nonatomic, copy, nullable) NSString *azureAccount;
+
+/** Required. The container of Azure Data Lake Storage. */
+@property(nonatomic, copy, nullable) NSString *container;
+
+/** Optional. The endpoint of Azure Data Lake Storage. */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+@end
+
+
+/**
  *  The details of the database backup destination.
  */
 @interface GTLROracleDatabase_BackupDestinationDetails : GTLRObject
@@ -4663,14 +6534,14 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scanIpIds;
 
 /**
- *  Output only. SCAN listener port - TCP
+ *  Optional. SCAN listener port - TCP
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scanListenerPortTcp;
 
 /**
- *  Output only. SCAN listener port - TLS
+ *  Optional. SCAN listener port - TLS
  *
  *  Uses NSNumber of intValue.
  */
@@ -5709,7 +7580,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *
  *  Likely values:
  *    @arg @c kGTLROracleDatabase_DbSystemOptions_StorageManagement_Asm
- *        Automatic storage management. (Value: "ASM")
+ *        Automatic storage management. This option is not supported. Only LVM
+ *        is supported. (Value: "ASM")
  *    @arg @c kGTLROracleDatabase_DbSystemOptions_StorageManagement_Lvm Logical
  *        Volume management. (Value: "LVM")
  *    @arg @c kGTLROracleDatabase_DbSystemOptions_StorageManagement_StorageManagementUnspecified
@@ -6053,6 +7925,49 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        fetch them all at once.
  */
 @interface GTLROracleDatabase_DefinedTagValue_Tags : GTLRObject
+@end
+
+
+/**
+ *  The deployment diagnostic data.
+ */
+@interface GTLROracleDatabase_DeploymentDiagnosticData : GTLRObject
+
+/** Output only. The bucket name. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Output only. The time diagnostic end. */
+@property(nonatomic, strong, nullable) GTLRDateTime *diagnosticEndTime;
+
+/** Output only. The time diagnostic start. */
+@property(nonatomic, strong, nullable) GTLRDateTime *diagnosticStartTime;
+
+/**
+ *  Output only. The diagnostic state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_DiagnosticStateUnspecified
+ *        The diagnostic state is unspecified. (Value:
+ *        "DIAGNOSTIC_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_Failed
+ *        The diagnostic failed. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_InProgress
+ *        The diagnostic is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLROracleDatabase_DeploymentDiagnosticData_DiagnosticState_Succeeded
+ *        The diagnostic completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *diagnosticState;
+
+/**
+ *  Output only. The namespace name.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+/** Output only. The object name. */
+@property(nonatomic, copy, nullable) NSString *object;
+
 @end
 
 
@@ -6658,6 +8573,3248 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The Glue Iceberg catalog.
+ */
+@interface GTLROracleDatabase_GlueIcebergCatalog : GTLRObject
+
+/** Required. The catalog ID of Glue. */
+@property(nonatomic, copy, nullable) NSString *glueId;
+
+@end
+
+
+/**
+ *  The properties of GoldengateAmazonKinesisConnection.
+ */
+@interface GTLROracleDatabase_GoldengateAmazonKinesisConnectionProperties : GTLRObject
+
+/** Optional. Access key ID to access the Amazon Kinesis. */
+@property(nonatomic, copy, nullable) NSString *accessKeyId;
+
+/**
+ *  Optional. The name of the AWS region. If not provided, Goldengate will
+ *  default to 'us-west-1'.
+ */
+@property(nonatomic, copy, nullable) NSString *awsRegion;
+
+/**
+ *  Optional. The endpoint URL of the Amazon Kinesis service. e.g.:
+ *  'https://kinesis.us-east-1.amazonaws.com' If not provided, Goldengate will
+ *  default to 'https://kinesis..amazonaws.com'.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/** Optional. Secret access key to access the Amazon Kinesis. */
+@property(nonatomic, copy, nullable) NSString *secretAccessKeySecret;
+
+/** Optional. The technology type of AmazonKinesisConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateAmazonRedshiftConnection.
+ */
+@interface GTLROracleDatabase_GoldengateAmazonRedshiftConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Connection URL. e.g.:
+ *  'jdbc:redshift://aws-redshift-instance.aaaaaaaaaaaa.us-east-2.redshift.amazonaws.com:5439/mydb'
+ */
+@property(nonatomic, copy, nullable) NSString *connectionUrl;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses for Amazon
+ *  Redshift connection in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses for Amazon
+ *  Redshift connection. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/** Optional. The technology type of AmazonRedshiftConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect the associated
+ *  system of the given technology.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateAmazonS3Connection.
+ */
+@interface GTLROracleDatabase_GoldengateAmazonS3ConnectionProperties : GTLRObject
+
+/** Optional. Access key ID to access the Amazon S3 bucket. */
+@property(nonatomic, copy, nullable) NSString *accessKeyId;
+
+/** Optional. The Amazon Endpoint for S3. */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/** Optional. The name of the AWS region where the bucket is created. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Optional. Secret access key to access the Amazon S3 bucket. */
+@property(nonatomic, copy, nullable) NSString *secretAccessKeySecret;
+
+/** Optional. The technology type of AmazonS3Connection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateAzureDataLakeStorageConnection.
+ */
+@interface GTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties : GTLRObject
+
+/** Optional. Sets the Azure storage account name. */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/**
+ *  Optional. Azure storage account key. This property is required when
+ *  'authentication_type' is set to 'SHARED_KEY'.
+ */
+@property(nonatomic, copy, nullable) NSString *accountKeySecret;
+
+/**
+ *  Optional. Authentication mechanism to access Azure Data Lake Storage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified
+ *        Authentication type not specified. (Value:
+ *        "AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_AzureActiveDirectory
+ *        Azure active directory authentication. (Value:
+ *        "AZURE_ACTIVE_DIRECTORY")
+ *    @arg @c kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_SharedAccessSignature
+ *        Shared access signature authentication. (Value:
+ *        "SHARED_ACCESS_SIGNATURE")
+ *    @arg @c kGTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties_AuthenticationType_SharedKey
+ *        Shared key authentication. (Value: "SHARED_KEY")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/**
+ *  Optional. The endpoint used for authentication with Microsoft Entra ID
+ *  (formerly Azure Active Directory). Default value:
+ *  https://login.microsoftonline.com
+ */
+@property(nonatomic, copy, nullable) NSString *azureAuthorityHost;
+
+/**
+ *  Optional. Azure tenant ID of the application. This property is required when
+ *  'authentication_type' is set to 'AZURE_ACTIVE_DIRECTORY'.
+ */
+@property(nonatomic, copy, nullable) NSString *azureTenantId;
+
+/**
+ *  Optional. Azure client ID of the application. This property is required when
+ *  'authentication_type' is set to 'AZURE_ACTIVE_DIRECTORY'.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Optional. Azure client secret (aka application password) for authentication.
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Optional. Azure Storage service endpoint. e.g:
+ *  https://test.blob.core.windows.net
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Optional. Credential that uses a shared access signature (SAS) to
+ *  authenticate to an Azure Service.
+ */
+@property(nonatomic, copy, nullable) NSString *sasTokenSecret;
+
+/** Optional. The technology type of AzureDataLakeStorageConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateAzureSynapseAnalyticsConnection.
+ */
+@interface GTLROracleDatabase_GoldengateAzureSynapseAnalyticsConnectionProperties : GTLRObject
+
+/**
+ *  Optional. JDBC connection string. e.g.:
+ *  'jdbc:sqlserver://.sql.azuresynapse.net:1433;database=;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.sql.azuresynapse.net;loginTimeout=300;'
+ */
+@property(nonatomic, copy, nullable) NSString *connectionString;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses for Azure Synapse
+ *  Analytics connection in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses for Azure Synapse
+ *  Analytics connection. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/** Optional. The technology type of AzureSynapseAnalyticsConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect the associated
+ *  system of the given technology.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The backup schedule of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengateBackupSchedule : GTLRObject
+
+/** Output only. The timestamp of when the backup was scheduled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *backupScheduledTime;
+
+/** Output only. The bucket name. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Output only. The compartment id. */
+@property(nonatomic, copy, nullable) NSString *compartmentId;
+
+/**
+ *  Output only. The frequency backup scheduled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Daily
+ *        The frequency backup scheduled is daily. (Value: "DAILY")
+ *    @arg @c kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_FrequencyBackupScheduledUnspecified
+ *        The frequency backup scheduled is unspecified. (Value:
+ *        "FREQUENCY_BACKUP_SCHEDULED_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Monthly
+ *        The frequency backup scheduled is monthly. (Value: "MONTHLY")
+ *    @arg @c kGTLROracleDatabase_GoldengateBackupSchedule_FrequencyBackupScheduled_Weekly
+ *        The frequency backup scheduled is weekly. (Value: "WEEKLY")
+ */
+@property(nonatomic, copy, nullable) NSString *frequencyBackupScheduled;
+
+/**
+ *  Output only. If metadata only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metadataOnly;
+
+/**
+ *  Output only. The namespace name.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
+ *  Details of the GoldengateConnection resource.
+ */
+@interface GTLROracleDatabase_GoldengateConnection : GTLRObject
+
+/**
+ *  Output only. The date and time that the GoldengateConnection was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The ID of the subscription entitlement associated with the
+ *  GoldengateConnection.
+ */
+@property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Optional. The GCP Oracle zone where Oracle GoldengateConnection is hosted.
+ *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
+ *  on availability.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/** Optional. The labels or tags associated with the GoldengateConnection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateConnection_Labels *labels;
+
+/**
+ *  Identifier. The name of the GoldengateConnection resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/goldengateConnections/{goldengate_connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. HTTPS link to OCI resources exposed to Customer via UI
+ *  Interface.
+ */
+@property(nonatomic, copy, nullable) NSString *ociUrl;
+
+/**
+ *  Optional. The name of the OdbNetwork associated with the
+ *  GoldengateConnection. The format is
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}. It is
+ *  optional but if specified, this should match the parent ODBNetwork of the
+ *  OdbSubnet.
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetwork;
+
+/**
+ *  Optional. The name of the OdbSubnet associated with the GoldengateConnection
+ *  for IP allocation. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *odbSubnet;
+
+/** Required. The properties of the GoldengateConnection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateConnectionProperties *properties;
+
+@end
+
+
+/**
+ *  Optional. The labels or tags associated with the GoldengateConnection.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_GoldengateConnection_Labels : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of a Goldengate Connection Assignment.
+ */
+@interface GTLROracleDatabase_GoldengateConnectionAssignment : GTLRObject
+
+/** Output only. The time when the connection assignment was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The display name for the GoldengateConnectionAssignment. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. The OCID of the entitlement linked to this resource. */
+@property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Optional. The labels or tags associated with the
+ *  GoldengateConnectionAssignment.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateConnectionAssignment_Labels *labels;
+
+/**
+ *  Identifier. The name of the GoldengateConnectionAssignment resource in the
+ *  following format:
+ *  projects/{project}/locations/{region}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The properties of the GoldengateConnectionAssignment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateConnectionAssignmentProperties *properties;
+
+@end
+
+
+/**
+ *  Optional. The labels or tags associated with the
+ *  GoldengateConnectionAssignment.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_GoldengateConnectionAssignment_Labels : GTLRObject
+@end
+
+
+/**
+ *  The properties of a GoldengateConnectionAssignment.
+ */
+@interface GTLROracleDatabase_GoldengateConnectionAssignmentProperties : GTLRObject
+
+/** Output only. Credential store alias. */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/**
+ *  Required. The GoldengateConnection resource to be assigned. Format:
+ *  projects/{project}/locations/{location}/goldengateConnections/{goldengate_connection}
+ */
+@property(nonatomic, copy, nullable) NSString *goldengateConnection;
+
+/**
+ *  Required. The GoldenGateDeployment to assign the connection to. Format:
+ *  projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *goldengateDeployment;
+
+/**
+ *  Output only. The
+ *  [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+ *  of the connection assignment being referenced.
+ */
+@property(nonatomic, copy, nullable) NSString *ocid;
+
+/**
+ *  Output only. The lifecycle state of the connection assignment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Active
+ *        Connection assignment is active. (Value: "ACTIVE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Creating
+ *        Connection assignment is being created. (Value: "CREATING")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Deleting
+ *        Connection assignment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Failed
+ *        Connection assignment failed. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_StateUnspecified
+ *        Lifecycle state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionAssignmentProperties_State_Updating
+ *        Connection assignment is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The properties of a GoldengateConnection.
+ */
+@interface GTLROracleDatabase_GoldengateConnectionProperties : GTLRObject
+
+/** Properties for an Amazon Kinesis connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateAmazonKinesisConnectionProperties *amazonKinesisConnectionProperties;
+
+/** Properties for an Amazon Redshift connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateAmazonRedshiftConnectionProperties *amazonRedshiftConnectionProperties;
+
+/** Properties for an Amazon S3 connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateAmazonS3ConnectionProperties *amazonS3ConnectionProperties;
+
+/** Properties for an Azure Data Lake Storage Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateAzureDataLakeStorageConnectionProperties *azureDataLakeStorageConnectionProperties;
+
+/** Properties for an Azure Synapse Analytics connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateAzureSynapseAnalyticsConnectionProperties *azureSynapseAnalyticsConnectionProperties;
+
+/**
+ *  Required. The connection type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonKinesis
+ *        Amazon Kinesis connection type. (Value: "AMAZON_KINESIS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonRedshift
+ *        Amazon Redshift connection type. (Value: "AMAZON_REDSHIFT")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AmazonS3
+ *        Amazon S3 connection type. (Value: "AMAZON_S3")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AzureDataLakeStorage
+ *        Azure data lake storage connection type. (Value:
+ *        "AZURE_DATA_LAKE_STORAGE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_AzureSynapseAnalytics
+ *        Azure synapse analytics connection type. (Value:
+ *        "AZURE_SYNAPSE_ANALYTICS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Databricks
+ *        Databricks connection type. (Value: "DATABRICKS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Db2
+ *        DB2 connection type. (Value: "DB2")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Elasticsearch
+ *        Elasticsearch connection type. (Value: "ELASTICSEARCH")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Generic
+ *        Generic connection type. (Value: "GENERIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Goldengate
+ *        Goldengate connection type. (Value: "GOLDENGATE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoldengateConnectionTypeUnspecified
+ *        Connection type unspecified. (Value:
+ *        "GOLDENGATE_CONNECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoogleBigquery
+ *        Google BigQuery connection type. (Value: "GOOGLE_BIGQUERY")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GoogleCloudStorage
+ *        Google Cloud Storage connection type. (Value: "GOOGLE_CLOUD_STORAGE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_GooglePubsub
+ *        Google Pub/Sub connection type. (Value: "GOOGLE_PUBSUB")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Hdfs
+ *        HDFS connection type. (Value: "HDFS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Iceberg
+ *        Iceberg connection type. (Value: "ICEBERG")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_JavaMessageService
+ *        Java message service connection type. (Value: "JAVA_MESSAGE_SERVICE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Kafka
+ *        Kafka connection type. (Value: "KAFKA")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_KafkaSchemaRegistry
+ *        Kafka schema registry connection type. (Value:
+ *        "KAFKA_SCHEMA_REGISTRY")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_MicrosoftFabric
+ *        Microsoft Fabric connection type. (Value: "MICROSOFT_FABRIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_MicrosoftSqlserver
+ *        Microsoft SQL Server connection type. (Value: "MICROSOFT_SQLSERVER")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Mongodb
+ *        MongoDB connection type. (Value: "MONGODB")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Mysql
+ *        MySQL connection type. (Value: "MYSQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OciObjectStorage
+ *        OCI object storage connection type. (Value: "OCI_OBJECT_STORAGE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Oracle
+ *        Oracle connection type. (Value: "ORACLE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OracleAiDataPlatform
+ *        Oracle AI data platform connection type. (Value:
+ *        "ORACLE_AI_DATA_PLATFORM")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_OracleNosql
+ *        Oracle NoSQL connection type. (Value: "ORACLE_NOSQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Postgresql
+ *        PostgreSQL connection type. (Value: "POSTGRESQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Redis
+ *        Redis connection type. (Value: "REDIS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_ConnectionType_Snowflake
+ *        Snowflake connection type. (Value: "SNOWFLAKE")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+/** Properties for a Databricks connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateDatabricksConnectionProperties *databricksConnectionProperties;
+
+/** Properties for a DB2 connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateDb2ConnectionProperties *db2ConnectionProperties;
+
+/**
+ *  Optional. Metadata about this specific object.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. An object's Display Name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Properties for an Elasticsearch connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateElasticsearchConnectionProperties *elasticsearchConnectionProperties;
+
+/** Properties for a Generic Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateGenericConnectionProperties *genericConnectionProperties;
+
+/** Properties for a Goldengate Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateGoldengateConnectionProperties *goldengateConnectionProperties;
+
+/** Properties for a Google BigQuery Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateGoogleBigQueryConnectionProperties *googleBigQueryConnectionProperties;
+
+/** Properties for a Google Cloud Storage Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateGoogleCloudStorageConnectionProperties *googleCloudStorageConnectionProperties;
+
+/** Properties for a Google Pub/Sub connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateGooglePubsubConnectionProperties *googlePubsubConnectionProperties;
+
+/** Properties for an HDFS connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateHdfsConnectionProperties *hdfsConnectionProperties;
+
+/** Properties for an Iceberg connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateIcebergConnectionProperties *icebergConnectionProperties;
+
+/** Output only. The Ingress IPs of the GoldengateConnection. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ingressIpAddresses;
+
+/** Properties for a Java Message Service connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties *javaMessageServiceConnectionProperties;
+
+/** Properties for a Kafka Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateKafkaConnectionProperties *kafkaConnectionProperties;
+
+/** Properties for a Kafka Schema Registry Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties *kafkaSchemaRegistryConnectionProperties;
+
+/**
+ *  Output only. Describes the object's current state in detail. For example, it
+ *  can be used to provide actionable information for a resource in a Failed
+ *  state.
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleDetails;
+
+/**
+ *  Output only. The lifecycle state of the connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Active
+ *        Indicates that the resource is in active state. (Value: "ACTIVE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Creating
+ *        Indicates that the resource is in provisioning state. (Value:
+ *        "CREATING")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Deleted
+ *        Indicates that the resource is in deleted state. (Value: "DELETED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Deleting
+ *        Indicates that the resource is in deleting state. (Value: "DELETING")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Failed
+ *        Indicates that the resource is in failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_GoldengateConnectionLifecycleStateUnspecified
+ *        Default unspecified value. (Value:
+ *        "GOLDENGATE_CONNECTION_LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_LifecycleState_Updating
+ *        Indicates that the resource is in updating state. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
+
+/** Properties for a Microsoft Fabric connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateMicrosoftFabricConnectionProperties *microsoftFabricConnectionProperties;
+
+/** Properties for a Microsoft SQL Server connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties *microsoftSqlserverConnectionProperties;
+
+/** Properties for a MongoDB connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateMongodbConnectionProperties *mongodbConnectionProperties;
+
+/** Properties for a Mysql Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateMysqlConnectionProperties *mysqlConnectionProperties;
+
+/** Output only. The [OCID] of the connection being referenced. */
+@property(nonatomic, copy, nullable) NSString *ocid;
+
+/** Properties for an OCI Object Storage Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateOciObjectStorageConnectionProperties *ociObjectStorageConnectionProperties;
+
+/** Properties for an Oracle AI Data Platform connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateOracleAIDataPlatformConnectionProperties *oracleAiDataPlatformConnectionProperties;
+
+/** Properties for an Oracle Database Connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateOracleConnectionProperties *oracleConnectionProperties;
+
+/** Properties for an Oracle NoSQL connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateOracleNosqlConnectionProperties *oracleNosqlConnectionProperties;
+
+/** Properties for a PostgreSQL connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengatePostgresqlConnectionProperties *postgresqlConnectionProperties;
+
+/** Properties for a Redis connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateRedisConnectionProperties *redisConnectionProperties;
+
+/**
+ *  Optional. The routing method for the GoldengateConnection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_DedicatedEndpoint
+ *        A dedicated private endpoint is created in the target VCN subnet for
+ *        the connection. (Value: "DEDICATED_ENDPOINT")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_GoldengateConnectionRoutingMethodUnspecified
+ *        Default unspecified value. (Value:
+ *        "GOLDENGATE_CONNECTION_ROUTING_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionProperties_RoutingMethod_SharedDeploymentEndpoint
+ *        Network traffic flows from the assigned deployment's private endpoint
+ *        through the deployment's subnet. (Value: "SHARED_DEPLOYMENT_ENDPOINT")
+ */
+@property(nonatomic, copy, nullable) NSString *routingMethod;
+
+/** Properties for a Snowflake connection. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateSnowflakeConnectionProperties *snowflakeConnectionProperties;
+
+/** Output only. The time the resource was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Details of the Goldengate Connection Type resource.
+ */
+@interface GTLROracleDatabase_GoldengateConnectionType : GTLRObject
+
+/**
+ *  Output only. The connection type of the Goldengate Connection Type resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonKinesis
+ *        Goldengate Connection Type category is AMAZON_KINESIS. (Value:
+ *        "AMAZON_KINESIS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonRedshift
+ *        Goldengate Connection Type category is AMAZON_REDSHIFT. (Value:
+ *        "AMAZON_REDSHIFT")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AmazonS3
+ *        Goldengate Connection Type category is AMAZON_S3. (Value: "AMAZON_S3")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AzureDataLakeStorage
+ *        Goldengate Connection Type category is AZURE_DATA_LAKE_STORAGE.
+ *        (Value: "AZURE_DATA_LAKE_STORAGE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_AzureSynapseAnalytics
+ *        Goldengate Connection Type category is AZURE_SYNAPSE_ANALYTICS.
+ *        (Value: "AZURE_SYNAPSE_ANALYTICS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_ConnectionTypeUnspecified
+ *        Default unspecified value. (Value: "CONNECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Databricks
+ *        Goldengate Connection Type category is DATABRICKS. (Value:
+ *        "DATABRICKS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Db2
+ *        Goldengate Connection Type category is DB2. (Value: "DB2")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Elasticsearch
+ *        Goldengate Connection Type category is ELASTICSEARCH. (Value:
+ *        "ELASTICSEARCH")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Generic
+ *        Goldengate Connection Type category is GENERIC. (Value: "GENERIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Goldengate
+ *        Goldengate Connection Type category is GOLDENGATE. (Value:
+ *        "GOLDENGATE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GoogleBigquery
+ *        Goldengate Connection Type category is GOOGLE_BIGQUERY. (Value:
+ *        "GOOGLE_BIGQUERY")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GoogleCloudStorage
+ *        Goldengate Connection Type category is GOOGLE_CLOUD_STORAGE. (Value:
+ *        "GOOGLE_CLOUD_STORAGE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_GooglePubsub
+ *        Goldengate Connection Type category is GOOGLE_PUBSUB. (Value:
+ *        "GOOGLE_PUBSUB")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Hdfs
+ *        Goldengate Connection Type category is HDFS. (Value: "HDFS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Iceberg
+ *        Goldengate Connection Type category is ICEBERG. (Value: "ICEBERG")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_JavaMessageService
+ *        Goldengate Connection Type category is JAVA_MESSAGE_SERVICE. (Value:
+ *        "JAVA_MESSAGE_SERVICE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Kafka
+ *        Goldengate Connection Type category is KAFKA. (Value: "KAFKA")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_KafkaSchemaRegistry
+ *        Goldengate Connection Type category is KAFKA_SCHEMA_REGISTRY. (Value:
+ *        "KAFKA_SCHEMA_REGISTRY")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_MicrosoftFabric
+ *        Goldengate Connection Type category is MICROSOFT_FABRIC. (Value:
+ *        "MICROSOFT_FABRIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_MicrosoftSqlserver
+ *        Goldengate Connection Type category is MICROSOFT_SQLSERVER. (Value:
+ *        "MICROSOFT_SQLSERVER")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Mongodb
+ *        Goldengate Connection Type category is MONGODB. (Value: "MONGODB")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Mysql
+ *        Goldengate Connection Type category is MYSQL. (Value: "MYSQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OciObjectStorage
+ *        Goldengate Connection Type category is OCI_OBJECT_STORAGE. (Value:
+ *        "OCI_OBJECT_STORAGE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Oracle
+ *        Goldengate Connection Type category is ORACLE. (Value: "ORACLE")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OracleAiDataPlatform
+ *        Goldengate Connection Type category is ORACLE_AI_DATA_PLATFORM.
+ *        (Value: "ORACLE_AI_DATA_PLATFORM")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_OracleNosql
+ *        Goldengate Connection Type category is ORACLE_NOSQL. (Value:
+ *        "ORACLE_NOSQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Postgresql
+ *        Goldengate Connection Type category is POSTGRESQL. (Value:
+ *        "POSTGRESQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Redis
+ *        Goldengate Connection Type category is REDIS. (Value: "REDIS")
+ *    @arg @c kGTLROracleDatabase_GoldengateConnectionType_ConnectionType_Snowflake
+ *        Goldengate Connection Type category is SNOWFLAKE. (Value: "SNOWFLAKE")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+/**
+ *  Identifier. The name of the Goldengate Connection Type resource with the
+ *  format:
+ *  projects/{project}/locations/{region}/goldengateConnectionTypes/{goldengate_connection_type}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The technology type of the Goldengate Connection Type resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *technologyTypes;
+
+@end
+
+
+/**
+ *  The properties of GoldengateDatabricksConnection.
+ */
+@interface GTLROracleDatabase_GoldengateDatabricksConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Authentication type for Databricks.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_DatabricksAuthenticationTypeUnspecified
+ *        Authentication type not specified. (Value:
+ *        "DATABRICKS_AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_OauthM2m
+ *        OAuth M2M authentication. (Value: "OAUTH_M2M")
+ *    @arg @c kGTLROracleDatabase_GoldengateDatabricksConnectionProperties_AuthenticationType_PersonalAccessToken
+ *        Personal access token authentication. (Value: "PERSONAL_ACCESS_TOKEN")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/**
+ *  Optional. OAuth client id, only applicable for authentication_type ==
+ *  OAUTH_M2M
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Optional. OAuth client secret, only applicable for authentication_type ==
+ *  OAUTH_M2M
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Optional. Connection URL. e.g.:
+ *  'jdbc:databricks://adb-33934.4.azuredatabricks.net:443/default;transportMode=http;ssl=1;httpPath=sql/protocolv1/o/3393########44/0##3-7-hlrb'
+ */
+@property(nonatomic, copy, nullable) NSString *connectionUrl;
+
+/**
+ *  Optional. Input only. The password used to connect to Databricks in plain
+ *  text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password used to connect to Databricks. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. External storage credential name to access files on object storage
+ *  such as ADLS Gen2, S3 or Cloud Storage.
+ */
+@property(nonatomic, copy, nullable) NSString *storageCredential;
+
+/** Optional. The technology type of DatabricksConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateDb2Connection.
+ */
+@interface GTLROracleDatabase_GoldengateDb2ConnectionProperties : GTLRObject
+
+/**
+ *  Optional. An array of name-value pair attribute entries. Used as additional
+ *  parameters in connection string.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_NameValuePair *> *additionalAttributes;
+
+/** Optional. The name of the database. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Optional. The name or address of a host. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses for Db2 connection
+ *  in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses for Db2
+ *  connection. Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. The port of an endpoint usually specified for a connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Optional. Security protocol for the DB2 database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Db2SecurityProtocolUnspecified
+ *        Security protocol not specified. (Value:
+ *        "DB2_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengateDb2ConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. The keystash file which contains the encrypted password to the key
+ *  database file. Not supported for IBM Db2 for i.
+ */
+@property(nonatomic, copy, nullable) NSString *sslClientKeystashFile;
+
+/**
+ *  Optional. The keystore file created at the client containing the server
+ *  certificate / CA root certificate. Not supported for IBM Db2 for i.
+ */
+@property(nonatomic, copy, nullable) NSString *sslClientKeystoredbFile;
+
+/**
+ *  Optional. The file which contains the self-signed server certificate /
+ *  Certificate Authority (CA) certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *sslServerCertificateFile;
+
+/** Optional. The technology type of Db2Connection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect to the DB2
+ *  database.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  GoldengateDeployment Goldengate Deployment resource model.
+ */
+@interface GTLROracleDatabase_GoldengateDeployment : GTLRObject
+
+/**
+ *  Output only. The date and time that the GoldengateDeployment was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The display name for the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The ID of the subscription entitlement associated with the
+ *  GoldengateDeployment
+ */
+@property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Optional. The GCP Oracle zone where Oracle GoldengateDeployment is hosted.
+ *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
+ *  on availability.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/** Optional. The labels or tags associated with the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateDeployment_Labels *labels;
+
+/**
+ *  Identifier. The name of the GoldengateDeployment resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/goldengateDeployments/{goldengate_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. HTTPS link to OCI resources exposed to Customer via UI
+ *  Interface.
+ */
+@property(nonatomic, copy, nullable) NSString *ociUrl;
+
+/**
+ *  Optional. The name of the OdbNetwork associated with the
+ *  GoldengateDeployment.
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetwork;
+
+/**
+ *  Required. The name of the OdbSubnet associated with the GoldengateDeployment
+ *  for IP allocation.
+ */
+@property(nonatomic, copy, nullable) NSString *odbSubnet;
+
+/** Required. The properties of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateDeploymentProperties *properties;
+
+@end
+
+
+/**
+ *  Optional. The labels or tags associated with the GoldengateDeployment.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_GoldengateDeployment_Labels : GTLRObject
+@end
+
+
+/**
+ *  Details of the Goldengate Deployment Environment resource.
+ */
+@interface GTLROracleDatabase_GoldengateDeploymentEnvironment : GTLRObject
+
+/**
+ *  Output only. Whether auto scaling is enabled by default for the Goldengate
+ *  Deployment Environment resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoScalingEnabled;
+
+/**
+ *  Output only. The category of the Goldengate Deployment Environment resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DataReplicationCategory
+ *        Goldengate Deployment Environment category is
+ *        DATA_REPLICATION_CATEGORY. (Value: "DATA_REPLICATION_CATEGORY")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DataTransformsCategory
+ *        Goldengate Deployment Environment category is
+ *        DATA_TRANSFORMS_CATEGORY. (Value: "DATA_TRANSFORMS_CATEGORY")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentEnvironment_Category_DeploymentCategoryUnspecified
+ *        Default unspecified value. (Value: "DEPLOYMENT_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Output only. The default CPU core count of the Goldengate Deployment
+ *  Environment resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultCpuCoreCount;
+
+/** The display name of the Goldengate Deployment Environment resource. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The environment type of the Goldengate Deployment Environment
+ *  resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_DeploymentEnvironmentTypeUnspecified
+ *        Default unspecified value. (Value:
+ *        "DEPLOYMENT_ENVIRONMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_DevelopmentOrTesting
+ *        Goldengate Deployment Environment type is DEVELOPMENT_OR_TESTING.
+ *        (Value: "DEVELOPMENT_OR_TESTING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentEnvironment_EnvironmentType_Production
+ *        Goldengate Deployment Environment type is PRODUCTION. (Value:
+ *        "PRODUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *environmentType;
+
+/**
+ *  Output only. The max CPU core count of the Goldengate Deployment Environment
+ *  resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxCpuCoreCount;
+
+/**
+ *  Output only. The memory per CPU core in GBs of the Goldengate Deployment
+ *  Environment resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGbPerCpuCore;
+
+/**
+ *  Output only. The min CPU core count of the Goldengate Deployment Environment
+ *  resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minCpuCoreCount;
+
+/**
+ *  Identifier. The name of the Goldengate Deployment Environment resource with
+ *  the format:
+ *  projects/{project}/locations/{location}/goldengateDeploymentEnvironments/{goldengate_deployment_environment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The network bandwidth per CPU core in Gbps of the Goldengate
+ *  Deployment Environment resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *networkBandwidthGbpsPerCpuCore;
+
+/**
+ *  Output only. The storage usage limit per CPU core in GBs of the Goldengate
+ *  Deployment Environment resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageUsageLimitGbPerCpuCore;
+
+@end
+
+
+/**
+ *  The lock of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengateDeploymentLock : GTLRObject
+
+/** Output only. The compartment id. */
+@property(nonatomic, copy, nullable) NSString *compartmentId;
+
+/** Output only. The time created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Output only. The related resource id. */
+@property(nonatomic, copy, nullable) NSString *relatedResourceId;
+
+/**
+ *  Output only. The type of lock.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentLock_Type_Delete The lock
+ *        type is delete. (Value: "DELETE")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentLock_Type_Full The lock
+ *        type is full. (Value: "FULL")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentLock_Type_LockTypeUnspecified
+ *        The lock type is unspecified. (Value: "LOCK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Properties of GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengateDeploymentProperties : GTLRObject
+
+/** Output only. The backup schedule of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateBackupSchedule *backupSchedule;
+
+/**
+ *  Output only. The category of the GoldengateDeployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_Category_DataReplication
+ *        The deployment is data replication. (Value: "DATA_REPLICATION")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_Category_DataTransforms
+ *        The deployment is data transforms. (Value: "DATA_TRANSFORMS")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_Category_GoldengateDeploymentCategoryUnspecified
+ *        The category is unspecified. (Value:
+ *        "GOLDENGATE_DEPLOYMENT_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Optional. The Minimum number of OCPUs to be made available for this
+ *  Deployment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuCoreCount;
+
+/** Output only. The deployment backup id of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *deploymentBackupId;
+
+/**
+ *  Output only. The deployment diagnostic data of the GoldengateDeployment.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DeploymentDiagnosticData *deploymentDiagnosticData;
+
+/**
+ *  Output only. The deployment role of the GoldengateDeployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_GoldengateDeploymentRoleTypeUnspecified
+ *        The deployment role type is unspecified. (Value:
+ *        "GOLDENGATE_DEPLOYMENT_ROLE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_Primary
+ *        The deployment role type is primary. (Value: "PRIMARY")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_DeploymentRole_Standby
+ *        The deployment role type is standby. (Value: "STANDBY")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentRole;
+
+/**
+ *  Required. A valid Goldengate Deployment type. For a list of supported types,
+ *  use the `ListGoldengateDeploymentTypes` operation.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentType;
+
+/** Output only. The deployment url of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *deploymentUrl;
+
+/**
+ *  Optional. The description of the GoldengateDeployment.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. The environment type of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *environmentType;
+
+/**
+ *  Output only. The Fully Qualified Domain Name of the GoldengateDeployment.
+ */
+@property(nonatomic, copy, nullable) NSString *fqdn;
+
+/**
+ *  Output only. Whether the GoldengateDeployment is healthy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *healthy;
+
+/** Output only. The ingress ips of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_IngressIp *> *ingressIps;
+
+/**
+ *  Optional. Indicates if auto scaling is enabled for the Deployment's CPU core
+ *  count.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAutoScalingEnabled;
+
+/**
+ *  Output only. Whether the GoldengateDeployment is of the latest version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isLatestVersion;
+
+/**
+ *  Output only. Whether the GoldengateDeployment is public.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPublic;
+
+/**
+ *  Output only. Whether storage utilization limit is exceeded of the
+ *  GoldengateDeployment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isStorageUtilizationLimitExceeded;
+
+/**
+ *  Output only. The time last backup scheduled of the GoldengateDeployment.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastBackupScheduleTime;
+
+/**
+ *  Optional. The Oracle license model that applies to a Deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_BringYourOwnLicense
+ *        The license model is bring your own license. (Value:
+ *        "BRING_YOUR_OWN_LICENSE")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_LicenseIncluded
+ *        The license model is included. (Value: "LICENSE_INCLUDED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LicenseModel_LicenseModelUnspecified
+ *        The license model is unspecified. (Value: "LICENSE_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *licenseModel;
+
+/** Output only. The lifecycle details of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *lifecycleDetails;
+
+/**
+ *  Output only. State of the GoldengateDeployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Active
+ *        The deployment is active. (Value: "ACTIVE")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Cancelled
+ *        The deployment is canceled. (Value: "CANCELLED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Cancelling
+ *        The deployment is canceling. (Value: "CANCELLING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Creating
+ *        The deployment is being created. (Value: "CREATING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Deleted
+ *        The deployment is deleted. (Value: "DELETED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Deleting
+ *        The deployment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Failed
+ *        The deployment failed. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_GoldengateDeploymentLifecycleStateUnspecified
+ *        Default unspecified value. (Value:
+ *        "GOLDENGATE_DEPLOYMENT_LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Inactive
+ *        The deployment is inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_InProgress
+ *        The deployment is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_NeedsAttention
+ *        The deployment needs attention. (Value: "NEEDS_ATTENTION")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Succeeded
+ *        The deployment succeeded. (Value: "SUCCEEDED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Updating
+ *        The deployment is being updated. (Value: "UPDATING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleState_Waiting
+ *        The deployment is waiting. (Value: "WAITING")
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
+
+/**
+ *  Output only. The lifecycle sub-state of the GoldengateDeployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_BackingUp
+ *        The deployment is backing up. (Value: "BACKING_UP")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_GoldengateDeploymentLifecycleSubStateUnspecified
+ *        The lifecycle sub-state is unspecified. (Value:
+ *        "GOLDENGATE_DEPLOYMENT_LIFECYCLE_SUB_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Moving
+ *        The deployment is moving. (Value: "MOVING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Recovering
+ *        The deployment is recovering. (Value: "RECOVERING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Restoring
+ *        The deployment is restoring. (Value: "RESTORING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_RollingBack
+ *        The deployment is rolling back. (Value: "ROLLING_BACK")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Starting
+ *        The deployment is starting. (Value: "STARTING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Stopping
+ *        The deployment is stopping. (Value: "STOPPING")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_LifecycleSubState_Upgrading
+ *        The deployment is upgrading. (Value: "UPGRADING")
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleSubState;
+
+/** Output only. The load balancer id of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *loadBalancerId;
+
+/** Output only. The load balancer subnet id of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *loadBalancerSubnetId;
+
+/** Output only. The locks of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateDeploymentLock *> *locks;
+
+/** Optional. The maintenance configuration of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateMaintenanceConfig *maintenanceConfig;
+
+/** Optional. The maintenance window of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateMaintenanceWindow *maintenanceWindow;
+
+/**
+ *  Output only. The time next backup scheduled of the GoldengateDeployment.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextBackupScheduleTime;
+
+/**
+ *  Output only. The next maintenance action type of the GoldengateDeployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_NextMaintenanceActionType_NextMaintenanceActionTypeUnspecified
+ *        The next maintenance action type is unspecified. (Value:
+ *        "NEXT_MAINTENANCE_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentProperties_NextMaintenanceActionType_Upgrade
+ *        The next maintenance action type is upgrade. (Value: "UPGRADE")
+ */
+@property(nonatomic, copy, nullable) NSString *nextMaintenanceActionType;
+
+/**
+ *  Output only. The next maintenance description of the GoldengateDeployment.
+ */
+@property(nonatomic, copy, nullable) NSString *nextMaintenanceDescription;
+
+/** Output only. The time of next maintenance of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextMaintenanceTime;
+
+/** Output only. The nsg ids of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nsgIds;
+
+/** Output only. OCID of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *ocid;
+
+/** Required. The ogg data of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateOggDeployment *oggData;
+
+/**
+ *  Output only. The time ogg version supported until of the
+ *  GoldengateDeployment.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *oggVersionSupportEndTime;
+
+/** Output only. The placements of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengatePlacement *> *placements;
+
+/** Output only. The private ip address of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *privateIpAddress;
+
+/** Output only. The public ip address of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *publicIpAddress;
+
+/**
+ *  Output only. The time when the role of the GoldengateDeployment was changed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *roleChangeTime;
+
+/**
+ *  Output only. The storage utilization in bytes of the GoldengateDeployment.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageUtilizationBytes;
+
+/** Output only. The time the GoldengateDeployment was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. The time upgrade required of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *upgradeRequiredTime;
+
+@end
+
+
+/**
+ *  Details of the Goldengate Deployment Type resource.
+ */
+@interface GTLROracleDatabase_GoldengateDeploymentType : GTLRObject
+
+/**
+ *  Output only. The category of the Goldengate Deployment Type resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_Category_DataReplicationCategory
+ *        Goldengate Deployment Type category is DATA_REPLICATION_CATEGORY.
+ *        (Value: "DATA_REPLICATION_CATEGORY")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_Category_DataTransformsCategory
+ *        Goldengate Deployment Type category is DATA_TRANSFORMS_CATEGORY.
+ *        (Value: "DATA_TRANSFORMS_CATEGORY")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_Category_DeploymentCategoryUnspecified
+ *        Default unspecified value. (Value: "DEPLOYMENT_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Output only. The connection types of the Goldengate Deployment Type
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *connectionTypes;
+
+/**
+ *  Output only. The default username of the Goldengate Deployment Type
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultUsername;
+
+/**
+ *  Output only. The deployment type of the Goldengate Deployment Type resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Bigdata
+ *        Goldengate Deployment Type category is BIGDATA. (Value: "BIGDATA")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseDb2i
+ *        Goldengate Deployment Type category is DATABASE_DB2I. (Value:
+ *        "DATABASE_DB2I")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseDb2zos
+ *        Goldengate Deployment Type category is DATABASE_DB2ZOS. (Value:
+ *        "DATABASE_DB2ZOS")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseMicrosoftSqlserver
+ *        Goldengate Deployment Type category is DATABASE_MICROSOFT_SQLSERVER.
+ *        (Value: "DATABASE_MICROSOFT_SQLSERVER")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseMysql
+ *        Goldengate Deployment Type category is DATABASE_MYSQL. (Value:
+ *        "DATABASE_MYSQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabaseOracle
+ *        Goldengate Deployment Type category is DATABASE_ORACLE. (Value:
+ *        "DATABASE_ORACLE")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DatabasePostgresql
+ *        Goldengate Deployment Type category is DATABASE_POSTGRESQL. (Value:
+ *        "DATABASE_POSTGRESQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DataTransforms
+ *        Goldengate Deployment Type category is DATA_TRANSFORMS. (Value:
+ *        "DATA_TRANSFORMS")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_DeploymentTypeUnspecified
+ *        Default unspecified value. (Value: "DEPLOYMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Ggsa
+ *        Goldengate Deployment Type category is GGSA. (Value: "GGSA")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentType_DeploymentType_Ogg
+ *        Goldengate Deployment Type category is OGG. (Value: "OGG")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentType;
+
+/**
+ *  Output only. The display name of the Goldengate Deployment Type resource.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The name of the Goldengate Deployment Type resource with the
+ *  format:
+ *  projects/{project}/locations/{region}/goldengateDeploymentTypes/{goldengate_deployment_type}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The Ogg version of the Goldengate Deployment Type resource.
+ */
+@property(nonatomic, copy, nullable) NSString *oggVersion;
+
+/**
+ *  Output only. The source technologies of the Goldengate Deployment Type
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceTechnologies;
+
+/**
+ *  Output only. The supported capabilities of the Goldengate Deployment Type
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedCapabilities;
+
+/**
+ *  Output only. The supported technologies URL of the Goldengate Deployment
+ *  Type resource.
+ */
+@property(nonatomic, copy, nullable) NSString *supportedTechnologiesUrl;
+
+/**
+ *  Output only. The target technologies of the Goldengate Deployment Type
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetTechnologies;
+
+@end
+
+
+/**
+ *  Details of the Goldengate Deployment Version resource.
+ */
+@interface GTLROracleDatabase_GoldengateDeploymentVersion : GTLRObject
+
+/**
+ *  Identifier. The name of the Goldengate Deployment Version resource with the
+ *  format:
+ *  projects/{project}/locations/{location}/goldengateDeploymentVersions/{goldengate_deployment_version}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The deployment version ocid of the Goldengate Deployment
+ *  Version resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ocid;
+
+/**
+ *  Output only. The technology type of the Goldengate Deployment Version
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateDeploymentVersionProperties *properties;
+
+@end
+
+
+/**
+ *  Properties of GoldengateDeploymentVersion.
+ */
+@interface GTLROracleDatabase_GoldengateDeploymentVersionProperties : GTLRObject
+
+/**
+ *  Output only. The deployment type of the Goldengate Deployment Version
+ *  resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Bigdata
+ *        Goldengate Deployment Type category is BIGDATA. (Value: "BIGDATA")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseDb2i
+ *        Goldengate Deployment Type category is DATABASE_DB2I. (Value:
+ *        "DATABASE_DB2I")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseDb2zos
+ *        Goldengate Deployment Type category is DATABASE_DB2ZOS. (Value:
+ *        "DATABASE_DB2ZOS")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseMicrosoftSqlserver
+ *        Goldengate Deployment Type category is DATABASE_MICROSOFT_SQLSERVER.
+ *        (Value: "DATABASE_MICROSOFT_SQLSERVER")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseMysql
+ *        Goldengate Deployment Type category is DATABASE_MYSQL. (Value:
+ *        "DATABASE_MYSQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabaseOracle
+ *        Goldengate Deployment Type category is DATABASE_ORACLE. (Value:
+ *        "DATABASE_ORACLE")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DatabasePostgresql
+ *        Goldengate Deployment Type category is DATABASE_POSTGRESQL. (Value:
+ *        "DATABASE_POSTGRESQL")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DataTransforms
+ *        Goldengate Deployment Type category is DATA_TRANSFORMS. (Value:
+ *        "DATA_TRANSFORMS")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_DeploymentTypeUnspecified
+ *        Default unspecified value. (Value: "DEPLOYMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Ggsa
+ *        Goldengate Deployment Type category is GGSA. (Value: "GGSA")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_DeploymentType_Ogg
+ *        Goldengate Deployment Type category is OGG. (Value: "OGG")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentType;
+
+/**
+ *  Output only. The OGG version of the Goldengate Deployment Version resource.
+ */
+@property(nonatomic, copy, nullable) NSString *oggVersion;
+
+/**
+ *  Output only. The release time of the Goldengate Deployment Version resource.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *releaseTime;
+
+/**
+ *  Output only. The release type of the Goldengate Deployment Version resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Bundle
+ *        Goldengate Deployment Version release type is BUNDLE. (Value:
+ *        "BUNDLE")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_DeploymentReleaseTypeUnspecified
+ *        Default unspecified value. (Value:
+ *        "DEPLOYMENT_RELEASE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Major
+ *        Goldengate Deployment Version release type is MAJOR. (Value: "MAJOR")
+ *    @arg @c kGTLROracleDatabase_GoldengateDeploymentVersionProperties_ReleaseType_Minor
+ *        Goldengate Deployment Version release type is MINOR. (Value: "MINOR")
+ */
+@property(nonatomic, copy, nullable) NSString *releaseType;
+
+/**
+ *  Optional. Whether the Goldengate Deployment Version resource is a security
+ *  fix.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *securityFix;
+
+/**
+ *  Output only. The support end time of the Goldengate Deployment Version
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *supportEndTime;
+
+@end
+
+
+/**
+ *  The properties of GoldengateElasticsearchConnection.
+ */
+@interface GTLROracleDatabase_GoldengateElasticsearchConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Authentication type for Elasticsearch.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_Basic
+ *        Basic authentication. (Value: "BASIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_ElasticsearchAuthenticationTypeUnspecified
+ *        Authentication type not specified. (Value:
+ *        "ELASTICSEARCH_AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_AuthenticationType_None
+ *        No authentication. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/**
+ *  Optional. Fingerprint required by TLS security protocol. Eg.:
+ *  '6152b2dfbff200f973c5074a5b91d06ab3b472c07c09a1ea57bb7fd406cdce9c'
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses for Elastic Search
+ *  connection in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses for Elastic
+ *  Search connection. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. Security protocol for Elasticsearch.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_ElasticsearchSecurityProtocolUnspecified
+ *        Security protocol not specified. (Value:
+ *        "ELASTICSEARCH_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengateElasticsearchConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. Comma separated list of Elasticsearch server addresses, specified
+ *  as host:port entries, where :port is optional. If port is not specified, it
+ *  defaults to 9200. Example:
+ *  "server1.example.com:4000,server2.example.com:4000"
+ */
+@property(nonatomic, copy, nullable) NSString *servers;
+
+/** Optional. The technology type of ElasticsearchConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect the associated
+ *  system of the given technology.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateGenericConnectionProperties.
+ */
+@interface GTLROracleDatabase_GoldengateGenericConnectionProperties : GTLRObject
+
+/** Optional. The host of the GenericConnection. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** Optional. The technology type. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateGoldengateConnectionProperties.
+ */
+@interface GTLROracleDatabase_GoldengateGoldengateConnectionProperties : GTLRObject
+
+/**
+ *  Optional. The name of the GoldengateDeployment associated with the
+ *  GoldengateConnection. Format:
+ *  projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *goldengateDeploymentId;
+
+/** Optional. The host of the GoldengateConnection. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. Input only. The password used to connect to the Oracle Goldengate
+ *  in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password used to connect to the Oracle
+ *  Goldengate. Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. The port of the GoldengateConnection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/** Optional. The technology type. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The username credential. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateGoogleBigQueryConnectionProperties.
+ */
+@interface GTLROracleDatabase_GoldengateGoogleBigQueryConnectionProperties : GTLRObject
+
+/**
+ *  Optional. The base64 encoded content of the service account key file
+ *  containing the credentials required to use Google BigQuery.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountKeyFile;
+
+/** Optional. The technology type. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateGoogleCloudStorageConnectionProperties.
+ */
+@interface GTLROracleDatabase_GoldengateGoogleCloudStorageConnectionProperties : GTLRObject
+
+/**
+ *  Optional. The base64 encoded content of the service account key file
+ *  containing the credentials required to use Google Cloud Storage.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountKeyFile;
+
+/** Optional. The technology type. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateGooglePubsubConnection.
+ */
+@interface GTLROracleDatabase_GoldengateGooglePubsubConnectionProperties : GTLRObject
+
+/**
+ *  Optional. The base64 encoded content of the service account key file
+ *  containing the credentials required to use Google Pub/Sub.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountKeyFile;
+
+/** Optional. The technology type of GooglePubsubConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The group to roles mapping of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengateGroupToRolesMapping : GTLRObject
+
+/** Output only. The administrator group id. */
+@property(nonatomic, copy, nullable) NSString *administratorGroupId;
+
+/** Output only. The operator group id. */
+@property(nonatomic, copy, nullable) NSString *operatorGroupId;
+
+/** Output only. The security group id. */
+@property(nonatomic, copy, nullable) NSString *securityGroupId;
+
+/** Output only. The user group id. */
+@property(nonatomic, copy, nullable) NSString *userGroupId;
+
+@end
+
+
+/**
+ *  The properties of GoldengateHdfsConnection.
+ */
+@interface GTLROracleDatabase_GoldengateHdfsConnectionProperties : GTLRObject
+
+/**
+ *  Optional. The content of the Hadoop Distributed File System configuration
+ *  file (core-site.xml).
+ */
+@property(nonatomic, copy, nullable) NSString *coreSiteXml;
+
+/** Optional. The technology type of HdfsConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateIcebergConnection.
+ */
+@interface GTLROracleDatabase_GoldengateIcebergConnectionProperties : GTLRObject
+
+/** Required. The Iceberg catalog. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_IcebergCatalog *catalog;
+
+/** Required. The Iceberg storage. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_IcebergStorage *storage;
+
+/** Required. The technology type of Iceberg connection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+@end
+
+
+/**
+ *  The properties of GoldengateJavaMessageServiceConnection.
+ */
+@interface GTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Authentication type for Java Message Service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_Basic
+ *        Basic authentication. (Value: "BASIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_JmsAuthenticationTypeUnspecified
+ *        Authentication type not specified. (Value:
+ *        "JMS_AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_AuthenticationType_None
+ *        No authentication. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/**
+ *  Optional. The Java class implementing javax.jms.ConnectionFactory interface
+ *  supplied by the JMS provider.
+ */
+@property(nonatomic, copy, nullable) NSString *connectionFactory;
+
+/**
+ *  Optional. Connection URL of the Java Message Service, specifying the
+ *  protocol, host, and port. e.g.: 'mq://myjms.host.domain:7676'
+ */
+@property(nonatomic, copy, nullable) NSString *connectionUrl;
+
+/**
+ *  Optional. The Connection Factory can be looked up using this name. e.g.:
+ *  'ConnectionFactory'
+ */
+@property(nonatomic, copy, nullable) NSString *jndiConnectionFactory;
+
+/**
+ *  Optional. The implementation of javax.naming.spi.InitialContextFactory
+ *  interface used to obtain initial naming context.
+ */
+@property(nonatomic, copy, nullable) NSString *jndiInitialContextFactory;
+
+/**
+ *  Optional. The URL that Java Message Service will use to contact the JNDI
+ *  provider. e.g.: 'tcp://myjms.host.domain:61616?jms.prefetchPolicy.all=1000'
+ */
+@property(nonatomic, copy, nullable) NSString *jndiProviderUrl;
+
+/** Optional. The password associated to the principal. */
+@property(nonatomic, copy, nullable) NSString *jndiSecurityCredentialsSecret;
+
+/**
+ *  Optional. Specifies the identity of the principal (user) to be
+ *  authenticated.
+ */
+@property(nonatomic, copy, nullable) NSString *jndiSecurityPrincipal;
+
+/** Optional. The base64 encoded content of the KeyStore file. */
+@property(nonatomic, copy, nullable) NSString *keyStoreFile;
+
+/** Optional. Input only. The KeyStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *keyStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the KeyStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *keyStorePasswordSecretVersion;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses to connect the
+ *  Java Message Service in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses to connect the
+ *  associated Java Message Service. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. Security protocol for Java Message Service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_JmsSecurityProtocolUnspecified
+ *        Security protocol not specified. (Value:
+ *        "JMS_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Mtls
+ *        Mutual Transport Layer Security. (Value: "MTLS")
+ *    @arg @c kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengateJavaMessageServiceConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. Input only. The password for the cert inside of the KeyStore in
+ *  plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *sslKeyPassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password for the cert inside of the KeyStore.
+ *  Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *sslKeyPasswordSecretVersion;
+
+/** Optional. The technology type of JavaMessageServiceConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The base64 encoded content of the TrustStore file. */
+@property(nonatomic, copy, nullable) NSString *trustStoreFile;
+
+/** Optional. Input only. The TrustStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *trustStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the TrustStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *trustStorePasswordSecretVersion;
+
+/**
+ *  Optional. If set to true, Java Naming and Directory Interface (JNDI)
+ *  properties should be provided.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useJndi;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect to the Java Message
+ *  Service.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateKafkaConnection.
+ */
+@interface GTLROracleDatabase_GoldengateKafkaConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Kafka bootstrap. Equivalent of bootstrap.servers configuration
+ *  property in Kafka: list of KafkaBootstrapServer objects specified by
+ *  host/port. Used for establishing the initial connection to the Kafka
+ *  cluster. Example: "server1.example.com:9092,server2.example.com:9092"
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_KafkaBootstrapServer *> *bootstrapServers;
+
+/**
+ *  Optional. The OCID of the Kafka cluster being referenced from OCI Streaming
+ *  with Apache Kafka.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/** Optional. The base64 encoded content of the consumer.properties file. */
+@property(nonatomic, copy, nullable) NSString *consumerPropertiesFile;
+
+/** Optional. The base64 encoded content of the KeyStore file. */
+@property(nonatomic, copy, nullable) NSString *keyStoreFile;
+
+/** Optional. Input only. The KeyStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *keyStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the KeyStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *keyStorePasswordSecretVersion;
+
+/**
+ *  Optional. Input only. The password for Kafka basic/SASL auth in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password for Kafka basic/SASL auth. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/** Optional. The base64 encoded content of the producer.properties file. */
+@property(nonatomic, copy, nullable) NSString *producerPropertiesFile;
+
+/**
+ *  Optional. Security Type for Kafka.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_KafkaSecurityProtocolUnspecified
+ *        Security type not specified. (Value:
+ *        "KAFKA_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_Plaintext
+ *        Plaintext security protocol. (Value: "PLAINTEXT")
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_SaslPlaintext
+ *        SASL Plaintext security protocol. (Value: "SASL_PLAINTEXT")
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_SaslSsl
+ *        SASL SSL security protocol. (Value: "SASL_SSL")
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaConnectionProperties_SecurityProtocol_Ssl
+ *        SSL security protocol. (Value: "SSL")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. Input only. The password for the cert inside of the KeyStore in
+ *  plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *sslKeyPassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password for the cert inside of the KeyStore.
+ *  Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *sslKeyPasswordSecretVersion;
+
+/** Optional. The OCID of the stream pool being referenced. */
+@property(nonatomic, copy, nullable) NSString *streamPoolId;
+
+/** Optional. The technology type of KafkaConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The base64 encoded content of the TrustStore file. */
+@property(nonatomic, copy, nullable) NSString *trustStoreFile;
+
+/** Optional. Input only. The TrustStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *trustStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the TrustStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *trustStorePasswordSecretVersion;
+
+/**
+ *  Optional. Specifies that the user intends to authenticate to the instance
+ *  using a resource principal. Applicable only for OCI Streaming connections.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useResourcePrincipal;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect the associated
+ *  system of the given technology.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateKafkaSchemaRegistryConnection.
+ */
+@interface GTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Used authentication mechanism to access Schema Registry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified
+ *        Authentication type not specified. (Value:
+ *        "AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_Basic
+ *        Basic authentication. (Value: "BASIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_Mutual
+ *        Mutual authentication. (Value: "MUTUAL")
+ *    @arg @c kGTLROracleDatabase_GoldengateKafkaSchemaRegistryConnectionProperties_AuthenticationType_None
+ *        No authentication. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/** Optional. The base64 encoded content of the KeyStore file. */
+@property(nonatomic, copy, nullable) NSString *keyStoreFile;
+
+/** Optional. Input only. The KeyStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *keyStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the KeyStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *keyStorePasswordSecretVersion;
+
+/**
+ *  Optional. Input only. The password to access Schema Registry in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password to access Schema Registry using basic
+ *  authentication. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. Input only. The password for the cert inside the KeyStore in plain
+ *  text.
+ */
+@property(nonatomic, copy, nullable) NSString *sslKeyPassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password for the cert inside the KeyStore.
+ *  Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *sslKeyPasswordSecretVersion;
+
+/** Optional. The technology type of KafkaSchemaRegistryConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The base64 encoded content of the TrustStore file. */
+@property(nonatomic, copy, nullable) NSString *trustStoreFile;
+
+/** Optional. Input only. The TrustStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *trustStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the TrustStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *trustStorePasswordSecretVersion;
+
+/**
+ *  Optional. Kafka Schema Registry URL. e.g.:
+ *  'https://server1.us.oracle.com:8081'
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+/**
+ *  Optional. The username to access Schema Registry using basic authentication.
+ *  This value is injected into
+ *  'schema.registry.basic.auth.user.info=user:password' configuration property.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The maintenance configuration of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengateMaintenanceConfig : GTLRObject
+
+/**
+ *  Optional. Defines auto upgrade period for bundle releases. Manually
+ *  configured period cannot be longer than service defined period for bundle
+ *  releases. This period must be shorter or equal to major release upgrade
+ *  period. Not passing this field during create will equate to using the
+ *  service default.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bundleReleaseUpgradePeriodDays;
+
+/**
+ *  Optional. Defines auto upgrade period for interim releases. This period must
+ *  be shorter or equal to bundle release upgrade period.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interimReleaseUpgradePeriodDays;
+
+/**
+ *  Optional. By default auto upgrade for interim releases are not enabled. If
+ *  auto-upgrade is enabled for interim release, you have to specify
+ *  interim_release_upgrade_period_days too.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isInterimReleaseAutoUpgradeEnabled;
+
+/**
+ *  Optional. Defines auto upgrade period for major releases. Manually
+ *  configured period cannot be longer than service defined period for major
+ *  releases. Not passing this field during create will equate to using the
+ *  service default.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *majorReleaseUpgradePeriodDays;
+
+/**
+ *  Optional. Defines auto upgrade period for releases with security fix.
+ *  Manually configured period cannot be longer than service defined period for
+ *  security releases. Not passing this field during create will equate to using
+ *  the service default.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *securityPatchUpgradePeriodDays;
+
+@end
+
+
+/**
+ *  The maintenance window of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengateMaintenanceWindow : GTLRObject
+
+/**
+ *  Required. Days of the week.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Tuesday
+ *        Tuesday (Value: "TUESDAY")
+ *    @arg @c kGTLROracleDatabase_GoldengateMaintenanceWindow_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/**
+ *  Required. Start hour for maintenance period. Hour is in UTC.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startHour;
+
+@end
+
+
+/**
+ *  The properties of GoldengateMicrosoftFabricConnection.
+ */
+@interface GTLROracleDatabase_GoldengateMicrosoftFabricConnectionProperties : GTLRObject
+
+/** Optional. Azure client ID of the application. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Optional. Client secret associated with the client id. */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Optional. Optional Microsoft Fabric service endpoint. Default value:
+ *  https://onelake.dfs.fabric.microsoft.com
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/** Optional. The technology type of MicrosoftFabricConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. Azure tenant ID of the application. */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+@end
+
+
+/**
+ *  The properties of GoldengateMicrosoftSqlserverConnection.
+ */
+@interface GTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties : GTLRObject
+
+/**
+ *  Optional. An array of name-value pair attribute entries. Used as additional
+ *  parameters in connection string.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_NameValuePair *> *additionalAttributes;
+
+/** Optional. The name of the database. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Optional. The name or address of a host. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses for Microsoft SQL
+ *  Server connection in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses for Microsoft SQL
+ *  Server connection. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. The port of an endpoint usually specified for a connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Optional. Security Type for Microsoft SQL Server.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_MicrosoftSqlserverSecurityProtocolUnspecified
+ *        Security type not specified. (Value:
+ *        "MICROSOFT_SQLSERVER_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengateMicrosoftSqlserverConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. If set to true, the driver validates the certificate that is sent
+ *  by the database server.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serverCertificateValidationRequired;
+
+/**
+ *  Optional. Database Certificate - The base64 encoded content of a .pem or
+ *  .crt file containing the server public key (for 1-way SSL).
+ */
+@property(nonatomic, copy, nullable) NSString *sslCaFile;
+
+/** Optional. The technology type of MicrosoftSqlserverConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect to the Microsoft
+ *  SQL Server.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateMongodbConnection.
+ */
+@interface GTLROracleDatabase_GoldengateMongodbConnectionProperties : GTLRObject
+
+/**
+ *  Optional. MongoDB connection string. e.g.:
+ *  'mongodb://mongodb0.example.com:27017/recordsrecords'
+ */
+@property(nonatomic, copy, nullable) NSString *connectionString;
+
+/** Optional. The OCID of the Oracle Autonomous Json Database. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses to connect the
+ *  Mongodb connection in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses to connect the
+ *  Mongodb connection. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. Security Type for MongoDB.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_MongodbSecurityProtocolUnspecified
+ *        Security type not specified. (Value:
+ *        "MONGODB_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Mtls
+ *        Mutual Transport Layer Security. (Value: "MTLS")
+ *    @arg @c kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengateMongodbConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/** Optional. The technology type of MongodbConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. Database Certificate - The base64 encoded content of a .pem file,
+ *  containing the server public key (for 1 and 2-way SSL).
+ */
+@property(nonatomic, copy, nullable) NSString *tlsCaFile;
+
+/**
+ *  Optional. Client Certificate - The base64 encoded content of a .pem file,
+ *  containing the client public key (for 2-way SSL).
+ */
+@property(nonatomic, copy, nullable) NSString *tlsCertificateKeyFile;
+
+/**
+ *  Optional. Input only. The Client Certificate key file password in plain
+ *  text.
+ */
+@property(nonatomic, copy, nullable) NSString *tlsCertificateKeyFilePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the Client Certificate key file password in Secret
+ *  Manager. Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *tlsCertificateKeyFilePasswordSecretVersion;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect to the database.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Properties of GoldengateMysqlConnection.
+ */
+@interface GTLROracleDatabase_GoldengateMysqlConnectionProperties : GTLRObject
+
+/**
+ *  Optional. An array of name-value pair attribute entries. Used as additional
+ *  parameters in connection string.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_NameValuePair *> *additionalAttributes;
+
+/** Optional. The name of the database. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Optional. The OCID of the database system being referenced. */
+@property(nonatomic, copy, nullable) NSString *dbSystemId;
+
+/** Optional. The name or address of a host. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses to connect to
+ *  MySQL in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses to connect to
+ *  MySQL. Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. The port of an endpoint usually specified for a connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Optional. Security Type for MySQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Mtls
+ *        Mutual Transport Layer Security. (Value: "MTLS")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_MysqlSecurityProtocolUnspecified
+ *        Security type not specified. (Value:
+ *        "MYSQL_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. Database Certificate - The base64 encoded content of a .pem or
+ *  .crt file containing the server public key (for 1 and 2-way SSL).
+ */
+@property(nonatomic, copy, nullable) NSString *sslCaFile;
+
+/**
+ *  Optional. Client Certificate - The base64 encoded content of a .pem or .crt
+ *  file containing the client public key (for 2-way SSL).
+ */
+@property(nonatomic, copy, nullable) NSString *sslCertFile;
+
+/**
+ *  Optional. The base64 encoded list of certificates revoked by the trusted
+ *  certificate authorities (Trusted CA).
+ */
+@property(nonatomic, copy, nullable) NSString *sslCrlFile;
+
+/**
+ *  Optional. Client Key - The base64 encoded content of a .pem or .crt file
+ *  containing the client private key (for 2-way SSL).
+ */
+@property(nonatomic, copy, nullable) NSString *sslKeyFile;
+
+/**
+ *  Optional. SSL modes for MySQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Disabled
+ *        SSL is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Preferred
+ *        SSL is preferred. (Value: "PREFERRED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_Required
+ *        SSL is required. (Value: "REQUIRED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_SslModeUnspecified
+ *        SSL mode not specified. (Value: "SSL_MODE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_VerifyCa
+ *        SSL is required and certificate is verified. (Value: "VERIFY_CA")
+ *    @arg @c kGTLROracleDatabase_GoldengateMysqlConnectionProperties_SslMode_VerifyIdentity
+ *        SSL is required and certificate and hostname are verified. (Value:
+ *        "VERIFY_IDENTITY")
+ */
+@property(nonatomic, copy, nullable) NSString *sslMode;
+
+/** Optional. The technology type of MysqlConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect the associated
+ *  system of the given technology.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateOciObjectStorageConnection.
+ */
+@interface GTLROracleDatabase_GoldengateOciObjectStorageConnectionProperties : GTLRObject
+
+/**
+ *  Optional. The content of the private key file (PEM file) corresponding to
+ *  the API key of the fingerprint.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKeyFile;
+
+/** Optional. The passphrase of the private key. */
+@property(nonatomic, copy, nullable) NSString *privateKeyPassphraseSecret;
+
+/**
+ *  Optional. The fingerprint of the API Key of the user specified by the
+ *  userId.
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFingerprint;
+
+/**
+ *  Optional. The name of the region of OCI Object Storage. e.g.: us-ashburn-1
+ *  If the region is not provided, backend will default to the default region.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Optional. The technology type of OciObjectStorageConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The OCID of the related OCI tenancy. */
+@property(nonatomic, copy, nullable) NSString *tenancyId;
+
+/**
+ *  Optional. Specifies that the user intends to authenticate to the instance
+ *  using a resource principal.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useResourcePrincipal;
+
+/**
+ *  Optional. The OCID of the OCI user who will access the Object Storage. The
+ *  user must have write access to the bucket they want to connect to.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  The Ogg data of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengateOggDeployment : GTLRObject
+
+/** Optional. The Goldengate deployment console password in plain text. */
+@property(nonatomic, copy, nullable) NSString *adminPassword;
+
+/**
+ *  Optional. Input only. The Goldengate deployment console password secret
+ *  version.
+ */
+@property(nonatomic, copy, nullable) NSString *adminPasswordSecretVersion;
+
+/** Required. The Goldengate deployment console username. */
+@property(nonatomic, copy, nullable) NSString *adminUsername;
+
+/** Output only. The certificate of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *certificate;
+
+/**
+ *  Output only. The credential store of the GoldengateDeployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_CredentialStoreUnspecified
+ *        The credential store is unspecified. (Value:
+ *        "CREDENTIAL_STORE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_Goldengate
+ *        The credential store is Goldengate. (Value: "GOLDENGATE")
+ *    @arg @c kGTLROracleDatabase_GoldengateOggDeployment_CredentialStore_Iam
+ *        The credential store is IAM. (Value: "IAM")
+ */
+@property(nonatomic, copy, nullable) NSString *credentialStore;
+
+/**
+ *  Required. The name given to the Goldengate service deployment. The name must
+ *  be 1 to 32 characters long, must contain only alphanumeric characters and
+ *  must start with a letter.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/** Output only. The group to roles mapping of the GoldengateDeployment. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoldengateGroupToRolesMapping *groupRolesMapping;
+
+/** Output only. The identity domain id of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *identityDomainId;
+
+/** Optional. Version of OGG */
+@property(nonatomic, copy, nullable) NSString *oggVersion;
+
+/** Output only. The password secret id of the GoldengateDeployment. */
+@property(nonatomic, copy, nullable) NSString *passwordSecretId;
+
+@end
+
+
+/**
+ *  The properties of GoldengateOracleAIDataPlatformConnection.
+ */
+@interface GTLROracleDatabase_GoldengateOracleAIDataPlatformConnectionProperties : GTLRObject
+
+/** Optional. Connection URL. It must start with 'jdbc:spark://' */
+@property(nonatomic, copy, nullable) NSString *connectionUrl;
+
+/**
+ *  Optional. The content of the private key file (PEM file) corresponding to
+ *  the API key of the fingerprint.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKeyFile;
+
+/** Optional. The passphrase of the private key. */
+@property(nonatomic, copy, nullable) NSString *privateKeyPassphraseSecret;
+
+/**
+ *  Optional. The fingerprint of the API Key of the user specified by the
+ *  user_id.
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFingerprint;
+
+/** Optional. The name of the region. e.g.: us-ashburn-1 */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Optional. The technology type of OracleAiDataPlatformConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The OCID of the related OCI tenancy. */
+@property(nonatomic, copy, nullable) NSString *tenancyId;
+
+/**
+ *  Optional. Specifies that the user intends to authenticate to the instance
+ *  using a resource principal.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useResourcePrincipal;
+
+/** Optional. The OCID of the OCI user who will access. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  The properties of Goldengate Oracle Database Connection.
+ */
+@interface GTLROracleDatabase_GoldengateOracleConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Authentication mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_Mtls
+ *        MTLS authentication mode. (Value: "MTLS")
+ *    @arg @c kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_OracleAuthenticationModeUnspecified
+ *        Authentication mode not specified. (Value:
+ *        "ORACLE_AUTHENTICATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateOracleConnectionProperties_AuthenticationMode_Tls
+ *        TLS authentication mode. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationMode;
+
+/**
+ *  Optional. Connect descriptor or Easy Connect Naming method used to connect
+ *  to a database.
+ */
+@property(nonatomic, copy, nullable) NSString *connectionString;
+
+/**
+ *  Optional. Autonomous AI Database instance id of database in Oracle Database
+ *  \@ Google Cloud. If gcp_oracle_database_id is provided, connection_string
+ *  must be empty. Format:
+ *  projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}
+ */
+@property(nonatomic, copy, nullable) NSString *gcpOracleDatabaseId;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. The mode of the database connection session to be established by
+ *  the data client.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_Direct
+ *        Indicates that the resource is using direct session mode. (Value:
+ *        "DIRECT")
+ *    @arg @c kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_Redirect
+ *        Indicates that the resource is using redirect session mode. (Value:
+ *        "REDIRECT")
+ *    @arg @c kGTLROracleDatabase_GoldengateOracleConnectionProperties_SessionMode_SessionModeUnspecified
+ *        Default unspecified value. (Value: "SESSION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sessionMode;
+
+/** Optional. The technology type. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The username Oracle Goldengate uses to connect. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+/**
+ *  Optional. The wallet contents Oracle Goldengate uses to make connections to
+ *  a database. This attribute is expected to be base64 encoded.
+ */
+@property(nonatomic, copy, nullable) NSString *walletFile;
+
+@end
+
+
+/**
+ *  The properties of GoldengateOracleNosqlConnection.
+ */
+@interface GTLROracleDatabase_GoldengateOracleNosqlConnectionProperties : GTLRObject
+
+/**
+ *  Optional. The content of the private key file (PEM file) corresponding to
+ *  the API key of the fingerprint.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKeyFile;
+
+/** Optional. The passphrase of the private key. */
+@property(nonatomic, copy, nullable) NSString *privateKeyPassphraseSecret;
+
+/**
+ *  Optional. The fingerprint of the API Key of the user specified by the
+ *  userId.
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFingerprint;
+
+/** Optional. The name of the region. e.g.: us-ashburn-1 */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Optional. The technology type of OracleNosqlConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The OCID of the OCI tenancy. */
+@property(nonatomic, copy, nullable) NSString *tenancyId;
+
+/**
+ *  Optional. Specifies that the user intends to authenticate to the instance
+ *  using a resource principal.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useResourcePrincipal;
+
+/**
+ *  Optional. The OCID of the OCI user who will access the Oracle NoSQL
+ *  database.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  The placement of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_GoldengatePlacement : GTLRObject
+
+/** Output only. The availability domain. */
+@property(nonatomic, copy, nullable) NSString *availabilityDomain;
+
+/** Output only. The fault domain. */
+@property(nonatomic, copy, nullable) NSString *faultDomain;
+
+@end
+
+
+/**
+ *  The properties of GoldengatePostgresqlConnection.
+ */
+@interface GTLROracleDatabase_GoldengatePostgresqlConnectionProperties : GTLRObject
+
+/**
+ *  Optional. An array of name-value pair attribute entries. Used as additional
+ *  parameters in connection string.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_NameValuePair *> *additionalAttributes;
+
+/** Optional. The name of the database. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Optional. The OCID of the database system being referenced. */
+@property(nonatomic, copy, nullable) NSString *dbSystemId;
+
+/** Optional. The name or address of a host. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses for PostgreSQL
+ *  connection in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses for PostgreSQL
+ *  connection. Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/**
+ *  Optional. The port of an endpoint usually specified for a connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Optional. Security protocol for PostgreSQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Mtls
+ *        Mutual Transport Layer Security. (Value: "MTLS")
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_PostgresqlSecurityProtocolUnspecified
+ *        Security protocol not specified. (Value:
+ *        "POSTGRESQL_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. The base64 encoded certificate of the trusted certificate
+ *  authorities (Trusted CA) for PostgreSQL.
+ */
+@property(nonatomic, copy, nullable) NSString *sslCaFile;
+
+/** Optional. The base64 encoded certificate of the PostgreSQL server. */
+@property(nonatomic, copy, nullable) NSString *sslCertFile;
+
+/**
+ *  Optional. The base64 encoded list of certificates revoked by the trusted
+ *  certificate authorities (Trusted CA).
+ */
+@property(nonatomic, copy, nullable) NSString *sslCrlFile;
+
+/** Optional. The base64 encoded private key of the PostgreSQL server. */
+@property(nonatomic, copy, nullable) NSString *sslKeyFile;
+
+/**
+ *  Optional. SSL modes for PostgreSQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_PostgresqlSslModeUnspecified
+ *        SSL mode not specified. (Value: "POSTGRESQL_SSL_MODE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_Prefer
+ *        Prefer SSL. (Value: "PREFER")
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_Require
+ *        Require SSL. (Value: "REQUIRE")
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_VerifyCa
+ *        Verify Certificate Authority. (Value: "VERIFY_CA")
+ *    @arg @c kGTLROracleDatabase_GoldengatePostgresqlConnectionProperties_SslMode_VerifyFull
+ *        Verify Full. (Value: "VERIFY_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *sslMode;
+
+/** Optional. The technology type of PostgresqlConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect the associated
+ *  system of the given technology.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateRedisConnection.
+ */
+@interface GTLROracleDatabase_GoldengateRedisConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Authentication type for Redis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_Basic
+ *        Basic authentication. (Value: "BASIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_None
+ *        No authentication. (Value: "NONE")
+ *    @arg @c kGTLROracleDatabase_GoldengateRedisConnectionProperties_AuthenticationType_RedisAuthenticationTypeUnspecified
+ *        Authentication type not specified. (Value:
+ *        "REDIS_AUTHENTICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/** Optional. The base64 encoded content of the KeyStore file. */
+@property(nonatomic, copy, nullable) NSString *keyStoreFile;
+
+/** Optional. Input only. The KeyStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *keyStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the KeyStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *keyStorePasswordSecretVersion;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses for Redis
+ *  connection in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses for Redis
+ *  connection. Format: projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/** Optional. The OCID of the Redis cluster. */
+@property(nonatomic, copy, nullable) NSString *redisClusterId;
+
+/**
+ *  Optional. Security protocol for Redis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Mtls
+ *        Mutual Transport Layer Security. (Value: "MTLS")
+ *    @arg @c kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Plain
+ *        Plain text communication. (Value: "PLAIN")
+ *    @arg @c kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_RedisSecurityProtocolUnspecified
+ *        Security protocol not specified. (Value:
+ *        "REDIS_SECURITY_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateRedisConnectionProperties_SecurityProtocol_Tls
+ *        Transport Layer Security. (Value: "TLS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityProtocol;
+
+/**
+ *  Optional. Comma separated list of Redis server addresses, specified as
+ *  host:port entries, where :port is optional. If port is not specified, it
+ *  defaults to 6379. Example:
+ *  "server1.example.com:6379,server2.example.com:6379"
+ */
+@property(nonatomic, copy, nullable) NSString *servers;
+
+/** Optional. The technology type of RedisConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The base64 encoded content of the TrustStore file. */
+@property(nonatomic, copy, nullable) NSString *trustStoreFile;
+
+/** Optional. Input only. The TrustStore password in plain text. */
+@property(nonatomic, copy, nullable) NSString *trustStorePassword;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the TrustStore password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *trustStorePasswordSecretVersion;
+
+/**
+ *  Optional. The username Oracle Goldengate uses to connect the associated
+ *  system of the given technology.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The properties of GoldengateSnowflakeConnection.
+ */
+@interface GTLROracleDatabase_GoldengateSnowflakeConnectionProperties : GTLRObject
+
+/**
+ *  Optional. Used authentication mechanism to access Snowflake.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_AuthenticationTypeUnspecified
+ *        Authentication type not specified. (Value:
+ *        "AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_Basic
+ *        Basic authentication. (Value: "BASIC")
+ *    @arg @c kGTLROracleDatabase_GoldengateSnowflakeConnectionProperties_AuthenticationType_KeyPair
+ *        Key pair authentication. (Value: "KEY_PAIR")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/**
+ *  Optional. JDBC connection URL. e.g.:
+ *  'jdbc:snowflake://.snowflakecomputing.com/?warehouse=&db='
+ */
+@property(nonatomic, copy, nullable) NSString *connectionUrl;
+
+/**
+ *  Optional. Input only. The password Oracle Goldengate uses to connect to
+ *  Snowflake platform in plain text.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. Input only. The resource name of a secret version in Secret
+ *  Manager which contains the password Oracle Goldengate uses to connect to
+ *  Snowflake platform. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/** Optional. The content of private key file in PEM format. */
+@property(nonatomic, copy, nullable) NSString *privateKeyFile;
+
+/** Optional. Password if the private key file is encrypted. */
+@property(nonatomic, copy, nullable) NSString *privateKeyPassphraseSecret;
+
+/** Optional. The technology type of SnowflakeConnection. */
+@property(nonatomic, copy, nullable) NSString *technologyType;
+
+/** Optional. The username Oracle Goldengate uses to connect to Snowflake. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  The Google Cloud Storage Iceberg storage.
+ */
+@interface GTLROracleDatabase_GoogleCloudStorageIcebergStorage : GTLRObject
+
+/** Required. The bucket of Google Cloud Storage. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Required. The project ID of Google Cloud Storage. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Optional. The base64 encoded content of the service account key file of
+ *  Google Cloud Storage.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountKeyFile;
+
+@end
+
+
+/**
+ *  The Iceberg catalog details.
+ */
+@interface GTLROracleDatabase_IcebergCatalog : GTLRObject
+
+/**
+ *  Required. The type of Iceberg catalog.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_IcebergCatalog_CatalogType_CatalogTypeUnspecified
+ *        Catalog type not specified. (Value: "CATALOG_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_IcebergCatalog_CatalogType_Glue Glue catalog.
+ *        (Value: "GLUE")
+ *    @arg @c kGTLROracleDatabase_IcebergCatalog_CatalogType_Hadoop Hadoop
+ *        catalog. (Value: "HADOOP")
+ *    @arg @c kGTLROracleDatabase_IcebergCatalog_CatalogType_Nessie Nessie
+ *        catalog. (Value: "NESSIE")
+ *    @arg @c kGTLROracleDatabase_IcebergCatalog_CatalogType_Polaris Polaris
+ *        catalog. (Value: "POLARIS")
+ *    @arg @c kGTLROracleDatabase_IcebergCatalog_CatalogType_Rest REST catalog.
+ *        (Value: "REST")
+ */
+@property(nonatomic, copy, nullable) NSString *catalogType;
+
+/** The Glue Iceberg catalog. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GlueIcebergCatalog *glueIcebergCatalog;
+
+/** The Nessie Iceberg catalog. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_NessieIcebergCatalog *nessieIcebergCatalog;
+
+/** The Polaris Iceberg catalog. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_PolarisIcebergCatalog *polarisIcebergCatalog;
+
+/** The REST Iceberg catalog. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_RestIcebergCatalog *restIcebergCatalog;
+
+@end
+
+
+/**
+ *  The Iceberg storage details.
+ */
+@interface GTLROracleDatabase_IcebergStorage : GTLRObject
+
+/** The Amazon S3 Iceberg storage. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_AmazonS3IcebergStorage *amazonS3IcebergStorage;
+
+/** The Azure Data Lake Storage Iceberg storage. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_AzureDataLakeStorageIcebergStorage *azureDataLakeStorageIcebergStorage;
+
+/** The Google Cloud Storage Iceberg storage. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_GoogleCloudStorageIcebergStorage *googleCloudStorageIcebergStorage;
+
+/**
+ *  Required. The type of Iceberg storage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_IcebergStorage_StorageType_AmazonS3 Amazon S3
+ *        storage. (Value: "AMAZON_S3")
+ *    @arg @c kGTLROracleDatabase_IcebergStorage_StorageType_AzureDataLakeStorage
+ *        Azure Data Lake Storage storage. (Value: "AZURE_DATA_LAKE_STORAGE")
+ *    @arg @c kGTLROracleDatabase_IcebergStorage_StorageType_GoogleCloudStorage
+ *        Google Cloud Storage storage. (Value: "GOOGLE_CLOUD_STORAGE")
+ *    @arg @c kGTLROracleDatabase_IcebergStorage_StorageType_StorageTypeUnspecified
+ *        Storage type not specified. (Value: "STORAGE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storageType;
+
+@end
+
+
+/**
  *  The identity connector details which will allow OCI to securely access the
  *  resources in the customer project.
  */
@@ -6687,6 +11844,47 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  `p176944527254-55-75119d87fd8f\@gcp-sa-oci.iam.gserviceaccount.com`
  */
 @property(nonatomic, copy, nullable) NSString *serviceAgentEmail;
+
+@end
+
+
+/**
+ *  The ingress IPs of the GoldengateDeployment.
+ */
+@interface GTLROracleDatabase_IngressIp : GTLRObject
+
+/** Output only. The ingress IP. */
+@property(nonatomic, copy, nullable) NSString *ingressIpAddress;
+
+@end
+
+
+/**
+ *  Represents a Kafka bootstrap server with host name, optional port defaults
+ *  to 9092, and an optional private ip.
+ */
+@interface GTLROracleDatabase_KafkaBootstrapServer : GTLRObject
+
+/** Required. The name or address of a host. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. The port of an endpoint usually specified for a connection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Optional. The private IP address of the connection's endpoint in the
+ *  customer's VCN, typically a database endpoint or a big data endpoint (e.g.
+ *  Kafka bootstrap server). In case the privateIp is provided, the subnetId
+ *  must also be provided. In case the privateIp (and the subnetId) is not
+ *  provided it is assumed the datasource is publicly accessible. In case the
+ *  connection is accessible only privately, the lack of privateIp will result
+ *  in not being able to access the connection.
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpAddress;
 
 @end
 
@@ -7165,6 +12363,215 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  Response message for listing GoldengateConnectionAssignments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "goldengateConnectionAssignments" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListGoldengateConnectionAssignmentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of GoldengateConnectionAssignments.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateConnectionAssignment *> *goldengateConnectionAssignments;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response for `GoldengateConnection.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "goldengateConnections" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListGoldengateConnectionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of GoldengateConnections.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateConnection *> *goldengateConnections;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Optional. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing GoldengateConnectionTypes
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "goldengateConnectionTypes" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListGoldengateConnectionTypesResponse : GTLRCollectionObject
+
+/**
+ *  The list of GoldengateConnectionType
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateConnectionType *> *goldengateConnectionTypes;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing GoldengateDeploymentEnvironments
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "goldengateDeploymentEnvironments" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListGoldengateDeploymentEnvironmentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of GoldengateDeploymentEnvironment
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateDeploymentEnvironment *> *goldengateDeploymentEnvironments;
+
+/**
+ *  A token identifying a page of results the server should return. If this
+ *  field is empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response for `GoldengateDeployment.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "goldengateDeployments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListGoldengateDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of GoldengateDeployments.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateDeployment *> *goldengateDeployments;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Optional. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing GoldengateDeploymentTypes
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "goldengateDeploymentTypes" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListGoldengateDeploymentTypesResponse : GTLRCollectionObject
+
+/**
+ *  The list of GoldengateDeploymentType
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateDeploymentType *> *goldengateDeploymentTypes;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unordered list. The resource names of locations that could not be reached.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing GoldengateDeploymentVersions
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "goldengateDeploymentVersions" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListGoldengateDeploymentVersionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of GoldengateDeploymentVersion
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_GoldengateDeploymentVersion *> *goldengateDeploymentVersions;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7510,6 +12917,35 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 /** Optional. The valid Oracle grid infrastructure software version. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  A name-value pair representing an attribute entry usable in a list of
+ *  attributes.
+ */
+@interface GTLROracleDatabase_NameValuePair : GTLRObject
+
+/** Required. The name of the property entry. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Required. The value of the property entry. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The Nessie Iceberg catalog.
+ */
+@interface GTLROracleDatabase_NessieIcebergCatalog : GTLRObject
+
+/** Required. The Nessie branch. */
+@property(nonatomic, copy, nullable) NSString *branch;
+
+/** Required. The Nessie uri. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -8014,6 +13450,29 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The Polaris Iceberg catalog.
+ */
+@interface GTLROracleDatabase_PolarisIcebergCatalog : GTLRObject
+
+/** Required. The Polaris client ID. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Optional. The Polaris client secret. */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/** Required. The catalog name within Polaris. */
+@property(nonatomic, copy, nullable) NSString *polarisCatalog;
+
+/** Required. The Polaris principal role. */
+@property(nonatomic, copy, nullable) NSString *principalRole;
+
+/** Required. The Polaris uri. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  The request for `ExadbVmCluster.RemoveVirtualMachine`.
  */
 @interface GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest : GTLRObject
@@ -8042,6 +13501,23 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  The request for `AutonomousDatabase.Restart`.
  */
 @interface GTLROracleDatabase_RestartAutonomousDatabaseRequest : GTLRObject
+@end
+
+
+/**
+ *  The REST Iceberg catalog.
+ */
+@interface GTLROracleDatabase_RestIcebergCatalog : GTLRObject
+
+/**
+ *  Optional. The base64 encoded content of the configuration file containing
+ *  additional properties for the REST catalog.
+ */
+@property(nonatomic, copy, nullable) NSString *properties;
+
+/** Required. The REST uri. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 
@@ -8124,6 +13600,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The request for `GoldengateDeployment.Start`.
+ */
+@interface GTLROracleDatabase_StartGoldengateDeploymentRequest : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -8176,6 +13659,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The request for `GoldengateDeployment.Stop`.
+ */
+@interface GTLROracleDatabase_StopGoldengateDeploymentRequest : GTLRObject
+@end
+
+
+/**
  *  The initial storage size, in gigabytes, that is applicable for virtual
  *  machine DBSystem.
  */
@@ -8210,6 +13700,79 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  cross-region standby, and must be omitted for in-region Data Guard.
  */
 @property(nonatomic, copy, nullable) NSString *peerAutonomousDatabase;
+
+@end
+
+
+/**
+ *  Error details for TestGoldengateConnectionAssignment.
+ */
+@interface GTLROracleDatabase_TestConnectionAssignmentError : GTLRObject
+
+/** The text describing the action required to fix the issue. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  A short error code that defines the error, meant for programmatic parsing.
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** The text describing the root cause of the reported issue. */
+@property(nonatomic, copy, nullable) NSString *issue;
+
+/** A human-readable error message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Request message for TestGoldengateConnectionAssignment.
+ */
+@interface GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest : GTLRObject
+
+/**
+ *  Optional. The type of the test of the assigned connection. The only type
+ *  actually supported is DEFAULT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_Default
+ *        The default connection test. (Value: "DEFAULT")
+ *    @arg @c kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_TestTypeUnspecified
+ *        The default value. This value is unused. (Value:
+ *        "TEST_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The result of the connectivity test performed between the Goldengate
+ *  deployment and the associated database / service.
+ */
+@interface GTLROracleDatabase_TestGoldengateConnectionAssignmentResponse : GTLRObject
+
+/** Error details if test connection failed. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_TestConnectionAssignmentError *error;
+
+/** List of test connection assignment error objects. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_TestConnectionAssignmentError *> *errors;
+
+/**
+ *  Type of the result i.e. Success, Failure or Timeout.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_Failed
+ *        Test connection failed. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_ResultTypeUnspecified
+ *        Result type is unspecified. (Value: "RESULT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_Succeeded
+ *        Test connection succeeded. (Value: "SUCCEEDED")
+ *    @arg @c kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_ResultType_TimedOut
+ *        Test connection timed out. (Value: "TIMED_OUT")
+ */
+@property(nonatomic, copy, nullable) NSString *resultType;
 
 @end
 

@@ -164,11 +164,15 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 //
 
 @implementation GTLRThreatIntelligenceService_Configuration
-@dynamic audit, descriptionProperty, detail, displayName, name, provider, state,
-         version;
+@dynamic audit, descriptionProperty, detail, displayName, ETag, name, provider,
+         state, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end

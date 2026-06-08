@@ -1369,6 +1369,21 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_MigrateManagementVmsRequest
+//
+
+@implementation GTLRVMwareEngine_MigrateManagementVmsRequest
+@dynamic clusterId, ETag, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_MountDatastoreRequest
 //
 

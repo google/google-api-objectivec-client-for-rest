@@ -999,6 +999,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @end
 
 /**
+ *  Approves a ChangeRequest.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.approve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsApprove : GTLRCloudDataplexQuery
+
+/** Required. The name of the ChangeRequest to approve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.
+ *
+ *  Approves a ChangeRequest.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1ApproveChangeRequestRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ChangeRequest to approve.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsApprove
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1ApproveChangeRequestRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a ChangeRequest.Behavior depends on the caller's permissions and the
+ *  resource's state: 1. Callers with dataplex.changeRequests.delete can only
+ *  delete ChangeRequests in the NEW state. 2. Callers with the
+ *  dataplex.changeRequests.adminDelete permission can delete ChangeRequests
+ *  regardless of their state.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsDelete : GTLRCloudDataplexQuery
+
+/** Optional. The etag of the ChangeRequest. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the ChangeRequest to delete. Format:
+ *  projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_Empty.
+ *
+ *  Deletes a ChangeRequest.Behavior depends on the caller's permissions and the
+ *  resource's state: 1. Callers with dataplex.changeRequests.delete can only
+ *  delete ChangeRequests in the NEW state. 2. Callers with the
+ *  dataplex.changeRequests.adminDelete permission can delete ChangeRequests
+ *  regardless of their state.
+ *
+ *  @param name Required. The name of the ChangeRequest to delete. Format:
+ *    projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ChangeRequest.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the ChangeRequest to retrieve. Format:
+ *  projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.
+ *
+ *  Gets a ChangeRequest.
+ *
+ *  @param name Required. The name of the ChangeRequest to retrieve. Format:
+ *    projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1046,6 +1150,133 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ChangeRequests.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter request. Supports filtering by: state, author, resource,
+ *  create_time, update_time.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of ChangeRequests to return. The service may return
+ *  fewer.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page token received from a previous ListChangeRequests call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of ChangeRequests. Format:
+ *  projects/{project_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListChangeRequestsResponse.
+ *
+ *  Lists ChangeRequests.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    ChangeRequests. Format: projects/{project_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a ChangeRequest. Only allowed when the state is NEW.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Identifier. The relative resource name of the ChangeRequest, of the form:
+ *  projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.
+ *
+ *  Updates a ChangeRequest. Only allowed when the state is NEW.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest to
+ *    include in the query.
+ *  @param name Identifier. The relative resource name of the ChangeRequest, of
+ *    the form:
+ *    projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rejects a ChangeRequest.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.reject
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsReject : GTLRCloudDataplexQuery
+
+/** Required. The name of the ChangeRequest to reject. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.
+ *
+ *  Rejects a ChangeRequest.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1RejectChangeRequestRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ChangeRequest to reject.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsReject
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1RejectChangeRequestRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2194,6 +2425,46 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Requests access to a data product. This will trigger an access approval
+ *  workflow, and the requester will need to wait for the approval to be granted
+ *  before they will be able to access the data product assets.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.requestAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsRequestAccess : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the data product. Format:
+ *  projects/{project_number}/locations/{location_id}/dataProducts/{data_product_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessResponse.
+ *
+ *  Requests access to a data product. This will trigger an access approval
+ *  workflow, and the requester will need to wait for the approval to be granted
+ *  before they will be able to access the data product assets.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the data product. Format:
+ *    projects/{project_number}/locations/{location_id}/dataProducts/{data_product_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsRequestAccess
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
  *  PERMISSION_DENIED errors.
@@ -2291,10 +2562,11 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansCreate : GTLRCloudDataplexQuery
 
 /**
- *  Required. DataScan identifier. Must contain only lowercase letters, numbers
- *  and hyphens. Must start with a letter. Must end with a number or a letter.
- *  Must be between 1-63 characters. Must be unique within the customer project
- *  / location.
+ *  Optional. DataScan identifier. If not provided, a unique ID will be
+ *  generated with the prefix "data-scan-". Must contain only lowercase letters,
+ *  numbers and hyphens. Must start with a letter. Must end with a number or a
+ *  letter. Must be between 1-63 characters. Must be unique within the customer
+ *  project / location.
  */
 @property(nonatomic, copy, nullable) NSString *dataScanId;
 

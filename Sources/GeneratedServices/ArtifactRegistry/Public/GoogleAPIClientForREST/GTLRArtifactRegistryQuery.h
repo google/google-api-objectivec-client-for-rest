@@ -178,8 +178,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 /**
  *  Lists information about the supported locations for this service. This
  *  method lists locations based on the resource scope provided in the
- *  [ListLocationsRequest.name] field: * **Global locations**: If `name` is
- *  empty, the method lists the public locations available to all projects. *
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
  *  **Project-specific locations**: If `name` follows the format
  *  `projects/{project}`, the method lists locations visible to that specific
  *  project. This includes public, private, or other project-specific locations
@@ -197,8 +197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsList : GTLRArtifactRegistryQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -229,8 +229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *
  *  Lists information about the supported locations for this service. This
  *  method lists locations based on the resource scope provided in the
- *  [ListLocationsRequest.name] field: * **Global locations**: If `name` is
- *  empty, the method lists the public locations available to all projects. *
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
  *  **Project-specific locations**: If `name` follows the format
  *  `projects/{project}`, the method lists locations visible to that specific
  *  project. This includes public, private, or other project-specific locations
@@ -545,6 +545,42 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Checks an artifact streaming.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.checkPrewarmedArtifact
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesCheckPrewarmedArtifact : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The name of the repository, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1`. If the package or
+ *  version ID parts contain slashes, the slashes are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_CheckPrewarmedArtifactResponse.
+ *
+ *  Checks an artifact streaming.
+ *
+ *  @param object The @c GTLRArtifactRegistry_CheckPrewarmedArtifactRequest to
+ *    include in the query.
+ *  @param repository Required. The name of the repository, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1`. If the package or
+ *    version ID parts contain slashes, the slashes are escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesCheckPrewarmedArtifact
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_CheckPrewarmedArtifactRequest *)object
+                     repository:(NSString *)repository;
 
 @end
 
@@ -2106,6 +2142,95 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Prewarms an artifact for streaming.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.prewarmArtifact
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmArtifact : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The repository name, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1`. If the package or
+ *  version ID parts contain slashes, the slashes are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Prewarms an artifact for streaming.
+ *
+ *  @param object The @c GTLRArtifactRegistry_PrewarmArtifactRequest to include
+ *    in the query.
+ *  @param repository Required. The repository name, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1`. If the package or
+ *    version ID parts contain slashes, the slashes are escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmArtifact
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_PrewarmArtifactRequest *)object
+                     repository:(NSString *)repository;
+
+@end
+
+/**
+ *  Lists all streamed artifacts in a repository.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.prewarmedArtifacts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmedArtifactsList : GTLRArtifactRegistryQuery
+
+/**
+ *  Optional. Filter should only support The location of the prewarmed
+ *  artifacts. multi-region is not supported for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of prewarmed artifacts to return. Maximum page
+ *  size is 1,000. Default page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous list request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The repository of the artifact to list. Format:
+ *  projects/{project}/locations/{location}/repositories/{repository}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListPrewarmedArtifactsResponse.
+ *
+ *  Lists all streamed artifacts in a repository.
+ *
+ *  @param parent Required. The repository of the artifact to list. Format:
+ *    projects/{project}/locations/{location}/repositories/{repository}
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPrewarmedArtifactsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets a python package.
  *
  *  Method: artifactregistry.projects.locations.repositories.pythonPackages.get
@@ -2172,6 +2297,40 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Removes an artifact from streaming.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.removePrewarmedArtifact
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRemovePrewarmedArtifact : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The repository name, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1`.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_RemovePrewarmedArtifactResponse.
+ *
+ *  Removes an artifact from streaming.
+ *
+ *  @param object The @c GTLRArtifactRegistry_RemovePrewarmedArtifactRequest to
+ *    include in the query.
+ *  @param repository Required. The repository name, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1`.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRemovePrewarmedArtifact
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_RemovePrewarmedArtifactRequest *)object
+                     repository:(NSString *)repository;
 
 @end
 

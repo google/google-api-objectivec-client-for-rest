@@ -1377,7 +1377,7 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGet
 
-@dynamic name;
+@dynamic name, publicKeyFormat;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

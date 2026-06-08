@@ -649,10 +649,17 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsList
 
-@dynamic executionConfigHeaders, pageSize, pageToken, parent;
+@dynamic executionConfigHeaders, pageSize, pageToken, parent, toolNames;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolNames" : [NSString class]
+  };
+  return map;
 }
 
 + (instancetype)queryWithParent:(NSString *)parent {

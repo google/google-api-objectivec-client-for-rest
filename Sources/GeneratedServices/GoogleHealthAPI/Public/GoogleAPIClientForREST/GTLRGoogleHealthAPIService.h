@@ -23,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -32,6 +32,56 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPICloudPlatform;
+/**
+ *  Authorization scope: See your Google Health activity and fitness data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly;
+/**
+ *  Authorization scope: See your Google Health ECG data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.ecg.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly;
+/**
+ *  Authorization scope: See your Google Health health metrics and measurement
+ *  data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly;
+/**
+ *  Authorization scope: See your Google Health Irregular Rhythm Notifications
+ *  data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.irn.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly;
+/**
+ *  Authorization scope: See exercise GPS location data in Google Health
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.location.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly;
+/**
+ *  Authorization scope: See your Google Health profile data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.profile.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly;
+/**
+ *  Authorization scope: See your Google Health settings
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.settings.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly;
+/**
+ *  Authorization scope: See your Google Health sleep data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.sleep.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRGoogleHealthAPIService

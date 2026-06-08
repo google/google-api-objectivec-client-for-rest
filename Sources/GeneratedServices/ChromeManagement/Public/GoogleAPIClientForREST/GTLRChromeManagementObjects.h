@@ -2296,6 +2296,28 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse.insightsState
+
+/**
+ *  The insights feature is disabled for the customer.
+ *
+ *  Value: "INSIGHTS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsDisabled;
+/**
+ *  The insights feature is enabled for the customer.
+ *
+ *  Value: "INSIGHTS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsEnabled;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsEnablementStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.affiliationState
 
 /**
@@ -2595,6 +2617,50 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "ZSCALER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Zscaler;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse.insightsState
+
+/**
+ *  The insights feature is disabled for the customer.
+ *
+ *  Value: "INSIGHTS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsDisabled;
+/**
+ *  The insights feature is enabled for the customer.
+ *
+ *  Value: "INSIGHTS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsEnabled;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse.insightsState
+
+/**
+ *  The insights feature is disabled for the customer.
+ *
+ *  Value: "INSIGHTS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsDisabled;
+/**
+ *  The insights feature is enabled for the customer.
+ *
+ *  Value: "INSIGHTS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnabled;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
@@ -3951,6 +4017,37 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response containing requested managed profile versions details and counts.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "profileBrowserVersions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeProfileVersionsResponse : GTLRCollectionObject
+
+/** Token to specify the next page of the request. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of all browser versions reported for profiles and their install counts.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion *> *profileBrowserVersions;
+
+/**
+ *  Total number browser versions matching request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  Response containing requested browser versions details and counts.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5042,6 +5139,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Permissions of the installed app. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  Output only. Count of Chrome Profiles with this app installed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *profileCount;
 
 /**
  *  Output only. If available, the risk assessment data about this extension.
@@ -7444,6 +7548,30 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response from checking the enablement status of insights for the customer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse : GTLRObject
+
+/**
+ *  The state of the insights feature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsDisabled
+ *        The insights feature is disabled for the customer. (Value:
+ *        "INSIGHTS_DISABLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsEnabled
+ *        The insights feature is enabled for the customer. (Value:
+ *        "INSIGHTS_ENABLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsEnablementStateUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *insightsState;
+
+@end
+
+
+/**
  *  A representation of a Chrome browser profile.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile : GTLRObject
@@ -8050,6 +8178,77 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *urlMatchers;
+
+@end
+
+
+/**
+ *  Request to disable insights for the customer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsRequest : GTLRObject
+@end
+
+
+/**
+ *  Response from disabling insights for the customer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse : GTLRObject
+
+/**
+ *  The state of the insights feature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsDisabled
+ *        The insights feature is disabled for the customer. (Value:
+ *        "INSIGHTS_DISABLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsEnabled
+ *        The insights feature is enabled for the customer. (Value:
+ *        "INSIGHTS_ENABLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *insightsState;
+
+@end
+
+
+/**
+ *  Request to enable insights for the customer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsRequest : GTLRObject
+
+/**
+ *  Optional. The Organizational Units to set up required connectors for.
+ *  Organizational Units are provided as paths relative to root. If this field
+ *  is not set, connectors will be set up at root OU (as if it were set to
+ *  ["/"]). Example: ["/corp/sales", "/eng"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetOus;
+
+@end
+
+
+/**
+ *  Response from enabling insights for the customer.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse : GTLRObject
+
+/**
+ *  The state of the insights feature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsDisabled
+ *        The insights feature is disabled for the customer. (Value:
+ *        "INSIGHTS_DISABLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnabled
+ *        The insights feature is enabled for the customer. (Value:
+ *        "INSIGHTS_ENABLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *insightsState;
 
 @end
 

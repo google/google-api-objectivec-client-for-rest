@@ -901,8 +901,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  certificates within a single CA Pool: `projects/ * /locations/ * /caPools/
  *  *` 2. **All CA Pools in a Location:** To list certificates across *all* CA
  *  Pools in a given project and location, use the wildcard character (`-`) in
- *  place of the CA Pool ID. Example: `projects/ * /locations/ * /caPools/-` See
- *  go/ccfe-nested-collections#aggregate-listing for more details.
+ *  place of the CA Pool ID. Example: `projects/ * /locations/ * /caPools/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -918,8 +917,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    /caPools/ *` 2. **All CA Pools in a Location:** To list certificates
  *    across *all* CA Pools in a given project and location, use the wildcard
  *    character (`-`) in place of the CA Pool ID. Example: `projects/ *
- *    /locations/ * /caPools/-` See go/ccfe-nested-collections#aggregate-listing
- *    for more details.
+ *    /locations/ * /caPools/-`
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesList
  *

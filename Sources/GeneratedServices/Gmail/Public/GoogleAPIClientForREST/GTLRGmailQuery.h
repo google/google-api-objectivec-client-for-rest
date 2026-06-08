@@ -895,7 +895,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Modifies the labels on the specified messages.
+ *  Modifies the labels and the Classification Label values on the specified
+ *  messages. For administrators modifying messages for users in their
+ *  organization, requests require authorization with a [service
+ *  account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
+ *  that has [domain-wide delegation
+ *  authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority)
+ *  to impersonate users with the
+ *  `https://www.googleapis.com/auth/gmail.modify.restricted` scope.
  *
  *  Method: gmail.users.messages.batchModify
  *
@@ -917,7 +924,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Modifies the labels on the specified messages.
+ *  Modifies the labels and the Classification Label values on the specified
+ *  messages. For administrators modifying messages for users in their
+ *  organization, requests require authorization with a [service
+ *  account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
+ *  that has [domain-wide delegation
+ *  authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority)
+ *  to impersonate users with the
+ *  `https://www.googleapis.com/auth/gmail.modify.restricted` scope.
  *
  *  @param object The @c GTLRGmail_BatchModifyMessagesRequest to include in the
  *    query.
@@ -1285,7 +1299,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Modifies the labels on the specified message.
+ *  Modifies the labels and the Classification Label values on the specified
+ *  message. For administrators modifying message for users in their
+ *  organization, requests require authorization with a [service
+ *  account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
+ *  that has [domain-wide delegation
+ *  authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority)
+ *  to impersonate users with the
+ *  `https://www.googleapis.com/auth/gmail.modify.restricted` scope.
  *
  *  Method: gmail.users.messages.modify
  *
@@ -1313,7 +1334,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Message.
  *
- *  Modifies the labels on the specified message.
+ *  Modifies the labels and the Classification Label values on the specified
+ *  message. For administrators modifying message for users in their
+ *  organization, requests require authorization with a [service
+ *  account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
+ *  that has [domain-wide delegation
+ *  authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority)
+ *  to impersonate users with the
+ *  `https://www.googleapis.com/auth/gmail.modify.restricted` scope.
  *
  *  @param object The @c GTLRGmail_ModifyMessageRequest to include in the query.
  *  @param userId The user's email address. The special value `me` can be used

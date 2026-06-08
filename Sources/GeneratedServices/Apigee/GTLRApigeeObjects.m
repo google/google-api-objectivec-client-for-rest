@@ -924,7 +924,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision
 @dynamic archive, basepaths, configurationVersion, contextInfo, createdAt,
          descriptionProperty, displayName, entityMetaDataAsProperties,
-         hasExtensiblePolicy, integrationEndpoints, lastModifiedAt, name,
+         hasExtensiblePolicy, integrationEndpoints, lastModifiedAt, mcp, name,
          policies, proxies, proxyEndpoints, resourceFiles, resources, revision,
          sharedFlows, spec, targetEndpoints, targets, targetServers, teams,
          type;

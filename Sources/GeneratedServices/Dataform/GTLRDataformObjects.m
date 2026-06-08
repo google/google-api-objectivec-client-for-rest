@@ -665,7 +665,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_GitRemoteSettings
 @dynamic authenticationTokenSecretVersion, defaultBranch,
-         sshAuthenticationConfig, tokenStatus, url;
+         effectiveDefaultBranch, gitRepositoryLink, sshAuthenticationConfig,
+         tokenStatus, url;
 @end
 
 

@@ -51,9 +51,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatCreateMessageNotificationOpt
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeNone;
 /**
- *  Silence the notification as if the recipients have [Chat Do Not
- *  Disturb](https://support.google.com/chat/answer/9093489) enabled or have
- *  muted the space. Requires [app authentication]
+ *  Do not notify recipients, and do not mark the message as unread. This
+ *  behaves similarly to the user muting the conversation or enabling [Chat Do
+ *  Not Disturb](https://support.google.com/chat/answer/9093489). Requires [app
+ *  authentication]
  *  (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *
  *  Value: "NOTIFICATION_TYPE_SILENT"
@@ -1711,9 +1712,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *        (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *        (Value: "NOTIFICATION_TYPE_FORCE_NOTIFY")
  *    @arg @c kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeSilent
- *        Silence the notification as if the recipients have [Chat Do Not
- *        Disturb](https://support.google.com/chat/answer/9093489) enabled or
- *        have muted the space. Requires [app authentication]
+ *        Do not notify recipients, and do not mark the message as unread. This
+ *        behaves similarly to the user muting the conversation or enabling
+ *        [Chat Do Not Disturb](https://support.google.com/chat/answer/9093489).
+ *        Requires [app authentication]
  *        (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *        (Value: "NOTIFICATION_TYPE_SILENT")
  */
@@ -2717,7 +2719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. A search query. You can search by using the following parameters:
+ *  Required. A search query. You can search by using the following parameters :
  *  - `create_time` - `customer` - `display_name` - `external_user_allowed` -
  *  `last_active_time` - `space_history_state` - `space_type` `create_time` and
  *  `last_active_time` accept a timestamp in

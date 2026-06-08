@@ -125,7 +125,7 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 //
 
 @implementation GTLRChromewebstore_PublishItemRequest
-@dynamic deployInfos, publishType, skipReview;
+@dynamic blockOnWarnings, deployInfos, publishType, skipReview;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -143,7 +143,7 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 //
 
 @implementation GTLRChromewebstore_PublishItemResponse
-@dynamic itemId, name, state;
+@dynamic itemId, name, state, warningInfo;
 @end
 
 
@@ -182,4 +182,37 @@ NSString * const kGTLRChromewebstore_UploadItemPackageResponse_UploadState_Uploa
 
 @implementation GTLRChromewebstore_UploadItemPackageResponse
 @dynamic crxVersion, itemId, name, uploadState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_Warning
+//
+
+@implementation GTLRChromewebstore_Warning
+@dynamic descriptionProperty, reason;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromewebstore_WarningsInfo
+//
+
+@implementation GTLRChromewebstore_WarningsInfo
+@dynamic warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [GTLRChromewebstore_Warning class]
+  };
+  return map;
+}
+
 @end

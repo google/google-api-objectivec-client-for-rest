@@ -685,6 +685,15 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 //
 
 @implementation GTLRAdExchangeBuyerII_CompleteSetupRequest
+@dynamic externalDealIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalDealIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

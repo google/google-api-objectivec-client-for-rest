@@ -235,7 +235,7 @@ NSString * const kGTLRMyBusinessAccountManagement_Invitation_TargetType_TargetTy
 //
 
 @implementation GTLRMyBusinessAccountManagement_TargetLocation
-@dynamic address, locationName;
+@dynamic address, locationName, placeId;
 @end
 
 

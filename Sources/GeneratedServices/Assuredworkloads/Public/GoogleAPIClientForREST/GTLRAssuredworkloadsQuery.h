@@ -750,6 +750,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Acknowledges multiple existing violations. By acknowledging violations,
+ *  users acknowledge the existence of compliance violations in their workload
+ *  and decide to ignore them due to a valid business justification.
+ *  Acknowledgement is a permanent operation and it cannot be reverted. This is
+ *  a batch version of AcknowledgeViolation.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.violations.batchAcknowledgeViolations
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations : GTLRAssuredworkloadsQuery
+
+/**
+ *  Optional. The parent resource shared by all violations being acknowledged.
+ *  Format:
+ *  organizations/{organization}/locations/{location}/workloads/{workload}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse.
+ *
+ *  Acknowledges multiple existing violations. By acknowledging violations,
+ *  users acknowledge the existence of compliance violations in their workload
+ *  and decide to ignore them due to a valid business justification.
+ *  Acknowledgement is a permanent operation and it cannot be reverted. This is
+ *  a batch version of AcknowledgeViolation.
+ *
+ *  @param object The @c
+ *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest
+ *    to include in the query.
+ *  @param parent Optional. The parent resource shared by all violations being
+ *    acknowledged. Format:
+ *    organizations/{organization}/locations/{location}/workloads/{workload}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations
+ */
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Retrieves Assured Workload Violation based on ID.
  *
  *  Method: assuredworkloads.organizations.locations.workloads.violations.get

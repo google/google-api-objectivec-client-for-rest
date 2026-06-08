@@ -867,6 +867,25 @@
 
 @end
 
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsBackupConfigsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupConfigs";
+  GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsBackupConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetAppFiles_ListBackupConfigsResponse class];
+  query.loggingName = @"netapp.projects.locations.storagePools.backupConfigs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsCreate
 
 @dynamic parent, storagePoolId;
@@ -1070,6 +1089,33 @@
 
 @end
 
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsRestoreVolume
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_RestoreVolumeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:restoreVolume";
+  GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsRestoreVolume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.storagePools.restoreVolume";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsSwitch
 
 @dynamic name;
@@ -1092,6 +1138,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
   query.loggingName = @"netapp.projects.locations.storagePools.switch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsUpdateBackupConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_UpdateBackupConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:updateBackupConfig";
+  GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsUpdateBackupConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.storagePools.updateBackupConfig";
   return query;
 }
 

@@ -11,6 +11,15 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRNetworkServices_AgentGateway.protocols
+NSString * const kGTLRNetworkServices_AgentGateway_Protocols_Mcp = @"MCP";
+NSString * const kGTLRNetworkServices_AgentGateway_Protocols_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+
+// GTLRNetworkServices_AgentGatewayGoogleManaged.governedAccessPath
+NSString * const kGTLRNetworkServices_AgentGatewayGoogleManaged_GovernedAccessPath_AgentToAnywhere = @"AGENT_TO_ANYWHERE";
+NSString * const kGTLRNetworkServices_AgentGatewayGoogleManaged_GovernedAccessPath_ClientToAgent = @"CLIENT_TO_AGENT";
+NSString * const kGTLRNetworkServices_AgentGatewayGoogleManaged_GovernedAccessPath_GovernedAccessPathUnspecified = @"GOVERNED_ACCESS_PATH_UNSPECIFIED";
+
 // GTLRNetworkServices_AuditLogConfig.logType
 NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -125,6 +134,27 @@ NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_DebugHeaders = @"DEBUG_H
 NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyHeadersUnspecified = @"ENVOY_HEADERS_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_None   = @"NONE";
 
+// GTLRNetworkServices_MulticastConsumerAssociation.resourceState
+NSString * const kGTLRNetworkServices_MulticastConsumerAssociation_ResourceState_Active = @"ACTIVE";
+NSString * const kGTLRNetworkServices_MulticastConsumerAssociation_ResourceState_ConsumerResourceStateUnspecified = @"CONSUMER_RESOURCE_STATE_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_MulticastConsumerAssociation_ResourceState_Obsolete = @"OBSOLETE";
+
+// GTLRNetworkServices_MulticastGroupConsumerActivation.resourceState
+NSString * const kGTLRNetworkServices_MulticastGroupConsumerActivation_ResourceState_Active = @"ACTIVE";
+NSString * const kGTLRNetworkServices_MulticastGroupConsumerActivation_ResourceState_ConsumerResourceStateUnspecified = @"CONSUMER_RESOURCE_STATE_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_MulticastGroupConsumerActivation_ResourceState_Obsolete = @"OBSOLETE";
+
+// GTLRNetworkServices_MulticastResourceState.state
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_Inactive = @"INACTIVE";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_Obsolete = @"OBSOLETE";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_StateEnumUnspecified = @"STATE_ENUM_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_UpdateFailed = @"UPDATE_FAILED";
+NSString * const kGTLRNetworkServices_MulticastResourceState_State_Updating = @"UPDATING";
+
 // GTLRNetworkServices_ServiceLbPolicy.loadBalancingAlgorithm
 NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_LoadBalancingAlgorithmUnspecified = @"LOAD_BALANCING_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToRegion = @"SPRAY_TO_REGION";
@@ -149,6 +179,125 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Info = @"I
 NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_LogLevelUnspecified = @"LOG_LEVEL_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Trace = @"TRACE";
 NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"WARN";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGateway
+//
+
+@implementation GTLRNetworkServices_AgentGateway
+@dynamic agentGatewayCard, createTime, descriptionProperty, ETag, googleManaged,
+         labels, name, networkConfig, protocols, registries, selfManaged,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"protocols" : [NSString class],
+    @"registries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGateway_Labels
+//
+
+@implementation GTLRNetworkServices_AgentGateway_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGatewayAgentGatewayOutputCard
+//
+
+@implementation GTLRNetworkServices_AgentGatewayAgentGatewayOutputCard
+@dynamic mtlsEndpoint, rootCertificates, serviceExtensionsServiceAccount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rootCertificates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGatewayGoogleManaged
+//
+
+@implementation GTLRNetworkServices_AgentGatewayGoogleManaged
+@dynamic governedAccessPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGatewayNetworkConfig
+//
+
+@implementation GTLRNetworkServices_AgentGatewayNetworkConfig
+@dynamic dnsPeeringConfig, egress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGatewayNetworkConfigDnsPeeringConfig
+//
+
+@implementation GTLRNetworkServices_AgentGatewayNetworkConfigDnsPeeringConfig
+@dynamic domains, targetNetwork, targetProject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGatewayNetworkConfigEgress
+//
+
+@implementation GTLRNetworkServices_AgentGatewayNetworkConfigEgress
+@dynamic networkAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGatewaySelfManaged
+//
+
+@implementation GTLRNetworkServices_AgentGatewaySelfManaged
+@dynamic resourceUri;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -1109,6 +1258,29 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_ListAgentGatewaysResponse
+//
+
+@implementation GTLRNetworkServices_ListAgentGatewaysResponse
+@dynamic agentGateways, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentGateways" : [GTLRNetworkServices_AgentGateway class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"agentGateways";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_ListAuthzExtensionsResponse
 //
 
@@ -1384,6 +1556,52 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_ListMulticastConsumerAssociationsResponse
+//
+
+@implementation GTLRNetworkServices_ListMulticastConsumerAssociationsResponse
+@dynamic multicastConsumerAssociations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"multicastConsumerAssociations" : [GTLRNetworkServices_MulticastConsumerAssociation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"multicastConsumerAssociations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListMulticastGroupConsumerActivationsResponse
+//
+
+@implementation GTLRNetworkServices_ListMulticastGroupConsumerActivationsResponse
+@dynamic multicastGroupConsumerActivations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"multicastGroupConsumerActivations" : [GTLRNetworkServices_MulticastGroupConsumerActivation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"multicastGroupConsumerActivations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_ListOperationsResponse
 //
 
@@ -1628,6 +1846,89 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 @implementation GTLRNetworkServices_MeshRouteView
 @dynamic name, routeId, routeLocation, routeProjectNumber, routeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_MulticastConsumerAssociation
+//
+
+@implementation GTLRNetworkServices_MulticastConsumerAssociation
+@dynamic createTime, descriptionProperty, labels, multicastDomainActivation,
+         name, network, placementPolicy, resourceState, state, uniqueId,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_MulticastConsumerAssociation_Labels
+//
+
+@implementation GTLRNetworkServices_MulticastConsumerAssociation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_MulticastGroupConsumerActivation
+//
+
+@implementation GTLRNetworkServices_MulticastGroupConsumerActivation
+@dynamic createTime, descriptionProperty, labels, logConfig,
+         multicastConsumerAssociation, multicastGroup,
+         multicastGroupRangeActivation, name, resourceState, state, uniqueId,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_MulticastGroupConsumerActivation_Labels
+//
+
+@implementation GTLRNetworkServices_MulticastGroupConsumerActivation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_MulticastLogConfig
+//
+
+@implementation GTLRNetworkServices_MulticastLogConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_MulticastResourceState
+//
+
+@implementation GTLRNetworkServices_MulticastResourceState
+@dynamic state;
 @end
 
 

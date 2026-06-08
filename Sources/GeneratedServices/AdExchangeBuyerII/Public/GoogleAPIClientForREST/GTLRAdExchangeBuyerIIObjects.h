@@ -3091,6 +3091,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  Request message for indicating that the proposal's setup step is complete.
  */
 @interface GTLRAdExchangeBuyerII_CompleteSetupRequest : GTLRObject
+
+/**
+ *  The external deal ids of the deals to mark as setup completed. If empty, all
+ *  the deals in the proposal will be marked as setup completed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalDealIds;
+
 @end
 
 

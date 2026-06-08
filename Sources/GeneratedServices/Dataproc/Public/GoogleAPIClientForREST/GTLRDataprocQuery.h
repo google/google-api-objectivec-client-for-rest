@@ -679,12 +679,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Optional. A filter for the batches to return in the response.A filter is a
  *  logical expression constraining the values of various fields in each batch
  *  resource. Filters are case sensitive, and may contain multiple clauses
- *  combined with logical operators (AND/OR). Supported fields are batch_id,
- *  batch_uuid, state, create_time, and labels.e.g. state = RUNNING and
- *  create_time < "2023-01-01T00:00:00Z" filters for batches in state RUNNING
- *  that were created before 2023-01-01. state = RUNNING and
- *  labels.environment=production filters for batches in state in a RUNNING
- *  state that have a production environment label.See
+ *  combined with logical operators (AND/OR). Supported fields: * batch_id *
+ *  batch_uuid * state * create_time * labels * runtime_info.cohort_info.cohort
+ *  e.g. state = RUNNING and create_time < "2023-01-01T00:00:00Z" filters for
+ *  batches in state RUNNING that were created before 2023-01-01. state =
+ *  RUNNING and labels.environment=production filters for batches in state in a
+ *  RUNNING state that have a production environment label.See
  *  https://google.aip.dev/assets/misc/ebnf-filtering.txt for a detailed
  *  description of the filter syntax and a list of supported comparisons.
  */
@@ -4315,7 +4315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -4341,7 +4341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersCreate
  */
@@ -4390,7 +4390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -4415,7 +4415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersDelete
@@ -4451,7 +4451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -4468,7 +4468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *    query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersDiagnose
@@ -4501,7 +4501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -4511,7 +4511,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersGet
@@ -4657,7 +4657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -4667,7 +4667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersList
  *
@@ -4871,8 +4871,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  finish before forcefully removing nodes (and potentially interrupting jobs).
  *  Default timeout is 0 (for forceful decommission), and the maximum allowed
  *  timeout is 1 day. (see JSON representation of Duration
- *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).Only
- *  supported on Dataproc image versions 1.2 and higher.
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).Supported
+ *  in image versions 1.2 and higher.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
 
@@ -4882,7 +4882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -4930,7 +4930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
  *    cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersPatch
@@ -4962,7 +4962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -4974,7 +4974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *    query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
  *    cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersRepair
@@ -5047,7 +5047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -5059,7 +5059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *    query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
  *    cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersStart
@@ -5091,7 +5091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Dataproc region in which to handle the request. */
+/** Required. The region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -5103,7 +5103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *    query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
  *    cluster belongs to.
- *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param region Required. The region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersStop

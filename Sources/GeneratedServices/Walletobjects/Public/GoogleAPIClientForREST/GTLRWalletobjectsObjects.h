@@ -7719,6 +7719,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, copy, nullable) NSString *sha256Hash;
 
 /**
+ *  Scotty-provided SHA512 hash for an upload.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sha512Hash;
+
+/**
  *  Time at which the media data was last updated, in milliseconds since UNIX
  *  epoch
  *

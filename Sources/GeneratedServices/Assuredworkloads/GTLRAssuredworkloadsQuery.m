@@ -402,6 +402,33 @@
 
 @end
 
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/violations:batchAcknowledgeViolations";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.workloads.violations.batchAcknowledgeViolations";
+  return query;
+}
+
+@end
+
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet
 
 @dynamic name;

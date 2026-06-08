@@ -109,6 +109,98 @@
 
 @end
 
+@implementation GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsCreate
+
+@dynamic parent, subscriptionId;
+
++ (instancetype)queryWithObject:(GTLRGoogleHealthAPI_CreateSubscriptionPayload *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v4/{+parent}/subscriptions";
+  GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_Subscription class];
+  query.loggingName = @"health.projects.subscribers.subscriptions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_Empty class];
+  query.loggingName = @"health.projects.subscribers.subscriptions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v4/{+parent}/subscriptions";
+  GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_ListSubscriptionsResponse class];
+  query.loggingName = @"health.projects.subscribers.subscriptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleHealthAPI_Subscription *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRGoogleHealthAPIQuery_ProjectsSubscribersSubscriptionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_Subscription class];
+  query.loggingName = @"health.projects.subscribers.subscriptions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsBatchDelete
 
 @dynamic parent;
@@ -348,6 +440,25 @@
 
 @end
 
+@implementation GTLRGoogleHealthAPIQuery_UsersGetIrnProfile
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRGoogleHealthAPIQuery_UsersGetIrnProfile *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_IrnProfile class];
+  query.loggingName = @"health.users.getIrnProfile";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleHealthAPIQuery_UsersGetProfile
 
 @dynamic name;
@@ -381,6 +492,44 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGoogleHealthAPI_Settings class];
   query.loggingName = @"health.users.getSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleHealthAPIQuery_UsersPairedDevicesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRGoogleHealthAPIQuery_UsersPairedDevicesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_PairedDevice class];
+  query.loggingName = @"health.users.pairedDevices.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleHealthAPIQuery_UsersPairedDevicesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v4/{+parent}/pairedDevices";
+  GTLRGoogleHealthAPIQuery_UsersPairedDevicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_ListPairedDevicesResponse class];
+  query.loggingName = @"health.users.pairedDevices.list";
   return query;
 }
 

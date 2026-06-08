@@ -436,7 +436,7 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 @dynamic age, createdBefore, customTimeBefore, daysSinceCustomTime,
          daysSinceNoncurrentTime, isLive, matchesPattern, matchesPrefix,
          matchesStorageClass, matchesSuffix, noncurrentTimeBefore,
-         numNewerVersions;
+         numNewerVersions, sizeAboveBytes, sizeBelowBytes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

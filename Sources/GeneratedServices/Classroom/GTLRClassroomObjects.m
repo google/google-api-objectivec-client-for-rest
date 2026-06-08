@@ -178,7 +178,13 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_AddOnAttachmentStudentSubmission
-@dynamic pointsEarned, postSubmissionState, userId;
+@dynamic courseWorkSubmissionId, identifier, pointsEarned, postSubmissionState,
+         userId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

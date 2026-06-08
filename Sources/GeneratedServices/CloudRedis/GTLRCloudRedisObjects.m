@@ -602,6 +602,7 @@ NSString * const kGTLRCloudRedis_Product_Engine_EngineExadataOracle = @"ENGINE_E
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithMongodbCompatibilityMode = @"ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode = @"ENGINE_FIRESTORE_WITH_NATIVE_MODE";
+NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorstoreForValkey = @"ENGINE_MEMORSTORE_FOR_VALKEY";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedis = @"ENGINE_MEMORYSTORE_FOR_REDIS";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedisCluster = @"ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMysql    = @"ENGINE_MYSQL";
@@ -1226,14 +1227,15 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_DatabaseResourceMetadata
-@dynamic availabilityConfiguration, backupConfiguration, backupdrConfiguration,
-         backupRun, creationTime, currentState, customMetadata, edition,
-         entitlements, expectedState, gcbdrConfiguration, identifier,
-         instanceType, isDeletionProtectionEnabled, location,
-         machineConfiguration, maintenanceInfo, modes, primaryResourceId,
-         primaryResourceLocation, product, resourceContainer, resourceFlags,
-         resourceName, suspensionReason, tagsSet, updationTime, userLabelSet,
-         zoneProperty;
+@dynamic additionalMetadata, availabilityConfiguration, backupConfiguration,
+         backupdrConfiguration, backupRun, creationTime, currentState,
+         customMetadata, edition, entitlements, expectedState,
+         gcbdrConfiguration, identifier, instanceType,
+         internalAdditionalMetadata, ipAddress, isDeletionProtectionEnabled,
+         location, machineConfiguration, maintenanceInfo, modes,
+         primaryResourceId, primaryResourceLocation, product, resourceContainer,
+         resourceFlags, resourceName, suspensionReason, tagsSet, updationTime,
+         userLabelSet, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1250,6 +1252,34 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
     @"resourceFlags" : [GTLRCloudRedis_ResourceFlags class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_DatabaseResourceMetadata_AdditionalMetadata
+//
+
+@implementation GTLRCloudRedis_DatabaseResourceMetadata_AdditionalMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_DatabaseResourceMetadata_InternalAdditionalMetadata
+//
+
+@implementation GTLRCloudRedis_DatabaseResourceMetadata_InternalAdditionalMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -1597,6 +1627,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 @implementation GTLRCloudRedis_InternalResourceMetadata
 @dynamic backupConfiguration, backupRun, isDeletionProtectionEnabled, product,
          resourceId, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_IpAddress
+//
+
+@implementation GTLRCloudRedis_IpAddress
+@dynamic privateIp, publicIp;
 @end
 
 
@@ -2208,11 +2248,12 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 @implementation GTLRCloudRedis_ResourceMaintenanceInfo
 @dynamic currentVersionReleaseDate, denyMaintenanceSchedules, isInstanceStopped,
          maintenanceSchedule, maintenanceState, maintenanceVersion,
-         upcomingMaintenance;
+         nextAvailableMaintenanceVersions, upcomingMaintenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"denyMaintenanceSchedules" : [GTLRCloudRedis_ResourceMaintenanceDenySchedule class]
+    @"denyMaintenanceSchedules" : [GTLRCloudRedis_ResourceMaintenanceDenySchedule class],
+    @"nextAvailableMaintenanceVersions" : [NSString class]
   };
   return map;
 }

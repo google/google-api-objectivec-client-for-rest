@@ -116,6 +116,30 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHomeGraphService_DeviceMetadata
+//
+
+@implementation GTLRHomeGraphService_DeviceMetadata
+@dynamic traitCommitTimestamps;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_DeviceMetadata_TraitCommitTimestamps
+//
+
+@implementation GTLRHomeGraphService_DeviceMetadata_TraitCommitTimestamps
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDateTime class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHomeGraphService_DeviceNames
 //
 
@@ -226,7 +250,7 @@
 //
 
 @implementation GTLRHomeGraphService_QueryRequest
-@dynamic agentUserId, inputs, requestId;
+@dynamic agentUserId, includeDeviceMetadata, inputs, requestId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -282,7 +306,21 @@
 //
 
 @implementation GTLRHomeGraphService_QueryResponsePayload
-@dynamic devices;
+@dynamic deviceMetadata, devices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_QueryResponsePayload_DeviceMetadata
+//
+
+@implementation GTLRHomeGraphService_QueryResponsePayload_DeviceMetadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRHomeGraphService_DeviceMetadata class];
+}
+
 @end
 
 

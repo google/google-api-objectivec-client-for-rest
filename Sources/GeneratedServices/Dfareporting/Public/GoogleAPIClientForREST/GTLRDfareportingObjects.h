@@ -658,6 +658,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_Cr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAdobe;
 /**
+ *  Creative authoring source is BEGEN_AI.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_BEGEN_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceBegenAi;
+/**
  *  Creative authoring source is Bornlogic.
  *
  *  Value: "CREATIVE_AUTHORING_SOURCE_BORNLOGIC"
@@ -3041,12 +3047,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBookAppointment;
 /**
- *  Boom event (for user list creation). This is an internal-only category.
- *
- *  Value: "CONVERSION_CATEGORY_BOOM_EVENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBoomEvent;
-/**
  *  A call, SMS, email, chat or other type of contact to an advertiser.
  *
  *  Value: "CONVERSION_CATEGORY_CONTACT"
@@ -3073,23 +3073,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryDownload;
 /**
- *  A website engagement event
- *
- *  Value: "CONVERSION_CATEGORY_ENGAGEMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryEngagement;
-/**
  *  A search for an advertiser's business location.
  *
  *  Value: "CONVERSION_CATEGORY_GET_DIRECTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryGetDirections;
-/**
- *  A lead conversion imported from an external source into Google Ads.
- *
- *  Value: "CONVERSION_CATEGORY_IMPORTED_LEAD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryImportedLead;
 /**
  *  Conversion event that provides the revenue value of impressions that were
  *  shown in-app to users.
@@ -3097,12 +3085,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
  *  Value: "CONVERSION_CATEGORY_IN_APP_AD_REVENUE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryInAppAdRevenue;
-/**
- *  Message exchanges which indicate an interest in an advertiser's offering.
- *
- *  Value: "CONVERSION_CATEGORY_MESSAGE_LEAD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryMessageLead;
 /**
  *  A click to an advertiser's partner site, e.g. a referral.
  *
@@ -3115,13 +3097,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
  *  Value: "CONVERSION_CATEGORY_PAGE_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPageView;
-/**
- *  A call to indicate interesting in an advertiser's offering. Note: this is
- *  different from support calls.
- *
- *  Value: "CONVERSION_CATEGORY_PHONE_CALL_LEAD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPhoneCallLead;
 /**
  *  Purchase, sales, or "order placed" event.
  *
@@ -3148,41 +3123,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySignup;
 /**
- *  A sale occurring in a physical store.
- *
- *  Value: "CONVERSION_CATEGORY_STORE_SALE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreSale;
-/**
- *  A visit to a physical store location.
- *
- *  Value: "CONVERSION_CATEGORY_STORE_VISIT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreVisit;
-/**
  *  A submission of a form on an advertiser site indicating business interest.
  *
  *  Value: "CONVERSION_CATEGORY_SUBMIT_LEAD_FORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubmitLeadForm;
 /**
- *  The start of a free subscription for a product or service.
- *
- *  Value: "CONVERSION_CATEGORY_SUBSCRIBE_FREE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribeFree;
-/**
  *  The start of a paid subscription for a product or service.
  *
  *  Value: "CONVERSION_CATEGORY_SUBSCRIBE_PAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribePaid;
-/**
- *  Key page views (ex: product page, article).
- *
- *  Value: "CONVERSION_CATEGORY_VIEW_KEY_PAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryViewKeyPage;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.countingMethod
@@ -8273,6 +8224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAdobe
  *        Creative authoring source is Adobe. (Value:
  *        "CREATIVE_AUTHORING_SOURCE_ADOBE")
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceBegenAi
+ *        Creative authoring source is BEGEN_AI. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_BEGEN_AI")
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceBornlogic
  *        Creative authoring source is Bornlogic. (Value:
  *        "CREATIVE_AUTHORING_SOURCE_BORNLOGIC")
@@ -12516,9 +12470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBookAppointment
  *        A booking of an appointment with an advertiser's business. (Value:
  *        "CONVERSION_CATEGORY_BOOK_APPOINTMENT")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBoomEvent
- *        Boom event (for user list creation). This is an internal-only
- *        category. (Value: "CONVERSION_CATEGORY_BOOM_EVENT")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryContact
  *        A call, SMS, email, chat or other type of contact to an advertiser.
  *        (Value: "CONVERSION_CATEGORY_CONTACT")
@@ -12533,30 +12484,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *        Software download action (as for an app). A conversion type that is
  *        created as a download type may not have its category changed. (Value:
  *        "CONVERSION_CATEGORY_DOWNLOAD")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryEngagement
- *        A website engagement event (Value: "CONVERSION_CATEGORY_ENGAGEMENT")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryGetDirections
  *        A search for an advertiser's business location. (Value:
  *        "CONVERSION_CATEGORY_GET_DIRECTIONS")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryImportedLead
- *        A lead conversion imported from an external source into Google Ads.
- *        (Value: "CONVERSION_CATEGORY_IMPORTED_LEAD")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryInAppAdRevenue
  *        Conversion event that provides the revenue value of impressions that
  *        were shown in-app to users. (Value:
  *        "CONVERSION_CATEGORY_IN_APP_AD_REVENUE")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryMessageLead
- *        Message exchanges which indicate an interest in an advertiser's
- *        offering. (Value: "CONVERSION_CATEGORY_MESSAGE_LEAD")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryOutboundClick
  *        A click to an advertiser's partner site, e.g. a referral. (Value:
  *        "CONVERSION_CATEGORY_OUTBOUND_CLICK")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPageView
  *        User visiting a page. (Value: "CONVERSION_CATEGORY_PAGE_VIEW")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPhoneCallLead
- *        A call to indicate interesting in an advertiser's offering. Note: this
- *        is different from support calls. (Value:
- *        "CONVERSION_CATEGORY_PHONE_CALL_LEAD")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPurchase
  *        Purchase, sales, or "order placed" event. (Value:
  *        "CONVERSION_CATEGORY_PURCHASE")
@@ -12569,24 +12508,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *        "CONVERSION_CATEGORY_REQUEST_QUOTE")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySignup
  *        Signup user action. (Value: "CONVERSION_CATEGORY_SIGNUP")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreSale
- *        A sale occurring in a physical store. (Value:
- *        "CONVERSION_CATEGORY_STORE_SALE")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreVisit
- *        A visit to a physical store location. (Value:
- *        "CONVERSION_CATEGORY_STORE_VISIT")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubmitLeadForm
  *        A submission of a form on an advertiser site indicating business
  *        interest. (Value: "CONVERSION_CATEGORY_SUBMIT_LEAD_FORM")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribeFree
- *        The start of a free subscription for a product or service. (Value:
- *        "CONVERSION_CATEGORY_SUBSCRIBE_FREE")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribePaid
  *        The start of a paid subscription for a product or service. (Value:
  *        "CONVERSION_CATEGORY_SUBSCRIBE_PAID")
- *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryViewKeyPage
- *        Key page views (ex: product page, article). (Value:
- *        "CONVERSION_CATEGORY_VIEW_KEY_PAGE")
  */
 @property(nonatomic, copy, nullable) NSString *conversionCategory;
 

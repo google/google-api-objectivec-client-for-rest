@@ -239,6 +239,7 @@ NSString * const kGTLRDatabaseMigrationService_EntityIssue_Severity_IssueSeverit
 NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeApply = @"ISSUE_TYPE_APPLY";
 NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeConvert = @"ISSUE_TYPE_CONVERT";
 NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeDdl = @"ISSUE_TYPE_DDL";
+NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypePullSchema = @"ISSUE_TYPE_PULL_SCHEMA";
 NSString * const kGTLRDatabaseMigrationService_EntityIssue_Type_IssueTypeUnspecified = @"ISSUE_TYPE_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_EntityMapping.draftType

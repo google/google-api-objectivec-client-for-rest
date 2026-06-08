@@ -35,9 +35,32 @@ NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThi
 NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile = @"DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE";
 NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeUnspecified = @"DATA_SOURCE_TYPE_UNSPECIFIED";
 
+// GTLRDataManager_DataTypeCount.type
+NSString * const kGTLRDataManager_DataTypeCount_Type_Address   = @"ADDRESS";
+NSString * const kGTLRDataManager_DataTypeCount_Type_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataManager_DataTypeCount_Type_Email     = @"EMAIL";
+NSString * const kGTLRDataManager_DataTypeCount_Type_IpAddress = @"IP_ADDRESS";
+NSString * const kGTLRDataManager_DataTypeCount_Type_PhoneNumber = @"PHONE_NUMBER";
+
+// GTLRDataManager_EncryptedUserId.entityType
+NSString * const kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAccount = @"CAMPAIGN_MANAGER_ACCOUNT";
+NSString * const kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAdvertiser = @"CAMPAIGN_MANAGER_ADVERTISER";
+NSString * const kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoAdvertiser = @"DISPLAY_VIDEO_ADVERTISER";
+NSString * const kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoPartner = @"DISPLAY_VIDEO_PARTNER";
+NSString * const kGTLRDataManager_EncryptedUserId_EntityType_EncryptionEntityTypeUnspecified = @"ENCRYPTION_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdManagerNetworkCode = @"GOOGLE_AD_MANAGER_NETWORK_CODE";
+NSString * const kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdsCustomer = @"GOOGLE_ADS_CUSTOMER";
+
+// GTLRDataManager_EncryptedUserId.source
+NSString * const kGTLRDataManager_EncryptedUserId_Source_AdServing = @"AD_SERVING";
+NSString * const kGTLRDataManager_EncryptedUserId_Source_DataTransfer = @"DATA_TRANSFER";
+NSString * const kGTLRDataManager_EncryptedUserId_Source_EncryptionSourceUnspecified = @"ENCRYPTION_SOURCE_UNSPECIFIED";
+
 // GTLRDataManager_ErrorCount.reason
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorOperatingAccountMismatchForAdIdentifier = @"PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed = @"PROCESSING_ERROR_REASON_AWS_AUTH_FAILED";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonClickNotFound = @"PROCESSING_ERROR_REASON_CLICK_NOT_FOUND";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonConversionPrecedesClick = @"PROCESSING_ERROR_REASON_CONVERSION_PRECEDES_CLICK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonCustomVariableNotEnabled = @"PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDecryptionError = @"PROCESSING_ERROR_REASON_DECRYPTION_ERROR";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDekDecryptionError = @"PROCESSING_ERROR_REASON_DEK_DECRYPTION_ERROR";
@@ -45,10 +68,13 @@ NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDeniedC
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDestinationAccountEnhancedConversionsTermsNotSigned = @"PROCESSING_ERROR_REASON_DESTINATION_ACCOUNT_ENHANCED_CONVERSIONS_TERMS_NOT_SIGNED";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateGclid = @"PROCESSING_ERROR_REASON_DUPLICATE_GCLID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateTransactionId = @"PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError = @"PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld = @"PROCESSING_ERROR_REASON_EVENT_TOO_OLD";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientMatchedTransactions = @"PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientTransactions = @"PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError = @"PROCESSING_ERROR_REASON_INTERNAL_ERROR";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers = @"PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick = @"PROCESSING_ERROR_REASON_INVALID_CLICK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCustomVariable = @"PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidEvent = @"PROCESSING_ERROR_REASON_INVALID_EVENT";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidFormat = @"PROCESSING_ERROR_REASON_INVALID_FORMAT";
@@ -56,14 +82,24 @@ NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalid
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidGclid = @"PROCESSING_ERROR_REASON_INVALID_GCLID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidKek = @"PROCESSING_ERROR_REASON_INVALID_KEK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMerchantId = @"PROCESSING_ERROR_REASON_INVALID_MERCHANT_ID";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMobileIdFormat = @"PROCESSING_ERROR_REASON_INVALID_MOBILE_ID_FORMAT";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidOperatingAccountForClick = @"PROCESSING_ERROR_REASON_INVALID_OPERATING_ACCOUNT_FOR_CLICK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWbraid = @"PROCESSING_ERROR_REASON_INVALID_WBRAID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWip = @"PROCESSING_ERROR_REASON_INVALID_WIP";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonKekPermissionDenied = @"PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonMatchIdNotFound = @"PROCESSING_ERROR_REASON_MATCH_ID_NOT_FOUND";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent = @"PROCESSING_ERROR_REASON_NO_CONSENT";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid = @"PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound = @"PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick = @"PROCESSING_ERROR_REASON_TOO_RECENT_CLICK";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent = @"PROCESSING_ERROR_REASON_UNKNOWN_CONSENT";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnspecified = @"PROCESSING_ERROR_REASON_UNSPECIFIED";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdentifierDecryptionError = @"PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFound = @"PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForDclid = @"PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_DCLID";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForGclid = @"PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_GCLID";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForImpressionId = @"PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_IMPRESSION_ID";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForMatchId = @"PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_MATCH_ID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonWipAuthFailed = @"PROCESSING_ERROR_REASON_WIP_AUTH_FAILED";
 
 // GTLRDataManager_Event.eventSource
@@ -83,6 +119,19 @@ NSString * const kGTLRDataManager_GcpWrappedKeyInfo_KeyType_Xchacha20Poly1305 = 
 NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Base64 = @"BASE64";
 NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
 NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Hex = @"HEX";
+
+// GTLRDataManager_IngestCompositeDataStatus.uploadMatchRateRange
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange20To30 = @"MATCH_RATE_RANGE_20_TO_30";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange31To40 = @"MATCH_RATE_RANGE_31_TO_40";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange41To50 = @"MATCH_RATE_RANGE_41_TO_50";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange51To60 = @"MATCH_RATE_RANGE_51_TO_60";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange61To70 = @"MATCH_RATE_RANGE_61_TO_70";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange71To80 = @"MATCH_RATE_RANGE_71_TO_80";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange81To90 = @"MATCH_RATE_RANGE_81_TO_90";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange91To100 = @"MATCH_RATE_RANGE_91_TO_100";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeLessThan20 = @"MATCH_RATE_RANGE_LESS_THAN_20";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible = @"MATCH_RATE_RANGE_NOT_ELIGIBLE";
+NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeUnknown = @"MATCH_RATE_RANGE_UNKNOWN";
 
 // GTLRDataManager_IngestedUserListInfo.uploadKeyTypes
 NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_ContactId = @"CONTACT_ID";
@@ -157,6 +206,7 @@ NSString * const kGTLRDataManager_ProductAccount_AccountType_AccountTypeUnspecif
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DataPartner = @"DATA_PARTNER";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoAdvertiser = @"DISPLAY_VIDEO_ADVERTISER";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoPartner = @"DISPLAY_VIDEO_PARTNER";
+NSString * const kGTLRDataManager_ProductAccount_AccountType_FloodlightConfig = @"FLOODLIGHT_CONFIG";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAdManagerAudienceLink = @"GOOGLE_AD_MANAGER_AUDIENCE_LINK";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAds = @"GOOGLE_ADS";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAnalyticsProperty = @"GOOGLE_ANALYTICS_PROPERTY";
@@ -313,8 +363,17 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_AdIdentifiers
-@dynamic gbraid, gclid, landingPageDeviceInfo, mobileDeviceId,
-         sessionAttributes, wbraid;
+@dynamic dclid, encryptedUserIds, gbraid, gclid, impressionId,
+         landingPageDeviceInfo, matchId, mobileDeviceId, sessionAttributes,
+         wbraid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"encryptedUserIds" : [GTLRDataManager_EncryptedUserId class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -324,8 +383,8 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_AudienceMember
-@dynamic consent, destinationReferences, mobileData, pairData, ppidData,
-         userData, userIdData;
+@dynamic compositeData, consent, destinationReferences, mobileData, pairData,
+         ppidData, userData, userIdData;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -379,6 +438,24 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_CompositeData
+//
+
+@implementation GTLRDataManager_CompositeData
+@dynamic ipData, userData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipData" : [GTLRDataManager_IpData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_Consent
 //
 
@@ -417,6 +494,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_DataTypeCount
+//
+
+@implementation GTLRDataManager_DataTypeCount
+@dynamic count, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_Destination
 //
 
@@ -444,6 +531,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_EncryptedUserId
+//
+
+@implementation GTLRDataManager_EncryptedUserId
+@dynamic encryptedId, entityId, entityType, source;
 @end
 
 
@@ -492,11 +589,11 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_Event
 @dynamic additionalEventParameters, adIdentifiers, appInstanceId, cartData,
-         clientId, consent, conversionValue, currency, customVariables,
-         destinationReferences, eventDeviceInfo, eventLocation, eventName,
-         eventSource, eventTimestamp, experimentalFields, lastUpdatedTimestamp,
-         thirdPartyUserData, transactionId, userData, userId,
-         userPropertiesProperty;
+         clientId, consent, conversionCount, conversionValue, currency,
+         customVariables, destinationReferences, eventDeviceInfo, eventLocation,
+         eventName, eventSource, eventTimestamp, experimentalFields,
+         lastUpdatedTimestamp, thirdPartyUserData, transactionId, userData,
+         userId, userPropertiesProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"userPropertiesProperty" : @"userProperties" };
@@ -592,9 +689,27 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_IngestAudienceMembersStatus
-@dynamic mobileDataIngestionStatus, pairDataIngestionStatus,
-         ppidDataIngestionStatus, userDataIngestionStatus,
-         userIdDataIngestionStatus;
+@dynamic compositeDataIngestionStatus, mobileDataIngestionStatus,
+         pairDataIngestionStatus, ppidDataIngestionStatus,
+         userDataIngestionStatus, userIdDataIngestionStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IngestCompositeDataStatus
+//
+
+@implementation GTLRDataManager_IngestCompositeDataStatus
+@dynamic dataTypeCounts, recordCount, uploadMatchRateRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTypeCounts" : [GTLRDataManager_DataTypeCount class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -703,6 +818,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_IngestUserIdDataStatus
 @dynamic recordCount, userIdCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IpData
+//
+
+@implementation GTLRDataManager_IpData
+@dynamic ipAddress, observeEndTime, observeStartTime;
 @end
 
 
@@ -1039,8 +1164,27 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_RemoveAudienceMembersStatus
-@dynamic mobileDataRemovalStatus, pairDataRemovalStatus, ppidDataRemovalStatus,
-         userDataRemovalStatus, userIdDataRemovalStatus;
+@dynamic compositeDataRemovalStatus, mobileDataRemovalStatus,
+         pairDataRemovalStatus, ppidDataRemovalStatus, userDataRemovalStatus,
+         userIdDataRemovalStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RemoveCompositeDataStatus
+//
+
+@implementation GTLRDataManager_RemoveCompositeDataStatus
+@dynamic dataTypeCounts, recordCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTypeCounts" : [GTLRDataManager_DataTypeCount class]
+  };
+  return map;
+}
+
 @end
 
 

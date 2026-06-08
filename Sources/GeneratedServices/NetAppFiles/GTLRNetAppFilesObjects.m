@@ -148,6 +148,7 @@ NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedServiceLevels_Standa
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Iscsi   = @"ISCSI";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv3   = @"NFSV3";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv4   = @"NFSV4";
+NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nvme    = @"NVME";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_ProtocolsUnspecified = @"PROTOCOLS_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Smb     = @"SMB";
 
@@ -288,6 +289,7 @@ NSString * const kGTLRNetAppFiles_Volume_EncryptionType_ServiceManaged = @"SERVI
 NSString * const kGTLRNetAppFiles_Volume_Protocols_Iscsi       = @"ISCSI";
 NSString * const kGTLRNetAppFiles_Volume_Protocols_Nfsv3       = @"NFSV3";
 NSString * const kGTLRNetAppFiles_Volume_Protocols_Nfsv4       = @"NFSV4";
+NSString * const kGTLRNetAppFiles_Volume_Protocols_Nvme        = @"NVME";
 NSString * const kGTLRNetAppFiles_Volume_Protocols_ProtocolsUnspecified = @"PROTOCOLS_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_Volume_Protocols_Smb         = @"SMB";
 
@@ -381,8 +383,8 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @implementation GTLRNetAppFiles_Backup
 @dynamic backupRegion, backupType, chainStorageBytes, createTime,
          descriptionProperty, enforcedRetentionEndTime, labels, name,
-         satisfiesPzi, satisfiesPzs, sourceSnapshot, sourceVolume, state,
-         volumeRegion, volumeUsageBytes;
+         ontapSource, satisfiesPzi, satisfiesPzs, sourceSnapshot, sourceVolume,
+         state, volumeRegion, volumeUsageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -461,6 +463,24 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @implementation GTLRNetAppFiles_BackupRetentionPolicy
 @dynamic backupMinimumEnforcedRetentionDays, dailyBackupImmutable,
          manualBackupImmutable, monthlyBackupImmutable, weeklyBackupImmutable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_BackupSource
+//
+
+@implementation GTLRNetAppFiles_BackupSource
+@dynamic backup, fileList;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileList" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -989,6 +1009,29 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_ListBackupConfigsResponse
+//
+
+@implementation GTLRNetAppFiles_ListBackupConfigsResponse
+@dynamic nextPageToken, unreachable, volumeBackupConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"volumeBackupConfigs" : [GTLRNetAppFiles_VolumeBackupConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"volumeBackupConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_ListBackupPoliciesResponse
 //
 
@@ -1347,6 +1390,26 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_OntapSource
+//
+
+@implementation GTLRNetAppFiles_OntapSource
+@dynamic snapshotUuid, storagePool, volumeUuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_OntapVolumeTarget
+//
+
+@implementation GTLRNetAppFiles_OntapVolumeTarget
+@dynamic restoreDestinationPath, volumeUuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_Operation
 //
 
@@ -1482,6 +1545,16 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 @implementation GTLRNetAppFiles_RestoreParameters
 @dynamic sourceBackup, sourceSnapshot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_RestoreVolumeRequest
+//
+
+@implementation GTLRNetAppFiles_RestoreVolumeRequest
+@dynamic backupSource, ontapVolumeTarget;
 @end
 
 
@@ -1690,6 +1763,16 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_UpdateBackupConfigRequest
+//
+
+@implementation GTLRNetAppFiles_UpdateBackupConfigRequest
+@dynamic backupConfig, updateMask, volumeUuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_UserCommands
 //
 
@@ -1785,6 +1868,16 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_VolumeBackupConfig
+//
+
+@implementation GTLRNetAppFiles_VolumeBackupConfig
+@dynamic backupConfig, volumeUuid;
 @end
 
 

@@ -774,6 +774,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessAccountManagement_Invitation_T
 /** The name of the location to which the user is invited. */
 @property(nonatomic, copy, nullable) NSString *locationName;
 
+/**
+ *  Output only. The Place ID of the location to which the user is invited. Not
+ *  always populated.
+ */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
 @end
 
 

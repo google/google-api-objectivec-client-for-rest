@@ -34,6 +34,25 @@
 
 @end
 
+@implementation GTLRCloudSupportQuery_CasesAttachmentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudSupportQuery_CasesAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSupport_Attachment class];
+  query.loggingName = @"cloudsupport.cases.attachments.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSupportQuery_CasesAttachmentsList
 
 @dynamic pageSize, pageToken, parent;
@@ -102,6 +121,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudSupport_Comment class];
   query.loggingName = @"cloudsupport.cases.comments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSupportQuery_CasesCommentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudSupportQuery_CasesCommentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSupport_Comment class];
+  query.loggingName = @"cloudsupport.cases.comments.get";
   return query;
 }
 

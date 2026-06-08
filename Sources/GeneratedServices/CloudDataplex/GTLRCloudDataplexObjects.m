@@ -85,6 +85,32 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_E
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryTermUpdate = @"GLOSSARY_TERM_UPDATE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryUpdate = @"GLOSSARY_UPDATE";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.changeType
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateEntry = @"CREATE_ENTRY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateEntryLink = @"CREATE_ENTRY_LINK";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossary = @"CREATE_GLOSSARY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossaryCategory = @"CREATE_GLOSSARY_CATEGORY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossaryTerm = @"CREATE_GLOSSARY_TERM";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteEntry = @"DELETE_ENTRY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteEntryLink = @"DELETE_ENTRY_LINK";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossary = @"DELETE_GLOSSARY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossaryCategory = @"DELETE_GLOSSARY_CATEGORY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossaryTerm = @"DELETE_GLOSSARY_TERM";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_RequestDataProductAccess = @"REQUEST_DATA_PRODUCT_ACCESS";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateEntry = @"UPDATE_ENTRY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossary = @"UPDATE_GLOSSARY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossaryCategory = @"UPDATE_GLOSSARY_CATEGORY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossaryTerm = @"UPDATE_GLOSSARY_TERM";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.state
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Approved = @"APPROVED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Expired = @"EXPIRED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_New = @"NEW";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Rejected = @"REJECTED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Revoked = @"REVOKED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig.tableType
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_Biglake = @"BIGLAKE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_External = @"EXTERNAL";
@@ -165,6 +191,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDocum
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile = @"DATA_PROFILE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality = @"DATA_QUALITY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified = @"DATA_SCAN_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_UnstructuredDataProfile = @"UNSTRUCTURED_DATA_PROFILE";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus.state
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Failed = @"FAILED";
@@ -219,6 +246,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDo
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile = @"DATA_PROFILE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality = @"DATA_QUALITY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified = @"DATA_SCAN_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_UnstructuredDataProfile = @"UNSTRUCTURED_DATA_PROFILE";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent.type
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent_Type_Config = @"CONFIG";
@@ -309,6 +337,24 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent_EventTy
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_EntityTypeUnspecified = @"ENTITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Fileset = @"FILESET";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Table = @"TABLE";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField.metadataType
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Boolean = @"BOOLEAN";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Bytes = @"BYTES";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Datetime = @"DATETIME";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Geospatial = @"GEOSPATIAL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_MetadataTypeUnspecified = @"METADATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Number = @"NUMBER";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Other = @"OTHER";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_String = @"STRING";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Struct = @"STRUCT";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Timestamp = @"TIMESTAMP";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField.mode
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Nullable = @"NULLABLE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Repeated = @"REPEATED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Required = @"REQUIRED";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1Job.service
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Job_Service_Dataproc = @"DATAPROC";
@@ -651,6 +697,21 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ApproveChangeRequestRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ApproveChangeRequestRequest
+@dynamic ETag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1Aspect
 //
 
@@ -970,6 +1031,90 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest
+@dynamic approver, author, changeType, createEntry, createEntryLink,
+         createGlossary, createGlossaryCategory, createGlossaryTerm, createTime,
+         dataProductAccessRequest, deleteEntry, deleteEntryLink, deleteGlossary,
+         deleteGlossaryCategory, deleteGlossaryTerm, ETag, justification,
+         labels, name, rejectionComment, resource, state, uid, updateEntry,
+         updateGlossary, updateGlossaryCategory, updateGlossaryTerm, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest
+@dynamic entryLink, entryLinkId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryRequest
+@dynamic entry, entryId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryCategoryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryCategoryRequest
+@dynamic category, categoryId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryRequest
+@dynamic glossary, glossaryId, parent, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryTermRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryTermRequest
+@dynamic parent, term, termId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec
 //
 
@@ -1241,7 +1386,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions
-@dynamic entityInferenceEnabled, semanticInferenceEnabled;
+@dynamic semanticInferenceEnabled;
 @end
 
 
@@ -1407,8 +1552,9 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct
-@dynamic accessGroups, assetCount, createTime, descriptionProperty, displayName,
-         ETag, icon, labels, name, ownerEmails, uid, updateTime;
+@dynamic accessApprovalConfig, accessGroups, assetCount, createTime,
+         descriptionProperty, displayName, ETag, icon, labels, name,
+         ownerEmails, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1458,6 +1604,24 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessApprovalConfig
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessApprovalConfig
+@dynamic approverEmails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"approverEmails" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup
 //
 
@@ -1477,11 +1641,21 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessRequest
+@dynamic accessGroupDisplayName, accessGroupId, parent, requestedPrincipal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal
-@dynamic googleGroup;
+@dynamic googleGroup, serviceAccount;
 @end
 
 
@@ -2215,7 +2389,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
          dataDocumentationResult, dataDocumentationSpec, dataProfileResult,
          dataProfileSpec, dataQualityResult, dataQualitySpec,
          descriptionProperty, displayName, executionIdentity, executionSpec,
-         executionStatus, labels, name, state, type, uid, updateTime;
+         executionStatus, labels, name, state, type, uid,
+         unstructuredDataProfileResult, unstructuredDataProfileSpec, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2392,7 +2567,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 @dynamic createTime, dataDiscoveryResult, dataDiscoverySpec,
          dataDocumentationResult, dataDocumentationSpec, dataProfileResult,
          dataProfileSpec, dataQualityResult, dataQualitySpec, endTime, message,
-         name, partialFailureMessage, startTime, state, type, uid;
+         name, partialFailureMessage, startTime, state, type, uid,
+         unstructuredDataProfileResult, unstructuredDataProfileSpec;
 @end
 
 
@@ -2437,6 +2613,61 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryLinkRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryLinkRequest
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryRequest
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryCategoryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryCategoryRequest
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryRequest
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryTermRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryTermRequest
+@dynamic name;
 @end
 
 
@@ -2993,6 +3224,157 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile
+@dynamic edgeTypes, nodeTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edgeTypes" : [GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType class],
+    @"nodeTypes" : [GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType
+@dynamic descriptionProperty, extractionHints, fields, foreignKeys, name,
+         sourceNodeType, targetNodeType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField class],
+    @"foreignKeys" : [GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints
+@dynamic cardinality;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey
+@dynamic descriptionProperty, fieldMappings, name, referencedNodeType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldMappings" : [GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping
+@dynamic field, referencedField;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField
+@dynamic dataType, descriptionProperty, extractionHints, fields, metadataType,
+         mode, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints
+@dynamic normalization, synthesis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType
+@dynamic descriptionProperty, extractionHints, fields, name, primaryKeys;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField class],
+    @"primaryKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints
+@dynamic cardinality;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1ImportItem
 //
 
@@ -3158,6 +3540,29 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 + (NSString *)collectionItemsKey {
   return @"assets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListChangeRequestsResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListChangeRequestsResponse
+@dynamic changeRequests, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changeRequests" : [GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"changeRequests";
 }
 
 @end
@@ -3668,7 +4073,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest
-@dynamic options, resources;
+@dynamic context, options, resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3960,6 +4365,41 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RejectChangeRequestRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RejectChangeRequestRequest
+@dynamic comment, ETag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessRequest
+@dynamic changeRequest, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessResponse
+@dynamic changeRequestName;
 @end
 
 
@@ -4457,6 +4897,79 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule
 @dynamic cron;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult
+@dynamic descriptionProperty, graphProfile, partialFailureMessage;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec
+@dynamic customizedPrompt, globalEndpointEnabled, graphProfilePublishingEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest
+@dynamic allowMissing, aspectKeys, deleteMissingAspects, entry, updateMask;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aspectKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryCategoryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryCategoryRequest
+@dynamic category, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryRequest
+@dynamic glossary, updateMask, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryTermRequest
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryTermRequest
+@dynamic term, updateMask;
 @end
 
 
