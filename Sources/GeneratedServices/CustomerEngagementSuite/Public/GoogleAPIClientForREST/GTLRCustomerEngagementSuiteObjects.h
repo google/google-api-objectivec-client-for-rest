@@ -123,12 +123,27 @@
 @class GTLRCustomerEngagementSuite_ImportAppRequestImportOptions;
 @class GTLRCustomerEngagementSuite_InputAudioConfig;
 @class GTLRCustomerEngagementSuite_LanguageSettings;
+@class GTLRCustomerEngagementSuite_LfA2aV1Artifact;
+@class GTLRCustomerEngagementSuite_LfA2aV1Artifact_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1AuthenticationInfo;
+@class GTLRCustomerEngagementSuite_LfA2aV1Message;
+@class GTLRCustomerEngagementSuite_LfA2aV1Message_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1Part;
+@class GTLRCustomerEngagementSuite_LfA2aV1Part_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1SendMessageConfiguration;
+@class GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1Task;
+@class GTLRCustomerEngagementSuite_LfA2aV1Task_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1TaskPushNotificationConfig;
+@class GTLRCustomerEngagementSuite_LfA2aV1TaskStatus;
 @class GTLRCustomerEngagementSuite_Location;
 @class GTLRCustomerEngagementSuite_Location_Labels;
 @class GTLRCustomerEngagementSuite_Location_Metadata;
 @class GTLRCustomerEngagementSuite_LoggingSettings;
 @class GTLRCustomerEngagementSuite_McpTool;
 @class GTLRCustomerEngagementSuite_McpTool_CustomHeaders;
+@class GTLRCustomerEngagementSuite_McpToolDefinition;
+@class GTLRCustomerEngagementSuite_McpToolOverride;
 @class GTLRCustomerEngagementSuite_McpToolset;
 @class GTLRCustomerEngagementSuite_McpToolset_CustomHeaders;
 @class GTLRCustomerEngagementSuite_Message;
@@ -139,15 +154,6 @@
 @class GTLRCustomerEngagementSuite_MockedToolCall_MockResponse;
 @class GTLRCustomerEngagementSuite_ModelSettings;
 @class GTLRCustomerEngagementSuite_OAuthConfig;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_ChannelConfigs;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_RoutingConfigs;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_SubscriberConfigs;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigCesAppConfig;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigChannelConfig;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigRoutingConfig;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigSubscriberConfig;
-@class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigWhatsappConfig;
 @class GTLRCustomerEngagementSuite_OpenApiTool;
 @class GTLRCustomerEngagementSuite_OpenApiToolset;
 @class GTLRCustomerEngagementSuite_Operation;
@@ -1190,6 +1196,119 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_InputAudioConfig
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_InputAudioConfig_AudioEncoding_Mulaw;
 
 // ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_LfA2aV1Message.role
+
+/**
+ *  The message is from the server to the client.
+ *
+ *  Value: "ROLE_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1Message_Role_RoleAgent;
+/**
+ *  The role is unspecified.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1Message_Role_RoleUnspecified;
+/**
+ *  The message is from the client to the server.
+ *
+ *  Value: "ROLE_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1Message_Role_RoleUser;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_LfA2aV1TaskStatus.state
+
+/**
+ *  Indicates that authentication is required to proceed. This is an interrupted
+ *  state.
+ *
+ *  Value: "TASK_STATE_AUTH_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateAuthRequired;
+/**
+ *  Indicates that a task was canceled before completion. This is a terminal
+ *  state.
+ *
+ *  Value: "TASK_STATE_CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateCanceled;
+/**
+ *  Indicates that a task has finished successfully. This is a terminal state.
+ *
+ *  Value: "TASK_STATE_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateCompleted;
+/**
+ *  Indicates that a task has finished with an error. This is a terminal state.
+ *
+ *  Value: "TASK_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateFailed;
+/**
+ *  Indicates that the agent requires additional user input to proceed. This is
+ *  an interrupted state.
+ *
+ *  Value: "TASK_STATE_INPUT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateInputRequired;
+/**
+ *  Indicates that the agent has decided to not perform the task. This may be
+ *  done during initial task creation or later once an agent has determined it
+ *  can't or won't proceed. This is a terminal state.
+ *
+ *  Value: "TASK_STATE_REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateRejected;
+/**
+ *  Indicates that a task has been successfully submitted and acknowledged.
+ *
+ *  Value: "TASK_STATE_SUBMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateSubmitted;
+/**
+ *  The task is in an unknown or indeterminate state.
+ *
+ *  Value: "TASK_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateUnspecified;
+/**
+ *  Indicates that a task is actively being processed by the agent.
+ *
+ *  Value: "TASK_STATE_WORKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateWorking;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_McpTool.state
+
+/**
+ *  The tool is available and actively offered by the server.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_McpTool_State_Active;
+/**
+ *  The tool is configured or pinned, but currently not offered by the server.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_McpTool_State_Inactive;
+/**
+ *  The tool exists on the server, but does not match the version on the server.
+ *
+ *  Value: "STALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_McpTool_State_Stale;
+/**
+ *  Default state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_McpTool_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_MockConfig.unmatchedToolCallBehavior
 
 /**
@@ -1839,6 +1958,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  parameters names to be sent to the Dialogflow agent as input.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent_InputVariableMapping *inputVariableMapping;
+
+/**
+ *  Optional. The name of the variable that contains the language code to be
+ *  used for the Dialogflow session. If unspecified, the default language code
+ *  of the Dialogflow agent will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCodeVariable;
 
 /**
  *  Optional. The mapping of the Dialogflow session parameters names to the app
@@ -5218,6 +5344,430 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Artifacts represent task outputs.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Artifact : GTLRObject
+
+/**
+ *  Required. Unique identifier (e.g. UUID) for the artifact. It must be unique
+ *  within a task.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactId;
+
+/**
+ *  Optional. A human readable description of the artifact.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The URIs of extensions that are present or contributed to this Artifact.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extensions;
+
+/** Optional. Metadata included with the artifact. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Artifact_Metadata *metadata;
+
+/** A human readable name for the artifact. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The content of the artifact. Must contain at least one part. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1Part *> *parts;
+
+@end
+
+
+/**
+ *  Optional. Metadata included with the artifact.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Artifact_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Defines authentication details, used for push notifications.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AuthenticationInfo : GTLRObject
+
+/**
+ *  Push Notification credentials. Format depends on the scheme (e.g., token for
+ *  Bearer).
+ */
+@property(nonatomic, copy, nullable) NSString *credentials;
+
+/**
+ *  Required. HTTP Authentication Scheme from the [IANA
+ *  registry](https://www.iana.org/assignments/http-authschemes/). Examples:
+ *  `Bearer`, `Basic`, `Digest`. Scheme names are case-insensitive per [RFC 9110
+ *  Section 11.1](https://www.rfc-editor.org/rfc/rfc9110#section-11.1).
+ */
+@property(nonatomic, copy, nullable) NSString *scheme;
+
+@end
+
+
+/**
+ *  `Message` is one unit of communication between client and server. It can be
+ *  associated with a context and/or a task. For server messages, `context_id`
+ *  must be provided, and `task_id` only if a task was created. For client
+ *  messages, both fields are optional, with the caveat that if both are
+ *  provided, they have to match (the `context_id` has to be the one that is set
+ *  on the task). If only `task_id` is provided, the server will infer
+ *  `context_id` from it.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Message : GTLRObject
+
+/**
+ *  Optional. The context id of the message. If set, the message will be
+ *  associated with the given context.
+ */
+@property(nonatomic, copy, nullable) NSString *contextId;
+
+/** The URIs of extensions that are present or contributed to this Message. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extensions;
+
+/**
+ *  Required. The unique identifier (e.g. UUID) of the message. This is created
+ *  by the message creator.
+ */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/** Optional. Any metadata to provide along with the message. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Message_Metadata *metadata;
+
+/** Required. Parts is the container of the message content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1Part *> *parts;
+
+/** A list of task IDs that this message references for additional context. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referenceTaskIds;
+
+/**
+ *  Required. Identifies the sender of the message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1Message_Role_RoleAgent The
+ *        message is from the server to the client. (Value: "ROLE_AGENT")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1Message_Role_RoleUnspecified
+ *        The role is unspecified. (Value: "ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1Message_Role_RoleUser The
+ *        message is from the client to the server. (Value: "ROLE_USER")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+/**
+ *  Optional. The task id of the message. If set, the message will be associated
+ *  with the given task.
+ */
+@property(nonatomic, copy, nullable) NSString *taskId;
+
+@end
+
+
+/**
+ *  Optional. Any metadata to provide along with the message.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Message_Metadata : GTLRObject
+@end
+
+
+/**
+ *  `Part` represents a container for a section of communication content. Parts
+ *  can be purely textual, some sort of file (image, video, etc) or a structured
+ *  data blob (i.e. JSON).
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Part : GTLRObject
+
+/**
+ *  Arbitrary structured `data` as a JSON value (object, array, string, number,
+ *  boolean, or null).
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id data;
+
+/** An optional `filename` for the file (e.g., "document.pdf"). */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  The `media_type` (MIME type) of the part content (e.g., "text/plain",
+ *  "application/json", "image/png"). This field is available for all part
+ *  types.
+ */
+@property(nonatomic, copy, nullable) NSString *mediaType;
+
+/** Optional. metadata associated with this part. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Part_Metadata *metadata;
+
+/**
+ *  The `raw` byte content of a file. In JSON serialization, this is encoded as
+ *  a base64 string.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *raw;
+
+/** The string content of the `text` part. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** A `url` pointing to the file's content. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Optional. metadata associated with this part.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Part_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Configuration of a send message request.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1SendMessageConfiguration : GTLRObject
+
+/**
+ *  A list of media types the client is prepared to accept for response parts.
+ *  Agents SHOULD use this to tailor their output.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *acceptedOutputModes;
+
+/**
+ *  The maximum number of most recent messages from the task's history to
+ *  retrieve in the response. An unset value means the client does not impose
+ *  any limit. A value of zero is a request to not include any messages. The
+ *  server MUST NOT return more messages than the provided value, but MAY apply
+ *  a lower limit.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *historyLength;
+
+/**
+ *  If `true`, the operation returns immediately after creating the task, even
+ *  if processing is still in progress. If `false` (default), the operation MUST
+ *  wait until the task reaches a terminal (`COMPLETED`, `FAILED`, `CANCELED`,
+ *  `REJECTED`) or interrupted (`INPUT_REQUIRED`, `AUTH_REQUIRED`) state before
+ *  returning.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnImmediately;
+
+/**
+ *  Configuration for the agent to send push notifications for task updates.
+ *  Task id should be empty when sending this configuration in a `SendMessage`
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1TaskPushNotificationConfig *taskPushNotificationConfig;
+
+@end
+
+
+/**
+ *  Represents a request for the `SendMessage` method.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest : GTLRObject
+
+/** Configuration for the send request. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1SendMessageConfiguration *configuration;
+
+/** Required. The message to send to the agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Message *message;
+
+/** A flexible key-value map for passing additional context or parameters. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest_Metadata *metadata;
+
+@end
+
+
+/**
+ *  A flexible key-value map for passing additional context or parameters.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents the response for the `SendMessage` method.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse : GTLRObject
+
+/** A message from the agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Message *message;
+
+/** The task created or updated by the message. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Task *task;
+
+@end
+
+
+/**
+ *  `Task` is the core unit of action for A2A. It has a current status and when
+ *  results are created for the task they are stored in the artifact. If there
+ *  are multiple turns for a task, these are stored in history.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Task : GTLRObject
+
+/** A set of output artifacts for a `Task`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1Artifact *> *artifacts;
+
+/**
+ *  Unique identifier (e.g. UUID) for the contextual collection of interactions
+ *  (tasks and messages).
+ */
+@property(nonatomic, copy, nullable) NSString *contextId;
+
+/**
+ *  protolint:disable REPEATED_FIELD_NAMES_PLURALIZED The history of
+ *  interactions from a `Task`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1Message *> *history;
+
+/**
+ *  Required. Unique identifier (e.g. UUID) for the task, generated by the
+ *  server for a new task.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  protolint:enable REPEATED_FIELD_NAMES_PLURALIZED A key/value object to store
+ *  custom metadata about a task.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Task_Metadata *metadata;
+
+/**
+ *  Required. The current status of a `Task`, including `state` and a `message`.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1TaskStatus *status;
+
+@end
+
+
+/**
+ *  protolint:enable REPEATED_FIELD_NAMES_PLURALIZED A key/value object to store
+ *  custom metadata about a task.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1Task_Metadata : GTLRObject
+@end
+
+
+/**
+ *  A container associating a push notification configuration with a specific
+ *  task.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1TaskPushNotificationConfig : GTLRObject
+
+/** Authentication information required to send the notification. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AuthenticationInfo *authentication;
+
+/**
+ *  The push notification configuration details. A unique identifier (e.g. UUID)
+ *  for this push notification configuration.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The ID of the task this configuration is associated with. */
+@property(nonatomic, copy, nullable) NSString *taskId;
+
+/** Optional. Tenant ID. */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/** A token unique for this task or session. */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/** Required. The URL where the notification should be sent. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A container for the status of a task
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1TaskStatus : GTLRObject
+
+/** A message associated with the status. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Message *message;
+
+/**
+ *  Required. The current state of this task.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateAuthRequired
+ *        Indicates that authentication is required to proceed. This is an
+ *        interrupted state. (Value: "TASK_STATE_AUTH_REQUIRED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateCanceled
+ *        Indicates that a task was canceled before completion. This is a
+ *        terminal state. (Value: "TASK_STATE_CANCELED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateCompleted
+ *        Indicates that a task has finished successfully. This is a terminal
+ *        state. (Value: "TASK_STATE_COMPLETED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateFailed
+ *        Indicates that a task has finished with an error. This is a terminal
+ *        state. (Value: "TASK_STATE_FAILED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateInputRequired
+ *        Indicates that the agent requires additional user input to proceed.
+ *        This is an interrupted state. (Value: "TASK_STATE_INPUT_REQUIRED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateRejected
+ *        Indicates that the agent has decided to not perform the task. This may
+ *        be done during initial task creation or later once an agent has
+ *        determined it can't or won't proceed. This is a terminal state.
+ *        (Value: "TASK_STATE_REJECTED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateSubmitted
+ *        Indicates that a task has been successfully submitted and
+ *        acknowledged. (Value: "TASK_STATE_SUBMITTED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateUnspecified
+ *        The task is in an unknown or indeterminate state. (Value:
+ *        "TASK_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_LfA2aV1TaskStatus_State_TaskStateWorking
+ *        Indicates that a task is actively being processed by the agent.
+ *        (Value: "TASK_STATE_WORKING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  ISO 8601 Timestamp when the status was recorded. Example:
+ *  "2023-10-27T10:00:00Z"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+@end
+
+
+/**
  *  Response message for AgentService.ListAgents.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5614,12 +6164,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @interface GTLRCustomerEngagementSuite_LoggingSettings : GTLRObject
 
-/** Optional. Configuration for how audio interactions should be recorded. */
+/**
+ *  Optional. Configuration for how audio interactions should be recorded. The
+ *  audio is subject to redaction as configured in RedactionConfig.
+ */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AudioRecordingConfig *audioRecordingConfig;
 
 /**
- *  Optional. Settings to describe the BigQuery export behaviors for the app.
- *  The conversation data will be exported to BigQuery tables if it is enabled.
+ *  Optional. Configures the BigQuery export behaviors for the app. The
+ *  conversation data is subject to redaction as configured in RedactionConfig.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_BigQueryExportSettings *bigqueryExportSettings;
 
@@ -5649,9 +6202,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RedactionConfig *redactionConfig;
 
 /**
- *  Optional. Configures recording of unredacted audio. Use this to maintain a
- *  raw backup with restricted access when audio redaction is enabled, typically
- *  for auditing or monitoring purposes.
+ *  Optional. Configures an additional recording of unredacted audio. This can
+ *  be used to maintain a raw audio copy when audio redaction is enabled,
+ *  typically for auditing or monitoring purposes.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AudioRecordingConfig *unredactedAudioRecordingConfig;
 
@@ -5695,6 +6248,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Required. The name of the MCP tool. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. The name override of the MCP tool. This is populated if the name
+ *  was overridden by a Toolset override.
+ */
+@property(nonatomic, copy, nullable) NSString *nameOverride;
+
 /** Optional. The schema of the output arguments of the MCP tool. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Schema *outputSchema;
 
@@ -5714,6 +6273,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  service names within a perimeter.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ServiceDirectoryConfig *serviceDirectoryConfig;
+
+/**
+ *  Output only. The dynamic availability state of the tool on the external
+ *  server.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_McpTool_State_Active The tool is
+ *        available and actively offered by the server. (Value: "ACTIVE")
+ *    @arg @c kGTLRCustomerEngagementSuite_McpTool_State_Inactive The tool is
+ *        configured or pinned, but currently not offered by the server. (Value:
+ *        "INACTIVE")
+ *    @arg @c kGTLRCustomerEngagementSuite_McpTool_State_Stale The tool exists
+ *        on the server, but does not match the version on the server. (Value:
+ *        "STALE")
+ *    @arg @c kGTLRCustomerEngagementSuite_McpTool_State_StateUnspecified
+ *        Default state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Optional. The TLS configuration. Includes the custom server certificates
@@ -5737,6 +6314,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *        fetch them all at once.
  */
 @interface GTLRCustomerEngagementSuite_McpTool_CustomHeaders : GTLRObject
+@end
+
+
+/**
+ *  Container for a tool's core definition elements that are snapshot. Schemas
+ *  in the snapshot are used as-is and cannot be overridden.
+ */
+@interface GTLRCustomerEngagementSuite_McpToolDefinition : GTLRObject
+
+/**
+ *  Output only. The description of the MCP tool. This can be overridden by
+ *  `description_override` in `McpToolOverride`.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The schema of the input arguments of the MCP tool. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Schema *inputSchema;
+
+/** Output only. The schema of the output arguments of the MCP tool. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Schema *outputSchema;
+
+@end
+
+
+/**
+ *  Overrides associated with a given tool in a Toolset. This enables "pinning"
+ *  or "overriding" of tool definitions from the external dynamic server.
+ */
+@interface GTLRCustomerEngagementSuite_McpToolOverride : GTLRObject
+
+/**
+ *  Optional. If present, this tool uses this description instead of the
+ *  original description from the server.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionOverride;
+
+/**
+ *  Optional. If present, this tool uses this name in the Agent instead of the
+ *  original name. This is primarily used as an alias if the MCP server offers
+ *  poorly named tools.
+ */
+@property(nonatomic, copy, nullable) NSString *nameOverride;
+
+/**
+ *  Output only. If present, this tool is "Pinned" and uses the snapshot values
+ *  as fallbacks if the server becomes temporarily unavailable or if no Override
+ *  is present.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_McpToolDefinition *snapshot;
+
+/**
+ *  Required. The original name of the tool as it is emitted by the MCP server.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
 @end
 
 
@@ -5783,6 +6417,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  that the client should trust.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_TlsConfig *tlsConfig;
+
+/**
+ *  Optional. Overrides for individual tools within this toolset. This allows
+ *  overriding specific details like descriptions, names, or pinning the tools'
+ *  states so they aren't fully dynamic.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_McpToolOverride *> *toolOverrides;
 
 @end
 
@@ -5994,212 +6635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  token.
  */
 @property(nonatomic, copy, nullable) NSString *tokenEndpoint;
-
-@end
-
-
-/**
- *  Represents an Omnichannel resource.
- */
-@interface GTLRCustomerEngagementSuite_Omnichannel : GTLRObject
-
-/** Output only. Timestamp when the omnichannel resource was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. Human-readable description of the omnichannel resource.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Required. Display name of the omnichannel resource. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. Etag used to ensure the object hasn't changed during a
- *  read-modify-write operation.
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Optional. The integration config for the omnichannel resource. */
-@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig *integrationConfig;
-
-/**
- *  Identifier. The unique identifier of the omnichannel resource. Format:
- *  `projects/{project}/locations/{location}/omnichannels/{omnichannel}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. Timestamp when the omnichannel resource was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  OmnichannelIntegrationConfig contains all App integration configs.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig : GTLRObject
-
-/** Optional. Various of configuration for handling App events. */
-@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_ChannelConfigs *channelConfigs;
-
-/**
- *  Optional. The key of routing_configs is a key of `app_configs`, value is a
- *  `RoutingConfig`, which contains subscriber's key.
- */
-@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_RoutingConfigs *routingConfigs;
-
-/** Optional. Various of subscribers configs. */
-@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_SubscriberConfigs *subscriberConfigs;
-
-@end
-
-
-/**
- *  Optional. Various of configuration for handling App events.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigChannelConfig.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_ChannelConfigs : GTLRObject
-@end
-
-
-/**
- *  Optional. The key of routing_configs is a key of `app_configs`, value is a
- *  `RoutingConfig`, which contains subscriber's key.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigRoutingConfig.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_RoutingConfigs : GTLRObject
-@end
-
-
-/**
- *  Optional. Various of subscribers configs.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigSubscriberConfig.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig_SubscriberConfigs : GTLRObject
-@end
-
-
-/**
- *  Configs for CES app.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigCesAppConfig : GTLRObject
-
-/**
- *  The unique identifier of the CES app. Format:
- *  `projects/{project}/locations/{location}/apps/{app}`
- */
-@property(nonatomic, copy, nullable) NSString *app;
-
-@end
-
-
-/**
- *  ChannelConfig contains config for various of app integration.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigChannelConfig : GTLRObject
-
-/** WhatsApp config. */
-@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigWhatsappConfig *whatsappConfig;
-
-@end
-
-
-/**
- *  Routing config specify how/who to route app events to a subscriber.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigRoutingConfig : GTLRObject
-
-/** The key of the subscriber. */
-@property(nonatomic, copy, nullable) NSString *subscriberKey;
-
-@end
-
-
-/**
- *  Configs of subscribers.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigSubscriberConfig : GTLRObject
-
-/** Ces app config. */
-@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigCesAppConfig *cesAppConfig;
-
-@end
-
-
-/**
- *  How Omnichannel should receive/reply events from WhatsApp.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelIntegrationConfigWhatsappConfig : GTLRObject
-
-/**
- *  The Meta Business Portfolio (MBP) ID.
- *  https://www.facebook.com/business/help/1710077379203657
- */
-@property(nonatomic, copy, nullable) NSString *metaBusinessPortfolioId;
-
-/** The phone number used for sending/receiving messages. */
-@property(nonatomic, copy, nullable) NSString *phoneNumber;
-
-/** The Phone Number ID associated with the WhatsApp Business Account. */
-@property(nonatomic, copy, nullable) NSString *phoneNumberId;
-
-/**
- *  The verify token configured in the Meta App Dashboard for webhook
- *  verification.
- */
-@property(nonatomic, copy, nullable) NSString *webhookVerifyToken;
-
-/** The customer's WhatsApp Business Account (WABA) ID. */
-@property(nonatomic, copy, nullable) NSString *whatsappBusinessAccountId;
-
-/**
- *  The access token for authenticating API calls to the WhatsApp Cloud API.
- *  https://developers.facebook.com/docs/whatsapp/business-management-api/get-started/#business-integration-system-user-access-tokens
- */
-@property(nonatomic, copy, nullable) NSString *whatsappBusinessToken;
-
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRCustomerEngagementSuite_OmnichannelOperationMetadata : GTLRObject
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
 
 @end
 
@@ -6472,6 +6907,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Optional. The Python code to execute for the tool. */
 @property(nonatomic, copy, nullable) NSString *pythonCode;
 
+/** Optional. Service Directory configuration for the tool. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ServiceDirectoryConfig *serviceDirectoryConfig;
+
 @end
 
 
@@ -6580,6 +7018,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  Request message for ToolService.RetrieveTools.
  */
 @interface GTLRCustomerEngagementSuite_RetrieveToolsRequest : GTLRObject
+
+/**
+ *  Optional. If true, the returned tools will contain raw descriptions and
+ *  schemas directly from the server, bypassing any stored persistence
+ *  configurations (overrides/snapshots).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bypassPersistenceConfig;
 
 /**
  *  Optional. The identifiers of the tools to retrieve from the toolset. If

@@ -558,8 +558,9 @@
 //
 
 @implementation GTLRCalendar_EventAttendee
-@dynamic additionalGuests, comment, displayName, email, identifier, optional,
-         organizer, resource, responseStatus, selfProperty;
+@dynamic additionalGuests, asyncOperation, comment, displayName, email,
+         identifier, optional, organizer, resource, responseStatus,
+         selfProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

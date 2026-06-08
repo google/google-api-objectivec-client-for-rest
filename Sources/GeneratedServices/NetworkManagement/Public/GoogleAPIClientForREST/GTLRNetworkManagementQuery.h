@@ -24,6 +24,60 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// monitoringPointType
+
+/**
+ *  Monitoring Point that runs as a startup script in an Azure VM.
+ *
+ *  Value: "AZURE_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeAzureVm;
+/**
+ *  Monitoring Point that runs in a Docker container.
+ *
+ *  Value: "CONTAINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeContainer;
+/**
+ *  Monitoring Point that runs as a startup script in a Compute Engine VM.
+ *
+ *  Value: "GCE_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeGceVm;
+/**
+ *  Monitoring Point that runs on a K8S Helm.
+ *
+ *  Value: "HELM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeHelm;
+/**
+ *  Monitoring Point that runs in a Kernel-based Virtual Machine (KVM)
+ *  hypervisor.
+ *
+ *  Value: "KVM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeKvm;
+/**
+ *  This value should not be used.
+ *
+ *  Value: "MONITORING_POINT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeMonitoringPointTypeUnspecified;
+/**
+ *  Monitoring Point that runs in a VMware hypervisor.
+ *
+ *  Value: "VMWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmware;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Network Management query classes.
  */
@@ -1212,6 +1266,660 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a NetworkMonitoringProvider resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersCreate : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The ID to use for the NetworkMonitoringProvider resource, which
+ *  will become the final component of the NetworkMonitoringProvider resource's
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *networkMonitoringProviderId;
+
+/**
+ *  Required. Parent value for CreateNetworkMonitoringProviderRequest. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Creates a NetworkMonitoringProvider resource.
+ *
+ *  @param object The @c GTLRNetworkManagement_NetworkMonitoringProvider to
+ *    include in the query.
+ *  @param parent Required. Parent value for
+ *    CreateNetworkMonitoringProviderRequest. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_NetworkMonitoringProvider *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a NetworkMonitoringProvider resource and all of its child resources.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersDelete : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. If set to true, any nested MonitoringPoints, NetworkPaths and
+ *  WebPaths resources from this NetworkMonitoringProvider will also be deleted.
+ *  Otherwise, the request will only work if there are no nested resources.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Deletes a NetworkMonitoringProvider resource and all of its child resources.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generates Monitoring Point configuration of a NetworkMonitoringProvider
+ *  resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.generateMonitoringPointConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateMonitoringPointConfig : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. For Google Cloud MPs, this field indicates whether the Monitoring
+ *  Point is deployed in a Private Service Connect deployment. Not used for
+ *  non-Google Cloud MPs.
+ */
+@property(nonatomic, assign) BOOL privateConnectivityEnabled;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_GenerateMonitoringPointConfigResponse.
+ *
+ *  Generates Monitoring Point configuration of a NetworkMonitoringProvider
+ *  resource.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateMonitoringPointConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a provider access token for a given Google access token. Provider
+ *  access token is a short-lived token that is used to access resources in the
+ *  provider's platform.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.generateProviderAccessToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateProviderAccessToken : GTLRNetworkManagementQuery
+
+/** Required. Google access token. */
+@property(nonatomic, copy, nullable) NSString *gcpAccessToken;
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_GenerateProviderAccessTokenResponse.
+ *
+ *  Generates a provider access token for a given Google access token. Provider
+ *  access token is a short-lived token that is used to access resources in the
+ *  provider's platform.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateProviderAccessToken
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the NetworkMonitoringProvider resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_NetworkMonitoringProvider.
+ *
+ *  Gets the NetworkMonitoringProvider resource.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists NetworkMonitoringProviders for a given project and location.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of monitoring points to return. The service may
+ *  return fewer than this value. If unspecified, at most 20 monitoring points
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMonitoringPoints`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMonitoringPoints` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListNetworkMonitoringProvidersRequest. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListNetworkMonitoringProvidersResponse.
+ *
+ *  Lists NetworkMonitoringProviders for a given project and location.
+ *
+ *  @param parent Required. Parent value for
+ *    ListNetworkMonitoringProvidersRequest. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Downloads an install script for MonitoringPoints for a given network
+ *  monitoring provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.downloadInstallScript
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadInstallScript : GTLRNetworkManagementQuery
+
+/** Optional. Password for logging into the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *xPassword;
+
+/** Required. The hostname of the MonitoringPoint, e.g. "test-vm" */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Required. The type of the monitoring point.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeMonitoringPointTypeUnspecified
+ *        This value should not be used. (Value:
+ *        "MONITORING_POINT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeContainer Monitoring
+ *        Point that runs in a Docker container. (Value: "CONTAINER")
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeKvm Monitoring Point that
+ *        runs in a Kernel-based Virtual Machine (KVM) hypervisor. (Value:
+ *        "KVM")
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeVmware Monitoring Point
+ *        that runs in a VMware hypervisor. (Value: "VMWARE")
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeHelm Monitoring Point
+ *        that runs on a K8S Helm. (Value: "HELM")
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeGceVm Monitoring Point
+ *        that runs as a startup script in a Compute Engine VM. (Value:
+ *        "GCE_VM")
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeAzureVm Monitoring Point
+ *        that runs as a startup script in an Azure VM. (Value: "AZURE_VM")
+ */
+@property(nonatomic, copy, nullable) NSString *monitoringPointType;
+
+/**
+ *  Optional. Network Time Protocol a user can configure. If the user omits the
+ *  field, the default is either NTP servers provided in the DHCP lease or a set
+ *  of well-known NTP servers pre-configured on the monitoring point. This field
+ *  can be an IP address or FQDN.
+ */
+@property(nonatomic, copy, nullable) NSString *ntpServerAddress;
+
+/** Optional. Second NTP server. */
+@property(nonatomic, copy, nullable) NSString *ntpServerSecondaryAddress;
+
+/**
+ *  Required. Parent value for DownloadInstallScriptRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. For Google Cloud MPs, this field indicates whether the Monitoring
+ *  Point is deployed in a Private Service Connect deployment. Not used for
+ *  non-Google Cloud MPs.
+ */
+@property(nonatomic, assign) BOOL privateConnectivityEnabled;
+
+/** Required. DNS server. */
+@property(nonatomic, copy, nullable) NSString *staticIpAddressDnsServerAddress;
+
+/** Optional. Second DNS server. */
+@property(nonatomic, copy, nullable) NSString *staticIpAddressDnsServerSecondaryAddress;
+
+/** Optional. Domain name of the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *staticIpAddressDomain;
+
+/** Required. Gateway IP address. Example: "100.80.40.1". */
+@property(nonatomic, copy, nullable) NSString *staticIpAddressGatewayAddress;
+
+/** Required. IP address of the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *staticIpAddressIpAddress;
+
+/** Optional. Networkmask and CIDR range. Example: "255.255.255.0/24" */
+@property(nonatomic, copy, nullable) NSString *staticIpAddressNetmask;
+
+/** IANA Time Zone Database time zone. For example "America/New_York". */
+@property(nonatomic, copy, nullable) NSString *timeZoneId;
+
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
+@property(nonatomic, copy, nullable) NSString *timeZoneVersion;
+
+/**
+ *  Optional. Dynamic Host Configuration Protocol, is a network management
+ *  protocol that automatically assigns IP addresses and other network
+ *  configuration parameters to devices connecting to a network.
+ */
+@property(nonatomic, assign) BOOL useDhcp;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_HttpBody.
+ *
+ *  Downloads an install script for MonitoringPoints for a given network
+ *  monitoring provider.
+ *
+ *  @param parent Required. Parent value for DownloadInstallScriptRequest.
+ *    Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadInstallScript
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Downloads an install script for a specific Container MonitoringPoint.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.downloadRecreateInstallScript
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadRecreateInstallScript : GTLRNetworkManagementQuery
+
+/** Optional. The hostname of the MonitoringPoint, e.g. "test-vm" */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Required. Resource name of the MonitoringPoint. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_HttpBody.
+ *
+ *  Downloads an install script for a specific Container MonitoringPoint.
+ *
+ *  @param name Required. Resource name of the MonitoringPoint. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadRecreateInstallScript
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Downloads the server connect configuration for a given network monitoring
+ *  provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.downloadServerConnectConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadServerConnectConfig : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Parent value for DownloadServerConnectConfigRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_HttpBody.
+ *
+ *  Downloads the server connect configuration for a given network monitoring
+ *  provider.
+ *
+ *  @param parent Required. Parent value for DownloadServerConnectConfigRequest.
+ *    Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadServerConnectConfig
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the MonitoringPoint resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_MonitoringPoint.
+ *
+ *  Gets the MonitoringPoint resource.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists MonitoringPoints for a given network monitoring provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of monitoring points to return. The service may
+ *  return fewer than this value. If unspecified, at most 20 monitoring points
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMonitoringPoints`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMonitoringPoints` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListMonitoringPointsRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListMonitoringPointsResponse.
+ *
+ *  Lists MonitoringPoints for a given network monitoring provider.
+ *
+ *  @param parent Required. Parent value for ListMonitoringPointsRequest.
+ *    Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the NetworkPath resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.networkPaths.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/networkPaths/{network_path}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_NetworkPath.
+ *
+ *  Gets the NetworkPath resource.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/networkPaths/{network_path}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists NetworkPaths for a given network monitoring provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.networkPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of network paths to return. The service may
+ *  return fewer than this value. If unspecified, at most 20 network pathswill
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListNetworkPaths` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListNetworkPaths` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListNetworkPathsRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListNetworkPathsResponse.
+ *
+ *  Lists NetworkPaths for a given network monitoring provider.
+ *
+ *  @param parent Required. Parent value for ListNetworkPathsRequest. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the WebPath resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.webPaths.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource.. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/webPaths/{web_path}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_WebPath.
+ *
+ *  Gets the WebPath resource.
+ *
+ *  @param name Required. Name of the resource.. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/webPaths/{web_path}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists WebPaths for a given network monitoring provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.webPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of web paths to return. The service may return
+ *  fewer than this value. If unspecified, at most 20 web paths will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListWebPaths` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListWebPaths` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListWebPathsRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListWebPathsResponse.
+ *
+ *  Lists WebPaths for a given network monitoring provider.
+ *
+ *  @param parent Required. Parent value for ListWebPathsRequest. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

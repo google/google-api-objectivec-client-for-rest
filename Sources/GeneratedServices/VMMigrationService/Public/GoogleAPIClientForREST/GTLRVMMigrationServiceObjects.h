@@ -2943,6 +2943,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *diskReplicaZones;
 
+/** Optional. The details of each disk to create. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_PersistentDiskDefaults *> *disks;
+
 /**
  *  The disk type to use in the VM.
  *
@@ -5502,11 +5505,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @interface GTLRVMMigrationService_PersistentDisk : GTLRObject
 
-/** The URI of the Persistent Disk. */
+/** Output only. The URI of the Persistent Disk. */
 @property(nonatomic, copy, nullable) NSString *diskUri;
 
 /**
- *  The ordinal number of the source VM disk.
+ *  Output only. The ordinal number of the source VM disk.
  *
  *  Uses NSNumber of intValue.
  */

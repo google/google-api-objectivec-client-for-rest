@@ -1494,8 +1494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 /**
  *  Lists information about the supported locations for this service. This
  *  method lists locations based on the resource scope provided in the
- *  [ListLocationsRequest.name] field: * **Global locations**: If `name` is
- *  empty, the method lists the public locations available to all projects. *
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
  *  **Project-specific locations**: If `name` follows the format
  *  `projects/{project}`, the method lists locations visible to that specific
  *  project. This includes public, private, or other project-specific locations
@@ -1512,8 +1512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsList : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1544,8 +1544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *
  *  Lists information about the supported locations for this service. This
  *  method lists locations based on the resource scope provided in the
- *  [ListLocationsRequest.name] field: * **Global locations**: If `name` is
- *  empty, the method lists the public locations available to all projects. *
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
  *  **Project-specific locations**: If `name` follows the format
  *  `projects/{project}`, the method lists locations visible to that specific
  *  project. This includes public, private, or other project-specific locations

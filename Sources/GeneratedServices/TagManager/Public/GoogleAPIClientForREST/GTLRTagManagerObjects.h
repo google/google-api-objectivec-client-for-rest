@@ -20,6 +20,7 @@
 @class GTLRTagManager_AccountFeatures;
 @class GTLRTagManager_BuiltInVariable;
 @class GTLRTagManager_Client;
+@class GTLRTagManager_CompilerErrorLite;
 @class GTLRTagManager_Condition;
 @class GTLRTagManager_Container;
 @class GTLRTagManager_ContainerAccess;
@@ -328,6 +329,373 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoVis
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VisitorRegion;
 
 // ----------------------------------------------------------------------------
+// GTLRTagManager_CompilerErrorLite.errorType
+
+/**
+ *  The container version contains a Google tag tag and a destination tag that
+ *  use the same destination ID. parent - Entity key for the conflicting Google
+ *  tag. context - The Google tag tag name.
+ *
+ *  Value: "conflictingDestinationRouting"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_ConflictingDestinationRouting;
+/**
+ *  A trigger of type custom trigger was created that doesn't include a custom
+ *  event filter. parent - 1 EntityKey with its trigger_key populated. context -
+ *  Empty.
+ *
+ *  Value: "customTriggerMissingEventFilter"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_CustomTriggerMissingEventFilter;
+/**
+ *  There are multiple auto-event instances with the same name. parent - N
+ *  EntityKeys each with their auto_event_key populated.
+ *
+ *  Value: "duplicateAutoEventName"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateAutoEventName;
+/**
+ *  There are multiple conditions with the same id. parent - N EntityKeys each
+ *  with their condition_key populated.
+ *
+ *  Value: "duplicateConditionId"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateConditionId;
+/**
+ *  There are multiple default macros with the same name. parent - N EntityKeys
+ *  each with their macro_key populated. context - The macro name.
+ *
+ *  Value: "duplicateDefaultMacro"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateDefaultMacro;
+/**
+ *  There are multiple experiments with the same id. parent - N EntityKeys each
+ *  with their experiment_key populated. context - Empty.
+ *
+ *  Value: "duplicateExperimentId"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateExperimentId;
+/**
+ *  There are multiple tag instances with the same name. parent - N EntityKeys
+ *  each with their tag_key populated.
+ *
+ *  Value: "duplicateTagName"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateTagName;
+/**
+ *  There are multiple triggers with the same id. parent - N EntityKeys each
+ *  with their trigger_key populated. context - Empty.
+ *
+ *  Value: "duplicateTriggerId"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateTriggerId;
+/**
+ *  The input container version contains a deprecated GA content experiment
+ *  macro that needs to be removed.
+ *
+ *  Value: "gaExperimentMacroIsDeprecated"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_GaExperimentMacroIsDeprecated;
+/**
+ *  An internal compiler invariant was broken. parent - 1 EntityKey which may
+ *  have macro_key, condition_key, or tag_key populated. It's also possible that
+ *  no keys are populated. context - An internal string (shouldn't be shown to
+ *  the user) describing the problem.
+ *
+ *  Value: "internalCompilerError"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InternalCompilerError;
+/**
+ *  The trigger cannot be used in blocking predicates (i.e. only All/Some pages
+ *  triggers work for AMP, NS etc.) parent - 1 EntityKey indicating the tag in
+ *  which this trigger is used. context - The trigger name.
+ *
+ *  Value: "invalidBlockingTrigger"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidBlockingTrigger;
+/**
+ *  The custom template has invalid runtime code. parent - Entity key for the
+ *  custom template. context - The error message.
+ *
+ *  Value: "invalidCustomTemplateRuntimeCode"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidCustomTemplateRuntimeCode;
+/**
+ *  The container version contains a product destination tag with a destination
+ *  ID value that is in an invalid format. parent - Entity key of the
+ *  destination tag. context - The invalid destination ID.
+ *
+ *  Value: "invalidDestinationTag"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidDestinationTag;
+/**
+ *  Auto-escaped content is not valid HTML, CSS or JavaScript. parent - 1
+ *  EntityKey with one of the following populated: tag_key. context - Empty.
+ *
+ *  Value: "invalidHtmlCssJs"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidHtmlCssJs;
+/**
+ *  Macro format was invalid e.g. foo#bar parent - 1 EntityKey with one of the
+ *  following populated: condition_key, tag_key. context - The full string of
+ *  the invalid macro and surrounding literals.
+ *
+ *  Value: "invalidMacroFormat"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroFormat;
+/**
+ *  An macro instance key was invalid e.g. foo#bar parent - 1 EntityKey with one
+ *  of the following populated: macro_key, condition_key, tag_key. context - The
+ *  string of the invalid name.
+ *
+ *  Value: "invalidMacroKey"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroKey;
+/**
+ *  A macro name was referenced instead of a macro key. parent - 1 EntityKey
+ *  with one of the following populated: condition_key, tag_key. context - The
+ *  name of the invalid macro name.
+ *
+ *  Value: "invalidMacroNameReference"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroNameReference;
+/**
+ *  Macro had an invalid parameter. This could be anything from a parameter
+ *  being a complex type or a macro parameter containing a macro reference.
+ *  parent - 1 EntityKey with its macro_key populated. context - The value of
+ *  the offending parameter if it is string-able.
+ *
+ *  Value: "invalidMacroParameter"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroParameter;
+/**
+ *  User-provided escaping inappropriate for the context in which it is used.
+ *  parent - 1 EntityKey with one of the following populated: macro_key,
+ *  condition_key, tag_key. context - Empty.
+ *
+ *  Value: "invalidManualEscaping"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidManualEscaping;
+/**
+ *  Wrong number of args passed to a predicate. parent - 1 EntityKey with its
+ *  condition_key populated.
+ *
+ *  Value: "invalidNumberPredicateArgs"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidNumberPredicateArgs;
+/**
+ *  Contents of an Regex predicate had an invalid pattern. parent - 1 EntityKey
+ *  with one of the following populated: condition_key. context - The offending
+ *  pattern.
+ *
+ *  Value: "invalidRegex"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidRegex;
+/**
+ *  Tag had an invalid parameter. This could be anything from a parameter being
+ *  a complex type or a macro parameter containing a macro reference. parent - 1
+ *  EntityKey with its tag_key populated. context - The value of the offending
+ *  parameter if it is string-able.
+ *
+ *  Value: "invalidTagParameter"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTagParameter;
+/**
+ *  A tag name was used which doesn't exist in the compiled tag list. This
+ *  happens if a tag is dependent on another tag, but the other tag has no rules
+ *  attached to it and is pruned in the compiler. parent - 1 EntityKey with
+ *  tag_key populated. context - The name of the missing tag instance.
+ *
+ *  Value: "invalidTagReference"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTagReference;
+/**
+ *  A trigger has an invalid parameter. parent - 1 EntityKey with its
+ *  trigger_key populated. context - The invalid field.
+ *
+ *  Value: "invalidTriggerParameter"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTriggerParameter;
+/**
+ *  The value of a SELECT parameter in a vendor template instance does not point
+ *  to an allowed vendor template instance. For details, see the documentation
+ *  of the typesInSelect property in a vendor template. parent - 1 EntityKey
+ *  indicating the tag/macro with this parameter. context - The parameter name.
+ *
+ *  Value: "invalidTypeInSelect"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTypeInSelect;
+/**
+ *  Usage context of a container was invalid. Currently, this error can occur
+ *  when a container context specifies both web and mobile. The UI shouldn't
+ *  allowed creating such a mixed container. parent - not set context - The
+ *  description of the context
+ *
+ *  Value: "invalidUsageContext"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidUsageContext;
+/**
+ *  An arbitrary HTML tag contains a piece of javascript with too many
+ *  contiguous non-whitespace characters (e.g. a long array with no spaces
+ *  between elements or an extremely long variable name).
+ *
+ *  Value: "javascriptTooLong"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_JavascriptTooLong;
+/**
+ *  Contents of an HTML script tag could not be compiled by JsCompiler. parent -
+ *  1 EntityKey with one of the following populated: tag_key. context - Empty.
+ *
+ *  Value: "jsCompilerError"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_JsCompilerError;
+/**
+ *  Contents of a ConfigurationValue script tag could not be parsed by the JSON
+ *  parser. parent - 1 EntityKey with one of the following populated: tag_key.
+ *  context - Empty.
+ *
+ *  Value: "jsonError"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_JsonError;
+/**
+ *  A line in the input text is too long.
+ *
+ *  Value: "lineTooLong"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_LineTooLong;
+/**
+ *  There was a macro whose resolution would depend on itself. parent - N
+ *  EntityKeys each with their macro_key, trigger_key, or condition_key
+ *  populated. This represents the macro cycle. context - Empty.
+ *
+ *  Value: "macroCycle"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MacroCycle;
+/**
+ *  Macro reference found inside an HTML, CSS or JavaScript comment. parent - 1
+ *  EntityKey with one of the following populated: tag_key. context - Empty.
+ *
+ *  Value: "macroInCommentsError"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MacroInCommentsError;
+/**
+ *  The macro cannot be resolved at server side. parent - 1 EntityKey indicating
+ *  the entity in which this macro is used. context - The macro name.
+ *
+ *  Value: "macroNotServerSideResolvable"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MacroNotServerSideResolvable;
+/**
+ *  The container version has routing destinations, but is missing required
+ *  activity instances. parent - Empty. context - Empty. proposed_change - The
+ *  proposed change to add the missing activities.
+ *
+ *  Value: "missingRequiredActivity"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MissingRequiredActivity;
+/**
+ *  The specified parameter was not found in the referenced entity. parent - 1
+ *  EntityKey with tag_key populated. context - The missing parameter in the
+ *  form of ".".
+ *
+ *  Value: "parameterReferenceNotFound"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_ParameterReferenceNotFound;
+/**
+ *  Contents of a pixie tag/macro could not be compiled by Pixie Parser. parent
+ *  - 1 EntityKey with one of the following populated: tag_key, macro_key.
+ *  context - Empty.
+ *
+ *  Value: "pixieCompilerError"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_PixieCompilerError;
+/**
+ *  GTM ToS is required for publishing versions with 3P tags. parent - not set
+ *  context - Empty.
+ *
+ *  Value: "tosRequiredForThirdPartyTags"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_TosRequiredForThirdPartyTags;
+/**
+ *  A condition id was used which doesn't exist in the conditions list. parent -
+ *  1 EntityKey with its tag_key populated. context - The integer id of the
+ *  missing conditional.
+ *
+ *  Value: "unknownConditionId"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownConditionId;
+/**
+ *  Unknown error type. Place holder for the enum's default value; not valid.
+ *
+ *  Value: "unknownErrorType"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownErrorType;
+/**
+ *  A macro name was used which doesn't exist in the macro list. parent - 1
+ *  EntityKey with one of the following populated: condition_key, tag_key.
+ *  context - The name of the missing macro instance.
+ *
+ *  Value: "unknownMacroInstance"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownMacroInstance;
+/**
+ *  A tag name was used which doesn't exist in the input tag list. parent - 1
+ *  EntityKey with tag_key populated. context - The name of the missing tag
+ *  instance.
+ *
+ *  Value: "unknownTagInstance"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownTagInstance;
+/**
+ *  A trigger id was used which doesn't exist in the triggers list. parent - 1
+ *  EntityKey parent of the unknown trigger. context - The id of the missing
+ *  trigger instance.
+ *
+ *  Value: "unknownTriggerId"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownTriggerId;
+/**
+ *  The container version contains a product destination tag with a destination
+ *  ID value that cannot be resolved statically. parent - Entity key of the
+ *  destination tag. context - The name of the variable that could not be
+ *  resolved. If the destination ID was a template value, then this will be the
+ *  serialized value.
+ *
+ *  Value: "unresolvableDestinationTag"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnresolvableDestinationTag;
+/**
+ *  CSS is not sanitized and contains unsafe content.
+ *
+ *  Value: "unsafeCssContent"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeCssContent;
+/**
+ *  HTML attribute is not sanitized and the value is unsafe.
+ *
+ *  Value: "unsafeHtmlAttributeValue"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeHtmlAttributeValue;
+/**
+ *  Reminder: new error types will be treated as internal errors and trigger
+ *  alerts unless they are handled in
+ *  j/c/g/analytics/containertag/compiler/ErrorReporter.java&l=104 Please also
+ *  remember to add new error types to CTUI at
+ *  j/c/g/analytics/containertag/ui/app/components/container/compilererror/ HTML
+ *  is not sanitized and contains unsafe content.
+ *
+ *  Value: "unsafeHtmlContent"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeHtmlContent;
+/**
+ *  There is an unknown or unsupported trigger type. parent - 1 EntityKey with
+ *  its trigger_key populated. context - The trigger type.
+ *
+ *  Value: "unsupportedTriggerType"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsupportedTriggerType;
+
+// ----------------------------------------------------------------------------
 // GTLRTagManager_Condition.type
 
 /** Value: "conditionTypeUnspecified" */
@@ -616,6 +984,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 // ----------------------------------------------------------------------------
 // GTLRTagManager_VariableFormatValue.convertToNumber
 
+/**
+ *  The option to convert a variable value to a number with automatic decimal
+ *  separator detection.
+ *
+ *  Value: "automatic"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Automatic;
 /**
  *  The option to convert a variable value to a number with a comma as the
  *  decimal separator.
@@ -1021,6 +1396,232 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertTo
 
 /** GTM Workspace ID. */
 @property(nonatomic, copy, nullable) NSString *workspaceId;
+
+@end
+
+
+/**
+ *  GTLRTagManager_CompilerErrorLite
+ */
+@interface GTLRTagManager_CompilerErrorLite : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  errorType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_ConflictingDestinationRouting
+ *        The container version contains a Google tag tag and a destination tag
+ *        that use the same destination ID. parent - Entity key for the
+ *        conflicting Google tag. context - The Google tag tag name. (Value:
+ *        "conflictingDestinationRouting")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_CustomTriggerMissingEventFilter
+ *        A trigger of type custom trigger was created that doesn't include a
+ *        custom event filter. parent - 1 EntityKey with its trigger_key
+ *        populated. context - Empty. (Value: "customTriggerMissingEventFilter")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateAutoEventName
+ *        There are multiple auto-event instances with the same name. parent - N
+ *        EntityKeys each with their auto_event_key populated. (Value:
+ *        "duplicateAutoEventName")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateConditionId
+ *        There are multiple conditions with the same id. parent - N EntityKeys
+ *        each with their condition_key populated. (Value:
+ *        "duplicateConditionId")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateDefaultMacro
+ *        There are multiple default macros with the same name. parent - N
+ *        EntityKeys each with their macro_key populated. context - The macro
+ *        name. (Value: "duplicateDefaultMacro")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateExperimentId
+ *        There are multiple experiments with the same id. parent - N EntityKeys
+ *        each with their experiment_key populated. context - Empty. (Value:
+ *        "duplicateExperimentId")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateTagName There
+ *        are multiple tag instances with the same name. parent - N EntityKeys
+ *        each with their tag_key populated. (Value: "duplicateTagName")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateTriggerId
+ *        There are multiple triggers with the same id. parent - N EntityKeys
+ *        each with their trigger_key populated. context - Empty. (Value:
+ *        "duplicateTriggerId")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_GaExperimentMacroIsDeprecated
+ *        The input container version contains a deprecated GA content
+ *        experiment macro that needs to be removed. (Value:
+ *        "gaExperimentMacroIsDeprecated")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InternalCompilerError
+ *        An internal compiler invariant was broken. parent - 1 EntityKey which
+ *        may have macro_key, condition_key, or tag_key populated. It's also
+ *        possible that no keys are populated. context - An internal string
+ *        (shouldn't be shown to the user) describing the problem. (Value:
+ *        "internalCompilerError")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidBlockingTrigger
+ *        The trigger cannot be used in blocking predicates (i.e. only All/Some
+ *        pages triggers work for AMP, NS etc.) parent - 1 EntityKey indicating
+ *        the tag in which this trigger is used. context - The trigger name.
+ *        (Value: "invalidBlockingTrigger")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidCustomTemplateRuntimeCode
+ *        The custom template has invalid runtime code. parent - Entity key for
+ *        the custom template. context - The error message. (Value:
+ *        "invalidCustomTemplateRuntimeCode")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidDestinationTag
+ *        The container version contains a product destination tag with a
+ *        destination ID value that is in an invalid format. parent - Entity key
+ *        of the destination tag. context - The invalid destination ID. (Value:
+ *        "invalidDestinationTag")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidHtmlCssJs
+ *        Auto-escaped content is not valid HTML, CSS or JavaScript. parent - 1
+ *        EntityKey with one of the following populated: tag_key. context -
+ *        Empty. (Value: "invalidHtmlCssJs")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroFormat
+ *        Macro format was invalid e.g. foo#bar parent - 1 EntityKey with one of
+ *        the following populated: condition_key, tag_key. context - The full
+ *        string of the invalid macro and surrounding literals. (Value:
+ *        "invalidMacroFormat")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroKey An
+ *        macro instance key was invalid e.g. foo#bar parent - 1 EntityKey with
+ *        one of the following populated: macro_key, condition_key, tag_key.
+ *        context - The string of the invalid name. (Value: "invalidMacroKey")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroNameReference
+ *        A macro name was referenced instead of a macro key. parent - 1
+ *        EntityKey with one of the following populated: condition_key, tag_key.
+ *        context - The name of the invalid macro name. (Value:
+ *        "invalidMacroNameReference")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroParameter
+ *        Macro had an invalid parameter. This could be anything from a
+ *        parameter being a complex type or a macro parameter containing a macro
+ *        reference. parent - 1 EntityKey with its macro_key populated. context
+ *        - The value of the offending parameter if it is string-able. (Value:
+ *        "invalidMacroParameter")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidManualEscaping
+ *        User-provided escaping inappropriate for the context in which it is
+ *        used. parent - 1 EntityKey with one of the following populated:
+ *        macro_key, condition_key, tag_key. context - Empty. (Value:
+ *        "invalidManualEscaping")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidNumberPredicateArgs
+ *        Wrong number of args passed to a predicate. parent - 1 EntityKey with
+ *        its condition_key populated. (Value: "invalidNumberPredicateArgs")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidRegex Contents
+ *        of an Regex predicate had an invalid pattern. parent - 1 EntityKey
+ *        with one of the following populated: condition_key. context - The
+ *        offending pattern. (Value: "invalidRegex")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTagParameter
+ *        Tag had an invalid parameter. This could be anything from a parameter
+ *        being a complex type or a macro parameter containing a macro
+ *        reference. parent - 1 EntityKey with its tag_key populated. context -
+ *        The value of the offending parameter if it is string-able. (Value:
+ *        "invalidTagParameter")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTagReference A
+ *        tag name was used which doesn't exist in the compiled tag list. This
+ *        happens if a tag is dependent on another tag, but the other tag has no
+ *        rules attached to it and is pruned in the compiler. parent - 1
+ *        EntityKey with tag_key populated. context - The name of the missing
+ *        tag instance. (Value: "invalidTagReference")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTriggerParameter
+ *        A trigger has an invalid parameter. parent - 1 EntityKey with its
+ *        trigger_key populated. context - The invalid field. (Value:
+ *        "invalidTriggerParameter")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTypeInSelect
+ *        The value of a SELECT parameter in a vendor template instance does not
+ *        point to an allowed vendor template instance. For details, see the
+ *        documentation of the typesInSelect property in a vendor template.
+ *        parent - 1 EntityKey indicating the tag/macro with this parameter.
+ *        context - The parameter name. (Value: "invalidTypeInSelect")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidUsageContext
+ *        Usage context of a container was invalid. Currently, this error can
+ *        occur when a container context specifies both web and mobile. The UI
+ *        shouldn't allowed creating such a mixed container. parent - not set
+ *        context - The description of the context (Value:
+ *        "invalidUsageContext")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_JavascriptTooLong An
+ *        arbitrary HTML tag contains a piece of javascript with too many
+ *        contiguous non-whitespace characters (e.g. a long array with no spaces
+ *        between elements or an extremely long variable name). (Value:
+ *        "javascriptTooLong")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_JsCompilerError
+ *        Contents of an HTML script tag could not be compiled by JsCompiler.
+ *        parent - 1 EntityKey with one of the following populated: tag_key.
+ *        context - Empty. (Value: "jsCompilerError")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_JsonError Contents of
+ *        a ConfigurationValue script tag could not be parsed by the JSON
+ *        parser. parent - 1 EntityKey with one of the following populated:
+ *        tag_key. context - Empty. (Value: "jsonError")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_LineTooLong A line in
+ *        the input text is too long. (Value: "lineTooLong")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_MacroCycle There was a
+ *        macro whose resolution would depend on itself. parent - N EntityKeys
+ *        each with their macro_key, trigger_key, or condition_key populated.
+ *        This represents the macro cycle. context - Empty. (Value:
+ *        "macroCycle")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_MacroInCommentsError
+ *        Macro reference found inside an HTML, CSS or JavaScript comment.
+ *        parent - 1 EntityKey with one of the following populated: tag_key.
+ *        context - Empty. (Value: "macroInCommentsError")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_MacroNotServerSideResolvable
+ *        The macro cannot be resolved at server side. parent - 1 EntityKey
+ *        indicating the entity in which this macro is used. context - The macro
+ *        name. (Value: "macroNotServerSideResolvable")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_MissingRequiredActivity
+ *        The container version has routing destinations, but is missing
+ *        required activity instances. parent - Empty. context - Empty.
+ *        proposed_change - The proposed change to add the missing activities.
+ *        (Value: "missingRequiredActivity")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_ParameterReferenceNotFound
+ *        The specified parameter was not found in the referenced entity. parent
+ *        - 1 EntityKey with tag_key populated. context - The missing parameter
+ *        in the form of ".". (Value: "parameterReferenceNotFound")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_PixieCompilerError
+ *        Contents of a pixie tag/macro could not be compiled by Pixie Parser.
+ *        parent - 1 EntityKey with one of the following populated: tag_key,
+ *        macro_key. context - Empty. (Value: "pixieCompilerError")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_TosRequiredForThirdPartyTags
+ *        GTM ToS is required for publishing versions with 3P tags. parent - not
+ *        set context - Empty. (Value: "tosRequiredForThirdPartyTags")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownConditionId A
+ *        condition id was used which doesn't exist in the conditions list.
+ *        parent - 1 EntityKey with its tag_key populated. context - The integer
+ *        id of the missing conditional. (Value: "unknownConditionId")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownErrorType
+ *        Unknown error type. Place holder for the enum's default value; not
+ *        valid. (Value: "unknownErrorType")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownMacroInstance A
+ *        macro name was used which doesn't exist in the macro list. parent - 1
+ *        EntityKey with one of the following populated: condition_key, tag_key.
+ *        context - The name of the missing macro instance. (Value:
+ *        "unknownMacroInstance")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownTagInstance A
+ *        tag name was used which doesn't exist in the input tag list. parent -
+ *        1 EntityKey with tag_key populated. context - The name of the missing
+ *        tag instance. (Value: "unknownTagInstance")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownTriggerId A
+ *        trigger id was used which doesn't exist in the triggers list. parent -
+ *        1 EntityKey parent of the unknown trigger. context - The id of the
+ *        missing trigger instance. (Value: "unknownTriggerId")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnresolvableDestinationTag
+ *        The container version contains a product destination tag with a
+ *        destination ID value that cannot be resolved statically. parent -
+ *        Entity key of the destination tag. context - The name of the variable
+ *        that could not be resolved. If the destination ID was a template
+ *        value, then this will be the serialized value. (Value:
+ *        "unresolvableDestinationTag")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeCssContent CSS
+ *        is not sanitized and contains unsafe content. (Value:
+ *        "unsafeCssContent")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeHtmlAttributeValue
+ *        HTML attribute is not sanitized and the value is unsafe. (Value:
+ *        "unsafeHtmlAttributeValue")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeHtmlContent
+ *        Reminder: new error types will be treated as internal errors and
+ *        trigger alerts unless they are handled in
+ *        j/c/g/analytics/containertag/compiler/ErrorReporter.java&l=104 Please
+ *        also remember to add new error types to CTUI at
+ *        j/c/g/analytics/containertag/ui/app/components/container/compilererror/
+ *        HTML is not sanitized and contains unsafe content. (Value:
+ *        "unsafeHtmlContent")
+ *    @arg @c kGTLRTagManager_CompilerErrorLite_ErrorType_UnsupportedTriggerType
+ *        There is an unknown or unsupported trigger type. parent - 1 EntityKey
+ *        with its trigger_key populated. context - The trigger type. (Value:
+ *        "unsupportedTriggerType")
+ */
+@property(nonatomic, copy, nullable) NSString *errorType;
 
 @end
 
@@ -1432,6 +2033,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertTo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *compilerError;
+
+/** Compiler error details. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_CompilerErrorLite *> *compilerErrors;
 
 /** The container version created. */
 @property(nonatomic, strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
@@ -2362,6 +2966,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertTo
  */
 @property(nonatomic, strong, nullable) NSNumber *compilerError;
 
+/** Compiler error details. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_CompilerErrorLite *> *compilerErrors;
+
 /** The container version created. */
 @property(nonatomic, strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
 
@@ -2379,6 +2986,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertTo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *compilerError;
+
+/** Compiler error details. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_CompilerErrorLite *> *compilerErrors;
 
 /** The quick previewed container version. */
 @property(nonatomic, strong, nullable) GTLRTagManager_ContainerVersion *containerVersion;
@@ -3186,6 +3796,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertTo
  *  The option to convert a variable value to a number.
  *
  *  Likely values:
+ *    @arg @c kGTLRTagManager_VariableFormatValue_ConvertToNumber_Automatic The
+ *        option to convert a variable value to a number with automatic decimal
+ *        separator detection. (Value: "automatic")
  *    @arg @c kGTLRTagManager_VariableFormatValue_ConvertToNumber_Comma The
  *        option to convert a variable value to a number with a comma as the
  *        decimal separator. (Value: "comma")

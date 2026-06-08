@@ -21,11 +21,14 @@
 @class GTLRDataManager_AwsWrappedKeyInfo;
 @class GTLRDataManager_Baseline;
 @class GTLRDataManager_CartData;
+@class GTLRDataManager_CompositeData;
 @class GTLRDataManager_Consent;
 @class GTLRDataManager_ContactIdInfo;
 @class GTLRDataManager_CustomVariable;
+@class GTLRDataManager_DataTypeCount;
 @class GTLRDataManager_Destination;
 @class GTLRDataManager_DeviceInfo;
+@class GTLRDataManager_EncryptedUserId;
 @class GTLRDataManager_EncryptionInfo;
 @class GTLRDataManager_ErrorCount;
 @class GTLRDataManager_ErrorInfo;
@@ -35,6 +38,7 @@
 @class GTLRDataManager_ExperimentalField;
 @class GTLRDataManager_GcpWrappedKeyInfo;
 @class GTLRDataManager_IngestAudienceMembersStatus;
+@class GTLRDataManager_IngestCompositeDataStatus;
 @class GTLRDataManager_IngestedUserListInfo;
 @class GTLRDataManager_IngestEventsStatus;
 @class GTLRDataManager_IngestMobileDataStatus;
@@ -42,6 +46,7 @@
 @class GTLRDataManager_IngestPpidDataStatus;
 @class GTLRDataManager_IngestUserDataStatus;
 @class GTLRDataManager_IngestUserIdDataStatus;
+@class GTLRDataManager_IpData;
 @class GTLRDataManager_Item;
 @class GTLRDataManager_ItemCustomVariable;
 @class GTLRDataManager_ItemParameter;
@@ -58,6 +63,7 @@
 @class GTLRDataManager_ProductAccount;
 @class GTLRDataManager_PseudonymousIdInfo;
 @class GTLRDataManager_RemoveAudienceMembersStatus;
+@class GTLRDataManager_RemoveCompositeDataStatus;
 @class GTLRDataManager_RemoveMobileDataStatus;
 @class GTLRDataManager_RemovePairDataStatus;
 @class GTLRDataManager_RemovePpidDataStatus;
@@ -188,6 +194,108 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataManager_DataTypeCount.type
+
+/**
+ *  The data is a physical address.
+ *
+ *  Value: "ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_Address;
+/**
+ *  The data type is unspecified.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_DataTypeUnspecified;
+/**
+ *  The data is an email address.
+ *
+ *  Value: "EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_Email;
+/**
+ *  The data is an IP address.
+ *
+ *  Value: "IP_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_IpAddress;
+/**
+ *  The data is a phone number.
+ *
+ *  Value: "PHONE_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_PhoneNumber;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_EncryptedUserId.entityType
+
+/**
+ *  Campaign Manager 360 account.
+ *
+ *  Value: "CAMPAIGN_MANAGER_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAccount;
+/**
+ *  Campaign Manager 360 advertiser.
+ *
+ *  Value: "CAMPAIGN_MANAGER_ADVERTISER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAdvertiser;
+/**
+ *  Display & Video 360 advertiser.
+ *
+ *  Value: "DISPLAY_VIDEO_ADVERTISER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoAdvertiser;
+/**
+ *  Display & Video 360 partner.
+ *
+ *  Value: "DISPLAY_VIDEO_PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoPartner;
+/**
+ *  Unspecified encryption entity type.
+ *
+ *  Value: "ENCRYPTION_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_EncryptionEntityTypeUnspecified;
+/**
+ *  Google Ad Manager network code.
+ *
+ *  Value: "GOOGLE_AD_MANAGER_NETWORK_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdManagerNetworkCode;
+/**
+ *  Google Ads customer.
+ *
+ *  Value: "GOOGLE_ADS_CUSTOMER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdsCustomer;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_EncryptedUserId.source
+
+/**
+ *  Ad serving encryption source.
+ *
+ *  Value: "AD_SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_Source_AdServing;
+/**
+ *  Data transfer encryption source.
+ *
+ *  Value: "DATA_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_Source_DataTransfer;
+/**
+ *  Unspecified encryption source.
+ *
+ *  Value: "ENCRYPTION_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_Source_EncryptionSourceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataManager_ErrorCount.reason
 
 /**
@@ -203,6 +311,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  *  Value: "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed;
+/**
+ *  A corresponding click can't be found that matches the provided attributes.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_CLICK_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonClickNotFound;
+/**
+ *  The event timestamp on the event was earlier than the associated click.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_CONVERSION_PRECEDES_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonConversionPrecedesClick;
 /**
  *  The status of the custom variable is not enabled.
  *
@@ -249,6 +369,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateTransactionId;
 /**
+ *  The event ID (dclid or impression ID) cannot be decoded.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError;
+/**
  *  The conversion is older than max supported age.
  *
  *  Value: "PROCESSING_ERROR_REASON_EVENT_TOO_OLD"
@@ -272,6 +398,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  *  Value: "PROCESSING_ERROR_REASON_INTERNAL_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError;
+/**
+ *  There are ad identifiers that are invalid.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers;
+/**
+ *  The event can't be attributed to a click (GCLID). This may be because the
+ *  click did not come from a Google Ads campaign, for example.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_INVALID_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick;
 /**
  *  The custom variable is invalid.
  *
@@ -316,6 +455,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMerchantId;
 /**
+ *  The mobile ID format is invalid.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_INVALID_MOBILE_ID_FORMAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMobileIdFormat;
+/**
+ *  The click from the event isn't associated with the `operating_account` of
+ *  the destination.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_INVALID_OPERATING_ACCOUNT_FOR_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidOperatingAccountForClick;
+/**
  *  The wbraid could not be decoded.
  *
  *  Value: "PROCESSING_ERROR_REASON_INVALID_WBRAID"
@@ -334,6 +486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonKekPermissionDenied;
 /**
+ *  The match ID can not be found.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_MATCH_ID_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonMatchIdNotFound;
+/**
  *  Advertiser did not give 3P consent for the Ads core platform services.
  *
  *  Value: "PROCESSING_ERROR_REASON_NO_CONSENT"
@@ -345,6 +503,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  *  Value: "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid;
+/**
+ *  The original conversions can't be found.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound;
+/**
+ *  The click occurred too recently.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick;
 /**
  *  The overall consent (determined from row level consent, request level
  *  consent, and account settings) could not be determined for this user
@@ -364,6 +534,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  *  Value: "PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdentifierDecryptionError;
+/**
+ *  The user ID cannot be found.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFound;
+/**
+ *  The user ID can not be found for the DCLID.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_DCLID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForDclid;
+/**
+ *  The user ID can not be found for the GCLID.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_GCLID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForGclid;
+/**
+ *  The user ID cannot be found for the given impression ID.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_IMPRESSION_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForImpressionId;
+/**
+ *  The user ID can not be found for the match ID.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_MATCH_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForMatchId;
 /**
  *  The WIP could not be used because it was rejected by its attestation
  *  condition.
@@ -455,6 +655,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestAudienceMembersRequest
  *  Value: "HEX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Hex;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_IngestCompositeDataStatus.uploadMatchRateRange
+
+/**
+ *  The match rate range is between 20% and 30% (in the interval `[20, 31)`).
+ *
+ *  Value: "MATCH_RATE_RANGE_20_TO_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange20To30;
+/**
+ *  The match rate range is between 31% and 40% (in the interval `[31, 41)`).
+ *
+ *  Value: "MATCH_RATE_RANGE_31_TO_40"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange31To40;
+/**
+ *  The match rate range is between 41% and 50% (in the interval `[41, 51)`).
+ *
+ *  Value: "MATCH_RATE_RANGE_41_TO_50"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange41To50;
+/**
+ *  The match rate range is between 51% and 60% (in the interval `[51, 61)`.
+ *
+ *  Value: "MATCH_RATE_RANGE_51_TO_60"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange51To60;
+/**
+ *  The match rate range is between 61% and 70% (in the interval `[61, 71)`).
+ *
+ *  Value: "MATCH_RATE_RANGE_61_TO_70"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange61To70;
+/**
+ *  The match rate range is between 71% and 80% (in the interval `[71, 81)`).
+ *
+ *  Value: "MATCH_RATE_RANGE_71_TO_80"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange71To80;
+/**
+ *  The match rate range is between 81% and 90% (in the interval `[81, 91)`).
+ *
+ *  Value: "MATCH_RATE_RANGE_81_TO_90"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange81To90;
+/**
+ *  The match rate range is between 91% and 100% (in the interval `[91, 100]`).
+ *
+ *  Value: "MATCH_RATE_RANGE_91_TO_100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange91To100;
+/**
+ *  The match rate range is less than 20% (in the interval `[0, 20)`).
+ *
+ *  Value: "MATCH_RATE_RANGE_LESS_THAN_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeLessThan20;
+/**
+ *  The match rate range is not eligible.
+ *
+ *  Value: "MATCH_RATE_RANGE_NOT_ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible;
+/**
+ *  The match rate range is unknown.
+ *
+ *  Value: "MATCH_RATE_RANGE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_IngestedUserListInfo.uploadKeyTypes
@@ -821,6 +1091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_D
  *  Value: "DISPLAY_VIDEO_PARTNER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoPartner;
+/**
+ *  Floodlight configuration.
+ *
+ *  Value: "FLOODLIGHT_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_FloodlightConfig;
 /**
  *  Google Ad Manager audience link.
  *
@@ -1526,6 +1802,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_AdIdentifiers : GTLRObject
 
+/** Optional. The display click ID associated with this event. */
+@property(nonatomic, copy, nullable) NSString *dclid;
+
+/** Optional. Any number of encrypted user IDs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_EncryptedUserId *> *encryptedUserIds;
+
 /**
  *  Optional. The click identifier for clicks associated with app events and
  *  originating from iOS devices starting with iOS14.
@@ -1535,11 +1817,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 /** Optional. The Google click ID (gclid) associated with this event. */
 @property(nonatomic, copy, nullable) NSString *gclid;
 
+/** Optional. The impression ID associated with this event. */
+@property(nonatomic, copy, nullable) NSString *impressionId;
+
 /**
  *  Optional. Information gathered about the device being used (if any) at the
  *  time of landing onto the advertiser’s site after interacting with the ad.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *landingPageDeviceInfo;
+
+/**
+ *  Optional. The match ID field used to join this event with a previous event.
+ */
+@property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  Optional. The mobile identifier for advertisers. This would be IDFA on iOS,
@@ -1563,6 +1853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  The audience member to be operated on.
  */
 @interface GTLRDataManager_AudienceMember : GTLRObject
+
+/** Group of multiple identifier types. */
+@property(nonatomic, strong, nullable) GTLRDataManager_CompositeData *compositeData;
 
 /** Optional. The consent setting for the user. */
 @property(nonatomic, strong, nullable) GTLRDataManager_Consent *consent;
@@ -1706,6 +1999,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  Composite data holding identifiers and associated data for a user. At least
+ *  one of `user_data` or `ip_data` is required.
+ */
+@interface GTLRDataManager_CompositeData : GTLRObject
+
+/**
+ *  Optional. IP address data representing customer interaction used to build
+ *  the audience.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_IpData *> *ipData;
+
+/** Optional. User-provided data that identifies the user. */
+@property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
+
+@end
+
+
+/**
  *  [Digital Markets Act (DMA)](//digital-markets-act.ec.europa.eu/index_en)
  *  consent settings for the user.
  */
@@ -1796,6 +2107,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  found for the given destination, it will be ignored.
  */
 @property(nonatomic, copy, nullable) NSString *variable;
+
+@end
+
+
+/**
+ *  The count for a specific data type.
+ */
+@interface GTLRDataManager_DataTypeCount : GTLRObject
+
+/**
+ *  The count for this data type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  The type of data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_Address The data is a physical
+ *        address. (Value: "ADDRESS")
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_DataTypeUnspecified The data
+ *        type is unspecified. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_Email The data is an email
+ *        address. (Value: "EMAIL")
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_IpAddress The data is an IP
+ *        address. (Value: "IP_ADDRESS")
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_PhoneNumber The data is a
+ *        phone number. (Value: "PHONE_NUMBER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1921,6 +2264,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  A user identifier issued to be used for attribution. All fields are required
+ *  if this is used.
+ */
+@interface GTLRDataManager_EncryptedUserId : GTLRObject
+
+/** Required. The alphanumeric encrypted id. */
+@property(nonatomic, copy, nullable) NSString *encryptedId;
+
+/**
+ *  Required. The encryption entity ID. This should match the encryption
+ *  configuration for ad serving or Data Transfer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entityId;
+
+/**
+ *  Required. The encryption entity type. This should match the encryption
+ *  configuration for ad serving or Data Transfer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAccount
+ *        Campaign Manager 360 account. (Value: "CAMPAIGN_MANAGER_ACCOUNT")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAdvertiser
+ *        Campaign Manager 360 advertiser. (Value:
+ *        "CAMPAIGN_MANAGER_ADVERTISER")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoAdvertiser
+ *        Display & Video 360 advertiser. (Value: "DISPLAY_VIDEO_ADVERTISER")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoPartner
+ *        Display & Video 360 partner. (Value: "DISPLAY_VIDEO_PARTNER")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_EncryptionEntityTypeUnspecified
+ *        Unspecified encryption entity type. (Value:
+ *        "ENCRYPTION_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdManagerNetworkCode
+ *        Google Ad Manager network code. (Value:
+ *        "GOOGLE_AD_MANAGER_NETWORK_CODE")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdsCustomer
+ *        Google Ads customer. (Value: "GOOGLE_ADS_CUSTOMER")
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/**
+ *  Required. Describes whether the encrypted cookie was received from ad
+ *  serving (the %m macro) or from Data Transfer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_EncryptedUserId_Source_AdServing Ad serving
+ *        encryption source. (Value: "AD_SERVING")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_Source_DataTransfer Data transfer
+ *        encryption source. (Value: "DATA_TRANSFER")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_Source_EncryptionSourceUnspecified
+ *        Unspecified encryption source. (Value:
+ *        "ENCRYPTION_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
  *  Encryption information for the data being ingested.
  */
 @interface GTLRDataManager_EncryptionInfo : GTLRObject
@@ -1950,6 +2353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed
  *        The system failed to authenticate with AWS. (Value:
  *        "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonClickNotFound
+ *        A corresponding click can't be found that matches the provided
+ *        attributes. (Value: "PROCESSING_ERROR_REASON_CLICK_NOT_FOUND")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonConversionPrecedesClick
+ *        The event timestamp on the event was earlier than the associated
+ *        click. (Value: "PROCESSING_ERROR_REASON_CONVERSION_PRECEDES_CLICK")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonCustomVariableNotEnabled
  *        The status of the custom variable is not enabled. (Value:
  *        "PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED")
@@ -1973,6 +2382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        A conversion with the same order id and conversion action combination
  *        was already uploaded. (Value:
  *        "PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError
+ *        The event ID (dclid or impression ID) cannot be decoded. (Value:
+ *        "PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld
  *        The conversion is older than max supported age. (Value:
  *        "PROCESSING_ERROR_REASON_EVENT_TOO_OLD")
@@ -1984,6 +2396,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        "PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError
  *        Internal error. (Value: "PROCESSING_ERROR_REASON_INTERNAL_ERROR")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers
+ *        There are ad identifiers that are invalid. (Value:
+ *        "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick
+ *        The event can't be attributed to a click (GCLID). This may be because
+ *        the click did not come from a Google Ads campaign, for example.
+ *        (Value: "PROCESSING_ERROR_REASON_INVALID_CLICK")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCustomVariable
  *        The custom variable is invalid. (Value:
  *        "PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE")
@@ -2004,6 +2423,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMerchantId
  *        Merchant id contains non-digit characters. (Value:
  *        "PROCESSING_ERROR_REASON_INVALID_MERCHANT_ID")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMobileIdFormat
+ *        The mobile ID format is invalid. (Value:
+ *        "PROCESSING_ERROR_REASON_INVALID_MOBILE_ID_FORMAT")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidOperatingAccountForClick
+ *        The click from the event isn't associated with the `operating_account`
+ *        of the destination. (Value:
+ *        "PROCESSING_ERROR_REASON_INVALID_OPERATING_ACCOUNT_FOR_CLICK")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWbraid
  *        The wbraid could not be decoded. (Value:
  *        "PROCESSING_ERROR_REASON_INVALID_WBRAID")
@@ -2013,12 +2439,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonKekPermissionDenied
  *        The system did not have the permissions needed to access the KEK.
  *        (Value: "PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonMatchIdNotFound
+ *        The match ID can not be found. (Value:
+ *        "PROCESSING_ERROR_REASON_MATCH_ID_NOT_FOUND")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent
  *        Advertiser did not give 3P consent for the Ads core platform services.
  *        (Value: "PROCESSING_ERROR_REASON_NO_CONSENT")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid
  *        One-per-click conversion actions cannot be used with BRAIDs. (Value:
  *        "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound
+ *        The original conversions can't be found. (Value:
+ *        "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick
+ *        The click occurred too recently. (Value:
+ *        "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent
  *        The overall consent (determined from row level consent, request level
  *        consent, and account settings) could not be determined for this user
@@ -2029,6 +2464,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdentifierDecryptionError
  *        Failed to decrypt the UserIdentifier data using the DEK. (Value:
  *        "PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFound
+ *        The user ID cannot be found. (Value:
+ *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForDclid
+ *        The user ID can not be found for the DCLID. (Value:
+ *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_DCLID")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForGclid
+ *        The user ID can not be found for the GCLID. (Value:
+ *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_GCLID")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForImpressionId
+ *        The user ID cannot be found for the given impression ID. (Value:
+ *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_IMPRESSION_ID")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForMatchId
+ *        The user ID can not be found for the match ID. (Value:
+ *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_MATCH_ID")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonWipAuthFailed
  *        The WIP could not be used because it was rejected by its attestation
  *        condition. (Value: "PROCESSING_ERROR_REASON_WIP_AUTH_FAILED")
@@ -2102,6 +2552,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  different types of consent.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_Consent *consent;
+
+/**
+ *  Optional. The conversion quantity associated with the event, for
+ *  counting-based conversions.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionCount;
 
 /**
  *  Optional. The conversion value associated with the event, for value-based
@@ -2391,6 +2849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_IngestAudienceMembersStatus : GTLRObject
 
+/** The status of the composite data ingestion to the destination. */
+@property(nonatomic, strong, nullable) GTLRDataManager_IngestCompositeDataStatus *compositeDataIngestionStatus;
+
 /** The status of the mobile data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestMobileDataStatus *mobileDataIngestionStatus;
 
@@ -2405,6 +2866,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 /** The status of the user id data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestUserIdDataStatus *userIdDataIngestionStatus;
+
+@end
+
+
+/**
+ *  The status of the composite data ingestion to the destination containing
+ *  stats related to the ingestion.
+ */
+@interface GTLRDataManager_IngestCompositeDataStatus : GTLRObject
+
+/**
+ *  The total count of data types sent in the upload request for the
+ *  destination, broken down by data type. Includes all data types in the
+ *  request, regardless of whether they were successfully ingested or not.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_DataTypeCount *> *dataTypeCounts;
+
+/**
+ *  The total count of audience members sent in the upload request for the
+ *  destination. Includes all audience members in the request, regardless of
+ *  whether they were successfully ingested or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordCount;
+
+/**
+ *  The match rate range of the upload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange20To30
+ *        The match rate range is between 20% and 30% (in the interval `[20,
+ *        31)`). (Value: "MATCH_RATE_RANGE_20_TO_30")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange31To40
+ *        The match rate range is between 31% and 40% (in the interval `[31,
+ *        41)`). (Value: "MATCH_RATE_RANGE_31_TO_40")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange41To50
+ *        The match rate range is between 41% and 50% (in the interval `[41,
+ *        51)`). (Value: "MATCH_RATE_RANGE_41_TO_50")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange51To60
+ *        The match rate range is between 51% and 60% (in the interval `[51,
+ *        61)`. (Value: "MATCH_RATE_RANGE_51_TO_60")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange61To70
+ *        The match rate range is between 61% and 70% (in the interval `[61,
+ *        71)`). (Value: "MATCH_RATE_RANGE_61_TO_70")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange71To80
+ *        The match rate range is between 71% and 80% (in the interval `[71,
+ *        81)`). (Value: "MATCH_RATE_RANGE_71_TO_80")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange81To90
+ *        The match rate range is between 81% and 90% (in the interval `[81,
+ *        91)`). (Value: "MATCH_RATE_RANGE_81_TO_90")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange91To100
+ *        The match rate range is between 91% and 100% (in the interval `[91,
+ *        100]`). (Value: "MATCH_RATE_RANGE_91_TO_100")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeLessThan20
+ *        The match rate range is less than 20% (in the interval `[0, 20)`).
+ *        (Value: "MATCH_RATE_RANGE_LESS_THAN_20")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible
+ *        The match rate range is not eligible. (Value:
+ *        "MATCH_RATE_RANGE_NOT_ELIGIBLE")
+ *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeUnknown
+ *        The match rate range is unknown. (Value: "MATCH_RATE_RANGE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *uploadMatchRateRange;
 
 @end
 
@@ -2713,6 +3238,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *userIdCount;
+
+@end
+
+
+/**
+ *  IP address information for a user. We recommend including observe_start_time
+ *  and observe_end_time to help improve Customer Match match rates.
+ */
+@interface GTLRDataManager_IpData : GTLRObject
+
+/**
+ *  Required. IP address captured at the time of customer interaction. Accepts
+ *  standard string formats for both IPv4 and IPv6.
+ */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  Optional. Last recorded interaction time from this IP address in a session.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *observeEndTime;
+
+/**
+ *  Optional. First recorded interaction time from this IP address in a session.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *observeStartTime;
 
 @end
 
@@ -3269,6 +3819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        Display & Video 360 advertiser. (Value: "DISPLAY_VIDEO_ADVERTISER")
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_DisplayVideoPartner
  *        Display & Video 360 partner. (Value: "DISPLAY_VIDEO_PARTNER")
+ *    @arg @c kGTLRDataManager_ProductAccount_AccountType_FloodlightConfig
+ *        Floodlight configuration. (Value: "FLOODLIGHT_CONFIG")
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAdManagerAudienceLink
  *        Google Ad Manager audience link. (Value:
  *        "GOOGLE_AD_MANAGER_AUDIENCE_LINK")
@@ -3398,6 +3950,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_RemoveAudienceMembersStatus : GTLRObject
 
+/** The status of the composite data removal from the destination. */
+@property(nonatomic, strong, nullable) GTLRDataManager_RemoveCompositeDataStatus *compositeDataRemovalStatus;
+
 /** The status of the mobile data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveMobileDataStatus *mobileDataRemovalStatus;
 
@@ -3412,6 +3967,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 /** The status of the user id data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveUserIdDataStatus *userIdDataRemovalStatus;
+
+@end
+
+
+/**
+ *  The status of the composite data removal from the destination.
+ */
+@interface GTLRDataManager_RemoveCompositeDataStatus : GTLRObject
+
+/**
+ *  The total count of data types sent in the removal request, broken down by
+ *  data type. Includes all data types in the request, regardless of whether
+ *  they were successfully removed or not.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_DataTypeCount *> *dataTypeCounts;
+
+/**
+ *  The total count of audience members sent in the removal request. Includes
+ *  all audience members in the request, regardless of whether they were
+ *  successfully removed or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordCount;
 
 @end
 

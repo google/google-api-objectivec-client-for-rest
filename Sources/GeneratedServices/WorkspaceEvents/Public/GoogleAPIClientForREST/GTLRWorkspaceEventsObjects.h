@@ -20,6 +20,7 @@
 @class GTLRWorkspaceEvents_AuthenticationInfo;
 @class GTLRWorkspaceEvents_DataPart;
 @class GTLRWorkspaceEvents_DataPart_Data;
+@class GTLRWorkspaceEvents_DriveOptions;
 @class GTLRWorkspaceEvents_FilePart;
 @class GTLRWorkspaceEvents_Message;
 @class GTLRWorkspaceEvents_Message_Metadata;
@@ -332,6 +333,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskSta
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRWorkspaceEvents_DataPart_Data : GTLRObject
+@end
+
+
+/**
+ *  Additional supported options for serving Drive events.
+ */
+@interface GTLRWorkspaceEvents_DriveOptions : GTLRObject
+
+/**
+ *  Optional. Immutable. For subscriptions to Google Drive events, whether to
+ *  receive events about Drive files that are children of the target folder or
+ *  shared drive. * If `false`, the subscription only receives events about
+ *  changes to the folder or shared drive that's specified as the
+ *  `targetResource`. * If `true`, the `mimeType` field of the `file` resource
+ *  must be set to `application/vnd.google-apps.folder`. For details, see
+ *  [Google Drive event
+ *  types](https://developers.google.com/workspace/events/guides/events-drive#event-types).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeDescendants;
+
 @end
 
 
@@ -842,6 +865,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskSta
 
 /** Output only. The time when the subscription is created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Features that are supported only for subscriptions on Drive
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkspaceEvents_DriveOptions *driveOptions;
 
 /**
  *  Optional. This checksum is computed by the server based on the value of

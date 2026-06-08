@@ -108,6 +108,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4;
 /**
+ *  NVIDIA RTX 6000.
+ *
+ *  Value: "NVIDIA_RTX6000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaRtx6000;
+/**
  *  Accelerator type is Nvidia Tesla A100 - 40GB.
  *
  *  Value: "NVIDIA_TESLA_A100"
@@ -648,6 +654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        "NVIDIA_H200_141GB")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4
  *        Accelerator type is Nvidia Tesla L4. (Value: "NVIDIA_L4")
+ *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaRtx6000
+ *        NVIDIA RTX 6000. (Value: "NVIDIA_RTX6000")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100
  *        Accelerator type is Nvidia Tesla A100 - 40GB. (Value:
  *        "NVIDIA_TESLA_A100")
@@ -1460,6 +1468,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  ConfigImage represents an image release available to create a WbI
  */
 @interface GTLRAIPlatformNotebooks_ImageRelease : GTLRObject
+
+/**
+ *  Output only. The description of the image.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The image family of the image. (ex: workbench-instances or
+ *  workbench-2603)
+ */
+@property(nonatomic, copy, nullable) NSString *imageFamily;
 
 /**
  *  Output only. The name of the image of the form
@@ -2435,6 +2456,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Request for upgrading a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_UpgradeInstanceRequest : GTLRObject
+
+/**
+ *  Optional. The Compute Engine image family resource name to upgrade to.
+ *  Format: `projects/{project_id}/global/images/family/{image_family}` If
+ *  specified, the instance will be upgraded to the latest image in the
+ *  specified image family, allowing upgrades across image families. If not
+ *  specified, the instance will be upgraded to the latest image in its current
+ *  image family.
+ */
+@property(nonatomic, copy, nullable) NSString *imageFamily;
+
 @end
 
 

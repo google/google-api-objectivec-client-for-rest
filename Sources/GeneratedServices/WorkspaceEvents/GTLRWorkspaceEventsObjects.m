@@ -139,6 +139,16 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkspaceEvents_DriveOptions
+//
+
+@implementation GTLRWorkspaceEvents_DriveOptions
+@dynamic includeDescendants;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkspaceEvents_Empty
 //
 
@@ -429,8 +439,8 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 //
 
 @implementation GTLRWorkspaceEvents_Subscription
-@dynamic authority, createTime, ETag, eventTypes, expireTime, name,
-         notificationEndpoint, payloadOptions, reconciling,
+@dynamic authority, createTime, driveOptions, ETag, eventTypes, expireTime,
+         name, notificationEndpoint, payloadOptions, reconciling,
          serviceAccountAuthority, state, suspensionReason, targetResource, ttl,
          uid, updateTime, userAuthority;
 

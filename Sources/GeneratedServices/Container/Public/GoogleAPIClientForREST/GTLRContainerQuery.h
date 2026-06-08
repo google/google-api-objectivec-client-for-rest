@@ -40,7 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.aggregated.usableSubnetworks.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList : GTLRContainerQuery
 
@@ -97,7 +99,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.checkAutopilotCompatibility
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersCheckAutopilotCompatibility : GTLRContainerQuery
 
@@ -129,6 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.completeIpRotation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation : GTLRContainerQuery
@@ -171,6 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersCreate : GTLRContainerQuery
@@ -216,6 +222,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersDelete : GTLRContainerQuery
@@ -273,7 +280,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.fetchClusterUpgradeInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersFetchClusterUpgradeInfo : GTLRContainerQuery
 
@@ -308,7 +317,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersGet : GTLRContainerQuery
 
@@ -392,7 +403,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersList : GTLRContainerQuery
 
@@ -443,6 +456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.completeUpgrade
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCompleteUpgrade : GTLRContainerQuery
@@ -479,6 +493,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate : GTLRContainerQuery
@@ -513,6 +528,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete : GTLRContainerQuery
@@ -574,7 +590,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.fetchNodePoolUpgradeInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsFetchNodePoolUpgradeInfo : GTLRContainerQuery
 
@@ -610,7 +628,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsGet : GTLRContainerQuery
 
@@ -671,7 +691,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsList : GTLRContainerQuery
 
@@ -726,6 +748,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.rollback
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsRollback : GTLRContainerQuery
@@ -762,6 +785,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.setAutoscaling
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetAutoscaling : GTLRContainerQuery
@@ -797,6 +821,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.setManagement
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetManagement : GTLRContainerQuery
@@ -833,6 +858,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.setSize
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetSize : GTLRContainerQuery
@@ -869,6 +895,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.nodePools.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsUpdate : GTLRContainerQuery
@@ -904,6 +931,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.setAddons
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetAddons : GTLRContainerQuery
@@ -937,6 +965,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.setLegacyAbac
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetLegacyAbac : GTLRContainerQuery
@@ -973,6 +1002,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.setLocations
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 GTLR_DEPRECATED
@@ -1010,6 +1040,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.setLogging
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetLogging : GTLRContainerQuery
@@ -1043,6 +1074,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.setMaintenancePolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetMaintenancePolicy : GTLRContainerQuery
@@ -1079,6 +1111,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.setMasterAuth
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetMasterAuth : GTLRContainerQuery
@@ -1114,6 +1147,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.setMonitoring
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetMonitoring : GTLRContainerQuery
@@ -1148,6 +1182,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.setNetworkPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy : GTLRContainerQuery
@@ -1182,6 +1217,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.setResourceLabels
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels : GTLRContainerQuery
@@ -1214,6 +1250,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.startIpRotation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation : GTLRContainerQuery
@@ -1248,6 +1285,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersUpdate : GTLRContainerQuery
@@ -1281,6 +1319,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.clusters.updateMaster
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersUpdateMaster : GTLRContainerQuery
@@ -1348,7 +1387,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.getServerConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsGetServerConfig : GTLRContainerQuery
 
@@ -1395,6 +1436,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsOperationsCancel : GTLRContainerQuery
@@ -1429,7 +1471,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsOperationsGet : GTLRContainerQuery
 
@@ -1482,7 +1526,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.locations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsLocationsOperationsList : GTLRContainerQuery
 
@@ -1531,6 +1577,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.addons
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersAddons : GTLRContainerQuery
@@ -1591,6 +1638,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.completeIpRotation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation : GTLRContainerQuery
@@ -1659,6 +1707,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersCreate : GTLRContainerQuery
@@ -1722,6 +1771,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersDelete : GTLRContainerQuery
@@ -1789,7 +1839,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.fetchClusterUpgradeInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersFetchClusterUpgradeInfo : GTLRContainerQuery
 
@@ -1824,7 +1876,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersGet : GTLRContainerQuery
 
@@ -1887,6 +1941,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.legacyAbac
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersLegacyAbac : GTLRContainerQuery
@@ -1948,7 +2003,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersList : GTLRContainerQuery
 
@@ -2006,6 +2063,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.locations
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 GTLR_DEPRECATED
@@ -2069,6 +2127,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.logging
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersLogging : GTLRContainerQuery
@@ -2129,6 +2188,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.master
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersMaster : GTLRContainerQuery
@@ -2189,6 +2249,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.monitoring
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersMonitoring : GTLRContainerQuery
@@ -2249,6 +2310,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.autoscaling
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsAutoscaling : GTLRContainerQuery
@@ -2318,6 +2380,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsCreate : GTLRContainerQuery
@@ -2378,6 +2441,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsDelete : GTLRContainerQuery
@@ -2451,7 +2515,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.fetchNodePoolUpgradeInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsFetchNodePoolUpgradeInfo : GTLRContainerQuery
 
@@ -2487,7 +2553,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsGet : GTLRContainerQuery
 
@@ -2560,7 +2628,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsList : GTLRContainerQuery
 
@@ -2624,6 +2694,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.rollback
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsRollback : GTLRContainerQuery
@@ -2694,6 +2765,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.setManagement
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetManagement : GTLRContainerQuery
@@ -2764,6 +2836,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.setSize
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize : GTLRContainerQuery
@@ -2834,6 +2907,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.nodePools.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsUpdate : GTLRContainerQuery
@@ -2903,6 +2977,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.resourceLabels
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersResourceLabels : GTLRContainerQuery
@@ -2962,6 +3037,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.setMaintenancePolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy : GTLRContainerQuery
@@ -3016,6 +3092,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.setMasterAuth
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersSetMasterAuth : GTLRContainerQuery
@@ -3078,6 +3155,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.setNetworkPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersSetNetworkPolicy : GTLRContainerQuery
@@ -3138,6 +3216,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.startIpRotation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersStartIpRotation : GTLRContainerQuery
@@ -3198,6 +3277,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.clusters.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersUpdate : GTLRContainerQuery
@@ -3258,7 +3338,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.getServerconfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesGetServerconfig : GTLRContainerQuery
 
@@ -3312,6 +3394,7 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesOperationsCancel : GTLRContainerQuery
@@ -3372,7 +3455,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesOperationsGet : GTLRContainerQuery
 
@@ -3435,7 +3520,9 @@ GTLR_DEPRECATED
  *  Method: container.projects.zones.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
  *    @c kGTLRAuthScopeContainerCloudPlatform
+ *    @c kGTLRAuthScopeContainerReadOnly
  */
 @interface GTLRContainerQuery_ProjectsZonesOperationsList : GTLRContainerQuery
 

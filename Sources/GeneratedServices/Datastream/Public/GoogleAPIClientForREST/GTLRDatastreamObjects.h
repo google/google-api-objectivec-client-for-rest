@@ -30,6 +30,8 @@
 @class GTLRDatastream_ConnectionProfile_Labels;
 @class GTLRDatastream_CustomizationRule;
 @class GTLRDatastream_DatasetTemplate;
+@class GTLRDatastream_DataverseProfile;
+@class GTLRDatastream_DataverseSourceConfig;
 @class GTLRDatastream_DestinationConfig;
 @class GTLRDatastream_DropLargeObjects;
 @class GTLRDatastream_EncryptionAndServerValidation;
@@ -78,6 +80,7 @@
 @class GTLRDatastream_MysqlTable;
 @class GTLRDatastream_NextAvailableStartPosition;
 @class GTLRDatastream_Oauth2ClientCredentials;
+@class GTLRDatastream_OauthClientCredentials;
 @class GTLRDatastream_ObjectFilter;
 @class GTLRDatastream_Operation;
 @class GTLRDatastream_Operation_Metadata;
@@ -114,17 +117,26 @@
 @class GTLRDatastream_Route_Labels;
 @class GTLRDatastream_RuleSet;
 @class GTLRDatastream_SalesforceField;
+@class GTLRDatastream_SalesforceMarketingCloudProfile;
+@class GTLRDatastream_SalesforceMarketingCloudSourceConfig;
 @class GTLRDatastream_SalesforceObject;
 @class GTLRDatastream_SalesforceObjectIdentifier;
 @class GTLRDatastream_SalesforceOrg;
 @class GTLRDatastream_SalesforceProfile;
 @class GTLRDatastream_SalesforceSourceConfig;
+@class GTLRDatastream_Secret;
 @class GTLRDatastream_ServerAndClientVerification;
 @class GTLRDatastream_ServerVerification;
+@class GTLRDatastream_ServiceNowProfile;
+@class GTLRDatastream_ServiceNowSourceConfig;
 @class GTLRDatastream_SingleTargetDataset;
+@class GTLRDatastream_SourceCatalog;
 @class GTLRDatastream_SourceConfig;
 @class GTLRDatastream_SourceHierarchyDatasets;
+@class GTLRDatastream_SourceObject;
 @class GTLRDatastream_SourceObjectIdentifier;
+@class GTLRDatastream_SourceProperty;
+@class GTLRDatastream_SpannerChangeStreamPosition;
 @class GTLRDatastream_SpannerColumn;
 @class GTLRDatastream_SpannerDatabase;
 @class GTLRDatastream_SpannerObjectIdentifier;
@@ -155,6 +167,7 @@
 @class GTLRDatastream_StreamObject;
 @class GTLRDatastream_TimeUnitPartition;
 @class GTLRDatastream_UserCredentials;
+@class GTLRDatastream_UserPasswordCredentials;
 @class GTLRDatastream_Validation;
 @class GTLRDatastream_ValidationMessage;
 @class GTLRDatastream_ValidationMessage_Metadata;
@@ -633,6 +646,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL data source objects to avoid backfilling. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlExcludedObjects;
 
+/**
+ *  Source catalog data source objects to avoid backfilling. This is mainly used
+ *  to represent SaaS applications objects.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *saasExcludedObjects;
+
 /** Salesforce data source objects to avoid backfilling */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceExcludedObjects;
 
@@ -908,6 +927,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. The create time of the resource. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Profile for connecting to a Dataverse source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_DataverseProfile *dataverseProfile;
+
 /** Required. Display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -938,6 +960,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Private connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PrivateConnectivity *privateConnectivity;
 
+/** Profile for connecting to a Salesforce Marketing Cloud source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceMarketingCloudProfile *salesforceMarketingCloudProfile;
+
 /** Profile for connecting to a Salesforce source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceProfile *salesforceProfile;
 
@@ -954,6 +979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/** Profile for connecting to a ServiceNow source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_ServiceNowProfile *serviceNowProfile;
 
 /** Profile for connecting to a Spanner source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SpannerProfile *spannerProfile;
@@ -1023,6 +1051,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  https://cloud.google.com/bigquery/docs/locations for supported locations.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+@end
+
+
+/**
+ *  Profile for connecting to a Dataverse source.
+ */
+@interface GTLRDatastream_DataverseProfile : GTLRObject
+
+/**
+ *  Required. Environment URL of the Microsoft Dataverse instance. Example:
+ *  `.crm.dynamics.com`
+ */
+@property(nonatomic, copy, nullable) NSString *environmentUrl;
+
+/** Required. Credentials for authenticating with the Dataverse API. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OauthClientCredentials *oauthClientCredentials;
+
+/** Required. Tenant id of the Microsoft Dataverse instance. */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+@end
+
+
+/**
+ *  Configuration for syncing data from a Dataverse source.
+ */
+@interface GTLRDatastream_DataverseSourceConfig : GTLRObject
+
+/** Optional. The objects to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *excludeObjects;
+
+/** Optional. The objects to retrieve from the source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *includeObjects;
+
+/**
+ *  Required. Incremental sync polling interval for all objects. If not set, a
+ *  default value of `5 minutes` is used. The duration must be from `5 minutes`
+ *  to `24 hours`, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *pollingInterval;
 
 @end
 
@@ -1111,6 +1180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceOrg;
 
 /**
+ *  Optional. Source catalog to enrich with child data objects and metadata.
+ *  This is mainly used to represent SaaS sources databases.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *sourceCatalog;
+
+/**
  *  Optional. Spanner database to enrich with child data objects and metadata.
  */
 @property(nonatomic, strong, nullable) GTLRDatastream_SpannerDatabase *spannerDatabase;
@@ -1142,6 +1217,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Enriched Salesforce organization. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceOrg;
+
+/**
+ *  Enriched source catalog. This is mainly used to represent SaaS sources
+ *  databases.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *sourceCatalog;
 
 /** Enriched Spanner database. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SpannerDatabase *spannerDatabase;
@@ -2488,6 +2569,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  OAuth Client Credentials.
+ */
+@interface GTLRDatastream_OauthClientCredentials : GTLRObject
+
+/** Required. Client ID for OAuth Client Credentials. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Required. Client secret for OAuth Client Credentials. */
+@property(nonatomic, strong, nullable) GTLRDatastream_Secret *clientSecret;
+
+@end
+
+
+/**
  *  Object filter to apply the rules to.
  */
 @interface GTLRDatastream_ObjectFilter : GTLRObject
@@ -3617,6 +3712,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Profile for connecting to a Salesforce Marketing Cloud source.
+ */
+@interface GTLRDatastream_SalesforceMarketingCloudProfile : GTLRObject
+
+/**
+ *  Required. Input only. Credentials for authenticating with the Salesforce
+ *  Marketing Cloud API.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_OauthClientCredentials *oauthClientCredentials;
+
+/**
+ *  Required. Subdomain for the Salesforce Marketing Cloud connection. Example:
+ *  if your specific endpoint is
+ *  `https://{your-specific-subdomain}.rest.marketingcloudapis.com/`, the
+ *  subdomain is `{your-specific-subdomain}`. Must be 1-63 characters, start and
+ *  end with an alphanumeric character, and contain only lowercase letters,
+ *  numbers, and hyphens (-).
+ */
+@property(nonatomic, copy, nullable) NSString *subdomain;
+
+@end
+
+
+/**
+ *  Configuration for syncing data from a Salesforce Marketing Cloud source.
+ */
+@interface GTLRDatastream_SalesforceMarketingCloudSourceConfig : GTLRObject
+
+/** Optional. The objects to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *excludeObjects;
+
+/**
+ *  Required. Specifies the polling interval for a full refresh of objects that
+ *  do not support incremental sync. If not set, a default value of 24 hours is
+ *  used. The duration must be between 1 and 24 hours, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *fullRefreshPollingInterval;
+
+/** Optional. The objects to retrieve from the source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *includeObjects;
+
+/**
+ *  Required. Incremental sync polling interval for all objects. If not set, a
+ *  default value of `5 minutes` is used. The duration must be from `5 minutes`
+ *  to `24 hours`, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *pollingInterval;
+
+@end
+
+
+/**
  *  Salesforce object.
  */
 @interface GTLRDatastream_SalesforceObject : GTLRObject
@@ -3694,6 +3841,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  A confidential piece of information where the actual value is either
+ *  directly specified in the message as a raw string or stored in GCP secret
+ *  manager.
+ */
+@interface GTLRDatastream_Secret : GTLRObject
+
+/** Optional. Input only. The actual raw value of the secret as plain text. */
+@property(nonatomic, copy, nullable) NSString *rawValue;
+
+/**
+ *  Optional. A Secret Manager resource name storing the actual value of the
+ *  secret. Supported formats: *
+ *  projects/{project}/locations/{location}/secrets/{secret}/versions/{version}
+ *  * projects/{project}/secrets/{secret}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *secretVersion;
+
+@end
+
+
+/**
  *  Message represents the option where Datastream will enforce the encryption
  *  and authenticate the server identity as well as the client identity.
  *  ca_certificate, client_certificate and client_key must be set if user
@@ -3752,6 +3920,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Profile for connecting to a ServiceNow source.
+ */
+@interface GTLRDatastream_ServiceNowProfile : GTLRObject
+
+/**
+ *  Required. The instance of the ServiceNow account. This is the `` part of the
+ *  URL `https://.service-now.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Credentials for authenticating with the ServiceNow API. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OauthClientCredentials *oauthClientCredentials;
+
+/** User-password authentication. */
+@property(nonatomic, strong, nullable) GTLRDatastream_UserPasswordCredentials *userPasswordCredentials;
+
+@end
+
+
+/**
+ *  Configuration for syncing data from a ServiceNow source.
+ */
+@interface GTLRDatastream_ServiceNowSourceConfig : GTLRObject
+
+/** Optional. The objects to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *excludeObjects;
+
+/** Optional. The objects to retrieve from the source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *includeObjects;
+
+/**
+ *  Required. Incremental sync polling interval for all objects. If not set, a
+ *  default value of `5 minutes` is used. The duration must be from `5 minutes`
+ *  to `24 hours`, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *pollingInterval;
+
+@end
+
+
+/**
  *  A single target dataset to which all data will be streamed.
  */
 @interface GTLRDatastream_SingleTargetDataset : GTLRObject
@@ -3766,9 +3975,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Source catalog.
+ */
+@interface GTLRDatastream_SourceCatalog : GTLRObject
+
+/** Optional. Source objects in the catalog. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SourceObject *> *objects;
+
+@end
+
+
+/**
  *  The configuration of the stream source.
  */
 @interface GTLRDatastream_SourceConfig : GTLRObject
+
+/** Dataverse data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_DataverseSourceConfig *dataverseSourceConfig;
 
 /** MongoDB data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MongodbSourceConfig *mongodbSourceConfig;
@@ -3782,8 +4005,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** PostgreSQL data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlSourceConfig *postgresqlSourceConfig;
 
+/** Salesforce Marketing Cloud data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SalesforceMarketingCloudSourceConfig *salesforceMarketingCloudSourceConfig;
+
 /** Salesforce data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceSourceConfig *salesforceSourceConfig;
+
+/** ServiceNow data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_ServiceNowSourceConfig *serviceNowSourceConfig;
 
 /**
  *  Required. Source connection profile resource. Format:
@@ -3819,6 +4048,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Source object.
+ */
+@interface GTLRDatastream_SourceObject : GTLRObject
+
+/** Required. The object name. */
+@property(nonatomic, copy, nullable) NSString *objectName;
+
+/**
+ *  Optional. Source properties. When unspecified as part of include objects,
+ *  includes everything, when unspecified as part of exclude objects, excludes
+ *  nothing.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SourceProperty *> *properties;
+
+@end
+
+
+/**
  *  Represents an identifier of an object in the data source.
  */
 @interface GTLRDatastream_SourceObjectIdentifier : GTLRObject
@@ -3843,6 +4090,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** SQLServer data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerObjectIdentifier *sqlServerIdentifier;
+
+@end
+
+
+/**
+ *  Source property.
+ */
+@interface GTLRDatastream_SourceProperty : GTLRObject
+
+/**
+ *  Optional. Whether or not the property is a primary key.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *primaryKey;
+
+/**
+ *  Optional. Source properties. When specified, it means that the current
+ *  property contains nested properties of its own. When unspecified as part of
+ *  include objects, includes everything, when unspecified as part of exclude
+ *  objects, excludes nothing.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SourceProperty *> *properties;
+
+/** Required. The property name. */
+@property(nonatomic, copy, nullable) NSString *propertyName;
+
+@end
+
+
+/**
+ *  Represents a position in a Spanner change stream from which to start
+ *  replicating.
+ */
+@interface GTLRDatastream_SpannerChangeStreamPosition : GTLRObject
+
+/**
+ *  Required. The timestamp to start change stream queries from. The timestamp
+ *  must be a positive value.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -4029,6 +4317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Oracle SCN to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleScnPosition *oracleScnPosition;
+
+/** Optional. Spanner change stream position to start replicating from. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerChangeStreamPosition *spannerChangeStreamPosition;
 
 /** SqlServer LSN to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerLsnPosition *sqlServerLsnPosition;
@@ -4612,6 +4903,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, copy, nullable) NSString *securityToken;
 
 /** Required. Username for the Salesforce connection. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  User-password credentials.
+ */
+@interface GTLRDatastream_UserPasswordCredentials : GTLRObject
+
+/** Required. Password for the connection. */
+@property(nonatomic, strong, nullable) GTLRDatastream_Secret *password;
+
+/** Required. Username for the connection. */
 @property(nonatomic, copy, nullable) NSString *username;
 
 @end

@@ -7662,8 +7662,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CatalogAttribute *catalogAttribute;
 
 /**
- *  Indicates which fields in the provided CatalogAttribute to update. The
- *  following are NOT supported: * CatalogAttribute.key If not set, all
+ *  Optional. Indicates which fields in the provided CatalogAttribute to update.
+ *  The following are NOT supported: * CatalogAttribute.key If not set, all
  *  supported fields are updated.
  *
  *  String format is a comma-separated list of fields.

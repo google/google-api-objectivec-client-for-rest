@@ -1737,7 +1737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Log entry for Backup and Restore Job for resources using BackupPlan based
- *  protection. Next Id: 24
+ *  protection. Next Id: 25
  */
 @interface GTLRBackupforGKE_BDRBackupRestoreJobLog : GTLRObject
 
@@ -1835,6 +1835,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** Start time of the job. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** The target resource type for restore jobs. */
+@property(nonatomic, copy, nullable) NSString *targetResourceType;
 
 @end
 

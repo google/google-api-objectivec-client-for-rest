@@ -152,7 +152,7 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 @implementation GTLRDeveloperConnect_ArtifactDeployment
 @dynamic artifactAlias, artifactReference, containerStatusSummary, deployTime,
-         identifier, sourceCommitUris, undeployTime;
+         identifier, sourceCodeUris, sourceCommitUris, undeployTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -160,6 +160,7 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"sourceCodeUris" : [NSString class],
     @"sourceCommitUris" : [NSString class]
   };
   return map;

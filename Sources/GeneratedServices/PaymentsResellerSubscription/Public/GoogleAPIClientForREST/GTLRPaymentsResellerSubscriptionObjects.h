@@ -357,6 +357,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateResuming;
 /**
+ *  The subscription is being suspended.
+ *
+ *  Value: "PROCESSING_STATE_SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateSuspending;
+/**
  *  The processing state is unspecified.
  *
  *  Value: "PROCESSING_STATE_UNSPECIFIED"
@@ -1679,6 +1685,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *    @arg @c kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateResuming
  *        The subscription is being resumed. (Value:
  *        "PROCESSING_STATE_RESUMING")
+ *    @arg @c kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateSuspending
+ *        The subscription is being suspended. (Value:
+ *        "PROCESSING_STATE_SUSPENDING")
  *    @arg @c kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateUnspecified
  *        The processing state is unspecified. (Value:
  *        "PROCESSING_STATE_UNSPECIFIED")

@@ -104,6 +104,7 @@
 @class GTLRAndroidPublisher_InAppProductListing;
 @class GTLRAndroidPublisher_InappproductsDeleteRequest;
 @class GTLRAndroidPublisher_InappproductsUpdateRequest;
+@class GTLRAndroidPublisher_InGracePeriodStateContext;
 @class GTLRAndroidPublisher_InstallmentPlan;
 @class GTLRAndroidPublisher_InstallmentsBasePlanType;
 @class GTLRAndroidPublisher_IntroductoryPriceDetails;
@@ -144,6 +145,7 @@
 @class GTLRAndroidPublisher_OneTimeProductRentPurchaseOption;
 @class GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_OneTimePurchaseDetails;
+@class GTLRAndroidPublisher_OnHoldStateContext;
 @class GTLRAndroidPublisher_Order;
 @class GTLRAndroidPublisher_OrderDetails;
 @class GTLRAndroidPublisher_OrderHistory;
@@ -191,6 +193,7 @@
 @class GTLRAndroidPublisher_RemoteInAppUpdate;
 @class GTLRAndroidPublisher_RemoteInAppUpdateData;
 @class GTLRAndroidPublisher_RemoteInAppUpdateDataPerBundle;
+@class GTLRAndroidPublisher_RenewalDeclinedContext;
 @class GTLRAndroidPublisher_RentalDetails;
 @class GTLRAndroidPublisher_RentOfferDetails;
 @class GTLRAndroidPublisher_ReplacementCancellation;
@@ -2762,6 +2765,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal;
 /**
+ *  Allows editing connected apps in the Google Play Console.
+ *
+ *  Value: "CAN_EDIT_CONNECTED_APPS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditConnectedAppsGlobal;
+/**
  *  Edit Play Games Services projects.
  *
  *  Value: "CAN_EDIT_GAMES_GLOBAL"
@@ -2846,6 +2855,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Value: "CAN_VIEW_APP_QUALITY_GLOBAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewAppQualityGlobal;
+/**
+ *  Allows viewing connected apps in the Google Play Console.
+ *
+ *  Value: "CAN_VIEW_CONNECTED_APPS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewConnectedAppsGlobal;
 /**
  *  View financial data, orders, and cancellation survey responses.
  *
@@ -3620,7 +3635,7 @@ GTLR_DEPRECATED
 
 /**
  *  The current recurring price of the auto renewing plan. Note that the price
- *  does not take into account discounts and does not include taxes for
+ *  does not take into account discounts and does not include taxes. For
  *  tax-exclusive pricing, please call orders.get API instead if transaction
  *  details are needed.
  */
@@ -5621,7 +5636,7 @@ GTLR_DEPRECATED
 
 /**
  *  Download metadata for split, standalone and universal APKs, as well as asset
- *  pack slices, signed with a given key. Next ID: 10
+ *  pack slices, signed with a given key.
  */
 @interface GTLRAndroidPublisher_GeneratedApksPerSigningKey : GTLRObject
 
@@ -6248,6 +6263,17 @@ GTLR_DEPRECATED
 
 /** Unique identifier for the in-app product. */
 @property(nonatomic, copy, nullable) NSString *sku;
+
+@end
+
+
+/**
+ *  Additional context around subscriptions in IN_GRACE_PERIOD state.
+ */
+@interface GTLRAndroidPublisher_InGracePeriodStateContext : GTLRObject
+
+/** Optional. The payment for the renewal was declined. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RenewalDeclinedContext *renewalDeclined;
 
 @end
 
@@ -7712,6 +7738,17 @@ GTLR_DEPRECATED
 
 /** The details of a rent purchase. Only set if it is a rent purchase. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_RentalDetails *rentalDetails;
+
+@end
+
+
+/**
+ *  Additional context around subscriptions in ON_HOLD state.
+ */
+@interface GTLRAndroidPublisher_OnHoldStateContext : GTLRObject
+
+/** Optional. The payment for the renewal was declined. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RenewalDeclinedContext *renewalDeclined;
 
 @end
 
@@ -9266,6 +9303,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Context related to renewal declined scenario.
+ */
+@interface GTLRAndroidPublisher_RenewalDeclinedContext : GTLRObject
+
+/** Required. The ID of the pending or failed order causing the state. */
+@property(nonatomic, copy, nullable) NSString *pendingOrderId;
+
+@end
+
+
+/**
  *  Details of a rental purchase.
  */
 @interface GTLRAndroidPublisher_RentalDetails : GTLRObject
@@ -9764,8 +9812,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *offerId;
 
 /**
- *  The pricing phase for the billing period funded by this order. Deprecated.
- *  Use offer_phase_details instead.
+ *  Deprecated: Use offer_phase_details instead. The pricing phase for the
+ *  billing period funded by this order.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Base The
@@ -9779,7 +9827,7 @@ GTLR_DEPRECATED
  *        Offer phase unspecified. This value is not used. (Value:
  *        "OFFER_PHASE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *offerPhase;
+@property(nonatomic, copy, nullable) NSString *offerPhase GTLR_DEPRECATED;
 
 /**
  *  The pricing phase details for the entitlement period funded by this order.
@@ -10055,9 +10103,10 @@ GTLR_DEPRECATED
 
 
 /**
- *  A SubscriptionPurchase resource indicates the status of a user's
- *  subscription purchase.
+ *  Deprecated: Use SubscriptionPurchaseV2 instead. A SubscriptionPurchase
+ *  resource indicates the status of a user's subscription purchase.
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_SubscriptionPurchase : GTLRObject
 
 /**
@@ -10421,6 +10470,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalAccountIdentifiers *externalAccountIdentifiers;
 
 /**
+ *  Optional. Additional context around subscriptions in IN_GRACE_PERIOD state.
+ *  Only present if the subscription currently has subscription_state
+ *  SUBSCRIPTION_STATE_IN_GRACE_PERIOD.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_InGracePeriodStateContext *inGracePeriodStateContext;
+
+/**
  *  This kind represents a SubscriptionPurchaseV2 object in the androidpublisher
  *  service.
  */
@@ -10450,6 +10506,13 @@ GTLR_DEPRECATED
  *  prepaid. * Topup a prepaid subscription.
  */
 @property(nonatomic, copy, nullable) NSString *linkedPurchaseToken;
+
+/**
+ *  Optional. Additional context around subscriptions in ON_HOLD state. Only
+ *  present if the subscription currently has subscription_state
+ *  SUBSCRIPTION_STATE_ON_HOLD.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OnHoldStateContext *onHoldStateContext;
 
 /**
  *  Additional context for out of app purchases. This information is only

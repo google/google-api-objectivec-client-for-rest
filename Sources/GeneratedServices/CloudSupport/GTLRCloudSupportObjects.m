@@ -344,7 +344,7 @@ NSString * const kGTLRCloudSupport_Media_ReferenceType_Path    = @"PATH";
          diffUploadResponse, diffVersionResponse, downloadParameters, filename,
          hashProperty, hashVerified, inlineProperty, isPotentialRetry, length,
          md5Hash, mediaId, objectId, path, referenceType, sha1Hash, sha256Hash,
-         timestamp, token;
+         sha512Hash, timestamp, token;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -23,6 +23,7 @@
 @class GTLRNetworkManagement_Binding;
 @class GTLRNetworkManagement_CloudFunctionEndpoint;
 @class GTLRNetworkManagement_CloudFunctionInfo;
+@class GTLRNetworkManagement_CloudRunJobInfo;
 @class GTLRNetworkManagement_CloudRunRevisionEndpoint;
 @class GTLRNetworkManagement_CloudRunRevisionInfo;
 @class GTLRNetworkManagement_CloudSQLInstanceInfo;
@@ -39,11 +40,15 @@
 @class GTLRNetworkManagement_FirewallInfo;
 @class GTLRNetworkManagement_ForwardInfo;
 @class GTLRNetworkManagement_ForwardingRuleInfo;
+@class GTLRNetworkManagement_GenerateMonitoringPointConfigResponse_Config;
+@class GTLRNetworkManagement_GeoLocation;
 @class GTLRNetworkManagement_GKEMasterInfo;
 @class GTLRNetworkManagement_GkeNetworkPolicyInfo;
 @class GTLRNetworkManagement_GkeNetworkPolicySkippedInfo;
 @class GTLRNetworkManagement_GkePodInfo;
 @class GTLRNetworkManagement_GoogleServiceInfo;
+@class GTLRNetworkManagement_Host;
+@class GTLRNetworkManagement_HttpBody_Extensions_Item;
 @class GTLRNetworkManagement_HybridSubnetInfo;
 @class GTLRNetworkManagement_InstanceInfo;
 @class GTLRNetworkManagement_InterconnectAttachmentInfo;
@@ -56,8 +61,12 @@
 @class GTLRNetworkManagement_Location;
 @class GTLRNetworkManagement_Location_Labels;
 @class GTLRNetworkManagement_Location_Metadata;
+@class GTLRNetworkManagement_MonitoringPoint;
 @class GTLRNetworkManagement_NatInfo;
 @class GTLRNetworkManagement_NetworkInfo;
+@class GTLRNetworkManagement_NetworkInterface;
+@class GTLRNetworkManagement_NetworkMonitoringProvider;
+@class GTLRNetworkManagement_NetworkPath;
 @class GTLRNetworkManagement_NgfwPacketInspectionInfo;
 @class GTLRNetworkManagement_Operation;
 @class GTLRNetworkManagement_Operation_Metadata;
@@ -65,6 +74,7 @@
 @class GTLRNetworkManagement_Policy;
 @class GTLRNetworkManagement_PrivateConnectionInfo;
 @class GTLRNetworkManagement_ProbingDetails;
+@class GTLRNetworkManagement_ProviderTag;
 @class GTLRNetworkManagement_ProxyConnectionInfo;
 @class GTLRNetworkManagement_ReachabilityDetails;
 @class GTLRNetworkManagement_RedisClusterInfo;
@@ -83,6 +93,7 @@
 @class GTLRNetworkManagement_VpcFlowLogsConfig_Labels;
 @class GTLRNetworkManagement_VpnGatewayInfo;
 @class GTLRNetworkManagement_VpnTunnelInfo;
+@class GTLRNetworkManagement_WebPath;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -495,6 +506,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_App
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudFunction;
 /**
+ *  Target is a Cloud Run Job. Used only for return traces.
+ *
+ *  Value: "CLOUD_RUN_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudRunJob;
+/**
  *  Target is a Cloud Run revision. Used only for return traces.
  *
  *  Value: "CLOUD_RUN_REVISION"
@@ -506,6 +523,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Clo
  *  Value: "CLOUD_SQL_INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudSqlInstance;
+/**
+ *  Target is a Datastream Private Connection. Used only for return traces.
+ *
+ *  Value: "DATASTREAM_PRIVATE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_DatastreamPrivateConnection;
+/**
+ *  Target is a DMS Private Connection. Used only for return traces.
+ *
+ *  Value: "DMS_PRIVATE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_DmsPrivateConnection;
 /**
  *  Target is a Google Kubernetes Engine cluster master.
  *
@@ -636,6 +665,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudNa
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudNatProtocolUnsupported;
 /**
+ *  Packet sent from a Cloud Run job that is not ready.
+ *
+ *  Value: "CLOUD_RUN_JOB_NOT_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudRunJobNotReady;
+/**
  *  Packet sent from a Cloud Run revision that is not ready.
  *
  *  Value: "CLOUD_RUN_REVISION_NOT_READY"
@@ -707,6 +742,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Destina
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService;
 /**
+ *  Packet was dropped inside Datastream Private Connection.
+ *
+ *  Value: "DROPPED_INSIDE_DATASTREAM_PRIVATE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideDatastreamPrivateConnection;
+/**
+ *  Packet was dropped inside DMS Private Connection.
+ *
+ *  Value: "DROPPED_INSIDE_DMS_PRIVATE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideDmsPrivateConnection;
+/**
  *  Packet was dropped inside Google Kubernetes Engine Service.
  *
  *  Value: "DROPPED_INSIDE_GKE_SERVICE"
@@ -749,6 +796,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Dropped
  *  Value: "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck;
+/**
+ *  Firewalls block health check probes to the Envoy proxies that power this
+ *  load balancer.
+ *
+ *  Value: "FIREWALL_BLOCKING_LOAD_BALANCER_ENVOY_PROXY_HEALTH_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerEnvoyProxyHealthCheck;
 /**
  *  Dropped due to a firewall rule, unless allowed due to connection tracking.
  *
@@ -2184,6 +2238,124 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadB
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_MonitoringPoint.connectionStatus
+
+/**
+ *  The default value. This value is used if the status is omitted.
+ *
+ *  Value: "CONNECTION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_ConnectionStatusUnspecified;
+/**
+ *  MonitoringPoint is offline.
+ *
+ *  Value: "OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Offline;
+/**
+ *  MonitoringPoint is online.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Online;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_MonitoringPoint.deploymentType
+
+/**
+ *  The default value. This value is used if the type is omitted.
+ *
+ *  Value: "DEPLOYMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_DeploymentType_DeploymentTypeUnspecified;
+/**
+ *  The MonitoringPoint is deployed as a Docker container.
+ *
+ *  Value: "DOCKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_DeploymentType_Docker;
+/**
+ *  The MonitoringPoint is deployed as a Helm chart.
+ *
+ *  Value: "HELM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_DeploymentType_Helm;
+/**
+ *  The MonitoringPoint is deployed as a Podman container.
+ *
+ *  Value: "PODMAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_DeploymentType_Podman;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_MonitoringPoint.errors
+
+/**
+ *  Error detected while downloading.
+ *
+ *  Value: "DOWNLOAD_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_DownloadFailed;
+/**
+ *  The default value. This value is used if the error code is omitted.
+ *
+ *  Value: "ERROR_CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_ErrorCodeUnspecified;
+/**
+ *  Error detected in NTP service.
+ *
+ *  Value: "NTP_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_NtpError;
+/**
+ *  Error detected during the upgrade process.
+ *
+ *  Value: "UPGRADE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_UpgradeError;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_MonitoringPoint.upgradeType
+
+/**
+ *  Upgrades are performed automatically.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Auto;
+/**
+ *  Upgrades are performed externally.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_External;
+/**
+ *  Upgrades are managed.
+ *
+ *  Value: "MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Managed;
+/**
+ *  Upgrades are performed manually.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Manual;
+/**
+ *  Upgrade is scheduled.
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Scheduled;
+/**
+ *  The default value. This value is used if the upgrade type is omitted.
+ *
+ *  Value: "UPGRADE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_UpgradeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_NatInfo.cloudNatGatewayType
 
 /**
@@ -2264,6 +2436,130 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_Type_PrivateSe
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_NetworkMonitoringProvider.providerType
+
+/**
+ *  External provider.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_External;
+/**
+ *  The default value. This value is used if the type is omitted.
+ *
+ *  Value: "PROVIDER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_ProviderTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_NetworkMonitoringProvider.state
+
+/**
+ *  NetworkMonitoringProvider is being activated.
+ *
+ *  Value: "ACTIVATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Activating;
+/**
+ *  NetworkMonitoringProvider is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Active;
+/**
+ *  NetworkMonitoringProvider is deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleted;
+/**
+ *  NetworkMonitoringProvider is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleting;
+/**
+ *  The default value. This value is used if the status is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_StateUnspecified;
+/**
+ *  NetworkMonitoringProvider is suspended.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspended;
+/**
+ *  NetworkMonitoringProvider is being suspended.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspending;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_NetworkPath.monitoringStatus
+
+/**
+ *  Monitoring is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Disabled;
+/**
+ *  Monitoring is enabled.
+ *
+ *  Value: "MONITORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Monitoring;
+/**
+ *  Monitoring point is offline.
+ *
+ *  Value: "MONITORING_POINT_OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringPointOffline;
+/**
+ *  The default value. This value is used if the status is omitted.
+ *
+ *  Value: "MONITORING_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringStatusUnspecified;
+/**
+ *  Policy is mismatched.
+ *
+ *  Value: "POLICY_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_PolicyMismatch;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_NetworkPath.networkProtocol
+
+/**
+ *  ICMP.
+ *
+ *  Value: "ICMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Icmp;
+/**
+ *  The default value. This value is used if the network protocol is omitted.
+ *
+ *  Value: "NETWORK_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_NetworkProtocolUnspecified;
+/**
+ *  TCP.
+ *
+ *  Value: "TCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Tcp;
+/**
+ *  UDP.
+ *
+ *  Value: "UDP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Udp;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ProbingDetails.abortCause
 
 /**
@@ -2322,6 +2618,57 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_ProviderTag.resourceType
+
+/**
+ *  Monitoring point.
+ *
+ *  Value: "MONITORING_POINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPoint;
+/**
+ *  This represents Provider Tag that a user manually assigns to a specific Rule
+ *  within a Monitoring Policy. It is created when a user saves a Monitoring
+ *  Policy with custom tags applied to its rules.
+ *
+ *  Value: "MONITORING_POINT_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPointRule;
+/**
+ *  This represents auto-generated Provider Tags derived from the criteria
+ *  defined in a Monitoring Point Rule (e.g., Subnet, VLAN, Interface). If "Auto
+ *  Network Rule Tagging" is enabled, the system automatically generates these
+ *  tags based on the rule's filter values.
+ *
+ *  Value: "MONITORING_POINT_RULE_AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPointRuleAuto;
+/**
+ *  Monitoring policy.
+ *
+ *  Value: "MONITORING_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPolicy;
+/**
+ *  Network path.
+ *
+ *  Value: "NETWORK_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath;
+/**
+ *  The default value. This value is used if the status is omitted.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_ResourceTypeUnspecified;
+/**
+ *  Web path.
+ *
+ *  Value: "WEB_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_WebPath;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ReachabilityDetails.result
@@ -2788,6 +3135,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromAp
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudFunction;
 /**
+ *  Initial state: packet originating from a Cloud Run Job. A CloudRunJobInfo is
+ *  populated with starting Job information.
+ *
+ *  Value: "START_FROM_CLOUD_RUN_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudRunJob;
+/**
  *  Initial state: packet originating from a Cloud Run revision. A
  *  CloudRunRevisionInfo is populated with starting revision information.
  *
@@ -3075,6 +3429,62 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Value: "ROUTING_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_WebPath.monitoringStatus
+
+/**
+ *  Monitoring is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_Disabled;
+/**
+ *  Monitoring is enabled.
+ *
+ *  Value: "MONITORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_Monitoring;
+/**
+ *  Monitoring point is offline.
+ *
+ *  Value: "MONITORING_POINT_OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringPointOffline;
+/**
+ *  The default value. This value is used if the status is omitted.
+ *
+ *  Value: "MONITORING_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringStatusUnspecified;
+/**
+ *  Policy is mismatched.
+ *
+ *  Value: "POLICY_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_PolicyMismatch;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_WebPath.workflowType
+
+/**
+ *  Browser.
+ *
+ *  Value: "BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_Browser;
+/**
+ *  HTTP.
+ *
+ *  Value: "HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_Http;
+/**
+ *  The default value. This value is used if the status is omitted.
+ *
+ *  Value: "WORKFLOW_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspecified;
 
 /**
  *  Details of the final state "abort" and associated resource.
@@ -3488,6 +3898,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a Cloud Run job.
+ */
+@interface GTLRNetworkManagement_CloudRunJobInfo : GTLRObject
+
+/** Name of a Cloud Run job. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Location in which this job is deployed. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** URI of a Cloud Run job. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Wrapper for Cloud Run revision attributes.
  */
 @interface GTLRNetworkManagement_CloudRunRevisionEndpoint : GTLRObject
@@ -3731,11 +4158,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudFunction Target is
  *        a Cloud Function. Used only for return traces. (Value:
  *        "CLOUD_FUNCTION")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudRunJob Target is a
+ *        Cloud Run Job. Used only for return traces. (Value: "CLOUD_RUN_JOB")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudRunRevision Target
  *        is a Cloud Run revision. Used only for return traces. (Value:
  *        "CLOUD_RUN_REVISION")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudSqlInstance Target
  *        is a Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_DatastreamPrivateConnection
+ *        Target is a Datastream Private Connection. Used only for return
+ *        traces. (Value: "DATASTREAM_PRIVATE_CONNECTION")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_DmsPrivateConnection
+ *        Target is a DMS Private Connection. Used only for return traces.
+ *        (Value: "DMS_PRIVATE_CONNECTION")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster Target is a
  *        Google Kubernetes Engine cluster master. (Value: "GKE_MASTER")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GkePod Target is a GKE
@@ -3828,6 +4263,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudNatProtocolUnsupported
  *        Packet is dropped by Cloud NAT due to using an unsupported protocol.
  *        (Value: "CLOUD_NAT_PROTOCOL_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudRunJobNotReady Packet
+ *        sent from a Cloud Run job that is not ready. (Value:
+ *        "CLOUD_RUN_JOB_NOT_READY")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudRunRevisionNotReady
  *        Packet sent from a Cloud Run revision that is not ready. (Value:
  *        "CLOUD_RUN_REVISION_NOT_READY")
@@ -3866,6 +4304,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService
  *        Packet was dropped inside Cloud SQL Service. (Value:
  *        "DROPPED_INSIDE_CLOUD_SQL_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideDatastreamPrivateConnection
+ *        Packet was dropped inside Datastream Private Connection. (Value:
+ *        "DROPPED_INSIDE_DATASTREAM_PRIVATE_CONNECTION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideDmsPrivateConnection
+ *        Packet was dropped inside DMS Private Connection. (Value:
+ *        "DROPPED_INSIDE_DMS_PRIVATE_CONNECTION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService
  *        Packet was dropped inside Google Kubernetes Engine Service. (Value:
  *        "DROPPED_INSIDE_GKE_SERVICE")
@@ -3889,6 +4333,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        more details, see [Health check firewall
  *        rules](https://cloud.google.com/load-balancing/docs/health-checks#firewall_rules).
  *        (Value: "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerEnvoyProxyHealthCheck
+ *        Firewalls block health check probes to the Envoy proxies that power
+ *        this load balancer. (Value:
+ *        "FIREWALL_BLOCKING_LOAD_BALANCER_ENVOY_PROXY_HEALTH_CHECK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallRule Dropped due to
  *        a firewall rule, unless allowed due to connection tracking. (Value:
  *        "FIREWALL_RULE")
@@ -4431,6 +4879,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  A [Cloud Run](https://cloud.google.com/run)
+ *  [job](https://docs.cloud.google.com/run/docs/reference/rest/v2/projects.locations.jobs#Job)
+ *  URI. Applicable only to source endpoint. The format is:
+ *  projects/{project}/locations/{location}/jobs/{job}
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunJob;
+
+/**
+ *  A [Cloud Run](https://cloud.google.com/run)
  *  [revision](https://cloud.google.com/run/docs/reference/rest/v1/namespaces.revisions/get)
  *  Applicable only to source endpoint.
  */
@@ -4941,6 +5397,56 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  Message for response for getting Monitoring Point configuration of a
+ *  NetworkMonitoringProvider resource.
+ */
+@interface GTLRNetworkManagement_GenerateMonitoringPointConfigResponse : GTLRObject
+
+/** The Monitoring Point configuration of the provider in JSON format. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GenerateMonitoringPointConfigResponse_Config *config;
+
+@end
+
+
+/**
+ *  The Monitoring Point configuration of the provider in JSON format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkManagement_GenerateMonitoringPointConfigResponse_Config : GTLRObject
+@end
+
+
+/**
+ *  Message for response for generating an access token for a
+ *  NetworkMonitoringProvider resource.
+ */
+@interface GTLRNetworkManagement_GenerateProviderAccessTokenResponse : GTLRObject
+
+/** Provider access token for the NetworkMonitoringProvider resource. */
+@property(nonatomic, copy, nullable) NSString *providerAccessToken;
+
+@end
+
+
+/**
+ *  The geographical location of the MonitoringPoint.
+ */
+@interface GTLRNetworkManagement_GeoLocation : GTLRObject
+
+/** Formatted address. */
+@property(nonatomic, copy, nullable) NSString *formattedAddress;
+
+/** Unicode CLDR region code. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with a Google Kubernetes Engine (GKE)
  *  cluster master.
  */
@@ -5103,6 +5609,90 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Source IP address. */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
 
+@end
+
+
+/**
+ *  Message describing information about the host.
+ */
+@interface GTLRNetworkManagement_Host : GTLRObject
+
+/** Output only. The cloud instance id of the host. */
+@property(nonatomic, copy, nullable) NSString *cloudInstanceId;
+
+/** Output only. The cloud project id of the host. */
+@property(nonatomic, copy, nullable) NSString *cloudProjectId;
+
+/** Output only. The cloud provider of the host. */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
+
+/** Output only. The cloud region of the host. */
+@property(nonatomic, copy, nullable) NSString *cloudRegion;
+
+/** Output only. The ids of cloud virtual networks of the host. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cloudVirtualNetworkIds;
+
+/** Output only. The cloud zone of the host. */
+@property(nonatomic, copy, nullable) NSString *cloudZone;
+
+/** Output only. The operating system of the host. */
+@property(nonatomic, copy, nullable) NSString *os;
+
+@end
+
+
+/**
+ *  Message that represents an arbitrary HTTP body. It should only be used for
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
+ */
+@interface GTLRNetworkManagement_HttpBody : GTLRObject
+
+/**
+ *  The HTTP Content-Type header value specifying the content type of the body.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  The HTTP request/response body as raw binary.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Application specific response metadata. Must be set in the first response
+ *  for streaming APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_HttpBody_Extensions_Item *> *extensions;
+
+@end
+
+
+/**
+ *  GTLRNetworkManagement_HttpBody_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkManagement_HttpBody_Extensions_Item : GTLRObject
 @end
 
 
@@ -5368,6 +5958,78 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  Message for response to listing MonitoringPoints
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "monitoringPoints" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkManagement_ListMonitoringPointsResponse : GTLRCollectionObject
+
+/**
+ *  The list of MonitoringPoints.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_MonitoringPoint *> *monitoringPoints;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing NetworkMonitoringProviders
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "networkMonitoringProviders" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkManagement_ListNetworkMonitoringProvidersResponse : GTLRCollectionObject
+
+/**
+ *  The list of NetworkMonitoringProvider
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_NetworkMonitoringProvider *> *networkMonitoringProviders;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing NetworkPaths
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "networkPaths" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkManagement_ListNetworkPathsResponse : GTLRCollectionObject
+
+/**
+ *  The list of NetworkPath
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_NetworkPath *> *networkPaths;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5424,6 +6086,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_VpcFlowLogsConfig *> *vpcFlowLogsConfigs;
+
+@end
+
+
+/**
+ *  Message for response to listing WebPaths
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "webPaths" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkManagement_ListWebPathsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of WebPath.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_WebPath *> *webPaths;
 
 @end
 
@@ -5672,6 +6358,127 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  Message describing MonitoringPoint resource.
+ */
+@interface GTLRNetworkManagement_MonitoringPoint : GTLRObject
+
+/**
+ *  Output only. Indicates if automaitic geographic location is enabled for the
+ *  MonitoringPoint.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoGeoLocationEnabled;
+
+/**
+ *  Output only. Connection status of the MonitoringPoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_ConnectionStatusUnspecified
+ *        The default value. This value is used if the status is omitted.
+ *        (Value: "CONNECTION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Offline
+ *        MonitoringPoint is offline. (Value: "OFFLINE")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Online
+ *        MonitoringPoint is online. (Value: "ONLINE")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionStatus;
+
+/** Output only. The time the MonitoringPoint was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The deployment type of the MonitoringPoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_DeploymentType_DeploymentTypeUnspecified
+ *        The default value. This value is used if the type is omitted. (Value:
+ *        "DEPLOYMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_DeploymentType_Docker The
+ *        MonitoringPoint is deployed as a Docker container. (Value: "DOCKER")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_DeploymentType_Helm The
+ *        MonitoringPoint is deployed as a Helm chart. (Value: "HELM")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_DeploymentType_Podman The
+ *        MonitoringPoint is deployed as a Podman container. (Value: "PODMAN")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentType;
+
+/** Output only. Display name of the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. The codes of errors detected in the MonitoringPoint. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
+
+/** Output only. The geographical location of the MonitoringPoint. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GeoLocation *geoLocation;
+
+/** Output only. The GUID of the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *guid;
+
+/** Output only. The host information of the MonitoringPoint. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_Host *host;
+
+/** Output only. The hostname of the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Identifier. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The network interfaces of the MonitoringPoint. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_NetworkInterface *> *networkInterfaces;
+
+/**
+ *  Output only. IP address visible when MonitoringPoint connects to the
+ *  provider.
+ */
+@property(nonatomic, copy, nullable) NSString *originatingIp;
+
+/** Output only. The provider tags of the MonitoringPoint. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_ProviderTag *> *providerTags;
+
+/** Output only. Deployment type of the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The time the MonitoringPoint was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. Indicates if an upgrade is available for the MonitoringPoint.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *upgradeAvailable;
+
+/**
+ *  Output only. The type of upgrade available for the MonitoringPoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Auto Upgrades
+ *        are performed automatically. (Value: "AUTO")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_External
+ *        Upgrades are performed externally. (Value: "EXTERNAL")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Managed
+ *        Upgrades are managed. (Value: "MANAGED")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Manual Upgrades
+ *        are performed manually. (Value: "MANUAL")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Scheduled
+ *        Upgrade is scheduled. (Value: "SCHEDULED")
+ *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_UpgradeTypeUnspecified
+ *        The default value. This value is used if the upgrade type is omitted.
+ *        (Value: "UPGRADE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *upgradeType;
+
+/** Output only. Version of the software running on the MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with NAT.
  */
 @interface GTLRNetworkManagement_NatInfo : GTLRObject
@@ -5793,6 +6600,213 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** URI of a Compute Engine network. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Message describing network interfaces.
+ */
+@interface GTLRNetworkManagement_NetworkInterface : GTLRObject
+
+/** Output only. The description of the interface. */
+@property(nonatomic, copy, nullable) NSString *adapterDescription;
+
+/**
+ *  Output only. The IP address of the interface and subnet mask in CIDR format.
+ *  Examples: 192.168.1.0/24, 2001:db8::/32
+ */
+@property(nonatomic, copy, nullable) NSString *cidr;
+
+/** Output only. The name of the network interface. Examples: eth0, eno1 */
+@property(nonatomic, copy, nullable) NSString *interfaceName;
+
+/** Output only. The IP address of the interface. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** Output only. The MAC address of the interface. */
+@property(nonatomic, copy, nullable) NSString *macAddress;
+
+/**
+ *  Output only. Speed of the interface in millions of bits per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speed;
+
+/**
+ *  Output only. The id of the VLAN.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vlanId;
+
+@end
+
+
+/**
+ *  Message describing NetworkMonitoringProvider resource.
+ */
+@interface GTLRNetworkManagement_NetworkMonitoringProvider : GTLRObject
+
+/** Output only. The time the NetworkMonitoringProvider was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The list of error messages detected for the
+ *  NetworkMonitoringProvider.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
+
+/**
+ *  Output only. Identifier. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Type of the NetworkMonitoringProvider.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_External
+ *        External provider. (Value: "EXTERNAL")
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_ProviderTypeUnspecified
+ *        The default value. This value is used if the type is omitted. (Value:
+ *        "PROVIDER_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *providerType;
+
+/** Output only. Link to the provider's UI. */
+@property(nonatomic, copy, nullable) NSString *providerUri;
+
+/**
+ *  Output only. State of the NetworkMonitoringProvider.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Activating
+ *        NetworkMonitoringProvider is being activated. (Value: "ACTIVATING")
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Active
+ *        NetworkMonitoringProvider is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleted
+ *        NetworkMonitoringProvider is deleted. (Value: "DELETED")
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleting
+ *        NetworkMonitoringProvider is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_StateUnspecified
+ *        The default value. This value is used if the status is omitted.
+ *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspended
+ *        NetworkMonitoringProvider is suspended. (Value: "SUSPENDED")
+ *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspending
+ *        NetworkMonitoringProvider is being suspended. (Value: "SUSPENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time the NetworkMonitoringProvider was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Message describing NetworkPath resource.
+ */
+@interface GTLRNetworkManagement_NetworkPath : GTLRObject
+
+/** Output only. The time the NetworkPath was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. IP address or hostname of the network path destination. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** Output only. Geographical location of the destination MonitoringPoint. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GeoLocation *destinationGeoLocation;
+
+/**
+ *  Output only. Provider's UUID of the destination MonitoringPoint. This id may
+ *  not point to a resource in the Google Cloud.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationMonitoringPointId;
+
+/** Output only. The display name of the network path. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Indicates if the network path is dual ended. When true, the
+ *  network path is measured both: from both source to destination, and from
+ *  destination to source. When false, the network path is measured from the
+ *  source through the destination back to the source (round trip measurement).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dualEnded;
+
+/**
+ *  Output only. Is monitoring enabled for the network path.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *monitoringEnabled;
+
+/** Output only. Display name of the monitoring policy. */
+@property(nonatomic, copy, nullable) NSString *monitoringPolicyDisplayName;
+
+/** Output only. ID of monitoring policy. */
+@property(nonatomic, copy, nullable) NSString *monitoringPolicyId;
+
+/**
+ *  Output only. The monitoring status of the network path.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Disabled
+ *        Monitoring is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Monitoring
+ *        Monitoring is enabled. (Value: "MONITORING")
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringPointOffline
+ *        Monitoring point is offline. (Value: "MONITORING_POINT_OFFLINE")
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringStatusUnspecified
+ *        The default value. This value is used if the status is omitted.
+ *        (Value: "MONITORING_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_PolicyMismatch
+ *        Policy is mismatched. (Value: "POLICY_MISMATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *monitoringStatus;
+
+/**
+ *  Identifier. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/networkPaths/{network_path}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The network protocol of the network path.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Icmp ICMP.
+ *        (Value: "ICMP")
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_NetworkProtocolUnspecified
+ *        The default value. This value is used if the network protocol is
+ *        omitted. (Value: "NETWORK_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Tcp TCP.
+ *        (Value: "TCP")
+ *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Udp UDP.
+ *        (Value: "UDP")
+ */
+@property(nonatomic, copy, nullable) NSString *networkProtocol;
+
+/** Output only. The provider tags of the network path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_ProviderTag *> *providerTags;
+
+/** Output only. Link to provider's UI; link shows the NetworkPath. */
+@property(nonatomic, copy, nullable) NSString *providerUiUri;
+
+/**
+ *  Output only. Provider's UUID of the source MonitoringPoint. This id may not
+ *  point to a resource in the Google Cloud.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceMonitoringPointId;
+
+/** Output only. The time the NetworkPath was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -6126,6 +7140,49 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** The time that reachability was assessed through active probing. */
 @property(nonatomic, strong, nullable) GTLRDateTime *verifyTime;
+
+@end
+
+
+/**
+ *  Message describing the provider tag.
+ */
+@interface GTLRNetworkManagement_ProviderTag : GTLRObject
+
+/** Output only. The category of the provider tag. */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Output only. The resource type of the provider tag.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPoint
+ *        Monitoring point. (Value: "MONITORING_POINT")
+ *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPointRule
+ *        This represents Provider Tag that a user manually assigns to a
+ *        specific Rule within a Monitoring Policy. It is created when a user
+ *        saves a Monitoring Policy with custom tags applied to its rules.
+ *        (Value: "MONITORING_POINT_RULE")
+ *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPointRuleAuto
+ *        This represents auto-generated Provider Tags derived from the criteria
+ *        defined in a Monitoring Point Rule (e.g., Subnet, VLAN, Interface). If
+ *        "Auto Network Rule Tagging" is enabled, the system automatically
+ *        generates these tags based on the rule's filter values. (Value:
+ *        "MONITORING_POINT_RULE_AUTO")
+ *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPolicy
+ *        Monitoring policy. (Value: "MONITORING_POLICY")
+ *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath
+ *        Network path. (Value: "NETWORK_PATH")
+ *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_ResourceTypeUnspecified
+ *        The default value. This value is used if the status is omitted.
+ *        (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_WebPath Web path.
+ *        (Value: "WEB_PATH")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** Output only. The value of the provider tag. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -6754,6 +7811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a Cloud Function. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudFunctionInfo *cloudFunction;
 
+/** Display information of a Cloud Run job. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudRunJobInfo *cloudRunJob;
+
 /** Display information of a Cloud Run revision. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudRunRevisionInfo *cloudRunRevision;
 
@@ -6969,6 +8029,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        state: packet originating from a Cloud Function. A CloudFunctionInfo
  *        is populated with starting function information. (Value:
  *        "START_FROM_CLOUD_FUNCTION")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudRunJob Initial
+ *        state: packet originating from a Cloud Run Job. A CloudRunJobInfo is
+ *        populated with starting Job information. (Value:
+ *        "START_FROM_CLOUD_RUN_JOB")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudRunRevision
  *        Initial state: packet originating from a Cloud Run revision. A
  *        CloudRunRevisionInfo is populated with starting revision information.
@@ -7403,6 +8467,95 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** URI of a VPN tunnel. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Message describing WebPath resource.
+ */
+@interface GTLRNetworkManagement_WebPath : GTLRObject
+
+/** Output only. The time the WebPath was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Web monitoring target. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** Output only. Geographical location of the destination. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GeoLocation *destinationGeoLocation;
+
+/** Output only. Display name of the WebPath. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. Monitoring interval. */
+@property(nonatomic, strong, nullable) GTLRDuration *interval;
+
+/**
+ *  Output only. Is monitoring enabled for the WebPath.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *monitoringEnabled;
+
+/** Output only. Display name of the monitoring policy. */
+@property(nonatomic, copy, nullable) NSString *monitoringPolicyDisplayName;
+
+/** Output only. ID of the monitoring policy. */
+@property(nonatomic, copy, nullable) NSString *monitoringPolicyId;
+
+/**
+ *  Output only. The monitoring status of the WebPath.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_Disabled
+ *        Monitoring is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_Monitoring
+ *        Monitoring is enabled. (Value: "MONITORING")
+ *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringPointOffline
+ *        Monitoring point is offline. (Value: "MONITORING_POINT_OFFLINE")
+ *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringStatusUnspecified
+ *        The default value. This value is used if the status is omitted.
+ *        (Value: "MONITORING_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_PolicyMismatch
+ *        Policy is mismatched. (Value: "POLICY_MISMATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *monitoringStatus;
+
+/**
+ *  Identifier. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/webPaths/{web_path}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The provider tags of the web path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_ProviderTag *> *providerTags;
+
+/** Output only. Link to provider's UI; link shows the WebPath. */
+@property(nonatomic, copy, nullable) NSString *providerUiUri;
+
+/** Output only. Provider's UUID of the related NetworkPath. */
+@property(nonatomic, copy, nullable) NSString *relatedNetworkPathId;
+
+/** Output only. ID of the source MonitoringPoint. */
+@property(nonatomic, copy, nullable) NSString *sourceMonitoringPointId;
+
+/** Output only. The time the WebPath was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. The workflow type of the WebPath.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_WebPath_WorkflowType_Browser Browser.
+ *        (Value: "BROWSER")
+ *    @arg @c kGTLRNetworkManagement_WebPath_WorkflowType_Http HTTP. (Value:
+ *        "HTTP")
+ *    @arg @c kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspecified
+ *        The default value. This value is used if the status is omitted.
+ *        (Value: "WORKFLOW_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workflowType;
 
 @end
 

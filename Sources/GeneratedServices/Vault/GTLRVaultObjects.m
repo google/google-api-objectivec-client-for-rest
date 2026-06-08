@@ -30,6 +30,7 @@ NSString * const kGTLRVault_AccountCountError_ErrorType_WildcardTooBroad = @"WIL
 // GTLRVault_CalendarExportOptions.exportFormat
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Json = @"JSON";
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Pst = @"PST";
 NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Xml = @"XML";
@@ -73,6 +74,7 @@ NSString * const kGTLRVault_ExportOptions_Region_Us            = @"US";
 // GTLRVault_GeminiExportOptions.exportFormat
 NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Json = @"JSON";
 NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Pst = @"PST";
 NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Xml = @"XML";
@@ -80,6 +82,7 @@ NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Xml = @"XML";
 // GTLRVault_GroupsExportOptions.exportFormat
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Json = @"JSON";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst = @"PST";
 NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Xml = @"XML";
@@ -87,6 +90,7 @@ NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Xml = @"XML";
 // GTLRVault_HangoutsChatExportOptions.exportFormat
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Json = @"JSON";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst = @"PST";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Xml = @"XML";
@@ -110,6 +114,7 @@ NSString * const kGTLRVault_Hold_Corpus_Voice                 = @"VOICE";
 // GTLRVault_MailExportOptions.exportFormat
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_MailExportOptions_ExportFormat_Json = @"JSON";
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst = @"PST";
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_Xml = @"XML";
@@ -178,6 +183,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 // GTLRVault_VoiceExportOptions.exportFormat
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ics = @"ICS";
+NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Json = @"JSON";
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Pst = @"PST";
 NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Xml = @"XML";

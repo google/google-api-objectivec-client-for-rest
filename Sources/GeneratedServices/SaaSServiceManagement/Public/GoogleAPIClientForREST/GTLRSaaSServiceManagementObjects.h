@@ -18,6 +18,8 @@
 @class GTLRSaaSServiceManagement_Blueprint;
 @class GTLRSaaSServiceManagement_Dependency;
 @class GTLRSaaSServiceManagement_Deprovision;
+@class GTLRSaaSServiceManagement_DeprovisionUnitGroup;
+@class GTLRSaaSServiceManagement_DetachUnitGroup;
 @class GTLRSaaSServiceManagement_ErrorBudget;
 @class GTLRSaaSServiceManagement_FlagUpdate;
 @class GTLRSaaSServiceManagement_FromMapping;
@@ -27,6 +29,7 @@
 @class GTLRSaaSServiceManagement_Location;
 @class GTLRSaaSServiceManagement_MaintenanceSettings;
 @class GTLRSaaSServiceManagement_Provision;
+@class GTLRSaaSServiceManagement_ProvisionUnitGroup;
 @class GTLRSaaSServiceManagement_Release;
 @class GTLRSaaSServiceManagement_Release_Annotations;
 @class GTLRSaaSServiceManagement_Release_Labels;
@@ -44,18 +47,29 @@
 @class GTLRSaaSServiceManagement_Saas_Annotations;
 @class GTLRSaaSServiceManagement_Saas_Labels;
 @class GTLRSaaSServiceManagement_SaasCondition;
+@class GTLRSaaSServiceManagement_SaasRelease;
+@class GTLRSaaSServiceManagement_SaasRelease_Annotations;
+@class GTLRSaaSServiceManagement_SaasRelease_Labels;
 @class GTLRSaaSServiceManagement_Schedule;
 @class GTLRSaaSServiceManagement_Status;
 @class GTLRSaaSServiceManagement_Status_Details_Item;
 @class GTLRSaaSServiceManagement_Tenant;
 @class GTLRSaaSServiceManagement_Tenant_Annotations;
 @class GTLRSaaSServiceManagement_Tenant_Labels;
+@class GTLRSaaSServiceManagement_TierMapping;
+@class GTLRSaaSServiceManagement_TierUnitKind;
 @class GTLRSaaSServiceManagement_ToMapping;
 @class GTLRSaaSServiceManagement_Unit;
 @class GTLRSaaSServiceManagement_Unit_Annotations;
 @class GTLRSaaSServiceManagement_Unit_Labels;
 @class GTLRSaaSServiceManagement_UnitCondition;
 @class GTLRSaaSServiceManagement_UnitDependency;
+@class GTLRSaaSServiceManagement_UnitGroup;
+@class GTLRSaaSServiceManagement_UnitGroup_Annotations;
+@class GTLRSaaSServiceManagement_UnitGroup_Labels;
+@class GTLRSaaSServiceManagement_UnitGroupOperation;
+@class GTLRSaaSServiceManagement_UnitGroupOperation_Annotations;
+@class GTLRSaaSServiceManagement_UnitGroupOperation_Labels;
 @class GTLRSaaSServiceManagement_UnitKind;
 @class GTLRSaaSServiceManagement_UnitKind_Annotations;
 @class GTLRSaaSServiceManagement_UnitKind_Labels;
@@ -198,24 +212,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutKind_Update
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_Saas.state
 
-/**
- *  Deprecated: Use STATE_ACTIVE.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_Active GTLR_DEPRECATED;
-/**
- *  Deprecated: Use STATE_FAILED.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_Failed GTLR_DEPRECATED;
-/**
- *  Deprecated: Use STATE_RUNNING.
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_Running GTLR_DEPRECATED;
 /**
  *  The Saas is ready
  *
@@ -454,6 +450,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitCondition_Type
  *  Value: "TYPE_UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitCondition_Type_TypeUpdating;
+
+// ----------------------------------------------------------------------------
+// GTLRSaaSServiceManagement_UnitGroup.state
+
+/**
+ *  UnitGroup is being deprovisioned.
+ *
+ *  Value: "UNIT_GROUP_STATE_DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateDeprovisioning;
+/**
+ *  UnitGroup has an error.
+ *
+ *  Value: "UNIT_GROUP_STATE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateError;
+/**
+ *  UnitGroup is not provisioned.
+ *
+ *  Value: "UNIT_GROUP_STATE_NOT_PROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateNotProvisioned;
+/**
+ *  UnitGroup is being provisioned.
+ *
+ *  Value: "UNIT_GROUP_STATE_PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateProvisioning;
+/**
+ *  UnitGroup has been provisioned and is ready for use.
+ *
+ *  Value: "UNIT_GROUP_STATE_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateReady;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "UNIT_GROUP_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateUnspecified;
+/**
+ *  UnitGroup is being updated.
+ *
+ *  Value: "UNIT_GROUP_STATE_UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateUpdating;
+
+// ----------------------------------------------------------------------------
+// GTLRSaaSServiceManagement_UnitKind.boundaryType
+
+/** Value: "BOUNDARY_TYPE_MANAGED_PROJECT" */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitKind_BoundaryType_BoundaryTypeManagedProject;
+/**
+ *  Tenant project boundary.
+ *
+ *  Value: "BOUNDARY_TYPE_TENANT_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitKind_BoundaryType_BoundaryTypeTenantProject;
+/** Value: "BOUNDARY_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitKind_BoundaryType_BoundaryTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_UnitOperation.errorCategory
@@ -732,6 +788,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 
 /**
+ *  DeprovisionUnitGroup is the unit group operation that deprovisions the
+ *  underlying resources represented by a UnitGroup.
+ */
+@interface GTLRSaaSServiceManagement_DeprovisionUnitGroup : GTLRObject
+@end
+
+
+/**
+ *  DetachUnitGroup is the unit group operation that detaches a provisioned
+ *  UnitGroup.
+ */
+@interface GTLRSaaSServiceManagement_DetachUnitGroup : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -971,6 +1043,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 
 /**
+ *  The response structure for the ListSaasReleases method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "saasReleases" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSaaSServiceManagement_ListSaasReleasesResponse : GTLRCollectionObject
+
+/**
+ *  If present, the next page token can be provided to a subsequent
+ *  ListSaasReleases call to list the next page. If empty, there are no more
+ *  pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting saas releases.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_SaasRelease *> *saasReleases;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response structure for the ListSaas method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1023,6 +1126,68 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_Tenant *> *tenants;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response structure for the ListUnitGroupOperations method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "unitGroupOperations" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSaaSServiceManagement_ListUnitGroupOperationsResponse : GTLRCollectionObject
+
+/**
+ *  If present, the next page token can be provided to a subsequent
+ *  ListUnitGroupOperations call to list the next page. If empty, there are no
+ *  more pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting unit group operations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_UnitGroupOperation *> *unitGroupOperations;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response structure for the ListUnitGroups method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "unitGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSaaSServiceManagement_ListUnitGroupsResponse : GTLRCollectionObject
+
+/**
+ *  If present, the next page token can be provided to a subsequent
+ *  ListUnitGroups call to list the next page. If empty, there are no more
+ *  pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting unit groups.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_UnitGroup *> *unitGroups;
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
@@ -1167,6 +1332,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 @property(nonatomic, copy, nullable) NSString *releaseProperty;
 
+@end
+
+
+/**
+ *  ProvisionUnitGroup is the unit group operation that provisions the
+ *  underlying resources represented by a UnitGroup.
+ */
+@interface GTLRSaaSServiceManagement_ProvisionUnitGroup : GTLRObject
 @end
 
 
@@ -1796,16 +1969,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. State of the Saas. It is always in ACTIVE state if the
+ *  Output only. State of the Saas. It is always in STATE_ACTIVE state if the
  *  application_template is empty.
  *
  *  Likely values:
- *    @arg @c kGTLRSaaSServiceManagement_Saas_State_Active Deprecated: Use
- *        STATE_ACTIVE. (Value: "ACTIVE")
- *    @arg @c kGTLRSaaSServiceManagement_Saas_State_Failed Deprecated: Use
- *        STATE_FAILED. (Value: "FAILED")
- *    @arg @c kGTLRSaaSServiceManagement_Saas_State_Running Deprecated: Use
- *        STATE_RUNNING. (Value: "RUNNING")
  *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateActive The Saas is
  *        ready (Value: "STATE_ACTIVE")
  *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateFailed Failure during
@@ -1911,6 +2078,101 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  SaasRelease is a collection of Releases that are assigned to a UnitGroup. It
+ *  allows provisioning and updates of UnitGroup, which contains multiple Units
+ *  of different UnitKinds.
+ */
+@interface GTLRSaaSServiceManagement_SaasRelease : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_SaasRelease_Annotations *annotations;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. An opaque value that uniquely identifies a version or
+ *  generation of a resource. It can be used to confirm that the client and
+ *  server agree on the ordering of a resource being written.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_SaasRelease_Labels *labels;
+
+/**
+ *  Identifier. The resource name (full URI of the resource) following the
+ *  standard naming scheme:
+ *  "projects/{project}/locations/{location}/saasReleases/{saasRelease}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The Releases that are assigned to this SaasRelease. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *releases;
+
+/**
+ *  Required. A mapping between Tiers and UnitKinds that are part of this
+ *  SaasRelease. While Tiers are defined as top-level resources, the mapping
+ *  between Tiers and Unit Kinds is defined per SaasRelease.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_TierMapping *> *tierMappings;
+
+/**
+ *  Output only. The unique identifier of the resource. UID is unique in the
+ *  time and space for this resource within the scope of the service. It is
+ *  typically generated by the server on successful creation of a resource and
+ *  must not be changed. UID is used to uniquely identify resources with
+ *  resource name reuses. This should be a UUID4.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp when the resource was last updated. Any change to
+ *  the resource made by users must refresh this value. Changes to a resource
+ *  made by the service should refresh this value.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_SaasRelease_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_SaasRelease_Labels : GTLRObject
 @end
 
 
@@ -2072,6 +2334,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *        fetch them all at once.
  */
 @interface GTLRSaaSServiceManagement_Tenant_Labels : GTLRObject
+@end
+
+
+/**
+ *  TierMapping describes the mapping between a Tier and its associated
+ *  UnitKinds.
+ */
+@interface GTLRSaaSServiceManagement_TierMapping : GTLRObject
+
+/** Required. The tier. */
+@property(nonatomic, copy, nullable) NSString *tier;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_TierUnitKind *> *unitKinds;
+
+@end
+
+
+/**
+ *  A description of a single Unit Kind that is part of a Tier.
+ */
+@interface GTLRSaaSServiceManagement_TierUnitKind : GTLRObject
+
+/** Optional. Output only. Input variables for the UnitKind. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_UnitVariable *> *inputVariables;
+
+/** Required. Immutable. The unique identifier of the UnitKind. */
+@property(nonatomic, copy, nullable) NSString *unitKind;
+
 @end
 
 
@@ -2299,6 +2589,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
+/** Optional. Output only. Reference to the UnitGroup this unit belongs to. */
+@property(nonatomic, copy, nullable) NSString *unitGroup;
+
 /**
  *  Optional. Reference to the UnitKind this Unit belongs to. Immutable once
  *  set.
@@ -2416,6 +2709,220 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 
 /**
+ *  UnitGroup represents a set of Units to be used by a Tenant. In pooling
+ *  scenarios, the UnitGroup may be created and provisioned before the Tenant is
+ *  created.
+ */
+@interface GTLRSaaSServiceManagement_UnitGroup : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_UnitGroup_Annotations *annotations;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. An opaque value that uniquely identifies a version or
+ *  generation of a resource. It can be used to confirm that the client and
+ *  server agree on the ordering of a resource being written.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_UnitGroup_Labels *labels;
+
+/**
+ *  Identifier. The resource name (full URI of the resource) following the
+ *  standard naming scheme:
+ *  "projects/{project}/locations/{location}/unitGroups/{unitGroup}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Immutable. The SaaS that this UnitGroup is created for. */
+@property(nonatomic, copy, nullable) NSString *saas;
+
+/**
+ *  Required. Immutable. Current SaasRelease that the UnitGroup is provisioned
+ *  with.
+ */
+@property(nonatomic, copy, nullable) NSString *saasRelease;
+
+/**
+ *  Optional. Output only. State of the UnitGroup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateDeprovisioning
+ *        UnitGroup is being deprovisioned. (Value:
+ *        "UNIT_GROUP_STATE_DEPROVISIONING")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateError
+ *        UnitGroup has an error. (Value: "UNIT_GROUP_STATE_ERROR")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateNotProvisioned
+ *        UnitGroup is not provisioned. (Value:
+ *        "UNIT_GROUP_STATE_NOT_PROVISIONED")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateProvisioning
+ *        UnitGroup is being provisioned. (Value:
+ *        "UNIT_GROUP_STATE_PROVISIONING")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateReady
+ *        UnitGroup has been provisioned and is ready for use. (Value:
+ *        "UNIT_GROUP_STATE_READY")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateUnspecified
+ *        Unspecified state. (Value: "UNIT_GROUP_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitGroup_State_UnitGroupStateUpdating
+ *        UnitGroup is being updated. (Value: "UNIT_GROUP_STATE_UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The unique identifier of the resource. UID is unique in the
+ *  time and space for this resource within the scope of the service. It is
+ *  typically generated by the server on successful creation of a resource and
+ *  must not be changed. UID is used to uniquely identify resources with
+ *  resource name reuses. This should be a UUID4.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp when the resource was last updated. Any change to
+ *  the resource made by users must refresh this value. Changes to a resource
+ *  made by the service should refresh this value.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_UnitGroup_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_UnitGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  UnitGroupOperation represents an operation on a UnitGroup.
+ */
+@interface GTLRSaaSServiceManagement_UnitGroupOperation : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_UnitGroupOperation_Annotations *annotations;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Represents a deprovision operation on a UnitGroup. */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_DeprovisionUnitGroup *deprovisionUnitGroup;
+
+/** Optional. Represents a detach operation on a UnitGroup. */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_DetachUnitGroup *detachUnitGroup;
+
+/**
+ *  Output only. An opaque value that uniquely identifies a version or
+ *  generation of a resource. It can be used to confirm that the client and
+ *  server agree on the ordering of a resource being written.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_UnitGroupOperation_Labels *labels;
+
+/**
+ *  Identifier. The resource name (full URI of the resource) following the
+ *  standard naming scheme:
+ *  "projects/{project}/locations/{location}/unitGroupOperations/{unitGroupOperation}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Represents a provision operation on a UnitGroup. */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_ProvisionUnitGroup *provisionUnitGroup;
+
+/** Optional. Tier represents the tier level of the UnitGroupOperation. */
+@property(nonatomic, copy, nullable) NSString *tier;
+
+/**
+ *  Output only. The unique identifier of the resource. UID is unique in the
+ *  time and space for this resource within the scope of the service. It is
+ *  typically generated by the server on successful creation of a resource and
+ *  must not be changed. UID is used to uniquely identify resources with
+ *  resource name reuses. This should be a UUID4.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp when the resource was last updated. Any change to
+ *  the resource made by users must refresh this value. Changes to a resource
+ *  made by the service should refresh this value.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_UnitGroupOperation_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_UnitGroupOperation_Labels : GTLRObject
+@end
+
+
+/**
  *  Definition of a Unit. Units belonging to the same UnitKind are managed
  *  together; for example they follow the same release model (blueprints,
  *  versions etc.) and are typically rolled out together.
@@ -2429,6 +2936,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
  */
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_UnitKind_Annotations *annotations;
+
+/**
+ *  Optional. Output only. BoundaryType describes the type of boundary the Unit
+ *  Kind represents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_UnitKind_BoundaryType_BoundaryTypeManagedProject
+ *        Value "BOUNDARY_TYPE_MANAGED_PROJECT"
+ *    @arg @c kGTLRSaaSServiceManagement_UnitKind_BoundaryType_BoundaryTypeTenantProject
+ *        Tenant project boundary. (Value: "BOUNDARY_TYPE_TENANT_PROJECT")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitKind_BoundaryType_BoundaryTypeUnspecified
+ *        Value "BOUNDARY_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *boundaryType;
 
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -2644,6 +3165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 @property(nonatomic, copy, nullable) NSString *parentUnitOperation;
 
+/** Optional. Provision operation. */
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Provision *provision;
 
 /**

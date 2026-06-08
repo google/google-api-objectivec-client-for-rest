@@ -5171,8 +5171,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_UsageMetrics
-@dynamic acceleratorType, milliAcceleratorSeconds, milliDcuSeconds,
-         shuffleStorageGbSeconds, updateTime;
+@dynamic acceleratorType, milliAcceleratorSeconds,
+         milliAcceleratorSecondsA10040, milliAcceleratorSecondsA10080,
+         milliAcceleratorSecondsL4, milliDcuSeconds, shuffleStorageGbSeconds,
+         updateTime;
 @end
 
 
@@ -5182,7 +5184,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_UsageSnapshot
-@dynamic acceleratorType, milliAccelerator, milliDcu, milliDcuPremium,
+@dynamic acceleratorType, milliAccelerator, milliAcceleratorA10040,
+         milliAcceleratorA10080, milliAcceleratorL4, milliDcu, milliDcuPremium,
          shuffleStorageGb, shuffleStorageGbPremium, snapshotTime;
 @end
 

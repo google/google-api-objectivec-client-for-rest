@@ -44,6 +44,13 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetSecurityStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryCategoryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryTermRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_AccessGroupConfigs;
@@ -75,7 +82,9 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_AccessGroups;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessApprovalConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult;
@@ -150,6 +159,11 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataSource;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryLinkRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryCategoryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryTermRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventActionDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEventConfigDetails_Parameters;
@@ -186,6 +200,15 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake;
@@ -240,6 +263,12 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOneTime;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryCategoryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryRequest;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryTermRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Zone;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Zone_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ZoneDiscoverySpec;
@@ -612,6 +641,146 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Busin
  *  Value: "GLOSSARY_UPDATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryUpdate;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.changeType
+
+/**
+ *  State unspecified.
+ *
+ *  Value: "CHANGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_ChangeTypeUnspecified;
+/**
+ *  Request to create an Entry.
+ *
+ *  Value: "CREATE_ENTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateEntry;
+/**
+ *  Request to create an EntryLink.
+ *
+ *  Value: "CREATE_ENTRY_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateEntryLink;
+/**
+ *  Request to create a Glossary.
+ *
+ *  Value: "CREATE_GLOSSARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossary;
+/**
+ *  Request to create a GlossaryCategory.
+ *
+ *  Value: "CREATE_GLOSSARY_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossaryCategory;
+/**
+ *  Request to create a GlossaryTerm.
+ *
+ *  Value: "CREATE_GLOSSARY_TERM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossaryTerm;
+/**
+ *  Request to delete an Entry.
+ *
+ *  Value: "DELETE_ENTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteEntry;
+/**
+ *  Request to delete an EntryLink.
+ *
+ *  Value: "DELETE_ENTRY_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteEntryLink;
+/**
+ *  Request to delete a Glossary.
+ *
+ *  Value: "DELETE_GLOSSARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossary;
+/**
+ *  Request to delete a GlossaryCategory.
+ *
+ *  Value: "DELETE_GLOSSARY_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossaryCategory;
+/**
+ *  Request to delete a GlossaryTerm.
+ *
+ *  Value: "DELETE_GLOSSARY_TERM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossaryTerm;
+/**
+ *  Request to request Data Product access.
+ *
+ *  Value: "REQUEST_DATA_PRODUCT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_RequestDataProductAccess;
+/**
+ *  Request to update an Entry.
+ *
+ *  Value: "UPDATE_ENTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateEntry;
+/**
+ *  Request to update a Glossary.
+ *
+ *  Value: "UPDATE_GLOSSARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossary;
+/**
+ *  Request to update a GlossaryCategory.
+ *
+ *  Value: "UPDATE_GLOSSARY_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossaryCategory;
+/**
+ *  Request to update a GlossaryTerm.
+ *
+ *  Value: "UPDATE_GLOSSARY_TERM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossaryTerm;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest.state
+
+/**
+ *  The change has been approved.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Approved;
+/**
+ *  The change request has expired.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Expired;
+/**
+ *  The change is proposed and new.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_New;
+/**
+ *  The change has been rejected.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Rejected;
+/**
+ *  The approved change has been revoked.
+ *
+ *  Value: "REVOKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Revoked;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig.tableType
@@ -1006,6 +1175,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified;
+/**
+ *  Unstructured data profile scan.
+ *
+ *  Value: "UNSTRUCTURED_DATA_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_UnstructuredDataProfile;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus.state
@@ -1267,6 +1442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified;
+/**
+ *  Unstructured data profile scan.
+ *
+ *  Value: "UNSTRUCTURED_DATA_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_UnstructuredDataProfile;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent.type
@@ -1711,6 +1892,98 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Gover
  *  Value: "TABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Table;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField.metadataType
+
+/**
+ *  Boolean type.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Boolean;
+/**
+ *  Bytes type.
+ *
+ *  Value: "BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Bytes;
+/**
+ *  Date and time type.
+ *
+ *  Value: "DATETIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Datetime;
+/**
+ *  Geospatial type.
+ *
+ *  Value: "GEOSPATIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Geospatial;
+/**
+ *  Unspecified metadata type.
+ *
+ *  Value: "METADATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_MetadataTypeUnspecified;
+/**
+ *  Numeric type.
+ *
+ *  Value: "NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Number;
+/**
+ *  Other types not covered above.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Other;
+/**
+ *  String type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_String;
+/**
+ *  Struct (record) type.
+ *
+ *  Value: "STRUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Struct;
+/**
+ *  Timestamp type.
+ *
+ *  Value: "TIMESTAMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Timestamp;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField.mode
+
+/**
+ *  Unspecified mode.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_ModeUnspecified;
+/**
+ *  Field can be null.
+ *
+ *  Value: "NULLABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Nullable;
+/**
+ *  Field can be repeated.
+ *
+ *  Value: "REPEATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Repeated;
+/**
+ *  Field is required.
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Required;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Job.service
@@ -3002,6 +3275,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Request message for ApproveChangeRequest.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ApproveChangeRequestRequest : GTLRObject
+
+/** Optional. The etag of the ChangeRequest. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+@end
+
+
+/**
  *  Represents a single piece of metadata describing an entry or entry link.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Aspect : GTLRObject
@@ -3825,6 +4109,318 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Represents a proposed change to a metadata resource.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest : GTLRObject
+
+/**
+ *  Output only. The email address of the user who approved/rejected the
+ *  ChangeRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *approver;
+
+/**
+ *  Output only. The email address of the user who created the ChangeRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *author;
+
+/**
+ *  Output only. The type of change represented by the change_payload. This
+ *  field is derived from the populated field in the change_payload oneof.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_ChangeTypeUnspecified
+ *        State unspecified. (Value: "CHANGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateEntry
+ *        Request to create an Entry. (Value: "CREATE_ENTRY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateEntryLink
+ *        Request to create an EntryLink. (Value: "CREATE_ENTRY_LINK")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossary
+ *        Request to create a Glossary. (Value: "CREATE_GLOSSARY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossaryCategory
+ *        Request to create a GlossaryCategory. (Value:
+ *        "CREATE_GLOSSARY_CATEGORY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_CreateGlossaryTerm
+ *        Request to create a GlossaryTerm. (Value: "CREATE_GLOSSARY_TERM")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteEntry
+ *        Request to delete an Entry. (Value: "DELETE_ENTRY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteEntryLink
+ *        Request to delete an EntryLink. (Value: "DELETE_ENTRY_LINK")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossary
+ *        Request to delete a Glossary. (Value: "DELETE_GLOSSARY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossaryCategory
+ *        Request to delete a GlossaryCategory. (Value:
+ *        "DELETE_GLOSSARY_CATEGORY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_DeleteGlossaryTerm
+ *        Request to delete a GlossaryTerm. (Value: "DELETE_GLOSSARY_TERM")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_RequestDataProductAccess
+ *        Request to request Data Product access. (Value:
+ *        "REQUEST_DATA_PRODUCT_ACCESS")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateEntry
+ *        Request to update an Entry. (Value: "UPDATE_ENTRY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossary
+ *        Request to update a Glossary. (Value: "UPDATE_GLOSSARY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossaryCategory
+ *        Request to update a GlossaryCategory. (Value:
+ *        "UPDATE_GLOSSARY_CATEGORY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_ChangeType_UpdateGlossaryTerm
+ *        Request to update a GlossaryTerm. (Value: "UPDATE_GLOSSARY_TERM")
+ */
+@property(nonatomic, copy, nullable) NSString *changeType;
+
+/** Payload for creating an Entry. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryRequest *createEntry;
+
+/** Payload for creating an EntryLink. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest *createEntryLink;
+
+/** Payload for creating a Glossary. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryRequest *createGlossary;
+
+/** Payload for creating a GlossaryCategory. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryCategoryRequest *createGlossaryCategory;
+
+/** Payload for creating a GlossaryTerm. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryTermRequest *createGlossaryTerm;
+
+/** Output only. The time when the ChangeRequest was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Payload for Data Product access request. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessRequest *dataProductAccessRequest;
+
+/** Payload for deleting an Entry. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryRequest *deleteEntry;
+
+/** Payload for deleting an EntryLink. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryLinkRequest *deleteEntryLink;
+
+/** Payload for deleting a Glossary. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryRequest *deleteGlossary;
+
+/** Payload for deleting a GlossaryCategory. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryCategoryRequest *deleteGlossaryCategory;
+
+/** Payload for deleting a GlossaryTerm. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryTermRequest *deleteGlossaryTerm;
+
+/**
+ *  Optional. This checksum is computed by the service. It can be sent on update
+ *  and delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Justification of the ChangeRequest. This should explain why the
+ *  change is needed or why it should be approved.
+ */
+@property(nonatomic, copy, nullable) NSString *justification;
+
+/** Optional. User-defined labels for the ChangeRequest. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_Labels *labels;
+
+/**
+ *  Identifier. The relative resource name of the ChangeRequest, of the form:
+ *  projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The reason provided for rejecting the ChangeRequest. */
+@property(nonatomic, copy, nullable) NSString *rejectionComment;
+
+/**
+ *  Output only. The full resource name of the target resource to be modified.
+ *  Example:
+ *  //dataplex.googleapis.com/projects/my-project/locations/us-central1/entryGroups/my-group/entries/my-entry
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Output only. The current state of the ChangeRequest.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Approved
+ *        The change has been approved. (Value: "APPROVED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Expired
+ *        The change request has expired. (Value: "EXPIRED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_New
+ *        The change is proposed and new. (Value: "NEW")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Rejected
+ *        The change has been rejected. (Value: "REJECTED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_Revoked
+ *        The approved change has been revoked. (Value: "REVOKED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. System generated globally unique ID for the ChangeRequest. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Payload for updating an Entry. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest *updateEntry;
+
+/** Payload for updating a Glossary. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryRequest *updateGlossary;
+
+/** Payload for updating a GlossaryCategory. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryCategoryRequest *updateGlossaryCategory;
+
+/** Payload for updating a GlossaryTerm. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryTermRequest *updateGlossaryTerm;
+
+/** Output only. The time when the ChangeRequest was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the ChangeRequest.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request message for CreateEntryLink.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest : GTLRObject
+
+/** Required. Entry Link resource. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink *entryLink;
+
+/**
+ *  Required. Entry Link identifier * Must contain only lowercase letters,
+ *  numbers and hyphens. * Must start with a letter. * Must be between 1-63
+ *  characters. * Must end with a number or a letter. * Must be unique within
+ *  the EntryGroup.
+ */
+@property(nonatomic, copy, nullable) NSString *entryLinkId;
+
+/**
+ *  Required. The resource name of the parent Entry Group:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  Create Entry request.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryRequest : GTLRObject
+
+/** Required. Entry resource. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *entry;
+
+/**
+ *  Required. Entry identifier. It has to be unique within an Entry
+ *  Group.Entries corresponding to Google Cloud resources use an Entry ID format
+ *  based on full resource names
+ *  (https://cloud.google.com/apis/design/resource_names#full_resource_name).
+ *  The format is a full resource name of the resource without the prefix double
+ *  slashes in the API service name part of the full resource name. This allows
+ *  retrieval of entries using their associated resource name.For example, if
+ *  the full resource name of a resource is
+ *  //library.googleapis.com/shelves/shelf1/books/book2, then the suggested
+ *  entry_id is library.googleapis.com/shelves/shelf1/books/book2.It is also
+ *  suggested to follow the same convention for entries corresponding to
+ *  resources from providers or systems other than Google Cloud.The maximum size
+ *  of the field is 4000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *entryId;
+
+/**
+ *  Required. The resource name of the parent Entry Group:
+ *  projects/{project}/locations/{location}/entryGroups/{entry_group}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  Creates a new GlossaryCategory under the specified Glossary.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryCategoryRequest : GTLRObject
+
+/** Required. The GlossaryCategory to create. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory *category;
+
+/** Required. GlossaryCategory identifier. */
+@property(nonatomic, copy, nullable) NSString *categoryId;
+
+/**
+ *  Required. The parent resource where this GlossaryCategory will be created.
+ *  Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *  where locationId refers to a Google Cloud region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  Create Glossary Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryRequest : GTLRObject
+
+/** Required. The Glossary to create. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Glossary *glossary;
+
+/** Required. Glossary ID: Glossary identifier. */
+@property(nonatomic, copy, nullable) NSString *glossaryId;
+
+/**
+ *  Required. The parent resource where this Glossary will be created. Format:
+ *  projects/{project_id_or_number}/locations/{location_id} where location_id
+ *  refers to a Google Cloud region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Validates the request without actually creating the Glossary.
+ *  Default: false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Creates a new GlossaryTerm under the specified Glossary.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryTermRequest : GTLRObject
+
+/**
+ *  Required. The parent resource where the GlossaryTerm will be created.
+ *  Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ *  where location_id refers to a Google Cloud region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The GlossaryTerm to create. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm *term;
+
+/** Required. GlossaryTerm identifier. */
+@property(nonatomic, copy, nullable) NSString *termId;
+
+@end
+
+
+/**
  *  DataAccessSpec holds the access control configuration to be enforced on data
  *  stored within resources (eg: rows, columns in BigQuery Tables). When
  *  associated with data, the data is only accessible to principals explicitly
@@ -4428,15 +5024,6 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions : GTLRObject
 
 /**
- *  Optional. Deprecated: Use semantic_inference_enabled instead. Specifies
- *  whether deeper entity inference over the objects' contents using GenAI is
- *  enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *entityInferenceEnabled GTLR_DEPRECATED;
-
-/**
  *  Optional. Specifies whether deeper semantic inference over the objects'
  *  contents using GenAI is enabled.
  *
@@ -4650,6 +5237,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct : GTLRObject
 
+/** Optional. Configuration for access approval for the data product. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessApprovalConfig *accessApprovalConfig;
+
 /**
  *  Optional. Data product access groups by access group id as key. If data
  *  product is used only for packaging data assets, then access groups may be
@@ -4759,6 +5349,21 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for access approval for the data product.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessApprovalConfig : GTLRObject
+
+/**
+ *  Optional. Specifies the email addresses of users who are potential approvers
+ *  and are notified when an access request is made for the data product. The
+ *  maximum number of emails allowed is 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *approverEmails;
+
+@end
+
+
+/**
  *  Custom user defined access groups at the data product level. These are used
  *  for granting different levels of access (IAM roles) on the individual data
  *  product's data assets.
@@ -4793,6 +5398,43 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Message for requesting access to a Data Product. This will be used to create
+ *  a ChangeRequest of type REQUEST_DATA_PRODUCT_ACCESS.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessRequest : GTLRObject
+
+/**
+ *  Output only. The display name of the access group defined in the Data
+ *  Product for which access is being requested.
+ */
+@property(nonatomic, copy, nullable) NSString *accessGroupDisplayName;
+
+/**
+ *  Required. The ID of the access group for which access is being requested.
+ *  This corresponds to the unique identifier of the AccessGroup defined in the
+ *  Data Product.
+ */
+@property(nonatomic, copy, nullable) NSString *accessGroupId;
+
+/**
+ *  Required. The resource name of the data product. Format:
+ *  projects/{project_number}/locations/{location_id}/dataProducts/{data_product_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The principal for which access is being requested in IAM format.
+ *  If not specified, the requestor's principal will be used. Example:
+ *  serviceAccount:my-sa\@my-project.iam.gserviceaccount.com. Only service
+ *  account principals are currently supported.
+ *  https://cloud.google.com/iam/docs/principal-identifiers
+ */
+@property(nonatomic, copy, nullable) NSString *requestedPrincipal;
+
+@end
+
+
+/**
  *  Represents the principal entity associated with an access group, as per
  *  https://cloud.google.com/iam/docs/principals-overview.
  */
@@ -4803,6 +5445,12 @@ GTLR_DEPRECATED
  *  https://cloud.google.com/iam/docs/principals-overview#google-group.
  */
 @property(nonatomic, copy, nullable) NSString *googleGroup;
+
+/**
+ *  Optional. Specifies the email of the producer service account, as per
+ *  https://cloud.google.com/iam/docs/principals-overview#service-account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 
@@ -6561,6 +7209,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified
  *        The data scan type is unspecified. (Value:
  *        "DATA_SCAN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_UnstructuredDataProfile
+ *        Unstructured data profile scan. (Value: "UNSTRUCTURED_DATA_PROFILE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6569,6 +7219,12 @@ GTLR_DEPRECATED
  *  be different if the scan is deleted and re-created with the same name.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The result of an unstructured data profile scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult *unstructuredDataProfileResult;
+
+/** Optional. Settings for an unstructured data profile scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec *unstructuredDataProfileSpec;
 
 /** Output only. The time when the scan was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -7060,11 +7716,19 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified
  *        The data scan type is unspecified. (Value:
  *        "DATA_SCAN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_UnstructuredDataProfile
+ *        Unstructured data profile scan. (Value: "UNSTRUCTURED_DATA_PROFILE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** Output only. System generated globally unique ID for the DataScanJob. */
 @property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The result of an unstructured data profile scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult *unstructuredDataProfileResult;
+
+/** Output only. Settings for an unstructured data profile scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec *unstructuredDataProfileSpec;
 
 @end
 
@@ -7170,6 +7834,83 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request message for DeleteEntryLink.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryLinkRequest : GTLRObject
+
+/**
+ *  Required. The resource name of the Entry Link:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Delete Entry request.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryRequest : GTLRObject
+
+/**
+ *  Required. The resource name of the Entry:
+ *  projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Delete GlossaryCategory Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryCategoryRequest : GTLRObject
+
+/**
+ *  Required. The name of the GlossaryCategory to delete. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Delete Glossary Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryRequest : GTLRObject
+
+/**
+ *  Optional. The etag of the Glossary. If this is provided, it must match the
+ *  server's etag. If the etag is provided and does not match the
+ *  server-computed etag, the request must fail with a ABORTED error code.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the Glossary to delete. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Delete GlossaryTerm Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryTermRequest : GTLRObject
+
+/**
+ *  Required. The name of the GlossaryTerm to delete. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -8514,6 +9255,241 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Contains the strict structure for graph-profile for semantic inference scan
+ *  result.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile : GTLRObject
+
+/** Output only. Edge types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType *> *edgeTypes;
+
+/** Output only. Node types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType *> *nodeTypes;
+
+@end
+
+
+/**
+ *  Represents a type of edge (relationship) in the graph.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType : GTLRObject
+
+/**
+ *  Output only. Description of the edge type.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Extraction hints for the edge. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints *extractionHints;
+
+/** Output only. Fields of the edge type. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField *> *fields;
+
+/** Output only. Defines the Foreign Key constraints for the edge. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey *> *foreignKeys;
+
+/** Output only. Name of the edge type. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Source node type. */
+@property(nonatomic, copy, nullable) NSString *sourceNodeType;
+
+/** Output only. Target node type. */
+@property(nonatomic, copy, nullable) NSString *targetNodeType;
+
+@end
+
+
+/**
+ *  Extraction hints (edge-level).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints : GTLRObject
+
+/**
+ *  Output only. Expected connectivity topology and bounds of this relationship.
+ *  Format: "Topology - Description" Example: "1:N - One company can have
+ *  multiple financial reports."
+ */
+@property(nonatomic, copy, nullable) NSString *cardinality;
+
+@end
+
+
+/**
+ *  Represents a foreign key constraint.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey : GTLRObject
+
+/**
+ *  Output only. Description of the foreign key.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Field Mappings. Mappings between local fields and the fields
+ *  they reference in the referenced node type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping *> *fieldMappings;
+
+/** Output only. Name of the foreign key constraint. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The node type this constraint references. */
+@property(nonatomic, copy, nullable) NSString *referencedNodeType;
+
+@end
+
+
+/**
+ *  Maps a local field to a referenced field.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping : GTLRObject
+
+/** Output only. Local field name forming part of the foreign key. */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/** Output only. Field name in the referenced node type. */
+@property(nonatomic, copy, nullable) NSString *referencedField;
+
+@end
+
+
+/**
+ *  Represents a field in a node or edge type.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField : GTLRObject
+
+/** Output only. The data type of the field, e.g., STRING, INTEGER, DATE. */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Output only. Description of the field.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Extraction hints for the field. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints *extractionHints;
+
+/** Output only. Sub-fields of this field (for STRUCT types). */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField *> *fields;
+
+/**
+ *  Output only. The mapped metadata type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Boolean
+ *        Boolean type. (Value: "BOOLEAN")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Bytes
+ *        Bytes type. (Value: "BYTES")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Datetime
+ *        Date and time type. (Value: "DATETIME")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Geospatial
+ *        Geospatial type. (Value: "GEOSPATIAL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_MetadataTypeUnspecified
+ *        Unspecified metadata type. (Value: "METADATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Number
+ *        Numeric type. (Value: "NUMBER")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Other
+ *        Other types not covered above. (Value: "OTHER")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_String
+ *        String type. (Value: "STRING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Struct
+ *        Struct (record) type. (Value: "STRUCT")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Timestamp
+ *        Timestamp type. (Value: "TIMESTAMP")
+ */
+@property(nonatomic, copy, nullable) NSString *metadataType;
+
+/**
+ *  Output only. The mode of the field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_ModeUnspecified
+ *        Unspecified mode. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Nullable
+ *        Field can be null. (Value: "NULLABLE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Repeated
+ *        Field can be repeated. (Value: "REPEATED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Required
+ *        Field is required. (Value: "REQUIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/** Output only. Name of the field. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Extraction hints (field-level).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints : GTLRObject
+
+/** Output only. Standardizes extracted data (e.g., to ISO 3166-1 alpha-2). */
+@property(nonatomic, copy, nullable) NSString *normalization;
+
+/**
+ *  Output only. Generates value from other data instead of direct extraction
+ *  (e.g., hashing).
+ */
+@property(nonatomic, copy, nullable) NSString *synthesis;
+
+@end
+
+
+/**
+ *  Represents a type of node in the graph.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType : GTLRObject
+
+/**
+ *  Output only. Description of the node type.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Extraction hints for the node. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints *extractionHints;
+
+/** Output only. Fields of the node type. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField *> *fields;
+
+/** Output only. Name of the node type. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Field names forming the primary keys. The order in this array
+ *  defines the key's ordinal positions for composite keys.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *primaryKeys;
+
+@end
+
+
+/**
+ *  Extraction hints (node-level).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints : GTLRObject
+
+/**
+ *  Output only. Expected occurrence frequency of this node type within a
+ *  document. Format: "Bounds - Description" Example: "0:N - A document may
+ *  contain multiple people names."
+ */
+@property(nonatomic, copy, nullable) NSString *cardinality;
+
+@end
+
+
+/**
  *  An object that describes the values that you want to set for an entry and
  *  its attached aspects when you import metadata. Used when you run a metadata
  *  import job. See CreateMetadataJob.You provide a collection of import items
@@ -8994,6 +9970,33 @@ GTLR_DEPRECATED
  *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListChangeRequests.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "changeRequests" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListChangeRequestsResponse : GTLRCollectionObject
+
+/**
+ *  The ChangeRequests from the specified project and location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest *> *changeRequests;
+
+/** A token, which can be sent as page_token to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -9643,11 +10646,20 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest : GTLRObject
 
 /**
+ *  Optional. The text representing contextual information for which metadata
+ *  context is being requested.
+ */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/**
  *  Optional. Allows to configure the context.Supported options: format - The
  *  format of the context (one of yaml, xml, json, default is yaml).
  *  context_budget - If provided, the output will be intelligently truncated on
  *  a best-effort basis to contain approximately the desired amount of
  *  characters. There is no guarantee to achieve the specific amount.
+ *  all_schema_fields - If set to true, all schema fields will be returned in
+ *  the context (regardless of context_budget value). Otherwise, the list of
+ *  schema fields is truncated. Default is false.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest_Options *options;
 
@@ -9667,6 +10679,9 @@ GTLR_DEPRECATED
  *  context_budget - If provided, the output will be intelligently truncated on
  *  a best-effort basis to contain approximately the desired amount of
  *  characters. There is no guarantee to achieve the specific amount.
+ *  all_schema_fields - If set to true, all schema fields will be returned in
+ *  the context (regardless of context_budget value). Otherwise, the list of
+ *  schema fields is truncated. Default is false.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -10433,6 +11448,53 @@ GTLR_DEPRECATED
  *  correspond to the partition schema defined in the parent entity.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Request message for RejectChangeRequest.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RejectChangeRequestRequest : GTLRObject
+
+/** Optional. The reason for rejecting the ChangeRequest. */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/** Optional. The etag of the ChangeRequest. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+@end
+
+
+/**
+ *  Message for requesting access to a Data Product.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessRequest : GTLRObject
+
+/** Required. The change request for the data product access request. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest *changeRequest;
+
+/**
+ *  Optional. Validates the request without actually creating the access change
+ *  request. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response message for requesting access to a Data Product.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1RequestDataProductAccessResponse : GTLRObject
+
+/**
+ *  The resource name of the created ChangeRequest. Format:
+ *  projects/{project_number}/locations/{location_id}/changeRequests/{change_request_id}
+ */
+@property(nonatomic, copy, nullable) NSString *changeRequestName;
 
 @end
 
@@ -11603,6 +12665,184 @@ GTLR_DEPRECATED
  *  *.This field is required for Schedule scans.
  */
 @property(nonatomic, copy, nullable) NSString *cron;
+
+@end
+
+
+/**
+ *  Contains the result of an unstructured data profile scan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult : GTLRObject
+
+/**
+ *  Output only. The inferred description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The inferred graph profile. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile *graphProfile;
+
+/**
+ *  Output only. Optional message for partial failures (e.g. node type
+ *  extraction failed).
+ */
+@property(nonatomic, copy, nullable) NSString *partialFailureMessage;
+
+@end
+
+
+/**
+ *  Contains the specification for an unstructured data profile scan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec : GTLRObject
+
+/**
+ *  Optional. Customized prompt for unstructured data profile. The field will be
+ *  used as part of the prompt, could be some instruction, specifying skill, or
+ *  specific area to focus.
+ */
+@property(nonatomic, copy, nullable) NSString *customizedPrompt;
+
+/**
+ *  Optional. Whether to use the global model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *globalEndpointEnabled;
+
+/**
+ *  Optional. Whether to publish graph-profile as aspect on the catalog entry.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *graphProfilePublishingEnabled;
+
+@end
+
+
+/**
+ *  Update Entry request.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest : GTLRObject
+
+/**
+ *  Optional. If set to true and the entry doesn't exist, the service will
+ *  create it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissing;
+
+/**
+ *  Optional. The map keys of the Aspects which the service should modify. It
+ *  supports the following syntaxes: - matches an aspect of the given type and
+ *  empty path. \@path - matches an aspect of the given type and specified path.
+ *  For example, to attach an aspect to a field that is specified by the schema
+ *  aspect, the path should have the format Schema.. \@* - matches aspects of
+ *  the given type for all paths. *\@path - matches aspects of all types on the
+ *  given path.The service will not remove existing aspects matching the syntax
+ *  unless delete_missing_aspects is set to true.If this field is left empty,
+ *  the service treats it as specifying exactly those Aspects present in the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aspectKeys;
+
+/**
+ *  Optional. If set to true and the aspect_keys specify aspect ranges, the
+ *  service deletes any existing aspects from that range that weren't provided
+ *  in the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteMissingAspects;
+
+/** Required. Entry resource. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *entry;
+
+/**
+ *  Optional. Mask of fields to update. To update Aspects, the update_mask must
+ *  contain the value "aspects".If the update_mask is empty, the service will
+ *  update all modifiable fields present in the request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Update GlossaryCategory Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryCategoryRequest : GTLRObject
+
+/**
+ *  Required. The GlossaryCategory to update. The GlossaryCategory's name field
+ *  is used to identify the GlossaryCategory to update. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/categories/{category_id}
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory *category;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Update Glossary Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryRequest : GTLRObject
+
+/**
+ *  Required. The Glossary to update. The Glossary's name field is used to
+ *  identify the Glossary to update. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Glossary *glossary;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Validates the request without actually updating the Glossary.
+ *  Default: false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Update GlossaryTerm Request
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryTermRequest : GTLRObject
+
+/**
+ *  Required. The GlossaryTerm to update. The GlossaryTerm's name field is used
+ *  to identify the GlossaryTerm to update. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/glossaries/{glossary_id}/terms/{term_id}
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm *term;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

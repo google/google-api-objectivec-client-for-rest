@@ -3116,7 +3116,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ForwardingRulesGet
 
-@dynamic forwardingRule, project, region;
+@dynamic forwardingRule, project, region, view;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -3710,7 +3710,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalForwardingRulesGet
 
-@dynamic forwardingRule, project;
+@dynamic forwardingRule, project, view;
 
 + (instancetype)queryWithProject:(NSString *)project
                   forwardingRule:(NSString *)forwardingRule {
@@ -22412,6 +22412,29 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_RolloutsAdvance
+
+@dynamic currentWaveNumber, project, requestId, rollout;
+
++ (instancetype)queryWithProject:(NSString *)project
+                         rollout:(NSString *)rollout {
+  NSArray *pathParams = @[
+    @"project", @"rollout"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/rollouts/{rollout}/advance";
+  GTLRComputeQuery_RolloutsAdvance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.rollout = rollout;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.rollouts.advance";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RolloutsCancel
 
 @dynamic project, requestId, rollback, rollout;
@@ -22495,6 +22518,60 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_RolloutsListResponse class];
   query.loggingName = @"compute.rollouts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RolloutsPause
+
+@dynamic ETag, project, requestId, rollout;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                         rollout:(NSString *)rollout {
+  NSArray *pathParams = @[
+    @"project", @"rollout"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/rollouts/{rollout}/pause";
+  GTLRComputeQuery_RolloutsPause *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.rollout = rollout;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.rollouts.pause";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RolloutsResume
+
+@dynamic ETag, project, requestId, rollout;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                         rollout:(NSString *)rollout {
+  NSArray *pathParams = @[
+    @"project", @"rollout"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/rollouts/{rollout}/resume";
+  GTLRComputeQuery_RolloutsResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.rollout = rollout;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.rollouts.resume";
   return query;
 }
 

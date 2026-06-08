@@ -422,6 +422,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networksecurity.organizations.locations.addressGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsTestIamPermissions : GTLRNetworkSecurityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c
+ *    GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsAddressGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a new FirewallEndpoint in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.create
@@ -636,6 +681,107 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: networksecurity.organizations.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsGet : GTLRNetworkSecurityQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service. This
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
+ *
+ *  Method: networksecurity.organizations.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service. This
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -6071,6 +6217,369 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new SACAttachment in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.sacAttachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The parent, in the form `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. ID of the created attachment. The ID must be 1-63 characters long,
+ *  and comply with RFC1035. Specifically, it must be 1-63 characters long and
+ *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the
+ *  first character must be a lowercase letter, and all following characters
+ *  must be a dash, lowercase letter, or digit, except the last character, which
+ *  cannot be a dash.
+ */
+@property(nonatomic, copy, nullable) NSString *sacAttachmentId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new SACAttachment in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_SACAttachment to include in the
+ *    query.
+ *  @param parent Required. The parent, in the form
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_SACAttachment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified attachment.
+ *
+ *  Method: networksecurity.projects.locations.sacAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the resource, in the form
+ *  `projects/{project}/locations/{location}/sacAttachments/{sac_attachment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes the specified attachment.
+ *
+ *  @param name Required. Name of the resource, in the form
+ *    `projects/{project}/locations/{location}/sacAttachments/{sac_attachment}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the specified attachment.
+ *
+ *  Method: networksecurity.projects.locations.sacAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the resource, in the form
+ *  `projects/{project}/locations/{location}/sacAttachments/{sac_attachment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_SACAttachment.
+ *
+ *  Returns the specified attachment.
+ *
+ *  @param name Required. Name of the resource, in the form
+ *    `projects/{project}/locations/{location}/sacAttachments/{sac_attachment}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SACAttachments in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.sacAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsList : GTLRNetworkSecurityQuery
+
+/** Optional. An expression that filters the list of results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, in the form `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListSACAttachmentsResponse.
+ *
+ *  Lists SACAttachments in a given project and location.
+ *
+ *  @param parent Required. The parent, in the form
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new SACRealm in a given project.
+ *
+ *  Method: networksecurity.projects.locations.sacRealms.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The parent, in the form `projects/{project}/locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. ID of the created realm. The ID must be 1-63 characters long, and
+ *  comply with RFC1035. Specifically, it must be 1-63 characters long and match
+ *  the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
+ */
+@property(nonatomic, copy, nullable) NSString *sacRealmId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new SACRealm in a given project.
+ *
+ *  @param object The @c GTLRNetworkSecurity_SACRealm to include in the query.
+ *  @param parent Required. The parent, in the form
+ *    `projects/{project}/locations/global`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_SACRealm *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified realm.
+ *
+ *  Method: networksecurity.projects.locations.sacRealms.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the resource, in the form
+ *  `projects/{project}/locations/global/sacRealms/{sacRealm}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes the specified realm.
+ *
+ *  @param name Required. Name of the resource, in the form
+ *    `projects/{project}/locations/global/sacRealms/{sacRealm}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the specified realm.
+ *
+ *  Method: networksecurity.projects.locations.sacRealms.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the resource, in the form
+ *  `projects/{project}/locations/global/sacRealms/{sacRealm}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_SACRealm.
+ *
+ *  Returns the specified realm.
+ *
+ *  @param name Required. Name of the resource, in the form
+ *    `projects/{project}/locations/global/sacRealms/{sacRealm}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SACRealms in a given project.
+ *
+ *  Method: networksecurity.projects.locations.sacRealms.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsList : GTLRNetworkSecurityQuery
+
+/** Optional. An expression that filters the list of results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, in the form `projects/{project}/locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListSACRealmsResponse.
+ *
+ *  Lists SACRealms in a given project.
+ *
+ *  @param parent Required. The parent, in the form
+ *    `projects/{project}/locations/global`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsSacRealmsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

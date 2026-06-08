@@ -12,9 +12,11 @@
 #import <GoogleAPIClientForREST/GTLRContainer.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeContainer              = @"https://www.googleapis.com/auth/container";
 NSString * const kGTLRAuthScopeContainerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeContainerReadOnly      = @"https://www.googleapis.com/auth/container.read-only";
 
 // ----------------------------------------------------------------------------
 //   GTLRContainerService

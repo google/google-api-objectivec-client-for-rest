@@ -8795,6 +8795,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult
+@dynamic suggestedQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer
 //
 
@@ -8871,7 +8881,25 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery
-@dynamic queryText;
+@dynamic queryText, searchContexts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"searchContexts" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuerySearchContext class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuerySearchContext
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuerySearchContext
+@dynamic key, value;
 @end
 
 
@@ -8881,9 +8909,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo
-@dynamic datastoreResponseReason, ingestedContextReferenceDebugInfo,
-         knowledgeAssistBehavior, queryCategorizationFailureReason,
+@dynamic cesDebugInfo, datastoreResponseReason,
+         ingestedContextReferenceDebugInfo, knowledgeAssistBehavior,
+         queryCategorizationFailureReason, queryGenerationDebugInfo,
          queryGenerationFailureReason, serviceLatency;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_CesDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_CesDebugInfo
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -8902,6 +8945,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
          queryGenerationEndUserLanguageMismatch, returnQueryOnly,
          thirdPartyConnectorAllowed, useCustomSafetyFilterLevel,
          usePubsubDelivery, useTranslatedMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoQueryGenerationDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoQueryGenerationDebugInfo
+@dynamic candidatesTokenCount, promptTokenCount, totalTokenCount;
 @end
 
 
@@ -9345,7 +9398,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse
-@dynamic contextSize, knowledgeAssistAnswer, latestMessage;
+@dynamic additionalSuggestedQueryResults, contextSize, knowledgeAssistAnswer,
+         latestMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalSuggestedQueryResults" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -10481,6 +10543,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult
+@dynamic suggestedQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer
 //
 
@@ -10557,7 +10629,25 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery
-@dynamic queryText;
+@dynamic queryText, searchContexts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"searchContexts" : [GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext
+@dynamic key, value;
 @end
 
 
@@ -10567,9 +10657,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo
-@dynamic datastoreResponseReason, ingestedContextReferenceDebugInfo,
-         knowledgeAssistBehavior, queryCategorizationFailureReason,
+@dynamic cesDebugInfo, datastoreResponseReason,
+         ingestedContextReferenceDebugInfo, knowledgeAssistBehavior,
+         queryCategorizationFailureReason, queryGenerationDebugInfo,
          queryGenerationFailureReason, serviceLatency;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_CesDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_CesDebugInfo
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -10588,6 +10693,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
          queryGenerationEndUserLanguageMismatch, returnQueryOnly,
          thirdPartyConnectorAllowed, useCustomSafetyFilterLevel,
          usePubsubDelivery, useTranslatedMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo
+@dynamic candidatesTokenCount, promptTokenCount, totalTokenCount;
 @end
 
 
@@ -10899,7 +11014,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse
-@dynamic contextSize, knowledgeAssistAnswer, latestMessage;
+@dynamic additionalSuggestedQueryResults, contextSize, knowledgeAssistAnswer,
+         latestMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalSuggestedQueryResults" : [GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -35,6 +35,9 @@
 @class GTLRNetworkconnectivity_DnsAutomationStatus;
 @class GTLRNetworkconnectivity_Expr;
 @class GTLRNetworkconnectivity_Filter;
+@class GTLRNetworkconnectivity_Gateway;
+@class GTLRNetworkconnectivity_GatewayAdvertisedRoute;
+@class GTLRNetworkconnectivity_GatewayAdvertisedRoute_Labels;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation_Metadata;
 @class GTLRNetworkconnectivity_GoogleLongrunningOperation_Response;
@@ -50,6 +53,7 @@
 @class GTLRNetworkconnectivity_InterconnectAttachment;
 @class GTLRNetworkconnectivity_InternalRange;
 @class GTLRNetworkconnectivity_InternalRange_Labels;
+@class GTLRNetworkconnectivity_IpRangeReservation;
 @class GTLRNetworkconnectivity_LinkedInterconnectAttachments;
 @class GTLRNetworkconnectivity_LinkedProducerVpcNetwork;
 @class GTLRNetworkconnectivity_LinkedRouterApplianceInstances;
@@ -618,6 +622,112 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Filter_ProtocolVersi
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Filter_ProtocolVersion_ProtocolVersionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Gateway.capacity
+
+/**
+ *  The gateway has 10 Gbps of aggregate processing capacity
+ *
+ *  Value: "CAPACITY_10_GBPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Gateway_Capacity_Capacity10Gbps;
+/**
+ *  The gateway has 1 Gbps of aggregate processing capacity
+ *
+ *  Value: "CAPACITY_1_GBPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Gateway_Capacity_Capacity1Gbps;
+/**
+ *  The gateway capacity is unspecified.
+ *
+ *  Value: "GATEWAY_CAPACITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Gateway_Capacity_GatewayCapacityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_GatewayAdvertisedRoute.recipient
+
+/**
+ *  Advertises a route toward the hub. Other spokes reachable from this spoke
+ *  will receive the route.
+ *
+ *  Value: "ADVERTISE_TO_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_Recipient_AdvertiseToHub;
+/**
+ *  No recipient specified. By default routes are advertised to the hub.
+ *
+ *  Value: "RECIPIENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_Recipient_RecipientUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_GatewayAdvertisedRoute.state
+
+/**
+ *  The resource's accept operation is in progress.
+ *
+ *  Value: "ACCEPTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Accepting;
+/**
+ *  The resource is active
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Active;
+/**
+ *  The resource's create operation is in progress.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Creating;
+/**
+ *  The resource's delete operation is in progress.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Deleting;
+/**
+ *  The resource is in an undefined state due to resource creation or deletion
+ *  failure. You can try to delete the resource later or contact support for
+ *  help.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Failed;
+/**
+ *  The resource is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Inactive;
+/**
+ *  The hub associated with this spoke resource has been deleted. This state
+ *  applies to spoke resources only.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Obsolete;
+/**
+ *  The resource's reject operation is in progress.
+ *
+ *  Value: "REJECTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Rejecting;
+/**
+ *  No state information available
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_StateUnspecified;
+/**
+ *  The resource's update operation is in progress.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Group.state
 
 /**
@@ -704,6 +814,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_PolicyMode_Prese
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Hub.presetTopology
 
+/**
+ *  Hybrid inspection has 4 groups ('non-prod', 'prod', 'services', and
+ *  'untrusted') that are automatically created along with hub creation.
+ *
+ *  Value: "HYBRID_INSPECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Hub_PresetTopology_HybridInspection;
 /**
  *  Mesh topology is implemented. Group `default` is automatically created. All
  *  spokes in the hub are added to group `default`.
@@ -1546,6 +1663,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConnectionPol
 // GTLRNetworkconnectivity_Spoke.spokeType
 
 /**
+ *  Spokes that are NCC gateways.
+ *
+ *  Value: "GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_SpokeType_Gateway;
+/**
  *  Spokes associated with VLAN attachments.
  *
  *  Value: "INTERCONNECT_ATTACHMENT"
@@ -1772,6 +1895,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeStateReasonCoun
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_SpokeTypeCount.spokeType
 
+/**
+ *  Spokes that are NCC gateways.
+ *
+ *  Value: "GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_Gateway;
 /**
  *  Spokes associated with VLAN attachments.
  *
@@ -3231,6 +3360,167 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  A gateway that can apply specialized traffic processing.
+ */
+@interface GTLRNetworkconnectivity_Gateway : GTLRObject
+
+/**
+ *  Optional. The aggregate processing capacity of this gateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Gateway_Capacity_Capacity10Gbps The
+ *        gateway has 10 Gbps of aggregate processing capacity (Value:
+ *        "CAPACITY_10_GBPS")
+ *    @arg @c kGTLRNetworkconnectivity_Gateway_Capacity_Capacity1Gbps The
+ *        gateway has 1 Gbps of aggregate processing capacity (Value:
+ *        "CAPACITY_1_GBPS")
+ *    @arg @c kGTLRNetworkconnectivity_Gateway_Capacity_GatewayCapacityUnspecified
+ *        The gateway capacity is unspecified. (Value:
+ *        "GATEWAY_CAPACITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *capacity;
+
+/**
+ *  Output only. The list of Cloud Routers that are connected to this gateway.
+ *  Should be in the form:
+ *  https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cloudRouters;
+
+/**
+ *  Optional. A list of IP ranges that are reserved for this gateway's internal
+ *  intfrastructure.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_IpRangeReservation *> *ipRangeReservations;
+
+/**
+ *  Output only. The URI of the connected SACAttachment. Should be in the form:
+ *  projects/{project}/locations/{location}/sacAttachments/{sac_attachment}
+ */
+@property(nonatomic, copy, nullable) NSString *sacAttachment;
+
+@end
+
+
+/**
+ *  A gateway advertised route is a route that a gateway spoke advertises
+ *  somewhere.
+ */
+@interface GTLRNetworkconnectivity_GatewayAdvertisedRoute : GTLRObject
+
+/** Output only. The time the gateway advertised route was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  An optional description of the gateway advertised route.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Immutable. This route's advertised IP address range. Must be a valid
+ *  CIDR-formatted prefix. If an IP address is provided without a subnet mask,
+ *  it is interpreted as, for IPv4, a `/32` singular IP address range, and, for
+ *  IPv6, `/128`.
+ */
+@property(nonatomic, copy, nullable) NSString *ipRange;
+
+/**
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GatewayAdvertisedRoute_Labels *labels;
+
+/**
+ *  Identifier. The name of the gateway advertised route. Route names must be
+ *  unique and use the following form:
+ *  `projects/{project_number}/locations/{region}/spokes/{spoke}/gatewayAdvertisedRoutes/{gateway_advertised_route_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The priority of this advertised route. You can choose a value from
+ *  `0` to `65335`. If you don't provide a value, Google Cloud assigns a
+ *  priority of `100` to the ranges.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  Optional. The recipient of this advertised route.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_Recipient_AdvertiseToHub
+ *        Advertises a route toward the hub. Other spokes reachable from this
+ *        spoke will receive the route. (Value: "ADVERTISE_TO_HUB")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_Recipient_RecipientUnspecified
+ *        No recipient specified. By default routes are advertised to the hub.
+ *        (Value: "RECIPIENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *recipient;
+
+/**
+ *  Output only. The current lifecycle state of this gateway advertised route.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Accepting
+ *        The resource's accept operation is in progress. (Value: "ACCEPTING")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Active The
+ *        resource is active (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Creating The
+ *        resource's create operation is in progress. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Deleting The
+ *        resource's delete operation is in progress. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Failed The
+ *        resource is in an undefined state due to resource creation or deletion
+ *        failure. You can try to delete the resource later or contact support
+ *        for help. (Value: "FAILED")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Inactive The
+ *        resource is inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Obsolete The
+ *        hub associated with this spoke resource has been deleted. This state
+ *        applies to spoke resources only. (Value: "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Rejecting
+ *        The resource's reject operation is in progress. (Value: "REJECTING")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_StateUnspecified
+ *        No state information available (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_GatewayAdvertisedRoute_State_Updating The
+ *        resource's update operation is in progress. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The Google-generated UUID for the gateway advertised route.
+ *  This value is unique across all gateway advertised route resources. If a
+ *  gateway advertised route is deleted and another with the same name is
+ *  created, the new route is assigned a different `unique_id`.
+ */
+@property(nonatomic, copy, nullable) NSString *uniqueId;
+
+/** Output only. The time the gateway advertised route was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional labels in key-value pair format. For more information about labels,
+ *  see [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_GatewayAdvertisedRoute_Labels : GTLRObject
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRNetworkconnectivity_GoogleLongrunningCancelOperationRequest : GTLRObject
@@ -3617,6 +3907,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  preset_topology is set to PRESET_TOPOLOGY_UNSPECIFIED.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Hub_PresetTopology_HybridInspection
+ *        Hybrid inspection has 4 groups ('non-prod', 'prod', 'services', and
+ *        'untrusted') that are automatically created along with hub creation.
+ *        (Value: "HYBRID_INSPECTION")
  *    @arg @c kGTLRNetworkconnectivity_Hub_PresetTopology_Mesh Mesh topology is
  *        implemented. Group `default` is automatically created. All spokes in
  *        the hub are added to group `default`. (Value: "MESH")
@@ -3938,6 +4232,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  A list of IP ranges that are reserved for this gateway's internal
+ *  intfrastructure.
+ */
+@interface GTLRNetworkconnectivity_IpRangeReservation : GTLRObject
+
+/**
+ *  Required. A block of IP addresses used to allocate supporting infrastructure
+ *  for this gateway. This block must not overlap with subnets in any spokes or
+ *  peer VPC networks that the gateway can communicate with. Example:
+ *  "10.1.2.0/24"
+ */
+@property(nonatomic, copy, nullable) NSString *ipRange;
+
+@end
+
+
+/**
  *  A collection of VLAN attachment resources. These resources should be
  *  redundant attachments that all advertise the same prefixes to Google Cloud.
  *  Alternatively, in active/passive configurations, all attachments should be
@@ -4231,6 +4542,37 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for HubService.ListGatewayAdvertisedRoutes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gatewayAdvertisedRoutes" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListGatewayAdvertisedRoutesResponse : GTLRCollectionObject
+
+/**
+ *  The requested gateway advertised routes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_GatewayAdvertisedRoute *> *gatewayAdvertisedRoutes;
+
+/**
+ *  The token for the next page of the response. To see more results, use this
+ *  value as the page_token for your next request. If this value is empty, there
+ *  are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Hubs that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -6580,6 +6922,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** Optional. The list of fields waiting for hub administrator's approval. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fieldPathsPendingUpdate;
 
+/**
+ *  Optional. This is a gateway that can apply specialized processing to traffic
+ *  going through it.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Gateway *gateway;
+
 /** Optional. The name of the group that this spoke is associated with. */
 @property(nonatomic, copy, nullable) NSString *group;
 
@@ -6624,6 +6972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  Output only. The type of resource associated with the spoke.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_Gateway Spokes that are
+ *        NCC gateways. (Value: "GATEWAY")
  *    @arg @c kGTLRNetworkconnectivity_Spoke_SpokeType_InterconnectAttachment
  *        Spokes associated with VLAN attachments. (Value:
  *        "INTERCONNECT_ATTACHMENT")
@@ -6837,6 +7187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  Output only. The type of the spokes.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_Gateway Spokes
+ *        that are NCC gateways. (Value: "GATEWAY")
  *    @arg @c kGTLRNetworkconnectivity_SpokeTypeCount_SpokeType_InterconnectAttachment
  *        Spokes associated with VLAN attachments. (Value:
  *        "INTERCONNECT_ATTACHMENT")

@@ -172,6 +172,11 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_ConnectionStateUnsp
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_Error = @"ERROR";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Connection_State_MissingCredentials = @"MISSING_CREDENTIALS";
 
+// GTLRDLP_GooglePrivacyDlpV2ConversationMessage.messageType
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_Content = @"CONTENT";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_Context = @"CONTEXT";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ConversationMessage_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig.commonAlphabet
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric = @"ALPHA_NUMERIC";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified = @"FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED";
@@ -763,6 +768,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2AllMessages
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AllMessages
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2AllOtherBigQueryTables
 //
 
@@ -894,6 +908,26 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2AwsDiscoveryStartingLocation
 @dynamic accountId, allAssetInventoryAssets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2BatchContentItem
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2BatchContentItem
+@dynamic stringValueBatch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2BatchContentLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2BatchContentLocation
+@dynamic itemIndex;
 @end
 
 
@@ -1363,7 +1397,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ContentItem
-@dynamic byteItem, contentMetadata, table, value;
+@dynamic batchContentItem, byteItem, contentMetadata, conversation, table,
+         value;
 @end
 
 
@@ -1373,7 +1408,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ContentLocation
-@dynamic containerName, containerTimestamp, containerVersion, documentLocation,
+@dynamic batchContentLocation, containerName, containerTimestamp,
+         containerVersion, conversationLocation, documentLocation,
          imageLocation, metadataLocation, recordLocation;
 @end
 
@@ -1393,6 +1429,44 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2Conversation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2Conversation
+@dynamic messages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRDLP_GooglePrivacyDlpV2ConversationMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ConversationLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ConversationLocation
+@dynamic allMessages, messageIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ConversationMessage
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ConversationMessage
+@dynamic content, messageType, participantId;
 @end
 
 
@@ -3091,8 +3165,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InspectTemplate
-@dynamic createTime, descriptionProperty, displayName, inspectConfig, name,
-         updateTime;
+@dynamic allowLimitedAvailabilityInfoTypes, createTime, descriptionProperty,
+         displayName, inspectConfig, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -4702,6 +4776,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2StoredType
 @dynamic createTime, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2StringValueBatch
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2StringValueBatch
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

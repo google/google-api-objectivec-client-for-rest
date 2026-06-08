@@ -100,6 +100,11 @@
 @class GTLRNetworkSecurity_Operation_Metadata;
 @class GTLRNetworkSecurity_Operation_Response;
 @class GTLRNetworkSecurity_Rule;
+@class GTLRNetworkSecurity_SACAttachment;
+@class GTLRNetworkSecurity_SACAttachment_Labels;
+@class GTLRNetworkSecurity_SACRealm;
+@class GTLRNetworkSecurity_SACRealm_Labels;
+@class GTLRNetworkSecurity_SACRealmPairingKey;
 @class GTLRNetworkSecurity_SecurityProfile;
 @class GTLRNetworkSecurity_SecurityProfile_Labels;
 @class GTLRNetworkSecurity_SecurityProfileGroup;
@@ -1302,6 +1307,86 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SACAttachment.state
+
+/**
+ *  Currently attached to a partner.
+ *
+ *  Value: "PARTNER_ATTACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACAttachment_State_PartnerAttached;
+/**
+ *  Was once attached to a partner but has been detached.
+ *
+ *  Value: "PARTNER_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACAttachment_State_PartnerDetached;
+/**
+ *  Has never been attached to a partner.
+ *
+ *  Value: "PENDING_PARTNER_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACAttachment_State_PendingPartnerAttachment;
+/**
+ *  No state specified. This should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACAttachment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SACRealm.securityService
+
+/**
+ *  [Palo Alto Networks Prisma
+ *  Access](https://www.paloaltonetworks.com/sase/access).
+ *
+ *  Value: "PALO_ALTO_PRISMA_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACRealm_SecurityService_PaloAltoPrismaAccess;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "SECURITY_SERVICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACRealm_SecurityService_SecurityServiceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SACRealm.state
+
+/**
+ *  Is not attached to a partner and has an expired pairing key. Used only for
+ *  Prisma Access.
+ *
+ *  Value: "KEY_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACRealm_State_KeyExpired;
+/**
+ *  Currently attached to a partner.
+ *
+ *  Value: "PARTNER_ATTACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACRealm_State_PartnerAttached;
+/**
+ *  Was once attached to a partner but has been detached.
+ *
+ *  Value: "PARTNER_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACRealm_State_PartnerDetached;
+/**
+ *  Has never been attached to a partner. Used only for Prisma Access.
+ *
+ *  Value: "PENDING_PARTNER_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACRealm_State_PendingPartnerAttachment;
+/**
+ *  No state specified. This should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SACRealm_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_SecurityProfile.type
 
 /**
@@ -1897,6 +1982,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. A list of authorization network rules to match against the
+ *  incoming request. A policy match occurs when at least one network rule
+ *  matches the request. At least one network rule is required for Allow or Deny
+ *  Action if no HTTP rules are provided. Network rules are mutually exclusive
+ *  with HTTP rules. Limited to 5 rules.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRule *> *networkRules;
+
+/**
  *  Optional. Immutable. Defines the type of authorization being performed. If
  *  not specified, `REQUEST_AUTHZ` is applied. This field cannot be changed once
  *  AuthzPolicy is created.
@@ -2262,6 +2356,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  form /package.service/method.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *paths;
+
+/**
+ *  Optional. A list of SNIs to match against. The match can be one of exact,
+ *  prefix, suffix, or contains (substring match). If there is no SNI (i.e.
+ *  plaintext HTTP traffic), the request will be denied. Matches are always case
+ *  sensitive unless the ignoreCase is set. Limited to 10 SNIs per Authorization
+ *  Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *snis;
 
 @end
 
@@ -2840,10 +2943,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @interface GTLRNetworkSecurity_FirewallEndpoint : GTLRObject
 
 /**
- *  Output only. List of networks that are associated with this endpoint in the
- *  local zone. This is a projection of the FirewallEndpointAssociations
- *  pointing at this endpoint. A network will only appear in this list after
- *  traffic routing is fully configured. Format:
+ *  Output only. Deprecated: List of networks that are associated with this
+ *  endpoint in the local zone. This is a projection of the
+ *  FirewallEndpointAssociations pointing at this endpoint. A network will only
+ *  appear in this list after traffic routing is fully configured. Format:
  *  projects/{project}/global/networks/{name}.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *associatedNetworks GTLR_DEPRECATED;
@@ -4698,7 +4801,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Locations that could not be reached. */
+/**
+ *  Unordered list. Locations that could not be reached. See
+ *  https://google.aip.dev/217 for more details.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -4787,6 +4893,60 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  For example, when attempting to list all resources across all supported
  *  locations.
  */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for `ListSACAttachments` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sacAttachments" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkSecurity_ListSACAttachmentsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of SACAttachments.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SACAttachment *> *sacAttachments;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for `ListSACRealms` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sacRealms" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkSecurity_ListSACRealmsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of SACRealms.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SACRealm *> *sacRealms;
+
+/** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -5880,6 +6040,165 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  rule checks for the source.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_Source *> *sources;
+
+@end
+
+
+/**
+ *  Represents a Secure Access Connect (SAC) attachment resource. A Secure
+ *  Access Connect attachment enables NCC Gateway to process traffic with an SSE
+ *  product.
+ */
+@interface GTLRNetworkSecurity_SACAttachment : GTLRObject
+
+/** Output only. Timestamp when the attachment was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Optional list of labels applied to the resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_SACAttachment_Labels *labels;
+
+/**
+ *  Identifier. Resource name, in the form
+ *  `projects/{project}/locations/{location}/sacAttachments/{sac_attachment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. NCC Gateway associated with the attachment. This can be input as
+ *  an ID or a full resource name. The output always has the form
+ *  `projects/{project_number}/locations/{location}/spokes/{ncc_gateway}`.
+ */
+@property(nonatomic, copy, nullable) NSString *nccGateway;
+
+/**
+ *  Required. SAC Realm which owns the attachment. This can be input as an ID or
+ *  a full resource name. The output always has the form
+ *  `projects/{project_number}/locations/{location}/sacRealms/{sac_realm}`.
+ */
+@property(nonatomic, copy, nullable) NSString *sacRealm;
+
+/**
+ *  Output only. State of the attachment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SACAttachment_State_PartnerAttached Currently
+ *        attached to a partner. (Value: "PARTNER_ATTACHED")
+ *    @arg @c kGTLRNetworkSecurity_SACAttachment_State_PartnerDetached Was once
+ *        attached to a partner but has been detached. (Value:
+ *        "PARTNER_DETACHED")
+ *    @arg @c kGTLRNetworkSecurity_SACAttachment_State_PendingPartnerAttachment
+ *        Has never been attached to a partner. (Value:
+ *        "PENDING_PARTNER_ATTACHMENT")
+ *    @arg @c kGTLRNetworkSecurity_SACAttachment_State_StateUnspecified No state
+ *        specified. This should not be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Timestamp when the attachment was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Optional list of labels applied to the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_SACAttachment_Labels : GTLRObject
+@end
+
+
+/**
+ *  Represents a Secure Access Connect (SAC) realm resource. A Secure Access
+ *  Connect realm establishes a connection between your Google Cloud project and
+ *  an SSE service.
+ */
+@interface GTLRNetworkSecurity_SACRealm : GTLRObject
+
+/** Output only. Timestamp when the realm was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Optional list of labels applied to the resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_SACRealm_Labels *labels;
+
+/**
+ *  Identifier. Resource name, in the form
+ *  `projects/{project}/locations/global/sacRealms/{sacRealm}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Key to be shared with SSE service provider during pairing. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_SACRealmPairingKey *pairingKey;
+
+/**
+ *  Immutable. SSE service provider associated with the realm.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SACRealm_SecurityService_PaloAltoPrismaAccess
+ *        [Palo Alto Networks Prisma
+ *        Access](https://www.paloaltonetworks.com/sase/access). (Value:
+ *        "PALO_ALTO_PRISMA_ACCESS")
+ *    @arg @c kGTLRNetworkSecurity_SACRealm_SecurityService_SecurityServiceUnspecified
+ *        The default value. This value is used if the state is omitted. (Value:
+ *        "SECURITY_SERVICE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *securityService;
+
+/**
+ *  Output only. State of the realm.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SACRealm_State_KeyExpired Is not attached to
+ *        a partner and has an expired pairing key. Used only for Prisma Access.
+ *        (Value: "KEY_EXPIRED")
+ *    @arg @c kGTLRNetworkSecurity_SACRealm_State_PartnerAttached Currently
+ *        attached to a partner. (Value: "PARTNER_ATTACHED")
+ *    @arg @c kGTLRNetworkSecurity_SACRealm_State_PartnerDetached Was once
+ *        attached to a partner but has been detached. (Value:
+ *        "PARTNER_DETACHED")
+ *    @arg @c kGTLRNetworkSecurity_SACRealm_State_PendingPartnerAttachment Has
+ *        never been attached to a partner. Used only for Prisma Access. (Value:
+ *        "PENDING_PARTNER_ATTACHMENT")
+ *    @arg @c kGTLRNetworkSecurity_SACRealm_State_StateUnspecified No state
+ *        specified. This should not be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Timestamp when the realm was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Optional list of labels applied to the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_SACRealm_Labels : GTLRObject
+@end
+
+
+/**
+ *  Key to be shared with SSE service provider to establish global handshake.
+ */
+@interface GTLRNetworkSecurity_SACRealmPairingKey : GTLRObject
+
+/**
+ *  Output only. Timestamp in UTC of when this resource is considered expired.
+ *  It expires 7 days after creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** Output only. Key value. */
+@property(nonatomic, copy, nullable) NSString *key;
 
 @end
 

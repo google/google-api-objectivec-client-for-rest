@@ -14476,15 +14476,23 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesCancelAsyncQuery
 
-@dynamic name, operationName;
+@dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}:cancelAsyncQuery";
   GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesCancelAsyncQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineResponse class];
   query.loggingName = @"aiplatform.projects.locations.reasoningEngines.cancelAsyncQuery";
@@ -19201,15 +19209,23 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @implementation GTLRAiplatformQuery_ReasoningEnginesCancelAsyncQuery
 
-@dynamic name, operationName;
+@dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}:cancelAsyncQuery";
   GTLRAiplatformQuery_ReasoningEnginesCancelAsyncQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineResponse class];
   query.loggingName = @"aiplatform.reasoningEngines.cancelAsyncQuery";

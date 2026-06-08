@@ -12,9 +12,17 @@
 #import <GoogleAPIClientForREST/GTLRGoogleHealthAPI.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeGoogleHealthAPICloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeGoogleHealthAPICloudPlatform    = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly = @"https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly = @"https://www.googleapis.com/auth/googlehealth.ecg.readonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly = @"https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.readonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly = @"https://www.googleapis.com/auth/googlehealth.irn.readonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly = @"https://www.googleapis.com/auth/googlehealth.location.readonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly = @"https://www.googleapis.com/auth/googlehealth.profile.readonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly = @"https://www.googleapis.com/auth/googlehealth.settings.readonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly = @"https://www.googleapis.com/auth/googlehealth.sleep.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRGoogleHealthAPIService

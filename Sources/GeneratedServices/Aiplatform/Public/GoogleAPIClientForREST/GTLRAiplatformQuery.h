@@ -28214,25 +28214,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the longrunning operation returned from
- *  AsyncQueryReasoningEngine. Format:
- *  `projects/{project}/locations/{location}/operations/{operation}`
- */
-@property(nonatomic, copy, nullable) NSString *operationName;
-
-/**
  *  Fetches a @c
  *  GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineResponse.
  *
  *  Cancels an AsyncQueryReasoningEngine operation.
  *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest
+ *    to include in the query.
  *  @param name Required. The name of the ReasoningEngine resource to use.
  *    Format:
  *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesCancelAsyncQuery
  */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -28890,8 +28887,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Mask specifying which fields to update. Supported fields: *
- *  `display_name` * `description` * `fact`
+ *  Optional. Mask specifying which fields to update. The following fields are
+ *  immutable: * `scope` * `memory_type`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -37026,25 +37023,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the longrunning operation returned from
- *  AsyncQueryReasoningEngine. Format:
- *  `projects/{project}/locations/{location}/operations/{operation}`
- */
-@property(nonatomic, copy, nullable) NSString *operationName;
-
-/**
  *  Fetches a @c
  *  GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineResponse.
  *
  *  Cancels an AsyncQueryReasoningEngine operation.
  *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest
+ *    to include in the query.
  *  @param name Required. The name of the ReasoningEngine resource to use.
  *    Format:
  *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
  *
  *  @return GTLRAiplatformQuery_ReasoningEnginesCancelAsyncQuery
  */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
 
 @end
 

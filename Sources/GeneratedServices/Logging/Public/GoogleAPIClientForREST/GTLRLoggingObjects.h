@@ -87,6 +87,7 @@
 @class GTLRLogging_SummaryField;
 @class GTLRLogging_SuppressionInfo;
 @class GTLRLogging_UpdateBucketRequest;
+@class GTLRLogging_VirtualField;
 @class GTLRLogging_WriteLogEntriesRequest_Labels;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1090,6 +1091,24 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_RateLimit
  *  Value: "REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_VirtualField.virtualFieldType
+
+/**
+ *  Creates a virtual field by selecting the first non-null value from the list
+ *  of fields specified in underlying_field_sources, similar to a COALESCE
+ *  function in SQL.
+ *
+ *  Value: "COALESCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_VirtualField_VirtualFieldType_Coalesce;
+/**
+ *  Invalid value, do not use.
+ *
+ *  Value: "VIRTUAL_FIELD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_VirtualField_VirtualFieldType_VirtualFieldTypeUnspecified;
 
 /**
  *  Metadata associated with App Hub.
@@ -4732,6 +4751,15 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @property(nonatomic, copy, nullable) NSString *truncationGranularity;
 
+/**
+ *  Optional. A virtual field definition, used in place of field to define a
+ *  field that is computed from other fields rather than being directly present
+ *  in the data schema.For example, a virtual field can be defined using
+ *  COALESCE to select the first non-null value from a list of fields.If
+ *  virtual_field is set, field must not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_VirtualField *virtualField;
+
 @end
 
 
@@ -5477,6 +5505,43 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  A virtual field is a field that is not physically present in the underlying
+ *  data schema, but is created through specific operations within the query
+ *  builder model based on other fields in the schema.
+ */
+@interface GTLRLogging_VirtualField : GTLRObject
+
+/**
+ *  The field sources that will be used to create the virtual field, based on
+ *  the semantics of the virtual field type.The field sources must follow these
+ *  rules, based on the virtual field type: - For
+ *  VIRTUAL_FIELD_TYPE_UNSPECIFIED, this field must be empty. - For COALESCE,
+ *  this field must be non-empty and include a minimum of two field sources. The
+ *  underlying field sources must be actual projected fields that represent
+ *  actual schema fields and that must not be transformed and aggregated in any
+ *  way, except for casting. The type of all the underlying field sources must
+ *  be equivalent so that picking one of them would result in the same value
+ *  type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_FieldSource *> *underlyingFieldSources;
+
+/**
+ *  Required. The type of the virtual field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_VirtualField_VirtualFieldType_Coalesce Creates a
+ *        virtual field by selecting the first non-null value from the list of
+ *        fields specified in underlying_field_sources, similar to a COALESCE
+ *        function in SQL. (Value: "COALESCE")
+ *    @arg @c kGTLRLogging_VirtualField_VirtualFieldType_VirtualFieldTypeUnspecified
+ *        Invalid value, do not use. (Value: "VIRTUAL_FIELD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *virtualFieldType;
 
 @end
 

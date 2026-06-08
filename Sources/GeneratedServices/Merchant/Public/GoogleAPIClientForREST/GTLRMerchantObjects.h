@@ -498,6 +498,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductStatusChangeMessage_Attr
 // GTLRMerchant_ProductStatusChangeMessage.resourceType
 
 /**
+ *  Account service
+ *
+ *  Value: "ACCOUNT_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductStatusChangeMessage_ResourceType_AccountService;
+/**
  *  Resource type : product
  *
  *  Value: "PRODUCT"
@@ -1572,6 +1578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *  The resource that changed, in this case it will always be `Product`.
  *
  *  Likely values:
+ *    @arg @c kGTLRMerchant_ProductStatusChangeMessage_ResourceType_AccountService
+ *        Account service (Value: "ACCOUNT_SERVICE")
  *    @arg @c kGTLRMerchant_ProductStatusChangeMessage_ResourceType_Product
  *        Resource type : product (Value: "PRODUCT")
  *    @arg @c kGTLRMerchant_ProductStatusChangeMessage_ResourceType_ResourceUnspecified

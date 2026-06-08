@@ -427,6 +427,11 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Certifica
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256 = @"SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
 
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse.insightsState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsDisabled = @"INSIGHTS_DISABLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsEnabled = @"INSIGHTS_ENABLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse_InsightsState_InsightsEnablementStateUnspecified = @"INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED";
+
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.affiliationState
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliatedCloudManaged = @"AFFILIATED_CLOUD_MANAGED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliationStateUnspecified = @"AFFILIATION_STATE_UNSPECIFIED";
@@ -487,6 +492,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTru
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_ServiceProviderUnspecified = @"SERVICE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_UniversalDeviceTrust = @"UNIVERSAL_DEVICE_TRUST";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Zscaler = @"ZSCALER";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse.insightsState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsDisabled = @"INSIGHTS_DISABLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsEnabled = @"INSIGHTS_ENABLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified = @"INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse.insightsState
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsDisabled = @"INSIGHTS_DISABLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnabled = @"INSIGHTS_ENABLED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse_InsightsState_InsightsEnablementStateUnspecified = @"INSIGHTS_ENABLEMENT_STATE_UNSPECIFIED";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineLevelUserCloud = @"MACHINE_LEVEL_USER_CLOUD";
@@ -891,6 +906,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
     @"storageReports" : [GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeProfileVersionsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeProfileVersionsResponse
+@dynamic nextPageToken, profileBrowserVersions, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"profileBrowserVersions" : [GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"profileBrowserVersions";
 }
 
 @end
@@ -1321,7 +1358,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 @implementation GTLRChromeManagement_GoogleChromeManagementV1InstalledApp
 @dynamic appId, appInstallType, appSource, appType, browserDeviceCount,
          descriptionProperty, disabled, displayName, homepageUri, osUserCount,
-         permissions, riskAssessment;
+         permissions, profileCount, riskAssessment;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2081,6 +2118,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse
+@dynamic insightsState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile
 //
 
@@ -2264,6 +2311,53 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse
+@dynamic insightsState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsRequest
+@dynamic targetOus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetOus" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse
+@dynamic insightsState;
 @end
 
 

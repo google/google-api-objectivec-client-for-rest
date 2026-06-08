@@ -132,8 +132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Required. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *  `projects/{PROJECT_ID}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -143,8 +144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Returns the AutokeyConfig for a folder or project.
  *
  *  @param name Required. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *    `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *    `projects/{PROJECT_ID}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_FoldersGetAutokeyConfig
  */
@@ -202,8 +204,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *  `projects/{PROJECT_ID}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -226,8 +229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
  *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *    `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *    `projects/{PROJECT_ID}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
  */
@@ -372,8 +376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Required. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *  `projects/{PROJECT_ID}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -383,8 +388,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Returns the AutokeyConfig for a folder or project.
  *
  *  @param name Required. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *    `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *    `projects/{PROJECT_ID}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsGetAutokeyConfig
  */
@@ -2407,6 +2413,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Specifies the WrappingPublicKey format. If not specified: * For
+ *  RSA-based import methods, the wrapping key will be returned in PEM format *
+ *  For pure ML-KEM-based import methods, the wrapping key will be returned in
+ *  the raw bytes format specified in FIPS-203 * For X-Wing-based import
+ *  methods, the wrapping key will be returned in the raw bytes format specified
+ *  in https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified If the
+ *        public_key_format field is not specified: - For PQC algorithms, an
+ *        error will be returned. - For non-PQC algorithms, the default format
+ *        is PEM, and the field pem will be populated. Otherwise, the public key
+ *        will be exported through the public_key field in the requested format.
+ *        (Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatPem The returned public key will be
+ *        encoded in PEM format. See the
+ *        [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *        Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
+ *        [Textual Encoding of Subject Public Key Info]
+ *        (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *        (Value: "PEM")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatDer The returned public key will be
+ *        encoded in DER format (the PrivateKeyInfo structure from RFC 5208).
+ *        (Value: "DER")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatNistPqc This is supported only for PQC
+ *        algorithms. The key material is returned in the format defined by NIST
+ *        PQC standards (FIPS 203, FIPS 204, and FIPS 205). (Value: "NIST_PQC")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatXwingRawBytes The returned public key
+ *        is in raw bytes format defined in its standard
+ *        https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *        (Value: "XWING_RAW_BYTES")
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFormat;
+
+/**
  *  Fetches a @c GTLRCloudKMS_ImportJob.
  *
  *  Returns metadata for a given ImportJob.
@@ -3497,8 +3538,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *  `projects/{PROJECT_ID}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3521,8 +3563,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
  *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *    `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *    `projects/{PROJECT_ID}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsUpdateAutokeyConfig
  */

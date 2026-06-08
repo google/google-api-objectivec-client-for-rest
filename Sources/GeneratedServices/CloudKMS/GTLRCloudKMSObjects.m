@@ -45,6 +45,7 @@ NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_ResourcePr
 // GTLRCloudKMS_AutokeyConfig.state
 NSString * const kGTLRCloudKMS_AutokeyConfig_State_Active      = @"ACTIVE";
 NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted = @"KEY_PROJECT_DELETED";
+NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectPermissionDenied = @"KEY_PROJECT_PERMISSION_DENIED";
 NSString * const kGTLRCloudKMS_AutokeyConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_AutokeyConfig_State_Uninitialized = @"UNINITIALIZED";
 
@@ -271,6 +272,9 @@ NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRa
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096 = @"RSA_SIGN_RAW_PKCS1_4096";
 
 // GTLRCloudKMS_ImportJob.importMethod
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemMlKem1024HkdfSha256Aes256Gcm = @"HPKE_KEM_ML_KEM_1024_HKDF_SHA256_AES_256_GCM";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemMlKem768HkdfSha256Aes256Gcm = @"HPKE_KEM_ML_KEM_768_HKDF_SHA256_AES_256_GCM";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemXwingHkdfSha256Aes256Gcm = @"HPKE_KEM_XWING_HKDF_SHA256_AES_256_GCM";
 NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_ImportMethodUnspecified = @"IMPORT_METHOD_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha1Aes256 = @"RSA_OAEP_3072_SHA1_AES_256";
 NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha256 = @"RSA_OAEP_3072_SHA256";
@@ -286,6 +290,13 @@ NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm   = @"HSM";
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_HsmSingleTenant = @"HSM_SINGLE_TENANT";
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Software = @"SOFTWARE";
+
+// GTLRCloudKMS_ImportJob.publicKeyFormat
+NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_Der   = @"DER";
+NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_NistPqc = @"NIST_PQC";
+NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_Pem   = @"PEM";
+NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_PublicKeyFormatUnspecified = @"PUBLIC_KEY_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_XwingRawBytes = @"XWING_RAW_BYTES";
 
 // GTLRCloudKMS_ImportJob.state
 NSString * const kGTLRCloudKMS_ImportJob_State_Active          = @"ACTIVE";
@@ -909,7 +920,8 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 
 @implementation GTLRCloudKMS_ImportJob
 @dynamic attestation, createTime, cryptoKeyBackend, expireEventTime, expireTime,
-         generateTime, importMethod, name, protectionLevel, publicKey, state;
+         generateTime, importMethod, name, protectionLevel, publicKey,
+         publicKeyFormat, state;
 @end
 
 
@@ -1738,5 +1750,5 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 //
 
 @implementation GTLRCloudKMS_WrappingPublicKey
-@dynamic pem;
+@dynamic data, pem;
 @end

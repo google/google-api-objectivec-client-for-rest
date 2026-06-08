@@ -1528,6 +1528,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *additionalGuests;
 
+/**
+ *  If present, indicates the status of an asynchronous operation ongoing for
+ *  this attendee (e.g. listing of members of large attendee groups). Read-only.
+ *  The default is to not be present.
+ *  Possible values are:
+ *  - "inProgress" - The asynchronous operation is in progress.
+ *  - (not present) - Otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *asyncOperation;
+
 /** The attendee's response comment. Optional. */
 @property(nonatomic, copy, nullable) NSString *comment;
 

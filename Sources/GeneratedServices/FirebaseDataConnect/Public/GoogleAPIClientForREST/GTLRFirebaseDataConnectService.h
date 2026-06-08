@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase Data Connect API (firebasedataconnect/v1)
+//   Firebase SQL Connect API (firebasedataconnect/v1)
 // Description:
 //   Firebase SQL Connect is a relational database service for mobile and web
 //   apps that lets you build and scale using a fully-managed PostgreSQL
@@ -41,7 +41,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseDataConnectCloudPlatfor
 //
 
 /**
- *  Service for executing Firebase Data Connect API queries.
+ *  Service for executing Firebase SQL Connect API queries.
  *
  *  Firebase SQL Connect is a relational database service for mobile and web
  *  apps that lets you build and scale using a fully-managed PostgreSQL database

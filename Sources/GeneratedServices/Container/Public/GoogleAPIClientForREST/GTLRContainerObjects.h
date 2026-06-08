@@ -24,6 +24,7 @@
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AdvancedDatapathObservabilityConfig;
 @class GTLRContainer_AdvancedMachineFeatures;
+@class GTLRContainer_AgentSandboxConfig;
 @class GTLRContainer_AnonymousAuthenticationConfig;
 @class GTLRContainer_AuthenticatorGroupsConfig;
 @class GTLRContainer_AutoIpamConfig;
@@ -62,9 +63,11 @@
 @class GTLRContainer_ControlPlaneEndpointsConfig;
 @class GTLRContainer_CostManagementConfig;
 @class GTLRContainer_CrashLoopBackOffConfig;
+@class GTLRContainer_CustomImageConfig;
 @class GTLRContainer_CustomNodeInit;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
+@class GTLRContainer_DataplaneV2Config;
 @class GTLRContainer_Date;
 @class GTLRContainer_DConfig;
 @class GTLRContainer_DedicatedLocalSsdProfile;
@@ -84,6 +87,7 @@
 @class GTLRContainer_EvictionGracePeriod;
 @class GTLRContainer_EvictionMinimumReclaim;
 @class GTLRContainer_EvictionSignals;
+@class GTLRContainer_ExclusionUntilEndOfSupport;
 @class GTLRContainer_FastSocket;
 @class GTLRContainer_Filter;
 @class GTLRContainer_Fleet;
@@ -148,6 +152,7 @@
 @class GTLRContainer_NodeConfig_Metadata;
 @class GTLRContainer_NodeConfig_ResourceLabels;
 @class GTLRContainer_NodeConfigDefaults;
+@class GTLRContainer_NodeCreationConfig;
 @class GTLRContainer_NodeDrainConfig;
 @class GTLRContainer_NodeKernelModuleLoading;
 @class GTLRContainer_NodeKubeletConfig;
@@ -160,6 +165,7 @@
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_NodePoolDefaults;
 @class GTLRContainer_NodePoolLoggingConfig;
+@class GTLRContainer_NodePoolMaintenancePolicy;
 @class GTLRContainer_NodeReadinessConfig;
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_NodeTaints;
@@ -961,6 +967,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encry
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DataplaneV2Config.scalabilityMode
+
+/**
+ *  Disables the scale optimized mode for DPv2.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DataplaneV2Config_ScalabilityMode_Disabled;
+/**
+ *  Default value.
+ *
+ *  Value: "SCALABILITY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DataplaneV2Config_ScalabilityMode_ScalabilityModeUnspecified;
+/**
+ *  Enables the scale optimized mode for DPv2.
+ *
+ *  Value: "SCALE_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DataplaneV2Config_ScalabilityMode_ScaleOptimized;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_DesiredEnterpriseConfig.desiredTier
@@ -1895,6 +1923,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionM
  *  Value: "STANDARD_ENCRYPTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_StandardEncryption;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NodeCreationConfig.nodeCreationMode
+
+/**
+ *  When no user input is provided.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeCreationConfig_NodeCreationMode_ModeUnspecified;
+/**
+ *  gcp-controller-manager automatically creates the node object after CSR
+ *  approval.
+ *
+ *  Value: "VIA_CONTROL_PLANE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeCreationConfig_NodeCreationMode_ViaControlPlane;
+/**
+ *  Kubelet registers itself.
+ *
+ *  Value: "VIA_KUBELET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeCreationConfig_NodeCreationMode_ViaKubelet;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodeKernelModuleLoading.policy
@@ -3319,6 +3370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_AddonsConfig : GTLRObject
 
+/** Optional. Configuration for the AgentSandbox addon. */
+@property(nonatomic, strong, nullable) GTLRContainer_AgentSandboxConfig *agentSandboxConfig;
+
 /**
  *  Configuration for the Cloud Run addon, which allows the user to use a
  *  managed Knative service.
@@ -3480,6 +3534,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *threadsPerCore;
+
+@end
+
+
+/**
+ *  Configuration for the AgentSandbox addon.
+ */
+@interface GTLRContainer_AgentSandboxConfig : GTLRObject
+
+/**
+ *  Optional. Whether AgentSandbox is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -4468,6 +4537,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *nodeConfig GTLR_DEPRECATED;
 
+/** Optional. Configuration for Node Creation Mode. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeCreationConfig *nodeCreationConfig;
+
 /**
  *  Output only. The size of the address space on each node for hosting
  *  containers. This is provisioned from within the `container_ipv4_cidr` range.
@@ -4945,6 +5017,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_IdentityServiceConfig *desiredIdentityServiceConfig;
 
 /**
+ *  The desired name of the image to use for this node. This is used to create
+ *  clusters using a custom image. NOTE: Set the "desired_node_pool" field as
+ *  well.
+ */
+@property(nonatomic, copy, nullable) NSString *desiredImage;
+
+/**
+ *  The project containing the desired image to use for this node. This is used
+ *  to create clusters using a custom image. NOTE: Set the "desired_node_pool"
+ *  field as well.
+ */
+@property(nonatomic, copy, nullable) NSString *desiredImageProject;
+
+/**
  *  The desired image type for the node pool. NOTE: Set the "desired_node_pool"
  *  field as well.
  */
@@ -5050,6 +5136,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired network tier configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkTierConfig *desiredNetworkTierConfig;
+
+/** Optional. The desired NodeCreationConfig for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeCreationConfig *desiredNodeCreationConfig;
 
 /** The desired node kubelet config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *desiredNodeKubeletConfig;
@@ -5565,6 +5654,23 @@ GTLR_DEPRECATED
 
 
 /**
+ *  CustomImageConfig contains the information r
+ */
+@interface GTLRContainer_CustomImageConfig : GTLRObject
+
+/** The name of the image to use for this node. */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/** The name of the image family to use for this node. */
+@property(nonatomic, copy, nullable) NSString *imageFamily;
+
+/** The project containing the image to use for this node. */
+@property(nonatomic, copy, nullable) NSString *imageProject;
+
+@end
+
+
+/**
  *  Support for running custom init code while bootstrapping nodes.
  */
 @interface GTLRContainer_CustomNodeInit : GTLRObject
@@ -5676,6 +5782,27 @@ GTLR_DEPRECATED
  *        set (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  DataplaneV2Config is the configuration for DPv2.
+ */
+@interface GTLRContainer_DataplaneV2Config : GTLRObject
+
+/**
+ *  Optional. Scalability mode for the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DataplaneV2Config_ScalabilityMode_Disabled Disables
+ *        the scale optimized mode for DPv2. (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_DataplaneV2Config_ScalabilityMode_ScalabilityModeUnspecified
+ *        Default value. (Value: "SCALABILITY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_DataplaneV2Config_ScalabilityMode_ScaleOptimized
+ *        Enables the scale optimized mode for DPv2. (Value: "SCALE_OPTIMIZED")
+ */
+@property(nonatomic, copy, nullable) NSString *scalabilityMode;
 
 @end
 
@@ -6299,6 +6426,34 @@ GTLR_DEPRECATED
  *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
  */
 @property(nonatomic, copy, nullable) NSString *pidAvailable;
+
+@end
+
+
+/**
+ *  Defines the maintenance exclusion for the node pool.
+ */
+@interface GTLRContainer_ExclusionUntilEndOfSupport : GTLRObject
+
+/**
+ *  Optional. Indicates whether the exclusion is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. The end time of the maintenance exclusion. It is output only.
+ *  It is the cluster control plane version's end of support time, or end of
+ *  extended support time when the cluster is on extended support channel.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The start time of the maintenance exclusion. It is output only.
+ *  It is the exclusion creation time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -7270,20 +7425,22 @@ GTLR_DEPRECATED
  *  on the nodes. The following parameters are supported. net.core.busy_poll
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
  *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
- *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
- *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_mtu_probing net.ipv4.tcp_max_orphans
+ *  net.core.optmem_max net.core.somaxconn net.ipv4.neigh.default.gc_thresh1
+ *  net.ipv4.neigh.default.gc_thresh2 net.ipv4.neigh.default.gc_thresh3
+ *  net.ipv4.tcp_rmem net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ *  net.ipv4.tcp_mtu_probing net.ipv4.tcp_max_orphans
  *  net.ipv4.tcp_max_tw_buckets net.ipv4.tcp_syn_retries net.ipv4.tcp_ecn
  *  net.ipv4.tcp_congestion_control net.netfilter.nf_conntrack_max
  *  net.netfilter.nf_conntrack_buckets
  *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
- *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
- *  kernel.perf_event_paranoid kernel.sched_rt_runtime_us
- *  kernel.softlockup_panic kernel.yama.ptrace_scope kernel.kptr_restrict
- *  kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr fs.file-max
- *  fs.inotify.max_user_instances fs.inotify.max_user_watches fs.nr_open
- *  vm.dirty_background_ratio vm.dirty_background_bytes
+ *  net.netfilter.nf_conntrack_acct kernel.keys.maxkeys kernel.keys.maxbytes
+ *  kernel.shmmni kernel.shmmax kernel.shmall kernel.perf_event_paranoid
+ *  kernel.sched_rt_runtime_us kernel.softlockup_panic kernel.yama.ptrace_scope
+ *  kernel.kptr_restrict kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr
+ *  fs.file-max fs.inotify.max_user_instances fs.inotify.max_user_watches
+ *  fs.nr_open vm.dirty_background_ratio vm.dirty_background_bytes
  *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_bytes
  *  vm.dirty_writeback_centisecs vm.max_map_count vm.overcommit_memory
  *  vm.overcommit_ratio vm.vfs_cache_pressure vm.swappiness
@@ -7362,20 +7519,22 @@ GTLR_DEPRECATED
  *  on the nodes. The following parameters are supported. net.core.busy_poll
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
  *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
- *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
- *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_mtu_probing net.ipv4.tcp_max_orphans
+ *  net.core.optmem_max net.core.somaxconn net.ipv4.neigh.default.gc_thresh1
+ *  net.ipv4.neigh.default.gc_thresh2 net.ipv4.neigh.default.gc_thresh3
+ *  net.ipv4.tcp_rmem net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ *  net.ipv4.tcp_mtu_probing net.ipv4.tcp_max_orphans
  *  net.ipv4.tcp_max_tw_buckets net.ipv4.tcp_syn_retries net.ipv4.tcp_ecn
  *  net.ipv4.tcp_congestion_control net.netfilter.nf_conntrack_max
  *  net.netfilter.nf_conntrack_buckets
  *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
- *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
- *  kernel.perf_event_paranoid kernel.sched_rt_runtime_us
- *  kernel.softlockup_panic kernel.yama.ptrace_scope kernel.kptr_restrict
- *  kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr fs.file-max
- *  fs.inotify.max_user_instances fs.inotify.max_user_watches fs.nr_open
- *  vm.dirty_background_ratio vm.dirty_background_bytes
+ *  net.netfilter.nf_conntrack_acct kernel.keys.maxkeys kernel.keys.maxbytes
+ *  kernel.shmmni kernel.shmmax kernel.shmall kernel.perf_event_paranoid
+ *  kernel.sched_rt_runtime_us kernel.softlockup_panic kernel.yama.ptrace_scope
+ *  kernel.kptr_restrict kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr
+ *  fs.file-max fs.inotify.max_user_instances fs.inotify.max_user_watches
+ *  fs.nr_open vm.dirty_background_ratio vm.dirty_background_bytes
  *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_bytes
  *  vm.dirty_writeback_centisecs vm.max_map_count vm.overcommit_memory
  *  vm.overcommit_ratio vm.vfs_cache_pressure vm.swappiness
@@ -7978,6 +8137,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *datapathProvider;
 
+/** Optional. DataplaneV2Config specifies the DPv2 configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_DataplaneV2Config *dataplaneV2Config;
+
 /**
  *  Controls whether by default nodes have private IP addresses only. It is
  *  invalid to specify both PrivateClusterConfig.enablePrivateNodes and this
@@ -8475,6 +8637,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
 
 /**
+ *  The node image configuration to use for this node pool. Note that this is
+ *  only applicable for node pools using image_type=CUSTOM.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_CustomImageConfig *nodeImageConfig;
+
+/**
  *  The set of Google API scopes to be made available on all of the node VMs
  *  under the "default" service account. The following scopes are recommended,
  *  but not required, and by default are not included: *
@@ -8662,10 +8830,38 @@ GTLR_DEPRECATED
 
 
 /**
+ *  NodeCreationConfig defines the settings of node creation mode.
+ */
+@interface GTLRContainer_NodeCreationConfig : GTLRObject
+
+/**
+ *  The mode of node creation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodeCreationConfig_NodeCreationMode_ModeUnspecified
+ *        When no user input is provided. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NodeCreationConfig_NodeCreationMode_ViaControlPlane
+ *        gcp-controller-manager automatically creates the node object after CSR
+ *        approval. (Value: "VIA_CONTROL_PLANE")
+ *    @arg @c kGTLRContainer_NodeCreationConfig_NodeCreationMode_ViaKubelet
+ *        Kubelet registers itself. (Value: "VIA_KUBELET")
+ */
+@property(nonatomic, copy, nullable) NSString *nodeCreationMode;
+
+@end
+
+
+/**
  *  NodeDrainConfig contains the node drain related configurations for this node
  *  pool.
  */
 @interface GTLRContainer_NodeDrainConfig : GTLRObject
+
+/** The duration of the grace termination period for node drain. */
+@property(nonatomic, strong, nullable) GTLRDuration *graceTerminationDuration;
+
+/** The duration of the PDB timeout period for node drain. */
+@property(nonatomic, strong, nullable) GTLRDuration *pdbTimeoutDuration;
 
 /**
  *  Whether to respect PDB during node pool deletion.
@@ -9044,6 +9240,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePrivateNodes;
 
+/** Optional. Immutable. The VPC network for the node pool. */
+@property(nonatomic, copy, nullable) NSString *network;
+
 /** Network bandwidth tier configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPerformanceConfig *networkPerformanceConfig;
 
@@ -9178,6 +9377,9 @@ GTLR_DEPRECATED
  *  result in nodes being added and/or removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+/** Optional. Specifies the maintenance policy for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolMaintenancePolicy *maintenancePolicy;
 
 /** NodeManagement configuration for this NodePool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
@@ -9390,6 +9592,17 @@ GTLR_DEPRECATED
 
 /** Logging variant configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_LoggingVariantConfig *variantConfig;
+
+@end
+
+
+/**
+ *  Defines the maintenance policy for the node pool.
+ */
+@interface GTLRContainer_NodePoolMaintenancePolicy : GTLRObject
+
+/** Optional. The exclusion until end of support for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_ExclusionUntilEndOfSupport *exclusionUntilEndOfSupport;
 
 @end
 
@@ -12149,6 +12362,18 @@ GTLR_DEPRECATED
 
 /** Enable or disable gvnic on the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
+
+/**
+ *  The desired name of the image name to use for this node. This is used to
+ *  create clusters using a custom image.
+ */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/**
+ *  The project containing the desired image to use for this node pool. This is
+ *  used to create clusters using a custom image.
+ */
+@property(nonatomic, copy, nullable) NSString *imageProject;
 
 /**
  *  Required. The desired image type for the node pool. Please see

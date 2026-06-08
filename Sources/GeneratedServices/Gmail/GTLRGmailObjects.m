@@ -128,12 +128,15 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 //
 
 @implementation GTLRGmail_BatchModifyMessagesRequest
-@dynamic addLabelIds, ids, removeLabelIds;
+@dynamic addClassificationLabels, addLabelIds, ids,
+         removeClassificationLabelIds, removeLabelIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"addClassificationLabels" : [GTLRGmail_ClassificationLabelValue class],
     @"addLabelIds" : [NSString class],
     @"ids" : [NSString class],
+    @"removeClassificationLabelIds" : [NSString class],
     @"removeLabelIds" : [NSString class]
   };
   return map;
@@ -771,11 +774,14 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 //
 
 @implementation GTLRGmail_ModifyMessageRequest
-@dynamic addLabelIds, removeLabelIds;
+@dynamic addClassificationLabels, addLabelIds, removeClassificationLabelIds,
+         removeLabelIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"addClassificationLabels" : [GTLRGmail_ClassificationLabelValue class],
     @"addLabelIds" : [NSString class],
+    @"removeClassificationLabelIds" : [NSString class],
     @"removeLabelIds" : [NSString class]
   };
   return map;

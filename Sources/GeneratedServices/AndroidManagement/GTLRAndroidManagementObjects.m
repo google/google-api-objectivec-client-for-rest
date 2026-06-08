@@ -1354,14 +1354,15 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 @implementation GTLRAndroidManagement_ApplicationReport
 @dynamic applicationSource, displayName, events, installerPackageName,
          keyedAppStates, packageName, packageSha256Hash,
-         signingKeyCertFingerprints, state, userFacingType, versionCode,
-         versionName;
+         signingKeyCertFingerprints, signingKeyCerts, state, userFacingType,
+         versionCode, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"events" : [GTLRAndroidManagement_ApplicationEvent class],
     @"keyedAppStates" : [GTLRAndroidManagement_KeyedAppState class],
-    @"signingKeyCertFingerprints" : [NSString class]
+    @"signingKeyCertFingerprints" : [NSString class],
+    @"signingKeyCerts" : [GTLRAndroidManagement_ApplicationSigningKeyCert class]
   };
   return map;
 }

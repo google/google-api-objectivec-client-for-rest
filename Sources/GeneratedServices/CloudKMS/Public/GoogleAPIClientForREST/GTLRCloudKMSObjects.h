@@ -235,6 +235,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_Active;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted;
 /**
+ *  Deprecated: This state is not returned by the backend.
+ *
+ *  Value: "KEY_PROJECT_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectPermissionDenied GTLR_DEPRECATED;
+/**
  *  The state of the AutokeyConfig is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -1578,6 +1584,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
 // GTLRCloudKMS_ImportJob.importMethod
 
 /**
+ *  Represents the Hybrid Public Key Encryption (HPKE) Scheme originally defined
+ *  in [RFC 9180](https://www.rfc-editor.org/rfc/rfc9180). It involves wrapping
+ *  the raw key with an ephemeral AES key, derived with HKDF-SHA256 from an
+ *  encryption context, that is, in turn obtained from the receiver’s public key
+ *  with the help of the ML-KEM-1024 KEM. For more details, see the [ML-KEM HPKE
+ *  standard](http://datatracker.ietf.org/doc/draft-ietf-hpke-pq/01/).
+ *
+ *  Value: "HPKE_KEM_ML_KEM_1024_HKDF_SHA256_AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemMlKem1024HkdfSha256Aes256Gcm;
+/**
+ *  Represents the Hybrid Public Key Encryption (HPKE) Scheme originally defined
+ *  in [RFC 9180](https://www.rfc-editor.org/rfc/rfc9180). It involves wrapping
+ *  the raw key with an ephemeral AES key, derived with HKDF-SHA256 from an
+ *  encryption context, that is, in turn obtained from the receiver’s public key
+ *  with the help of the ML-KEM-768 KEM. For more details, see the [ML-KEM HPKE
+ *  standard](http://datatracker.ietf.org/doc/draft-ietf-hpke-pq/01/).
+ *
+ *  Value: "HPKE_KEM_ML_KEM_768_HKDF_SHA256_AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemMlKem768HkdfSha256Aes256Gcm;
+/**
+ *  Represents the Hybrid Public Key Encryption (HPKE) Scheme originally defined
+ *  in [RFC 9180](https://www.rfc-editor.org/rfc/rfc9180). It involves wrapping
+ *  the raw key with an ephemeral AES key, derived with HKDF-SHA256 from an
+ *  encryption context, that is, in turn obtained from the receiver’s public key
+ *  with the help of the X-Wing hybrid KEM. For more details, see the [X-Wing
+ *  standard](http://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/09/).
+ *
+ *  Value: "HPKE_KEM_XWING_HKDF_SHA256_AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemXwingHkdfSha256Aes256Gcm;
+/**
  *  Not specified.
  *
  *  Value: "IMPORT_METHOD_UNSPECIFIED"
@@ -1681,6 +1720,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Prote
  *  Value: "SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_ImportJob.publicKeyFormat
+
+/**
+ *  The returned public key will be encoded in DER format (the PrivateKeyInfo
+ *  structure from RFC 5208).
+ *
+ *  Value: "DER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_Der;
+/**
+ *  This is supported only for PQC algorithms. The key material is returned in
+ *  the format defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *
+ *  Value: "NIST_PQC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_NistPqc;
+/**
+ *  The returned public key will be encoded in PEM format. See the
+ *  [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual
+ *  Encoding of Subject Public Key Info]
+ *  (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_Pem;
+/**
+ *  If the public_key_format field is not specified: - For PQC algorithms, an
+ *  error will be returned. - For non-PQC algorithms, the default format is PEM,
+ *  and the field pem will be populated. Otherwise, the public key will be
+ *  exported through the public_key field in the requested format.
+ *
+ *  Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_PublicKeyFormatUnspecified;
+/**
+ *  The returned public key is in raw bytes format defined in its standard
+ *  https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *
+ *  Value: "XWING_RAW_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_PublicKeyFormat_XwingRawBytes;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_ImportJob.state
@@ -2913,8 +2996,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`,
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`, or
+ *  `projects/{PROJECT_ID}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2927,6 +3011,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted A previously
  *        configured key project has been deleted and the current AutokeyConfig
  *        is unusable. (Value: "KEY_PROJECT_DELETED")
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_KeyProjectPermissionDenied
+ *        Deprecated: This state is not returned by the backend. (Value:
+ *        "KEY_PROJECT_PERMISSION_DENIED")
  *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_StateUnspecified The state of
  *        the AutokeyConfig is unspecified. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_Uninitialized The AutokeyConfig
@@ -4816,6 +4903,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  material.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemMlKem1024HkdfSha256Aes256Gcm
+ *        Represents the Hybrid Public Key Encryption (HPKE) Scheme originally
+ *        defined in [RFC 9180](https://www.rfc-editor.org/rfc/rfc9180). It
+ *        involves wrapping the raw key with an ephemeral AES key, derived with
+ *        HKDF-SHA256 from an encryption context, that is, in turn obtained from
+ *        the receiver’s public key with the help of the ML-KEM-1024 KEM. For
+ *        more details, see the [ML-KEM HPKE
+ *        standard](http://datatracker.ietf.org/doc/draft-ietf-hpke-pq/01/).
+ *        (Value: "HPKE_KEM_ML_KEM_1024_HKDF_SHA256_AES_256_GCM")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemMlKem768HkdfSha256Aes256Gcm
+ *        Represents the Hybrid Public Key Encryption (HPKE) Scheme originally
+ *        defined in [RFC 9180](https://www.rfc-editor.org/rfc/rfc9180). It
+ *        involves wrapping the raw key with an ephemeral AES key, derived with
+ *        HKDF-SHA256 from an encryption context, that is, in turn obtained from
+ *        the receiver’s public key with the help of the ML-KEM-768 KEM. For
+ *        more details, see the [ML-KEM HPKE
+ *        standard](http://datatracker.ietf.org/doc/draft-ietf-hpke-pq/01/).
+ *        (Value: "HPKE_KEM_ML_KEM_768_HKDF_SHA256_AES_256_GCM")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_HpkeKemXwingHkdfSha256Aes256Gcm
+ *        Represents the Hybrid Public Key Encryption (HPKE) Scheme originally
+ *        defined in [RFC 9180](https://www.rfc-editor.org/rfc/rfc9180). It
+ *        involves wrapping the raw key with an ephemeral AES key, derived with
+ *        HKDF-SHA256 from an encryption context, that is, in turn obtained from
+ *        the receiver’s public key with the help of the X-Wing hybrid KEM. For
+ *        more details, see the [X-Wing
+ *        standard](http://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/09/).
+ *        (Value: "HPKE_KEM_XWING_HKDF_SHA256_AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_ImportMethodUnspecified Not
  *        specified. (Value: "IMPORT_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha1Aes256 This
@@ -4893,6 +5007,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  Only returned if state is ACTIVE.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_WrappingPublicKey *publicKey;
+
+/**
+ *  Output only. Specifies the WrappingPublicKey format provided by the customer
+ *  in the KeyManagementService.GetImportJob request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportJob_PublicKeyFormat_Der The returned public
+ *        key will be encoded in DER format (the PrivateKeyInfo structure from
+ *        RFC 5208). (Value: "DER")
+ *    @arg @c kGTLRCloudKMS_ImportJob_PublicKeyFormat_NistPqc This is supported
+ *        only for PQC algorithms. The key material is returned in the format
+ *        defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *        (Value: "NIST_PQC")
+ *    @arg @c kGTLRCloudKMS_ImportJob_PublicKeyFormat_Pem The returned public
+ *        key will be encoded in PEM format. See the
+ *        [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *        Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
+ *        [Textual Encoding of Subject Public Key Info]
+ *        (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *        (Value: "PEM")
+ *    @arg @c kGTLRCloudKMS_ImportJob_PublicKeyFormat_PublicKeyFormatUnspecified
+ *        If the public_key_format field is not specified: - For PQC algorithms,
+ *        an error will be returned. - For non-PQC algorithms, the default
+ *        format is PEM, and the field pem will be populated. Otherwise, the
+ *        public key will be exported through the public_key field in the
+ *        requested format. (Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportJob_PublicKeyFormat_XwingRawBytes The returned
+ *        public key is in raw bytes format defined in its standard
+ *        https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *        (Value: "XWING_RAW_BYTES")
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFormat;
 
 /**
  *  Output only. The current state of the ImportJob, indicating if it can be
@@ -7256,11 +7402,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 @interface GTLRCloudKMS_WrappingPublicKey : GTLRObject
 
 /**
+ *  Output only. Contains the public key, formatted according to the
+ *  PublicKey.PublicKeyFormat specified in the KeyManagementService.GetImportJob
+ *  request.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
  *  The public key, encoded in PEM format. For more information, see the [RFC
  *  7468](https://tools.ietf.org/html/rfc7468) sections for [General
  *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual
  *  Encoding of Subject Public Key Info]
- *  (https://tools.ietf.org/html/rfc7468#section-13).
+ *  (https://tools.ietf.org/html/rfc7468#section-13). This field gets populated
+ *  by default for RSA-based import methods, if no public_key_format is
+ *  specified in the request. If you want to retrieve the wrapping key of an
+ *  ImportJob in some other format, use KeyManagementService.GetImportJob and
+ *  set the public_key_format to the desired public key format.
  */
 @property(nonatomic, copy, nullable) NSString *pem;
 

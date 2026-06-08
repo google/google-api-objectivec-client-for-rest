@@ -43,12 +43,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudL
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegion;
 /**
- *  CloudLocation type for region extension.
- *
- *  Value: "CLOUD_LOCATION_TYPE_REGION_EXTENSION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegionExtension;
-/**
  *  Unspecified type.
  *
  *  Value: "CLOUD_LOCATION_TYPE_UNSPECIFIED"
@@ -122,9 +116,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudP
  *        (Value: "CLOUD_LOCATION_TYPE_GDCC_ZONE")
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegion
  *        CloudLocation type for region. (Value: "CLOUD_LOCATION_TYPE_REGION")
- *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegionExtension
- *        CloudLocation type for region extension. (Value:
- *        "CLOUD_LOCATION_TYPE_REGION_EXTENSION")
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeUnspecified
  *        Unspecified type. (Value: "CLOUD_LOCATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeZone

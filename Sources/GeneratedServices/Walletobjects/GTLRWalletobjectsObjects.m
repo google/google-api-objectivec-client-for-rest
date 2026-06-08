@@ -2089,7 +2089,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
          diffUploadResponse, diffVersionResponse, downloadParameters, filename,
          hashProperty, hashVerified, inlineProperty, isPotentialRetry, length,
          md5Hash, mediaId, objectId, path, referenceType, sha1Hash, sha256Hash,
-         timestamp, token;
+         sha512Hash, timestamp, token;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

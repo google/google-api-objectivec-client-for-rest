@@ -140,6 +140,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Ics;
 /**
+ *  Export as JSON. Only available for Gemini in Workpace.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_CalendarExportOptions_ExportFormat_Json;
+/**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
@@ -353,6 +359,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Ics;
 /**
+ *  Export as JSON. Only available for Gemini in Workpace.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GeminiExportOptions_ExportFormat_Json;
+/**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
@@ -388,6 +400,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Ics;
 /**
+ *  Export as JSON. Only available for Gemini in Workpace.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Json;
+/**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
@@ -422,6 +440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFo
  *  Value: "ICS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics;
+/**
+ *  Export as JSON. Only available for Gemini in Workpace.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Json;
 /**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
@@ -537,6 +561,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Exp
  *  Value: "ICS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Ics;
+/**
+ *  Export as JSON. Only available for Gemini in Workpace.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Json;
 /**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
@@ -890,6 +920,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ics;
 /**
+ *  Export as JSON. Only available for Gemini in Workpace.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Json;
+/**
  *  Export as MBOX. Only available for Gmail, Groups, Hangouts and Voice.
  *
  *  Value: "MBOX"
@@ -1085,6 +1121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Ics Export as ICS.
  *        Only available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Json Export as JSON.
+ *        Only available for Gemini in Workpace. (Value: "JSON")
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_CalendarExportOptions_ExportFormat_Pst Export as PST.
@@ -1607,6 +1645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Ics Export as ICS.
  *        Only available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Json Export as JSON.
+ *        Only available for Gemini in Workpace. (Value: "JSON")
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_GeminiExportOptions_ExportFormat_Pst Export as PST.
@@ -1676,6 +1716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Ics Export as ICS.
  *        Only available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Json Export as JSON.
+ *        Only available for Gemini in Workpace. (Value: "JSON")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Pst Export as PST.
@@ -1702,6 +1744,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Ics Export as
  *        ICS. Only available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Json Export as
+ *        JSON. Only available for Gemini in Workpace. (Value: "JSON")
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox Export as
  *        MBOX. Only available for Gmail, Groups, Hangouts and Voice. (Value:
  *        "MBOX")
@@ -2165,6 +2209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Ics Export as ICS. Only
  *        available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Json Export as JSON.
+ *        Only available for Gemini in Workpace. (Value: "JSON")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst Export as PST. Only
@@ -2817,6 +2863,8 @@ GTLR_DEPRECATED
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Ics Export as ICS. Only
  *        available for Calendar. (Value: "ICS")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Json Export as JSON.
+ *        Only available for Gemini in Workpace. (Value: "JSON")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Mbox Export as MBOX.
  *        Only available for Gmail, Groups, Hangouts and Voice. (Value: "MBOX")
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst Export as PST. Only

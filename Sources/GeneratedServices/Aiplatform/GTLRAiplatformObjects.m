@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments.codec
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecDnxhr = @"VIDEO_CODEC_DNXHR";
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecH264 = @"VIDEO_CODEC_H264";
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecProres = @"VIDEO_CODEC_PRORES";
+NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecUnspecified = @"VIDEO_CODEC_UNSPECIFIED";
+
 // GTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail.errorCause
 NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_CloudApiNotEnabled = @"CLOUD_API_NOT_ENABLED";
 NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_ErrorCauseUnspecified = @"ERROR_CAUSE_UNSPECIFIED";
@@ -412,6 +418,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mo
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mode_None = @"NONE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mode_Validated = @"VALIDATED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration.behavior
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_Blocking = @"BLOCKING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_NonBlocking = @"NON_BLOCKING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_Unspecified = @"UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1FunctionResponse.scheduling
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionResponse_Scheduling_Interrupt = @"INTERRUPT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionResponse_Scheduling_SchedulingUnspecified = @"SCHEDULING_UNSPECIFIED";
@@ -690,6 +701,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNume
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError.errorType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateId = @"DUPLICATE_ID";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace = @"DUPLICATE_NAMESPACE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingMetadataExceedsSizeLimit = @"EMBEDDING_METADATA_EXCEEDS_SIZE_LIMIT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingSizeMismatch = @"EMBEDDING_SIZE_MISMATCH";
@@ -1298,9 +1310,10 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 //
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments
-@dynamic conditioningFrames, humanPose, modelName, numDiffusionSteps,
-         promptInputs, requestOriginTag, truncateInputVideo,
-         videoTransformMaskGcsUri, videoTransformStrength;
+@dynamic anchorLastFrame, codec, conditioningFrames, customParameters,
+         humanPose, modelName, numDiffusionSteps, originalRequestJson,
+         promptInputs, requestOriginTag, schedulingConfig, seamless,
+         truncateInputVideo, videoTransformMaskGcsUri, videoTransformStrength;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1314,11 +1327,35 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_CustomParameters
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_CustomParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame
 //
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame
 @dynamic frameNum, image;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsVESchedulingConfig
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsVESchedulingConfig
+@dynamic enableRetry;
 @end
 
 
@@ -1514,6 +1551,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionSeamless
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionSeamless
+@dynamic loop, tessellateHorizontal, tessellateVertical;
 @end
 
 
@@ -2754,6 +2801,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest
+@dynamic operationName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineResponse
 //
 
@@ -3659,6 +3716,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateRegistryFeatureOperationMetadata
+@dynamic genericMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CreateServingProfileOperationMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateServingProfileOperationMetadata
 @dynamic genericMetadata;
 @end
 
@@ -7505,8 +7572,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration
-@dynamic descriptionProperty, name, parameters, parametersJsonSchema, response,
-         responseJsonSchema;
+@dynamic behavior, descriptionProperty, name, parameters, parametersJsonSchema,
+         response, responseJsonSchema;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -15613,7 +15680,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironmentTemplateDefaultContainerEnvironment
-@dynamic defaultContainerCategory;
+@dynamic defaultContainerCategory, resources;
 @end
 
 
@@ -19597,9 +19664,9 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Tool
-@dynamic codeExecution, computerUse, enterpriseWebSearch, functionDeclarations,
-         googleMaps, googleSearch, googleSearchRetrieval, parallelAiSearch,
-         retrieval, urlContext;
+@dynamic codeExecution, computerUse, enterpriseWebSearch, exaAiSearch,
+         functionDeclarations, googleMaps, googleSearch, googleSearchRetrieval,
+         parallelAiSearch, retrieval, urlContext;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -19720,6 +19787,30 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig
 @dynamic functionCallingConfig, retrievalConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch
+@dynamic apiKey, customConfigs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch_CustomConfigs
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch_CustomConfigs
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

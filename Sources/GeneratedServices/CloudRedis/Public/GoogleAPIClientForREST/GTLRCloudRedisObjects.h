@@ -45,6 +45,8 @@
 @class GTLRCloudRedis_DatabaseResourceHealthSignalData_AdditionalMetadata;
 @class GTLRCloudRedis_DatabaseResourceId;
 @class GTLRCloudRedis_DatabaseResourceMetadata;
+@class GTLRCloudRedis_DatabaseResourceMetadata_AdditionalMetadata;
+@class GTLRCloudRedis_DatabaseResourceMetadata_InternalAdditionalMetadata;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData_AdditionalMetadata;
 @class GTLRCloudRedis_DatabaseResourceSignalData;
@@ -65,6 +67,7 @@
 @class GTLRCloudRedis_Instance_RedisConfigs;
 @class GTLRCloudRedis_Instance_Tags;
 @class GTLRCloudRedis_InternalResourceMetadata;
+@class GTLRCloudRedis_IpAddress;
 @class GTLRCloudRedis_Location;
 @class GTLRCloudRedis_Location_Labels;
 @class GTLRCloudRedis_Location_Metadata;
@@ -3352,6 +3355,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestor
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode;
 /**
+ *  Memorystore with Valkey dialect.
+ *
+ *  Value: "ENGINE_MEMORSTORE_FOR_VALKEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorstoreForValkey;
+/**
  *  Memorystore with Redis dialect.
  *
  *  Value: "ENGINE_MEMORYSTORE_FOR_REDIS"
@@ -6001,9 +6010,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 32
+ *  Common model for database resource instance metadata. Next ID: 35
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
+
+/**
+ *  Field to ingest additional metadata whichd does not support proto format.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceMetadata_AdditionalMetadata *additionalMetadata;
 
 /** Availability configuration for this instance */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_AvailabilityConfiguration *availabilityConfiguration;
@@ -6146,6 +6160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
 
+/** Field to ingest additional metadata which support proto format. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceMetadata_InternalAdditionalMetadata *internalAdditionalMetadata;
+
+/** Optional. Private and public IP address of the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_IpAddress *ipAddress;
+
 /**
  *  Optional. Whether deletion protection is enabled for this resource.
  *
@@ -6244,6 +6264,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  Field to ingest additional metadata whichd does not support proto format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudRedis_DatabaseResourceMetadata_AdditionalMetadata : GTLRObject
+@end
+
+
+/**
+ *  Field to ingest additional metadata which support proto format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudRedis_DatabaseResourceMetadata_InternalAdditionalMetadata : GTLRObject
 @end
 
 
@@ -7592,6 +7636,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Used to send IP address information for a database resource.
+ */
+@interface GTLRCloudRedis_IpAddress : GTLRObject
+
+/**
+ *  The private IP address assigned to the resource within a Virtual Private
+ *  Cloud (VPC). This IP is only reachable from within the same VPC network.
+ *  Stored in standard string format (e.g., "10.0.0.2").
+ */
+@property(nonatomic, copy, nullable) NSString *privateIp;
+
+/**
+ *  The public IP address assigned to the resource. This IP is reachable from
+ *  the internet. Stored in standard string format (e.g., "34.72.1.1").
+ */
+@property(nonatomic, copy, nullable) NSString *publicIp;
+
+@end
+
+
+/**
  *  Response for `ListAclPolicies`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -8475,6 +8540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode
  *        Firestore with native mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_NATIVE_MODE")
+ *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMemorstoreForValkey
+ *        Memorystore with Valkey dialect. (Value:
+ *        "ENGINE_MEMORSTORE_FOR_VALKEY")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedis
  *        Memorystore with Redis dialect. (Value:
  *        "ENGINE_MEMORYSTORE_FOR_REDIS")
@@ -9037,6 +9105,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  "MYSQL_8_0_41.R20250531.01_15"
  */
 @property(nonatomic, copy, nullable) NSString *maintenanceVersion;
+
+/** Optional. List of next available maintenance versions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nextAvailableMaintenanceVersions;
 
 /**
  *  Optional. Upcoming maintenance for the database resource. This field is

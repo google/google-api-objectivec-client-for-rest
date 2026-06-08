@@ -3404,8 +3404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
 
 /**
  *  Optional. Maximum number of TeamFolders to return. The server may return
- *  fewer items than requested. If unspecified, the server will pick an
- *  appropriate default.
+ *  fewer items than requested. If unspecified, the server will pick a default
+ *  of page_size = 50.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

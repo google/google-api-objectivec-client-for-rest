@@ -4250,7 +4250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @interface GTLRYouTubeQuery_SearchList : GTLRYouTubeQuery
 
-/** Filter on resources belonging to this channelId. */
+/** Filter on resources belonging to this channelId. (Force TAP rebuild) */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
@@ -5154,6 +5154,65 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
+ *  Retrieves a batch of VideoStat resources, possibly filtered. BatchGetStats
+ *  is intentionally not atomic to provide a better user experience.
+ *
+ *  Method: youtube.videos.batchGetStats
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_VideosBatchGetStats : GTLRYouTubeQuery
+
+/**
+ *  Required. Return videos with the given ids. The number of IDs specified
+ *  cannot exceed 50.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *identifier;
+
+/**
+ *  Optional. **Note:** This parameter is intended exclusively for YouTube
+ *  content partners. The `onBehalfOfContentOwner` parameter indicates that the
+ *  request's authorization credentials identify a YouTube CMS user who is
+ *  acting on behalf of the content owner specified in the parameter value. This
+ *  parameter is intended for YouTube content partners that own and manage many
+ *  different YouTube channels. It allows content owners to authenticate once
+ *  and get access to all their video and channel data, without having to
+ *  provide authentication credentials for each individual channel. The CMS
+ *  account that the user authenticates with must be linked to the specified
+ *  YouTube content owner.
+ */
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
+
+/**
+ *  Required. The `**part**` parameter specifies a comma-separated list of one
+ *  or more `videoStat` resource properties that the API response will include.
+ *  If the parameter identifies a property that contains child properties, the
+ *  child properties will be included in the response. For example, in a
+ *  `videoStat` resource, the `statistics` property contains `view_count` and
+ *  `like_count`. As such, if you set `**part=snippet**`, the API response will
+ *  contain all of those properties.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_BatchGetStatsResponse.
+ *
+ *  Retrieves a batch of VideoStat resources, possibly filtered. BatchGetStats
+ *  is intentionally not atomic to provide a better user experience.
+ *
+ *  @return GTLRYouTubeQuery_VideosBatchGetStats
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Deletes a resource.
  *
  *  Method: youtube.videos.delete
@@ -5847,34 +5906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *        information.
  */
 + (instancetype)query;
-
-@end
-
-/**
- *  Updates an existing resource.
- *
- *  Method: youtube.youtube.v3.updateCommentThreads
- */
-@interface GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads : GTLRYouTubeQuery
-
-/**
- *  The *part* parameter specifies a comma-separated list of commentThread
- *  resource properties that the API response will include. You must at least
- *  include the snippet part in the parameter value since that part contains all
- *  of the properties that the API request can update.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/**
- *  Fetches a @c GTLRYouTube_CommentThread.
- *
- *  Updates an existing resource.
- *
- *  @param object The @c GTLRYouTube_CommentThread to include in the query.
- *
- *  @return GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads
- */
-+ (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object;
 
 @end
 

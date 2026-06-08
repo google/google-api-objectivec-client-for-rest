@@ -94,6 +94,7 @@ NSString * const kGTLRMerchant_ProductStatusChangeMessage_Attribute_AttributeUns
 NSString * const kGTLRMerchant_ProductStatusChangeMessage_Attribute_Status = @"STATUS";
 
 // GTLRMerchant_ProductStatusChangeMessage.resourceType
+NSString * const kGTLRMerchant_ProductStatusChangeMessage_ResourceType_AccountService = @"ACCOUNT_SERVICE";
 NSString * const kGTLRMerchant_ProductStatusChangeMessage_ResourceType_Product = @"PRODUCT";
 NSString * const kGTLRMerchant_ProductStatusChangeMessage_ResourceType_ResourceUnspecified = @"RESOURCE_UNSPECIFIED";
 

@@ -70,6 +70,32 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_HoldSta
 NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Set = @"SET";
 NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset = @"UNSET";
 
+// GTLRStorageBatchOperations_RewriteObject.storageClass
+NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_Archive = @"ARCHIVE";
+NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_Coldline = @"COLDLINE";
+NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_Nearline = @"NEARLINE";
+NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_Standard = @"STANDARD";
+NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_StorageClassUnspecified = @"STORAGE_CLASS_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_AccessControlsUpdates
+//
+
+@implementation GTLRStorageBatchOperations_AccessControlsUpdates
+@dynamic grants, removeEntities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"grants" : [GTLRStorageBatchOperations_ObjectAccessControl class],
+    @"removeEntities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRStorageBatchOperations_Bucket
@@ -105,8 +131,9 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 @implementation GTLRStorageBatchOperations_BucketOperation
 @dynamic bucketName, completeTime, counters, createTime, deleteObject,
-         errorSummaries, manifest, name, prefixList, putMetadata, putObjectHold,
-         rewriteObject, startTime, state, updateObjectCustomContext;
+         errorSummaries, manifest, name, prefixList, projectSource, putMetadata,
+         putObjectHold, rewriteObject, setObjectAcls, startTime, state,
+         updateObjectCustomContext;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -248,14 +275,30 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageBatchOperations_Expr
+//
+
+@implementation GTLRStorageBatchOperations_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageBatchOperations_Job
 //
 
 @implementation GTLRStorageBatchOperations_Job
 @dynamic bucketList, completeTime, counters, createTime, deleteObject,
          descriptionProperty, dryRun, errorSummaries, isMultiBucketJob,
-         loggingConfig, name, putMetadata, putObjectHold, rewriteObject,
-         scheduleTime, state, updateObjectCustomContext;
+         loggingConfig, name, projectSource, putMetadata, putObjectHold,
+         rewriteObject, scheduleTime, setObjectAcls, state,
+         updateObjectCustomContext;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -431,6 +474,16 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageBatchOperations_ObjectAccessControl
+//
+
+@implementation GTLRStorageBatchOperations_ObjectAccessControl
+@dynamic entity, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageBatchOperations_ObjectCustomContextPayload
 //
 
@@ -517,6 +570,17 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageBatchOperations_ProjectSource
+//
+
+@implementation GTLRStorageBatchOperations_ProjectSource
+@dynamic bucketFilters, dryRunJobId, insightsDatasetConfig, objectFilters,
+         project, snapshotTime, targetLocations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageBatchOperations_PutMetadata
 //
 
@@ -556,7 +620,17 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 //
 
 @implementation GTLRStorageBatchOperations_RewriteObject
-@dynamic kmsKey;
+@dynamic kmsKey, storageClass;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_SetObjectAcls
+//
+
+@implementation GTLRStorageBatchOperations_SetObjectAcls
+@dynamic accessControlsUpdates;
 @end
 
 
@@ -587,6 +661,24 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_TargetLocations
+//
+
+@implementation GTLRStorageBatchOperations_TargetLocations
+@dynamic locations, snapshotTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
 }
 
 @end

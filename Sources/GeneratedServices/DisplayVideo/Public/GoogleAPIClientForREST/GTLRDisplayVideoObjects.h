@@ -648,7 +648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper;
 /**
  *  Demand Gen ads. Retrieval and management of Demand Gen resources is
- *  currently in beta. This enum value is only available to allowlisted users.
+ *  currently in beta. This field will begin rolling out to all partners on
+ *  *June 10, 2026* and be available to all partners on *June 24, 2026*.
  *
  *  Value: "AD_GROUP_FORMAT_DEMAND_GEN"
  */
@@ -3907,6 +3908,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedUserRole_UserRole_U
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast;
 /**
+ *  The audio content type is catch-up radio.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_CATCH_UP_RADIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeCatchUpRadio;
+/**
  *  The audio content type is music.
  *
  *  Value: "AUDIO_CONTENT_TYPE_MUSIC"
@@ -3918,6 +3925,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTar
  *  Value: "AUDIO_CONTENT_TYPE_PODCAST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypePodcast;
+/**
+ *  The audio content type is text-to-speech.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_TEXT_TO_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeTextToSpeech;
 /**
  *  The audio content type is unknown.
  *
@@ -3932,6 +3945,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTar
  *  Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified;
+/**
+ *  The audio content type is video game.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_VIDEO_GAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeVideoGame;
+/**
+ *  The audio content type is web radio.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_WEB_RADIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeWebRadio;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails.audioContentType
@@ -3942,6 +3967,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTar
  *  Value: "AUDIO_CONTENT_TYPE_BROADCAST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast;
+/**
+ *  The audio content type is catch-up radio.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_CATCH_UP_RADIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeCatchUpRadio;
 /**
  *  The audio content type is music.
  *
@@ -3954,6 +3985,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOp
  *  Value: "AUDIO_CONTENT_TYPE_PODCAST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypePodcast;
+/**
+ *  The audio content type is text-to-speech.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_TEXT_TO_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeTextToSpeech;
 /**
  *  The audio content type is unknown.
  *
@@ -3968,6 +4005,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOp
  *  Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified;
+/**
+ *  The audio content type is video game.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_VIDEO_GAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeVideoGame;
+/**
+ *  The audio content type is web radio.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_WEB_RADIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeWebRadio;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails.authorizedSellerStatus
@@ -13327,7 +13376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_Entit
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault;
 /**
  *  Demand Gen ads. Retrieval and management of Demand Gen resources is
- *  currently in beta. This enum value is only available to allowlisted users.
+ *  currently in beta. This field will begin rolling out to all partners on
+ *  *June 10, 2026* and be available to all partners on *June 24, 2026*.
  *
  *  Value: "LINE_ITEM_TYPE_DEMAND_GEN"
  */
@@ -17124,8 +17174,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        ads. (Value: "AD_GROUP_FORMAT_BUMPER")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen
  *        Demand Gen ads. Retrieval and management of Demand Gen resources is
- *        currently in beta. This enum value is only available to allowlisted
- *        users. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
+ *        currently in beta. This field will begin rolling out to all partners
+ *        on *June 10, 2026* and be available to all partners on *June 24,
+ *        2026*. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream
  *        In-stream ads. (Value: "AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead
@@ -17282,8 +17333,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. The DCM tracking ad info. Only valid for Demand Gen ads. To remove
  *  the DCM tracking ad info, please leave this field empty. Retrieval and
- *  management of Demand Gen resources is currently in beta. This field is only
- *  available to allowlisted users.
+ *  management of Demand Gen resources is currently in beta. This field will
+ *  begin rolling out to all partners on *June 10, 2026* and be available to all
+ *  partners on *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DcmTrackingInfo *dcmTrackingInfo;
 
@@ -17291,7 +17343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Details of a [Demand Gen carousel
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd).
  *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field is only available to allowlisted users.
+ *  field will begin rolling out to all partners on *June 10, 2026* and be
+ *  available to all partners on *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenCarouselAd *demandGenCarouselAd;
 
@@ -17299,7 +17352,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Details of a [Demand Gen image
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd).
  *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field is only available to allowlisted users.
+ *  field will begin rolling out to all partners on *June 10, 2026* and be
+ *  available to all partners on *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenImageAd *demandGenImageAd;
 
@@ -17307,7 +17361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Details of a [Demand Gen product
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#Product-onlyAd).
  *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field is only available to allowlisted users.
+ *  field will begin rolling out to all partners on *June 10, 2026* and be
+ *  available to all partners on *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenProductAd *demandGenProductAd;
 
@@ -17315,7 +17370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Details of a [Demand Gen video
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#VideoAd).
  *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field is only available to allowlisted users.
+ *  field will begin rolling out to all partners on *June 10, 2026* and be
+ *  available to all partners on *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenVideoAd *demandGenVideoAd;
 
@@ -20573,11 +20629,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast
  *        The audio content type is broadcast. (Value:
  *        "AUDIO_CONTENT_TYPE_BROADCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeCatchUpRadio
+ *        The audio content type is catch-up radio. (Value:
+ *        "AUDIO_CONTENT_TYPE_CATCH_UP_RADIO")
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeMusic
  *        The audio content type is music. (Value: "AUDIO_CONTENT_TYPE_MUSIC")
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypePodcast
  *        The audio content type is podcast. (Value:
  *        "AUDIO_CONTENT_TYPE_PODCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeTextToSpeech
+ *        The audio content type is text-to-speech. (Value:
+ *        "AUDIO_CONTENT_TYPE_TEXT_TO_SPEECH")
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown
  *        The audio content type is unknown. (Value:
  *        "AUDIO_CONTENT_TYPE_UNKNOWN")
@@ -20585,6 +20647,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Audio content type is not specified in this version. This enum is a
  *        place holder for a default value and does not represent a real content
  *        stream type. (Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeVideoGame
+ *        The audio content type is video game. (Value:
+ *        "AUDIO_CONTENT_TYPE_VIDEO_GAME")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeWebRadio
+ *        The audio content type is web radio. (Value:
+ *        "AUDIO_CONTENT_TYPE_WEB_RADIO")
  */
 @property(nonatomic, copy, nullable) NSString *audioContentType;
 
@@ -20605,11 +20673,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast
  *        The audio content type is broadcast. (Value:
  *        "AUDIO_CONTENT_TYPE_BROADCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeCatchUpRadio
+ *        The audio content type is catch-up radio. (Value:
+ *        "AUDIO_CONTENT_TYPE_CATCH_UP_RADIO")
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeMusic
  *        The audio content type is music. (Value: "AUDIO_CONTENT_TYPE_MUSIC")
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypePodcast
  *        The audio content type is podcast. (Value:
  *        "AUDIO_CONTENT_TYPE_PODCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeTextToSpeech
+ *        The audio content type is text-to-speech. (Value:
+ *        "AUDIO_CONTENT_TYPE_TEXT_TO_SPEECH")
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown
  *        The audio content type is unknown. (Value:
  *        "AUDIO_CONTENT_TYPE_UNKNOWN")
@@ -20617,6 +20691,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Audio content type is not specified in this version. This enum is a
  *        place holder for a default value and does not represent a real content
  *        stream type. (Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeVideoGame
+ *        The audio content type is video game. (Value:
+ *        "AUDIO_CONTENT_TYPE_VIDEO_GAME")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeWebRadio
+ *        The audio content type is web radio. (Value:
+ *        "AUDIO_CONTENT_TYPE_WEB_RADIO")
  */
 @property(nonatomic, copy, nullable) NSString *audioContentType;
 
@@ -23064,8 +23144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  model can be set by you for a floodlight config or group. More details
  *  [here](https://support.google.com/displayvideo/answer/7409983). Only
  *  applicable to Demand Gen line items. Retrieval and management of Demand Gen
- *  resources is currently in beta. This field is only available to allowlisted
- *  users.
+ *  resources is currently in beta. This field will begin rolling out to all
+ *  partners on *June 10, 2026* and be available to all partners on *June 24,
+ *  2026*.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -30183,7 +30264,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. Settings specific to Demand Gen line items. Only applicable to
  *  Demand Gen line items. Retrieval and management of Demand Gen resources is
- *  currently in beta. This field is only available to allowlisted users.
+ *  currently in beta. This field will begin rolling out to all partners on
+ *  *June 10, 2026* and be available to all partners on *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenSettings *demandGenSettings;
 
@@ -30270,8 +30352,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "LINE_ITEM_TYPE_AUDIO_DEFAULT")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDemandGen
  *        Demand Gen ads. Retrieval and management of Demand Gen resources is
- *        currently in beta. This enum value is only available to allowlisted
- *        users. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
+ *        currently in beta. This field will begin rolling out to all partners
+ *        on *June 10, 2026* and be available to all partners on *June 24,
+ *        2026*. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayDefault
  *        Image, HTML5, native, or rich media ads. (Value:
  *        "LINE_ITEM_TYPE_DISPLAY_DEFAULT")
@@ -34400,8 +34483,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. Whether to exclude demographic expansion for Optimized Targeting.
  *  This field can only be set for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This field is only
- *  available to allowlisted users.
+ *  management of Demand Gen resources is currently in beta. This field will
+ *  begin rolling out to all partners on *June 10, 2026* and be available to all
+ *  partners on *June 24, 2026*.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -42,6 +42,7 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_I
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_Integrated = @"INTEGRATED";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_NoAppWithGivenBundleIdInPlayAccount = @"NO_APP_WITH_GIVEN_BUNDLE_ID_IN_PLAY_ACCOUNT";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAccountNotLinked = @"PLAY_ACCOUNT_NOT_LINKED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAndroidDeveloperConsoleAccountNotFound = @"PLAY_ANDROID_DEVELOPER_CONSOLE_ACCOUNT_NOT_FOUND";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayIasTermsNotAccepted = @"PLAY_IAS_TERMS_NOT_ACCEPTED";
 
 // GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadReleaseResponse.result
@@ -162,7 +163,7 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadRel
          diffUploadResponse, diffVersionResponse, downloadParameters, filename,
          hashProperty, hashVerified, inlineProperty, isPotentialRetry, length,
          md5Hash, mediaId, objectId, path, referenceType, sha1Hash, sha256Hash,
-         timestamp, token;
+         sha512Hash, timestamp, token;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

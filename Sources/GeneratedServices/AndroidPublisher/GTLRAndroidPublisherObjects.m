@@ -529,6 +529,7 @@ NSString * const kGTLRAndroidPublisher_User_AccessState_Invited = @"INVITED";
 // GTLRAndroidPublisher_User.developerAccountPermissions
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChangeManagedPlaySettingGlobal = @"CAN_CHANGE_MANAGED_PLAY_SETTING_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal = @"CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditConnectedAppsGlobal = @"CAN_EDIT_CONNECTED_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal = @"CAN_EDIT_GAMES_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal = @"CAN_MANAGE_APP_CONTENT_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal = @"CAN_MANAGE_DEEPLINKS_GLOBAL";
@@ -543,6 +544,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanPubli
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanReplyToReviewsGlobal = @"CAN_REPLY_TO_REVIEWS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps = @"CAN_SEE_ALL_APPS";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewAppQualityGlobal = @"CAN_VIEW_APP_QUALITY_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewConnectedAppsGlobal = @"CAN_VIEW_CONNECTED_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewFinancialDataGlobal = @"CAN_VIEW_FINANCIAL_DATA_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewNonFinancialDataGlobal = @"CAN_VIEW_NON_FINANCIAL_DATA_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified = @"DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED";
@@ -2560,6 +2562,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_InGracePeriodStateContext
+//
+
+@implementation GTLRAndroidPublisher_InGracePeriodStateContext
+@dynamic renewalDeclined;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_InstallmentPlan
 //
 
@@ -3284,6 +3296,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OnHoldStateContext
+//
+
+@implementation GTLRAndroidPublisher_OnHoldStateContext
+@dynamic renewalDeclined;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Order
 //
 
@@ -3870,6 +3892,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_RenewalDeclinedContext
+//
+
+@implementation GTLRAndroidPublisher_RenewalDeclinedContext
+@dynamic pendingOrderId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_RentalDetails
 //
 
@@ -4395,10 +4427,10 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseV2
 @dynamic acknowledgementState, canceledStateContext, ETag,
-         externalAccountIdentifiers, kind, latestOrderId, lineItems,
-         linkedPurchaseToken, outOfAppPurchaseContext, pausedStateContext,
-         regionCode, startTime, subscribeWithGoogleInfo, subscriptionState,
-         testPurchase;
+         externalAccountIdentifiers, inGracePeriodStateContext, kind,
+         latestOrderId, lineItems, linkedPurchaseToken, onHoldStateContext,
+         outOfAppPurchaseContext, pausedStateContext, regionCode, startTime,
+         subscribeWithGoogleInfo, subscriptionState, testPurchase;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

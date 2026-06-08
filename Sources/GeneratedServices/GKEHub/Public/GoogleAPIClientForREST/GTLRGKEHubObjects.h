@@ -1571,6 +1571,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIam
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted;
 /**
+ *  Fleet is compatible for modernization.
+ *
+ *  Value: "MODERNIZATION_COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompatible;
+/**
  *  Modernization is completed for a cluster.
  *
  *  Value: "MODERNIZATION_COMPLETED"
@@ -1589,6 +1595,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  *  Value: "MODERNIZATION_FINALIZED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationFinalized;
+/**
+ *  Fleet is not yet compatible for modernization.
+ *
+ *  Value: "MODERNIZATION_INCOMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatible;
+/**
+ *  Fleet exceeds service mesh fleet-level quota limits.
+ *
+ *  Value: "MODERNIZATION_INCOMPATIBLE_FLEET_QUOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleFleetQuota;
+/**
+ *  Fleet exceeds service mesh fleet-level scalability limits.
+ *
+ *  Value: "MODERNIZATION_INCOMPATIBLE_FLEET_SCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleFleetScale;
 /**
  *  Modernization is in progress for a cluster.
  *
@@ -5242,6 +5266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted
  *        Modernization is aborted for a cluster. (Value:
  *        "MODERNIZATION_ABORTED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompatible
+ *        Fleet is compatible for modernization. (Value:
+ *        "MODERNIZATION_COMPATIBLE")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationCompleted
  *        Modernization is completed for a cluster. (Value:
  *        "MODERNIZATION_COMPLETED")
@@ -5250,6 +5277,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationFinalized
  *        Modernization is finalized for all clusters in a fleet. Rollback is no
  *        longer allowed. (Value: "MODERNIZATION_FINALIZED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatible
+ *        Fleet is not yet compatible for modernization. (Value:
+ *        "MODERNIZATION_INCOMPATIBLE")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleFleetQuota
+ *        Fleet exceeds service mesh fleet-level quota limits. (Value:
+ *        "MODERNIZATION_INCOMPATIBLE_FLEET_QUOTA")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleFleetScale
+ *        Fleet exceeds service mesh fleet-level scalability limits. (Value:
+ *        "MODERNIZATION_INCOMPATIBLE_FLEET_SCALE")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress
  *        Modernization is in progress for a cluster. (Value:
  *        "MODERNIZATION_IN_PROGRESS")

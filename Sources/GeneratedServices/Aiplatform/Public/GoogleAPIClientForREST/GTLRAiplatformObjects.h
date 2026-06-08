@@ -15,7 +15,9 @@
 #endif
 
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_CustomParameters;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame;
+@class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsVESchedulingConfig;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoRequestImage;
 @class GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoResponseVideo;
 @class GTLRAiplatform_CloudAiLargeModelsVisionHumanPose;
@@ -29,6 +31,7 @@
 @class GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabels;
 @class GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabelsBoundingBox;
 @class GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabelsEntity;
+@class GTLRAiplatform_CloudAiLargeModelsVisionSeamless;
 @class GTLRAiplatform_CloudAiLargeModelsVisionSemanticFilterResponse;
 @class GTLRAiplatform_CloudAiLargeModelsVisionVideo;
 @class GTLRAiplatform_GoogleApiHttpBody;
@@ -1023,6 +1026,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolCodeExecution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch_CustomConfigs;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearchImageSearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearchSearchTypes;
@@ -1139,6 +1144,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments.codec
+
+/** Value: "VIDEO_CODEC_DNXHR" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecDnxhr;
+/** Value: "VIDEO_CODEC_H264" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecH264;
+/** Value: "VIDEO_CODEC_PRORES" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecProres;
+/** Value: "VIDEO_CODEC_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail.errorCause
@@ -3213,6 +3230,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Functi
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mode_Validated;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration.behavior
+
+/**
+ *  If set, the system will wait to receive the function response before
+ *  continuing the conversation.
+ *
+ *  Value: "BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_Blocking;
+/**
+ *  If set, the system will not wait to receive the function response. Instead,
+ *  it will attempt to handle function responses as they become available while
+ *  maintaining the conversation between the user and the model.
+ *
+ *  Value: "NON_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_NonBlocking;
+/**
+ *  This value is unspecified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1FunctionResponse.scheduling
 
 /**
@@ -4632,6 +4674,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Neares
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError.errorType
 
+/**
+ *  Multiple input records share the same datapoint id. The input conversion
+ *  pipeline performs non-deterministic last-write-wins de-duplication and emits
+ *  one error per duplicated id.
+ *
+ *  Value: "DUPLICATE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateId;
 /**
  *  There are multiple restricts with the same `namespace` value.
  *
@@ -7718,10 +7768,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 @interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments : GTLRObject
 
 /**
+ *  Optional. If true, anchors the last frame in video generation by generating
+ *  a custom border mask.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *anchorLastFrame;
+
+/**
+ *  Optional. Video codec to use for output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecDnxhr
+ *        Value "VIDEO_CODEC_DNXHR"
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecH264
+ *        Value "VIDEO_CODEC_H264"
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecProres
+ *        Value "VIDEO_CODEC_PRORES"
+ *    @arg @c kGTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_Codec_VideoCodecUnspecified
+ *        Value "VIDEO_CODEC_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *codec;
+
+/**
  *  Conditioning frames for veo experimental models ONLY, not to be confused
  *  with keyframes (ID:31) in GenerateVideoRequest.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame *> *conditioningFrames;
+
+/**
+ *  Generic key-value pairs for experimental parameters. This allows adding new
+ *  parameters without changing the dataplane binary.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_CustomParameters *customParameters;
 
 /** Human pose parameters for Pose Control */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionHumanPose *humanPose;
@@ -7737,6 +7816,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 @property(nonatomic, strong, nullable) NSNumber *numDiffusionSteps;
 
 /**
+ *  The original REST API request JSON sent by the user, in the
+ *  instances/parameters format. Preserved for saving alongside output artifacts
+ *  so users can reproduce their requests. This field is populated by the API
+ *  handler and is not user-settable.
+ */
+@property(nonatomic, copy, nullable) NSString *originalRequestJson;
+
+/**
  *  Prompt chunks for "ProModel" prompting. If set, the prompt will not be
  *  rewritten, and top-level prompt ignored.
  */
@@ -7750,6 +7837,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  underscores only.
  */
 @property(nonatomic, copy, nullable) NSString *requestOriginTag;
+
+/** Optional. Scheduling configuration. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsVESchedulingConfig *schedulingConfig;
+
+/**
+ *  Parameters for seamless (edge-continuous) video generation, enabling
+ *  temporal looping and/or spatial tessellation.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionSeamless *seamless;
 
 /**
  *  If true (default), truncate input videos that exceed the model's maximum
@@ -7777,6 +7873,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Generic key-value pairs for experimental parameters. This allows adding new
+ *  parameters without changing the dataplane binary.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperiments_CustomParameters : GTLRObject
+@end
+
+
+/**
  *  GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame
  */
 @interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsConditioningFrame : GTLRObject
@@ -7790,6 +7899,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 /** The image data for this conditioning frame. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoRequestImage *image;
+
+@end
+
+
+/**
+ *  Scheduling configuration for Veo Experimental.
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoExperimentsVESchedulingConfig : GTLRObject
+
+/**
+ *  Optional. If true, enable retries on transient errors with default backoff.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableRetry;
 
 @end
 
@@ -8176,6 +8300,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  GTLRAiplatform_CloudAiLargeModelsVisionSeamless
+ */
+@interface GTLRAiplatform_CloudAiLargeModelsVisionSeamless : GTLRObject
+
+/**
+ *  If true, the generated video will be loopable (seamless time looping).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *loop;
+
+/**
+ *  If true, the generated video will be tessellatable as a horizontal
+ *  tessellation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tessellateHorizontal;
+
+/**
+ *  If true, the generated video will be tessellatable as a vertical
+ *  tessellation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tessellateVertical;
 
 @end
 
@@ -8897,10 +9052,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1AsyncQueryReasoningEngineRequest : GTLRObject
 
-/** Optional. Input Cloud Storage URI for the Async query. */
+/**
+ *  Optional. Input Cloud Storage URI for the Async query. If you are not
+ *  bringing your own container (BYOC), the content of the file should be a JSON
+ *  object with an `input` field matching the `input` field of
+ *  `QueryReasoningEngineRequest` (e.g. `{ "input": { "user_id": "hello",
+ *  "message":"$QUERY"} }`). For BYOC, the content of the file depends on the
+ *  the agent application.
+ */
 @property(nonatomic, copy, nullable) NSString *inputGcsUri;
 
-/** Optional. Output Cloud Storage URI for the Async query. */
+/**
+ *  Optional. Output Cloud Storage URI for the Async query. This contains the
+ *  final response of the query.
+ */
 @property(nonatomic, copy, nullable) NSString *outputGcsUri;
 
 @end
@@ -9246,9 +9411,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
- *  A description of resources that to large degree are decided by Vertex AI,
- *  and require only a modest additional configuration. Each Model supporting
- *  these resources documents its specific guidelines.
+ *  A description of resources that to large degree are decided by Agent
+ *  Platform, and require only a modest additional configuration. Each Model
+ *  supporting these resources documents its specific guidelines.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1AutomaticResources : GTLRObject
 
@@ -9259,8 +9424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  to that many replicas is guaranteed (barring service outages). If traffic
  *  increases beyond what its replicas at maximum may handle, a portion of the
  *  traffic will be dropped. If this value is not provided, a no upper bound for
- *  scaling under heavy traffic will be assume, though Vertex AI may be unable
- *  to scale beyond certain replica number.
+ *  scaling under heavy traffic will be assume, though Agent Platform may be
+ *  unable to scale beyond certain replica number.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9489,8 +9654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 /**
  *  Immutable. The number of machine replicas used at the start of the batch
- *  operation. If not set, Vertex AI decides starting number, not greater than
- *  max_replica_count
+ *  operation. If not set, Agent Platform decides starting number, not greater
+ *  than max_replica_count
  *
  *  Uses NSNumber of intValue.
  */
@@ -10586,6 +10751,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *videoDurationSeconds;
+
+@end
+
+
+/**
+ *  Request message for
+ *  ReasoningEngineExecutionService.CancelAsyncQueryReasoningEngine.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CancelAsyncQueryReasoningEngineRequest : GTLRObject
+
+/**
+ *  Required. The name of the longrunning operation returned from
+ *  AsyncQueryReasoningEngine. Format:
+ *  `projects/{project}/locations/{location}/operations/{operation}`
+ */
+@property(nonatomic, copy, nullable) NSString *operationName;
 
 @end
 
@@ -12167,6 +12348,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Runtime operation metadata for ServingProfileService.CreateServingProfile.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateServingProfileOperationMetadata : GTLRObject
+
+/** Output only. The standard operation metadata for Vertex AI. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
  *  Runtime operation information for
  *  SpecialistPoolService.CreateSpecialistPool.
  */
@@ -13298,10 +13490,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  increases beyond what its replicas at maximum may handle, a portion of the
  *  traffic will be dropped. If this value is not provided, will use
  *  min_replica_count as the default value. The value of this field impacts the
- *  charge against Vertex CPU and GPU quotas. Specifically, you will be charged
- *  for (max_replica_count * number of cores in the selected machine type) and
- *  (max_replica_count * number of GPUs per replica in the selected machine
- *  type).
+ *  charge against Agent Platform CPU and GPU quotas. Specifically, you will be
+ *  charged for (max_replica_count * number of cores in the selected machine
+ *  type) and (max_replica_count * number of GPUs per replica in the selected
+ *  machine type).
  *
  *  Uses NSNumber of intValue.
  */
@@ -15425,7 +15617,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest : GTLRObject
 
-/** Optional. Autorater config used for evaluation. */
+/**
+ *  Optional. Autorater config used for evaluation. Not applicable for
+ *  predefined metrics (PredefinedMetricSpec); the server uses its own model
+ *  configuration for predefined metrics and this field is ignored.
+ */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AutoraterConfig *autoraterConfig;
 
 /** Instances and metric spec for bleu metric. */
@@ -16479,7 +16675,10 @@ GTLR_DEPRECATED
 /** Optional. Specifications for custom dataset-level aggregations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1DatasetCustomMetric *> *datasetCustomMetrics;
 
-/** Required. The metrics to be calculated in the evaluation run. */
+/**
+ *  Optional. The metrics to be calculated in the evaluation run. Required when
+ *  analysis_configs is not set.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetric *> *metrics;
 
 /** Optional. The output config for the evaluation run. */
@@ -21165,6 +21364,25 @@ GTLR_DEPRECATED
  *  code that can be used as a `Tool` by the model and executed by the client.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration : GTLRObject
+
+/**
+ *  Optional. Specifies the function Behavior. If not specified, the system
+ *  keeps the current function call behavior. This field is currently only
+ *  supported by the BidiGenerateContent method.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_Blocking
+ *        If set, the system will wait to receive the function response before
+ *        continuing the conversation. (Value: "BLOCKING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_NonBlocking
+ *        If set, the system will not wait to receive the function response.
+ *        Instead, it will attempt to handle function responses as they become
+ *        available while maintaining the conversation between the user and the
+ *        model. (Value: "NON_BLOCKING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration_Behavior_Unspecified
+ *        This value is unspecified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *behavior;
 
 /**
  *  Optional. Description and purpose of the function. Model uses it to decide
@@ -26322,17 +26540,17 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec : GTLRObject
 
 /**
- *  The number of accelerators to attach to the machine. For accelerator
- *  optimized machine types
- *  (https://cloud.google.com/compute/docs/accelerator-optimized-machines), One
- *  may set the accelerator_count from 1 to N for machine with N GPUs. If
- *  accelerator_count is less than or equal to N / 2, Vertex will co-schedule
- *  the replicas of the model into the same VM to save cost. For example, if the
- *  machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set
- *  accelerator_count to 1 to 8. If accelerator_count is 1, 2, 3, or 4, Vertex
- *  will co-schedule 8, 4, 2, or 2 replicas of the model into the same VM to
- *  save cost. When co-scheduling, CPU, memory and storage on the VM will be
- *  distributed to replicas on the VM. For example, one can expect a
+ *  The number of accelerators to attach to the machine. For [accelerator
+ *  optimized machine
+ *  types](https://cloud.google.com/compute/docs/accelerator-optimized-machines),
+ *  One may set the accelerator_count from 1 to N for machine with N GPUs. If
+ *  accelerator_count is less than or equal to N / 2, Agent Platform
+ *  co-schedules the replicas of the model into the same VM to save cost. For
+ *  example, if the machine type is a3-highgpu-8g, which has 8 H100 GPUs, one
+ *  can set accelerator_count to 1 to 8. If accelerator_count is 1, 2, 3, or 4,
+ *  Agent Platform co-schedules 8, 4, 2, or 2 replicas of the model into the
+ *  same VM to save cost. When co-scheduling, CPU, memory and storage on the VM
+ *  will be distributed to replicas on the VM. For example, one can expect a
  *  co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of
  *  the CPU, memory and storage of the VM. Note that the feature is not
  *  compatible with multihost_gpu_node_count. When multihost_gpu_node_count is
@@ -26407,9 +26625,9 @@ GTLR_DEPRECATED
 /**
  *  Immutable. The type of the machine. See the [list of machine types supported
  *  for
- *  prediction](https://cloud.google.com/vertex-ai/docs/predictions/configure-compute#machine-types)
+ *  prediction](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/configure-compute#machine-types)
  *  See the [list of machine types supported for custom
- *  training](https://cloud.google.com/vertex-ai/docs/training/configure-compute#machine-types).
+ *  training](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-compute#machine-types).
  *  For DeployedModel this field is optional, and the default value is
  *  `n1-standard-2`. For BatchPredictionJob or as part of WorkerPoolSpec this
  *  field is required.
@@ -30285,6 +30503,11 @@ GTLR_DEPRECATED
  *  The error type of this record.
  *
  *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateId
+ *        Multiple input records share the same datapoint id. The input
+ *        conversion pipeline performs non-deterministic last-write-wins
+ *        de-duplication and emits one error per duplicated id. (Value:
+ *        "DUPLICATE_ID")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace
  *        There are multiple restricts with the same `namespace` value. (Value:
  *        "DUPLICATE_NAMESPACE")
@@ -31704,7 +31927,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Represents the spec of persistent disk options.
+ *  Represents the spec of persistent disk and hyperdisk options.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec : GTLRObject
 
@@ -31719,7 +31942,11 @@ GTLR_DEPRECATED
  *  Type of the disk (default is "pd-standard"). Valid values: "pd-ssd"
  *  (Persistent Disk Solid State Drive) "pd-standard" (Persistent Disk Hard Disk
  *  Drive) "pd-balanced" (Balanced Persistent Disk) "pd-extreme" (Extreme
- *  Persistent Disk)
+ *  Persistent Disk) "hyperdisk-balanced" (Hyperdisk Balanced)
+ *  "hyperdisk-extreme" (Hyperdisk Extreme)
+ *  "hyperdisk-balanced-high-availability" (Hyperdisk Balanced High
+ *  Availability) "hyperdisk-ml" (Hyperdisk ML) "hyperdisk-throughput"
+ *  (Hyperdisk Throughput)
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
@@ -37566,8 +37793,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. The name of the SandboxEnvironmentTemplate specified in the parent
- *  Agent Engine resource that this SandboxEnvironment is created from. Only one
- *  of `sandbox_environment_template` and `spec` should be set.
+ *  Agent Engine resource that this SandboxEnvironment is created from.
  */
 @property(nonatomic, copy, nullable) NSString *sandboxEnvironmentTemplate;
 
@@ -37874,6 +38100,9 @@ GTLR_DEPRECATED
  *        "DEFAULT_CONTAINER_CATEGORY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *defaultContainerCategory;
+
+/** Optional. Resource requests and limits for the default container. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironmentTemplateResourceRequirements *resources;
 
 @end
 
@@ -47237,6 +47466,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EnterpriseWebSearch *enterpriseWebSearch;
 
 /**
+ *  Optional. Uses Exa.ai to search for information to answer user queries. The
+ *  search results will be grounded on Exa.ai and presented to the model for
+ *  response generation
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch *exaAiSearch;
+
+/**
  *  Optional. Function tool type. One or more function declarations to be passed
  *  to the model along with the current user query. Model may decide to call a
  *  subset of these functions by populating FunctionCall in the response. User
@@ -47402,6 +47638,37 @@ GTLR_DEPRECATED
 /** Optional. Retrieval config. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RetrievalConfig *retrievalConfig;
 
+@end
+
+
+/**
+ *  ExaAiSearch tool type. A tool that uses the Exa.ai search engine for
+ *  grounding.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch : GTLRObject
+
+/** Required. The API key for ExaAiSearch. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/**
+ *  Optional. This field can be used to pass any parameter from the Exa.ai
+ *  Search API.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch_CustomConfigs *customConfigs;
+
+@end
+
+
+/**
+ *  Optional. This field can be used to pass any parameter from the Exa.ai
+ *  Search API.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ToolExaAiSearch_CustomConfigs : GTLRObject
 @end
 
 

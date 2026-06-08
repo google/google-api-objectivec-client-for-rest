@@ -1733,6 +1733,40 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_Meet
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_Membership.affiliation
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "AFFILIATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_Affiliation_AffiliationUnspecified;
+/**
+ *  An account external to the Google Workspace organization that owns the space
+ *  (e.g., a consumer account, or an account managed by a different Workspace
+ *  organization).
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_Affiliation_External;
+/**
+ *  An account managed by the same Google Workspace organization that owns the
+ *  space.
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_Affiliation_Internal;
+/**
+ *  An account managed by the Workspace organization that owns the space, but
+ *  provisioned for a user who is external to the organization (e.g., a Guest
+ *  user). To learn more about guests, see
+ *  https://support.google.com/chat/answer/16997417.
+ *
+ *  Value: "MANAGED_EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_Affiliation_ManagedExternal;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Membership.role
 
 /**
@@ -6692,6 +6726,31 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  Chat app is invited to, part of, or absent from a space.
  */
 @interface GTLRHangoutsChat_Membership : GTLRObject
+
+/**
+ *  Output only. A user's relationship to the Workspace organization that owns
+ *  the space. In spaces owned by consumer accounts, the affiliation of all
+ *  members is `EXTERNAL`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_Membership_Affiliation_AffiliationUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "AFFILIATION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_Membership_Affiliation_External An account
+ *        external to the Google Workspace organization that owns the space
+ *        (e.g., a consumer account, or an account managed by a different
+ *        Workspace organization). (Value: "EXTERNAL")
+ *    @arg @c kGTLRHangoutsChat_Membership_Affiliation_Internal An account
+ *        managed by the same Google Workspace organization that owns the space.
+ *        (Value: "INTERNAL")
+ *    @arg @c kGTLRHangoutsChat_Membership_Affiliation_ManagedExternal An
+ *        account managed by the Workspace organization that owns the space, but
+ *        provisioned for a user who is external to the organization (e.g., a
+ *        Guest user). To learn more about guests, see
+ *        https://support.google.com/chat/answer/16997417. (Value:
+ *        "MANAGED_EXTERNAL")
+ */
+@property(nonatomic, copy, nullable) NSString *affiliation;
 
 /**
  *  Optional. Immutable. The creation time of the membership, such as when a

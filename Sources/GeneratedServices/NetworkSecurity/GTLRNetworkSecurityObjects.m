@@ -234,6 +234,23 @@ NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInval
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_ClientValidationModeUnspecified = @"CLIENT_VALIDATION_MODE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid = @"REJECT_INVALID";
 
+// GTLRNetworkSecurity_SACAttachment.state
+NSString * const kGTLRNetworkSecurity_SACAttachment_State_PartnerAttached = @"PARTNER_ATTACHED";
+NSString * const kGTLRNetworkSecurity_SACAttachment_State_PartnerDetached = @"PARTNER_DETACHED";
+NSString * const kGTLRNetworkSecurity_SACAttachment_State_PendingPartnerAttachment = @"PENDING_PARTNER_ATTACHMENT";
+NSString * const kGTLRNetworkSecurity_SACAttachment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_SACRealm.securityService
+NSString * const kGTLRNetworkSecurity_SACRealm_SecurityService_PaloAltoPrismaAccess = @"PALO_ALTO_PRISMA_ACCESS";
+NSString * const kGTLRNetworkSecurity_SACRealm_SecurityService_SecurityServiceUnspecified = @"SECURITY_SERVICE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_SACRealm.state
+NSString * const kGTLRNetworkSecurity_SACRealm_State_KeyExpired = @"KEY_EXPIRED";
+NSString * const kGTLRNetworkSecurity_SACRealm_State_PartnerAttached = @"PARTNER_ATTACHED";
+NSString * const kGTLRNetworkSecurity_SACRealm_State_PartnerDetached = @"PARTNER_DETACHED";
+NSString * const kGTLRNetworkSecurity_SACRealm_State_PendingPartnerAttachment = @"PENDING_PARTNER_ATTACHMENT";
+NSString * const kGTLRNetworkSecurity_SACRealm_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRNetworkSecurity_SecurityProfile.type
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomIntercept = @"CUSTOM_INTERCEPT";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring = @"CUSTOM_MIRRORING";
@@ -400,7 +417,7 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 @implementation GTLRNetworkSecurity_AuthzPolicy
 @dynamic action, createTime, customProvider, descriptionProperty, httpRules,
-         labels, name, policyProfile, target, updateTime;
+         labels, name, networkRules, policyProfile, target, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -408,7 +425,8 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"httpRules" : [GTLRNetworkSecurity_AuthzPolicyAuthzRule class]
+    @"httpRules" : [GTLRNetworkSecurity_AuthzPolicyAuthzRule class],
+    @"networkRules" : [GTLRNetworkSecurity_AuthzPolicyAuthzRule class]
   };
   return map;
 }
@@ -572,13 +590,14 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 //
 
 @implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation
-@dynamic headerSet, hosts, mcp, methods, paths;
+@dynamic headerSet, hosts, mcp, methods, paths, snis;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"hosts" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class],
     @"methods" : [NSString class],
-    @"paths" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class]
+    @"paths" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class],
+    @"snis" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class]
   };
   return map;
 }
@@ -1856,6 +1875,52 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_ListSACAttachmentsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListSACAttachmentsResponse
+@dynamic nextPageToken, sacAttachments, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sacAttachments" : [GTLRNetworkSecurity_SACAttachment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sacAttachments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListSACRealmsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListSACRealmsResponse
+@dynamic nextPageToken, sacRealms, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sacRealms" : [GTLRNetworkSecurity_SACRealm class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sacRealms";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_ListSecurityProfileGroupsResponse
 //
 
@@ -2317,6 +2382,65 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SACAttachment
+//
+
+@implementation GTLRNetworkSecurity_SACAttachment
+@dynamic createTime, labels, name, nccGateway, sacRealm, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SACAttachment_Labels
+//
+
+@implementation GTLRNetworkSecurity_SACAttachment_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SACRealm
+//
+
+@implementation GTLRNetworkSecurity_SACRealm
+@dynamic createTime, labels, name, pairingKey, securityService, state,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SACRealm_Labels
+//
+
+@implementation GTLRNetworkSecurity_SACRealm_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_SACRealmPairingKey
+//
+
+@implementation GTLRNetworkSecurity_SACRealmPairingKey
+@dynamic expireTime, key;
 @end
 
 

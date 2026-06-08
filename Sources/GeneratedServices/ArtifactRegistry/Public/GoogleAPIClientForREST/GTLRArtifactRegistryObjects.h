@@ -64,6 +64,7 @@
 @class GTLRArtifactRegistry_Package_Annotations;
 @class GTLRArtifactRegistry_PlatformLogsConfig;
 @class GTLRArtifactRegistry_Policy;
+@class GTLRArtifactRegistry_PrewarmedArtifact;
 @class GTLRArtifactRegistry_PythonPackage;
 @class GTLRArtifactRegistry_PythonRepository;
 @class GTLRArtifactRegistry_RemoteRepositoryConfig;
@@ -987,6 +988,43 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRArtifactRegistry_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  The request for checking an artifact for streaming.
+ */
+@interface GTLRArtifactRegistry_CheckPrewarmedArtifactRequest : GTLRObject
+
+/**
+ *  Optional. The location of the prewarmed artifact. multi-region is not
+ *  supported for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *streamLocation;
+
+/**
+ *  Optional. The artifact tag
+ *  Format:projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/tags/{tag}
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+/**
+ *  Optional. The artifact version Format:
+ *  projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  The response for checking an artifact for streaming.
+ */
+@interface GTLRArtifactRegistry_CheckPrewarmedArtifactResponse : GTLRObject
+
+/** The prewarmed artifact that was checked. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_PrewarmedArtifact *prewarmedArtifact;
+
 @end
 
 
@@ -2151,6 +2189,33 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The response for listing artifacts for streaming.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "prewarmedArtifacts" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRArtifactRegistry_ListPrewarmedArtifactsResponse : GTLRCollectionObject
+
+/**
+ *  The token to retrieve the next page of prewarmed artifacts, or empty if
+ *  there are no more streamings to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The prewarmed artifacts.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_PrewarmedArtifact *> *prewarmedArtifacts;
+
+@end
+
+
+/**
  *  The response from listing python packages.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2770,6 +2835,80 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The request for prewarming an artifact for streaming.
+ */
+@interface GTLRArtifactRegistry_PrewarmArtifactRequest : GTLRObject
+
+/**
+ *  Optional. If true, old artifact will be evicted to make room for the new
+ *  artifact.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  Optional. The retention days of the prewarmed artifact. If not specified,
+ *  the artifact will be cached for 3 days.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionDays;
+
+/**
+ *  Optional. The location to cache the artifact in. If not specified, the
+ *  artifact will be cached in the same location as the artifact. multi-region
+ *  is not supported for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *streamLocation;
+
+/**
+ *  Optional. The artifact tag
+ *  Format:projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/tags/{tag}
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+/**
+ *  Optional. The artifact version Format:
+ *  projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  The response for prewarming an artifact for streaming.
+ */
+@interface GTLRArtifactRegistry_PrewarmArtifactResponse : GTLRObject
+
+/** The prewarmed artifact that was prewarmed. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_PrewarmedArtifact *prewarmedArtifact;
+
+@end
+
+
+/**
+ *  PrewarmedArtifact represents a streamed artifact.
+ */
+@interface GTLRArtifactRegistry_PrewarmedArtifact : GTLRObject
+
+/** The expiration time of the prewarmed artifact. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
+
+/** The location of the prewarmed artifact. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  URL to access the image. Example:
+ *  us-west4-docker.pkg.dev/test-project/test-repo/nginx\@sha256:e9954c1fc875017be1c3e36eca16be2d9e9bccc4bf072163515467d6a823c7cf
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  The Artifact Registry logging configurations that apply to a Project.
  */
 @interface GTLRArtifactRegistry_ProjectConfig : GTLRObject
@@ -2938,6 +3077,43 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Specific settings for a Yum remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_YumRepository *yumRepository;
+
+@end
+
+
+/**
+ *  The request for removing an artifact from streaming.
+ */
+@interface GTLRArtifactRegistry_RemovePrewarmedArtifactRequest : GTLRObject
+
+/**
+ *  Optional. The location of the prewarmed artifact. multi-region is not
+ *  supported for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *streamLocation;
+
+/**
+ *  Optional. The artifact tag
+ *  Format:projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/tags/{tag}
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+/**
+ *  Optional. The artifact version Format:
+ *  projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  The response for removing an artifact from streaming.
+ */
+@interface GTLRArtifactRegistry_RemovePrewarmedArtifactResponse : GTLRObject
+
+/** The prewarmed artifact that was removed. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_PrewarmedArtifact *prewarmedArtifact;
 
 @end
 

@@ -160,6 +160,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage = @"insuff
 NSString * const kGTLRToolResults_TestIssue_Type_IosCrash      = @"iosCrash";
 NSString * const kGTLRToolResults_TestIssue_Type_IosException  = @"iosException";
 NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound = @"launcherActivityNotFound";
+NSString * const kGTLRToolResults_TestIssue_Type_LicensingProtectionTermination = @"licensingProtectionTermination";
 NSString * const kGTLRToolResults_TestIssue_Type_LogcatCollectionError = @"logcatCollectionError";
 NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"nativeCrash";
 NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport = @"nonSdkApiUsageReport";
@@ -666,6 +667,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_LauncherActivityNotFound
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_LicensingProtectionTermination
+//
+
+@implementation GTLRToolResults_LicensingProtectionTermination
 @end
 
 

@@ -70,6 +70,7 @@ NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_Res
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateCancelling = @"PROCESSING_STATE_CANCELLING";
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateRecurring = @"PROCESSING_STATE_RECURRING";
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateResuming = @"PROCESSING_STATE_RESUMING";
+NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateSuspending = @"PROCESSING_STATE_SUSPENDING";
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateUnspecified = @"PROCESSING_STATE_UNSPECIFIED";
 
 // GTLRPaymentsResellerSubscription_Subscription.state

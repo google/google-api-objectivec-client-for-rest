@@ -1163,6 +1163,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
 /**
  *  # gdata.* are outside protos with mising documentation
  *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sha512Hash;
+
+/**
+ *  # gdata.* are outside protos with mising documentation
+ *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timestamp;

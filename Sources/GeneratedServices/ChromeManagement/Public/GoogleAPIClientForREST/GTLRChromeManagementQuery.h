@@ -754,6 +754,96 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Gets the setting state of the insights feature for the customer.
+ *
+ *  Method: chromemanagement.customers.enterprise.securityInsights.checkEnablementStatus
+ */
+@interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsCheckEnablementStatus : GTLRChromeManagementQuery
+
+/**
+ *  Required. The customer to check the enablement status for. Format:
+ *  customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1CheckEnablementStatusResponse.
+ *
+ *  Gets the setting state of the insights feature for the customer.
+ *
+ *  @param customer Required. The customer to check the enablement status for.
+ *    Format: customers/{customer_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsCheckEnablementStatus
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Disables insights for the customer.
+ *
+ *  Method: chromemanagement.customers.enterprise.securityInsights.disable
+ */
+@interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsDisable : GTLRChromeManagementQuery
+
+/**
+ *  Required. The customer to disable insights for. Format: customers/{customer}
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsResponse.
+ *
+ *  Disables insights for the customer.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsRequest
+ *    to include in the query.
+ *  @param customer Required. The customer to disable insights for. Format:
+ *    customers/{customer}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsDisable
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1DisableInsightsRequest *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Enables insights for the customer and sets up required chrome connectors.
+ *
+ *  Method: chromemanagement.customers.enterprise.securityInsights.enable
+ */
+@interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsEnable : GTLRChromeManagementQuery
+
+/**
+ *  Required. The customer to enable insights for. Format: customers/{customer}
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse.
+ *
+ *  Enables insights for the customer and sets up required chrome connectors.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsRequest
+ *    to include in the query.
+ *  @param customer Required. The customer to enable insights for. Format:
+ *    customers/{customer}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsEnable
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsRequest *)object
+                       customer:(NSString *)customer;
+
+@end
+
+/**
  *  Creates a Chrome browser profile remote command.
  *
  *  Method: chromemanagement.customers.profiles.commands.create
@@ -1281,6 +1371,61 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  @param customer Required. The customer ID or "my_customer".
  *
  *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeHardwareFleetDevices
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Generate report of installed Chrome versions on managed profiles.
+ *
+ *  Method: chromemanagement.customers.reports.countChromeProfileVersions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountChromeProfileVersions : GTLRChromeManagementQuery
+
+/**
+ *  Required. Customer id or "my_customer" to use the customer associated to the
+ *  account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. Query string to filter results, AND-separated fields in EBNF
+ *  syntax. Note: OR operations are not supported in this filter. Supported
+ *  filter fields: * last_active_date
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The ID of the organizational unit. If omitted, all data will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Token to specify the page of the request to be returned. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountChromeProfileVersionsResponse.
+ *
+ *  Generate report of installed Chrome versions on managed profiles.
+ *
+ *  @param customer Required. Customer id or "my_customer" to use the customer
+ *    associated to the account making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeProfileVersions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithCustomer:(NSString *)customer;
 

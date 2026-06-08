@@ -548,6 +548,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  Output only. The URIs of the source code, if available. For Cloud Run source
+ *  deploy for example:
+ *  `gs://my-bucket/my-folder/1234567890.abcde-fdbe.zip#1234567890`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceCodeUris;
+
+/**
  *  Output only. The source commits at which this artifact was built. Extracted
  *  from provenance.
  */

@@ -700,6 +700,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithMongodbCompatibilityMode = @"ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithNativeMode = @"ENGINE_FIRESTORE_WITH_NATIVE_MODE";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorstoreForValkey = @"ENGINE_MEMORSTORE_FOR_VALKEY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForRedis = @"ENGINE_MEMORYSTORE_FOR_REDIS";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForRedisCluster = @"ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMysql = @"ENGINE_MYSQL";
@@ -1116,7 +1117,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_ConnectionPoolConfig
-@dynamic enabled, flags, poolerCount;
+@dynamic authproxyPoolerCount, enabled, flags, poolerCount;
 @end
 
 
@@ -2244,14 +2245,15 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata
-@dynamic availabilityConfiguration, backupConfiguration, backupdrConfiguration,
-         backupRun, creationTime, currentState, customMetadata, edition,
-         entitlements, expectedState, gcbdrConfiguration, identifier,
-         instanceType, isDeletionProtectionEnabled, location,
-         machineConfiguration, maintenanceInfo, modes, primaryResourceId,
-         primaryResourceLocation, product, resourceContainer, resourceFlags,
-         resourceName, suspensionReason, tagsSet, updationTime, userLabelSet,
-         zoneProperty;
+@dynamic additionalMetadata, availabilityConfiguration, backupConfiguration,
+         backupdrConfiguration, backupRun, creationTime, currentState,
+         customMetadata, edition, entitlements, expectedState,
+         gcbdrConfiguration, identifier, instanceType,
+         internalAdditionalMetadata, ipAddress, isDeletionProtectionEnabled,
+         location, machineConfiguration, maintenanceInfo, modes,
+         primaryResourceId, primaryResourceLocation, product, resourceContainer,
+         resourceFlags, resourceName, suspensionReason, tagsSet, updationTime,
+         userLabelSet, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2268,6 +2270,34 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
     @"resourceFlags" : [GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_AdditionalMetadata
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_AdditionalMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InternalAdditionalMetadata
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InternalAdditionalMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -2345,6 +2375,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainInternalResourceMetadata
 @dynamic backupConfiguration, backupRun, isDeletionProtectionEnabled, product,
          resourceId, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainIpAddress
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainIpAddress
+@dynamic privateIp, publicIp;
 @end
 
 

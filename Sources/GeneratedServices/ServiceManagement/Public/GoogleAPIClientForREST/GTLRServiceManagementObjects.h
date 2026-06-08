@@ -1008,6 +1008,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organizatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_Geo;
 /**
+ *  Health Org.
+ *
+ *  Value: "HEALTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_Health;
+/**
  *  Photos Org.
  *
  *  Value: "PHOTOS"
@@ -4798,6 +4804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        "GENERATIVE_AI")
  *    @arg @c kGTLRServiceManagement_Publishing_Organization_Geo Geo Org.
  *        (Value: "GEO")
+ *    @arg @c kGTLRServiceManagement_Publishing_Organization_Health Health Org.
+ *        (Value: "HEALTH")
  *    @arg @c kGTLRServiceManagement_Publishing_Organization_Photos Photos Org.
  *        (Value: "PHOTOS")
  *    @arg @c kGTLRServiceManagement_Publishing_Organization_Shopping Shopping

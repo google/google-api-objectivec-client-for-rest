@@ -3693,6 +3693,46 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 
 /**
+ *  Request message for VmwareEngine.MigrateManagementVms
+ */
+@interface GTLRVMwareEngine_MigrateManagementVmsRequest : GTLRObject
+
+/**
+ *  Required. The user-provided identifier of the workload cluster to which the
+ *  management VMs are to be migrated. The cluster must be in the same private
+ *  cloud as the one specified in `name`, and must be a workload cluster. The
+ *  eventual cluster name will be constructed from the private cloud name and
+ *  this cluster ID.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  Optional. Checksum used to ensure that the user-provided value is up to date
+ *  before the server processes the request. The server compares provided
+ *  checksum with the current checksum of the resource. If the user-provided
+ *  value is out of date, this request returns an `ABORTED` error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if the original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Mount Datastore Request message
  */
 @interface GTLRVMwareEngine_MountDatastoreRequest : GTLRObject

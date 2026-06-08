@@ -266,6 +266,26 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_CheckPrewarmedArtifactRequest
+//
+
+@implementation GTLRArtifactRegistry_CheckPrewarmedArtifactRequest
+@dynamic streamLocation, tag, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_CheckPrewarmedArtifactResponse
+//
+
+@implementation GTLRArtifactRegistry_CheckPrewarmedArtifactResponse
+@dynamic prewarmedArtifact;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_CleanupPolicy
 //
 
@@ -1002,6 +1022,28 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_ListPrewarmedArtifactsResponse
+//
+
+@implementation GTLRArtifactRegistry_ListPrewarmedArtifactsResponse
+@dynamic nextPageToken, prewarmedArtifacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"prewarmedArtifacts" : [GTLRArtifactRegistry_PrewarmedArtifact class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"prewarmedArtifacts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_ListPythonPackagesResponse
 //
 
@@ -1311,6 +1353,36 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_PrewarmArtifactRequest
+//
+
+@implementation GTLRArtifactRegistry_PrewarmArtifactRequest
+@dynamic force, retentionDays, streamLocation, tag, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_PrewarmArtifactResponse
+//
+
+@implementation GTLRArtifactRegistry_PrewarmArtifactResponse
+@dynamic prewarmedArtifact;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_PrewarmedArtifact
+//
+
+@implementation GTLRArtifactRegistry_PrewarmedArtifact
+@dynamic expirationTime, location, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_ProjectConfig
 //
 
@@ -1363,6 +1435,26 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_RemovePrewarmedArtifactRequest
+//
+
+@implementation GTLRArtifactRegistry_RemovePrewarmedArtifactRequest
+@dynamic streamLocation, tag, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_RemovePrewarmedArtifactResponse
+//
+
+@implementation GTLRArtifactRegistry_RemovePrewarmedArtifactResponse
+@dynamic prewarmedArtifact;
 @end
 
 

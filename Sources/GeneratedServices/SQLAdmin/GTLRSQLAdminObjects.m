@@ -694,6 +694,7 @@ NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdSsd     = @"PD_SSD";
 NSString * const kGTLRSQLAdmin_Settings_DataDiskType_SqlDataDiskTypeUnspecified = @"SQL_DATA_DISK_TYPE_UNSPECIFIED";
 
 // GTLRSQLAdmin_Settings.edition
+NSString * const kGTLRSQLAdmin_Settings_Edition_Developer      = @"DEVELOPER";
 NSString * const kGTLRSQLAdmin_Settings_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Settings_Edition_Enterprise     = @"ENTERPRISE";
 NSString * const kGTLRSQLAdmin_Settings_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";

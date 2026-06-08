@@ -455,6 +455,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerEventSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
@@ -462,8 +463,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuerySearchContext;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_CesDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoKnowledgeAssistBehavior;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoQueryGenerationDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Message;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1MessageAnnotation;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest;
@@ -558,6 +562,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
@@ -565,8 +570,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_CesDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoKnowledgeAssistBehavior;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Message;
 @class GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation;
 @class GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest;
@@ -12788,6 +12796,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery *suggestedQuery;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer : GTLRObject
@@ -12863,6 +12881,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *queryText;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuerySearchContext *> *searchContexts;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuerySearchContext
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuerySearchContext : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -12871,6 +12901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_CesDebugInfo *cesDebugInfo;
 
 /**
  *  datastoreResponseReason
@@ -12917,6 +12949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *queryCategorizationFailureReason;
 
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoQueryGenerationDebugInfo *queryGenerationDebugInfo;
+
 /**
  *  queryGenerationFailureReason
  *
@@ -12948,6 +12982,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ServiceLatency *serviceLatency;
 
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_CesDebugInfo
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_CesDebugInfo : GTLRObject
 @end
 
 
@@ -13074,6 +13120,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useTranslatedMessage;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoQueryGenerationDebugInfo
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoQueryGenerationDebugInfo : GTLRObject
+
+/**
+ *  candidatesTokenCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *candidatesTokenCount;
+
+/**
+ *  promptTokenCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *promptTokenCount;
+
+/**
+ *  totalTokenCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTokenCount;
 
 @end
 
@@ -13686,6 +13761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestKnowledgeAssistResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult *> *additionalSuggestedQueryResults;
 
 /**
  *  contextSize
@@ -15189,6 +15266,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery *suggestedQuery;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer : GTLRObject
@@ -15264,6 +15351,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *queryText;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext *> *searchContexts;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuerySearchContext : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -15272,6 +15371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_CesDebugInfo *cesDebugInfo;
 
 /**
  *  datastoreResponseReason
@@ -15318,6 +15419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *queryCategorizationFailureReason;
 
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo *queryGenerationDebugInfo;
+
 /**
  *  queryGenerationFailureReason
  *
@@ -15349,6 +15452,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ServiceLatency *serviceLatency;
 
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_CesDebugInfo
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_CesDebugInfo : GTLRObject
 @end
 
 
@@ -15475,6 +15590,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useTranslatedMessage;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoQueryGenerationDebugInfo : GTLRObject
+
+/**
+ *  candidatesTokenCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *candidatesTokenCount;
+
+/**
+ *  promptTokenCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *promptTokenCount;
+
+/**
+ *  totalTokenCount
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTokenCount;
 
 @end
 
@@ -15958,6 +16102,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestKnowledgeAssistResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult *> *additionalSuggestedQueryResults;
 
 /**
  *  contextSize

@@ -46,12 +46,63 @@ NSString * const kGTLRGoogleHealthAPI_ActivityLevelRollupByActivityLevelType_Act
 NSString * const kGTLRGoogleHealthAPI_ActivityLevelRollupByActivityLevelType_ActivityLevelType_Sedentary = @"SEDENTARY";
 NSString * const kGTLRGoogleHealthAPI_ActivityLevelRollupByActivityLevelType_ActivityLevelType_VeryActive = @"VERY_ACTIVE";
 
+// GTLRGoogleHealthAPI_BloodGlucose.mealType
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MealType_Breakfast = @"BREAKFAST";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MealType_Dinner = @"DINNER";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MealType_Lunch = @"LUNCH";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MealType_MealTypeUnspecified = @"MEAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MealType_Snack = @"SNACK";
+
+// GTLRGoogleHealthAPI_BloodGlucose.measurementSource
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementSource_ContinuousGlucoseMonitoring = @"CONTINUOUS_GLUCOSE_MONITORING";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementSource_LabTest = @"LAB_TEST";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementSource_MeasurementSourceUnspecified = @"MEASUREMENT_SOURCE_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementSource_SelfMonitoringBloodGlucose = @"SELF_MONITORING_BLOOD_GLUCOSE";
+
+// GTLRGoogleHealthAPI_BloodGlucose.measurementTiming
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementTiming_AfterMeal = @"AFTER_MEAL";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementTiming_BeforeBed = @"BEFORE_BED";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementTiming_BeforeMeal = @"BEFORE_MEAL";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementTiming_Fasting = @"FASTING";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementTiming_General = @"GENERAL";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementTiming_MeasurementTimingUnspecified = @"MEASUREMENT_TIMING_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_MeasurementTiming_OverNight = @"OVER_NIGHT";
+
+// GTLRGoogleHealthAPI_BloodGlucose.specimen
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_Specimen_CapillaryBlood = @"CAPILLARY_BLOOD";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_Specimen_InterstitialFluid = @"INTERSTITIAL_FLUID";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_Specimen_Plasma = @"PLASMA";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_Specimen_Serum = @"SERUM";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_Specimen_SpecimenUnspecified = @"SPECIMEN_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_Specimen_Tears = @"TEARS";
+NSString * const kGTLRGoogleHealthAPI_BloodGlucose_Specimen_WholeBlood = @"WHOLE_BLOOD";
+
 // GTLRGoogleHealthAPI_CaloriesInHeartRateZoneValue.heartRateZone
 NSString * const kGTLRGoogleHealthAPI_CaloriesInHeartRateZoneValue_HeartRateZone_HeartRateZoneTypeUnspecified = @"HEART_RATE_ZONE_TYPE_UNSPECIFIED";
 NSString * const kGTLRGoogleHealthAPI_CaloriesInHeartRateZoneValue_HeartRateZone_Light = @"LIGHT";
 NSString * const kGTLRGoogleHealthAPI_CaloriesInHeartRateZoneValue_HeartRateZone_Moderate = @"MODERATE";
 NSString * const kGTLRGoogleHealthAPI_CaloriesInHeartRateZoneValue_HeartRateZone_Peak = @"PEAK";
 NSString * const kGTLRGoogleHealthAPI_CaloriesInHeartRateZoneValue_HeartRateZone_Vigorous = @"VIGOROUS";
+
+// GTLRGoogleHealthAPI_CoreBodyTemperature.measurementLocation
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Armpit = @"ARMPIT";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Body = @"BODY";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Ear = @"EAR";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_EarDrum = @"EAR_DRUM";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Finger = @"FINGER";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Forehead = @"FOREHEAD";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_GastroIntestinal = @"GASTRO_INTESTINAL";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_MeasurementLocationUnspecified = @"MEASUREMENT_LOCATION_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Mouth = @"MOUTH";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Nasal = @"NASAL";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Nasopharyngeal = @"NASOPHARYNGEAL";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Other = @"OTHER";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Rectum = @"RECTUM";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_TemporalArtery = @"TEMPORAL_ARTERY";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Toe = @"TOE";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_UrinaryBladder = @"URINARY_BLADDER";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Vagina = @"VAGINA";
+NSString * const kGTLRGoogleHealthAPI_CoreBodyTemperature_MeasurementLocation_Wrist = @"WRIST";
 
 // GTLRGoogleHealthAPI_DailyRestingHeartRateMetadata.calculationMethod
 NSString * const kGTLRGoogleHealthAPI_DailyRestingHeartRateMetadata_CalculationMethod_CalculationMethodUnspecified = @"CALCULATION_METHOD_UNSPECIFIED";
@@ -98,20 +149,215 @@ NSString * const kGTLRGoogleHealthAPI_Device_FormFactor_SmartDisplay = @"SMART_D
 NSString * const kGTLRGoogleHealthAPI_Device_FormFactor_Tablet = @"TABLET";
 NSString * const kGTLRGoogleHealthAPI_Device_FormFactor_Watch  = @"WATCH";
 
+// GTLRGoogleHealthAPI_Electrocardiogram.resultClassification
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_AtrialFibrillation = @"ATRIAL_FIBRILLATION";
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_Inconclusive = @"INCONCLUSIVE";
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_InconclusiveHighHeartRate = @"INCONCLUSIVE_HIGH_HEART_RATE";
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_InconclusiveLowHeartRate = @"INCONCLUSIVE_LOW_HEART_RATE";
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_NormalSinusRhythm = @"NORMAL_SINUS_RHYTHM";
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_NotAnalyzed = @"NOT_ANALYZED";
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_ResultClassificationUnspecified = @"RESULT_CLASSIFICATION_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_Electrocardiogram_ResultClassification_Unreadable = @"UNREADABLE";
+
+// GTLRGoogleHealthAPI_EnergyQuantity.userProvidedUnit
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantity_UserProvidedUnit_Calorie = @"CALORIE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantity_UserProvidedUnit_EnergyUnitUnspecified = @"ENERGY_UNIT_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantity_UserProvidedUnit_Joule = @"JOULE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantity_UserProvidedUnit_Kilocalorie = @"KILOCALORIE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantity_UserProvidedUnit_Kilojoule = @"KILOJOULE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantity_UserProvidedUnit_SmallCalorie = @"SMALL_CALORIE";
+
+// GTLRGoogleHealthAPI_EnergyQuantityRollup.userProvidedUnitLast
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantityRollup_UserProvidedUnitLast_Calorie = @"CALORIE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantityRollup_UserProvidedUnitLast_EnergyUnitUnspecified = @"ENERGY_UNIT_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantityRollup_UserProvidedUnitLast_Joule = @"JOULE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantityRollup_UserProvidedUnitLast_Kilocalorie = @"KILOCALORIE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantityRollup_UserProvidedUnitLast_Kilojoule = @"KILOJOULE";
+NSString * const kGTLRGoogleHealthAPI_EnergyQuantityRollup_UserProvidedUnitLast_SmallCalorie = @"SMALL_CALORIE";
+
 // GTLRGoogleHealthAPI_Exercise.exerciseType
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_AerobicWorkout = @"AEROBIC_WORKOUT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Archery = @"ARCHERY";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_AssaultBike = @"ASSAULT_BIKE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Backpacking = @"BACKPACKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Badminton = @"BADMINTON";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Ballet = @"BALLET";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_BallroomDance = @"BALLROOM_DANCE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_BarreClass = @"BARRE_CLASS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Baseball = @"BASEBALL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Basketball = @"BASKETBALL";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Biking = @"BIKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Billiards = @"BILLIARDS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_BodyWeight = @"BODY_WEIGHT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Bootcamp = @"BOOTCAMP";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Bowling = @"BOWLING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Boxing = @"BOXING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Breakdancing = @"BREAKDANCING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Calisthenics = @"CALISTHENICS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Canoeing = @"CANOEING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_CardioSculpt = @"CARDIO_SCULPT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_CardioWorkout = @"CARDIO_WORKOUT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Carpentry = @"CARPENTRY";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Cheerleading = @"CHEERLEADING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_CircuitTraining = @"CIRCUIT_TRAINING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Cleaning = @"CLEANING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Climbing = @"CLIMBING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_CoreTraining = @"CORE_TRAINING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Cricket = @"CRICKET";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Croquet = @"CROQUET";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_CrossCountrySki = @"CROSS_COUNTRY_SKI";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Crossfit = @"CROSSFIT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_CrossTraining = @"CROSS_TRAINING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Curling = @"CURLING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Dancing = @"DANCING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Diving = @"DIVING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_ElectricBike = @"ELECTRIC_BIKE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_ElectricScooter = @"ELECTRIC_SCOOTER";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Elliptical = @"ELLIPTICAL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_EquestrianSports = @"EQUESTRIAN_SPORTS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_ExerciseClass = @"EXERCISE_CLASS";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_ExerciseTypeUnspecified = @"EXERCISE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Fencing = @"FENCING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_FieldHockey = @"FIELD_HOCKEY";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Fishing = @"FISHING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_FitnessGaming = @"FITNESS_GAMING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Foiling = @"FOILING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_FootballAmerican = @"FOOTBALL_AMERICAN";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_FootballAustralian = @"FOOTBALL_AUSTRALIAN";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_FreeWeights = @"FREE_WEIGHTS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_FrisbeePlayingGeneral = @"FRISBEE_PLAYING_GENERAL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_FunctionalStrengthTraining = @"FUNCTIONAL_STRENGTH_TRAINING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Gardening = @"GARDENING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Golf = @"GOLF";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Gymnastics = @"GYMNASTICS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Handball = @"HANDBALL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_HandCycling = @"HAND_CYCLING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Hiit = @"HIIT";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Hiking = @"HIKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_HipHop = @"HIP_HOP";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Hockey = @"HOCKEY";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Hoeing = @"HOEING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_HouseholdChores = @"HOUSEHOLD_CHORES";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Hunting = @"HUNTING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_IceSkating = @"ICE_SKATING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_InclineRun = @"INCLINE_RUN";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_InclineWalk = @"INCLINE_WALK";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_IndoorClimbing = @"INDOOR_CLIMBING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_IntervalWorkout = @"INTERVAL_WORKOUT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_JazzDance = @"JAZZ_DANCE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_JiuJitsu = @"JIU_JITSU";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_JumpingRope = @"JUMPING_ROPE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Karate = @"KARATE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Kayaking = @"KAYAKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Kickboxing = @"KICKBOXING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Kitesurfing = @"KITESURFING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Lacrosse = @"LACROSSE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_MartialArts = @"MARTIAL_ARTS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Meditate = @"MEDITATE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_ModernDance = @"MODERN_DANCE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Motocross = @"MOTOCROSS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Motorcycle = @"MOTORCYCLE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_MountainBike = @"MOUNTAIN_BIKE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_MowingLawn = @"MOWING_LAWN";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_MuayThai = @"MUAY_THAI";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Multisport = @"MULTISPORT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_MusicalPerformance = @"MUSICAL_PERFORMANCE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_NordicWalking = @"NORDIC_WALKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Orienteering = @"ORIENTEERING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Other = @"OTHER";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_OutdoorBike = @"OUTDOOR_BIKE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_OutdoorWorkout = @"OUTDOOR_WORKOUT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Paddleboarding = @"PADDLEBOARDING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Padel = @"PADEL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Painting = @"PAINTING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Paragliding = @"PARAGLIDING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Parkour = @"PARKOUR";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Pickelball = @"PICKELBALL";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Pilates = @"PILATES";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Polo = @"POLO";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Powerlifting = @"POWERLIFTING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_PowerWalking = @"POWER_WALKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_RacketSports = @"RACKET_SPORTS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Racquetball = @"RACQUETBALL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_ResistanceBands = @"RESISTANCE_BANDS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_RockClimbing = @"ROCK_CLIMBING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Rollerblading = @"ROLLERBLADING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_RollerSkating = @"ROLLER_SKATING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Rowing = @"ROWING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_RowingMachine = @"ROWING_MACHINE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Rucking = @"RUCKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Rugby = @"RUGBY";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Running = @"RUNNING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Sailing = @"SAILING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Scootering = @"SCOOTERING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_ScubaDiving = @"SCUBA_DIVING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Shooting = @"SHOOTING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Shoveling = @"SHOVELING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Skateboarding = @"SKATEBOARDING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Skating = @"SKATING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Skiing = @"SKIING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Skydiving = @"SKYDIVING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Snorkeling = @"SNORKELING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Snowboarding = @"SNOWBOARDING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Snowmobiling = @"SNOWMOBILING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Snowshoeing = @"SNOWSHOEING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_SnowSport = @"SNOW_SPORT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Soccer = @"SOCCER";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Softball = @"SOFTBALL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_SpeedSkating = @"SPEED_SKATING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Spinning = @"SPINNING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Sport = @"SPORT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Squash = @"SQUASH";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Stairclimber = @"STAIRCLIMBER";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_StationaryBike = @"STATIONARY_BIKE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_StepTraining = @"STEP_TRAINING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_StrengthTraining = @"STRENGTH_TRAINING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Stretching = @"STRETCHING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_StrollerWalk = @"STROLLER_WALK";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Surfing = @"SURFING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Swimming = @"SWIMMING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_SwimmingOpenWater = @"SWIMMING_OPEN_WATER";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_SwimmingPool = @"SWIMMING_POOL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_SynchronizedSwimming = @"SYNCHRONIZED_SWIMMING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_TabataWorkout = @"TABATA_WORKOUT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_TableTennis = @"TABLE_TENNIS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Taekwondo = @"TAEKWONDO";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_TaiChi = @"TAI_CHI";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Tango = @"TANGO";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Tennis = @"TENNIS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_TrackAndField = @"TRACK_AND_FIELD";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_TrailRun = @"TRAIL_RUN";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Trampoline = @"TRAMPOLINE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Treadmill = @"TREADMILL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_TreadmillWalk = @"TREADMILL_WALK";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Trx = @"TRX";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_UltimateFrisbee = @"ULTIMATE_FRISBEE";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Unicycling = @"UNICYCLING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Volleyball = @"VOLLEYBALL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_VolleyballBeach = @"VOLLEYBALL_BEACH";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Wakeboarding = @"WAKEBOARDING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Walking = @"WALKING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WalkWithWeights = @"WALK_WITH_WEIGHTS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WaterAerobics = @"WATER_AEROBICS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WaterJogging = @"WATER_JOGGING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WaterPolo = @"WATER_POLO";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WaterSkiing = @"WATER_SKIING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WaterSport = @"WATER_SPORT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WaterVolleyball = @"WATER_VOLLEYBALL";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Weeding = @"WEEDING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Weightlifting = @"WEIGHTLIFTING";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_WeightMachines = @"WEIGHT_MACHINES";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Weights = @"WEIGHTS";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Wheelchair = @"WHEELCHAIR";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Windsurfing = @"WINDSURFING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Workout = @"WORKOUT";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Wrestling = @"WRESTLING";
 NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Yoga = @"YOGA";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_YogaBikram = @"YOGA_BIKRAM";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_YogaHatha = @"YOGA_HATHA";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_YogaPower = @"YOGA_POWER";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_YogaVinyasa = @"YOGA_VINYASA";
+NSString * const kGTLRGoogleHealthAPI_Exercise_ExerciseType_Zumba = @"ZUMBA";
 
 // GTLRGoogleHealthAPI_ExerciseEvent.exerciseEventType
 NSString * const kGTLRGoogleHealthAPI_ExerciseEvent_ExerciseEventType_AutoPause = @"AUTO_PAUSE";
@@ -121,6 +367,23 @@ NSString * const kGTLRGoogleHealthAPI_ExerciseEvent_ExerciseEventType_Pause = @"
 NSString * const kGTLRGoogleHealthAPI_ExerciseEvent_ExerciseEventType_Resume = @"RESUME";
 NSString * const kGTLRGoogleHealthAPI_ExerciseEvent_ExerciseEventType_Start = @"START";
 NSString * const kGTLRGoogleHealthAPI_ExerciseEvent_ExerciseEventType_Stop = @"STOP";
+
+// GTLRGoogleHealthAPI_Food.accessLevel
+NSString * const kGTLRGoogleHealthAPI_Food_AccessLevel_FoodAccessLevelPrivate = @"FOOD_ACCESS_LEVEL_PRIVATE";
+NSString * const kGTLRGoogleHealthAPI_Food_AccessLevel_FoodAccessLevelPublic = @"FOOD_ACCESS_LEVEL_PUBLIC";
+NSString * const kGTLRGoogleHealthAPI_Food_AccessLevel_FoodAccessLevelUnspecified = @"FOOD_ACCESS_LEVEL_UNSPECIFIED";
+
+// GTLRGoogleHealthAPI_Food.mealType
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_AfterDinner = @"AFTER_DINNER";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_Anytime    = @"ANYTIME";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_BeforeBreakfast = @"BEFORE_BREAKFAST";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_BeforeDinner = @"BEFORE_DINNER";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_BeforeLunch = @"BEFORE_LUNCH";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_Breakfast  = @"BREAKFAST";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_Dinner     = @"DINNER";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_Lunch      = @"LUNCH";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_MealTypeUnspecified = @"MEAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_Food_MealType_Snack      = @"SNACK";
 
 // GTLRGoogleHealthAPI_HeartRateMetadata.motionContext
 NSString * const kGTLRGoogleHealthAPI_HeartRateMetadata_MotionContext_Active = @"ACTIVE";
@@ -142,6 +405,107 @@ NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Light = @"
 NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Moderate = @"MODERATE";
 NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Peak = @"PEAK";
 NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Vigorous = @"VIGOROUS";
+
+// GTLRGoogleHealthAPI_NutrientQuantity.nutrient
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Biotin = @"BIOTIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Caffeine = @"CAFFEINE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Calcium = @"CALCIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Carbohydrates = @"CARBOHYDRATES";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Chloride = @"CHLORIDE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Cholesterol = @"CHOLESTEROL";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Chromium = @"CHROMIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Copper = @"COPPER";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_DietaryFiber = @"DIETARY_FIBER";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Folate = @"FOLATE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_FolicAcid = @"FOLIC_ACID";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Iodine = @"IODINE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Iron = @"IRON";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Magnesium = @"MAGNESIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Manganese = @"MANGANESE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Molybdenum = @"MOLYBDENUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_MonounsaturatedFat = @"MONOUNSATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Niacin = @"NIACIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_NutrientUnspecified = @"NUTRIENT_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_PantothenicAcid = @"PANTOTHENIC_ACID";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Phosphorus = @"PHOSPHORUS";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_PolyunsaturatedFat = @"POLYUNSATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Potassium = @"POTASSIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Protein = @"PROTEIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Riboflavin = @"RIBOFLAVIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_SaturatedFat = @"SATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Selenium = @"SELENIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Sodium = @"SODIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Sugar = @"SUGAR";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Thiamin = @"THIAMIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_TransFat = @"TRANS_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_UnsaturatedFat = @"UNSATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_VitaminA = @"VITAMIN_A";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_VitaminB12 = @"VITAMIN_B12";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_VitaminB6 = @"VITAMIN_B6";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_VitaminC = @"VITAMIN_C";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_VitaminD = @"VITAMIN_D";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_VitaminE = @"VITAMIN_E";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_VitaminK = @"VITAMIN_K";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Zinc = @"ZINC";
+
+// GTLRGoogleHealthAPI_NutrientQuantityRollup.nutrient
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Biotin = @"BIOTIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Caffeine = @"CAFFEINE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Calcium = @"CALCIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Carbohydrates = @"CARBOHYDRATES";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Chloride = @"CHLORIDE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Cholesterol = @"CHOLESTEROL";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Chromium = @"CHROMIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Copper = @"COPPER";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_DietaryFiber = @"DIETARY_FIBER";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Folate = @"FOLATE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_FolicAcid = @"FOLIC_ACID";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Iodine = @"IODINE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Iron = @"IRON";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Magnesium = @"MAGNESIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Manganese = @"MANGANESE";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Molybdenum = @"MOLYBDENUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_MonounsaturatedFat = @"MONOUNSATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Niacin = @"NIACIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_NutrientUnspecified = @"NUTRIENT_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_PantothenicAcid = @"PANTOTHENIC_ACID";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Phosphorus = @"PHOSPHORUS";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_PolyunsaturatedFat = @"POLYUNSATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Potassium = @"POTASSIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Protein = @"PROTEIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Riboflavin = @"RIBOFLAVIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_SaturatedFat = @"SATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Selenium = @"SELENIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Sodium = @"SODIUM";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Sugar = @"SUGAR";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Thiamin = @"THIAMIN";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_TransFat = @"TRANS_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_UnsaturatedFat = @"UNSATURATED_FAT";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_VitaminA = @"VITAMIN_A";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_VitaminB12 = @"VITAMIN_B12";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_VitaminB6 = @"VITAMIN_B6";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_VitaminC = @"VITAMIN_C";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_VitaminD = @"VITAMIN_D";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_VitaminE = @"VITAMIN_E";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_VitaminK = @"VITAMIN_K";
+NSString * const kGTLRGoogleHealthAPI_NutrientQuantityRollup_Nutrient_Zinc = @"ZINC";
+
+// GTLRGoogleHealthAPI_NutritionLog.mealType
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_AfterDinner = @"AFTER_DINNER";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Anytime = @"ANYTIME";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_BeforeBreakfast = @"BEFORE_BREAKFAST";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_BeforeDinner = @"BEFORE_DINNER";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_BeforeLunch = @"BEFORE_LUNCH";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Breakfast = @"BREAKFAST";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Dinner = @"DINNER";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Lunch = @"LUNCH";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_MealTypeUnspecified = @"MEAL_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Snack = @"SNACK";
+
+// GTLRGoogleHealthAPI_PairedDevice.deviceType
+NSString * const kGTLRGoogleHealthAPI_PairedDevice_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_PairedDevice_DeviceType_Scale = @"SCALE";
+NSString * const kGTLRGoogleHealthAPI_PairedDevice_DeviceType_Tracker = @"TRACKER";
 
 // GTLRGoogleHealthAPI_Settings.distanceUnit
 NSString * const kGTLRGoogleHealthAPI_Settings_DistanceUnit_DistanceUnitKilometers = @"DISTANCE_UNIT_KILOMETERS";
@@ -302,6 +666,48 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_PintUs = @"PINT_US";
 NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_VolumeUnitUnspecified = @"VOLUME_UNIT_UNSPECIFIED";
 
+// GTLRGoogleHealthAPI_WeightQuantity.userProvidedUnit
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Gram = @"GRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Kilogram = @"KILOGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Microgram = @"MICROGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Milligram = @"MILLIGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Nanogram = @"NANOGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Ounce = @"OUNCE";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Pound = @"POUND";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_Stone = @"STONE";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantity_UserProvidedUnit_WeightUnitUnspecified = @"WEIGHT_UNIT_UNSPECIFIED";
+
+// GTLRGoogleHealthAPI_WeightQuantityRollup.userProvidedUnitLast
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Gram = @"GRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Kilogram = @"KILOGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Microgram = @"MICROGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Milligram = @"MILLIGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Nanogram = @"NANOGRAM";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Ounce = @"OUNCE";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Pound = @"POUND";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_Stone = @"STONE";
+NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_WeightUnitUnspecified = @"WEIGHT_UNIT_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_ActiveEnergyBurned
+//
+
+@implementation GTLRGoogleHealthAPI_ActiveEnergyBurned
+@dynamic interval, kcal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_ActiveEnergyBurnedRollupValue
+//
+
+@implementation GTLRGoogleHealthAPI_ActiveEnergyBurnedRollupValue
+@dynamic kcalSum;
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRGoogleHealthAPI_ActiveMinutes
@@ -418,6 +824,25 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_AlertWindow
+//
+
+@implementation GTLRGoogleHealthAPI_AlertWindow
+@dynamic civilEndTime, civilStartTime, endTime, endUtcOffset, heartBeats,
+         positive, startTime, startUtcOffset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"heartBeats" : [GTLRGoogleHealthAPI_HeartBeat class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_Altitude
 //
 
@@ -471,6 +896,27 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_BloodGlucose
+//
+
+@implementation GTLRGoogleHealthAPI_BloodGlucose
+@dynamic bloodGlucoseMilligramsPerDeciliter, mealType, measurementSource,
+         measurementTiming, notes, sampleTime, specimen;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_BloodGlucoseRollupValue
+//
+
+@implementation GTLRGoogleHealthAPI_BloodGlucoseRollupValue
+@dynamic bloodGlucoseMilligramsPerDeciliterAvg;
 @end
 
 
@@ -544,6 +990,31 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_CoreBodyTemperature
+//
+
+@implementation GTLRGoogleHealthAPI_CoreBodyTemperature
+@dynamic identifier, measurementLocation, sampleTime, temperatureCelsius;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_CoreBodyTemperatureRollupValue
+//
+
+@implementation GTLRGoogleHealthAPI_CoreBodyTemperatureRollupValue
+@dynamic temperatureCelsiusAvg, temperatureCelsiusMax, temperatureCelsiusMin;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_CreateSubscriberPayload
 //
 
@@ -553,6 +1024,24 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"subscriberConfigs" : [GTLRGoogleHealthAPI_SubscriberConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_CreateSubscriptionPayload
+//
+
+@implementation GTLRGoogleHealthAPI_CreateSubscriptionPayload
+@dynamic dataTypes, user;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTypes" : [NSString class]
   };
   return map;
 }
@@ -637,9 +1126,10 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 //
 
 @implementation GTLRGoogleHealthAPI_DailyRollupDataPoint
-@dynamic activeMinutes, activeZoneMinutes, activityLevel, altitude, bodyFat,
-         caloriesInHeartRateZone, civilEndTime, civilStartTime, distance,
-         floors, heartRate, heartRateVariabilityPersonalRange, hydrationLog,
+@dynamic activeEnergyBurned, activeMinutes, activeZoneMinutes, activityLevel,
+         altitude, bloodGlucose, bodyFat, caloriesInHeartRateZone, civilEndTime,
+         civilStartTime, coreBodyTemperature, distance, floors, heartRate,
+         heartRateVariabilityPersonalRange, hydrationLog, nutritionLog,
          restingHeartRatePersonalRange, runVo2Max, sedentaryPeriod, steps,
          swimLengthsData, timeInHeartRateZone, totalCalories, weight;
 @end
@@ -700,12 +1190,14 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 //
 
 @implementation GTLRGoogleHealthAPI_DataPoint
-@dynamic activeMinutes, activeZoneMinutes, activityLevel, altitude,
-         basalEnergyBurned, bodyFat, dailyHeartRateVariability,
-         dailyHeartRateZones, dailyOxygenSaturation, dailyRespiratoryRate,
-         dailyRestingHeartRate, dailySleepTemperatureDerivations, dailyVo2Max,
-         dataSource, distance, exercise, floors, heartRate,
-         heartRateVariability, height, hydrationLog, name, oxygenSaturation,
+@dynamic activeEnergyBurned, activeMinutes, activeZoneMinutes, activityLevel,
+         altitude, basalEnergyBurned, bloodGlucose, bodyFat,
+         coreBodyTemperature, dailyHeartRateVariability, dailyHeartRateZones,
+         dailyOxygenSaturation, dailyRespiratoryRate, dailyRestingHeartRate,
+         dailySleepTemperatureDerivations, dailyVo2Max, dataSource, distance,
+         electrocardiogram, exercise, floors, food, foodMeasurementUnit,
+         heartRate, heartRateVariability, height, hydrationLog,
+         irregularRhythmNotification, name, nutritionLog, oxygenSaturation,
          respiratoryRateSleepSummary, runVo2Max, sedentaryPeriod, sleep, steps,
          swimLengthsData, timeInHeartRateZone, vo2Max, weight;
 @end
@@ -773,11 +1265,60 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_Electrocardiogram
+//
+
+@implementation GTLRGoogleHealthAPI_Electrocardiogram
+@dynamic beatsPerMinuteAvg, interval, leadNumber, medicalDeviceInfo,
+         millivoltsScalingFactor, resultClassification, samplingFrequencyHertz,
+         waveformSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"waveformSamples" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_Empty
+//
+
+@implementation GTLRGoogleHealthAPI_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_EndpointAuthorization
 //
 
 @implementation GTLRGoogleHealthAPI_EndpointAuthorization
 @dynamic secret, secretSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_EnergyQuantity
+//
+
+@implementation GTLRGoogleHealthAPI_EnergyQuantity
+@dynamic kcal, userProvidedUnit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_EnergyQuantityRollup
+//
+
+@implementation GTLRGoogleHealthAPI_EnergyQuantityRollup
+@dynamic kcalSum, userProvidedUnitLast;
 @end
 
 
@@ -855,10 +1396,66 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_Food
+//
+
+@implementation GTLRGoogleHealthAPI_Food
+@dynamic accessLevel, brand, defaultServing, descriptionProperty, displayName,
+         energyAvg, energyFromFat, energyMax, energyMin, languageCode, mealType,
+         nutrients, servings, totalCarbohydrate, totalFat;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nutrients" : [GTLRGoogleHealthAPI_NutrientQuantity class],
+    @"servings" : [GTLRGoogleHealthAPI_FoodServing class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_FoodMeasurementUnit
+//
+
+@implementation GTLRGoogleHealthAPI_FoodMeasurementUnit
+@dynamic displayName, pluralDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_FoodServing
+//
+
+@implementation GTLRGoogleHealthAPI_FoodServing
+@dynamic amount, foodMeasurementUnit, foodMeasurementUnitDisplayName,
+         foodMeasurementUnitDisplayNamePlural, multiplier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4DataType
 //
 
 @implementation GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4DataType
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4User
+//
+
+@implementation GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4User
 @dynamic name;
 @end
 
@@ -870,6 +1467,16 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 @implementation GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4WebhookNotificationCloudLog
 @dynamic httpResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_HeartBeat
+//
+
+@implementation GTLRGoogleHealthAPI_HeartBeat
+@dynamic beatsPerMinute, civilTime, physicalTime, utcOffset;
 @end
 
 
@@ -1015,6 +1622,34 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_IrnProfile
+//
+
+@implementation GTLRGoogleHealthAPI_IrnProfile
+@dynamic enrollmentStatus, name, onboardingStatus, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_IrregularRhythmNotification
+//
+
+@implementation GTLRGoogleHealthAPI_IrregularRhythmNotification
+@dynamic alertWindows, interval, medicalDeviceInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertWindows" : [GTLRGoogleHealthAPI_AlertWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_ListDataPointsResponse
 //
 
@@ -1030,6 +1665,28 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 + (NSString *)collectionItemsKey {
   return @"dataPoints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_ListPairedDevicesResponse
+//
+
+@implementation GTLRGoogleHealthAPI_ListPairedDevicesResponse
+@dynamic nextPageToken, pairedDevices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pairedDevices" : [GTLRGoogleHealthAPI_PairedDevice class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"pairedDevices";
 }
 
 @end
@@ -1059,6 +1716,39 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_ListSubscriptionsResponse
+//
+
+@implementation GTLRGoogleHealthAPI_ListSubscriptionsResponse
+@dynamic nextPageToken, subscriptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subscriptions" : [GTLRGoogleHealthAPI_Subscription class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"subscriptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_MedicalDeviceInfo
+//
+
+@implementation GTLRGoogleHealthAPI_MedicalDeviceInfo
+@dynamic algorithmVersion, deviceModel, featureVersion, firmwareVersion,
+         serviceVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_MetricsSummary
 //
 
@@ -1080,6 +1770,63 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 @dynamic avgCadenceStepsPerMinute, avgGroundContactTimeDuration,
          avgStrideLengthMillimeters, avgVerticalOscillationMillimeters,
          avgVerticalRatio;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_NutrientQuantity
+//
+
+@implementation GTLRGoogleHealthAPI_NutrientQuantity
+@dynamic nutrient, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_NutrientQuantityRollup
+//
+
+@implementation GTLRGoogleHealthAPI_NutrientQuantityRollup
+@dynamic nutrient, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_NutritionLog
+//
+
+@implementation GTLRGoogleHealthAPI_NutritionLog
+@dynamic energy, energyFromFat, food, foodDisplayName, interval, mealType,
+         nutrients, serving, totalCarbohydrate, totalFat;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nutrients" : [GTLRGoogleHealthAPI_NutrientQuantity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_NutritionLogRollupValue
+//
+
+@implementation GTLRGoogleHealthAPI_NutritionLogRollupValue
+@dynamic energy, energyFromFat, nutrients, totalCarbohydrate, totalFat;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nutrients" : [GTLRGoogleHealthAPI_NutrientQuantityRollup class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1164,6 +1911,25 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_PairedDevice
+//
+
+@implementation GTLRGoogleHealthAPI_PairedDevice
+@dynamic batteryLevel, batteryStatus, deviceType, deviceVersion, features,
+         lastSyncTime, macAddress, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"features" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_Profile
 //
 
@@ -1202,12 +1968,13 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 //
 
 @implementation GTLRGoogleHealthAPI_ReconciledDataPoint
-@dynamic activeMinutes, activeZoneMinutes, activityLevel, altitude,
-         basalEnergyBurned, bodyFat, dailyHeartRateVariability,
-         dailyHeartRateZones, dailyOxygenSaturation, dailyRespiratoryRate,
-         dailyRestingHeartRate, dailySleepTemperatureDerivations, dailyVo2Max,
-         dataPointName, distance, exercise, floors, heartRate,
-         heartRateVariability, height, hydrationLog, oxygenSaturation,
+@dynamic activeEnergyBurned, activeMinutes, activeZoneMinutes, activityLevel,
+         altitude, basalEnergyBurned, bloodGlucose, bodyFat,
+         coreBodyTemperature, dailyHeartRateVariability, dailyHeartRateZones,
+         dailyOxygenSaturation, dailyRespiratoryRate, dailyRestingHeartRate,
+         dailySleepTemperatureDerivations, dailyVo2Max, dataPointName, distance,
+         exercise, floors, heartRate, heartRateVariability, height,
+         hydrationLog, nutritionLog, oxygenSaturation,
          respiratoryRateSleepSummary, runVo2Max, sedentaryPeriod, sleep, steps,
          swimLengthsData, timeInHeartRateZone, vo2Max, weight;
 @end
@@ -1250,10 +2017,11 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 //
 
 @implementation GTLRGoogleHealthAPI_RollupDataPoint
-@dynamic activeMinutes, activeZoneMinutes, activityLevel, altitude, bodyFat,
-         caloriesInHeartRateZone, distance, endTime, floors, heartRate,
-         hydrationLog, runVo2Max, sedentaryPeriod, startTime, steps,
-         swimLengthsData, timeInHeartRateZone, totalCalories, weight;
+@dynamic activeEnergyBurned, activeMinutes, activeZoneMinutes, activityLevel,
+         altitude, bloodGlucose, bodyFat, caloriesInHeartRateZone,
+         coreBodyTemperature, distance, endTime, floors, heartRate,
+         hydrationLog, nutritionLog, runVo2Max, sedentaryPeriod, startTime,
+         steps, swimLengthsData, timeInHeartRateZone, totalCalories, weight;
 @end
 
 
@@ -1331,6 +2099,16 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_Serving
+//
+
+@implementation GTLRGoogleHealthAPI_Serving
+@dynamic amount, foodMeasurementUnit, foodMeasurementUnitDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_SessionTimeInterval
 //
 
@@ -1346,9 +2124,10 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 //
 
 @implementation GTLRGoogleHealthAPI_Settings
-@dynamic autoStrideEnabled, distanceUnit, glucoseUnit, heightUnit,
-         languageLocale, name, strideLengthRunningType, strideLengthWalkingType,
-         swimUnit, temperatureUnit, timeZone, utcOffset, waterUnit, weightUnit;
+@dynamic autoStrideEnabled, distanceUnit, foodLanguageCode, glucoseUnit,
+         heightUnit, languageLocale, name, strideLengthRunningType,
+         strideLengthWalkingType, swimUnit, temperatureUnit, timeZone,
+         utcOffset, waterUnit, weightUnit;
 @end
 
 
@@ -1524,6 +2303,24 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_Subscription
+//
+
+@implementation GTLRGoogleHealthAPI_Subscription
+@dynamic dataTypes, name, user;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_SwimLengthsData
 //
 
@@ -1662,6 +2459,26 @@ NSString * const kGTLRGoogleHealthAPI_VolumeQuantityRollup_UserProvidedUnitLast_
 
 @implementation GTLRGoogleHealthAPI_Weight
 @dynamic notes, sampleTime, weightGrams;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_WeightQuantity
+//
+
+@implementation GTLRGoogleHealthAPI_WeightQuantity
+@dynamic grams, userProvidedUnit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_WeightQuantityRollup
+//
+
+@implementation GTLRGoogleHealthAPI_WeightQuantityRollup
+@dynamic gramsSum, userProvidedUnitLast;
 @end
 
 

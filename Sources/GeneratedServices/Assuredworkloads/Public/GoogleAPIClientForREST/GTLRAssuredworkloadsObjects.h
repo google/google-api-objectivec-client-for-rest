@@ -111,6 +111,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest.acknowledgeType
+
+/**
+ *  Acknowledge type unspecified.
+ *
+ *  Value: "ACKNOWLEDGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_AcknowledgeTypeUnspecified;
+/**
+ *  Acknowledge specified orgPolicy violation and also associated resource
+ *  violations.
+ *
+ *  Value: "EXISTING_CHILD_RESOURCE_VIOLATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_ExistingChildResourceViolations;
+/**
+ *  Acknowledge only the specific violation.
+ *
+ *  Value: "SINGLE_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_SingleViolation;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
@@ -1421,6 +1444,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
+@end
+
+
+/**
+ *  Request for acknowledging the violations in a batch
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest : GTLRObject
+
+/**
+ *  Optional. Acknowledge type of specified violations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_AcknowledgeTypeUnspecified
+ *        Acknowledge type unspecified. (Value: "ACKNOWLEDGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_ExistingChildResourceViolations
+ *        Acknowledge specified orgPolicy violation and also associated resource
+ *        violations. (Value: "EXISTING_CHILD_RESOURCE_VIOLATIONS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_SingleViolation
+ *        Acknowledge only the specific violation. (Value: "SINGLE_VIOLATION")
+ */
+@property(nonatomic, copy, nullable) NSString *acknowledgeType;
+
+/**
+ *  Required. Business justification explaining the need for violations
+ *  acknowledgement
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  Required. The resource names of the Violations to acknowledge. Format for
+ *  each name:
+ *  organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  Response for batch violation acknowledgement
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse : GTLRObject
 @end
 
 

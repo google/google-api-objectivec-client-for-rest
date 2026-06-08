@@ -126,6 +126,12 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_LaunchStage_LaunchStageU
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRCloudRun_GoogleCloudRunV2Instance.restartPolicy
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_Always = @"ALWAYS";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_Never = @"NEVER";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_OnFailure = @"ON_FAILURE";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Instance_RestartPolicy_RestartPolicyUnspecified = @"RESTART_POLICY_UNSPECIFIED";
+
 // GTLRCloudRun_GoogleCloudRunV2InstanceSplit.type
 NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeLatest = @"INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeRevision = @"INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION";
@@ -844,8 +850,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          encryptionKeyRevocationAction, encryptionKeyShutdownDuration, ETag,
          expireTime, generation, gpuZonalRedundancyDisabled, iapEnabled,
          ingress, invokerIamDisabled, labels, lastModifier, launchStage, logUri,
-         name, nodeSelector, observedGeneration, reconciling, satisfiesPzs,
-         serviceAccount, terminalCondition, timeout, uid, updateTime, urls,
+         name, nodeSelector, observedGeneration, reconciling, restartPolicy,
+         satisfiesPzs, serviceAccount, terminalCondition, uid, updateTime, urls,
          volumes, vpcAccess;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

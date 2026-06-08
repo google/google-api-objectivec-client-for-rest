@@ -3010,9 +3010,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *backupVaultServiceAccount;
 
 /**
- *  Optional. Defines optional properties specific to backups of disk-based
- *  resources, such as Compute Engine. This includes settings like whether to
- *  perform a guest flush.
+ *  Optional. Defines optional properties specific to backups of compute
+ *  instance-based resources, such as Compute Engine. This includes settings
+ *  like whether to perform a guest flush.
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_ComputeInstanceBackupPlanProperties *computeInstanceBackupPlanProperties;
 
@@ -3748,7 +3748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  --- ComputeInstanceBackupPlanProperties Message ---
+ *  Properties for a compute instance backup plan.
  */
 @interface GTLRBackupdr_ComputeInstanceBackupPlanProperties : GTLRObject
 
@@ -4130,6 +4130,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Required. Target project for the Compute Engine instance. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Optional. Whether to use the project service account for the Compute Engine
+ *  instance restore.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useProjectServiceAccount;
 
 /**
  *  Required. The zone of the Compute Engine instance.
@@ -4530,7 +4538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  --- DiskBackupPlanProperties Message ---
+ *  Properties for a disk backup plan.
  */
 @interface GTLRBackupdr_DiskBackupPlanProperties : GTLRObject
 
@@ -4865,6 +4873,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Required. Target project for the disk. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Optional. Whether to use the project service account for the disk restore.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useProjectServiceAccount;
 
 /**
  *  Required. Target zone for the disk.
@@ -6733,6 +6748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Required. Target URLs of the replica zones for the disk. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *replicaZones;
+
+/**
+ *  Optional. Whether to use the project service account for the disk restore.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useProjectServiceAccount;
 
 @end
 

@@ -423,7 +423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
  */
 @interface GTLRThreatIntelligenceService_Alert : GTLRObject
 
-/** Optional. AI summary of the finding. */
+/** Optional. AI summary of the alert. */
 @property(nonatomic, copy, nullable) NSString *aiSummary;
 
 /** Output only. Audit information for the alert. */
@@ -554,7 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
  */
 @interface GTLRThreatIntelligenceService_AlertDocument : GTLRObject
 
-/** Output only. AI summary of the finding. */
+/** Output only. AI summary of the document. */
 @property(nonatomic, copy, nullable) NSString *aiSummary;
 
 /** Output only. The author of the document. */
@@ -663,6 +663,13 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 
 /** Output only. Human readable name for the configuration. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  If included when updating a configuration, this should be set to the current
+ *  etag of the configuration. If the etags do not match, the update will be
+ *  rejected and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Identifier. Server generated name for the configuration. format is

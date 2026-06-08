@@ -3854,6 +3854,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_SqlDataDi
 // GTLRSQLAdmin_Settings.edition
 
 /**
+ *  This instance is a Cloud SQL developer edition instance.
+ *
+ *  Value: "DEVELOPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_Edition_Developer;
+/**
  *  The instance did not specify the edition.
  *
  *  Value: "EDITION_UNSPECIFIED"
@@ -10126,9 +10132,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DenyMaintenancePeriod *> *denyMaintenancePeriods;
 
 /**
- *  Optional. The edition of the instance.
+ *  Optional. The edition type of the Cloud SQL instance.
  *
  *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Settings_Edition_Developer This instance is a Cloud
+ *        SQL developer edition instance. (Value: "DEVELOPER")
  *    @arg @c kGTLRSQLAdmin_Settings_Edition_EditionUnspecified The instance did
  *        not specify the edition. (Value: "EDITION_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_Settings_Edition_Enterprise The instance is an

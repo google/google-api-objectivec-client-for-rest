@@ -297,7 +297,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
  *  Application resource by the update. The fields specified in the update_mask
  *  are relative to the resource, not the full request. The API changes the
  *  values of the fields as specified in the update_mask. The API ignores the
@@ -544,7 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
  *  Service resource by the update. The fields specified in the update_mask are
  *  relative to the resource, not the full request. The API changes the values
  *  of the fields as specified in the update_mask. The API ignores the values of
@@ -874,7 +874,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
  *  Workload resource by the update. The fields specified in the update_mask are
  *  relative to the resource, not the full request. The API changes the values
  *  of the fields as specified in the update_mask. The API ignores the values of
@@ -1811,7 +1811,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
  *  Boundary resource by the update. The fields specified in the update_mask are
  *  relative to the resource, not the full request. A field will be overwritten
  *  if it is in the mask. If the user does not provide a mask then all fields

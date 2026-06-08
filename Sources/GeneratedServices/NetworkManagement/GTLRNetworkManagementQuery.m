@@ -11,6 +11,22 @@
 
 #import <GoogleAPIClientForREST/GTLRNetworkManagementQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// monitoringPointType
+NSString * const kGTLRNetworkManagementMonitoringPointTypeAzureVm = @"AZURE_VM";
+NSString * const kGTLRNetworkManagementMonitoringPointTypeContainer = @"CONTAINER";
+NSString * const kGTLRNetworkManagementMonitoringPointTypeGceVm = @"GCE_VM";
+NSString * const kGTLRNetworkManagementMonitoringPointTypeHelm = @"HELM";
+NSString * const kGTLRNetworkManagementMonitoringPointTypeKvm  = @"KVM";
+NSString * const kGTLRNetworkManagementMonitoringPointTypeMonitoringPointTypeUnspecified = @"MONITORING_POINT_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagementMonitoringPointTypeVmware = @"VMWARE";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRNetworkManagementQuery
 
 @dynamic fields;
@@ -596,6 +612,319 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkManagement_ListLocationsResponse class];
   query.loggingName = @"networkmanagement.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersCreate
+
+@dynamic networkMonitoringProviderId, parent;
+
++ (instancetype)queryWithObject:(GTLRNetworkManagement_NetworkMonitoringProvider *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/networkMonitoringProviders";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_Operation class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersDelete
+
+@dynamic force, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_Operation class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateMonitoringPointConfig
+
+@dynamic name, privateConnectivityEnabled;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateMonitoringPointConfig";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateMonitoringPointConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_GenerateMonitoringPointConfigResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.generateMonitoringPointConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateProviderAccessToken
+
+@dynamic gcpAccessToken, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateProviderAccessToken";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGenerateProviderAccessToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_GenerateProviderAccessTokenResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.generateProviderAccessToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_NetworkMonitoringProvider class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/networkMonitoringProviders";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_ListNetworkMonitoringProvidersResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadInstallScript
+
+@dynamic xPassword, hostname, monitoringPointType, ntpServerAddress,
+         ntpServerSecondaryAddress, parent, privateConnectivityEnabled,
+         staticIpAddressDnsServerAddress,
+         staticIpAddressDnsServerSecondaryAddress, staticIpAddressDomain,
+         staticIpAddressGatewayAddress, staticIpAddressIpAddress,
+         staticIpAddressNetmask, timeZoneId, timeZoneVersion, useDhcp;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"staticIpAddressDnsServerAddress" : @"staticIpAddress.dnsServerAddress",
+    @"staticIpAddressDnsServerSecondaryAddress" : @"staticIpAddress.dnsServerSecondaryAddress",
+    @"staticIpAddressDomain" : @"staticIpAddress.domain",
+    @"staticIpAddressGatewayAddress" : @"staticIpAddress.gatewayAddress",
+    @"staticIpAddressIpAddress" : @"staticIpAddress.ipAddress",
+    @"staticIpAddressNetmask" : @"staticIpAddress.netmask",
+    @"timeZoneId" : @"timeZone.id",
+    @"timeZoneVersion" : @"timeZone.version",
+    @"xPassword" : @"_password"
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/monitoringPoints:downloadInstallScript";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadInstallScript *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_HttpBody class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.downloadInstallScript";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadRecreateInstallScript
+
+@dynamic hostname, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:downloadRecreateInstallScript";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadRecreateInstallScript *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_HttpBody class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.downloadRecreateInstallScript";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadServerConnectConfig
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/monitoringPoints:downloadServerConnectConfig";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsDownloadServerConnectConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_HttpBody class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.downloadServerConnectConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_MonitoringPoint class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/monitoringPoints";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_ListMonitoringPointsResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_NetworkPath class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.networkPaths.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/networkPaths";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_ListNetworkPathsResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.networkPaths.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_WebPath class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.webPaths.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/webPaths";
+  GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_ListWebPathsResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.networkMonitoringProviders.webPaths.list";
   return query;
 }
 

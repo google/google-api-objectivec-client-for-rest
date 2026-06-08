@@ -193,7 +193,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotGenerated;
 /**
- *  The ad-hoc sharing key is not yet registered in ADI for this app.
+ *  The ad-hoc sharing key is not yet registered in Android Developer
+ *  Verification for this app.
  *
  *  Value: "ADHOC_SHARING_KEY_NOT_REGISTERED"
  */
@@ -223,6 +224,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  Value: "PLAY_ACCOUNT_NOT_LINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAccountNotLinked;
+/**
+ *  The linked Play developer account was not found or is not fully set up in
+ *  Android Developer Console.
+ *
+ *  Value: "PLAY_ANDROID_DEVELOPER_CONSOLE_ACCOUNT_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAndroidDeveloperConsoleAccountNotFound;
 /**
  *  Play in-app sharing terms not accepted.
  *
@@ -866,6 +874,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 @property(nonatomic, copy, nullable) NSString *sha256Hash;
 
 /**
+ *  Scotty-provided SHA512 hash for an upload.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sha512Hash;
+
+/**
  *  Time at which the media data was last updated, in milliseconds since UNIX
  *  epoch
  *
@@ -923,8 +939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *        The ad-hoc sharing key has not been generated for this app. (Value:
  *        "ADHOC_SHARING_KEY_NOT_GENERATED")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotRegistered
- *        The ad-hoc sharing key is not yet registered in ADI for this app.
- *        (Value: "ADHOC_SHARING_KEY_NOT_REGISTERED")
+ *        The ad-hoc sharing key is not yet registered in Android Developer
+ *        Verification for this app. (Value: "ADHOC_SHARING_KEY_NOT_REGISTERED")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AppNotPublished
  *        The app in the Play developer account is not in a published state.
  *        (Value: "APP_NOT_PUBLISHED")
@@ -936,6 +952,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAccountNotLinked
  *        Firebase project is not linked to a Play developer account. (Value:
  *        "PLAY_ACCOUNT_NOT_LINKED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAndroidDeveloperConsoleAccountNotFound
+ *        The linked Play developer account was not found or is not fully set up
+ *        in Android Developer Console. (Value:
+ *        "PLAY_ANDROID_DEVELOPER_CONSOLE_ACCOUNT_NOT_FOUND")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayIasTermsNotAccepted
  *        Play in-app sharing terms not accepted. (Value:
  *        "PLAY_IAS_TERMS_NOT_ACCEPTED")

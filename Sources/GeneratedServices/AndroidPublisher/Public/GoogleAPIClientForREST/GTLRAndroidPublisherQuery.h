@@ -5690,15 +5690,17 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Cancels a user's subscription purchase. The subscription remains valid until
- *  its expiration time. Newer version is available at
- *  purchases.subscriptionsv2.cancel for better client library support.
+ *  Deprecated: Use purchases.subscriptionsv2.cancel instead. Cancels a user's
+ *  subscription purchase. The subscription remains valid until its expiration
+ *  time. Newer version is available at purchases.subscriptionsv2.cancel for
+ *  better client library support.
  *
  *  Method: androidpublisher.purchases.subscriptions.cancel
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidPublisher
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsCancel : GTLRAndroidPublisherQuery
 
 /**
@@ -5723,9 +5725,10 @@ GTLR_DEPRECATED
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Cancels a user's subscription purchase. The subscription remains valid until
- *  its expiration time. Newer version is available at
- *  purchases.subscriptionsv2.cancel for better client library support.
+ *  Deprecated: Use purchases.subscriptionsv2.cancel instead. Cancels a user's
+ *  subscription purchase. The subscription remains valid until its expiration
+ *  time. Newer version is available at purchases.subscriptionsv2.cancel for
+ *  better client library support.
  *
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').
@@ -5744,14 +5747,15 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Defers a user's subscription purchase until a specified future expiration
- *  time.
+ *  Deprecated: Use purchases.subscriptionsv2.defer instead. Defers a user's
+ *  subscription purchase until a specified future expiration time.
  *
  *  Method: androidpublisher.purchases.subscriptions.defer
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAndroidPublisher
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsDefer : GTLRAndroidPublisherQuery
 
 /**
@@ -5771,8 +5775,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRAndroidPublisher_SubscriptionPurchasesDeferResponse.
  *
- *  Defers a user's subscription purchase until a specified future expiration
- *  time.
+ *  Deprecated: Use purchases.subscriptionsv2.defer instead. Defers a user's
+ *  subscription purchase until a specified future expiration time.
  *
  *  @param object The @c GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest
  *    to include in the query.

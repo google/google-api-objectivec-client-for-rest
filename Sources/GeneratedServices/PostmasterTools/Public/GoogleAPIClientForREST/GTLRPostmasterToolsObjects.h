@@ -90,14 +90,26 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetri
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_DeliveryErrorRate;
 /**
- *  Predefined metric for Feedback Loop (FBL) id.
+ *  Predefined metric for Feedback Loop (FBL) id. The `filter` field supports
+ *  selecting the aggregation key type. Supported format: `aggregation_key_type`
+ *  = "". Supported values: * `FROM_HEADER`: (Default) The metric includes
+ *  messages with From: header domain matching the requested domain. *
+ *  `ALL_DKIM`: The metric includes messages with one of the signed DKIM domains
+ *  matching the requested domain.
  *
  *  Value: "FEEDBACK_LOOP_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_FeedbackLoopId;
 /**
- *  Predefined metric for Feedback Loop (FBL) spam rate. Filter must be of type
- *  feedback_loop_id = "" where is one valid feedback loop ids.
+ *  Predefined metric for Feedback Loop (FBL) spam rate. The `filter` field
+ *  requires a `feedback_loop_id` and optionally accepts an
+ *  `aggregation_key_type`. Supported formats are: * `feedback_loop_id` = "" *
+ *  `feedback_loop_id` = "" AND `aggregation_key_type` = "" If
+ *  `aggregation_key_type` is omitted, it defaults to `FROM_HEADER`. Supported
+ *  values: * `FROM_HEADER`: (Default) The metric includes messages with From:
+ *  header domain matching the requested domain. * `ALL_DKIM`: The metric
+ *  includes messages with one of the signed DKIM domains matching the requested
+ *  domain.
  *
  *  Value: "FEEDBACK_LOOP_SPAM_RATE"
  */
@@ -407,12 +419,24 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
  *        'temp_fail': [anomalous_traffic_pattern, other] (Value:
  *        "DELIVERY_ERROR_RATE")
  *    @arg @c kGTLRPostmasterTools_BaseMetric_StandardMetric_FeedbackLoopId
- *        Predefined metric for Feedback Loop (FBL) id. (Value:
- *        "FEEDBACK_LOOP_ID")
+ *        Predefined metric for Feedback Loop (FBL) id. The `filter` field
+ *        supports selecting the aggregation key type. Supported format:
+ *        `aggregation_key_type` = "". Supported values: * `FROM_HEADER`:
+ *        (Default) The metric includes messages with From: header domain
+ *        matching the requested domain. * `ALL_DKIM`: The metric includes
+ *        messages with one of the signed DKIM domains matching the requested
+ *        domain. (Value: "FEEDBACK_LOOP_ID")
  *    @arg @c kGTLRPostmasterTools_BaseMetric_StandardMetric_FeedbackLoopSpamRate
- *        Predefined metric for Feedback Loop (FBL) spam rate. Filter must be of
- *        type feedback_loop_id = "" where is one valid feedback loop ids.
- *        (Value: "FEEDBACK_LOOP_SPAM_RATE")
+ *        Predefined metric for Feedback Loop (FBL) spam rate. The `filter`
+ *        field requires a `feedback_loop_id` and optionally accepts an
+ *        `aggregation_key_type`. Supported formats are: * `feedback_loop_id` =
+ *        "" * `feedback_loop_id` = "" AND `aggregation_key_type` = "" If
+ *        `aggregation_key_type` is omitted, it defaults to `FROM_HEADER`.
+ *        Supported values: * `FROM_HEADER`: (Default) The metric includes
+ *        messages with From: header domain matching the requested domain. *
+ *        `ALL_DKIM`: The metric includes messages with one of the signed DKIM
+ *        domains matching the requested domain. (Value:
+ *        "FEEDBACK_LOOP_SPAM_RATE")
  *    @arg @c kGTLRPostmasterTools_BaseMetric_StandardMetric_SpamRate Predefined
  *        metric for spam rate. (Value: "SPAM_RATE")
  *    @arg @c kGTLRPostmasterTools_BaseMetric_StandardMetric_StandardMetricUnspecified

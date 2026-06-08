@@ -1169,6 +1169,20 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  */
 @property(nonatomic, strong, nullable) NSNumber *numNewerVersions;
 
+/**
+ *  Objects having a size greater than this value in bytes will be matched.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeAboveBytes;
+
+/**
+ *  Objects having a size less than this value in bytes will be matched.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBelowBytes;
+
 @end
 
 

@@ -63,6 +63,201 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @end
 
 /**
+ *  Creates a new AgentGateway in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.agentGateways.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysCreate : GTLRNetworkServicesQuery
+
+/** Required. Short name of the AgentGateway resource to be created. */
+@property(nonatomic, copy, nullable) NSString *agentGatewayId;
+
+/**
+ *  Required. The parent resource of the AgentGateway. Must be in the format
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new AgentGateway in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_AgentGateway to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the AgentGateway. Must be in
+ *    the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_AgentGateway *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AgentGateway.
+ *
+ *  Method: networkservices.projects.locations.agentGateways.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysDelete : GTLRNetworkServicesQuery
+
+/** Optional. The etag of the AgentGateway to delete. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the AgentGateway to delete. Must be in the format
+ *  `projects/ * /locations/ * /agentGateways/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single AgentGateway.
+ *
+ *  @param name Required. A name of the AgentGateway to delete. Must be in the
+ *    format `projects/ * /locations/ * /agentGateways/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AgentGateway.
+ *
+ *  Method: networkservices.projects.locations.agentGateways.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the AgentGateway to get. Must be in the format
+ *  `projects/ * /locations/ * /agentGateways/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_AgentGateway.
+ *
+ *  Gets details of a single AgentGateway.
+ *
+ *  @param name Required. A name of the AgentGateway to get. Must be in the
+ *    format `projects/ * /locations/ * /agentGateways/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists AgentGateways in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.agentGateways.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysList : GTLRNetworkServicesQuery
+
+/** Optional. Maximum number of AgentGateways to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListAgentGatewaysResponse`
+ *  Indicates that this is a continuation of a prior `ListAgentGateways` call,
+ *  and that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the AgentGateways should be
+ *  listed, specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListAgentGatewaysResponse.
+ *
+ *  Lists AgentGateways in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    AgentGateways should be listed, specified in the format `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AgentGateway.
+ *
+ *  Method: networkservices.projects.locations.agentGateways.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Identifier. Name of the AgentGateway resource. It matches pattern `projects/
+ *  * /locations/ * /agentGateways/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  AgentGateway resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single AgentGateway.
+ *
+ *  @param object The @c GTLRNetworkServices_AgentGateway to include in the
+ *    query.
+ *  @param name Identifier. Name of the AgentGateway resource. It matches
+ *    pattern `projects/ * /locations/ * /agentGateways/`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_AgentGateway *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new `AuthzExtension` resource in a given project and location.
  *
  *  Method: networkservices.projects.locations.authzExtensions.create
@@ -2619,6 +2814,528 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new multicast consumer association in a given project and
+ *  location.
+ *
+ *  Method: networkservices.projects.locations.multicastConsumerAssociations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A unique name for the multicast consumer association. The name is
+ *  restricted to lower-case letters, numbers, and hyphen, with the first
+ *  character a lower-case letter, and the last a letter or a number. The name
+ *  must not exceed 48 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *multicastConsumerAssociationId;
+
+/**
+ *  Required. The parent resource of the multicast consumer association. Use the
+ *  following format: `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new multicast consumer association in a given project and
+ *  location.
+ *
+ *  @param object The @c GTLRNetworkServices_MulticastConsumerAssociation to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the multicast consumer
+ *    association. Use the following format: `projects/ * /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_MulticastConsumerAssociation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single multicast consumer association.
+ *
+ *  Method: networkservices.projects.locations.multicastConsumerAssociations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The resource name of the multicast consumer association to delete.
+ *  Use the following format: `projects/ * /locations/ *
+ *  /multicastConsumerAssociations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single multicast consumer association.
+ *
+ *  @param name Required. The resource name of the multicast consumer
+ *    association to delete. Use the following format: `projects/ * /locations/
+ *    * /multicastConsumerAssociations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single multicast consumer association.
+ *
+ *  Method: networkservices.projects.locations.multicastConsumerAssociations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The resource name of the multicast consumer association to get.
+ *  Use the following format: `projects/ * /locations/ *
+ *  /multicastConsumerAssociations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_MulticastConsumerAssociation.
+ *
+ *  Gets details of a single multicast consumer association.
+ *
+ *  @param name Required. The resource name of the multicast consumer
+ *    association to get. Use the following format: `projects/ * /locations/ *
+ *    /multicastConsumerAssociations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists multicast consumer associations in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.multicastConsumerAssociations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsList : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. A filter expression that filters the resources listed in the
+ *  response. The expression must be of the form ` ` where operators: `<`, `>`,
+ *  `<=`, `>=`, `!=`, `=`, `:` are supported (colon `:` represents a HAS
+ *  operator which is roughly synonymous with equality). can refer to a proto or
+ *  JSON field, or a synthetic field. Field names can be camelCase or
+ *  snake_case. Examples: * Filter by name: name = "RESOURCE_NAME" * Filter by
+ *  labels: * Resources that have a key named `foo` labels.foo:* * Resources
+ *  that have a key named `foo` whose value is `bar` labels.foo = bar
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. A field used to sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of multicast consumer associations to return
+ *  per call.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource for which to list multicast consumer
+ *  associations. Use the following format: `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListMulticastConsumerAssociationsResponse.
+ *
+ *  Lists multicast consumer associations in a given project and location.
+ *
+ *  @param parent Required. The parent resource for which to list multicast
+ *    consumer associations. Use the following format: `projects/ * /locations/
+ *    *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single multicast consumer association.
+ *
+ *  Method: networkservices.projects.locations.multicastConsumerAssociations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Identifier. The resource name of the multicast consumer association. Use the
+ *  following format: `projects/ * /locations/ * /multicastConsumerAssociations/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  MulticastConsumerAssociation resource by the update. The fields specified in
+ *  the `update_mask` are relative to the resource, not the full request. A
+ *  field will be overwritten if it is in the mask. If the user does not provide
+ *  a mask then all mutable fields present in the request will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single multicast consumer association.
+ *
+ *  @param object The @c GTLRNetworkServices_MulticastConsumerAssociation to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the multicast consumer
+ *    association. Use the following format: `projects/ * /locations/ *
+ *    /multicastConsumerAssociations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastConsumerAssociationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_MulticastConsumerAssociation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new multicast group consumer activation in a given project and
+ *  location.
+ *
+ *  Method: networkservices.projects.locations.multicastGroupConsumerActivations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A unique name for the multicast group consumer activation. The
+ *  name is restricted to lower-case letters, numbers, and hyphen, with the
+ *  first character a lower-case letter, and the last a letter or a number. The
+ *  name must not exceed 48 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *multicastGroupConsumerActivationId;
+
+/**
+ *  Required. The parent resource of the multicast group consumer activation.
+ *  Use the following format: `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new multicast group consumer activation in a given project and
+ *  location.
+ *
+ *  @param object The @c GTLRNetworkServices_MulticastGroupConsumerActivation to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the multicast group consumer
+ *    activation. Use the following format: `projects/ * /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_MulticastGroupConsumerActivation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single multicast group consumer activation.
+ *
+ *  Method: networkservices.projects.locations.multicastGroupConsumerActivations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The resource name of the multicast group consumer activation to
+ *  delete. Use the following format: `projects/ * /locations/ *
+ *  /multicastGroupConsumerActivations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single multicast group consumer activation.
+ *
+ *  @param name Required. The resource name of the multicast group consumer
+ *    activation to delete. Use the following format: `projects/ * /locations/ *
+ *    /multicastGroupConsumerActivations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single multicast group consumer activation.
+ *
+ *  Method: networkservices.projects.locations.multicastGroupConsumerActivations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The resource name of the multicast group consumer activation to
+ *  get. Use the following format: `projects/ * /locations/ *
+ *  /multicastGroupConsumerActivations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_MulticastGroupConsumerActivation.
+ *
+ *  Gets details of a single multicast group consumer activation.
+ *
+ *  @param name Required. The resource name of the multicast group consumer
+ *    activation to get. Use the following format: `projects/ * /locations/ *
+ *    /multicastGroupConsumerActivations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists multicast group consumer activations in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.multicastGroupConsumerActivations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsList : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. A filter expression that filters the resources listed in the
+ *  response. The expression must be of the form ` ` where operators: `<`, `>`,
+ *  `<=`, `>=`, `!=`, `=`, `:` are supported (colon `:` represents a HAS
+ *  operator which is roughly synonymous with equality). can refer to a proto or
+ *  JSON field, or a synthetic field. Field names can be camelCase or
+ *  snake_case. Examples: * Filter by name: name = "RESOURCE_NAME" * Filter by
+ *  labels: * Resources that have a key named `foo` labels.foo:* * Resources
+ *  that have a key named `foo` whose value is `bar` labels.foo = bar
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. A field used to sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of multicast group consumer activations to
+ *  return per call.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource for which to list multicast group consumer
+ *  activations. Use the following format: `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRNetworkServices_ListMulticastGroupConsumerActivationsResponse.
+ *
+ *  Lists multicast group consumer activations in a given project and location.
+ *
+ *  @param parent Required. The parent resource for which to list multicast
+ *    group consumer activations. Use the following format: `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single multicast group consumer activation.
+ *
+ *  Method: networkservices.projects.locations.multicastGroupConsumerActivations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Identifier. The resource name of the multicast group consumer activation.
+ *  Use the following format: `projects/ * /locations/ *
+ *  /multicastGroupConsumerActivations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  MulticastGroupConsumerActivation resource by the update. The fields
+ *  specified in the `update_mask` are relative to the resource, not the full
+ *  request. A field will be overwritten if it is in the mask. If the user does
+ *  not provide a mask then all mutable fields present in the request will be
+ *  overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single multicast group consumer activation.
+ *
+ *  @param object The @c GTLRNetworkServices_MulticastGroupConsumerActivation to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the multicast group consumer
+ *    activation. Use the following format: `projects/ * /locations/ *
+ *    /multicastGroupConsumerActivations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsMulticastGroupConsumerActivationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_MulticastGroupConsumerActivation *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -104,6 +104,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieve an attachment associated with a support case. EXAMPLES: cURL:
+ *  ```shell
+ *  attachment="projects/some-project/cases/23598314/attachments/0684M00000P3h1fQAB"
+ *  curl \\ --header "Authorization: Bearer $(gcloud auth print-access-token)"
+ *  \\ "https://cloudsupport.googleapis.com/v2/$attachment" ``` Python:
+ *  ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = ( supportApiService.cases() .attachments()
+ *  .get(name="projects/some-project/cases/43595344/attachments/0684M00000P3h1fQAB")
+ *  ) print(request.execute()) ```
+ *
+ *  Method: cloudsupport.cases.attachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_CasesAttachmentsGet : GTLRCloudSupportQuery
+
+/** Required. The name of the attachment to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_Attachment.
+ *
+ *  Retrieve an attachment associated with a support case. EXAMPLES: cURL:
+ *  ```shell
+ *  attachment="projects/some-project/cases/23598314/attachments/0684M00000P3h1fQAB"
+ *  curl \\ --header "Authorization: Bearer $(gcloud auth print-access-token)"
+ *  \\ "https://cloudsupport.googleapis.com/v2/$attachment" ``` Python:
+ *  ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = ( supportApiService.cases() .attachments()
+ *  .get(name="projects/some-project/cases/43595344/attachments/0684M00000P3h1fQAB")
+ *  ) print(request.execute()) ```
+ *
+ *  @param name Required. The name of the attachment to get.
+ *
+ *  @return GTLRCloudSupportQuery_CasesAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  List all the attachments associated with a support case. EXAMPLES: cURL:
  *  ```shell case="projects/some-project/cases/23598314" curl \\ --header
  *  "Authorization: Bearer $(gcloud auth print-access-token)" \\
@@ -266,6 +314,52 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudSupport_Comment *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieve a comment. EXAMPLES: cURL: ```shell
+ *  comment="projects/some-project/cases/43595344/comments/234567890" curl \\
+ *  --header "Authorization: Bearer $(gcloud auth print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$comment" ``` Python: ```python
+ *  import googleapiclient.discovery api_version = "v2" supportApiService =
+ *  googleapiclient.discovery.build( serviceName="cloudsupport",
+ *  version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.cases().comments().get(
+ *  name="projects/some-project/cases/43595344/comments/234567890", )
+ *  print(request.execute()) ```
+ *
+ *  Method: cloudsupport.cases.comments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_CasesCommentsGet : GTLRCloudSupportQuery
+
+/** Required. The name of the comment to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_Comment.
+ *
+ *  Retrieve a comment. EXAMPLES: cURL: ```shell
+ *  comment="projects/some-project/cases/43595344/comments/234567890" curl \\
+ *  --header "Authorization: Bearer $(gcloud auth print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$comment" ``` Python: ```python
+ *  import googleapiclient.discovery api_version = "v2" supportApiService =
+ *  googleapiclient.discovery.build( serviceName="cloudsupport",
+ *  version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.cases().comments().get(
+ *  name="projects/some-project/cases/43595344/comments/234567890", )
+ *  print(request.execute()) ```
+ *
+ *  @param name Required. The name of the comment to retrieve.
+ *
+ *  @return GTLRCloudSupportQuery_CasesCommentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -827,7 +921,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "./example_file.txt" case="projects/some-project/cases/43594844" curl \\
  *  --header "Authorization: Bearer $(gcloud auth print-access-token)" \\
  *  --data-binary \@"./example_file.txt" \\
- *  "https://cloudsupport.googleapis.com/upload/v2beta/$case/attachments?attachment.filename=uploaded_via_curl.txt"
+ *  "https://cloudsupport.googleapis.com/upload/v2/$case/attachments?attachment.filename=uploaded_via_curl.txt"
  *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
  *  supportApiService = googleapiclient.discovery.build(
  *  serviceName="cloudsupport", version=api_version,
@@ -861,7 +955,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "./example_file.txt" case="projects/some-project/cases/43594844" curl \\
  *  --header "Authorization: Bearer $(gcloud auth print-access-token)" \\
  *  --data-binary \@"./example_file.txt" \\
- *  "https://cloudsupport.googleapis.com/upload/v2beta/$case/attachments?attachment.filename=uploaded_via_curl.txt"
+ *  "https://cloudsupport.googleapis.com/upload/v2/$case/attachments?attachment.filename=uploaded_via_curl.txt"
  *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
  *  supportApiService = googleapiclient.discovery.build(
  *  serviceName="cloudsupport", version=api_version,

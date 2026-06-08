@@ -52,6 +52,7 @@
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_DataFormatOptions;
 @class GTLRBigquery_DataMaskingStatistics;
+@class GTLRBigquery_DataPolicyList;
 @class GTLRBigquery_DataPolicyOption;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
@@ -91,6 +92,7 @@
 @class GTLRBigquery_ForeignTypeInfo;
 @class GTLRBigquery_ForeignViewDefinition;
 @class GTLRBigquery_GenAiErrorStats;
+@class GTLRBigquery_GenAiFunctionCacheStats;
 @class GTLRBigquery_GenAiFunctionCostOptimizationStats;
 @class GTLRBigquery_GenAiFunctionErrorStats;
 @class GTLRBigquery_GenAiFunctionStats;
@@ -143,6 +145,7 @@
 @class GTLRBigquery_MaterializedViewDefinition;
 @class GTLRBigquery_MaterializedViewStatistics;
 @class GTLRBigquery_MaterializedViewStatus;
+@class GTLRBigquery_MetadataCacheStalenessInsight;
 @class GTLRBigquery_MetadataCacheStatistics;
 @class GTLRBigquery_MlStatistics;
 @class GTLRBigquery_Model;
@@ -222,6 +225,7 @@
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_Table_ResourceTags;
 @class GTLRBigquery_TableCell;
+@class GTLRBigquery_TableChangeInsight;
 @class GTLRBigquery_TableConstraints;
 @class GTLRBigquery_TableConstraints_ForeignKeys_Item;
 @class GTLRBigquery_TableConstraints_ForeignKeys_Item_ColumnReferences_Item;
@@ -231,6 +235,8 @@
 @class GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item;
 @class GTLRBigquery_TableFieldSchema;
 @class GTLRBigquery_TableFieldSchema_Categories;
+@class GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo;
+@class GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo_DataGovernanceTags;
 @class GTLRBigquery_TableFieldSchema_PolicyTags;
 @class GTLRBigquery_TableFieldSchema_RangeElementType;
 @class GTLRBigquery_TableList_Tables_Item;
@@ -5583,6 +5589,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  A list of data policy options. For more information, see [Mask data by
+ *  applying data policies to a
+ *  column](https://docs.cloud.google.com/bigquery/docs/column-data-masking#data-policies-on-column).
+ */
+@interface GTLRBigquery_DataPolicyList : GTLRObject
+
+/**
+ *  Contains a list of data policy options. At most 9 data policies are allowed
+ *  per field.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DataPolicyOption *> *dataPolicies;
+
+@end
+
+
+/**
  *  Data policy option. For more information, see [Mask data by applying data
  *  policies to a
  *  column](https://docs.cloud.google.com/bigquery/docs/column-data-masking#data-policies-on-column).
@@ -7303,6 +7325,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *containerMemory;
 
 /**
+ *  Optional. Maximum number of requests that a Cloud Run instance can handle
+ *  concurrently. If absent or if `0`, a default concurrency is used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containerRequestConcurrency;
+
+/**
  *  Optional. Maximum number of rows in each batch sent to the external runtime.
  *  If absent or if 0, BigQuery dynamically decides the number of rows in a
  *  batch.
@@ -7452,6 +7482,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Provides cache statistics for a GenAi function call.
+ */
+@interface GTLRBigquery_GenAiFunctionCacheStats : GTLRObject
+
+/**
+ *  Number of rows served from cache.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCacheHitRows;
+
+@end
+
+
+/**
  *  Provides cost optimization statistics for a GenAi function call.
  */
 @interface GTLRBigquery_GenAiFunctionCostOptimizationStats : GTLRObject
@@ -7495,6 +7540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Provides statistics for each Ai function call within a query.
  */
 @interface GTLRBigquery_GenAiFunctionStats : GTLRObject
+
+/** Cache stats for the function. */
+@property(nonatomic, strong, nullable) GTLRBigquery_GenAiFunctionCacheStats *cacheStats;
 
 /**
  *  Cost optimization stats if applied on the rows processed by the function.
@@ -10690,6 +10738,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Column Metadata Index staleness detailed infnormation.
+ */
+@interface GTLRBigquery_MetadataCacheStalenessInsight : GTLRObject
+
+/**
+ *  Output only. Average column metadata index staleness of previous runs with
+ *  the same query hash.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *avgPreviousStalenessMs;
+
+/**
+ *  Output only. The percent increase in staleness between the current job and
+ *  the average staleness of previous jobs with the same query hash.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stalenessPercentageIncrease;
+
+@end
+
+
+/**
  *  Statistics for metadata caching in queried tables.
  */
 @interface GTLRBigquery_MetadataCacheStatistics : GTLRObject
@@ -11233,6 +11303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  potential improvements.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StagePerformanceStandaloneInsight *> *stagePerformanceStandaloneInsights;
+
+/**
+ *  Output only. Performance insights for table-level attributes that changed
+ *  compared to previous runs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableChangeInsight *> *tableChangeInsights;
 
 @end
 
@@ -14060,6 +14136,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Table-level performance insights compared to previous runs. These insights
+ *  don't apply to specific query stages, rather they apply to the whole table.
+ */
+@interface GTLRBigquery_TableChangeInsight : GTLRObject
+
+/**
+ *  Output only. True if the table's column metadata index was not used in the
+ *  current job, but was used in a previous job with the same query hash.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metadataCacheNotUsedButUsedPreviously;
+
+/**
+ *  Output only. If present, indicates that the table's metadata column index
+ *  staleness has increased significantly compared to previous jobs with the
+ *  same query hash.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_MetadataCacheStalenessInsight *metadataCacheStalenessInsight;
+
+/** Output only. The table that was queried. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;
+
+@end
+
+
+/**
  *  The TableConstraints defines the primary key and foreign key.
  */
 @interface GTLRBigquery_TableConstraints : GTLRObject
@@ -14281,10 +14384,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *collation;
 
 /**
+ *  Optional. Specifies the data governance tags on this field. This field works
+ *  with other column-level security fields as follows: - Precedence: If a data
+ *  governance tag is attached to a column, it takes precedence over the policy
+ *  tag attached to the column. However, if a data policy is attached to a
+ *  column, it takes precedence over the data governance tag. - Patching
+ *  behavior (how this field behaves during a `Table.patch` schema update): -
+ *  Unset: If the `data_governance_tags_info` field is omitted from the update
+ *  request, the existing tags on the column are preserved. - Empty Field: To
+ *  clear data governance tags from a column, send the
+ *  `data_governance_tags_info` field as an empty object. This will remove all
+ *  tags from the column. - Updating tags: To replace existing tag, send the
+ *  field with the new tag.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo *dataGovernanceTagsInfo;
+
+/**
  *  Optional. Data policies attached to this field, used for field-level access
  *  control.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DataPolicyOption *> *dataPolicies;
+
+/**
+ *  Optional. Specifies data policies attached to this field, used for
+ *  field-level access control. When set, this will be the source of truth for
+ *  data policy information.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DataPolicyList *dataPolicyList;
 
 /**
  *  Optional. A SQL expression to specify the [default value]
@@ -14436,6 +14562,39 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Optional. Specifies the data governance tags on this field. This field works
+ *  with other column-level security fields as follows: - Precedence: If a data
+ *  governance tag is attached to a column, it takes precedence over the policy
+ *  tag attached to the column. However, if a data policy is attached to a
+ *  column, it takes precedence over the data governance tag. - Patching
+ *  behavior (how this field behaves during a `Table.patch` schema update): -
+ *  Unset: If the `data_governance_tags_info` field is omitted from the update
+ *  request, the existing tags on the column are preserved. - Empty Field: To
+ *  clear data governance tags from a column, send the
+ *  `data_governance_tags_info` field as an empty object. This will remove all
+ *  tags from the column. - Updating tags: To replace existing tag, send the
+ *  field with the new tag.
+ */
+@interface GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo : GTLRObject
+
+/**
+ *  Optional. The data governance tags added to this field are used for
+ *  field-level access control. Only one data governance tag is currently
+ *  supported on a field. Tag keys are globally unique. Tag key is expected to
+ *  be in the namespaced format, for example "123456789012/pii" where
+ *  123456789012 is the ID of the parent organization or project resource for
+ *  this tag key. Tag value is expected to be the short name, for example
+ *  "sensitive". See [Tag
+ *  definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
+ *  for more details. For example: "123456789012/pii": "sensitive",
+ *  "myProject/cost_center": "sales"
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo_DataGovernanceTags *dataGovernanceTags;
+
+@end
+
+
+/**
  *  Optional. The policy tags attached to this field, used for field-level
  *  access control. If not set, defaults to empty policy_tags.
  */
@@ -14462,6 +14621,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  Optional. The data governance tags added to this field are used for
+ *  field-level access control. Only one data governance tag is currently
+ *  supported on a field. Tag keys are globally unique. Tag key is expected to
+ *  be in the namespaced format, for example "123456789012/pii" where
+ *  123456789012 is the ID of the parent organization or project resource for
+ *  this tag key. Tag value is expected to be the short name, for example
+ *  "sensitive". See [Tag
+ *  definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
+ *  for more details. For example: "123456789012/pii": "sensitive",
+ *  "myProject/cost_center": "sales"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo_DataGovernanceTags : GTLRObject
 @end
 
 

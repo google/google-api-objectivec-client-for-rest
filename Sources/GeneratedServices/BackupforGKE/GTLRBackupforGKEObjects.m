@@ -385,7 +385,7 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
          errorMessage, errorType, incrementalBackupSizeGib, jobCategory, jobId,
          jobStatus, recoveryPointTime, resourceType, restoreResourceLocation,
          restoreResourceName, sourceResourceId, sourceResourceLocation,
-         sourceResourceName, startTime;
+         sourceResourceName, startTime, targetResourceType;
 @end
 
 

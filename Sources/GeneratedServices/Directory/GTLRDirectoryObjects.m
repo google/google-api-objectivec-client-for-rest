@@ -1889,16 +1889,17 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 //
 
 @implementation GTLRDirectory_User
-@dynamic addresses, agreedToTerms, aliases, archived, changePasswordAtNextLogin,
-         creationTime, customerId, customSchemas, deletionTime, emails, ETag,
-         externalIds, gender, guestAccountInfo, hashFunction, identifier, ims,
-         includeInGlobalAddressList, ipWhitelisted, isAdmin, isDelegatedAdmin,
-         isEnforcedIn2Sv, isEnrolledIn2Sv, isGuestUser, isMailboxSetup,
-         keywords, kind, languages, lastLoginTime, locations, name,
-         nonEditableAliases, notes, organizations, orgUnitPath, password,
-         phones, posixAccounts, primaryEmail, recoveryEmail, recoveryPhone,
-         relations, sshPublicKeys, suspended, suspensionReason,
-         thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
+@dynamic addresses, agreedToTerms, aliases, archivalTime, archived,
+         changePasswordAtNextLogin, creationTime, customerId, customSchemas,
+         deletionTime, emails, ETag, externalIds, gender, guestAccountInfo,
+         hashFunction, identifier, ims, includeInGlobalAddressList,
+         ipWhitelisted, isAdmin, isDelegatedAdmin, isEnforcedIn2Sv,
+         isEnrolledIn2Sv, isGuestUser, isMailboxSetup, keywords, kind,
+         languages, lastLoginTime, locations, name, nonEditableAliases, notes,
+         organizations, orgUnitPath, password, phones, posixAccounts,
+         primaryEmail, recoveryEmail, recoveryPhone, relations, sshPublicKeys,
+         suspended, suspensionReason, suspensionTime, thumbnailPhotoEtag,
+         thumbnailPhotoUrl, websites;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

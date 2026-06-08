@@ -109,12 +109,15 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_AdditionalMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_AdditionalMetadata;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InternalAdditionalMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_AdditionalMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainInternalResourceMetadata;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainIpAddress;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError;
@@ -3864,6 +3867,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithNativeMode;
 /**
+ *  Memorystore with Valkey dialect.
+ *
+ *  Value: "ENGINE_MEMORSTORE_FOR_VALKEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorstoreForValkey;
+/**
  *  Memorystore with Redis dialect.
  *
  *  Value: "ENGINE_MEMORYSTORE_FOR_REDIS"
@@ -5412,6 +5421,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Configuration for Managed Connection Pool (MCP).
  */
 @interface GTLRCloudAlloyDBAdmin_ConnectionPoolConfig : GTLRObject
+
+/**
+ *  Output only. The number of running AuthProxy poolers per instance.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *authproxyPoolerCount;
 
 /**
  *  Optional. Whether to enable Managed Connection Pool (MCP).
@@ -8703,9 +8719,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 32
+ *  Common model for database resource instance metadata. Next ID: 35
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
+
+/**
+ *  Field to ingest additional metadata whichd does not support proto format.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_AdditionalMetadata *additionalMetadata;
 
 /** Availability configuration for this instance */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration *availabilityConfiguration;
@@ -8848,6 +8869,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
 
+/** Field to ingest additional metadata which support proto format. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InternalAdditionalMetadata *internalAdditionalMetadata;
+
+/** Optional. Private and public IP address of the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainIpAddress *ipAddress;
+
 /**
  *  Optional. Whether deletion protection is enabled for this resource.
  *
@@ -8946,6 +8973,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  Field to ingest additional metadata whichd does not support proto format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_AdditionalMetadata : GTLRObject
+@end
+
+
+/**
+ *  Field to ingest additional metadata which support proto format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InternalAdditionalMetadata : GTLRObject
 @end
 
 
@@ -9575,6 +9626,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Used to send IP address information for a database resource.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainIpAddress : GTLRObject
+
+/**
+ *  The private IP address assigned to the resource within a Virtual Private
+ *  Cloud (VPC). This IP is only reachable from within the same VPC network.
+ *  Stored in standard string format (e.g., "10.0.0.2").
+ */
+@property(nonatomic, copy, nullable) NSString *privateIp;
+
+/**
+ *  The public IP address assigned to the resource. This IP is reachable from
+ *  the internet. Stored in standard string format (e.g., "34.72.1.1").
+ */
+@property(nonatomic, copy, nullable) NSString *publicIp;
+
+@end
+
+
+/**
  *  MachineConfiguration describes the configuration of a machine specific to
  *  Database Resource.
  */
@@ -10056,6 +10128,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithNativeMode
  *        Firestore with native mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_NATIVE_MODE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorstoreForValkey
+ *        Memorystore with Valkey dialect. (Value:
+ *        "ENGINE_MEMORSTORE_FOR_VALKEY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForRedis
  *        Memorystore with Redis dialect. (Value:
  *        "ENGINE_MEMORYSTORE_FOR_REDIS")

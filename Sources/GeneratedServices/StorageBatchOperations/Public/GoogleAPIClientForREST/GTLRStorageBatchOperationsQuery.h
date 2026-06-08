@@ -68,8 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsGet : GTLRStorageBatchOperationsQuery
 
 /**
- *  Required. `name` of the bucket operation to retrieve. Format:
- *  projects/{project_id}/locations/global/jobs/{job_id}/bucketOperations/{bucket_operation_id}.
+ *  Required. The `name` of the bucket operation to retrieve. Format:
+ *  `projects/{project_id}/locations/global/jobs/{job_id}/bucketOperations/{bucket_operation_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -78,8 +78,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a BucketOperation.
  *
- *  @param name Required. `name` of the bucket operation to retrieve. Format:
- *    projects/{project_id}/locations/global/jobs/{job_id}/bucketOperations/{bucket_operation_id}.
+ *  @param name Required. The `name` of the bucket operation to retrieve.
+ *    Format:
+ *    `projects/{project_id}/locations/global/jobs/{job_id}/bucketOperations/{bucket_operation_id}`.
  *
  *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsGet
  */
@@ -100,7 +101,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. Filters results as defined by https://google.aip.dev/160. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Field to sort by. Supported fields are name, create_time. */
+/**
+ *  Optional. Field to sort by. Supported fields are `name` and `create_time`.
+ */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Optional. The list page size. Default page size is 100. */
@@ -109,7 +112,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. The list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Format: projects/{project_id}/locations/global/jobs/{job_id}. */
+/**
+ *  Required. Format: `projects/{project_id}/locations/global/jobs/{job_id}`.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -118,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists BucketOperations in a given project and job.
  *
  *  @param parent Required. Format:
- *    projects/{project_id}/locations/global/jobs/{job_id}.
+ *    `projects/{project_id}/locations/global/jobs/{job_id}`.
  *
  *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsList
  *
@@ -142,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The `name` of the job to cancel. Format:
- *  projects/{project_id}/locations/global/jobs/{job_id}.
+ *  `projects/{project_id}/locations/global/jobs/{job_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -154,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRStorageBatchOperations_CancelJobRequest to include
  *    in the query.
  *  @param name Required. The `name` of the job to cancel. Format:
- *    projects/{project_id}/locations/global/jobs/{job_id}.
+ *    `projects/{project_id}/locations/global/jobs/{job_id}`.
  *
  *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsCancel
  */
@@ -174,21 +179,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsCreate : GTLRStorageBatchOperationsQuery
 
 /**
- *  Required. The optional `job_id` for this Job . If not specified, an id is
- *  generated. `job_id` should be no more than 128 characters and must include
- *  only characters available in DNS names, as defined by RFC-1123.
+ *  Required. A unique identifier for the job. `job_id` must be up to 128
+ *  characters and must include only characters available in DNS names, as
+ *  defined by RFC-1123.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/** Required. Value for parent. */
+/** Required. The value for parent. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID in case you need to retry your request. Requests with same
- *  `request_id` will be ignored for at least 60 minutes since the first
- *  request. The request ID must be a valid UUID with the exception that zero
- *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  `request_id` are ignored for at least 60 minutes since the first request.
+ *  The request ID must be a valid UUID with the exception that zero UUID isn't
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -198,7 +203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a batch job.
  *
  *  @param object The @c GTLRStorageBatchOperations_Job to include in the query.
- *  @param parent Required. Value for parent.
+ *  @param parent Required. The value for parent.
  *
  *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsCreate
  */
@@ -218,25 +223,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsDelete : GTLRStorageBatchOperationsQuery
 
 /**
- *  Optional. If set to true, any child bucket operations of the job will also
- *  be deleted. Highly recommended to be set to true by all clients. Users
- *  cannot mutate bucket operations directly, so only the jobs.delete permission
- *  is required to delete a job (and its child bucket operations).
+ *  Optional. If set to true, any child bucket operations of the job are
+ *  deleted. We recommend setting this to `true`. You can't mutate bucket
+ *  operations directly, so only the `jobs.delete` permission is required to
+ *  delete a job (and its child bucket operations).
  */
 @property(nonatomic, assign) BOOL force;
 
 /**
  *  Required. The `name` of the job to delete. Format:
- *  projects/{project_id}/locations/global/jobs/{job_id} .
+ *  `projects/{project_id}/locations/global/jobs/{job_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID in case you need to retry your request. Requests with same
- *  `request_id` will be ignored for at least 60 minutes since the first
- *  request. The request ID must be a valid UUID with the exception that zero
- *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  `request_id` are ignored for at least 60 minutes since the first request.
+ *  The request ID must be a valid UUID with the exception that zero UUID isn't
+ *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -246,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a batch job.
  *
  *  @param name Required. The `name` of the job to delete. Format:
- *    projects/{project_id}/locations/global/jobs/{job_id} .
+ *    `projects/{project_id}/locations/global/jobs/{job_id}`.
  *
  *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsDelete
  */
@@ -265,8 +270,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsGet : GTLRStorageBatchOperationsQuery
 
 /**
- *  Required. `name` of the job to retrieve. Format:
- *  projects/{project_id}/locations/global/jobs/{job_id} .
+ *  Required. The `name` of the job to retrieve. Format:
+ *  `projects/{project_id}/locations/global/jobs/{job_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -275,8 +280,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a batch job.
  *
- *  @param name Required. `name` of the job to retrieve. Format:
- *    projects/{project_id}/locations/global/jobs/{job_id} .
+ *  @param name Required. The `name` of the job to retrieve. Format:
+ *    `projects/{project_id}/locations/global/jobs/{job_id}`.
  *
  *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsGet
  */
@@ -297,10 +302,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. Filters results as defined by https://google.aip.dev/160. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Field to sort by. Supported fields are name, create_time. */
+/**
+ *  Optional. Field to sort by. Supported fields are `name` and `create_time`.
+ */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Optional. The list page size. default page size is 100. */
+/** Optional. The list page size. The default page size is 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** Optional. The list page token. */

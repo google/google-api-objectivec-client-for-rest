@@ -2102,6 +2102,29 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 
 
 /**
+ *  Subject defines the evolution scope of schemas as a holder of schema
+ *  versions.
+ */
+@interface GTLRManagedKafka_SchemaSubject : GTLRObject
+
+/**
+ *  Identifier. The name of the subject. Structured like:
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/subjects/{subject}`
+ *  or
+ *  `projects/{project}/locations/{location}/schemaRegistries/{schema_registry}/contexts/{context}/subjects/{subject}`
+ *  Subject name {subject} can contain the following: * Up to 255 UTF-8 bytes. *
+ *  Allowed characters: letters (uppercase or lowercase), numbers, and the
+ *  following special characters: `.`, `-`, `_`, `+`, `%`, and `~`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The versions of the subject. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *versions;
+
+@end
+
+
+/**
  *  Version of a schema.
  */
 @interface GTLRManagedKafka_SchemaVersion : GTLRObject

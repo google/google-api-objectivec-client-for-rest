@@ -2299,6 +2299,1005 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new GoldengateConnectionAssignment in a given project and
+ *  location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionAssignments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsCreate : GTLROracleDatabaseQuery
+
+/** Required. The ID of the GoldengateConnectionAssignment to create. */
+@property(nonatomic, copy, nullable) NSString *goldengateConnectionAssignmentId;
+
+/**
+ *  Required. The parent resource where this GoldengateConnectionAssignment will
+ *  be created. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new GoldengateConnectionAssignment in a given project and
+ *  location.
+ *
+ *  @param object The @c GTLROracleDatabase_GoldengateConnectionAssignment to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this
+ *    GoldengateConnectionAssignment will be created. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateConnectionAssignment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single GoldengateConnectionAssignment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionAssignments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateConnectionAssignment to delete. Format:
+ *  projects/{project}/locations/{location}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single GoldengateConnectionAssignment.
+ *
+ *  @param name Required. The name of the GoldengateConnectionAssignment to
+ *    delete. Format:
+ *    projects/{project}/locations/{location}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single GoldengateConnectionAssignment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionAssignments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateConnectionAssignment to retrieve.
+ *  Format:
+ *  projects/{project}/locations/{location}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_GoldengateConnectionAssignment.
+ *
+ *  Gets details of a single GoldengateConnectionAssignment.
+ *
+ *  @param name Required. The name of the GoldengateConnectionAssignment to
+ *    retrieve. Format:
+ *    projects/{project}/locations/{location}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GoldengateConnectionAssignments in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionAssignments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. A filter expression that filters GoldengateConnectionAssignments
+ *  listed in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "DESC" after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of GoldengateConnectionAssignments to return.
+ *  The service may return fewer than this value. If unspecified, at most 50
+ *  GoldengateConnectionAssignments will be returned. The maximum value is 1000;
+ *  values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListGoldengateConnectionAssignments` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListGoldengateConnectionAssignments` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the GoldengateConnectionAssignments. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListGoldengateConnectionAssignmentsResponse.
+ *
+ *  Lists GoldengateConnectionAssignments in a given project and location.
+ *
+ *  @param parent Required. The parent value for the
+ *    GoldengateConnectionAssignments. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Tests a single GoldengateConnectionAssignment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionAssignments.test
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsTest : GTLROracleDatabaseQuery
+
+/**
+ *  Required. Name of the connection assignment for which to test connection.
+ *  projects/{project}/locations/{region}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_TestGoldengateConnectionAssignmentResponse.
+ *
+ *  Tests a single GoldengateConnectionAssignment.
+ *
+ *  @param object The @c
+ *    GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest to include in
+ *    the query.
+ *  @param name Required. Name of the connection assignment for which to test
+ *    connection.
+ *    projects/{project}/locations/{region}/goldengateConnectionAssignments/{goldengate_connection_assignment}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionAssignmentsTest
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new GoldengateConnection in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the GoldengateConnection to create. This value is
+ *  restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of
+ *  63 characters in length. The value must start with a letter and end with a
+ *  letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *goldengateConnectionId;
+
+/**
+ *  Required. The value for parent of the GoldengateConnection in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new GoldengateConnection in a given project and location.
+ *
+ *  @param object The @c GTLROracleDatabase_GoldengateConnection to include in
+ *    the query.
+ *  @param parent Required. The value for parent of the GoldengateConnection in
+ *    the following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateConnection *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single GoldengateConnection.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateConnection in the following format:
+ *  projects/{project}/locations/{location}/goldengateConnections/{goldengate_connection}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single GoldengateConnection.
+ *
+ *  @param name Required. The name of the GoldengateConnection in the following
+ *    format:
+ *    projects/{project}/locations/{location}/goldengateConnections/{goldengate_connection}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single GoldengateConnection.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateConnection in the following format:
+ *  projects/{project}/locations/{location}/goldengateConnections/{goldengate_connection}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_GoldengateConnection.
+ *
+ *  Gets details of a single GoldengateConnection.
+ *
+ *  @param name Required. The name of the GoldengateConnection in the following
+ *    format:
+ *    projects/{project}/locations/{location}/goldengateConnections/{goldengate_connection}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the GoldengateConnections for the given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  GoldengateConnections will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListGoldengateConnections
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for GoldengateConnections in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListGoldengateConnectionsResponse.
+ *
+ *  Lists all the GoldengateConnections for the given project and location.
+ *
+ *  @param parent Required. The parent value for GoldengateConnections in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single GoldengateConnectionType.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. Name of the resource in the format:
+ *  projects/{project}/locations/{location}/goldengateConnectionTypes/{goldengate_connection_type}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_GoldengateConnectionType.
+ *
+ *  Gets details of a single GoldengateConnectionType.
+ *
+ *  @param name Required. Name of the resource in the format:
+ *    projects/{project}/locations/{location}/goldengateConnectionTypes/{goldengate_connection_type}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GoldengateConnectionTypes in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateConnectionTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. The
+ *  connection_type field must be specified in the format:
+ *  `connection_type="ORACLE"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListGoldengateConnectionTypesRequest Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListGoldengateConnectionTypesResponse.
+ *
+ *  Lists GoldengateConnectionTypes in a given project and location.
+ *
+ *  @param parent Required. Parent value for
+ *    ListGoldengateConnectionTypesRequest Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single GoldengateDeploymentEnvironment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeploymentEnvironments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. Name of the resource with the format:
+ *  projects/{project}/locations/{location}/goldengateDeploymentEnvironments/{goldengate_deployment_environment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_GoldengateDeploymentEnvironment.
+ *
+ *  Gets details of a single GoldengateDeploymentEnvironment.
+ *
+ *  @param name Required. Name of the resource with the format:
+ *    projects/{project}/locations/{location}/goldengateDeploymentEnvironments/{goldengate_deployment_environment}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GoldengateDeploymentEnvironments in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeploymentEnvironments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  deployment environments will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of
+ *  GoldengateDeploymentEnvironments. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLROracleDatabase_ListGoldengateDeploymentEnvironmentsResponse.
+ *
+ *  Lists GoldengateDeploymentEnvironments in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    GoldengateDeploymentEnvironments. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new GoldengateDeployment in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the GoldengateDeployment to create. This value is
+ *  restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of
+ *  63 characters in length. The value must start with a letter and end with a
+ *  letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *goldengateDeploymentId;
+
+/**
+ *  Required. The value for parent of the GoldengateDeployment in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new GoldengateDeployment in a given project and location.
+ *
+ *  @param object The @c GTLROracleDatabase_GoldengateDeployment to include in
+ *    the query.
+ *  @param parent Required. The value for parent of the GoldengateDeployment in
+ *    the following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_GoldengateDeployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single GoldengateDeployment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateDeployment in the following format:
+ *  projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single GoldengateDeployment.
+ *
+ *  @param name Required. The name of the GoldengateDeployment in the following
+ *    format:
+ *    projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single GoldengateDeployment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateDeployment in the following format:
+ *  projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_GoldengateDeployment.
+ *
+ *  Gets details of a single GoldengateDeployment.
+ *
+ *  @param name Required. The name of the GoldengateDeployment in the following
+ *    format:
+ *    projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the GoldengateDeployments for the given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  GoldengateDeployments will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListGoldengateDeployments
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for GoldengateDeployments in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListGoldengateDeploymentsResponse.
+ *
+ *  Lists all the GoldengateDeployments for the given project and location.
+ *
+ *  @param parent Required. The parent value for GoldengateDeployments in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts a single GoldengateDeployment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeployments.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsStart : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Goldengate Deployment in the following format:
+ *  projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Starts a single GoldengateDeployment.
+ *
+ *  @param object The @c GTLROracleDatabase_StartGoldengateDeploymentRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Goldengate Deployment in the following
+ *    format:
+ *    projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsStart
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_StartGoldengateDeploymentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops a single GoldengateDeployment.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeployments.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsStop : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Goldengate Deployment in the following format:
+ *  projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Stops a single GoldengateDeployment.
+ *
+ *  @param object The @c GTLROracleDatabase_StopGoldengateDeploymentRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Goldengate Deployment in the following
+ *    format:
+ *    projects/{project}/locations/{location}/goldengateDeployments/{goldengate_deployment}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentsStop
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_StopGoldengateDeploymentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single GoldenGateDeploymentType.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeploymentTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateDeploymentType to retrieve. Format:
+ *  projects/{project}/locations/{location}/goldengateDeploymentTypes/{goldengate_deployment_type}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_GoldengateDeploymentType.
+ *
+ *  Gets details of a single GoldenGateDeploymentType.
+ *
+ *  @param name Required. The name of the GoldengateDeploymentType to retrieve.
+ *    Format:
+ *    projects/{project}/locations/{location}/goldengateDeploymentTypes/{goldengate_deployment_type}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GoldenGateDeploymentTypes in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeploymentTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Either the
+ *  deployment_type and ogg_version fields must be specified in the format:
+ *  `deployment_type="DATABASE_ORACLE"` or `ogg_version="version"`. Allowed
+ *  values for deployment_type are: `DATABASE_ORACLE`, `BIGDATA`,
+ *  `DATABASE_MICROSOFT_SQLSERVER`, `DATABASE_MYSQL`, `DATABASE_POSTGRESQL`,
+ *  `DATABASE_DB2ZOS`, `DATABASE_DB2I`, `GGSA`, `DATA_TRANSFORMS`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListGoldengateDeploymentTypesResponse.
+ *
+ *  Lists GoldenGateDeploymentTypes in a given project and location.
+ *
+ *  @param parent Required. The parent resource. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single GoldengateDeploymentVersion.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeploymentVersions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the GoldengateDeploymentVersion to retrieve. Format:
+ *  projects/{project}/locations/{location}/goldengateDeploymentVersions/{goldengate_deployment_version}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_GoldengateDeploymentVersion.
+ *
+ *  Gets details of a single GoldengateDeploymentVersion.
+ *
+ *  @param name Required. The name of the GoldengateDeploymentVersion to
+ *    retrieve. Format:
+ *    projects/{project}/locations/{location}/goldengateDeploymentVersions/{goldengate_deployment_version}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists GoldengateDeploymentVersions in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.goldengateDeploymentVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Either the
+ *  deployment_id and deployment_type fields must be specified in the format:
+ *  `deployment_id="id"` or `deployment_type="DATABASE_ORACLE"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. The maximum value
+ *  is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListGoldengateDeploymentVersionsRequest Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListGoldengateDeploymentVersionsResponse.
+ *
+ *  Lists GoldengateDeploymentVersions in a given project and location.
+ *
+ *  @param parent Required. Parent value for
+ *    ListGoldengateDeploymentVersionsRequest Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service. This
  *  method lists locations based on the resource scope provided in the
  *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,

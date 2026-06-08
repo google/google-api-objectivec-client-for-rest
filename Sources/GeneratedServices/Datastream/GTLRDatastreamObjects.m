@@ -125,8 +125,9 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_BackfillAllStrategy
 @dynamic mongodbExcludedObjects, mysqlExcludedObjects, oracleExcludedObjects,
-         postgresqlExcludedObjects, salesforceExcludedObjects,
-         spannerExcludedObjects, sqlServerExcludedObjects;
+         postgresqlExcludedObjects, saasExcludedObjects,
+         salesforceExcludedObjects, spannerExcludedObjects,
+         sqlServerExcludedObjects;
 @end
 
 
@@ -288,11 +289,13 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_ConnectionProfile
-@dynamic bigqueryProfile, createTime, displayName, forwardSshConnectivity,
-         gcsProfile, labels, mongodbProfile, mysqlProfile, name, oracleProfile,
-         postgresqlProfile, privateConnectivity, salesforceProfile,
-         satisfiesPzi, satisfiesPzs, spannerProfile, sqlServerProfile,
-         staticServiceIpConnectivity, updateTime;
+@dynamic bigqueryProfile, createTime, dataverseProfile, displayName,
+         forwardSshConnectivity, gcsProfile, labels, mongodbProfile,
+         mysqlProfile, name, oracleProfile, postgresqlProfile,
+         privateConnectivity, salesforceMarketingCloudProfile,
+         salesforceProfile, satisfiesPzi, satisfiesPzs, serviceNowProfile,
+         spannerProfile, sqlServerProfile, staticServiceIpConnectivity,
+         updateTime;
 @end
 
 
@@ -327,6 +330,26 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_DatasetTemplate
 @dynamic datasetIdPrefix, kmsKeyName, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_DataverseProfile
+//
+
+@implementation GTLRDatastream_DataverseProfile
+@dynamic environmentUrl, oauthClientCredentials, tenantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_DataverseSourceConfig
+//
+
+@implementation GTLRDatastream_DataverseSourceConfig
+@dynamic excludeObjects, includeObjects, pollingInterval;
 @end
 
 
@@ -367,7 +390,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_DiscoverConnectionProfileRequest
 @dynamic connectionProfile, connectionProfileName, fullHierarchy,
          hierarchyDepth, mongodbCluster, mysqlRdbms, oracleRdbms,
-         postgresqlRdbms, salesforceOrg, spannerDatabase, sqlServerRdbms;
+         postgresqlRdbms, salesforceOrg, sourceCatalog, spannerDatabase,
+         sqlServerRdbms;
 @end
 
 
@@ -378,7 +402,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_DiscoverConnectionProfileResponse
 @dynamic mongodbCluster, mysqlRdbms, oracleRdbms, postgresqlRdbms,
-         salesforceOrg, spannerDatabase, sqlServerRdbms;
+         salesforceOrg, sourceCatalog, spannerDatabase, sqlServerRdbms;
 @end
 
 
@@ -1166,6 +1190,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_OauthClientCredentials
+//
+
+@implementation GTLRDatastream_OauthClientCredentials
+@dynamic clientId, clientSecret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_ObjectFilter
 //
 
@@ -1722,6 +1756,27 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_SalesforceMarketingCloudProfile
+//
+
+@implementation GTLRDatastream_SalesforceMarketingCloudProfile
+@dynamic oauthClientCredentials, subdomain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SalesforceMarketingCloudSourceConfig
+//
+
+@implementation GTLRDatastream_SalesforceMarketingCloudSourceConfig
+@dynamic excludeObjects, fullRefreshPollingInterval, includeObjects,
+         pollingInterval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_SalesforceObject
 //
 
@@ -1788,6 +1843,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_Secret
+//
+
+@implementation GTLRDatastream_Secret
+@dynamic rawValue, secretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_ServerAndClientVerification
 //
 
@@ -1808,6 +1873,26 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_ServiceNowProfile
+//
+
+@implementation GTLRDatastream_ServiceNowProfile
+@dynamic instance, oauthClientCredentials, userPasswordCredentials;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_ServiceNowSourceConfig
+//
+
+@implementation GTLRDatastream_ServiceNowSourceConfig
+@dynamic excludeObjects, includeObjects, pollingInterval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_SingleTargetDataset
 //
 
@@ -1818,13 +1903,33 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_SourceCatalog
+//
+
+@implementation GTLRDatastream_SourceCatalog
+@dynamic objects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"objects" : [GTLRDatastream_SourceObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_SourceConfig
 //
 
 @implementation GTLRDatastream_SourceConfig
-@dynamic mongodbSourceConfig, mysqlSourceConfig, oracleSourceConfig,
-         postgresqlSourceConfig, salesforceSourceConfig,
-         sourceConnectionProfile, spannerSourceConfig, sqlServerSourceConfig;
+@dynamic dataverseSourceConfig, mongodbSourceConfig, mysqlSourceConfig,
+         oracleSourceConfig, postgresqlSourceConfig,
+         salesforceMarketingCloudSourceConfig, salesforceSourceConfig,
+         serviceNowSourceConfig, sourceConnectionProfile, spannerSourceConfig,
+         sqlServerSourceConfig;
 @end
 
 
@@ -1840,6 +1945,24 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_SourceObject
+//
+
+@implementation GTLRDatastream_SourceObject
+@dynamic objectName, properties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"properties" : [GTLRDatastream_SourceProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_SourceObjectIdentifier
 //
 
@@ -1847,6 +1970,34 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @dynamic mongodbIdentifier, mysqlIdentifier, oracleIdentifier,
          postgresqlIdentifier, salesforceIdentifier, spannerIdentifier,
          sqlServerIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SourceProperty
+//
+
+@implementation GTLRDatastream_SourceProperty
+@dynamic primaryKey, properties, propertyName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"properties" : [GTLRDatastream_SourceProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerChangeStreamPosition
+//
+
+@implementation GTLRDatastream_SpannerChangeStreamPosition
+@dynamic startTime;
 @end
 
 
@@ -1953,7 +2104,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_SpecificStartPosition
 @dynamic mongodbChangeStreamPosition, mysqlGtidPosition, mysqlLogPosition,
-         oracleScnPosition, sqlServerLsnPosition;
+         oracleScnPosition, spannerChangeStreamPosition, sqlServerLsnPosition;
 @end
 
 
@@ -2273,6 +2424,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_UserCredentials
 @dynamic password, secretManagerStoredPassword,
          secretManagerStoredSecurityToken, securityToken, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_UserPasswordCredentials
+//
+
+@implementation GTLRDatastream_UserPasswordCredentials
+@dynamic password, username;
 @end
 
 

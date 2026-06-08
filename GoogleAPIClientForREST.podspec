@@ -490,6 +490,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudNaturalLanguage/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudNaturalLanguage/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudNumberRegistry' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudNumberRegistry/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudNumberRegistry/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CloudObservability' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudObservability/**/*.{h,m}'
@@ -1275,6 +1280,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Reseller/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Reseller/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'SA360' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/SA360/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/SA360/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'SaaSServiceManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/SaaSServiceManagement/**/*.{h,m}'
@@ -1514,6 +1524,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Walletobjects/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Walletobjects/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'WebContentPublisher' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/WebContentPublisher/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/WebContentPublisher/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Webfonts' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

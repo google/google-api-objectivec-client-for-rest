@@ -1898,6 +1898,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *until;
 
 /**
+ *  Optional. If set to true, the request will only perform a dry run. By
+ *  default (once the behavior change is fully rolled out), this will default to
+ *  true. During the transition period, the default depends on the Mendel flag
+ *  status for the project.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+/**
  *  Optional. Specifies which version of the resources to delete.
  *
  *  Likely values:

@@ -854,6 +854,21 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @interface GTLRClassroom_AddOnAttachmentStudentSubmission : GTLRObject
 
 /**
+ *  Output only. Identifier of the course work submission under which this
+ *  attachment submission was made.
+ */
+@property(nonatomic, copy, nullable) NSString *courseWorkSubmissionId;
+
+/**
+ *  Output only. Classroom-assigned identifier for this student submission. This
+ *  is unique among submissions for the relevant course work and add-on
+ *  attachment combination.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
  *  Student grade on this attachment. If unset, no grade was set.
  *
  *  Uses NSNumber of doubleValue.

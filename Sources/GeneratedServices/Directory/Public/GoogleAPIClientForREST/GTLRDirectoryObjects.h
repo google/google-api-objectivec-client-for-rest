@@ -4939,6 +4939,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /** Output only. The list of the user's alias email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
+/** Output only. User's account archival time. (Read-only) */
+@property(nonatomic, copy, nullable) NSString *archivalTime;
+
 /**
  *  Indicates if user is archived.
  *
@@ -5243,6 +5246,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  returned only if the `suspended` property is `true`.
  */
 @property(nonatomic, copy, nullable) NSString *suspensionReason;
+
+/** Output only. User's account suspension time. (Read-only) */
+@property(nonatomic, copy, nullable) NSString *suspensionTime;
 
 /** Output only. ETag of the user's photo (Read-only) */
 @property(nonatomic, copy, nullable) NSString *thumbnailPhotoEtag;
@@ -5936,10 +5942,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  */
 @interface GTLRDirectory_UsersCreateGuestRequest : GTLRObject
 
-/** Optional. Immutable ID of the Google Workspace account. */
+/**
+ *  Optional. Immutable ID of the Google Workspace account. Only required when
+ *  request is created by a service account. Defaults to the authenticated
+ *  user's customer ID otherwise.
+ */
 @property(nonatomic, copy, nullable) NSString *customer;
 
-/** Immutable. External email of the guest user being created. */
+/** Required. External email of the guest user being created. */
 @property(nonatomic, copy, nullable) NSString *primaryGuestEmail;
 
 @end
