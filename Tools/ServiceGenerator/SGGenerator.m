@@ -768,7 +768,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
             [paramType isEqual:@"integer"] ||
             [paramType isEqual:@"number"])) {
         NSString *errStr =
-          [NSString stringWithFormat:@"Method '%@' has parameter '%@' which is an exoected type: '%@'",
+          [NSString stringWithFormat:@"Method '%@' has parameter '%@' which is an expected type: '%@'",
            method.identifier, param.sg_name, paramType];
         messageHandler(kSGGeneratorHandlerMessageError, errStr);
         allGood = NO;
