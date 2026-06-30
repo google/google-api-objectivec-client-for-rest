@@ -8,6 +8,7 @@ on:
     - 'UnitTests/**'
     - 'Package*.swift'
     - 'SwiftPMTests/**'
+    - '.github/workflows/retry.sh'
     - '.github/workflows/swiftpm.yml'
   pull_request:
     branches: [ main ]
@@ -16,6 +17,7 @@ on:
     - 'UnitTests/**'
     - 'Package*.swift'
     - 'SwiftPMTests/**'
+    - '.github/workflows/retry.sh'
     - '.github/workflows/swiftpm.yml'
   schedule:
     # Run the first and fifteenth of every month at 6:12 UTC
@@ -71,7 +73,8 @@ jobs:
             ;;
         esac
 
-        xcodebuild \
+        .github/workflows/retry.sh -- \
+          xcodebuild \
             -scheme GoogleAPIClientForREST-Package \
             -configuration ${{ matrix.CONFIGURATION }} \
             -destination "${DESTINATION}" \
