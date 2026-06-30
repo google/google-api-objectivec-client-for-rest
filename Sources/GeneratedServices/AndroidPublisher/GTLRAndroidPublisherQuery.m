@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// aiGeneratedState
+NSString * const kGTLRAndroidPublisherAiGeneratedStateAiGeneratedStateAiGeneratedDeveloperAttested = @"aiGeneratedStateAiGeneratedDeveloperAttested";
+NSString * const kGTLRAndroidPublisherAiGeneratedStateAiGeneratedStateNotAiGenerated = @"aiGeneratedStateNotAiGenerated";
+NSString * const kGTLRAndroidPublisherAiGeneratedStateAiGeneratedStateUnspecified = @"aiGeneratedStateUnspecified";
+
 // changesInReviewBehavior
 NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorCancelInReviewAndSubmit = @"CANCEL_IN_REVIEW_AND_SUBMIT";
 NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorChangesInReviewBehaviorTypeUnspecified = @"CHANGES_IN_REVIEW_BEHAVIOR_TYPE_UNSPECIFIED";
@@ -857,7 +862,7 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @implementation GTLRAndroidPublisherQuery_EditsImagesUpload
 
-@dynamic editId, imageType, language, packageName;
+@dynamic aiGeneratedState, editId, imageType, language, packageName;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId

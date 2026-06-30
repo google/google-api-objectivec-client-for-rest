@@ -177,7 +177,21 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfiguration
-@dynamic asset, authentication, connectorId, endpoint, network;
+@dynamic asset, authentication, connectorId, endpoint, network, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfiguration_Parameters
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfiguration_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue class];
+}
+
 @end
 
 
@@ -197,7 +211,21 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication
-@dynamic serviceAccount, usernamePassword;
+@dynamic parameters, serviceAccount, usernamePassword;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication_Parameters
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue class];
+}
+
 @end
 
 
@@ -218,6 +246,16 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfigurationNetwork
 @dynamic privateServiceConnect;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue
+@dynamic boolValue, doubleValue, int32Value, secretValue, stringValue;
 @end
 
 

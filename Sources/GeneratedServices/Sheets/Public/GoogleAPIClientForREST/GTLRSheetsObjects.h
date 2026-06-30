@@ -1688,7 +1688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteC
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteDataValidation;
 /**
- *  Paste the format and data validation only.
+ *  Paste the format only, excluding data validation.
  *
  *  Value: "PASTE_FORMAT"
  */
@@ -1734,7 +1734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteDataValidation;
 /**
- *  Paste the format and data validation only.
+ *  Paste the format only, excluding data validation.
  *
  *  Value: "PASTE_FORMAT"
  */
@@ -2796,7 +2796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteCondit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteDataValidation;
 /**
- *  Paste the format and data validation only.
+ *  Paste the format only, excluding data validation.
  *
  *  Value: "PASTE_FORMAT"
  */
@@ -6636,7 +6636,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteDataValidation Paste
  *        the data validation only. (Value: "PASTE_DATA_VALIDATION")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteFormat Paste the
- *        format and data validation only. (Value: "PASTE_FORMAT")
+ *        format only, excluding data validation. (Value: "PASTE_FORMAT")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteFormula Paste the
  *        formulas only. (Value: "PASTE_FORMULA")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteNoBorders Like
@@ -6707,7 +6707,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteDataValidation Paste
  *        the data validation only. (Value: "PASTE_DATA_VALIDATION")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteFormat Paste the format
- *        and data validation only. (Value: "PASTE_FORMAT")
+ *        only, excluding data validation. (Value: "PASTE_FORMAT")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteFormula Paste the
  *        formulas only. (Value: "PASTE_FORMULA")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteNoBorders Like
@@ -9492,8 +9492,8 @@ GTLR_DEPRECATED
  *        "PASTE_CONDITIONAL_FORMATTING")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteDataValidation Paste the
  *        data validation only. (Value: "PASTE_DATA_VALIDATION")
- *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteFormat Paste the format and
- *        data validation only. (Value: "PASTE_FORMAT")
+ *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteFormat Paste the format
+ *        only, excluding data validation. (Value: "PASTE_FORMAT")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteFormula Paste the formulas
  *        only. (Value: "PASTE_FORMULA")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteNoBorders Like

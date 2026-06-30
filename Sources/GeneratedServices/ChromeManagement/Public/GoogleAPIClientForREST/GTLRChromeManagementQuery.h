@@ -69,6 +69,167 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeHostedApp;
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 
 // ----------------------------------------------------------------------------
+// breakdown
+
+/**
+ *  Breakdown by content category.
+ *
+ *  Value: "CONTENT_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementBreakdownContentCategory;
+/**
+ *  Unspecified breakdown dimension. Defaults to USER.
+ *
+ *  Value: "CONTENT_TRANSFERS_BREAKDOWN_DIMENSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementBreakdownContentTransfersBreakdownDimensionUnspecified;
+/**
+ *  Breakdown by event domain.
+ *
+ *  Value: "EVENT_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementBreakdownEventDomain;
+/**
+ *  Unspecified breakdown dimension. Defaults to USER.
+ *
+ *  Value: "URL_VISITS_BREAKDOWN_DIMENSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementBreakdownUrlVisitsBreakdownDimensionUnspecified;
+/**
+ *  Breakdown by user.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementBreakdownUser;
+
+// ----------------------------------------------------------------------------
+// fixedTimeRange
+
+/**
+ *  Four hours.
+ *
+ *  Value: "FIXED_TIME_RANGE_FOUR_HOURS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourHours;
+/**
+ *  Four weeks.
+ *
+ *  Value: "FIXED_TIME_RANGE_FOUR_WEEKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourWeeks;
+/**
+ *  One day.
+ *
+ *  Value: "FIXED_TIME_RANGE_ONE_DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneDay;
+/**
+ *  One week.
+ *
+ *  Value: "FIXED_TIME_RANGE_ONE_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneWeek;
+/**
+ *  Unspecified fixed time range. Defaults to FIXED_TIME_RANGE_FOUR_WEEKS.
+ *
+ *  Value: "FIXED_TIME_RANGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeUnspecified;
+
+// ----------------------------------------------------------------------------
+// metric
+
+/**
+ *  The number of sensitive content downloads.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_SENSITIVE_DOWNLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricSensitiveDownloads;
+/**
+ *  The number of sensitive content prints.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_SENSITIVE_PRINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricSensitivePrints;
+/**
+ *  The number of sensitive content uploads.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_SENSITIVE_UPLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricSensitiveUploads;
+/**
+ *  The total number of content downloads (sensitive and non-sensitive).
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_DOWNLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalDownloads;
+/**
+ *  The total number of content prints (sensitive and non-sensitive).
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_PRINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalPrints;
+/**
+ *  The total number of sensitive content transfers. This is the sum of the
+ *  sensitive_uploads, sensitive_downloads, and sensitive_prints.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_SENSITIVE_TRANSFERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalSensitiveTransfers;
+/**
+ *  The total number of content transfers (sensitive and non-sensitive). This is
+ *  the sum of the total_uploads, total_downloads, and total_prints.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalTransfers;
+/**
+ *  The total number of content uploads (sensitive and non-sensitive).
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_UPLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalUploads;
+/**
+ *  Unspecified content transfers metric. Defaults to
+ *  CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricContentTransfersMetricUnspecified;
+/**
+ *  The number of suspicious URL visits with high risk.
+ *
+ *  Value: "URL_VISITS_METRIC_HIGH_RISK_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricHighRiskUrlVisits;
+/**
+ *  The number of suspicious URL visits with low risk.
+ *
+ *  Value: "URL_VISITS_METRIC_LOW_RISK_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricLowRiskUrlVisits;
+/**
+ *  The number of suspicious URL visits with medium risk.
+ *
+ *  Value: "URL_VISITS_METRIC_MEDIUM_RISK_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricMediumRiskUrlVisits;
+/**
+ *  The total number of suspicious URL visits. This is the sum of the
+ *  high_risk_url_visits, medium_risk_url_visits, and low_risk_url_visits.
+ *
+ *  Value: "URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricTotalSuspiciousUrlVisits;
+/**
+ *  Unspecified URL visits metric. Defaults to
+ *  URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS.
+ *
+ *  Value: "URL_VISITS_METRIC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -757,6 +918,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Gets the setting state of the insights feature for the customer.
  *
  *  Method: chromemanagement.customers.enterprise.securityInsights.checkEnablementStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsightsReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsCheckEnablementStatus : GTLRChromeManagementQuery
 
@@ -785,6 +950,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Disables insights for the customer.
  *
  *  Method: chromemanagement.customers.enterprise.securityInsights.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights
  */
 @interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsDisable : GTLRChromeManagementQuery
 
@@ -816,6 +984,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Enables insights for the customer and sets up required chrome connectors.
  *
  *  Method: chromemanagement.customers.enterprise.securityInsights.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights
  */
 @interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsEnable : GTLRChromeManagementQuery
 
@@ -840,6 +1011,348 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  */
 + (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsRequest *)object
                        customer:(NSString *)customer;
+
+@end
+
+/**
+ *  Returns a high-level summary of content transfers for a given customer.
+ *
+ *  Method: chromemanagement.customers.enterprise.securityInsights.queryContentTransfers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsightsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfers : GTLRChromeManagementQuery
+
+/** Required. The customer ID in the format "customers/{customer_id}". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The filter to apply to the request. For syntax, see AIP-160. Data
+ *  is not available for events older than 180 days, and may be unavailable or
+ *  inaccurate for time ranges less than 4 hours. If `event_time` is not
+ *  specified, results will be returned for the last 30 days. Supported fields
+ *  for filtering: - `event_time` Supported operators: - `>=` and `<=` for
+ *  `event_time` Supported conjunctions: - `AND` Example: `event_time >=
+ *  "2024-01-01T00:00:00Z" AND event_time <= "2024-01-02T00:00:00Z"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersResponse.
+ *
+ *  Returns a high-level summary of content transfers for a given customer.
+ *
+ *  @param customer Required. The customer ID in the format
+ *    "customers/{customer_id}".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfers
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Returns summaries of content transfers for a given metric and breakdown
+ *  dimension.
+ *
+ *  Method: chromemanagement.customers.enterprise.securityInsights.queryContentTransfersBreakdowns
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsightsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfersBreakdowns : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The dimension to break down the content transfers by. Defaults to
+ *  USER.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagementBreakdownContentTransfersBreakdownDimensionUnspecified
+ *        Unspecified breakdown dimension. Defaults to USER. (Value:
+ *        "CONTENT_TRANSFERS_BREAKDOWN_DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagementBreakdownUser Breakdown by user. (Value:
+ *        "USER")
+ *    @arg @c kGTLRChromeManagementBreakdownEventDomain Breakdown by event
+ *        domain. (Value: "EVENT_DOMAIN")
+ *    @arg @c kGTLRChromeManagementBreakdownContentCategory Breakdown by content
+ *        category. (Value: "CONTENT_CATEGORY")
+ */
+@property(nonatomic, copy, nullable) NSString *breakdown;
+
+/** Required. The customer ID in the format "customers/{customer_id}". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The filter to apply to the request. For syntax, see AIP-160. Data
+ *  is not available for events older than 180 days or more recent than 48 hours
+ *  ago. If `event_time` is not specified, results will end 48 hours ago.
+ *  Supported fields for filtering: - `user` - `event_domain` -
+ *  `content_category` - `event_time` Filtering by `user` or `event_domain`
+ *  requires the `breakdown` dimension to be set to the corresponding value
+ *  (e.g., you must set `breakdown = USER` to filter by `user`). Supported
+ *  operators: - `=` for `user`, `event_domain`, and `content_category`. - `<=`
+ *  for `event_time`. Supported conjunctions: - `AND` Example: `user =
+ *  "testuser" AND event_time <= "2024-01-02T00:00:00Z"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The fixed time range to return the breakdowns for. Defaults to
+ *  FIXED_TIME_RANGE_FOUR_WEEKS. Fixed time ranges are used to allow for
+ *  precomputation and optimize response times.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeUnspecified
+ *        Unspecified fixed time range. Defaults to FIXED_TIME_RANGE_FOUR_WEEKS.
+ *        (Value: "FIXED_TIME_RANGE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourHours Four
+ *        hours. (Value: "FIXED_TIME_RANGE_FOUR_HOURS")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneDay One day.
+ *        (Value: "FIXED_TIME_RANGE_ONE_DAY")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneWeek One week.
+ *        (Value: "FIXED_TIME_RANGE_ONE_WEEK")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourWeeks Four
+ *        weeks. (Value: "FIXED_TIME_RANGE_FOUR_WEEKS")
+ */
+@property(nonatomic, copy, nullable) NSString *fixedTimeRange;
+
+/**
+ *  Optional. The metric to return the breakdowns for. Defaults to
+ *  CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricUnspecified
+ *        Unspecified content transfers metric. Defaults to
+ *        CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricTotalTransfers
+ *        The total number of content transfers (sensitive and non-sensitive).
+ *        This is the sum of the total_uploads, total_downloads, and
+ *        total_prints. (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricTotalUploads The
+ *        total number of content uploads (sensitive and non-sensitive). (Value:
+ *        "CONTENT_TRANSFERS_METRIC_TOTAL_UPLOADS")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricTotalDownloads
+ *        The total number of content downloads (sensitive and non-sensitive).
+ *        (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_DOWNLOADS")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricTotalPrints The
+ *        total number of content prints (sensitive and non-sensitive). (Value:
+ *        "CONTENT_TRANSFERS_METRIC_TOTAL_PRINTS")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricTotalSensitiveTransfers
+ *        The total number of sensitive content transfers. This is the sum of
+ *        the sensitive_uploads, sensitive_downloads, and sensitive_prints.
+ *        (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_SENSITIVE_TRANSFERS")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricSensitiveUploads
+ *        The number of sensitive content uploads. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_SENSITIVE_UPLOADS")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricSensitiveDownloads
+ *        The number of sensitive content downloads. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_SENSITIVE_DOWNLOADS")
+ *    @arg @c kGTLRChromeManagementMetricContentTransfersMetricSensitivePrints
+ *        The number of sensitive content prints. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_SENSITIVE_PRINTS")
+ */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/**
+ *  Optional. The maximum number of breakdowns to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 breakdowns will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `QueryContentTransfersBreakdowns` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `QueryContentTransfersBreakdowns` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersBreakdownsResponse.
+ *
+ *  Returns summaries of content transfers for a given metric and breakdown
+ *  dimension.
+ *
+ *  @param customer Required. The customer ID in the format
+ *    "customers/{customer_id}".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfersBreakdowns
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Returns a high-level summary of URL visits for a given customer.
+ *
+ *  Method: chromemanagement.customers.enterprise.securityInsights.queryUrlVisits
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsightsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisits : GTLRChromeManagementQuery
+
+/** Required. The customer ID in the format "customers/{customer_id}". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The filter to apply to the request. For syntax, see AIP-160. Data
+ *  is not available for events older than 180 days, and may be unavailable or
+ *  inaccurate for time ranges less than 4 hours. If `event_time` is not
+ *  specified, results will be returned for the last 30 days. Supported fields
+ *  for filtering: - `event_time` Supported operators: - `>=` and `<=` for
+ *  `event_time` Supported conjunctions: - `AND` Example: `event_time >=
+ *  "2024-01-01T00:00:00Z" AND event_time <= "2024-01-02T00:00:00Z"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsResponse.
+ *
+ *  Returns a high-level summary of URL visits for a given customer.
+ *
+ *  @param customer Required. The customer ID in the format
+ *    "customers/{customer_id}".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisits
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Returns summaries of URL visits for a given metric and breakdown dimension.
+ *
+ *  Method: chromemanagement.customers.enterprise.securityInsights.queryUrlVisitsBreakdowns
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementSecurityinsightsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisitsBreakdowns : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The dimension to break down the URL visits by. Defaults to USER.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagementBreakdownUrlVisitsBreakdownDimensionUnspecified
+ *        Unspecified breakdown dimension. Defaults to USER. (Value:
+ *        "URL_VISITS_BREAKDOWN_DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagementBreakdownUser Breakdown by user. (Value:
+ *        "USER")
+ *    @arg @c kGTLRChromeManagementBreakdownEventDomain Breakdown by event
+ *        domain. (Value: "EVENT_DOMAIN")
+ */
+@property(nonatomic, copy, nullable) NSString *breakdown;
+
+/** Required. The customer ID in the format "customers/{customer_id}". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The filter to apply to the request. For syntax, see AIP-160. Data
+ *  is not available for events older than 180 days or more recent than 48 hours
+ *  ago. If `event_time` is not specified, results will end 48 hours ago.
+ *  Supported fields for filtering: - `user` - `event_domain` - `event_time`
+ *  Filtering by `user` or `event_domain` requires the `breakdown` dimension to
+ *  be set to the corresponding value (e.g., you must set `breakdown = USER` to
+ *  filter by `user`). Supported operators: - `=` for `user` and `event_domain`.
+ *  - `<=` for `event_time`. Supported conjunctions: - `AND` Example: `user =
+ *  "testuser" AND event_time <= "2024-01-02T00:00:00Z"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The fixed time range to return the breakdowns for. Defaults to
+ *  FIXED_TIME_RANGE_FOUR_WEEKS. Fixed time ranges are used to allow for
+ *  precomputation and optimize response times.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeUnspecified
+ *        Unspecified fixed time range. Defaults to FIXED_TIME_RANGE_FOUR_WEEKS.
+ *        (Value: "FIXED_TIME_RANGE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourHours Four
+ *        hours. (Value: "FIXED_TIME_RANGE_FOUR_HOURS")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneDay One day.
+ *        (Value: "FIXED_TIME_RANGE_ONE_DAY")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneWeek One week.
+ *        (Value: "FIXED_TIME_RANGE_ONE_WEEK")
+ *    @arg @c kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourWeeks Four
+ *        weeks. (Value: "FIXED_TIME_RANGE_FOUR_WEEKS")
+ */
+@property(nonatomic, copy, nullable) NSString *fixedTimeRange;
+
+/**
+ *  Optional. The metric to return the breakdowns for. Defaults to
+ *  URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagementMetricUrlVisitsMetricUnspecified Unspecified
+ *        URL visits metric. Defaults to
+ *        URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS. (Value:
+ *        "URL_VISITS_METRIC_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagementMetricUrlVisitsMetricTotalSuspiciousUrlVisits
+ *        The total number of suspicious URL visits. This is the sum of the
+ *        high_risk_url_visits, medium_risk_url_visits, and low_risk_url_visits.
+ *        (Value: "URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS")
+ *    @arg @c kGTLRChromeManagementMetricUrlVisitsMetricHighRiskUrlVisits The
+ *        number of suspicious URL visits with high risk. (Value:
+ *        "URL_VISITS_METRIC_HIGH_RISK_URL_VISITS")
+ *    @arg @c kGTLRChromeManagementMetricUrlVisitsMetricMediumRiskUrlVisits The
+ *        number of suspicious URL visits with medium risk. (Value:
+ *        "URL_VISITS_METRIC_MEDIUM_RISK_URL_VISITS")
+ *    @arg @c kGTLRChromeManagementMetricUrlVisitsMetricLowRiskUrlVisits The
+ *        number of suspicious URL visits with low risk. (Value:
+ *        "URL_VISITS_METRIC_LOW_RISK_URL_VISITS")
+ */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/**
+ *  Optional. The maximum number of breakdowns to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 breakdowns will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `QueryUrlVisitsBreakdowns`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `QueryUrlVisitsBreakdowns` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsBreakdownsResponse.
+ *
+ *  Returns summaries of URL visits for a given metric and breakdown dimension.
+ *
+ *  @param customer Required. The customer ID in the format
+ *    "customers/{customer_id}".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisitsBreakdowns
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
 
 @end
 

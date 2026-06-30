@@ -2074,6 +2074,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_ExecutePipelineRequest : GTLRObject
 
 /**
+ *  Optional. Automatically commits the transaction after the pipeline has been
+ *  executed. Only permitted in combination with `transaction` or
+ *  `new_transaction`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoCommitTransaction;
+
+/**
  *  Execute the pipeline in a new transaction. The identifier of the newly
  *  created transaction will be returned in the first response on the stream.
  *  This defaults to a read-only transaction.

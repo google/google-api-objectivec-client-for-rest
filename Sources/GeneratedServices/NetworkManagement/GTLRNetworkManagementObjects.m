@@ -880,10 +880,10 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 @implementation GTLRNetworkManagement_Endpoint
 @dynamic appEngineVersion, cloudFunction, cloudRunJob, cloudRunRevision,
-         cloudSqlInstance, forwardingRule, forwardingRuleTarget, fqdn,
-         gkeMasterCluster, gkePod, instance, ipAddress, loadBalancerId,
-         loadBalancerType, network, networkType, port, projectId, redisCluster,
-         redisInstance;
+         cloudSqlInstance, dmsPrivateConnection, forwardingRule,
+         forwardingRuleTarget, fqdn, gkeMasterCluster, gkePod, instance,
+         ipAddress, loadBalancerId, loadBalancerType, network, networkType,
+         port, projectId, redisCluster, redisInstance;
 @end
 
 

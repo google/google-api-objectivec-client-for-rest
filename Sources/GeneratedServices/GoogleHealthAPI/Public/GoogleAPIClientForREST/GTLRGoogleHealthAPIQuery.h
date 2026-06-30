@@ -498,6 +498,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete a batch of identifyable data points.
  *
  *  Method: health.users.dataTypes.dataPoints.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsBatchDelete : GTLRGoogleHealthAPIQuery
 
@@ -537,6 +544,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a single identifiable data point.
  *
  *  Method: health.users.dataTypes.dataPoints.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsCreate : GTLRGoogleHealthAPIQuery
 
@@ -844,6 +858,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  `name` is not found, the request will fail.
  *
  *  Method: health.users.dataTypes.dataPoints.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsPatch : GTLRGoogleHealthAPIQuery
 
@@ -1212,6 +1233,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the user's profile details.
  *
  *  Method: health.users.updateProfile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersUpdateProfile : GTLRGoogleHealthAPIQuery
 
@@ -1256,6 +1280,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the user's settings details.
  *
  *  Method: health.users.updateSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersUpdateSettings : GTLRGoogleHealthAPIQuery
 

@@ -1821,7 +1821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
  */
 @interface GTLRSecurityPosture_ResourceTypes : GTLRObject
 
-/** Optional. The resource types we currently support. */
+/** Optional. The resource types we support. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *included;
 
 @end

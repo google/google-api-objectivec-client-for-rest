@@ -2006,6 +2006,11 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *realtimeDatabaseUrl;
 
 /**
+ *  Optional. Recaptcha Enterprise site key associated with the Firebase App.
+ */
+@property(nonatomic, copy, nullable) NSString *recaptchaSiteKey;
+
+/**
  *  **DEPRECATED.** _Instead, find the name of the default Cloud Storage for
  *  Firebase bucket using the [list
  *  endpoint](https://firebase.google.com/docs/reference/rest/storage/rest/v1beta/projects.buckets/list)

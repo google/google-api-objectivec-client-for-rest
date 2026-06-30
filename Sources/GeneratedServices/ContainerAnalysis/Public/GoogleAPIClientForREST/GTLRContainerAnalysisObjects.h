@@ -235,6 +235,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_AISkillAnalysisOccurrence.maxSeverity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_High;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_AliasContext.kind
 
 /**
@@ -1270,6 +1292,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architect
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_Finding.scanner
+
+/**
+ *  LLM scanner.
+ *
+ *  Value: "LLM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Scanner_Llm;
+/**
+ *  Unspecified scanner.
+ *
+ *  Value: "SCANNER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Scanner_ScannerUnspecified;
+/**
+ *  Static scanner.
+ *
+ *  Value: "STATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Scanner_Static;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_Finding.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Severity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Severity_High;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_FixableTotalByDigest.severity
 
 /**
@@ -1586,6 +1652,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
  *  Value: "E2_MEDIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium;
+/**
+ *  E2 machine with 2 CPUs.
+ *
+ *  Value: "E2_STANDARD_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Standard2;
 /**
  *  Highcpu machine with 32 CPUs.
  *
@@ -2667,7 +2739,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** Findings produced by the analysis. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Finding *> *findings;
 
-/** Maximum severity found among findings. */
+/**
+ *  Maximum severity found among findings.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_High
+ *        High severity. (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *maxSeverity;
 
 /** Name of the skill that produced this analysis. */
@@ -4730,13 +4812,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** Category of the finding. */
 @property(nonatomic, copy, nullable) NSString *category;
 
+/** Description of the finding category. */
+@property(nonatomic, copy, nullable) NSString *details;
+
 /** Location (path and line) where the finding was detected. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_FindingLocation *location;
 
-/** Scanner determines which engine (e.g. static, llm) emitted the finding. */
+/**
+ *  Scanner determines which engine (e.g. static, llm) emitted the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_Llm LLM scanner. (Value:
+ *        "LLM")
+ *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_ScannerUnspecified
+ *        Unspecified scanner. (Value: "SCANNER_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_Static Static scanner.
+ *        (Value: "STATIC")
+ */
 @property(nonatomic, copy, nullable) NSString *scanner;
 
-/** Severity of the finding. */
+/**
+ *  Severity of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_Finding_Severity_Critical Critical
+ *        severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_Finding_Severity_High High severity.
+ *        (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_Finding_Severity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
 @property(nonatomic, copy, nullable) NSString *severity;
 
 @end
@@ -5672,6 +5777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        Highcpu e2 machine with 8 CPUs. (Value: "E2_HIGHCPU_8")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium
  *        E2 machine with 1 CPU. (Value: "E2_MEDIUM")
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Standard2
+ *        E2 machine with 2 CPUs. (Value: "E2_STANDARD_2")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32
  *        Highcpu machine with 32 CPUs. (Value: "N1_HIGHCPU_32")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8
@@ -9544,6 +9651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** The full description of the CVSSv3 for this vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSSv3 *cvssV3;
 
+/** The full description of the v4 CVSS for this vulnerability. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssV4;
+
 /**
  *  CVSS version used to populate cvss_score and severity.
  *
@@ -9619,6 +9729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The cvss v3 score for the vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssv3;
+
+/** The cvss v4 score for the vulnerability. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssV4;
 
 /**
  *  Output only. CVSS version used to populate cvss_score and severity.

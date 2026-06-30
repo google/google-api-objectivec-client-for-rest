@@ -522,6 +522,11 @@ NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_PendingUserActi
 NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_Success = @"SUCCESS";
 
+// GTLRAndroidManagement_GoogleAuthenticationOptions.authenticationRequirement
+NSString * const kGTLRAndroidManagement_GoogleAuthenticationOptions_AuthenticationRequirement_AuthenticationRequirementUnspecified = @"AUTHENTICATION_REQUIREMENT_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_GoogleAuthenticationOptions_AuthenticationRequirement_Optional = @"OPTIONAL";
+NSString * const kGTLRAndroidManagement_GoogleAuthenticationOptions_AuthenticationRequirement_Required = @"REQUIRED";
+
 // GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
 NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified = @"GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired = @"NOT_REQUIRED";
@@ -996,6 +1001,11 @@ NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_Personal
 NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailDefaultStatusUnspecified = @"SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsDefault = @"SIGNIN_DETAIL_IS_DEFAULT";
 NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsNotDefault = @"SIGNIN_DETAIL_IS_NOT_DEFAULT";
+
+// GTLRAndroidManagement_SigninDetailGoogleAuthenticationOptions.authenticationRequirement
+NSString * const kGTLRAndroidManagement_SigninDetailGoogleAuthenticationOptions_AuthenticationRequirement_AuthenticationRequirementUnspecified = @"AUTHENTICATION_REQUIREMENT_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_SigninDetailGoogleAuthenticationOptions_AuthenticationRequirement_Optional = @"OPTIONAL";
+NSString * const kGTLRAndroidManagement_SigninDetailGoogleAuthenticationOptions_AuthenticationRequirement_Required = @"REQUIRED";
 
 // GTLRAndroidManagement_StartLostModeStatus.status
 NSString * const kGTLRAndroidManagement_StartLostModeStatus_Status_AlreadyInLostMode = @"ALREADY_IN_LOST_MODE";
@@ -1960,7 +1970,8 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_EnrollmentToken
 @dynamic additionalData, allowPersonalUsage, duration, expirationTimestamp,
-         name, oneTimeOnly, policyName, qrCode, user, value;
+         googleAuthenticationOptions, name, oneTimeOnly, policyName, qrCode,
+         user, value;
 @end
 
 
@@ -2110,6 +2121,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse
 @dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_GoogleAuthenticationOptions
+//
+
+@implementation GTLRAndroidManagement_GoogleAuthenticationOptions
+@dynamic authenticationRequirement, requiredAccountEmail;
 @end
 
 
@@ -3217,8 +3238,18 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_SigninDetail
-@dynamic allowPersonalUsage, defaultStatus, qrCode, signinEnrollmentToken,
-         signinUrl, tokenTag;
+@dynamic allowPersonalUsage, defaultStatus, googleAuthenticationOptions, qrCode,
+         signinEnrollmentToken, signinUrl, tokenTag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_SigninDetailGoogleAuthenticationOptions
+//
+
+@implementation GTLRAndroidManagement_SigninDetailGoogleAuthenticationOptions
+@dynamic authenticationRequirement;
 @end
 
 

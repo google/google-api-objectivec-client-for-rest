@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRDataManager_AddressInfo;
+@class GTLRDataManager_AdEvent;
 @class GTLRDataManager_AdIdentifiers;
 @class GTLRDataManager_AudienceMember;
 @class GTLRDataManager_AwsWrappedKeyInfo;
@@ -24,6 +25,7 @@
 @class GTLRDataManager_CompositeData;
 @class GTLRDataManager_Consent;
 @class GTLRDataManager_ContactIdInfo;
+@class GTLRDataManager_CoordinatorKeyInfo;
 @class GTLRDataManager_CustomVariable;
 @class GTLRDataManager_DataTypeCount;
 @class GTLRDataManager_Destination;
@@ -58,7 +60,9 @@
 @class GTLRDataManager_PairData;
 @class GTLRDataManager_PairIdInfo;
 @class GTLRDataManager_PartnerAudienceInfo;
+@class GTLRDataManager_PartnerCustomerAccount;
 @class GTLRDataManager_PartnerLink;
+@class GTLRDataManager_PartnerLinkMetadata;
 @class GTLRDataManager_PpidData;
 @class GTLRDataManager_ProductAccount;
 @class GTLRDataManager_PseudonymousIdInfo;
@@ -86,6 +90,7 @@
 @class GTLRDataManager_UserListLicensePricing;
 @class GTLRDataManager_UserProperties;
 @class GTLRDataManager_UserProperty;
+@class GTLRDataManager_ViewabilityInfo;
 @class GTLRDataManager_WarningCount;
 @class GTLRDataManager_WarningInfo;
 
@@ -98,6 +103,444 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.adFormat
+
+/**
+ *  AR ad.
+ *
+ *  Value: "AD_FORMAT_AR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatAr;
+/**
+ *  Audio ad.
+ *
+ *  Value: "AD_FORMAT_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatAudio;
+/**
+ *  Banner ad.
+ *
+ *  Value: "AD_FORMAT_BANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatBanner;
+/**
+ *  Bumper ad.
+ *
+ *  Value: "AD_FORMAT_BUMPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatBumper;
+/**
+ *  Carousel ad.
+ *
+ *  Value: "AD_FORMAT_CAROUSEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatCarousel;
+/**
+ *  Collection ad.
+ *
+ *  Value: "AD_FORMAT_COLLECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatCollection;
+/**
+ *  Image ad.
+ *
+ *  Value: "AD_FORMAT_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatImage;
+/**
+ *  In-feed ad.
+ *
+ *  Value: "AD_FORMAT_IN_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInFeed;
+/**
+ *  In-stream ad.
+ *
+ *  Value: "AD_FORMAT_IN_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStream;
+/**
+ *  In-stream non-skippable ad.
+ *
+ *  Value: "AD_FORMAT_IN_STREAM_NON_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamNonSkippable;
+/**
+ *  In-stream skippable ad.
+ *
+ *  Value: "AD_FORMAT_IN_STREAM_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamSkippable;
+/**
+ *  Interactive ad.
+ *
+ *  Value: "AD_FORMAT_INTERACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInteractive;
+/**
+ *  Interstitial ad.
+ *
+ *  Value: "AD_FORMAT_INTERSTITIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInterstitial;
+/**
+ *  Native ad.
+ *
+ *  Value: "AD_FORMAT_NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatNative;
+/**
+ *  Shorts ad.
+ *
+ *  Value: "AD_FORMAT_SHORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatShorts;
+/**
+ *  Sponsored ad.
+ *
+ *  Value: "AD_FORMAT_SPONSORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatSponsored;
+/**
+ *  Story ad.
+ *
+ *  Value: "AD_FORMAT_STORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatStory;
+/**
+ *  Unspecified ad format.
+ *
+ *  Value: "AD_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatUnspecified;
+/**
+ *  Video ad.
+ *
+ *  Value: "AD_FORMAT_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.adPlacement
+
+/**
+ *  Discover placement.
+ *
+ *  Value: "AD_PLACEMENT_DISCOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementDiscover;
+/**
+ *  Feed placement.
+ *
+ *  Value: "AD_PLACEMENT_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFeed;
+/**
+ *  Footer placement.
+ *
+ *  Value: "AD_PLACEMENT_FOOTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFooter;
+/**
+ *  Header placement.
+ *
+ *  Value: "AD_PLACEMENT_HEADER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHeader;
+/**
+ *  Home placement.
+ *
+ *  Value: "AD_PLACEMENT_HOME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHome;
+/**
+ *  In-content placement.
+ *
+ *  Value: "AD_PLACEMENT_IN_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementInContent;
+/**
+ *  Promoted placement.
+ *
+ *  Value: "AD_PLACEMENT_PROMOTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementPromoted;
+/**
+ *  Search placement.
+ *
+ *  Value: "AD_PLACEMENT_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementSearch;
+/**
+ *  Story placement.
+ *
+ *  Value: "AD_PLACEMENT_STORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementStory;
+/**
+ *  Unspecified ad placement.
+ *
+ *  Value: "AD_PLACEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.adType
+
+/**
+ *  Audio ad.
+ *
+ *  Value: "AD_TYPE_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeAudio;
+/**
+ *  Display ad.
+ *
+ *  Value: "AD_TYPE_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeDisplay;
+/**
+ *  HTML ad.
+ *
+ *  Value: "AD_TYPE_HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeHtml;
+/**
+ *  Image ad.
+ *
+ *  Value: "AD_TYPE_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeImage;
+/**
+ *  Rich media ad.
+ *
+ *  Value: "AD_TYPE_RICH_MEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeRichMedia;
+/**
+ *  Text ad.
+ *
+ *  Value: "AD_TYPE_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeText;
+/**
+ *  Unspecified ad type.
+ *
+ *  Value: "AD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeUnspecified;
+/**
+ *  Video ad.
+ *
+ *  Value: "AD_TYPE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.attributionHint
+
+/**
+ *  Converted status.
+ *
+ *  Value: "ATTRIBUTION_HINT_CONVERTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintConverted;
+/**
+ *  Not converted status.
+ *
+ *  Value: "ATTRIBUTION_HINT_NOT_CONVERTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintNotConverted;
+/**
+ *  Unknown attribution status.
+ *
+ *  Value: "ATTRIBUTION_HINT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.eventSubtype
+
+/**
+ *  Engaged view event.
+ *
+ *  Value: "EVENT_SUBTYPE_ENGAGED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeEngagedView;
+/**
+ *  Impression event.
+ *
+ *  Value: "EVENT_SUBTYPE_IMPRESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeImpression;
+/**
+ *  Onsite click event.
+ *
+ *  Value: "EVENT_SUBTYPE_ONSITE_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOnsiteClick;
+/**
+ *  Outbound click event.
+ *
+ *  Value: "EVENT_SUBTYPE_OUTBOUND_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOutboundClick;
+/**
+ *  Unspecified event subtype.
+ *
+ *  Value: "EVENT_SUBTYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.eventType
+
+/**
+ *  Click event.
+ *
+ *  Value: "EVENT_TYPE_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeClick;
+/**
+ *  Unspecified event type.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeUnspecified;
+/**
+ *  View event.
+ *
+ *  Value: "EVENT_TYPE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeView;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.platform
+
+/**
+ *  Android platform.
+ *
+ *  Value: "PLATFORM_ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformAndroid;
+/**
+ *  iOS platform.
+ *
+ *  Value: "PLATFORM_IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformIos;
+/**
+ *  Unspecified platform.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformUnspecified;
+/**
+ *  Web platform.
+ *
+ *  Value: "PLATFORM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformWeb;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.platformType
+
+/**
+ *  CTV platform.
+ *
+ *  Value: "PLATFORM_TYPE_CTV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeCtv;
+/**
+ *  Desktop platform.
+ *
+ *  Value: "PLATFORM_TYPE_DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeDesktop;
+/**
+ *  Mobile platform.
+ *
+ *  Value: "PLATFORM_TYPE_MOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeMobile;
+/**
+ *  Phone platform.
+ *
+ *  Value: "PLATFORM_TYPE_PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypePhone;
+/**
+ *  Tablet platform.
+ *
+ *  Value: "PLATFORM_TYPE_TABLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeTablet;
+/**
+ *  Unspecified platform type.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AdEvent.targetingType
+
+/**
+ *  Audience targeting.
+ *
+ *  Value: "TARGETING_TYPE_AUDIENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeAudience;
+/**
+ *  Contextual targeting.
+ *
+ *  Value: "TARGETING_TYPE_CONTEXTUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeContextual;
+/**
+ *  Demographic targeting.
+ *
+ *  Value: "TARGETING_TYPE_DEMOGRAPHIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDemographic;
+/**
+ *  Device targeting.
+ *
+ *  Value: "TARGETING_TYPE_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDevice;
+/**
+ *  Geo targeting.
+ *
+ *  Value: "TARGETING_TYPE_GEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeGeo;
+/**
+ *  Interest targeting.
+ *
+ *  Value: "TARGETING_TYPE_INTEREST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeInterest;
+/**
+ *  Purchase intent targeting.
+ *
+ *  Value: "TARGETING_TYPE_PURCHASE_INTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypePurchaseIntent;
+/**
+ *  Remarketing targeting.
+ *
+ *  Value: "TARGETING_TYPE_REMARKETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeRemarketing;
+/**
+ *  Unspecified targeting type.
+ *
+ *  Value: "TARGETING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AwsWrappedKeyInfo.keyType
@@ -1065,6 +1508,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerA
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_PartnerAudienceSourceUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataManager_PartnerLink.featureSet
+
+/**
+ *  Indicates a link used for ad event management.
+ *
+ *  Value: "FEATURE_SET_AD_EVENT_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAdEventManagement;
+/**
+ *  Indicates a link used for audience and event management.
+ *
+ *  Value: "FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAudienceAndEventManagement;
+/**
+ *  Unspecified feature set. If unspecified, the system behavior defaults to
+ *  FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT.
+ *
+ *  Value: "FEATURE_SET_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataManager_ProductAccount.accountType
 
 /**
@@ -1702,6 +2168,68 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerValue
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_Medium;
 
 // ----------------------------------------------------------------------------
+// GTLRDataManager_ViewabilityInfo.mediaQuartile
+
+/**
+ *  Complete.
+ *
+ *  Value: "MEDIA_QUARTILE_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileComplete;
+/**
+ *  First quartile.
+ *
+ *  Value: "MEDIA_QUARTILE_FIRST_QUARTILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileFirstQuartile;
+/**
+ *  Midpoint.
+ *
+ *  Value: "MEDIA_QUARTILE_MIDPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileMidpoint;
+/**
+ *  Start.
+ *
+ *  Value: "MEDIA_QUARTILE_START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileStart;
+/**
+ *  Third quartile.
+ *
+ *  Value: "MEDIA_QUARTILE_THIRD_QUARTILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileThirdQuartile;
+/**
+ *  Unspecified media quartile.
+ *
+ *  Value: "MEDIA_QUARTILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_ViewabilityInfo.viewType
+
+/**
+ *  MRC rendered.
+ *
+ *  Value: "VIEW_TYPE_MRC_RENDERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcRendered;
+/**
+ *  MRC viewed.
+ *
+ *  Value: "VIEW_TYPE_MRC_VIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcViewed;
+/**
+ *  Unspecified view type.
+ *
+ *  Value: "VIEW_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataManager_WarningCount.reason
 
 /**
@@ -1792,6 +2320,318 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  address.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  An ad event.
+ */
+@interface GTLRDataManager_AdEvent : GTLRObject
+
+/**
+ *  Enum value for ad format.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatAr AR ad. (Value:
+ *        "AD_FORMAT_AR")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatAudio Audio ad. (Value:
+ *        "AD_FORMAT_AUDIO")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatBanner Banner ad.
+ *        (Value: "AD_FORMAT_BANNER")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatBumper Bumper ad.
+ *        (Value: "AD_FORMAT_BUMPER")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatCarousel Carousel ad.
+ *        (Value: "AD_FORMAT_CAROUSEL")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatCollection Collection
+ *        ad. (Value: "AD_FORMAT_COLLECTION")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatImage Image ad. (Value:
+ *        "AD_FORMAT_IMAGE")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInFeed In-feed ad.
+ *        (Value: "AD_FORMAT_IN_FEED")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStream In-stream ad.
+ *        (Value: "AD_FORMAT_IN_STREAM")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamNonSkippable
+ *        In-stream non-skippable ad. (Value:
+ *        "AD_FORMAT_IN_STREAM_NON_SKIPPABLE")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamSkippable
+ *        In-stream skippable ad. (Value: "AD_FORMAT_IN_STREAM_SKIPPABLE")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInteractive Interactive
+ *        ad. (Value: "AD_FORMAT_INTERACTIVE")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInterstitial
+ *        Interstitial ad. (Value: "AD_FORMAT_INTERSTITIAL")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatNative Native ad.
+ *        (Value: "AD_FORMAT_NATIVE")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatShorts Shorts ad.
+ *        (Value: "AD_FORMAT_SHORTS")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatSponsored Sponsored ad.
+ *        (Value: "AD_FORMAT_SPONSORED")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatStory Story ad. (Value:
+ *        "AD_FORMAT_STORY")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatUnspecified Unspecified
+ *        ad format. (Value: "AD_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatVideo Video ad. (Value:
+ *        "AD_FORMAT_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *adFormat;
+
+/** String value for ad format. */
+@property(nonatomic, copy, nullable) NSString *adFormatString;
+
+/** Optional. The ID of the associated ad group. */
+@property(nonatomic, copy, nullable) NSString *adGroupId;
+
+/**
+ *  Optional. The height of the ad in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adHeight;
+
+/** Optional. The ID of the associated ad within the group. */
+@property(nonatomic, copy, nullable) NSString *adId;
+
+/**
+ *  Enum value for ad placement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementDiscover Discover
+ *        placement. (Value: "AD_PLACEMENT_DISCOVER")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFeed Feed
+ *        placement. (Value: "AD_PLACEMENT_FEED")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFooter Footer
+ *        placement. (Value: "AD_PLACEMENT_FOOTER")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHeader Header
+ *        placement. (Value: "AD_PLACEMENT_HEADER")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHome Home
+ *        placement. (Value: "AD_PLACEMENT_HOME")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementInContent
+ *        In-content placement. (Value: "AD_PLACEMENT_IN_CONTENT")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementPromoted Promoted
+ *        placement. (Value: "AD_PLACEMENT_PROMOTED")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementSearch Search
+ *        placement. (Value: "AD_PLACEMENT_SEARCH")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementStory Story
+ *        placement. (Value: "AD_PLACEMENT_STORY")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementUnspecified
+ *        Unspecified ad placement. (Value: "AD_PLACEMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adPlacement;
+
+/** String value for ad placement. */
+@property(nonatomic, copy, nullable) NSString *adPlacementString;
+
+/**
+ *  Enum value for ad type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeAudio Audio ad. (Value:
+ *        "AD_TYPE_AUDIO")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeDisplay Display ad. (Value:
+ *        "AD_TYPE_DISPLAY")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeHtml HTML ad. (Value:
+ *        "AD_TYPE_HTML")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeImage Image ad. (Value:
+ *        "AD_TYPE_IMAGE")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeRichMedia Rich media ad.
+ *        (Value: "AD_TYPE_RICH_MEDIA")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeText Text ad. (Value:
+ *        "AD_TYPE_TEXT")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeUnspecified Unspecified ad
+ *        type. (Value: "AD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeVideo Video ad. (Value:
+ *        "AD_TYPE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *adType;
+
+/** String value for ad type. */
+@property(nonatomic, copy, nullable) NSString *adTypeString;
+
+/**
+ *  Required. The ID of the advertiser for the ad event. This must match the ID
+ *  sent in the linking flow.
+ */
+@property(nonatomic, copy, nullable) NSString *advertiserId;
+
+/**
+ *  Optional. The width of the ad in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adWidth;
+
+/**
+ *  Optional. The partner-assumed attribution status for this ad event. This
+ *  acts only as a signal for how the partner assumed attribution played out,
+ *  and does not force an end result in final reports.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_AttributionHint_AttributionHintConverted
+ *        Converted status. (Value: "ATTRIBUTION_HINT_CONVERTED")
+ *    @arg @c kGTLRDataManager_AdEvent_AttributionHint_AttributionHintNotConverted
+ *        Not converted status. (Value: "ATTRIBUTION_HINT_NOT_CONVERTED")
+ *    @arg @c kGTLRDataManager_AdEvent_AttributionHint_AttributionHintUnspecified
+ *        Unknown attribution status. (Value: "ATTRIBUTION_HINT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attributionHint;
+
+/** Required. The ID of the associated campaign. */
+@property(nonatomic, copy, nullable) NSString *campaignId;
+
+/** Required. The name of the associated campaign. */
+@property(nonatomic, copy, nullable) NSString *campaignName;
+
+/**
+ *  Optional. Information gathered about the device being used when the ad event
+ *  happened.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *deviceInfo;
+
+/**
+ *  Optional. An ID created and managed by the caller that uniquely identifies
+ *  this event. Required if you want to deduplicate ad events that are included
+ *  in multiple requests. Otherwise, this field is optional.
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  Enum value for event subtype.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeEngagedView
+ *        Engaged view event. (Value: "EVENT_SUBTYPE_ENGAGED_VIEW")
+ *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeImpression
+ *        Impression event. (Value: "EVENT_SUBTYPE_IMPRESSION")
+ *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOnsiteClick
+ *        Onsite click event. (Value: "EVENT_SUBTYPE_ONSITE_CLICK")
+ *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOutboundClick
+ *        Outbound click event. (Value: "EVENT_SUBTYPE_OUTBOUND_CLICK")
+ *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeUnspecified
+ *        Unspecified event subtype. (Value: "EVENT_SUBTYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventSubtype;
+
+/** String value for event subtype. */
+@property(nonatomic, copy, nullable) NSString *eventSubtypeString;
+
+/**
+ *  Required. The type of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeClick Click event.
+ *        (Value: "EVENT_TYPE_CLICK")
+ *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeUnspecified
+ *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeView View event.
+ *        (Value: "EVENT_TYPE_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  Optional. Represents if the row is allowed to be used for measurement
+ *  purposes, as governed by applicable privacy laws within regional
+ *  jurisdiction.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *measurementAllowed;
+
+/** Required. The medium of the ad, akin to the Google Analytics medium. */
+@property(nonatomic, copy, nullable) NSString *medium;
+
+/** Optional. The device ID of the device that the ad was served to. */
+@property(nonatomic, copy, nullable) NSString *mobileDeviceId;
+
+/**
+ *  Enum value for platform.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformAndroid Android
+ *        platform. (Value: "PLATFORM_ANDROID")
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformIos iOS platform.
+ *        (Value: "PLATFORM_IOS")
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformUnspecified Unspecified
+ *        platform. (Value: "PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformWeb Web platform.
+ *        (Value: "PLATFORM_WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *platform;
+
+/** String value for platform. */
+@property(nonatomic, copy, nullable) NSString *platformString;
+
+/**
+ *  Enum value for platform type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeCtv CTV
+ *        platform. (Value: "PLATFORM_TYPE_CTV")
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeDesktop Desktop
+ *        platform. (Value: "PLATFORM_TYPE_DESKTOP")
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeMobile Mobile
+ *        platform. (Value: "PLATFORM_TYPE_MOBILE")
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypePhone Phone
+ *        platform. (Value: "PLATFORM_TYPE_PHONE")
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeTablet Tablet
+ *        platform. (Value: "PLATFORM_TYPE_TABLET")
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeUnspecified
+ *        Unspecified platform type. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *platformType;
+
+/** String value for platform type. */
+@property(nonatomic, copy, nullable) NSString *platformTypeString;
+
+/** Required. The ISO 3166-2 country plus subdivision. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Required. The platform source of the ad, akin to the Google Analytics
+ *  source.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Enum value for targeting type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeAudience
+ *        Audience targeting. (Value: "TARGETING_TYPE_AUDIENCE")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeContextual
+ *        Contextual targeting. (Value: "TARGETING_TYPE_CONTEXTUAL")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDemographic
+ *        Demographic targeting. (Value: "TARGETING_TYPE_DEMOGRAPHIC")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDevice Device
+ *        targeting. (Value: "TARGETING_TYPE_DEVICE")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeGeo Geo
+ *        targeting. (Value: "TARGETING_TYPE_GEO")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeInterest
+ *        Interest targeting. (Value: "TARGETING_TYPE_INTEREST")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypePurchaseIntent
+ *        Purchase intent targeting. (Value: "TARGETING_TYPE_PURCHASE_INTENT")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeRemarketing
+ *        Remarketing targeting. (Value: "TARGETING_TYPE_REMARKETING")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeUnspecified
+ *        Unspecified targeting type. (Value: "TARGETING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/** String value for targeting type. */
+@property(nonatomic, copy, nullable) NSString *targetingTypeString;
+
+/** Required. The time the event occurred. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/**
+ *  Optional. Multiple pieces of user-provided data, representing the user the
+ *  event is associated with. It is possible to provide multiple instances of
+ *  the same type of data (e.g. email address). The more data provided, the more
+ *  likely a match will be found.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
+
+/** Required. Details of the viewability of the ad served. */
+@property(nonatomic, strong, nullable) GTLRDataManager_ViewabilityInfo *viewabilityInfo;
 
 @end
 
@@ -2088,6 +2928,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  Information about the coordinator key.
+ */
+@interface GTLRDataManager_CoordinatorKeyInfo : GTLRObject
+
+/** Required. The ID of the chosen coordinator key. */
+@property(nonatomic, copy, nullable) NSString *keyId;
+
+@end
+
+
+/**
  *  Custom variable for ads conversions.
  */
 @interface GTLRDataManager_CustomVariable : GTLRObject
@@ -2330,6 +3181,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 /** Amazon Web Services wrapped key information. */
 @property(nonatomic, strong, nullable) GTLRDataManager_AwsWrappedKeyInfo *awsWrappedKeyInfo;
+
+/**
+ *  Key information for the chosen coordinator key. This is not supported for
+ *  the IngestEvents, IngestAudienceMembers, and RemoveAudienceMembers methods.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_CoordinatorKeyInfo *coordinatorKeyInfo;
 
 /** Google Cloud Platform wrapped key information. */
 @property(nonatomic, strong, nullable) GTLRDataManager_GcpWrappedKeyInfo *gcpWrappedKeyInfo;
@@ -2767,6 +3624,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @property(nonatomic, copy, nullable) NSString *wipProvider;
 
+@end
+
+
+/**
+ *  Request to upload ad events.
+ */
+@interface GTLRDataManager_IngestAdEventsRequest : GTLRObject
+
+/** Required. Required (at least 1). A list of ad events. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_AdEvent *> *adEvents;
+
+/**
+ *  Optional. Information about encryption keys which are used to encrypt the
+ *  data.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
+
+/**
+ *  Optional. If true, the request is validated, but not executed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response from an ad event ingestion operation.
+ */
+@interface GTLRDataManager_IngestAdEventsResponse : GTLRObject
 @end
 
 
@@ -3760,9 +4648,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  Represents a customer account in the partner's system.
+ */
+@interface GTLRDataManager_PartnerCustomerAccount : GTLRObject
+
+/**
+ *  Required. The identifier of the customer account in the partner's ID space.
+ */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** Optional. The name of the account. */
+@property(nonatomic, copy, nullable) NSString *accountName;
+
+/**
+ *  Optional. The type of the account. Can be used to distinguish between
+ *  advertiser accounts and business level accounts, for example.
+ */
+@property(nonatomic, copy, nullable) NSString *accountType;
+
+@end
+
+
+/**
  *  A partner link between an owning account and a partner account.
  */
 @interface GTLRDataManager_PartnerLink : GTLRObject
+
+/**
+ *  Optional. Immutable. The set of features supported for the partner link. If
+ *  not specified, the system behavior defaults to
+ *  FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAdEventManagement
+ *        Indicates a link used for ad event management. (Value:
+ *        "FEATURE_SET_AD_EVENT_MANAGEMENT")
+ *    @arg @c kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAudienceAndEventManagement
+ *        Indicates a link used for audience and event management. (Value:
+ *        "FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT")
+ *    @arg @c kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetUnspecified
+ *        Unspecified feature set. If unspecified, the system behavior defaults
+ *        to FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT. (Value:
+ *        "FEATURE_SET_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *featureSet;
 
 /**
  *  Identifier. The name of the partner link. Format:
@@ -3776,8 +4705,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 /** Required. The partner account granted access by the owning account. */
 @property(nonatomic, strong, nullable) GTLRDataManager_ProductAccount *partnerAccount;
 
+/**
+ *  Optional. The customer account in the partner system. This is required for
+ *  partner links with the FEATURE_SET_AD_EVENT_MANAGEMENT feature set.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerCustomerAccount *partnerCustomerAccount;
+
 /** Output only. The partner link ID. */
 @property(nonatomic, copy, nullable) NSString *partnerLinkId;
+
+/**
+ *  Optional. Metadata associated with the partner link. This is optional and
+ *  only accepted for partner links with the FEATURE_SET_AD_EVENT_MANAGEMENT.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerLinkMetadata *partnerLinkMetadata;
+
+@end
+
+
+/**
+ *  Represents metadata associated with a partner link.
+ */
+@interface GTLRDataManager_PartnerLinkMetadata : GTLRObject
+
+/** Optional. The list of implicit accounts. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_PartnerCustomerAccount *> *implicitAccounts;
 
 @end
 
@@ -3805,7 +4757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  Optional. The type of the account. For example, `GOOGLE_ADS`. Either
+ *  Required. The type of the account. For example, `GOOGLE_ADS`. Either
  *  `account_type` or the deprecated `product` is required. If both are set, the
  *  values must match.
  *
@@ -5059,6 +6011,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  use.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Details of the viewability of the ad served.
+ */
+@interface GTLRDataManager_ViewabilityInfo : GTLRObject
+
+/** Optional. The duration of the ad media. */
+@property(nonatomic, strong, nullable) GTLRDuration *mediaDuration;
+
+/**
+ *  Optional. The amount of the media that was played as discrete quartiles.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileComplete
+ *        Complete. (Value: "MEDIA_QUARTILE_COMPLETE")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileFirstQuartile
+ *        First quartile. (Value: "MEDIA_QUARTILE_FIRST_QUARTILE")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileMidpoint
+ *        Midpoint. (Value: "MEDIA_QUARTILE_MIDPOINT")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileStart
+ *        Start. (Value: "MEDIA_QUARTILE_START")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileThirdQuartile
+ *        Third quartile. (Value: "MEDIA_QUARTILE_THIRD_QUARTILE")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileUnspecified
+ *        Unspecified media quartile. (Value: "MEDIA_QUARTILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mediaQuartile;
+
+/**
+ *  Optional. Whether the ad media was skippable or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mediaSkippable;
+
+/**
+ *  Optional. The numerical percent (0-100) of the volume of the media playback.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mediaVolumePercent;
+
+/**
+ *  Optional. The duration of playback of the ad media, regardless of whether it
+ *  was viewable or not.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *playbackDuration;
+
+/** Optional. The amount of time the ad was viewable for. */
+@property(nonatomic, strong, nullable) GTLRDuration *viewableDuration;
+
+/**
+ *  Optional. The numerical percent (0-100) of the pixels that were viewable.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *viewablePercent;
+
+/**
+ *  Required. The type of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcRendered MRC
+ *        rendered. (Value: "VIEW_TYPE_MRC_RENDERED")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcViewed MRC
+ *        viewed. (Value: "VIEW_TYPE_MRC_VIEWED")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeUnspecified
+ *        Unspecified view type. (Value: "VIEW_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *viewType;
 
 @end
 

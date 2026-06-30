@@ -18,6 +18,7 @@
 NSString * const kGTLRAuthScopePostmasterToolsPostmaster       = @"https://www.googleapis.com/auth/postmaster";
 NSString * const kGTLRAuthScopePostmasterToolsPostmasterDomain = @"https://www.googleapis.com/auth/postmaster.domain";
 NSString * const kGTLRAuthScopePostmasterToolsPostmasterTrafficReadonly = @"https://www.googleapis.com/auth/postmaster.traffic.readonly";
+NSString * const kGTLRAuthScopePostmasterToolsPostmasterUser   = @"https://www.googleapis.com/auth/postmaster.user";
 
 // ----------------------------------------------------------------------------
 //   GTLRPostmasterToolsService

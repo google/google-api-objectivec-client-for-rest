@@ -13,6 +13,79 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.cargoMassFractionT100Strategy
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_ActualCarrierRouteYearMonthAircraftClass = @"ACTUAL_CARRIER_ROUTE_YEAR_MONTH_AIRCRAFT_CLASS";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_CarrierRouteAircraftClass = @"CARRIER_ROUTE_AIRCRAFT_CLASS";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_DistanceAircraftClass = @"DISTANCE_AIRCRAFT_CLASS";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_RouteAircraftClass = @"ROUTE_AIRCRAFT_CLASS";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.dataCategory
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_DataCategoryUnspecified = @"DATA_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Default = @"DEFAULT";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Modeled = @"MODELED";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Primary = @"PRIMARY";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.distanceAdjustmentStrategy
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_CountryPair = @"COUNTRY_PAIR";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_Default = @"DEFAULT";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_OriginDestination = @"ORIGIN_DESTINATION";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.fuelBurnEeaStrategy
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingExact = @"AIRCRAFT_MAPPING_EXACT";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingFallback = @"AIRCRAFT_MAPPING_FALLBACK";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingFallbackWithCorrectionFactor = @"AIRCRAFT_MAPPING_FALLBACK_WITH_CORRECTION_FACTOR";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.loadFactorsChAviationStrategy
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_ActualCarrierYearMonth = @"ACTUAL_CARRIER_YEAR_MONTH";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_CarrierMonth = @"CARRIER_MONTH";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.loadFactorsT100Strategy
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_ActualCarrierRouteYearMonth = @"ACTUAL_CARRIER_ROUTE_YEAR_MONTH";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_CarrierMonth = @"CARRIER_MONTH";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_CarrierRouteMonth = @"CARRIER_ROUTE_MONTH";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.provenanceEntryType
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_CargoMassFraction = @"CARGO_MASS_FRACTION";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_DistanceAdjustment = @"DISTANCE_ADJUSTMENT";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_EmissionsProvenanceEntryTypeUnspecified = @"EMISSIONS_PROVENANCE_ENTRY_TYPE_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_FuelBurn = @"FUEL_BURN";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_LoadFactors = @"LOAD_FACTORS";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_SeatAreaRatios = @"SEAT_AREA_RATIOS";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_SeatingConfig = @"SEATING_CONFIG";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.seatAreaRatioIataStrategy
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_NarrowAircraftBody = @"NARROW_AIRCRAFT_BODY";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_WideAircraftBody = @"WIDE_AIRCRAFT_BODY";
+
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.source
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_AircraftModelTypical = @"AIRCRAFT_MODEL_TYPICAL";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_ChAviation = @"CH_AVIATION";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_DataSourceUnspecified = @"DATA_SOURCE_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Eea = @"EEA";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_GlobalDefault = @"GLOBAL_DEFAULT";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Iata = @"IATA";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Icl = @"ICL";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Oag = @"OAG";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_OperatingCarrier = @"OPERATING_CARRIER";
+NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_T100 = @"T100";
+
+// GTLRTravelImpactModel_FlightEmissionsDetails.contrailsImpactBucket
+NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactModerate = @"CONTRAILS_IMPACT_MODERATE";
+NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactNegligible = @"CONTRAILS_IMPACT_NEGLIGIBLE";
+NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactSevere = @"CONTRAILS_IMPACT_SEVERE";
+NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactUnspecified = @"CONTRAILS_IMPACT_UNSPECIFIED";
+
+// GTLRTravelImpactModel_FlightEmissionsDetails.source
+NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_Source_Easa = @"EASA";
+NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_Source_Tim = @"TIM";
+
 // GTLRTravelImpactModel_FlightWithEmissions.contrailsImpactBucket
 NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactModerate = @"CONTRAILS_IMPACT_MODERATE";
 NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactNegligible = @"CONTRAILS_IMPACT_NEGLIGIBLE";
@@ -36,6 +109,42 @@ NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_CabinClas
 NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_Economy = @"ECONOMY";
 NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_First = @"FIRST";
 NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEconomy = @"PREMIUM_ECONOMY";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_ComputeDetailedFlightEmissionsRequest
+//
+
+@implementation GTLRTravelImpactModel_ComputeDetailedFlightEmissionsRequest
+@dynamic flights;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"flights" : [GTLRTravelImpactModel_Flight class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_ComputeDetailedFlightEmissionsResponse
+//
+
+@implementation GTLRTravelImpactModel_ComputeDetailedFlightEmissionsResponse
+@dynamic flightsWithDetailedEmissions, modelVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"flightsWithDetailedEmissions" : [GTLRTravelImpactModel_FlightWithDetailedEmissions class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -167,6 +276,16 @@ NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTravelImpactModel_EmissionsBreakdown
+//
+
+@implementation GTLRTravelImpactModel_EmissionsBreakdown
+@dynamic ttwEmissionsGramsPerPax, wttEmissionsGramsPerPax;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTravelImpactModel_EmissionsGramsPerPax
 //
 
@@ -177,11 +296,75 @@ NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTravelImpactModel_EmissionsMetadata
+//
+
+@implementation GTLRTravelImpactModel_EmissionsMetadata
+@dynamic easaLabelMetadata, emissionsProvenance,
+         timWebsiteEmissionsCalculatorUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_EmissionsProvenance
+//
+
+@implementation GTLRTravelImpactModel_EmissionsProvenance
+@dynamic provenanceEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"provenanceEntries" : [GTLRTravelImpactModel_EmissionsProvenanceEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_EmissionsProvenanceEntry
+//
+
+@implementation GTLRTravelImpactModel_EmissionsProvenanceEntry
+@dynamic cargoMassFractionData, cargoMassFractionT100Strategy, dataCategory,
+         distanceAdjustmentStrategy, estimatedFlightDistanceKm,
+         fuelBurnEeaStrategy, loadFactorsChAviationStrategy, loadFactorsData,
+         loadFactorsT100Strategy, provenanceEntryType,
+         seatAreaRatioIataStrategy, source, sourceVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTravelImpactModel_Flight
 //
 
 @implementation GTLRTravelImpactModel_Flight
 @dynamic departureDate, destination, flightNumber, operatingCarrierCode, origin;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_FlightEmissionsDetails
+//
+
+@implementation GTLRTravelImpactModel_FlightEmissionsDetails
+@dynamic contrailsImpactBucket, emissionsBreakdown, emissionsGramsPerPax,
+         source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_FlightWithDetailedEmissions
+//
+
+@implementation GTLRTravelImpactModel_FlightWithDetailedEmissions
+@dynamic emissionsMetadata, flight, flightEmissionsDetails;
 @end
 
 

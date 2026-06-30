@@ -937,6 +937,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Uploads a list of AdEvent resources to Google Analytics. This feature is
+ *  only available to accounts on an allowlist.
+ *
+ *  Method: datamanager.adEvents.ingest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AdEventsIngest : GTLRDataManagerQuery
+
+/**
+ *  Fetches a @c GTLRDataManager_IngestAdEventsResponse.
+ *
+ *  Uploads a list of AdEvent resources to Google Analytics. This feature is
+ *  only available to accounts on an allowlist.
+ *
+ *  @param object The @c GTLRDataManager_IngestAdEventsRequest to include in the
+ *    query.
+ *
+ *  @return GTLRDataManagerQuery_AdEventsIngest
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_IngestAdEventsRequest *)object;
+
+@end
+
+/**
  *  Uploads a list of AudienceMember resources to the provided Destination.
  *
  *  Method: datamanager.audienceMembers.ingest

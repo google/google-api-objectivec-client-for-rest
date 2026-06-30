@@ -346,7 +346,7 @@
 
 @implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsPatch
 
-@dynamic name, updateMask;
+@dynamic name, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudDomains_Registration *)object
                            name:(NSString *)name {

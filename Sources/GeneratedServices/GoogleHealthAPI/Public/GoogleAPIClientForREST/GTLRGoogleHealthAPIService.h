@@ -39,6 +39,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPICloudPlatform;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly;
 /**
+ *  Authorization scope: Add activity and fitness data to Google Health, and
+ *  edit or delete the data it adds.
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.activity_and_fitness.writeonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly;
+/**
  *  Authorization scope: See your Google Health ECG data
  *
  *  Value "https://www.googleapis.com/auth/googlehealth.ecg.readonly"
@@ -51,6 +58,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgR
  *  Value "https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly;
+/**
+ *  Authorization scope: Add health metric and measurements data to Google
+ *  Health, and edit or delete the data it adds.
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.health_metrics_and_measurements.writeonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly;
 /**
  *  Authorization scope: See your Google Health Irregular Rhythm Notifications
  *  data
@@ -65,11 +79,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnR
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly;
 /**
+ *  Authorization scope: Add exercise GPS location data to Google Health, and
+ *  edit or delete the data it adds.
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.location.writeonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly;
+/**
+ *  Authorization scope: Add nutrition data to Google Health, and edit or delete
+ *  the data it adds.
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.nutrition.writeonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly;
+/**
  *  Authorization scope: See your Google Health profile data
  *
  *  Value "https://www.googleapis.com/auth/googlehealth.profile.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly;
+/**
+ *  Authorization scope: Add profile data to Google Health, and edit or delete
+ *  the data it adds.
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.profile.writeonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileWriteonly;
 /**
  *  Authorization scope: See your Google Health settings
  *
@@ -77,11 +112,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProf
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly;
 /**
+ *  Authorization scope: Add settings data to Google Health, and edit or delete
+ *  the data it adds.
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.settings.writeonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsWriteonly;
+/**
  *  Authorization scope: See your Google Health sleep data
  *
  *  Value "https://www.googleapis.com/auth/googlehealth.sleep.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly;
+/**
+ *  Authorization scope: Add sleep data to Google Health, and edit or delete the
+ *  data it adds.
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.sleep.writeonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRGoogleHealthAPIService

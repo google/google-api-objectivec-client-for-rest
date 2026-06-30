@@ -47,6 +47,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmasterDomain
  *  Value "https://www.googleapis.com/auth/postmaster.traffic.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmasterTrafficReadonly;
+/**
+ *  Authorization scope: View and manage users for the domains you have
+ *  registered with Postmaster Tools
+ *
+ *  Value "https://www.googleapis.com/auth/postmaster.user"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmasterUser;
 
 // ----------------------------------------------------------------------------
 //   GTLRPostmasterToolsService

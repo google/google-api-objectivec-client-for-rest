@@ -71,10 +71,30 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls = @"KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls = @"REGIONAL_CONTROLS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalDataBoundary = @"REGIONAL_DATA_BOUNDARY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_SwitzerlandDataBoundaryWithAccessJustifications = @"SWITZERLAND_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryAndSupport = @"US_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary.findingClass
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Chokepoint = @"CHOKEPOINT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Misconfiguration = @"MISCONFIGURATION";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Observation = @"OBSERVATION";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_PostureViolation = @"POSTURE_VIOLATION";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_SccError = @"SCC_ERROR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_SensitiveDataRisk = @"SENSITIVE_DATA_RISK";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Threat = @"THREAT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_ToxicCombination = @"TOXIC_COMBINATION";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Vulnerability = @"VULNERABILITY";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary.severity
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_High = @"HIGH";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Low = @"LOW";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowAllGcpResources = @"ALLOW_ALL_GCP_RESOURCES";
@@ -144,6 +164,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls = @"KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls = @"REGIONAL_CONTROLS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalDataBoundary = @"REGIONAL_DATA_BOUNDARY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_SwitzerlandDataBoundaryWithAccessJustifications = @"SWITZERLAND_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryAndSupport = @"US_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT";
@@ -358,6 +379,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse
+@dynamic acknowledgedViolationsCount;
 @end
 
 
@@ -368,6 +390,25 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata
 @dynamic complianceRegime, createTime, displayName, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary
+@dynamic findingCategory, findingClass, findingCount, name, relatedFrameworks,
+         severity, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relatedFrameworks" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -391,11 +432,33 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse
+@dynamic dbFindingSummaries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dbFindingSummaries" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dbFindingSummaries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListViolationsResponse
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListViolationsResponse
-@dynamic nextPageToken, violations;
+@dynamic nextPageToken, totalSize, violations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

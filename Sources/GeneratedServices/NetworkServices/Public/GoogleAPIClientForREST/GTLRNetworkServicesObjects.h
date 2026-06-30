@@ -19,6 +19,7 @@
 @class GTLRNetworkServices_AgentGatewayNetworkConfig;
 @class GTLRNetworkServices_AgentGatewayNetworkConfigDnsPeeringConfig;
 @class GTLRNetworkServices_AgentGatewayNetworkConfigEgress;
+@class GTLRNetworkServices_AgentGatewayNetworkConfigEgressTrustConfig;
 @class GTLRNetworkServices_AgentGatewaySelfManaged;
 @class GTLRNetworkServices_AuditConfig;
 @class GTLRNetworkServices_AuditLogConfig;
@@ -1025,8 +1026,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /** Optional. Network configuration for the AgentGateway. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_AgentGatewayNetworkConfig *networkConfig;
 
-/** Required. List of protocols supported by an Agent Gateway */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *protocols;
+/** Optional. Deprecated. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *protocols GTLR_DEPRECATED;
 
 /**
  *  Optional. A list of Agent registries containing the agents, MCP servers and
@@ -1155,6 +1156,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /** Optional. The URI of the Network Attachment resource. */
 @property(nonatomic, copy, nullable) NSString *networkAttachment;
+
+/** Optional. TrustConfig defines the trust configuration for egress. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_AgentGatewayNetworkConfigEgressTrustConfig *trustConfig;
+
+@end
+
+
+/**
+ *  TrustConfig defines the trust configuration for egress.
+ */
+@interface GTLRNetworkServices_AgentGatewayNetworkConfigEgressTrustConfig : GTLRObject
+
+/**
+ *  Required. PEM encoded root certificates used to validate the identity of the
+ *  upstream servers/destinations during egress connections.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pemCertificates;
 
 @end
 

@@ -128,19 +128,19 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRWorkloadManager_ActiveDirectory.type
 
 /**
- *  Unspecified active directory type
+ *  Unspecified Active Directory type.
  *
  *  Value: "ACTIVE_DIRECTORY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActiveDirectory_Type_ActiveDirectoryTypeUnspecified;
 /**
- *  GCP managed active directory type
+ *  GCP managed Active Directory type.
  *
  *  Value: "GCP_MANAGED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActiveDirectory_Type_GcpManaged;
 /**
- *  Self managed active directory type
+ *  Self managed Active Directory type.
  *
  *  Value: "SELF_MANAGED"
  */
@@ -150,43 +150,44 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActiveDirectory_Type_Sel
 // GTLRWorkloadManager_Actuation.state
 
 /**
- *  failed either in infra creating, post infra configuring or infra destroying
+ *  Failed either in infra creating, post infra configuring, or infra
+ *  destroying.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Actuation_State_Failed;
 /**
- *  creating infrastructure in backend (terraform applying)
+ *  Creating infrastructure in backend (Terraform applying).
  *
  *  Value: "INFRA_CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Actuation_State_InfraCreating;
 /**
- *  destroying infrastructure in backend (terraform destroying)
+ *  Destroying infrastructure in backend (Terraform destroying).
  *
  *  Value: "INFRA_DESTROYING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Actuation_State_InfraDestroying;
 /**
- *  configure workload after infrastructure is ready (ansible running)
+ *  Configure workload after infrastructure is ready (Ansible running).
  *
  *  Value: "POST_INFRA_CONFIGURING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Actuation_State_PostInfraConfiguring;
 /**
- *  state unspecified
+ *  State unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Actuation_State_StateUnspecified;
 /**
- *  success
+ *  Success.
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Actuation_State_Succeeded;
 /**
- *  ansible is timeout due to losing heartbeat in post infra configuring
+ *  Ansible timed out due to losing heartbeat in post infra configuring.
  *
  *  Value: "TIMEOUT"
  */
@@ -196,19 +197,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Actuation_State_Timeout;
 // GTLRWorkloadManager_ActuationOutput.errorCode
 
 /**
- *  general ansible failure
+ *  General Ansible failure.
  *
  *  Value: "ANSIBLE_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_AnsibleFailed;
 /**
- *  start up failure in ansible
+ *  Startup failure in Ansible.
  *
  *  Value: "ANSIBLE_START_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_AnsibleStartFailed;
 /**
- *  constraint related error in terraform
+ *  Constraint related error in Terraform.
  *
  *  Value: "CONSTRAINT_VIOLATION_IN_TERRAFORM"
  */
@@ -220,55 +221,55 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCod
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ErrorCodeUnspecified;
 /**
- *  secret related error in ansible
+ *  Secret related error in Ansible.
  *
  *  Value: "INVALID_SECRET_IN_ANSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_InvalidSecretInAnsible;
 /**
- *  permission denied error in ansible
+ *  Permission denied error in Ansible.
  *
  *  Value: "PERMISSION_DENIED_IN_ANSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_PermissionDeniedInAnsible;
 /**
- *  permission error in terraform
+ *  Permission error in Terraform.
  *
  *  Value: "PERMISSION_DENIED_IN_TERRAFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_PermissionDeniedInTerraform;
 /**
- *  quota related error in terraform
+ *  Quota related error in Terraform.
  *
  *  Value: "QUOTA_EXCEED_IN_TERRAFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_QuotaExceedInTerraform;
 /**
- *  resource already exists error in terraform
+ *  Resource already exists error in Terraform.
  *
  *  Value: "RESOURCE_ALREADY_EXISTS_IN_TERRAFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceAlreadyExistsInTerraform;
 /**
- *  resource in use error in terraform deletion
+ *  Resource in use error in Terraform deletion.
  *
  *  Value: "RESOURCE_IN_USE_IN_TERRAFORM_DELETION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceInUseInTerraformDeletion;
 /**
- *  resource not found error in terraform
+ *  Resource not found error in Terraform.
  *
  *  Value: "RESOURCE_UNAVAILABLE_IN_TERRAFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceUnavailableInTerraform;
 /**
- *  general terraform failure during deletion
+ *  General Terraform failure during deletion.
  *
  *  Value: "TERRAFORM_DELETION_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_TerraformDeletionFailed;
 /**
- *  general terraform failure
+ *  General Terraform failure.
  *
  *  Value: "TERRAFORM_FAILED"
  */
@@ -634,19 +635,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Un
 // GTLRWorkloadManager_Database.tenancyModel
 
 /**
- *  Shared tenancy model
+ *  Shared tenancy model.
  *
  *  Value: "SHARED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Database_TenancyModel_Shared;
 /**
- *  Sole Tenant tenancy model
+ *  Sole Tenant tenancy model.
  *
  *  Value: "SOLE_TENANT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Database_TenancyModel_SoleTenant;
 /**
- *  Unspecified tenancy model
+ *  Unspecified tenancy model.
  *
  *  Value: "TENANCY_MODEL_UNSPECIFIED"
  */
@@ -742,25 +743,25 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Deployment_State_Updatin
 // GTLRWorkloadManager_Deployment.workloadType
 
 /**
- *  Oracle workload type
+ *  Oracle workload type.
  *
  *  Value: "ORACLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_Oracle;
 /**
- *  SAP S/4HANA workload type
+ *  SAP S/4HANA workload type.
  *
  *  Value: "SAP_S4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_SapS4;
 /**
- *  SQL Server workload type
+ *  SQL Server workload type.
  *
  *  Value: "SQL_SERVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_SqlServer;
 /**
- *  Unspecified workload type
+ *  Unspecified workload type.
  *
  *  Value: "WORKLOAD_TYPE_UNSPECIFIED"
  */
@@ -1412,19 +1413,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapSystemS4Config_Deploy
 // GTLRWorkloadManager_SapSystemS4Config.environmentType
 
 /**
- *  Unspecified environment type
+ *  Unspecified environment type.
  *
  *  Value: "ENVIRONMENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_EnvironmentTypeUnspecified;
 /**
- *  Non-production environment type
+ *  Non-production environment type.
  *
  *  Value: "NON_PRODUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_NonProduction;
 /**
- *  Production environment type
+ *  Production environment type.
  *
  *  Value: "PRODUCTION"
  */
@@ -1436,14 +1437,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapSystemS4Config_Enviro
 /** Value: "SCALE_METHOD_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleMethodUnspecified;
 /**
- *  Scale out: Combines multiple independent computers into one system
+ *  Scale out: Combines multiple independent computers into one system.
  *
  *  Value: "SCALE_OUT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleOut;
 /**
  *  Scale up: Increases the size of a physical machine by increasing the amount
- *  of RAM and CPU available for processing
+ *  of RAM and CPU available for processing.
  *
  *  Value: "SCALE_UP"
  */
@@ -1609,19 +1610,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_Stat
 // GTLRWorkloadManager_SqlLocationDetails.internetAccess
 
 /**
- *  Allow external IP
+ *  Allow external IP.
  *
  *  Value: "ALLOW_EXTERNAL_IP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_AllowExternalIp;
 /**
- *  Configure NAT
+ *  Configure NAT.
  *
  *  Value: "CONFIGURE_NAT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_ConfigureNat;
 /**
- *  Unspecified internet access
+ *  Unspecified internet access.
  *
  *  Value: "INTERNET_ACCESS_UNSPECIFIED"
  */
@@ -1713,19 +1714,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlserverValidationValid
 // GTLRWorkloadManager_SqlServerWorkload.deploymentModel
 
 /**
- *  Unspecified deployment model
+ *  Unspecified deployment model.
  *
  *  Value: "DEPLOYMENT_MODEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_DeploymentModelUnspecified;
 /**
- *  High Availability deployment model
+ *  High Availability deployment model.
  *
  *  Value: "HIGH_AVAILABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_HighAvailability;
 /**
- *  Single Instance deployment model
+ *  Single instance deployment model.
  *
  *  Value: "SINGLE_INSTANCE"
  */
@@ -1735,19 +1736,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_Deploy
 // GTLRWorkloadManager_SqlServerWorkload.environmentType
 
 /**
- *  Unspecified environment type
+ *  Unspecified environment type.
  *
  *  Value: "ENVIRONMENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_EnvironmentTypeUnspecified;
 /**
- *  Non-production environment type
+ *  Non-production environment type.
  *
  *  Value: "NON_PRODUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_NonProduction;
 /**
- *  Production environment type
+ *  Production environment type.
  *
  *  Value: "PRODUCTION"
  */
@@ -1757,19 +1758,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_Enviro
 // GTLRWorkloadManager_SqlServerWorkload.fciType
 
 /**
- *  Unspecified FCI type
+ *  Unspecified FCI type.
  *
  *  Value: "FCI_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_FciType_FciTypeUnspecified;
 /**
- *  S2D FCI type
+ *  S2D FCI type.
  *
  *  Value: "S2D"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_FciType_S2d;
 /**
- *  SHARED DISK FCI type
+ *  SHARED DISK FCI type.
  *
  *  Value: "SHARED_DISK"
  */
@@ -1779,19 +1780,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_FciTyp
 // GTLRWorkloadManager_SqlServerWorkload.haType
 
 /**
- *  AOAG HA type
+ *  AOAG HA type.
  *
  *  Value: "AOAG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_HaType_Aoag;
 /**
- *  FCI HA type
+ *  FCI HA type.
  *
  *  Value: "FCI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_HaType_Fci;
 /**
- *  Unspecified HA type
+ *  Unspecified HA type.
  *
  *  Value: "HA_TYPE_UNSPECIFIED"
  */
@@ -1801,31 +1802,31 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_HaType
 // GTLRWorkloadManager_SqlServerWorkload.operatingSystemType
 
 /**
- *  Unspecified operating system type
+ *  Unspecified operating system type.
  *
  *  Value: "OPERATING_SYSTEM_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_OperatingSystemTypeUnspecified;
 /**
- *  Red Hat Enterprise Linux operating system type
+ *  Red Hat Enterprise Linux operating system type.
  *
  *  Value: "RED_HAT_ENTERPRISE_LINUX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_RedHatEnterpriseLinux;
 /**
- *  Suse operating system type
+ *  SUSE operating system type.
  *
  *  Value: "SUSE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Suse;
 /**
- *  Ubuntu operating system type
+ *  Ubuntu operating system type.
  *
  *  Value: "UBUNTU"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Ubuntu;
 /**
- *  Windows operating system type
+ *  Windows operating system type.
  *
  *  Value: "WINDOWS"
  */
@@ -1835,19 +1836,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_Operat
 // GTLRWorkloadManager_SqlServerWorkload.osImageType
 
 /**
- *  Custom image
+ *  Custom image.
  *
  *  Value: "CUSTOM_IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_OsImageType_CustomImage;
 /**
- *  Unspecified OS image type
+ *  Unspecified OS image type.
  *
  *  Value: "OS_IMAGE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_OsImageType_OsImageTypeUnspecified;
 /**
- *  Public image
+ *  Public image.
  *
  *  Value: "PUBLIC_IMAGE"
  */
@@ -1857,31 +1858,31 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_OsImag
 // GTLRWorkloadManager_SqlServerWorkload.sqlServerEdition
 
 /**
- *  Developer type
+ *  Developer type.
  *
  *  Value: "SQL_SERVER_EDITION_TYPE_DEVELOPER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeDeveloper;
 /**
- *  Enterprise type
+ *  Enterprise type.
  *
  *  Value: "SQL_SERVER_EDITION_TYPE_ENTERPRISE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeEnterprise;
 /**
- *  Standard type
+ *  Standard type.
  *
  *  Value: "SQL_SERVER_EDITION_TYPE_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeStandard;
 /**
- *  Unspecified type
+ *  Unspecified type.
  *
  *  Value: "SQL_SERVER_EDITION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeUnspecified;
 /**
- *  Web type
+ *  Web type.
  *
  *  Value: "SQL_SERVER_EDITION_TYPE_WEB"
  */
@@ -1891,25 +1892,25 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlSer
 // GTLRWorkloadManager_SqlServerWorkload.sqlServerVersion
 
 /**
- *  2017 type
+ *  2017 type.
  *
  *  Value: "SQL_SERVER_VERSION_TYPE_2017"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2017;
 /**
- *  2019 type
+ *  2019 type.
  *
  *  Value: "SQL_SERVER_VERSION_TYPE_2019"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2019;
 /**
- *  2022 type
+ *  2022 type.
  *
  *  Value: "SQL_SERVER_VERSION_TYPE_2022"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2022;
 /**
- *  Unspecified type
+ *  Unspecified type.
  *
  *  Value: "SQL_SERVER_VERSION_TYPE_UNSPECIFIED"
  */
@@ -1994,33 +1995,33 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported;
 
 /**
- *  Active directory details
+ *  Active Directory details.
  */
 @interface GTLRWorkloadManager_ActiveDirectory : GTLRObject
 
-/** Optional. DNS IP address */
+/** Optional. DNS IP address. */
 @property(nonatomic, copy, nullable) NSString *dnsAddress;
 
-/** Optional. human readable form of a domain such as “google.com”. */
+/** Optional. Human readable form of a domain such as “google.com”. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
-/** Optional. domain username */
+/** Optional. Domain username. */
 @property(nonatomic, copy, nullable) NSString *domainUsername;
 
-/** Required. secret_manager_secret */
+/** Required. Secret Manager secret. */
 @property(nonatomic, copy, nullable) NSString *secretManagerSecret;
 
 /**
- *  Required. active directory type
+ *  Required. Active Directory type.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_ActiveDirectory_Type_ActiveDirectoryTypeUnspecified
- *        Unspecified active directory type (Value:
+ *        Unspecified Active Directory type. (Value:
  *        "ACTIVE_DIRECTORY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_ActiveDirectory_Type_GcpManaged GCP managed
- *        active directory type (Value: "GCP_MANAGED")
+ *        Active Directory type. (Value: "GCP_MANAGED")
  *    @arg @c kGTLRWorkloadManager_ActiveDirectory_Type_SelfManaged Self managed
- *        active directory type (Value: "SELF_MANAGED")
+ *        Active Directory type. (Value: "SELF_MANAGED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2033,45 +2034,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @interface GTLRWorkloadManager_Actuation : GTLRObject
 
-/** Output only. [Output only] Actuation output */
+/** Output only. Actuation output. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ActuationOutput *actuationOutput;
 
-/** Output only. [Output only] Deployment output */
+/** Output only. Deployment output. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_DeploymentOutput *> *deploymentOutput;
 
-/** Output only. [Output only] End time stamp */
+/** Output only. End time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The name of actuation resource. The format is
- *  projects/{project}/locations/{location}/deployments/{deployment}/actuations/{actuation}
+ *  The name of the actuation resource. The format is
+ *  projects/{project}/locations/{location}/deployments/{deployment}/actuations/{actuation}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. [Output only] Start time stamp */
+/** Output only. Start time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Output only. [Output only] Actuation state
+ *  Output only. Actuation state.
  *
  *  Likely values:
- *    @arg @c kGTLRWorkloadManager_Actuation_State_Failed failed either in infra
- *        creating, post infra configuring or infra destroying (Value: "FAILED")
- *    @arg @c kGTLRWorkloadManager_Actuation_State_InfraCreating creating
- *        infrastructure in backend (terraform applying) (Value:
+ *    @arg @c kGTLRWorkloadManager_Actuation_State_Failed Failed either in infra
+ *        creating, post infra configuring, or infra destroying. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRWorkloadManager_Actuation_State_InfraCreating Creating
+ *        infrastructure in backend (Terraform applying). (Value:
  *        "INFRA_CREATING")
- *    @arg @c kGTLRWorkloadManager_Actuation_State_InfraDestroying destroying
- *        infrastructure in backend (terraform destroying) (Value:
+ *    @arg @c kGTLRWorkloadManager_Actuation_State_InfraDestroying Destroying
+ *        infrastructure in backend (Terraform destroying). (Value:
  *        "INFRA_DESTROYING")
  *    @arg @c kGTLRWorkloadManager_Actuation_State_PostInfraConfiguring
- *        configure workload after infrastructure is ready (ansible running)
+ *        Configure workload after infrastructure is ready (Ansible running).
  *        (Value: "POST_INFRA_CONFIGURING")
- *    @arg @c kGTLRWorkloadManager_Actuation_State_StateUnspecified state
- *        unspecified (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_Actuation_State_Succeeded success (Value:
+ *    @arg @c kGTLRWorkloadManager_Actuation_State_StateUnspecified State
+ *        unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_Actuation_State_Succeeded Success. (Value:
  *        "SUCCEEDED")
- *    @arg @c kGTLRWorkloadManager_Actuation_State_Timeout ansible is timeout
- *        due to losing heartbeat in post infra configuring (Value: "TIMEOUT")
+ *    @arg @c kGTLRWorkloadManager_Actuation_State_Timeout Ansible timed out due
+ *        to losing heartbeat in post infra configuring. (Value: "TIMEOUT")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2079,20 +2081,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for output of Actuation
+ *  Message for output of actuation.
  */
 @interface GTLRWorkloadManager_ActuationOutput : GTLRObject
 
-/** A link to gcs file that store build logs */
+/** A link to the Cloud Storage file that stores build logs. */
 @property(nonatomic, copy, nullable) NSString *actuateLogs;
 
-/** Output only. error message return from ansible. */
+/** Output only. Error message returned from Ansible. */
 @property(nonatomic, copy, nullable) NSString *ansibleError;
 
-/** Output only. failed task name return from ansible. */
+/** Output only. Failed task name returned from Ansible. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ansibleFailedTask;
 
-/** reference to Blueprint Controller deployment and revision resource */
+/** Reference to the Blueprint Controller deployment and revision resource. */
 @property(nonatomic, copy, nullable) NSString *blueprintId;
 
 /**
@@ -2107,56 +2109,56 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_AnsibleFailed
- *        general ansible failure (Value: "ANSIBLE_FAILED")
+ *        General Ansible failure. (Value: "ANSIBLE_FAILED")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_AnsibleStartFailed
- *        start up failure in ansible (Value: "ANSIBLE_START_FAILED")
+ *        Startup failure in Ansible. (Value: "ANSIBLE_START_FAILED")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_ConstraintViolationInTerraform
- *        constraint related error in terraform (Value:
+ *        Constraint related error in Terraform. (Value:
  *        "CONSTRAINT_VIOLATION_IN_TERRAFORM")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_ErrorCodeUnspecified
  *        No error code was specified. (Value: "ERROR_CODE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_InvalidSecretInAnsible
- *        secret related error in ansible (Value: "INVALID_SECRET_IN_ANSIBLE")
+ *        Secret related error in Ansible. (Value: "INVALID_SECRET_IN_ANSIBLE")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_PermissionDeniedInAnsible
- *        permission denied error in ansible (Value:
+ *        Permission denied error in Ansible. (Value:
  *        "PERMISSION_DENIED_IN_ANSIBLE")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_PermissionDeniedInTerraform
- *        permission error in terraform (Value:
+ *        Permission error in Terraform. (Value:
  *        "PERMISSION_DENIED_IN_TERRAFORM")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_QuotaExceedInTerraform
- *        quota related error in terraform (Value: "QUOTA_EXCEED_IN_TERRAFORM")
+ *        Quota related error in Terraform. (Value: "QUOTA_EXCEED_IN_TERRAFORM")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceAlreadyExistsInTerraform
- *        resource already exists error in terraform (Value:
+ *        Resource already exists error in Terraform. (Value:
  *        "RESOURCE_ALREADY_EXISTS_IN_TERRAFORM")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceInUseInTerraformDeletion
- *        resource in use error in terraform deletion (Value:
+ *        Resource in use error in Terraform deletion. (Value:
  *        "RESOURCE_IN_USE_IN_TERRAFORM_DELETION")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceUnavailableInTerraform
- *        resource not found error in terraform (Value:
+ *        Resource not found error in Terraform. (Value:
  *        "RESOURCE_UNAVAILABLE_IN_TERRAFORM")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_TerraformDeletionFailed
- *        general terraform failure during deletion (Value:
+ *        General Terraform failure during deletion. (Value:
  *        "TERRAFORM_DELETION_FAILED")
  *    @arg @c kGTLRWorkloadManager_ActuationOutput_ErrorCode_TerraformFailed
- *        general terraform failure (Value: "TERRAFORM_FAILED")
+ *        General Terraform failure. (Value: "TERRAFORM_FAILED")
  */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
-/** A link to actuation cloud build log. */
+/** A link to the actuation Cloud Build log. */
 @property(nonatomic, copy, nullable) NSString *errorLogs;
 
 /**
- *  Output only. whether the error message is user facing. If true, the error
+ *  Output only. Whether the error message is user facing. If true, the error
  *  message will be shown in the UI.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasUserFacingErrorMsg;
 
-/** Output only. error message return from terraform. */
+/** Output only. Error message returned from Terraform. */
 @property(nonatomic, copy, nullable) NSString *terraformError;
 
-/** reference to terraform template used */
+/** Reference to the Terraform template used. */
 @property(nonatomic, copy, nullable) NSString *terraformTemplate;
 
 @end
@@ -2471,53 +2473,56 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for sap instant details
+ *  Message for SAP instance details.
  */
 @interface GTLRWorkloadManager_AppDetails : GTLRObject
 
-/** Optional. instance id for app */
+/** Optional. Instance ID for app. */
 @property(nonatomic, copy, nullable) NSString *appInstanceId;
 
 /**
- *  Application service account - let custoemrs bring their own SA for
- *  application
+ *  Application service account. Let customers bring their own service account
+ *  for the application.
  */
 @property(nonatomic, copy, nullable) NSString *appServiceAccount;
 
-/** Optional. Customized vm names */
+/** Optional. Customized VM names. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *appVmNames;
 
-/** Required. image for ascs server */
+/** Required. Image for the ASCS server. */
 @property(nonatomic, copy, nullable) NSString *ascsImage;
 
-/** Optional. instance id for ascs */
+/** Optional. Instance ID for ASCS. */
 @property(nonatomic, copy, nullable) NSString *ascsInstanceId;
 
-/** Required. ascs_machine_type */
+/** Required. ASCS machine type. */
 @property(nonatomic, copy, nullable) NSString *ascsMachineType;
 
-/** ASCS service account - let custoemrs bring their own SA for ASCS */
+/**
+ *  ASCS service account. Let customers bring their own service account for
+ *  ASCS.
+ */
 @property(nonatomic, copy, nullable) NSString *ascsServiceAccount;
 
-/** Optional. ASCS vm name */
+/** Optional. ASCS VM name. */
 @property(nonatomic, copy, nullable) NSString *ascsVm;
 
-/** Optional. instance id for ers */
+/** Optional. Instance ID for ERS. */
 @property(nonatomic, copy, nullable) NSString *ersInstanceId;
 
-/** Optional. ERS vm name */
+/** Optional. ERS VM name. */
 @property(nonatomic, copy, nullable) NSString *ersVm;
 
-/** Required. image for app server and ascs server */
+/** Required. Image for the app server and ASCS server. */
 @property(nonatomic, copy, nullable) NSString *image;
 
-/** Required. machine type */
+/** Required. Machine type. */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
-/** Required. secret_manager_secret */
+/** Required. Secret Manager secret. */
 @property(nonatomic, copy, nullable) NSString *secretManagerSecret;
 
-/** Optional. Storage location */
+/** Optional. Storage location. */
 @property(nonatomic, copy, nullable) NSString *sharedStorage;
 
 /**
@@ -2527,7 +2532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, copy, nullable) NSString *sid;
 
 /**
- *  Required. vms_multiplier
+ *  Required. VMs multiplier.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2704,64 +2709,64 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Database details
+ *  Database details.
  */
 @interface GTLRWorkloadManager_Database : GTLRObject
 
-/** Required. disk_type */
+/** Required. Disk type. */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
-/** Optional. only useful for Linux High Availability setup */
+/** Optional. Only useful for Linux High Availability setup. */
 @property(nonatomic, copy, nullable) NSString *floatingIpAddress;
 
-/** Required. machine type */
+/** Required. Machine type. */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
-/** Optional. the name of a secondary-sole-tenant node/node group */
+/** Optional. The name of a secondary-sole-tenant node/node group. */
 @property(nonatomic, copy, nullable) NSString *secondarySoleTenantNode;
 
 /**
- *  Optional. the type of a secondary-sole-tenant node/node group e.g.
- *  compute.googleapis.com/node-name
+ *  Optional. The type of a secondary-sole-tenant node/node group. E.g.,
+ *  compute.googleapis.com/node-name.
  */
 @property(nonatomic, copy, nullable) NSString *secondarySoleTenantNodeType;
 
-/** Required. secret_manager_secret */
+/** Required. Secret Manager secret. */
 @property(nonatomic, copy, nullable) NSString *secretManagerSecret;
 
 /**
- *  Required. whether simultaneous multithreading is enabled or not
+ *  Required. Whether simultaneous multithreading is enabled or not.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *smt;
 
-/** Optional. the name of a primary sole-tenant node/node group */
+/** Optional. The name of a primary sole-tenant node/node group. */
 @property(nonatomic, copy, nullable) NSString *soleTenantNode;
 
 /**
- *  Optional. the type of a primary sole-tenant node/node group e.g.
- *  compute.googleapis.com/node-name
+ *  Optional. The type of a primary sole-tenant node/node group. E.g.,
+ *  compute.googleapis.com/node-name.
  */
 @property(nonatomic, copy, nullable) NSString *soleTenantNodeType;
 
 /**
- *  Required. whether to have TempDB on local SSD
+ *  Required. Whether to have TempDB on local SSD.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *tempdbOnSsd;
 
 /**
- *  Required. SHARED or SOLE_TENANT
+ *  Required. SHARED or SOLE_TENANT.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_Database_TenancyModel_Shared Shared tenancy
- *        model (Value: "SHARED")
+ *        model. (Value: "SHARED")
  *    @arg @c kGTLRWorkloadManager_Database_TenancyModel_SoleTenant Sole Tenant
- *        tenancy model (Value: "SOLE_TENANT")
+ *        tenancy model. (Value: "SOLE_TENANT")
  *    @arg @c kGTLRWorkloadManager_Database_TenancyModel_TenancyModelUnspecified
- *        Unspecified tenancy model (Value: "TENANCY_MODEL_UNSPECIFIED")
+ *        Unspecified tenancy model. (Value: "TENANCY_MODEL_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *tenancyModel;
 
@@ -2769,34 +2774,34 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for sap instant details
+ *  Message for SAP instance details.
  */
 @interface GTLRWorkloadManager_DatabaseDetails : GTLRObject
 
 /**
- *  Database service account - let custoemrs bring their own SA for database
+ *  Database service account. Let customers bring their own SA for the database.
  */
 @property(nonatomic, copy, nullable) NSString *databaseServiceAccount;
 
-/** Required. disk_type */
+/** Required. Disk type. */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
-/** Required. image for database server */
+/** Required. Image for the database server. */
 @property(nonatomic, copy, nullable) NSString *image;
 
-/** Optional. instance id */
+/** Optional. Instance ID. */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
-/** Required. machine type */
+/** Required. Machine type. */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
-/** Optional. primary db vm name */
+/** Optional. Primary DB VM name. */
 @property(nonatomic, copy, nullable) NSString *primaryDbVm;
 
-/** Optional. secondary db vm name */
+/** Optional. Secondary DB VM name. */
 @property(nonatomic, copy, nullable) NSString *secondaryDbVm;
 
-/** Required. secret_manager_secret */
+/** Required. Secret Manager secret. */
 @property(nonatomic, copy, nullable) NSString *secretManagerSecret;
 
 /**
@@ -2846,34 +2851,34 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @interface GTLRWorkloadManager_Deployment : GTLRObject
 
-/** Output only. [Output only] Create time stamp */
+/** Output only. Create time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Description of the Deployment
+ *  Description of the deployment.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The name of deployment resource. The format will be
- *  'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'
+ *  The name of the deployment resource. The format is
+ *  'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** SAP system workload input */
+/** SAP system workload input. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapSystemS4Config *sapSystemS4Config;
 
 /**
- *  User-specified Service Account (SA) credentials to be used for cloud build
+ *  User-specified Service Account (SA) credentials to be used for Cloud Build.
  *  Format: `projects/{projectID}/serviceAccounts/{serviceAccount}` The default
  *  Cloud Build SA will be used initially if this field is not set during
- *  deployment creation
+ *  deployment creation.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
-/** MS SQL workload input */
+/** MS SQL workload input. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlServerWorkload *sqlServerWorkload;
 
 /**
@@ -2905,7 +2910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Deployment_TerraformVariables *terraformVariables;
 
-/** Output only. [Output only] Update time stamp */
+/** Output only. Update time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
@@ -2917,17 +2922,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, copy, nullable) NSString *workerPool;
 
 /**
- *  Optional. Workload type of the deployment
+ *  Optional. Workload type of the deployment.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_Deployment_WorkloadType_Oracle Oracle
- *        workload type (Value: "ORACLE")
+ *        workload type. (Value: "ORACLE")
  *    @arg @c kGTLRWorkloadManager_Deployment_WorkloadType_SapS4 SAP S/4HANA
- *        workload type (Value: "SAP_S4")
+ *        workload type. (Value: "SAP_S4")
  *    @arg @c kGTLRWorkloadManager_Deployment_WorkloadType_SqlServer SQL Server
- *        workload type (Value: "SQL_SERVER")
+ *        workload type. (Value: "SQL_SERVER")
  *    @arg @c kGTLRWorkloadManager_Deployment_WorkloadType_WorkloadTypeUnspecified
- *        Unspecified workload type (Value: "WORKLOAD_TYPE_UNSPECIFIED")
+ *        Unspecified workload type. (Value: "WORKLOAD_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *workloadType;
 
@@ -2951,14 +2956,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for output of deployment resource
+ *  Message for output of deployment resource.
  */
 @interface GTLRWorkloadManager_DeploymentOutput : GTLRObject
 
-/** name of the resource */
+/** Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** type of the resource */
+/** Type of the resource. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -3394,7 +3399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @interface GTLRWorkloadManager_ListActuationsResponse : GTLRCollectionObject
 
 /**
- *  The list of Actuation
+ *  The list of actuations.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3414,7 +3419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for response to listing Deployments
+ *  Message for response to listing deployments.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "deployments" property. If returned as the result of a query, it
@@ -3424,7 +3429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @interface GTLRWorkloadManager_ListDeploymentsResponse : GTLRCollectionObject
 
 /**
- *  The list of Deployment
+ *  The list of deployments.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3706,33 +3711,35 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for sap instant details
+ *  Message for SAP instance details.
  */
 @interface GTLRWorkloadManager_LocationDetails : GTLRObject
 
 /**
- *  Optional. create firewall, if true, create firewall for the deployment. This
- *  field provides an option to not always create firewall for the deployment.
+ *  Optional. Create firewall. If true, creates a firewall for the deployment.
+ *  This field provides an option to not always create a firewall for the
+ *  deployment.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createCommsFirewall;
 
-/** Optional. network tags */
+/** Optional. Network tags. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customTags;
 
 /**
- *  Optional. when user skip DNS configuration from UI,
- *  deployment_dns_enabled=false otherwise deployment_dns_enabled=true
+ *  Optional. When the user skips DNS configuration in the UI,
+ *  `deployment_dns_enabled` is false; otherwise `deployment_dns_enabled` is
+ *  true.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deploymentDnsEnabled;
 
-/** Optional. dns zone name */
+/** Optional. DNS zone name. */
 @property(nonatomic, copy, nullable) NSString *dnsZone;
 
-/** Optional. dns_zone_name_suffix */
+/** Optional. DNS zone name suffix. */
 @property(nonatomic, copy, nullable) NSString *dnsZoneNameSuffix;
 
 /**
@@ -3748,22 +3755,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @property(nonatomic, copy, nullable) NSString *internetAccess;
 
-/** Optional. network project */
+/** Optional. Network project. */
 @property(nonatomic, copy, nullable) NSString *networkProject;
 
-/** Required. region_name */
+/** Required. Region name. */
 @property(nonatomic, copy, nullable) NSString *regionName;
 
-/** Required. subnet_name */
+/** Required. Subnet name. */
 @property(nonatomic, copy, nullable) NSString *subnetName;
 
-/** Required. vpc_name */
+/** Required. VPC name. */
 @property(nonatomic, copy, nullable) NSString *vpcName;
 
-/** Required. zone1_name */
+/** Required. Zone 1 name. */
 @property(nonatomic, copy, nullable) NSString *zone1Name;
 
-/** Optional. zone2_name */
+/** Optional. Zone 2 name. */
 @property(nonatomic, copy, nullable) NSString *zone2Name;
 
 @end
@@ -3931,26 +3938,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  pacemaker configuration
+ *  Pacemaker configuration.
  */
 @interface GTLRWorkloadManager_Pacemaker : GTLRObject
 
-/** Required. bucket location for node certificates */
+/** Required. Bucket location for node certificates. */
 @property(nonatomic, copy, nullable) NSString *bucketNameNodeCertificates;
 
-/** Required. pacemaker cluster name */
+/** Required. Pacemaker cluster name. */
 @property(nonatomic, copy, nullable) NSString *pacemakerCluster;
 
-/** Required. pacemaker cluster secret name */
+/** Required. Pacemaker cluster secret name. */
 @property(nonatomic, copy, nullable) NSString *pacemakerClusterSecret;
 
-/** Required. pacemaker cluster username */
+/** Required. Pacemaker cluster username. */
 @property(nonatomic, copy, nullable) NSString *pacemakerClusterUsername;
 
-/** Required. sql pacemaker secret name */
+/** Required. SQL Pacemaker secret name. */
 @property(nonatomic, copy, nullable) NSString *sqlPacemakerSecret;
 
-/** Required. sql pacemaker username */
+/** Required. SQL Pacemaker username. */
 @property(nonatomic, copy, nullable) NSString *sqlPacemakerUsername;
 
 @end
@@ -4820,7 +4827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for sap system workload
+ *  Message for SAP system workload.
  */
 @interface GTLRWorkloadManager_SapSystemS4Config : GTLRObject
 
@@ -4832,19 +4839,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, strong, nullable) NSNumber *allowStoppingForUpdate;
 
 /**
- *  Ansible runner service account - let custoemrs bring their own SA for
- *  Ansible runner
+ *  Ansible runner service account. Let customers bring their own service
+ *  account for the Ansible runner.
  */
 @property(nonatomic, copy, nullable) NSString *ansibleRunnerServiceAccount;
 
-/** instance details */
+/** Instance details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_AppDetails *app;
 
-/** database details */
+/** Database details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_DatabaseDetails *database;
 
 /**
- *  Required. two model non-HA and HA supported
+ *  Required. Supports non-HA and HA models.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_DeploymentModel_DeploymentModelUnspecified
@@ -4857,50 +4864,50 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, copy, nullable) NSString *deploymentModel;
 
 /**
- *  Required. deployment environment
+ *  Required. Deployment environment.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_EnvironmentTypeUnspecified
- *        Unspecified environment type (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *        Unspecified environment type. (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_NonProduction
- *        Non-production environment type (Value: "NON_PRODUCTION")
+ *        Non-production environment type. (Value: "NON_PRODUCTION")
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_Production
- *        Production environment type (Value: "PRODUCTION")
+ *        Production environment type. (Value: "PRODUCTION")
  */
 @property(nonatomic, copy, nullable) NSString *environmentType;
 
 /**
- *  the project that infrastructure deployed, current only support the same
- *  project where the deployment resource exist.
+ *  The project that infrastructure is deployed in. Currently only supports the
+ *  same project where the deployment resource exists.
  */
 @property(nonatomic, copy, nullable) NSString *gcpProjectId;
 
-/** database details */
+/** Database details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_LocationDetails *location;
 
-/** Required. media_bucket_name */
+/** Required. Media bucket name. */
 @property(nonatomic, copy, nullable) NSString *mediaBucketName;
 
-/** Optional. sap_boot_disk_image */
+/** Optional. SAP boot disk image. */
 @property(nonatomic, copy, nullable) NSString *sapBootDiskImage;
 
 /**
- *  Required. support scale up and scale out
+ *  Required. Supports scale up and scale out.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleMethodUnspecified
  *        Value "SCALE_METHOD_UNSPECIFIED"
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleOut
- *        Scale out: Combines multiple independent computers into one system
+ *        Scale out: Combines multiple independent computers into one system.
  *        (Value: "SCALE_OUT")
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleUp Scale
  *        up: Increases the size of a physical machine by increasing the amount
- *        of RAM and CPU available for processing (Value: "SCALE_UP")
+ *        of RAM and CPU available for processing. (Value: "SCALE_UP")
  */
 @property(nonatomic, copy, nullable) NSString *scalingMethod;
 
 /**
- *  Required. sap hana version
+ *  Required. SAP HANA version.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SapSystemS4Config_Version_S4Hana2021 Value
@@ -4914,7 +4921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
-/** vm_prefix */
+/** VM prefix. */
 @property(nonatomic, copy, nullable) NSString *vmPrefix;
 
 @end
@@ -5131,57 +5138,57 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Location and networking details for configuring SQL server workload
+ *  Location and networking details for configuring SQL server workload.
  */
 @interface GTLRWorkloadManager_SqlLocationDetails : GTLRObject
 
 /**
- *  Optional. create a new DNS Zone when the field is empty, Only show for
- *  `Using an existing DNS` List of existing DNS Zones tf variable name:
- *  existing_dns_zone_name
+ *  Optional. Create a new DNS zone when the field is empty. Only shown for
+ *  `Using an existing DNS`. List of existing DNS zones. Terraform variable
+ *  name: existing_dns_zone_name.
  */
 @property(nonatomic, copy, nullable) NSString *dnsZone;
 
 /**
- *  Required. the project that infrastructure deployed, currently only supports
- *  the same project where the deployment resource exists.
+ *  Required. The project that infrastructure is deployed in. Currently only
+ *  supports the same project where the deployment resource exists.
  */
 @property(nonatomic, copy, nullable) NSString *gcpProjectId;
 
 /**
- *  Required. Internet Access
+ *  Required. Internet Access.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_AllowExternalIp
- *        Allow external IP (Value: "ALLOW_EXTERNAL_IP")
+ *        Allow external IP. (Value: "ALLOW_EXTERNAL_IP")
  *    @arg @c kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_ConfigureNat
- *        Configure NAT (Value: "CONFIGURE_NAT")
+ *        Configure NAT. (Value: "CONFIGURE_NAT")
  *    @arg @c kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_InternetAccessUnspecified
- *        Unspecified internet access (Value: "INTERNET_ACCESS_UNSPECIFIED")
+ *        Unspecified internet access. (Value: "INTERNET_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *internetAccess;
 
-/** Required. network name */
+/** Required. Network name. */
 @property(nonatomic, copy, nullable) NSString *network;
 
-/** Required. primary zone */
+/** Required. Primary zone. */
 @property(nonatomic, copy, nullable) NSString *primaryZone;
 
-/** Required. region name */
+/** Required. Region name. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. secondary zone can't be same as primary_zone and is only for High
- *  Availability deployment mode
+ *  Optional. Secondary zone cannot be the same as primary_zone and is only for
+ *  High Availability deployment mode.
  */
 @property(nonatomic, copy, nullable) NSString *secondaryZone;
 
-/** Required. subnetwork name */
+/** Required. Subnetwork name. */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  Optional. teriary zone can't be same as primary_zone and secondary zone, and
- *  it is only for High Availability deployment mode
+ *  Optional. Tertiary zone cannot be the same as primary_zone and
+ *  secondary_zone, and it is only for High Availability deployment mode.
  */
 @property(nonatomic, copy, nullable) NSString *tertiaryZone;
 
@@ -5289,165 +5296,165 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for MS SQL workload
+ *  Message for MS SQL workload.
  */
 @interface GTLRWorkloadManager_SqlServerWorkload : GTLRObject
 
-/** Required. active directory details */
+/** Required. Active Directory details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ActiveDirectory *activeDirectory;
 
 /**
- *  Compute engine service account - let customers bring their own SA for
- *  Compute engine
+ *  Compute Engine service account. Let customers bring their own service
+ *  account for Compute Engine.
  */
 @property(nonatomic, copy, nullable) NSString *computeEngineServiceAccount;
 
-/** Required. database details */
+/** Required. Database details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Database *database;
 
 /**
- *  Required. HIGH_AVAILABILITY or SINGLE_INSTANCE
+ *  Required. HIGH_AVAILABILITY or SINGLE_INSTANCE.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_DeploymentModelUnspecified
- *        Unspecified deployment model (Value: "DEPLOYMENT_MODEL_UNSPECIFIED")
+ *        Unspecified deployment model. (Value: "DEPLOYMENT_MODEL_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_HighAvailability
- *        High Availability deployment model (Value: "HIGH_AVAILABILITY")
+ *        High Availability deployment model. (Value: "HIGH_AVAILABILITY")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_SingleInstance
- *        Single Instance deployment model (Value: "SINGLE_INSTANCE")
+ *        Single instance deployment model. (Value: "SINGLE_INSTANCE")
  */
 @property(nonatomic, copy, nullable) NSString *deploymentModel;
 
 /**
- *  Required. deployment environment
+ *  Required. Deployment environment.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_EnvironmentTypeUnspecified
- *        Unspecified environment type (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *        Unspecified environment type. (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_NonProduction
- *        Non-production environment type (Value: "NON_PRODUCTION")
+ *        Non-production environment type. (Value: "NON_PRODUCTION")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_Production
- *        Production environment type (Value: "PRODUCTION")
+ *        Production environment type. (Value: "PRODUCTION")
  */
 @property(nonatomic, copy, nullable) NSString *environmentType;
 
 /**
- *  Optional. SHARED_DISK or S2D
+ *  Optional. SHARED_DISK or S2D.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_FciType_FciTypeUnspecified
- *        Unspecified FCI type (Value: "FCI_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_FciType_S2d S2D FCI type
+ *        Unspecified FCI type. (Value: "FCI_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_FciType_S2d S2D FCI type.
  *        (Value: "S2D")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_FciType_SharedDisk SHARED
- *        DISK FCI type (Value: "SHARED_DISK")
+ *        DISK FCI type. (Value: "SHARED_DISK")
  */
 @property(nonatomic, copy, nullable) NSString *fciType;
 
 /**
- *  Optional. AOAG or FCI, it is only needed for High Availability deployment
- *  mode
+ *  Optional. AOAG or FCI. It is only needed for the High Availability
+ *  deployment mode.
  *
  *  Likely values:
- *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_HaType_Aoag AOAG HA type
+ *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_HaType_Aoag AOAG HA type.
  *        (Value: "AOAG")
- *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_HaType_Fci FCI HA type
+ *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_HaType_Fci FCI HA type.
  *        (Value: "FCI")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_HaType_HaTypeUnspecified
- *        Unspecified HA type (Value: "HA_TYPE_UNSPECIFIED")
+ *        Unspecified HA type. (Value: "HA_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *haType;
 
 /**
- *  Required. SQL licensing type
+ *  Required. SQL licensing type.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSqlPayg;
 
-/** Required. location details */
+/** Required. Location details. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SqlLocationDetails *location;
 
-/** Required. name of the media storing SQL server installation files */
+/** Required. Name of the media storing SQL server installation files. */
 @property(nonatomic, copy, nullable) NSString *mediaBucket;
 
 /**
- *  Required. type of the operating system the SQL server is going to run on top
- *  of
+ *  Required. The type of the operating system the SQL server is going to run on
+ *  top of.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_OperatingSystemTypeUnspecified
- *        Unspecified operating system type (Value:
+ *        Unspecified operating system type. (Value:
  *        "OPERATING_SYSTEM_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_RedHatEnterpriseLinux
- *        Red Hat Enterprise Linux operating system type (Value:
+ *        Red Hat Enterprise Linux operating system type. (Value:
  *        "RED_HAT_ENTERPRISE_LINUX")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Suse
- *        Suse operating system type (Value: "SUSE")
+ *        SUSE operating system type. (Value: "SUSE")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Ubuntu
- *        Ubuntu operating system type (Value: "UBUNTU")
+ *        Ubuntu operating system type. (Value: "UBUNTU")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Windows
- *        Windows operating system type (Value: "WINDOWS")
+ *        Windows operating system type. (Value: "WINDOWS")
  */
 @property(nonatomic, copy, nullable) NSString *operatingSystemType;
 
-/** Required. the image of the operating system */
+/** Required. The image of the operating system. */
 @property(nonatomic, copy, nullable) NSString *osImage;
 
 /**
- *  Optional. OS image type, it's used to create boot disks for VM instances
+ *  Optional. OS image type. It's used to create boot disks for VM instances.
  *  When either Windows licensing type or SQL licensing type is BYOL, this
- *  option is disabled and default to custom image
+ *  option is disabled and defaults to a custom image.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OsImageType_CustomImage
- *        Custom image (Value: "CUSTOM_IMAGE")
+ *        Custom image. (Value: "CUSTOM_IMAGE")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OsImageType_OsImageTypeUnspecified
- *        Unspecified OS image type (Value: "OS_IMAGE_TYPE_UNSPECIFIED")
+ *        Unspecified OS image type. (Value: "OS_IMAGE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_OsImageType_PublicImage
- *        Public image (Value: "PUBLIC_IMAGE")
+ *        Public image. (Value: "PUBLIC_IMAGE")
  */
 @property(nonatomic, copy, nullable) NSString *osImageType;
 
 /**
- *  Optional. pacemaker configuration, only applicable for Linux HA deployments
+ *  Optional. Pacemaker configuration, only applicable for Linux HA deployments.
  */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Pacemaker *pacemaker;
 
 /**
- *  Optional. SQL Server Edition type, only applicable when Operating System is
- *  Linux
+ *  Optional. SQL Server Edition type, only applicable when the operating system
+ *  is Linux.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeDeveloper
- *        Developer type (Value: "SQL_SERVER_EDITION_TYPE_DEVELOPER")
+ *        Developer type. (Value: "SQL_SERVER_EDITION_TYPE_DEVELOPER")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeEnterprise
- *        Enterprise type (Value: "SQL_SERVER_EDITION_TYPE_ENTERPRISE")
+ *        Enterprise type. (Value: "SQL_SERVER_EDITION_TYPE_ENTERPRISE")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeStandard
- *        Standard type (Value: "SQL_SERVER_EDITION_TYPE_STANDARD")
+ *        Standard type. (Value: "SQL_SERVER_EDITION_TYPE_STANDARD")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeUnspecified
- *        Unspecified type (Value: "SQL_SERVER_EDITION_TYPE_UNSPECIFIED")
+ *        Unspecified type. (Value: "SQL_SERVER_EDITION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeWeb
- *        Web type (Value: "SQL_SERVER_EDITION_TYPE_WEB")
+ *        Web type. (Value: "SQL_SERVER_EDITION_TYPE_WEB")
  */
 @property(nonatomic, copy, nullable) NSString *sqlServerEdition;
 
 /**
- *  Optional. 2017 or 2019 or 2022
+ *  Optional. 2017, 2019, or 2022.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2017
- *        2017 type (Value: "SQL_SERVER_VERSION_TYPE_2017")
+ *        2017 type. (Value: "SQL_SERVER_VERSION_TYPE_2017")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2019
- *        2019 type (Value: "SQL_SERVER_VERSION_TYPE_2019")
+ *        2019 type. (Value: "SQL_SERVER_VERSION_TYPE_2019")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2022
- *        2022 type (Value: "SQL_SERVER_VERSION_TYPE_2022")
+ *        2022 type. (Value: "SQL_SERVER_VERSION_TYPE_2022")
  *    @arg @c kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionTypeUnspecified
- *        Unspecified type (Value: "SQL_SERVER_VERSION_TYPE_UNSPECIFIED")
+ *        Unspecified type. (Value: "SQL_SERVER_VERSION_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sqlServerVersion;
 
-/** Required. should be unique in the project */
+/** Required. Should be unique in the project. */
 @property(nonatomic, copy, nullable) NSString *vmPrefix;
 
 @end
@@ -5528,10 +5535,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  In order to align with Infra Manager dependency, we create the same
+ *  In order to align with the Infra Manager dependency, we create the same
  *  TerraformVariable message to represent a Terraform input variable, by
  *  following Infra Manager's API documentation:
- *  https://cloud.google.com/infrastructure-manager/docs/reference/rest A
+ *  https://cloud.google.com/infrastructure-manager/docs/reference/rest. A
  *  Terraform input variable.
  */
 @interface GTLRWorkloadManager_TerraformVariable : GTLRObject

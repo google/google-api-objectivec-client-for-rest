@@ -24,6 +24,7 @@
 @class GTLRPostmasterTools_DateList;
 @class GTLRPostmasterTools_DateRange;
 @class GTLRPostmasterTools_DateRanges;
+@class GTLRPostmasterTools_DeliverabilityStatusVerdict;
 @class GTLRPostmasterTools_Domain;
 @class GTLRPostmasterTools_DomainComplianceData;
 @class GTLRPostmasterTools_DomainStat;
@@ -37,6 +38,7 @@
 @class GTLRPostmasterTools_Status_Details_Item;
 @class GTLRPostmasterTools_StringList;
 @class GTLRPostmasterTools_TimeQuery;
+@class GTLRPostmasterTools_User;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -243,8 +245,100 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRPostmasterTools_CreateUserRequest.permission
+
+/**
+ *  User has admin access to the domain.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_Admin;
+/**
+ *  User has no access to the domain.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_None;
+/**
+ *  User has owner access to the domain.
+ *
+ *  Value: "OWNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_Owner;
+/**
+ *  Unspecified permission.
+ *
+ *  Value: "PERMISSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_PermissionUnspecified;
+/**
+ *  User has read access to the domain.
+ *
+ *  Value: "READER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_Reader;
+
+// ----------------------------------------------------------------------------
+// GTLRPostmasterTools_DeliverabilityStatusVerdict.reason
+
+/**
+ *  Not enough outgoing email.
+ *
+ *  Value: "MESSAGE_VOLUME_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_MessageVolumeLow;
+/**
+ *  Unspecified.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_ReasonUnspecified;
+/**
+ *  The sender does not meet the sender requirements.
+ *
+ *  Value: "SENDER_NOT_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SenderNotCompliant;
+/**
+ *  Many messages with delivery errors.
+ *
+ *  Value: "SMTP_ERRORS_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SmtpErrorsHigh;
+/**
+ *  The spam rate is above 0.1%.
+ *
+ *  Value: "SPAM_RATE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SpamRateHigh;
+/**
+ *  Users do not take action on messages.
+ *
+ *  Value: "USER_FEEDBACK_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackLow;
+/**
+ *  Indicates users do not want to receive email messages.
+ *
+ *  Value: "USER_FEEDBACK_NEGATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackNegative;
+/**
+ *  Users signal they want to receive email messages.
+ *
+ *  Value: "USER_FEEDBACK_POSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackPositive;
+
+// ----------------------------------------------------------------------------
 // GTLRPostmasterTools_Domain.permission
 
+/**
+ *  User has admin access to the domain.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_Domain_Permission_Admin;
 /**
  *  User has no access to the domain.
  *
@@ -291,6 +385,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_Domain_VerificationState
  *  Value: "VERIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_Domain_VerificationState_Verified;
+
+// ----------------------------------------------------------------------------
+// GTLRPostmasterTools_DomainVerificationToken.verificationMethod
+
+/**
+ *  Generate a DNS CNAME verification token.
+ *
+ *  Value: "CNAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_Cname;
+/**
+ *  Unspecified.
+ *
+ *  Value: "DOMAIN_VERIFICATION_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_DomainVerificationMethodUnspecified;
+/**
+ *  Generate a DNS TXT verification token.
+ *
+ *  Value: "TXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_Txt;
 
 // ----------------------------------------------------------------------------
 // GTLRPostmasterTools_HonorUnsubscribeVerdict.reason
@@ -377,6 +493,62 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
  *  Value: "OVERALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranularity_Overall;
+
+// ----------------------------------------------------------------------------
+// GTLRPostmasterTools_User.permission
+
+/**
+ *  User has admin access to the domain.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_User_Permission_Admin;
+/**
+ *  User has no access to the domain.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_User_Permission_None;
+/**
+ *  User has owner access to the domain.
+ *
+ *  Value: "OWNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_User_Permission_Owner;
+/**
+ *  Unspecified permission.
+ *
+ *  Value: "PERMISSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_User_Permission_PermissionUnspecified;
+/**
+ *  User has read access to the domain.
+ *
+ *  Value: "READER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_User_Permission_Reader;
+
+// ----------------------------------------------------------------------------
+// GTLRPostmasterTools_VerifyDomainRequest.verificationMethod
+
+/**
+ *  Generate a DNS CNAME verification token.
+ *
+ *  Value: "CNAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_Cname;
+/**
+ *  Unspecified.
+ *
+ *  Value: "DOMAIN_VERIFICATION_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_DomainVerificationMethodUnspecified;
+/**
+ *  Generate a DNS TXT verification token.
+ *
+ *  Value: "TXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_Txt;
 
 /**
  *  Specifies the base metric to query, which can be a predefined standard
@@ -575,6 +747,48 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
 
 
 /**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Request message for CreateDomain.
+ */
+@interface GTLRPostmasterTools_CreateDomainRequest : GTLRObject
+
+/** Required. The domain to add. e.g., "example.com" */
+@property(nonatomic, copy, nullable) NSString *domainId;
+
+@end
+
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Request message for CreateUser.
+ */
+@interface GTLRPostmasterTools_CreateUserRequest : GTLRObject
+
+/**
+ *  Optional. Specifies the permission level to give the user for the specified
+ *  domain. If not specified, the default value for this field is READER.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPostmasterTools_CreateUserRequest_Permission_Admin User has
+ *        admin access to the domain. (Value: "ADMIN")
+ *    @arg @c kGTLRPostmasterTools_CreateUserRequest_Permission_None User has no
+ *        access to the domain. (Value: "NONE")
+ *    @arg @c kGTLRPostmasterTools_CreateUserRequest_Permission_Owner User has
+ *        owner access to the domain. (Value: "OWNER")
+ *    @arg @c kGTLRPostmasterTools_CreateUserRequest_Permission_PermissionUnspecified
+ *        Unspecified permission. (Value: "PERMISSION_UNSPECIFIED")
+ *    @arg @c kGTLRPostmasterTools_CreateUserRequest_Permission_Reader User has
+ *        read access to the domain. (Value: "READER")
+ */
+@property(nonatomic, copy, nullable) NSString *permission;
+
+/** Required. The user to create. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
@@ -651,6 +865,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
 
 
 /**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Verdict of domain deliverability status.
+ */
+@interface GTLRPostmasterTools_DeliverabilityStatusVerdict : GTLRObject
+
+/**
+ *  Output only. The specific reason for the compliance verdict.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_MessageVolumeLow
+ *        Not enough outgoing email. (Value: "MESSAGE_VOLUME_LOW")
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_ReasonUnspecified
+ *        Unspecified. (Value: "REASON_UNSPECIFIED")
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SenderNotCompliant
+ *        The sender does not meet the sender requirements. (Value:
+ *        "SENDER_NOT_COMPLIANT")
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SmtpErrorsHigh
+ *        Many messages with delivery errors. (Value: "SMTP_ERRORS_HIGH")
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SpamRateHigh
+ *        The spam rate is above 0.1%. (Value: "SPAM_RATE_HIGH")
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackLow
+ *        Users do not take action on messages. (Value: "USER_FEEDBACK_LOW")
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackNegative
+ *        Indicates users do not want to receive email messages. (Value:
+ *        "USER_FEEDBACK_NEGATIVE")
+ *    @arg @c kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackPositive
+ *        Users signal they want to receive email messages. (Value:
+ *        "USER_FEEDBACK_POSITIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** Output only. The compliance state. */
+@property(nonatomic, strong, nullable) GTLRPostmasterTools_ComplianceStatus *state;
+
+@end
+
+
+/**
  *  Information about a domain registered by the user.
  */
 @interface GTLRPostmasterTools_Domain : GTLRObject
@@ -675,6 +927,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
  *  Output only. User's permission of this domain.
  *
  *  Likely values:
+ *    @arg @c kGTLRPostmasterTools_Domain_Permission_Admin User has admin access
+ *        to the domain. (Value: "ADMIN")
  *    @arg @c kGTLRPostmasterTools_Domain_Permission_None User has no access to
  *        the domain. (Value: "NONE")
  *    @arg @c kGTLRPostmasterTools_Domain_Permission_Owner User has owner access
@@ -707,6 +961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
  *  Compliance data for a given domain.
  */
 @interface GTLRPostmasterTools_DomainComplianceData : GTLRObject
+
+/** Output only. Deliverability status verdict. */
+@property(nonatomic, strong, nullable) GTLRPostmasterTools_DeliverabilityStatusVerdict *deliverabilityStatusVerdict;
 
 /** Domain that this data is for. */
 @property(nonatomic, copy, nullable) NSString *domainId;
@@ -788,6 +1045,47 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
 
 
 /**
+ *  [Developer Preview](https://developers.google.com/workspace/preview): The
+ *  DNS token a user can use to verify ownership of a domain.
+ */
+@interface GTLRPostmasterTools_DomainVerificationToken : GTLRObject
+
+/**
+ *  Identifier. The resource name of the domain verification token. Format:
+ *  domains/{domain}/verificationToken
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The verification token. */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  The verification method used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_Cname
+ *        Generate a DNS CNAME verification token. (Value: "CNAME")
+ *    @arg @c kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_DomainVerificationMethodUnspecified
+ *        Unspecified. (Value: "DOMAIN_VERIFICATION_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_Txt
+ *        Generate a DNS TXT verification token. (Value: "TXT")
+ */
+@property(nonatomic, copy, nullable) NSString *verificationMethod;
+
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRPostmasterTools_Empty : GTLRObject
+@end
+
+
+/**
  *  Compliance verdict for whether a sender meets the unsubscribe honoring
  *  compliance requirement.
  */
@@ -843,6 +1141,34 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
  *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Response message for ListUsers.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "users" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPostmasterTools_ListUsersResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The users that have access to the domain.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPostmasterTools_User *> *users;
 
 @end
 
@@ -1092,6 +1418,78 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_
 /** A list of date ranges. */
 @property(nonatomic, strong, nullable) GTLRPostmasterTools_DateRanges *dateRanges;
 
+@end
+
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Information about a user's access to a domain.
+ */
+@interface GTLRPostmasterTools_User : GTLRObject
+
+/** Output only. The user that added the current user. */
+@property(nonatomic, copy, nullable) NSString *accessGranter;
+
+/** Output only. The time the user was granted access. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The resource name of the user. Format: users/{user} Note: {user}
+ *  is the user's email address.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The permission level that the user has for the specified domain.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPostmasterTools_User_Permission_Admin User has admin access
+ *        to the domain. (Value: "ADMIN")
+ *    @arg @c kGTLRPostmasterTools_User_Permission_None User has no access to
+ *        the domain. (Value: "NONE")
+ *    @arg @c kGTLRPostmasterTools_User_Permission_Owner User has owner access
+ *        to the domain. (Value: "OWNER")
+ *    @arg @c kGTLRPostmasterTools_User_Permission_PermissionUnspecified
+ *        Unspecified permission. (Value: "PERMISSION_UNSPECIFIED")
+ *    @arg @c kGTLRPostmasterTools_User_Permission_Reader User has read access
+ *        to the domain. (Value: "READER")
+ */
+@property(nonatomic, copy, nullable) NSString *permission;
+
+/** The user's email address. */
+@property(nonatomic, copy, nullable) NSString *user;
+
+@end
+
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Request message for VerifyDomain.
+ */
+@interface GTLRPostmasterTools_VerifyDomainRequest : GTLRObject
+
+/**
+ *  Required. The verification method used. Must be specified, i.e. TXT or
+ *  CNAME.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_Cname
+ *        Generate a DNS CNAME verification token. (Value: "CNAME")
+ *    @arg @c kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_DomainVerificationMethodUnspecified
+ *        Unspecified. (Value: "DOMAIN_VERIFICATION_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_Txt
+ *        Generate a DNS TXT verification token. (Value: "TXT")
+ */
+@property(nonatomic, copy, nullable) NSString *verificationMethod;
+
+@end
+
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Response message for VerifyDomain.
+ */
+@interface GTLRPostmasterTools_VerifyDomainResponse : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

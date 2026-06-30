@@ -985,13 +985,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 // GTLRTagManager_VariableFormatValue.convertToNumber
 
 /**
- *  The option to convert a variable value to a number with automatic decimal
- *  separator detection.
- *
- *  Value: "automatic"
- */
-FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Automatic;
-/**
  *  The option to convert a variable value to a number with a comma as the
  *  decimal separator.
  *
@@ -3796,9 +3789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertTo
  *  The option to convert a variable value to a number.
  *
  *  Likely values:
- *    @arg @c kGTLRTagManager_VariableFormatValue_ConvertToNumber_Automatic The
- *        option to convert a variable value to a number with automatic decimal
- *        separator detection. (Value: "automatic")
  *    @arg @c kGTLRTagManager_VariableFormatValue_ConvertToNumber_Comma The
  *        option to convert a variable value to a number with a comma as the
  *        decimal separator. (Value: "comma")

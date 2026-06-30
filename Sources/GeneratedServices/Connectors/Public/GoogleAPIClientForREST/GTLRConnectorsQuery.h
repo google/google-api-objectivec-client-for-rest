@@ -829,6 +829,43 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @end
 
 /**
+ *  Executes a generic HTTP request. This supports all payload formats including
+ *  REST/JSON, GraphQL, XML, SOAP, and Multipart by passing the rendered payload
+ *  as raw bytes.
+ *
+ *  Method: connectors.projects.locations.connections.executeHttpRequest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteHttpRequest : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Connection. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_ExecuteHttpRequestResponse.
+ *
+ *  Executes a generic HTTP request. This supports all payload formats including
+ *  REST/JSON, GraphQL, XML, SOAP, and Multipart by passing the rendered payload
+ *  as raw bytes.
+ *
+ *  @param object The @c GTLRConnectors_ExecuteHttpRequestRequest to include in
+ *    the query.
+ *  @param name Required. Resource name of the Connection. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteHttpRequest
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteHttpRequestRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Executes a SQL statement specified in the body of the request. An example of
  *  this SQL statement in the case of Salesforce connector would be 'select *
  *  from Account a, Order o where a.Id = o.AccountId'.

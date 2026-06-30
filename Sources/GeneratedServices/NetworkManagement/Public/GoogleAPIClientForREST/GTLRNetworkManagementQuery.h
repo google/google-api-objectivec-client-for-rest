@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 // monitoringPointType
 
 /**
+ *  Monitoring Point that runs as a startup script in an AWS EC2 instance.
+ *
+ *  Value: "AWS_EC2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeAwsEc2;
+/**
  *  Monitoring Point that runs as a startup script in an Azure VM.
  *
  *  Value: "AZURE_VM"
@@ -1542,6 +1548,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagementMonitoringPointTypeVmwa
  *        "GCE_VM")
  *    @arg @c kGTLRNetworkManagementMonitoringPointTypeAzureVm Monitoring Point
  *        that runs as a startup script in an Azure VM. (Value: "AZURE_VM")
+ *    @arg @c kGTLRNetworkManagementMonitoringPointTypeAwsEc2 Monitoring Point
+ *        that runs as a startup script in an AWS EC2 instance. (Value:
+ *        "AWS_EC2")
  */
 @property(nonatomic, copy, nullable) NSString *monitoringPointType;
 

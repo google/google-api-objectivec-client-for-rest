@@ -16,8 +16,14 @@
 
 @class GTLRTravelImpactModel_Date;
 @class GTLRTravelImpactModel_EasaLabelMetadata;
+@class GTLRTravelImpactModel_EmissionsBreakdown;
 @class GTLRTravelImpactModel_EmissionsGramsPerPax;
+@class GTLRTravelImpactModel_EmissionsMetadata;
+@class GTLRTravelImpactModel_EmissionsProvenance;
+@class GTLRTravelImpactModel_EmissionsProvenanceEntry;
 @class GTLRTravelImpactModel_Flight;
+@class GTLRTravelImpactModel_FlightEmissionsDetails;
+@class GTLRTravelImpactModel_FlightWithDetailedEmissions;
 @class GTLRTravelImpactModel_FlightWithEmissions;
 @class GTLRTravelImpactModel_Market;
 @class GTLRTravelImpactModel_ModelVersion;
@@ -34,6 +40,360 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.cargoMassFractionT100Strategy
+
+/**
+ *  Historical data matching carrier, route, year, month, and aircraft class.
+ *
+ *  Value: "ACTUAL_CARRIER_ROUTE_YEAR_MONTH_AIRCRAFT_CLASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_ActualCarrierRouteYearMonthAircraftClass;
+/**
+ *  Data by carrier, route, and aircraft class.
+ *
+ *  Value: "CARRIER_ROUTE_AIRCRAFT_CLASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_CarrierRouteAircraftClass;
+/**
+ *  Data by distance band and aircraft class.
+ *
+ *  Value: "DISTANCE_AIRCRAFT_CLASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_DistanceAircraftClass;
+/**
+ *  Data by route and aircraft class.
+ *
+ *  Value: "ROUTE_AIRCRAFT_CLASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_RouteAircraftClass;
+/**
+ *  Strategy unspecified.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_StrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.dataCategory
+
+/**
+ *  Data category unspecified.
+ *
+ *  Value: "DATA_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_DataCategoryUnspecified;
+/**
+ *  Default value data, as defined in ISO 14083.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Default;
+/**
+ *  Modeled data, as defined in ISO 14083.
+ *
+ *  Value: "MODELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Modeled;
+/**
+ *  Primary data, as defined in ISO 14083.
+ *
+ *  Value: "PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Primary;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.distanceAdjustmentStrategy
+
+/**
+ *  Distance adjustment factor determined by origin and destination country
+ *  pair.
+ *
+ *  Value: "COUNTRY_PAIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_CountryPair;
+/**
+ *  The distance adjustment factor is based on the default value because we did
+ *  not find an airport- or country-specific adjustment factor.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_Default;
+/**
+ *  Distance adjustment factor determined by origin and destination airport
+ *  pair.
+ *
+ *  Value: "ORIGIN_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_OriginDestination;
+/**
+ *  Strategy unspecified.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_StrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.fuelBurnEeaStrategy
+
+/**
+ *  Exact aircraft mapping was used.
+ *
+ *  Value: "AIRCRAFT_MAPPING_EXACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingExact;
+/**
+ *  Fallback aircraft mapping was used.
+ *
+ *  Value: "AIRCRAFT_MAPPING_FALLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingFallback;
+/**
+ *  A static correction factor was applied.
+ *
+ *  Value: "AIRCRAFT_MAPPING_FALLBACK_WITH_CORRECTION_FACTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingFallbackWithCorrectionFactor;
+/**
+ *  Strategy unspecified.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_StrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.loadFactorsChAviationStrategy
+
+/**
+ *  Historical data matching carrier, year, and month.
+ *
+ *  Value: "ACTUAL_CARRIER_YEAR_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_ActualCarrierYearMonth;
+/**
+ *  Data by carrier and month of travel.
+ *
+ *  Value: "CARRIER_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_CarrierMonth;
+/**
+ *  Strategy unspecified.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_StrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.loadFactorsT100Strategy
+
+/**
+ *  Historical data matching carrier, route, year, and month.
+ *
+ *  Value: "ACTUAL_CARRIER_ROUTE_YEAR_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_ActualCarrierRouteYearMonth;
+/**
+ *  Data by carrier and month of travel.
+ *
+ *  Value: "CARRIER_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_CarrierMonth;
+/**
+ *  Data by carrier, route, and month of travel.
+ *
+ *  Value: "CARRIER_ROUTE_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_CarrierRouteMonth;
+/**
+ *  Strategy unspecified.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_StrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.provenanceEntryType
+
+/**
+ *  Cargo mass fraction entry type.
+ *
+ *  Value: "CARGO_MASS_FRACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_CargoMassFraction;
+/**
+ *  Distance adjustment entry type.
+ *
+ *  Value: "DISTANCE_ADJUSTMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_DistanceAdjustment;
+/**
+ *  Unspecified provenance entry type.
+ *
+ *  Value: "EMISSIONS_PROVENANCE_ENTRY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_EmissionsProvenanceEntryTypeUnspecified;
+/**
+ *  Fuel burn entry type.
+ *
+ *  Value: "FUEL_BURN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_FuelBurn;
+/**
+ *  Load factors entry type.
+ *
+ *  Value: "LOAD_FACTORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_LoadFactors;
+/**
+ *  Seat area ratios entry type.
+ *
+ *  Value: "SEAT_AREA_RATIOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_SeatAreaRatios;
+/**
+ *  Seating configuration entry type.
+ *
+ *  Value: "SEATING_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_SeatingConfig;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.seatAreaRatioIataStrategy
+
+/**
+ *  Seat area ratios for narrow body aircraft were used.
+ *
+ *  Value: "NARROW_AIRCRAFT_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_NarrowAircraftBody;
+/**
+ *  Strategy unspecified.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_StrategyUnspecified;
+/**
+ *  Seat area ratios for wide body aircraft were used.
+ *
+ *  Value: "WIDE_AIRCRAFT_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_WideAircraftBody;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_EmissionsProvenanceEntry.source
+
+/**
+ *  Typical data based on the aircraft model.
+ *
+ *  Value: "AIRCRAFT_MODEL_TYPICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_AircraftModelTypical;
+/**
+ *  Data provided by ch-aviation.
+ *
+ *  Value: "CH_AVIATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_ChAviation;
+/**
+ *  Data source unspecified.
+ *
+ *  Value: "DATA_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_DataSourceUnspecified;
+/**
+ *  Data provided by the European Environment Agency (EEA).
+ *
+ *  Value: "EEA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Eea;
+/**
+ *  A global default value, used when no other data source is available.
+ *
+ *  Value: "GLOBAL_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_GlobalDefault;
+/**
+ *  Data provided by the International Air Transport Association (IATA).
+ *
+ *  Value: "IATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Iata;
+/**
+ *  Data provided by Imperial College London.
+ *
+ *  Value: "ICL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Icl;
+/**
+ *  Data provided by the Official Aviation Guide (OAG).
+ *
+ *  Value: "OAG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Oag;
+/**
+ *  Data provided by the operating carrier.
+ *
+ *  Value: "OPERATING_CARRIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_OperatingCarrier;
+/**
+ *  Data from the T-100 dataset, provided by the US Bureau of Transportation
+ *  Statistics.
+ *
+ *  Value: "T100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_T100;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_FlightEmissionsDetails.contrailsImpactBucket
+
+/**
+ *  The contrails impact is comparable to the total CO2e emissions.
+ *
+ *  Value: "CONTRAILS_IMPACT_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactModerate;
+/**
+ *  The contrails impact is negligible compared to the total CO2e emissions.
+ *
+ *  Value: "CONTRAILS_IMPACT_NEGLIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactNegligible;
+/**
+ *  The contrails impact is higher than the total CO2e emissions impact.
+ *
+ *  Value: "CONTRAILS_IMPACT_SEVERE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactSevere;
+/**
+ *  The contrails impact is unspecified.
+ *
+ *  Value: "CONTRAILS_IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_FlightEmissionsDetails.source
+
+/**
+ *  The emissions data is from the EASA environmental labels.
+ *
+ *  Value: "EASA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_Source_Easa;
+/**
+ *  The source of the emissions data is unspecified.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_Source_SourceUnspecified;
+/**
+ *  The emissions data is from the Travel Impact Model.
+ *
+ *  Value: "TIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightEmissionsDetails_Source_Tim;
 
 // ----------------------------------------------------------------------------
 // GTLRTravelImpactModel_FlightWithEmissions.contrailsImpactBucket
@@ -147,6 +507,34 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
  *  Value: "PREMIUM_ECONOMY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEconomy;
+
+/**
+ *  Input definition for the ComputeDetailedFlightEmissions request.
+ */
+@interface GTLRTravelImpactModel_ComputeDetailedFlightEmissionsRequest : GTLRObject
+
+/** Required. Direct flights to return emission estimates for. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_Flight *> *flights;
+
+@end
+
+
+/**
+ *  Output definition for the ComputeDetailedFlightEmissions response.
+ */
+@interface GTLRTravelImpactModel_ComputeDetailedFlightEmissionsResponse : GTLRObject
+
+/** List of flight legs with emission estimates. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_FlightWithDetailedEmissions *> *flightsWithDetailedEmissions;
+
+/**
+ *  The model version under which emission estimates for all flights in this
+ *  response were computed.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_ModelVersion *modelVersion;
+
+@end
+
 
 /**
  *  Input definition for the ComputeFlightEmissions request.
@@ -313,6 +701,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 
 
 /**
+ *  Details about the various emissions portions of the total
+ *  emissions_grams_per_pax value. The value of the summed breakdowns should
+ *  always equal emissions_grams_per_pax.
+ */
+@interface GTLRTravelImpactModel_EmissionsBreakdown : GTLRObject
+
+/**
+ *  Per-passenger tank-to-wake emission estimate numbers. Will not be present if
+ *  emissions could not be computed. For the list of reasons why emissions could
+ *  not be computed, see ComputeFlightEmissions.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *ttwEmissionsGramsPerPax;
+
+/**
+ *  Per-passenger well-to-tank emission estimate numbers. Will not be present if
+ *  emissions could not be computed. For the list of reasons why emissions could
+ *  not be computed, see ComputeFlightEmissions.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *wttEmissionsGramsPerPax;
+
+@end
+
+
+/**
  *  Grouped emissions per seating class results.
  */
 @interface GTLRTravelImpactModel_EmissionsGramsPerPax : GTLRObject
@@ -357,6 +769,251 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 
 
 /**
+ *  All additional metadata.
+ */
+@interface GTLRTravelImpactModel_EmissionsMetadata : GTLRObject
+
+/**
+ *  Output only. Metadata about the EASA Flight Emissions Label. Only set when
+ *  the emissions data source is EASA.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EasaLabelMetadata *easaLabelMetadata;
+
+/**
+ *  Output only. Details about the provenance of data used to calculate the
+ *  emissions data, including the contributing factors with their data sources.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsProvenance *emissionsProvenance;
+
+/**
+ *  Output only. Link to the `travelimpactmodel.org` Emissions Calculator
+ *  website. Example:
+ *  https://travelimpactmodel.org/lookup/flight?itinerary=ZRH-BOS-LX-52-20261225.
+ */
+@property(nonatomic, copy, nullable) NSString *timWebsiteEmissionsCalculatorUrl;
+
+@end
+
+
+/**
+ *  Information about the provenance of the data used to calculate emissions
+ *  estimates, including contributing factors and their data sources.
+ */
+@interface GTLRTravelImpactModel_EmissionsProvenance : GTLRObject
+
+/** Output only. All contributing factors used to calculate emissions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_EmissionsProvenanceEntry *> *provenanceEntries;
+
+@end
+
+
+/**
+ *  Details about a single contributing factor in emissions calculations.
+ */
+@interface GTLRTravelImpactModel_EmissionsProvenanceEntry : GTLRObject
+
+/**
+ *  Output only. The cargo mass fraction value. If not set, the cargo mass
+ *  fraction value is not available.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cargoMassFractionData;
+
+/**
+ *  Output only. Strategy for T100 cargo mass fraction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_ActualCarrierRouteYearMonthAircraftClass
+ *        Historical data matching carrier, route, year, month, and aircraft
+ *        class. (Value: "ACTUAL_CARRIER_ROUTE_YEAR_MONTH_AIRCRAFT_CLASS")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_CarrierRouteAircraftClass
+ *        Data by carrier, route, and aircraft class. (Value:
+ *        "CARRIER_ROUTE_AIRCRAFT_CLASS")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_DistanceAircraftClass
+ *        Data by distance band and aircraft class. (Value:
+ *        "DISTANCE_AIRCRAFT_CLASS")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_RouteAircraftClass
+ *        Data by route and aircraft class. (Value: "ROUTE_AIRCRAFT_CLASS")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_CargoMassFractionT100Strategy_StrategyUnspecified
+ *        Strategy unspecified. (Value: "STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *cargoMassFractionT100Strategy;
+
+/**
+ *  Output only. Data category of the data source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_DataCategoryUnspecified
+ *        Data category unspecified. (Value: "DATA_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Default
+ *        Default value data, as defined in ISO 14083. (Value: "DEFAULT")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Modeled
+ *        Modeled data, as defined in ISO 14083. (Value: "MODELED")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DataCategory_Primary
+ *        Primary data, as defined in ISO 14083. (Value: "PRIMARY")
+ */
+@property(nonatomic, copy, nullable) NSString *dataCategory;
+
+/**
+ *  Output only. Strategy for distance adjustment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_CountryPair
+ *        Distance adjustment factor determined by origin and destination
+ *        country pair. (Value: "COUNTRY_PAIR")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_Default
+ *        The distance adjustment factor is based on the default value because
+ *        we did not find an airport- or country-specific adjustment factor.
+ *        (Value: "DEFAULT")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_OriginDestination
+ *        Distance adjustment factor determined by origin and destination
+ *        airport pair. (Value: "ORIGIN_DESTINATION")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_DistanceAdjustmentStrategy_StrategyUnspecified
+ *        Strategy unspecified. (Value: "STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *distanceAdjustmentStrategy;
+
+/**
+ *  Output only. The estimated distance flown in CCD flight phase in kilometers
+ *  value calculated using the distance adjustment factor (DAF). If not set, the
+ *  estimated flight distance value is not available.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedFlightDistanceKm;
+
+/**
+ *  Output only. Strategy for EEA fuel burn.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingExact
+ *        Exact aircraft mapping was used. (Value: "AIRCRAFT_MAPPING_EXACT")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingFallback
+ *        Fallback aircraft mapping was used. (Value:
+ *        "AIRCRAFT_MAPPING_FALLBACK")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_AircraftMappingFallbackWithCorrectionFactor
+ *        A static correction factor was applied. (Value:
+ *        "AIRCRAFT_MAPPING_FALLBACK_WITH_CORRECTION_FACTOR")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_FuelBurnEeaStrategy_StrategyUnspecified
+ *        Strategy unspecified. (Value: "STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fuelBurnEeaStrategy;
+
+/**
+ *  Output only. Strategy for CH Aviation load factors.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_ActualCarrierYearMonth
+ *        Historical data matching carrier, year, and month. (Value:
+ *        "ACTUAL_CARRIER_YEAR_MONTH")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_CarrierMonth
+ *        Data by carrier and month of travel. (Value: "CARRIER_MONTH")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsChAviationStrategy_StrategyUnspecified
+ *        Strategy unspecified. (Value: "STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadFactorsChAviationStrategy;
+
+/**
+ *  Output only. The load factors data value. If not set, the load factors value
+ *  is not available.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *loadFactorsData;
+
+/**
+ *  Output only. Strategy for T100 load factors.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_ActualCarrierRouteYearMonth
+ *        Historical data matching carrier, route, year, and month. (Value:
+ *        "ACTUAL_CARRIER_ROUTE_YEAR_MONTH")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_CarrierMonth
+ *        Data by carrier and month of travel. (Value: "CARRIER_MONTH")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_CarrierRouteMonth
+ *        Data by carrier, route, and month of travel. (Value:
+ *        "CARRIER_ROUTE_MONTH")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_LoadFactorsT100Strategy_StrategyUnspecified
+ *        Strategy unspecified. (Value: "STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadFactorsT100Strategy;
+
+/**
+ *  Output only. The type of the provenance entry.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_CargoMassFraction
+ *        Cargo mass fraction entry type. (Value: "CARGO_MASS_FRACTION")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_DistanceAdjustment
+ *        Distance adjustment entry type. (Value: "DISTANCE_ADJUSTMENT")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_EmissionsProvenanceEntryTypeUnspecified
+ *        Unspecified provenance entry type. (Value:
+ *        "EMISSIONS_PROVENANCE_ENTRY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_FuelBurn
+ *        Fuel burn entry type. (Value: "FUEL_BURN")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_LoadFactors
+ *        Load factors entry type. (Value: "LOAD_FACTORS")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_SeatAreaRatios
+ *        Seat area ratios entry type. (Value: "SEAT_AREA_RATIOS")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_SeatingConfig
+ *        Seating configuration entry type. (Value: "SEATING_CONFIG")
+ */
+@property(nonatomic, copy, nullable) NSString *provenanceEntryType;
+
+/**
+ *  Output only. Strategy for IATA seat area ratios.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_NarrowAircraftBody
+ *        Seat area ratios for narrow body aircraft were used. (Value:
+ *        "NARROW_AIRCRAFT_BODY")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_StrategyUnspecified
+ *        Strategy unspecified. (Value: "STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_SeatAreaRatioIataStrategy_WideAircraftBody
+ *        Seat area ratios for wide body aircraft were used. (Value:
+ *        "WIDE_AIRCRAFT_BODY")
+ */
+@property(nonatomic, copy, nullable) NSString *seatAreaRatioIataStrategy;
+
+/**
+ *  Output only. The source of the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_AircraftModelTypical
+ *        Typical data based on the aircraft model. (Value:
+ *        "AIRCRAFT_MODEL_TYPICAL")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_ChAviation
+ *        Data provided by ch-aviation. (Value: "CH_AVIATION")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_DataSourceUnspecified
+ *        Data source unspecified. (Value: "DATA_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Eea Data
+ *        provided by the European Environment Agency (EEA). (Value: "EEA")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_GlobalDefault
+ *        A global default value, used when no other data source is available.
+ *        (Value: "GLOBAL_DEFAULT")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Iata Data
+ *        provided by the International Air Transport Association (IATA).
+ *        (Value: "IATA")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Icl Data
+ *        provided by Imperial College London. (Value: "ICL")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_Oag Data
+ *        provided by the Official Aviation Guide (OAG). (Value: "OAG")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_OperatingCarrier
+ *        Data provided by the operating carrier. (Value: "OPERATING_CARRIER")
+ *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_Source_T100 Data
+ *        from the T-100 dataset, provided by the US Bureau of Transportation
+ *        Statistics. (Value: "T100")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** Output only. The version of the source data. For example, "2025/04". */
+@property(nonatomic, copy, nullable) NSString *sourceVersion;
+
+@end
+
+
+/**
  *  All details related to a single request item for a direct flight emission
  *  estimates.
  */
@@ -383,6 +1040,84 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 
 /** Required. IATA airport code for flight origin, e.g. "LHR". */
 @property(nonatomic, copy, nullable) NSString *origin;
+
+@end
+
+
+/**
+ *  Details about the specific flight's emissions.
+ */
+@interface GTLRTravelImpactModel_FlightEmissionsDetails : GTLRObject
+
+/**
+ *  Output only. The significance of contrails warming impact compared to the
+ *  total CO2e emissions impact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactModerate
+ *        The contrails impact is comparable to the total CO2e emissions.
+ *        (Value: "CONTRAILS_IMPACT_MODERATE")
+ *    @arg @c kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactNegligible
+ *        The contrails impact is negligible compared to the total CO2e
+ *        emissions. (Value: "CONTRAILS_IMPACT_NEGLIGIBLE")
+ *    @arg @c kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactSevere
+ *        The contrails impact is higher than the total CO2e emissions impact.
+ *        (Value: "CONTRAILS_IMPACT_SEVERE")
+ *    @arg @c kGTLRTravelImpactModel_FlightEmissionsDetails_ContrailsImpactBucket_ContrailsImpactUnspecified
+ *        The contrails impact is unspecified. (Value:
+ *        "CONTRAILS_IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contrailsImpactBucket;
+
+/**
+ *  Output only. Details about the various emissions portions of the total
+ *  emissions_grams_per_pax value. The value of the summed breakdowns should
+ *  always equal emissions_grams_per_pax.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsBreakdown *emissionsBreakdown;
+
+/**
+ *  Output only. Per-passenger emission estimate numbers. Will not be present if
+ *  emissions could not be computed. For the list of reasons why emissions could
+ *  not be computed, see ComputeDetailedFlightEmissions
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *emissionsGramsPerPax;
+
+/**
+ *  Output only. The source of the emissions data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_FlightEmissionsDetails_Source_Easa The
+ *        emissions data is from the EASA environmental labels. (Value: "EASA")
+ *    @arg @c kGTLRTravelImpactModel_FlightEmissionsDetails_Source_SourceUnspecified
+ *        The source of the emissions data is unspecified. (Value:
+ *        "SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_FlightEmissionsDetails_Source_Tim The
+ *        emissions data is from the Travel Impact Model. (Value: "TIM")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  Direct flight with emission estimates details.
+ */
+@interface GTLRTravelImpactModel_FlightWithDetailedEmissions : GTLRObject
+
+/**
+ *  Output only. Additional metadata about the flight emissions calculation.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsMetadata *emissionsMetadata;
+
+/**
+ *  Output only. Matches the flight identifiers in the request. Note: all IATA
+ *  codes are capitalized.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_Flight *flight;
+
+/** Output only. All the flight emissions data. */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_FlightEmissionsDetails *flightEmissionsDetails;
 
 @end
 

@@ -792,9 +792,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_CycleOptions *cycleOptions;
 
 /**
- *  Required. The parent resource name, which is the identifier of the partner.
+ *  Optional. Deprecated: Use the `parent` field in `GenerateUserSessionRequest`
+ *  instead. The parent resource name, which is the identifier of the partner.
  */
-@property(nonatomic, copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *parent GTLR_DEPRECATED;
 
 /** Required. The Subscription to be created. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_Subscription *subscription;

@@ -8412,7 +8412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Required. The size of the time window to group data points into before
- *  applying the aggregation functions.
+ *  applying the aggregation functions. Must be at least 1 second.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *windowSize;
 
@@ -8846,7 +8846,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) NSNumber *nap;
 
 /**
- *  Output only. Sleep and sleep stages algorithms finished processing.
+ *  Output only. Sleep and sleep stages algorithms finished processing. A `true`
+ *  value indicates whether all data processing for the session is complete. A
+ *  `false` value means sleep period is detected but sleep stages is still
+ *  processing.
  *
  *  Uses NSNumber of boolValue.
  */

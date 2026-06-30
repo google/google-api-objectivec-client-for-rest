@@ -13,6 +13,7 @@
 #endif
 
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisGroup;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisResult;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveImpact;
@@ -423,6 +424,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalDataBoundary;
 /**
+ *  Switzerland Data Boundary with Access Justifications
+ *
+ *  Value: "SWITZERLAND_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_SwitzerlandDataBoundaryWithAccessJustifications;
+/**
  *  United States (US) Data Boundary and Support
  *
  *  Value: "US_DATA_BOUNDARY_AND_SUPPORT"
@@ -448,6 +455,134 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "US_REGIONAL_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary.findingClass
+
+/**
+ *  A resource or resource group where high risk attack paths converge, based on
+ *  attack path simulations (APS).
+ *
+ *  Value: "CHOKEPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Chokepoint;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "FINDING_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_FindingClassUnspecified;
+/**
+ *  A potential weakness in a cloud resource or asset configuration that
+ *  increases risk.
+ *
+ *  Value: "MISCONFIGURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Misconfiguration;
+/**
+ *  A security observation that is for informational purposes.
+ *
+ *  Value: "OBSERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Observation;
+/**
+ *  A potential security risk that's due to a change in the security posture.
+ *
+ *  Value: "POSTURE_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_PostureViolation;
+/**
+ *  An error that prevents Security Command Center from functioning properly.
+ *
+ *  Value: "SCC_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_SccError;
+/**
+ *  A potential security risk to data assets that contain sensitive data.
+ *
+ *  Value: "SENSITIVE_DATA_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_SensitiveDataRisk;
+/**
+ *  The activity is unwanted or malicious.
+ *
+ *  Value: "THREAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Threat;
+/**
+ *  A combination of security issues that represent a more severe security
+ *  problem when taken together.
+ *
+ *  Value: "TOXIC_COMBINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_ToxicCombination;
+/**
+ *  A potential weakness in software that increases risk to confidentiality,
+ *  integrity, and availability.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Vulnerability;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary.severity
+
+/**
+ *  A critical vulnerability is easily discoverable by an external actor,
+ *  exploitable, and results in the direct ability to execute arbitrary code,
+ *  exfiltrate data, and otherwise gain additional access and privileges to
+ *  cloud resources and workloads. Examples include publicly accessible
+ *  unprotected user data and public SSH access with weak or no passwords. A
+ *  critical threat is a threat that can access, modify, or delete data or
+ *  execute unauthorized code within existing resources.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Critical;
+/**
+ *  A high-risk vulnerability can be easily discovered and exploited in
+ *  combination with other vulnerabilities to gain direct access and the ability
+ *  to execute arbitrary code, exfiltrate data, and otherwise gain additional
+ *  access and privileges to cloud resources and workloads. An example is a
+ *  database with weak or no passwords that is only accessible internally. This
+ *  database could easily be compromised by an actor that had access to the
+ *  internal network. A high-risk threat is a threat that can create new
+ *  computational resources in an environment but can't access data or execute
+ *  code in existing resources.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_High;
+/**
+ *  A low-risk vulnerability hampers a security organization's ability to detect
+ *  vulnerabilities or active threats in their deployment, or prevents the root
+ *  cause investigation of security issues. An example is monitoring and logs
+ *  being disabled for resource configurations and access. A low-risk threat is
+ *  a threat that has obtained minimal access to an environment but can't access
+ *  data, execute code, or create resources.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Low;
+/**
+ *  A medium-risk vulnerability can be used by an actor to gain access to
+ *  resources or privileges that enable them to eventually (through multiple
+ *  steps or a complex exploit) gain access and the ability to execute arbitrary
+ *  code or exfiltrate data. An example is a service account with access to more
+ *  projects than it should have. If an actor gains access to the service
+ *  account, they could potentially use that access to manipulate a project the
+ *  service account was not intended to. A medium-risk threat can cause
+ *  operational impact but might not access data or execute unauthorized code.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Medium;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
@@ -871,6 +1006,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "REGIONAL_DATA_BOUNDARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalDataBoundary;
+/**
+ *  Switzerland Data Boundary with Access Justifications
+ *
+ *  Value: "SWITZERLAND_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_SwitzerlandDataBoundaryWithAccessJustifications;
 /**
  *  United States (US) Data Boundary and Support
  *
@@ -1486,6 +1627,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Response for batch violation acknowledgement
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse : GTLRObject
+
+/**
+ *  Count of acknowledged violations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acknowledgedViolationsCount;
+
 @end
 
 
@@ -1649,6 +1798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Data boundary for one of Assured Workloads' *Free tier* control
  *        packages. Determines the region by specifying the data location during
  *        workload creation. (Value: "REGIONAL_DATA_BOUNDARY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_SwitzerlandDataBoundaryWithAccessJustifications
+ *        Switzerland Data Boundary with Access Justifications (Value:
+ *        "SWITZERLAND_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryAndSupport
  *        United States (US) Data Boundary and Support (Value:
  *        "US_DATA_BOUNDARY_AND_SUPPORT")
@@ -1679,6 +1831,118 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  The details for a finding.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary : GTLRObject
+
+/** Output only. The category of the finding. */
+@property(nonatomic, copy, nullable) NSString *findingCategory;
+
+/**
+ *  Output only. The class of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Chokepoint
+ *        A resource or resource group where high risk attack paths converge,
+ *        based on attack path simulations (APS). (Value: "CHOKEPOINT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_FindingClassUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "FINDING_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Misconfiguration
+ *        A potential weakness in a cloud resource or asset configuration that
+ *        increases risk. (Value: "MISCONFIGURATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Observation
+ *        A security observation that is for informational purposes. (Value:
+ *        "OBSERVATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_PostureViolation
+ *        A potential security risk that's due to a change in the security
+ *        posture. (Value: "POSTURE_VIOLATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_SccError
+ *        An error that prevents Security Command Center from functioning
+ *        properly. (Value: "SCC_ERROR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_SensitiveDataRisk
+ *        A potential security risk to data assets that contain sensitive data.
+ *        (Value: "SENSITIVE_DATA_RISK")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Threat
+ *        The activity is unwanted or malicious. (Value: "THREAT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_ToxicCombination
+ *        A combination of security issues that represent a more severe security
+ *        problem when taken together. (Value: "TOXIC_COMBINATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Vulnerability
+ *        A potential weakness in software that increases risk to
+ *        confidentiality, integrity, and availability. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *findingClass;
+
+/**
+ *  Output only. The count of the finding.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *findingCount;
+
+/** Identifier. The name of the finding summary. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of compliance frameworks that the finding belongs to.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFrameworks;
+
+/**
+ *  Output only. The severity of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Critical
+ *        A critical vulnerability is easily discoverable by an external actor,
+ *        exploitable, and results in the direct ability to execute arbitrary
+ *        code, exfiltrate data, and otherwise gain additional access and
+ *        privileges to cloud resources and workloads. Examples include publicly
+ *        accessible unprotected user data and public SSH access with weak or no
+ *        passwords. A critical threat is a threat that can access, modify, or
+ *        delete data or execute unauthorized code within existing resources.
+ *        (Value: "CRITICAL")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_High
+ *        A high-risk vulnerability can be easily discovered and exploited in
+ *        combination with other vulnerabilities to gain direct access and the
+ *        ability to execute arbitrary code, exfiltrate data, and otherwise gain
+ *        additional access and privileges to cloud resources and workloads. An
+ *        example is a database with weak or no passwords that is only
+ *        accessible internally. This database could easily be compromised by an
+ *        actor that had access to the internal network. A high-risk threat is a
+ *        threat that can create new computational resources in an environment
+ *        but can't access data or execute code in existing resources. (Value:
+ *        "HIGH")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Low
+ *        A low-risk vulnerability hampers a security organization's ability to
+ *        detect vulnerabilities or active threats in their deployment, or
+ *        prevents the root cause investigation of security issues. An example
+ *        is monitoring and logs being disabled for resource configurations and
+ *        access. A low-risk threat is a threat that has obtained minimal access
+ *        to an environment but can't access data, execute code, or create
+ *        resources. (Value: "LOW")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Medium
+ *        A medium-risk vulnerability can be used by an actor to gain access to
+ *        resources or privileges that enable them to eventually (through
+ *        multiple steps or a complex exploit) gain access and the ability to
+ *        execute arbitrary code or exfiltrate data. An example is a service
+ *        account with access to more projects than it should have. If an actor
+ *        gains access to the service account, they could potentially use that
+ *        access to manipulate a project the service account was not intended
+ *        to. A medium-risk threat can cause operational impact but might not
+ *        access data or execute unauthorized code. (Value: "MEDIUM")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_SeverityUnspecified
+ *        Default value. This value is unused. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** Output only. The last updated time of the finding. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Response for EnableComplianceUpdates endpoint.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse : GTLRObject
@@ -1689,6 +1953,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Response for EnableResourceMonitoring endpoint.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableResourceMonitoringResponse : GTLRObject
+@end
+
+
+/**
+ *  The response message for ListDbFindingSummaries.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dbFindingSummaries" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse : GTLRCollectionObject
+
+/**
+ *  List of finding summary by category.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary *> *dbFindingSummaries;
+
+/** Output only. The token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @end
 
 
@@ -1704,6 +1992,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /** The next page token. Returns empty if reached the last page. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The total number of violations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 /**
  *  List of Violations under a Workload.
@@ -2485,6 +2780,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Data boundary for one of Assured Workloads' *Free tier* control
  *        packages. Determines the region by specifying the data location during
  *        workload creation. (Value: "REGIONAL_DATA_BOUNDARY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_SwitzerlandDataBoundaryWithAccessJustifications
+ *        Switzerland Data Boundary with Access Justifications (Value:
+ *        "SWITZERLAND_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryAndSupport
  *        United States (US) Data Boundary and Support (Value:
  *        "US_DATA_BOUNDARY_AND_SUPPORT")

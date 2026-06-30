@@ -25,6 +25,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// verificationMethod
+
+/**
+ *  Generate a DNS CNAME verification token.
+ *
+ *  Value: "CNAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterToolsVerificationMethodCname;
+/**
+ *  Unspecified.
+ *
+ *  Value: "DOMAIN_VERIFICATION_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterToolsVerificationMethodDomainVerificationMethodUnspecified;
+/**
+ *  Generate a DNS TXT verification token.
+ *
+ *  Value: "TXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPostmasterToolsVerificationMethodTxt;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Postmaster Tools query classes.
  */
@@ -32,6 +61,68 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Adds a
+ *  domain to the user's account. Returns INVALID_ARGUMENT if a domain is not
+ *  provided. Returns ALREADY_EXISTS if the domain is already registered by the
+ *  user.
+ *
+ *  Method: gmailpostmastertools.domains.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterDomain
+ */
+@interface GTLRPostmasterToolsQuery_DomainsCreate : GTLRPostmasterToolsQuery
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_Domain.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Adds a
+ *  domain to the user's account. Returns INVALID_ARGUMENT if a domain is not
+ *  provided. Returns ALREADY_EXISTS if the domain is already registered by the
+ *  user.
+ *
+ *  @param object The @c GTLRPostmasterTools_CreateDomainRequest to include in
+ *    the query.
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsCreate
+ */
++ (instancetype)queryWithObject:(GTLRPostmasterTools_CreateDomainRequest *)object;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Deletes a domain from the user's account. Returns NOT_FOUND if the domain is
+ *  not registered by the user.
+ *
+ *  Method: gmailpostmastertools.domains.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterDomain
+ */
+@interface GTLRPostmasterToolsQuery_DomainsDelete : GTLRPostmasterToolsQuery
+
+/** Required. The domain to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_Empty.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Deletes a domain from the user's account. Returns NOT_FOUND if the domain is
+ *  not registered by the user.
+ *
+ *  @param name Required. The domain to delete.
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -150,6 +241,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Gets a
+ *  verification token used for verifying a user's ownership over a domain.
+ *
+ *  Method: gmailpostmastertools.domains.getVerificationToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterDomain
+ */
+@interface GTLRPostmasterToolsQuery_DomainsGetVerificationToken : GTLRPostmasterToolsQuery
+
+/**
+ *  Required. The resource name of the verification token to retrieve. Format:
+ *  `domains/{domain}/verificationToken`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The verification method used. Must be specified, i.e. TXT or
+ *  CNAME.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPostmasterToolsVerificationMethodDomainVerificationMethodUnspecified
+ *        Unspecified. (Value: "DOMAIN_VERIFICATION_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRPostmasterToolsVerificationMethodTxt Generate a DNS TXT
+ *        verification token. (Value: "TXT")
+ *    @arg @c kGTLRPostmasterToolsVerificationMethodCname Generate a DNS CNAME
+ *        verification token. (Value: "CNAME")
+ */
+@property(nonatomic, copy, nullable) NSString *verificationMethod;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_DomainVerificationToken.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Gets a
+ *  verification token used for verifying a user's ownership over a domain.
+ *
+ *  @param name Required. The resource name of the verification token to
+ *    retrieve. Format: `domains/{domain}/verificationToken`
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsGetVerificationToken
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves a list of all domains registered by you, along with their
  *  corresponding metadata. The order of domains in the response is unspecified
  *  and non-deterministic. Newly registered domains will not necessarily be
@@ -220,6 +358,244 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRPostmasterToolsQuery_DomainStatsBatchQuery
  */
 + (instancetype)queryWithObject:(GTLRPostmasterTools_BatchQueryDomainStatsRequest *)object;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Creates a user, who has access to a domain. Returns INVALID_ARGUMENT if a
+ *  user is not provided.
+ *
+ *  Method: gmailpostmastertools.domains.users.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterUser
+ */
+@interface GTLRPostmasterToolsQuery_DomainsUsersCreate : GTLRPostmasterToolsQuery
+
+/**
+ *  Required. The parent resource where this user will be created. Format:
+ *  domains/{domain}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_User.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Creates a user, who has access to a domain. Returns INVALID_ARGUMENT if a
+ *  user is not provided.
+ *
+ *  @param object The @c GTLRPostmasterTools_CreateUserRequest to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this user will be created.
+ *    Format: domains/{domain}
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsUsersCreate
+ */
++ (instancetype)queryWithObject:(GTLRPostmasterTools_CreateUserRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Deletes a user from a domain. Returns NOT_FOUND if the user does not exist.
+ *
+ *  Method: gmailpostmastertools.domains.users.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterUser
+ */
+@interface GTLRPostmasterToolsQuery_DomainsUsersDelete : GTLRPostmasterToolsQuery
+
+/**
+ *  Required. The resource name of the user to delete. Format:
+ *  domains/{domain}/users/{user}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_Empty.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Deletes a user from a domain. Returns NOT_FOUND if the user does not exist.
+ *
+ *  @param name Required. The resource name of the user to delete. Format:
+ *    domains/{domain}/users/{user}
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsUsersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Retrieves detailed information about a user that has access to a domain.
+ *  Returns NOT_FOUND if the user does not exist.
+ *
+ *  Method: gmailpostmastertools.domains.users.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterUser
+ */
+@interface GTLRPostmasterToolsQuery_DomainsUsersGet : GTLRPostmasterToolsQuery
+
+/**
+ *  Required. The resource name of the user to retrieve. Format:
+ *  `domains/{domain}/users/{user}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_User.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Retrieves detailed information about a user that has access to a domain.
+ *  Returns NOT_FOUND if the user does not exist.
+ *
+ *  @param name Required. The resource name of the user to retrieve. Format:
+ *    `domains/{domain}/users/{user}`
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsUsersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
+ *  the users that have access to a domain.
+ *
+ *  Method: gmailpostmastertools.domains.users.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterUser
+ */
+@interface GTLRPostmasterToolsQuery_DomainsUsersList : GTLRPostmasterToolsQuery
+
+/**
+ *  Optional. Requested page size. Server may return fewer users than requested.
+ *  If unspecified, the default value for this field is 10. The maximum value
+ *  for this field is 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name for which to list users. Format:
+ *  `domains/{domain}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_ListUsersResponse.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
+ *  the users that have access to a domain.
+ *
+ *  @param parent Required. The parent resource name for which to list users.
+ *    Format: `domains/{domain}`
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsUsersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Updates a user for a domain. Only Owners and Admins can execute this RPC,
+ *  only a user's domain permission will be allowed to be updated. Returns
+ *  NOT_FOUND if the user does not exist. Returns INVALID_ARGUMENT if a
+ *  permission is not provided or is PERMISSION_UNSPECIFIED, NONE, or OWNER.
+ *
+ *  Method: gmailpostmastertools.domains.users.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterUser
+ */
+@interface GTLRPostmasterToolsQuery_DomainsUsersPatch : GTLRPostmasterToolsQuery
+
+/**
+ *  Identifier. The resource name of the user. Format: users/{user} Note: {user}
+ *  is the user's email address.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_User.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Updates a user for a domain. Only Owners and Admins can execute this RPC,
+ *  only a user's domain permission will be allowed to be updated. Returns
+ *  NOT_FOUND if the user does not exist. Returns INVALID_ARGUMENT if a
+ *  permission is not provided or is PERMISSION_UNSPECIFIED, NONE, or OWNER.
+ *
+ *  @param object The @c GTLRPostmasterTools_User to include in the query.
+ *  @param name Identifier. The resource name of the user. Format: users/{user}
+ *    Note: {user} is the user's email address.
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsUsersPatch
+ */
++ (instancetype)queryWithObject:(GTLRPostmasterTools_User *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Verifies a user's ownership of a domain at the DNS level. Note that this is
+ *  distinct from checking if the user has OWNER status within IRDB.
+ *
+ *  Method: gmailpostmastertools.domains.verify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmaster
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterDomain
+ */
+@interface GTLRPostmasterToolsQuery_DomainsVerify : GTLRPostmasterToolsQuery
+
+/** Required. The domain to verify. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPostmasterTools_VerifyDomainResponse.
+ *
+ *  [Developer Preview](https://developers.google.com/workspace/preview):
+ *  Verifies a user's ownership of a domain at the DNS level. Note that this is
+ *  distinct from checking if the user has OWNER status within IRDB.
+ *
+ *  @param object The @c GTLRPostmasterTools_VerifyDomainRequest to include in
+ *    the query.
+ *  @param name Required. The domain to verify.
+ *
+ *  @return GTLRPostmasterToolsQuery_DomainsVerify
+ */
++ (instancetype)queryWithObject:(GTLRPostmasterTools_VerifyDomainRequest *)object
+                           name:(NSString *)name;
 
 @end
 

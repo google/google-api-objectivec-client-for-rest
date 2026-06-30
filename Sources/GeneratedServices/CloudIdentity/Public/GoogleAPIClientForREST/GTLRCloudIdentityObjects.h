@@ -782,6 +782,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_CbcmBrowser;
 /**
+ *  Represents a ChromeOS-managed ChromeOS device type.
+ *
+ *  Value: "CHROME_OS_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_ChromeOsDevice;
+/**
  *  Represents group type.
  *
  *  Value: "GROUP"
@@ -3241,6 +3247,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Likely values:
  *    @arg @c kGTLRCloudIdentity_Membership_Type_CbcmBrowser Represents a
  *        CBCM-managed Chrome Browser type. (Value: "CBCM_BROWSER")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_ChromeOsDevice Represents a
+ *        ChromeOS-managed ChromeOS device type. (Value: "CHROME_OS_DEVICE")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Group Represents group type.
  *        (Value: "GROUP")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Other Represents other type.

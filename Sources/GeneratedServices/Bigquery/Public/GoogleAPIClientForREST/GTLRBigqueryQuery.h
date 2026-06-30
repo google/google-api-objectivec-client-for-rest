@@ -205,7 +205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Deletes the dataset specified by the datasetId value. Before you can delete
  *  a dataset, you must delete all its tables, either manually or by specifying
  *  deleteContents. Immediately after deletion, you can create another dataset
- *  with the same name.
+ *  with the same name. # IAM Permissions Requires the
+ *  `bigquery.datasets.delete` permission on the dataset.
  *
  *  Method: bigquery.datasets.delete
  *
@@ -234,7 +235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Deletes the dataset specified by the datasetId value. Before you can delete
  *  a dataset, you must delete all its tables, either manually or by specifying
  *  deleteContents. Immediately after deletion, you can create another dataset
- *  with the same name.
+ *  with the same name. # IAM Permissions Requires the
+ *  `bigquery.datasets.delete` permission on the dataset.
  *
  *  @param projectId Required. Project ID of the dataset being deleted
  *  @param datasetId Required. Dataset ID of dataset being deleted
@@ -247,7 +249,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Returns the dataset specified by datasetID.
+ *  Returns the dataset specified by datasetID. # IAM Permissions Requires the
+ *  `bigquery.datasets.get` permission on the dataset.
  *
  *  Method: bigquery.datasets.get
  *
@@ -301,7 +304,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
  *
- *  Returns the dataset specified by datasetID.
+ *  Returns the dataset specified by datasetID. # IAM Permissions Requires the
+ *  `bigquery.datasets.get` permission on the dataset.
  *
  *  @param projectId Required. Project ID of the requested dataset
  *  @param datasetId Required. Dataset ID of the requested dataset
@@ -314,7 +318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Creates a new empty dataset.
+ *  Creates a new empty dataset. # IAM Permissions Requires the
+ *  `bigquery.datasets.create` permission on the project.
  *
  *  Method: bigquery.datasets.insert
  *
@@ -346,7 +351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
  *
- *  Creates a new empty dataset.
+ *  Creates a new empty dataset. # IAM Permissions Requires the
+ *  `bigquery.datasets.create` permission on the project.
  *
  *  @param object The @c GTLRBigquery_Dataset to include in the query.
  *  @param projectId Required. Project ID of the new dataset
@@ -360,7 +366,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Lists all datasets in the specified project to which the user has been
- *  granted the READER dataset role.
+ *  granted the READER dataset role. # IAM Permissions Requires no specific IAM
+ *  permission(s) to use this method. Results are filtered to only include
+ *  datasets on which the caller has the `bigquery.datasets.get` permission.
  *
  *  Method: bigquery.datasets.list
  *
@@ -402,7 +410,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Fetches a @c GTLRBigquery_DatasetList.
  *
  *  Lists all datasets in the specified project to which the user has been
- *  granted the READER dataset role.
+ *  granted the READER dataset role. # IAM Permissions Requires no specific IAM
+ *  permission(s) to use this method. Results are filtered to only include
+ *  datasets on which the caller has the `bigquery.datasets.get` permission.
  *
  *  @param projectId Required. Project ID of the datasets to be listed
  *
@@ -420,7 +430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Updates information in an existing dataset. The update method replaces the
  *  entire dataset resource, whereas the patch method only replaces fields that
  *  are provided in the submitted dataset resource. This method supports RFC5789
- *  patch semantics.
+ *  patch semantics. # IAM Permissions Requires the following IAM permission(s)
+ *  to use this method: - `bigquery.datasets.update` on the dataset. -
+ *  `bigquery.datasets.get` on the dataset.
  *
  *  Method: bigquery.datasets.patch
  *
@@ -478,7 +490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Updates information in an existing dataset. The update method replaces the
  *  entire dataset resource, whereas the patch method only replaces fields that
  *  are provided in the submitted dataset resource. This method supports RFC5789
- *  patch semantics.
+ *  patch semantics. # IAM Permissions Requires the following IAM permission(s)
+ *  to use this method: - `bigquery.datasets.update` on the dataset. -
+ *  `bigquery.datasets.get` on the dataset.
  *
  *  @param object The @c GTLRBigquery_Dataset to include in the query.
  *  @param projectId Required. Project ID of the dataset being updated
@@ -495,7 +509,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Undeletes a dataset which is within time travel window based on datasetId.
  *  If a time is specified, the dataset version deleted at that time is
- *  undeleted, else the last live version is undeleted.
+ *  undeleted, else the last live version is undeleted. # IAM Permissions
+ *  Requires the following IAM permission(s) to use this method: -
+ *  `bigquery.datasets.create` on the project. - `bigquery.datasets.get` on the
+ *  dataset.
  *
  *  Method: bigquery.datasets.undelete
  *
@@ -516,7 +533,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Undeletes a dataset which is within time travel window based on datasetId.
  *  If a time is specified, the dataset version deleted at that time is
- *  undeleted, else the last live version is undeleted.
+ *  undeleted, else the last live version is undeleted. # IAM Permissions
+ *  Requires the following IAM permission(s) to use this method: -
+ *  `bigquery.datasets.create` on the project. - `bigquery.datasets.get` on the
+ *  dataset.
  *
  *  @param object The @c GTLRBigquery_UndeleteDatasetRequest to include in the
  *    query.
@@ -534,7 +554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Updates information in an existing dataset. The update method replaces the
  *  entire dataset resource, whereas the patch method only replaces fields that
- *  are provided in the submitted dataset resource.
+ *  are provided in the submitted dataset resource. # IAM Permissions Requires
+ *  the `bigquery.datasets.update` permission on the dataset.
  *
  *  Method: bigquery.datasets.update
  *
@@ -591,7 +612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Updates information in an existing dataset. The update method replaces the
  *  entire dataset resource, whereas the patch method only replaces fields that
- *  are provided in the submitted dataset resource.
+ *  are provided in the submitted dataset resource. # IAM Permissions Requires
+ *  the `bigquery.datasets.update` permission on the dataset.
  *
  *  @param object The @c GTLRBigquery_Dataset to include in the query.
  *  @param projectId Required. Project ID of the dataset being updated
@@ -608,7 +630,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Requests that a job be cancelled. This call will return immediately, and the
  *  client will need to poll for the job status to see if the cancel completed
- *  successfully. Cancelled jobs may still incur costs.
+ *  successfully. Cancelled jobs may still incur costs. # IAM Permissions
+ *  Requires the `bigquery.jobs.update` permission on the job resource. If the
+ *  user matches the creator of the job, the `bigquery.jobs.create` permission
+ *  on the project is required instead.
  *
  *  Method: bigquery.jobs.cancel
  *
@@ -638,7 +663,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Requests that a job be cancelled. This call will return immediately, and the
  *  client will need to poll for the job status to see if the cancel completed
- *  successfully. Cancelled jobs may still incur costs.
+ *  successfully. Cancelled jobs may still incur costs. # IAM Permissions
+ *  Requires the `bigquery.jobs.update` permission on the job resource. If the
+ *  user matches the creator of the job, the `bigquery.jobs.create` permission
+ *  on the project is required instead.
  *
  *  @param projectId Required. Project ID of the job to cancel
  *  @param jobId Required. Job ID of the job to cancel
@@ -652,7 +680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Requests the deletion of the metadata of a job. This call returns when the
- *  job's metadata is deleted.
+ *  job's metadata is deleted. # IAM Permissions Requires the
+ *  `bigquery.jobs.delete` permission on the job resource.
  *
  *  Method: bigquery.jobs.delete
  *
@@ -685,7 +714,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  be nil. This query does not fetch an object.
  *
  *  Requests the deletion of the metadata of a job. This call returns when the
- *  job's metadata is deleted.
+ *  job's metadata is deleted. # IAM Permissions Requires the
+ *  `bigquery.jobs.delete` permission on the job resource.
  *
  *  @param projectId Required. Project ID of the job for which metadata is to be
  *    deleted.
@@ -704,7 +734,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Returns information about a specific job. Job information is available for a
  *  six month period after creation. Requires that you're the person who ran the
- *  job, or have the Is Owner project role.
+ *  job, or have the Is Owner project role. # IAM Permissions Requires the
+ *  `bigquery.jobs.get` permission on the job resource. If the user matches the
+ *  creator of the job, the `bigquery.jobs.create` permission on the project is
+ *  required instead.
  *
  *  Method: bigquery.jobs.get
  *
@@ -736,7 +769,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Returns information about a specific job. Job information is available for a
  *  six month period after creation. Requires that you're the person who ran the
- *  job, or have the Is Owner project role.
+ *  job, or have the Is Owner project role. # IAM Permissions Requires the
+ *  `bigquery.jobs.get` permission on the job resource. If the user matches the
+ *  creator of the job, the `bigquery.jobs.create` permission on the project is
+ *  required instead.
  *
  *  @param projectId Required. Project ID of the requested job.
  *  @param jobId Required. Job ID of the requested job.
@@ -749,7 +785,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  RPC to get the results of a query job.
+ *  RPC to get the results of a query job. # IAM Permissions Requires the
+ *  following IAM permission(s) to use this method: - `bigquery.jobs.get` on the
+ *  job. - `bigquery.tables.getData` on the destination table. If the user
+ *  matches the creator of the job, the following IAM permission(s) are required
+ *  instead: - `bigquery.jobs.create` on the project. -
+ *  `bigquery.tables.getData` on the destination table.
  *
  *  Method: bigquery.jobs.getQueryResults
  *
@@ -828,7 +869,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_GetQueryResultsResponse.
  *
- *  RPC to get the results of a query job.
+ *  RPC to get the results of a query job. # IAM Permissions Requires the
+ *  following IAM permission(s) to use this method: - `bigquery.jobs.get` on the
+ *  job. - `bigquery.tables.getData` on the destination table. If the user
+ *  matches the creator of the job, the following IAM permission(s) are required
+ *  instead: - `bigquery.jobs.create` on the project. -
+ *  `bigquery.tables.getData` on the destination table.
  *
  *  @param projectId Required. Project ID of the query job.
  *  @param jobId Required. Job ID of the query job.
@@ -847,7 +893,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  * The *Upload* URI is ONLY for the case when you're sending both a load job
  *  configuration and a data stream together. In this case, the Upload URI
  *  accepts the job configuration and the data as two distinct multipart MIME
- *  parts.
+ *  parts. # IAM Permissions Requires the `bigquery.jobs.create` permission on
+ *  the project resource. Additional permissions are required depending on the
+ *  job type: - **Load, Export, and Copy jobs**: Generally require data-level
+ *  permissions such as `bigquery.tables.export` or access to external storage.
+ *  - **Query jobs**: Permissions are dependent on the SQL statement. Complex
+ *  queries (DDL, DCL) may require additional permissions to create
+ *  reservations, modify IAM policies, or update project settings.
  *
  *  Method: bigquery.jobs.insert
  *
@@ -872,7 +924,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  * The *Upload* URI is ONLY for the case when you're sending both a load job
  *  configuration and a data stream together. In this case, the Upload URI
  *  accepts the job configuration and the data as two distinct multipart MIME
- *  parts.
+ *  parts. # IAM Permissions Requires the `bigquery.jobs.create` permission on
+ *  the project resource. Additional permissions are required depending on the
+ *  job type: - **Load, Export, and Copy jobs**: Generally require data-level
+ *  permissions such as `bigquery.tables.export` or access to external storage.
+ *  - **Query jobs**: Permissions are dependent on the SQL statement. Complex
+ *  queries (DDL, DCL) may require additional permissions to create
+ *  reservations, modify IAM policies, or update project settings.
  *
  *  @param object The @c GTLRBigquery_Job to include in the query.
  *  @param projectId Project ID of project that will be billed for the job.
@@ -892,6 +950,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  available for a six month period after creation. The job list is sorted in
  *  reverse chronological order, by job creation time. Requires the Can View
  *  project role, or the Is Owner project role if you set the allUsers property.
+ *  # IAM Permissions Requires no specific IAM permission(s) to use this method.
+ *  Users are able to list the jobs they created. Additional access is granted
+ *  based on the following permissions: - Users with the `bigquery.jobs.listAll`
+ *  permission can list all jobs with all metadata. - Users with the
+ *  `bigquery.jobs.list` permission can list all jobs, but with redacted
+ *  information for jobs they did not create.
  *
  *  Method: bigquery.jobs.list
  *
@@ -967,6 +1031,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  available for a six month period after creation. The job list is sorted in
  *  reverse chronological order, by job creation time. Requires the Can View
  *  project role, or the Is Owner project role if you set the allUsers property.
+ *  # IAM Permissions Requires no specific IAM permission(s) to use this method.
+ *  Users are able to list the jobs they created. Additional access is granted
+ *  based on the following permissions: - Users with the `bigquery.jobs.listAll`
+ *  permission can list all jobs with all metadata. - Users with the
+ *  `bigquery.jobs.list` permission can list all jobs, but with redacted
+ *  information for jobs they did not create.
  *
  *  @param projectId Project ID of the jobs to list.
  *
@@ -982,7 +1052,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Runs a BigQuery SQL query synchronously and returns query results if the
- *  query completes within a specified timeout.
+ *  query completes within a specified timeout. # IAM Permissions Requires the
+ *  `bigquery.jobs.create` permission on the project resource. Data-level
+ *  permissions are highly dependent on the SQL statement being executed. While
+ *  standard queries require data access (such as `bigquery.tables.getData`),
+ *  complex operations like DDL or DCL may require permissions to manage
+ *  reservations, IAM policies, or project settings.
  *
  *  Method: bigquery.jobs.query
  *
@@ -1000,7 +1075,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Fetches a @c GTLRBigquery_QueryResponse.
  *
  *  Runs a BigQuery SQL query synchronously and returns query results if the
- *  query completes within a specified timeout.
+ *  query completes within a specified timeout. # IAM Permissions Requires the
+ *  `bigquery.jobs.create` permission on the project resource. Data-level
+ *  permissions are highly dependent on the SQL statement being executed. While
+ *  standard queries require data access (such as `bigquery.tables.getData`),
+ *  complex operations like DDL or DCL may require permissions to manage
+ *  reservations, IAM policies, or project settings.
  *
  *  @param object The @c GTLRBigquery_QueryRequest to include in the query.
  *  @param projectId Required. Project ID of the query request.
@@ -1013,7 +1093,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Deletes the model specified by modelId from the dataset.
+ *  Deletes the model specified by modelId from the dataset. # IAM Permissions
+ *  Requires the `bigquery.models.delete` permission on the model.
  *
  *  Method: bigquery.models.delete
  *
@@ -1036,7 +1117,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the model specified by modelId from the dataset.
+ *  Deletes the model specified by modelId from the dataset. # IAM Permissions
+ *  Requires the `bigquery.models.delete` permission on the model.
  *
  *  @param projectId Required. Project ID of the model to delete.
  *  @param datasetId Required. Dataset ID of the model to delete.
@@ -1051,7 +1133,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Gets the specified model resource by model ID.
+ *  Gets the specified model resource by model ID. # IAM Permissions Requires
+ *  the `bigquery.models.getMetadata` permission on the model.
  *
  *  Method: bigquery.models.get
  *
@@ -1074,7 +1157,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_Model.
  *
- *  Gets the specified model resource by model ID.
+ *  Gets the specified model resource by model ID. # IAM Permissions Requires
+ *  the `bigquery.models.getMetadata` permission on the model.
  *
  *  @param projectId Required. Project ID of the requested model.
  *  @param datasetId Required. Dataset ID of the requested model.
@@ -1091,7 +1175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Lists all models in the specified dataset. Requires the READER dataset role.
  *  After retrieving the list of models, you can get information about a
- *  particular model by calling the models.get method.
+ *  particular model by calling the models.get method. # IAM Permissions
+ *  Requires the `bigquery.models.list` permission on the dataset.
  *
  *  Method: bigquery.models.list
  *
@@ -1124,7 +1209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Lists all models in the specified dataset. Requires the READER dataset role.
  *  After retrieving the list of models, you can get information about a
- *  particular model by calling the models.get method.
+ *  particular model by calling the models.get method. # IAM Permissions
+ *  Requires the `bigquery.models.list` permission on the dataset.
  *
  *  @param projectId Required. Project ID of the models to list.
  *  @param datasetId Required. Dataset ID of the models to list.
@@ -1141,7 +1227,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Patch specific fields in the specified model.
+ *  Patch specific fields in the specified model. # IAM Permissions Requires the
+ *  `bigquery.models.updateMetadata` permission on the model.
  *
  *  Method: bigquery.models.patch
  *
@@ -1163,7 +1250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_Model.
  *
- *  Patch specific fields in the specified model.
+ *  Patch specific fields in the specified model. # IAM Permissions Requires the
+ *  `bigquery.models.updateMetadata` permission on the model.
  *
  *  @param object The @c GTLRBigquery_Model to include in the query.
  *  @param projectId Required. Project ID of the model to patch.
@@ -1181,7 +1269,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  RPC to get the service account for a project used for interactions with
- *  Google Cloud KMS
+ *  Google Cloud KMS. Requires the `bigquery.jobs.create` permission on the
+ *  project resource. This permission is required to authorize the retrieval of
+ *  the project's service identity for technical management tasks like
+ *  encryption configuration.
  *
  *  Method: bigquery.projects.getServiceAccount
  *
@@ -1199,7 +1290,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Fetches a @c GTLRBigquery_GetServiceAccountResponse.
  *
  *  RPC to get the service account for a project used for interactions with
- *  Google Cloud KMS
+ *  Google Cloud KMS. Requires the `bigquery.jobs.create` permission on the
+ *  project resource. This permission is required to authorize the retrieval of
+ *  the project's service identity for technical management tasks like
+ *  encryption configuration.
  *
  *  @param projectId Required. ID of the project.
  *
@@ -1213,7 +1307,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  RPC to list projects to which the user has been granted any project role.
  *  Users of this method are encouraged to consider the [Resource
  *  Manager](https://cloud.google.com/resource-manager/docs/) API, which
- *  provides the underlying data for this method and has more capabilities.
+ *  provides the underlying data for this method and has more capabilities. #
+ *  IAM Permissions Requires no specific IAM permission(s) to use this method.
+ *  The results are filtered to only include projects on which the caller has
+ *  been granted a project-level role such as a BigQuery predefined IAM role or
+ *  a basic role such as Viewer or Owner.
  *
  *  Method: bigquery.projects.list
  *
@@ -1244,7 +1342,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  RPC to list projects to which the user has been granted any project role.
  *  Users of this method are encouraged to consider the [Resource
  *  Manager](https://cloud.google.com/resource-manager/docs/) API, which
- *  provides the underlying data for this method and has more capabilities.
+ *  provides the underlying data for this method and has more capabilities. #
+ *  IAM Permissions Requires no specific IAM permission(s) to use this method.
+ *  The results are filtered to only include projects on which the caller has
+ *  been granted a project-level role such as a BigQuery predefined IAM role or
+ *  a basic role such as Viewer or Owner.
  *
  *  @return GTLRBigqueryQuery_ProjectsList
  *
@@ -1257,7 +1359,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Deletes the routine specified by routineId from the dataset.
+ *  Deletes the routine specified by routineId from the dataset. # IAM
+ *  Permissions Requires the `bigquery.routines.delete` permission on the
+ *  routine.
  *
  *  Method: bigquery.routines.delete
  *
@@ -1280,7 +1384,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the routine specified by routineId from the dataset.
+ *  Deletes the routine specified by routineId from the dataset. # IAM
+ *  Permissions Requires the `bigquery.routines.delete` permission on the
+ *  routine.
  *
  *  @param projectId Required. Project ID of the routine to delete
  *  @param datasetId Required. Dataset ID of the routine to delete
@@ -1295,7 +1401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Gets the specified routine resource by routine ID.
+ *  Gets the specified routine resource by routine ID. # IAM Permissions
+ *  Requires the `bigquery.routines.get` permission on the routine.
  *
  *  Method: bigquery.routines.get
  *
@@ -1326,7 +1433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_Routine.
  *
- *  Gets the specified routine resource by routine ID.
+ *  Gets the specified routine resource by routine ID. # IAM Permissions
+ *  Requires the `bigquery.routines.get` permission on the routine.
  *
  *  @param projectId Required. Project ID of the requested routine
  *  @param datasetId Required. Dataset ID of the requested routine
@@ -1381,7 +1489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Creates a new routine in the dataset.
+ *  Creates a new routine in the dataset. # IAM Permissions Requires the
+ *  `bigquery.routines.create` permission on the dataset.
  *
  *  Method: bigquery.routines.insert
  *
@@ -1400,7 +1509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_Routine.
  *
- *  Creates a new routine in the dataset.
+ *  Creates a new routine in the dataset. # IAM Permissions Requires the
+ *  `bigquery.routines.create` permission on the dataset.
  *
  *  @param object The @c GTLRBigquery_Routine to include in the query.
  *  @param projectId Required. Project ID of the new routine
@@ -1416,7 +1526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Lists all routines in the specified dataset. Requires the READER dataset
- *  role.
+ *  role. # IAM Permissions Requires the `bigquery.routines.list` permission on
+ *  the dataset.
  *
  *  Method: bigquery.routines.list
  *
@@ -1466,7 +1577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Fetches a @c GTLRBigquery_ListRoutinesResponse.
  *
  *  Lists all routines in the specified dataset. Requires the READER dataset
- *  role.
+ *  role. # IAM Permissions Requires the `bigquery.routines.list` permission on
+ *  the dataset.
  *
  *  @param projectId Required. Project ID of the routines to list
  *  @param datasetId Required. Dataset ID of the routines to list
@@ -1571,7 +1683,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Updates information in an existing routine. The update method replaces the
- *  entire Routine resource.
+ *  entire Routine resource. # IAM Permissions Requires the
+ *  `bigquery.routines.update` permission on the routine.
  *
  *  Method: bigquery.routines.update
  *
@@ -1594,7 +1707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Fetches a @c GTLRBigquery_Routine.
  *
  *  Updates information in an existing routine. The update method replaces the
- *  entire Routine resource.
+ *  entire Routine resource. # IAM Permissions Requires the
+ *  `bigquery.routines.update` permission on the routine.
  *
  *  @param object The @c GTLRBigquery_Routine to include in the query.
  *  @param projectId Required. Project ID of the routine to update
@@ -1611,7 +1725,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Deletes provided row access policies.
+ *  Deletes provided row access policies. # IAM Permissions Requires the
+ *  following IAM permission(s) on the table: -
+ *  `bigquery.rowAccessPolicies.delete` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy`
  *
  *  Method: bigquery.rowAccessPolicies.batchDelete
  *
@@ -1634,7 +1751,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes provided row access policies.
+ *  Deletes provided row access policies. # IAM Permissions Requires the
+ *  following IAM permission(s) on the table: -
+ *  `bigquery.rowAccessPolicies.delete` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy`
  *
  *  @param object The @c GTLRBigquery_BatchDeleteRowAccessPoliciesRequest to
  *    include in the query.
@@ -1655,7 +1775,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Deletes a row access policy.
+ *  Deletes a row access policy. # IAM Permissions Requires the following IAM
+ *  permission(s) on the table: - `bigquery.rowAccessPolicies.delete` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy`
  *
  *  Method: bigquery.rowAccessPolicies.delete
  *
@@ -1688,7 +1810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a row access policy.
+ *  Deletes a row access policy. # IAM Permissions Requires the following IAM
+ *  permission(s) on the table: - `bigquery.rowAccessPolicies.delete` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy`
  *
  *  @param projectId Required. Project ID of the table to delete the row access
  *    policy.
@@ -1708,7 +1832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Gets the specified row access policy by policy ID.
+ *  Gets the specified row access policy by policy ID. # IAM Permissions
+ *  Requires the `bigquery.rowAccessPolicies.get` permission on the table.
  *
  *  Method: bigquery.rowAccessPolicies.get
  *
@@ -1734,7 +1859,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_RowAccessPolicy.
  *
- *  Gets the specified row access policy by policy ID.
+ *  Gets the specified row access policy by policy ID. # IAM Permissions
+ *  Requires the `bigquery.rowAccessPolicies.get` permission on the table.
  *
  *  @param projectId Required. Project ID of the table to get the row access
  *    policy.
@@ -1793,7 +1919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Creates a row access policy.
+ *  Creates a row access policy. # IAM Permissions Requires the following IAM
+ *  permission(s) on the table: - `bigquery.rowAccessPolicies.create` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy` - `bigquery.tables.getData`
  *
  *  Method: bigquery.rowAccessPolicies.insert
  *
@@ -1815,7 +1943,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_RowAccessPolicy.
  *
- *  Creates a row access policy.
+ *  Creates a row access policy. # IAM Permissions Requires the following IAM
+ *  permission(s) on the table: - `bigquery.rowAccessPolicies.create` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy` - `bigquery.tables.getData`
  *
  *  @param object The @c GTLRBigquery_RowAccessPolicy to include in the query.
  *  @param projectId Required. Project ID of the table to get the row access
@@ -1834,7 +1964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Lists all row access policies on the specified table.
+ *  Lists all row access policies on the specified table. # IAM Permissions
+ *  Requires the `bigquery.rowAccessPolicies.list` permission on the table.
  *
  *  Method: bigquery.rowAccessPolicies.list
  *
@@ -1869,7 +2000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_ListRowAccessPoliciesResponse.
  *
- *  Lists all row access policies on the specified table.
+ *  Lists all row access policies on the specified table. # IAM Permissions
+ *  Requires the `bigquery.rowAccessPolicies.list` permission on the table.
  *
  *  @param projectId Required. Project ID of the row access policies to list.
  *  @param datasetId Required. Dataset ID of row access policies to list.
@@ -1934,7 +2066,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Updates a row access policy.
+ *  Updates a row access policy. # IAM Permissions Requires the following IAM
+ *  permission(s) on the table: - `bigquery.rowAccessPolicies.update` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy` - `bigquery.tables.getData`
  *
  *  Method: bigquery.rowAccessPolicies.update
  *
@@ -1959,7 +2093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_RowAccessPolicy.
  *
- *  Updates a row access policy.
+ *  Updates a row access policy. # IAM Permissions Requires the following IAM
+ *  permission(s) on the table: - `bigquery.rowAccessPolicies.update` -
+ *  `bigquery.rowAccessPolicies.setIamPolicy` - `bigquery.tables.getData`
  *
  *  @param object The @c GTLRBigquery_RowAccessPolicy to include in the query.
  *  @param projectId Required. Project ID of the table to get the row access
@@ -1981,7 +2117,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Streams data into BigQuery one record at a time without needing to run a
- *  load job.
+ *  load job. # IAM Permissions Requires the following IAM permission(s) to use
+ *  this method: - `bigquery.tables.updateData` on the table. -
+ *  `bigquery.tables.get` on the table. - `bigquery.datasets.get` on the
+ *  dataset.
  *
  *  Method: bigquery.tabledata.insertAll
  *
@@ -2005,7 +2144,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Fetches a @c GTLRBigquery_TableDataInsertAllResponse.
  *
  *  Streams data into BigQuery one record at a time without needing to run a
- *  load job.
+ *  load job. # IAM Permissions Requires the following IAM permission(s) to use
+ *  this method: - `bigquery.tables.updateData` on the table. -
+ *  `bigquery.tables.get` on the table. - `bigquery.datasets.get` on the
+ *  dataset.
  *
  *  @param object The @c GTLRBigquery_TableDataInsertAllRequest to include in
  *    the query.
@@ -2023,7 +2165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  List the content of a table in rows.
+ *  List the content of a table in rows. # IAM Permissions Requires the
+ *  `bigquery.tables.getData` permission on the table.
  *
  *  Method: bigquery.tabledata.list
  *
@@ -2087,7 +2230,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_TableDataList.
  *
- *  List the content of a table in rows.
+ *  List the content of a table in rows. # IAM Permissions Requires the
+ *  `bigquery.tables.getData` permission on the table.
  *
  *  @param projectId Required. Project id of the table to list.
  *  @param datasetId Required. Dataset id of the table to list.
@@ -2103,7 +2247,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Deletes the table specified by tableId from the dataset. If the table
- *  contains data, all the data will be deleted.
+ *  contains data, all the data will be deleted. # IAM Permissions Requires the
+ *  `bigquery.tables.delete` permission on the table.
  *
  *  Method: bigquery.tables.delete
  *
@@ -2127,7 +2272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  be nil. This query does not fetch an object.
  *
  *  Deletes the table specified by tableId from the dataset. If the table
- *  contains data, all the data will be deleted.
+ *  contains data, all the data will be deleted. # IAM Permissions Requires the
+ *  `bigquery.tables.delete` permission on the table.
  *
  *  @param projectId Required. Project ID of the table to delete
  *  @param datasetId Required. Dataset ID of the table to delete
@@ -2144,7 +2290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Gets the specified table resource by table ID. This method does not return
  *  the data in the table, it only returns the table resource, which describes
- *  the structure of this table.
+ *  the structure of this table. # IAM Permissions Requires the
+ *  `bigquery.tables.get` permission on the table.
  *
  *  Method: bigquery.tables.get
  *
@@ -2201,7 +2348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Gets the specified table resource by table ID. This method does not return
  *  the data in the table, it only returns the table resource, which describes
- *  the structure of this table.
+ *  the structure of this table. # IAM Permissions Requires the
+ *  `bigquery.tables.get` permission on the table.
  *
  *  @param projectId Required. Project ID of the requested table
  *  @param datasetId Required. Dataset ID of the requested table
@@ -2256,7 +2404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
- *  Creates a new, empty table in the dataset.
+ *  Creates a new, empty table in the dataset. # IAM Permissions Requires the
+ *  `bigquery.tables.create` permission on the dataset.
  *
  *  Method: bigquery.tables.insert
  *
@@ -2275,7 +2424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Fetches a @c GTLRBigquery_Table.
  *
- *  Creates a new, empty table in the dataset.
+ *  Creates a new, empty table in the dataset. # IAM Permissions Requires the
+ *  `bigquery.tables.create` permission on the dataset.
  *
  *  @param object The @c GTLRBigquery_Table to include in the query.
  *  @param projectId Required. Project ID of the new table
@@ -2291,6 +2441,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  Lists all tables in the specified dataset. Requires the READER dataset role.
+ *  # IAM Permissions Requires the `bigquery.tables.list` permission on the
+ *  dataset.
  *
  *  Method: bigquery.tables.list
  *
@@ -2322,6 +2474,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Fetches a @c GTLRBigquery_TableList.
  *
  *  Lists all tables in the specified dataset. Requires the READER dataset role.
+ *  # IAM Permissions Requires the `bigquery.tables.list` permission on the
+ *  dataset.
  *
  *  @param projectId Required. Project ID of the tables to list
  *  @param datasetId Required. Dataset ID of the tables to list
@@ -2341,7 +2495,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Updates information in an existing table. The update method replaces the
  *  entire table resource, whereas the patch method only replaces fields that
  *  are provided in the submitted table resource. This method supports RFC5789
- *  patch semantics.
+ *  patch semantics. # IAM Permissions Requires the following IAM permission(s)
+ *  on the table: - `bigquery.tables.update` - `bigquery.tables.get`
  *
  *  Method: bigquery.tables.patch
  *
@@ -2371,7 +2526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Updates information in an existing table. The update method replaces the
  *  entire table resource, whereas the patch method only replaces fields that
  *  are provided in the submitted table resource. This method supports RFC5789
- *  patch semantics.
+ *  patch semantics. # IAM Permissions Requires the following IAM permission(s)
+ *  on the table: - `bigquery.tables.update` - `bigquery.tables.get`
  *
  *  @param object The @c GTLRBigquery_Table to include in the query.
  *  @param projectId Required. Project ID of the table to update
@@ -2477,7 +2633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 /**
  *  Updates information in an existing table. The update method replaces the
  *  entire Table resource, whereas the patch method only replaces fields that
- *  are provided in the submitted Table resource.
+ *  are provided in the submitted Table resource. # IAM Permissions Requires the
+ *  `bigquery.tables.update` permission on the table.
  *
  *  Method: bigquery.tables.update
  *
@@ -2506,7 +2663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *
  *  Updates information in an existing table. The update method replaces the
  *  entire Table resource, whereas the patch method only replaces fields that
- *  are provided in the submitted Table resource.
+ *  are provided in the submitted Table resource. # IAM Permissions Requires the
+ *  `bigquery.tables.update` permission on the table.
  *
  *  @param object The @c GTLRBigquery_Table to include in the query.
  *  @param projectId Required. Project ID of the table to update

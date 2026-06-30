@@ -4,7 +4,7 @@
 // API:
 //   Cloud SQL Admin API (sqladmin/v1)
 // Description:
-//   API for Cloud SQL database instance management
+//   Cloud SQL Admin API
 // Documentation:
 //   https://cloud.google.com/sql/docs
 
@@ -422,6 +422,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres
  *  Value: "POSTGRES_19"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres19;
+/**
+ *  The database version is PostgreSQL 20.
+ *
+ *  Value: "POSTGRES_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres20;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -959,6 +965,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postg
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres19;
 /**
+ *  The database version is PostgreSQL 20.
+ *
+ *  Value: "POSTGRES_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres20;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -1409,6 +1421,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres19;
 /**
+ *  The database version is PostgreSQL 20.
+ *
+ *  Value: "POSTGRES_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres20;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -1816,6 +1834,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "POSTGRES_19"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres19;
+/**
+ *  The database version is PostgreSQL 20.
+ *
+ *  Value: "POSTGRES_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres20;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -2465,6 +2489,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres18;
  *  Value: "POSTGRES_19"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres19;
+/**
+ *  The database version is PostgreSQL 20.
+ *
+ *  Value: "POSTGRES_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres20;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -3152,6 +3182,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Restore
  *  Value: "SELF_SERVICE_MAINTENANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SelfServiceMaintenance GTLR_DEPRECATED;
+/**
+ *  This operation type represents individual steps in a multi-step setup
+ *  migration workflow: including configuration, replication, switchover/back,
+ *  and data reseeding, as defined by operation's intent.
+ *
+ *  Value: "SETUP_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SetupMigration;
 /** Value: "SNAPSHOT" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot GTLR_DEPRECATED;
 /**
@@ -3561,6 +3599,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeCont
  *  Value: "POSTGRES_19"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres19;
+/**
+ *  The database version is PostgreSQL 20.
+ *
+ *  Value: "POSTGRES_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres20;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -4627,6 +4671,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamServiceAccoun
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
+ *  Cloud IAM workforce identity user managed via workforce identity federation.
+ *
+ *  Value: "CLOUD_IAM_WORKFORCE_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamWorkforceIdentity;
+/**
  *  Microsoft Entra ID user.
  *
  *  Value: "ENTRAID_USER"
@@ -4887,6 +4937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres19 The database
  *        version is PostgreSQL 19. (Value: "POSTGRES_19")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres20 The database
+ *        version is PostgreSQL 20. (Value: "POSTGRES_20")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96 The database
  *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -5377,6 +5429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres19 The database
  *        version is PostgreSQL 19. (Value: "POSTGRES_19")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres20 The database
+ *        version is PostgreSQL 20. (Value: "POSTGRES_20")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96 The database
  *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -5642,7 +5696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /**
  *  Optional. The fully qualified URI of the VPC network to which the cloned
- *  instance will be connected via Private Services Access for private IP. For
+ *  instance will be connected via private services access for private IP. For
  *  example:`projects/my-network-project/global/networks/my-network`. This field
  *  is only required for cross-project cloning.
  */
@@ -5913,6 +5967,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        database version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres19 The
  *        database version is PostgreSQL 19. (Value: "POSTGRES_19")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres20 The
+ *        database version is PostgreSQL 20. (Value: "POSTGRES_20")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -6259,6 +6315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        database version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres19 The
  *        database version is PostgreSQL 19. (Value: "POSTGRES_19")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres20 The
+ *        database version is PostgreSQL 20. (Value: "POSTGRES_20")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -8853,6 +8911,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        maintenance. This is initiated as a self-service request by using SSM.
  *        Maintenance typically causes the instance to be unavailable for 1-3
  *        minutes. (Value: "SELF_SERVICE_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SetupMigration This
+ *        operation type represents individual steps in a multi-step setup
+ *        migration workflow: including configuration, replication,
+ *        switchover/back, and data reseeding, as defined by operation's intent.
+ *        (Value: "SETUP_MIGRATION")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Snapshot Value "SNAPSHOT"
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified
  *        Unknown operation type. (Value: "SQL_OPERATION_TYPE_UNSPECIFIED")
@@ -9445,6 +9508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        The database version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres19
  *        The database version is PostgreSQL 19. (Value: "POSTGRES_19")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres20
+ *        The database version is PostgreSQL 20. (Value: "POSTGRES_20")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres96
  *        The database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_SqlDatabaseVersionUnspecified
@@ -9561,6 +9626,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 /** The IP address of the consumer endpoint. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
+/**
+ *  Output only. The service connection policy created automatically for the
+ *  consumer network when `psc_auto_connection_policy_enabled` is true. It is in
+ *  the format of:
+ *  `projects/{project}/regions/{region}/serviceConnectionPolicies/{policy_id}`
+ *  The `policy_id` is in format of `$NETWORK-$RANDOM`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionPolicy;
+
+/** Output only. The status of service connection policy creation. */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionPolicyCreationResult;
+
 /** The connection status of the consumer endpoint. */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -9589,17 +9666,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, copy, nullable) NSString *networkAttachmentUri;
 
 /**
+ *  Optional. Whether to set up the PSC service connection policy automatically.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscAutoConnectionPolicyEnabled;
+
+/**
  *  Optional. The list of settings for requested Private Service Connect
  *  consumer endpoints that can be used to connect to this Cloud SQL instance.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PscAutoConnectionConfig *> *pscAutoConnections;
 
 /**
- *  Optional. Indicates whether PSC DNS automation is enabled for this instance.
- *  When enabled, Cloud SQL provisions a universal DNS record across all
- *  networks configured with Private Service Connect (PSC) auto-connections.
- *  This will default to true for new instances when Private Service Connect is
- *  enabled.
+ *  Optional. Indicates whether Private Service Connect DNS automation is
+ *  enabled for this instance. When enabled, Cloud SQL provisions a universal
+ *  DNS record across all networks configured with Private Service Connect
+ *  auto-connections. This will default to true for new instances when Private
+ *  Service Connect is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9613,13 +9697,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, strong, nullable) NSNumber *pscEnabled;
 
 /**
- *  Optional. Indicates whether PSC write endpoint DNS automation is enabled for
- *  this instance. When enabled, Cloud SQL provisions a universal global DNS
- *  record across all networks configured with Private Service Connect (PSC)
- *  auto-connections that always points to the cluster primary instance. This
- *  feature is only supported for Enterprise Plus edition. This will default to
- *  true for new Enterprise Plus instances when `psc_auto_dns_enabled` is
- *  enabled.
+ *  Optional. Indicates whether Private Service Connect write endpoint DNS
+ *  automation is enabled for this instance. When enabled, Cloud SQL provisions
+ *  a universal global DNS record across all networks configured with Private
+ *  Service Connect auto-connections that points to the cluster primary
+ *  instance. This feature is only supported for Enterprise Plus edition. This
+ *  will default to true for new Enterprise Plus instances when
+ *  `psc_auto_dns_enabled` is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -11446,6 +11530,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        account. (Value: "CLOUD_IAM_SERVICE_ACCOUNT")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamUser Cloud IAM user. (Value:
  *        "CLOUD_IAM_USER")
+ *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamWorkforceIdentity Cloud IAM
+ *        workforce identity user managed via workforce identity federation.
+ *        (Value: "CLOUD_IAM_WORKFORCE_IDENTITY")
  *    @arg @c kGTLRSQLAdmin_User_Type_EntraidUser Microsoft Entra ID user.
  *        (Value: "ENTRAID_USER")
  */

@@ -72,6 +72,7 @@
 @class GTLROracleDatabase_ExadbVmCluster_Labels;
 @class GTLROracleDatabase_ExadbVmClusterProperties;
 @class GTLROracleDatabase_ExadbVmClusterStorageDetails;
+@class GTLROracleDatabase_ExascaleConfig;
 @class GTLROracleDatabase_ExascaleDbStorageDetails;
 @class GTLROracleDatabase_ExascaleDbStorageVault;
 @class GTLROracleDatabase_ExascaleDbStorageVault_Labels;
@@ -1230,6 +1231,28 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_CloudVmClusterProperties.storageManagementType
+
+/**
+ *  Automatic Storage Management.
+ *
+ *  Value: "ASM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_Asm;
+/**
+ *  Exascale storage management.
+ *
+ *  Value: "EXASCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_Exascale;
+/**
+ *  Unspecified storage management type.
+ *
+ *  Value: "STORAGE_MANAGEMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_StorageManagementTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_Database.opsInsightsStatus
@@ -6164,6 +6187,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, copy, nullable) NSString *dbServerVersion;
 
+/** Output only. The Exascale configuration for the Exadata Infrastructure. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExascaleConfig *exascaleConfig;
+
 /** Optional. Maintenance window for repair. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_MaintenanceWindow *maintenanceWindow;
 
@@ -6324,6 +6350,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
  */
 @property(nonatomic, copy, nullable) NSString *exadataInfrastructure;
+
+/**
+ *  Optional. The name of ExascaleDbStorageVault associated with the VM Cluster.
+ *  Format:
+ *  projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}
+ */
+@property(nonatomic, copy, nullable) NSString *exascaleDbStorageVault;
 
 /**
  *  Output only. The GCP Oracle zone where Oracle CloudVmCluster is hosted. This
@@ -6589,6 +6622,20 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  Output only. The storage management type of the VM Cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_Asm
+ *        Automatic Storage Management. (Value: "ASM")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_Exascale
+ *        Exascale storage management. (Value: "EXASCALE")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_StorageManagementTypeUnspecified
+ *        Unspecified storage management type. (Value:
+ *        "STORAGE_MANAGEMENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storageManagementType;
+
+/**
  *  Output only. The storage allocation for the disk group, in gigabytes (GB).
  *
  *  Uses NSNumber of intValue.
@@ -6602,6 +6649,24 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  Optional. Time zone of VM Cluster to set. Defaults to UTC if not specified.
  */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_TimeZone *timeZone;
+
+@end
+
+
+/**
+ *  The request for `CloudExadataInfrastructure.ConfigureExascale`.
+ */
+@interface GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest : GTLRObject
+
+/** Optional. An optional ID to identify the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The total storage to be allocated to Exascale in GBs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalStorageSizeGb;
 
 @end
 
@@ -8319,6 +8384,28 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  Details of the Exascale configuration for the Exadata Infrastructure.
+ */
+@interface GTLROracleDatabase_ExascaleConfig : GTLRObject
+
+/**
+ *  Output only. Available storage size for Exascale in GBs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableStorageSizeGb;
+
+/**
+ *  Output only. Total storage size needed for Exascale in GBs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalStorageSizeGb;
+
+@end
+
+
+/**
  *  The storage details of the ExascaleDbStorageVault.
  */
 @interface GTLROracleDatabase_ExascaleDbStorageDetails : GTLRObject
@@ -8365,6 +8452,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  ExascaleDbStorageVault.
  */
 @property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Optional. The Exadata Infrastructure resource on which
+ *  ExascaleDbStorageVault resource is created, in the following format:
+ *  projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
+ */
+@property(nonatomic, copy, nullable) NSString *exadataInfrastructure;
 
 /**
  *  Optional. The GCP Oracle zone where Oracle ExascaleDbStorageVault is hosted.

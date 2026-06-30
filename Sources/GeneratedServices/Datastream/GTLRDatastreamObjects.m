@@ -100,6 +100,10 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Error = @"ERROR";
 NSString * const kGTLRDatastream_ValidationMessage_Level_LevelUnspecified = @"LEVEL_UNSPECIFIED";
 NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDatastream_AppendOnly
@@ -2509,3 +2513,5 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_VpcPeeringConfig
 @dynamic subnet, vpc;
 @end
+
+#pragma clang diagnostic pop

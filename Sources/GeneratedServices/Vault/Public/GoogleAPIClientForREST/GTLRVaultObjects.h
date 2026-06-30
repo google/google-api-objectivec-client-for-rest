@@ -46,6 +46,7 @@
 @class GTLRVault_HeldAccount;
 @class GTLRVault_HeldCalendarQuery;
 @class GTLRVault_HeldDriveQuery;
+@class GTLRVault_HeldGeminiQuery;
 @class GTLRVault_HeldGroupsQuery;
 @class GTLRVault_HeldHangoutsChatQuery;
 @class GTLRVault_HeldMailQuery;
@@ -1272,6 +1273,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) GTLRVault_HeldDriveQuery *driveQuery;
 
 /**
+ *  Service-specific options for Gemini holds. If set, **CorpusType** must be
+ *  **GEMINI**.
+ */
+@property(nonatomic, strong, nullable) GTLRVault_HeldGeminiQuery *geminiQuery;
+
+/**
  *  Service-specific options for Groups holds. If set, **CorpusType** must be
  *  **GROUPS**.
  */
@@ -1851,6 +1858,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @property(nonatomic, strong, nullable) NSNumber *includeTeamDriveFiles GTLR_DEPRECATED;
 
+@end
+
+
+/**
+ *  Options for Gemini holds.
+ */
+@interface GTLRVault_HeldGeminiQuery : GTLRObject
 @end
 
 

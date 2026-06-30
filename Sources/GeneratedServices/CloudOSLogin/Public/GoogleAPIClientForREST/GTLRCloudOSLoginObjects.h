@@ -200,6 +200,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
 @property(nonatomic, copy, nullable) NSString *appEngineInstance;
 
 /**
+ *  Optional. The Cloud Run resource to sign the SSH public key for. Expected
+ *  formats: - `projects/{project}/locations/{location}/services/{service}` -
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}` -
+ *  `projects/{project}/locations/{location}/jobs/{job}` -
+ *  `projects/{project}/locations/{location}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRunResource;
+
+/**
  *  The Compute instance to sign the SSH public key for. Expected format:
  *  projects/{project}/zones/{zone}/instances/{numeric_instance_id}
  */

@@ -2614,9 +2614,10 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 @dynamic backendBucket, backendService, exposedApplication, exposedEndpoint,
          exposedService, forwardingRule, hostnameUri, httpResponse,
          instanceGroup, internalBackendService, loadBalancerFirewallPolicy,
-         networkEndpointGroup, networkIngressFirewallPolicy, privateIpAddress,
-         privatePort, pscNetworkAttachment, pscServiceAttachment,
-         publicIpAddress, publicPort, serviceFirewallPolicy;
+         networkEndpointGroup, networkIngressFirewallPolicy,
+         networkPathInsightsGenerationTime, privateIpAddress, privatePort,
+         pscNetworkAttachment, pscServiceAttachment, publicIpAddress,
+         publicPort, serviceFirewallPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2671,13 +2672,13 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          dataFlowEvents, dataRetentionDeletionEvents, descriptionProperty,
          discoveredWorkload, disk, eventTime, exfiltration, externalExposure,
          externalSystems, externalUri, files, findingClass, groupMemberships,
-         iamBindings, indicator, ipRules, job, kernelRootkit, kubernetes,
-         loadBalancers, logEntries, mitreAttack, moduleName, mute, muteInfo,
-         muteInitiator, muteUpdateTime, name, networks, nextSteps, notebook,
-         orgPolicies, parent, parentDisplayName, policyViolationSummary,
-         processes, resourceName, secret, securityMarks, securityPosture,
-         severity, sourceProperties, state, toxicCombination, vertexAi,
-         vulnerability;
+         iamBindings, iamDetails, indicator, ipRules, job, kernelRootkit,
+         kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
+         muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
+         notebook, orgPolicies, parent, parentDisplayName,
+         policyViolationSummary, processes, resourceName, secret, securityMarks,
+         securityPosture, severity, sourceProperties, state, toxicCombination,
+         vertexAi, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2941,6 +2942,34 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamDetails
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamDetails
+@dynamic iamRolePermissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"iamRolePermissions" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamRolePermission class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamRolePermission
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamRolePermission
+@dynamic name, role;
 @end
 
 
@@ -4052,9 +4081,10 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 @dynamic backendBucket, backendService, exposedApplication, exposedEndpoint,
          exposedService, forwardingRule, hostnameUri, httpResponse,
          instanceGroup, internalBackendService, loadBalancerFirewallPolicy,
-         networkEndpointGroup, networkIngressFirewallPolicy, privateIpAddress,
-         privatePort, pscNetworkAttachment, pscServiceAttachment,
-         publicIpAddress, publicPort, serviceFirewallPolicy;
+         networkEndpointGroup, networkIngressFirewallPolicy,
+         networkPathInsightsGenerationTime, privateIpAddress, privatePort,
+         pscNetworkAttachment, pscServiceAttachment, publicIpAddress,
+         publicPort, serviceFirewallPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4129,10 +4159,10 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          database, dataFlowEvents, dataRetentionDeletionEvents,
          descriptionProperty, discoveredWorkload, disk, eventTime, exfiltration,
          externalExposure, externalSystems, externalUri, files, findingClass,
-         groupMemberships, iamBindings, indicator, ipRules, job, kernelRootkit,
-         kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
-         muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
-         notebook, orgPolicies, parent, parentDisplayName,
+         groupMemberships, iamBindings, iamDetails, indicator, ipRules, job,
+         kernelRootkit, kubernetes, loadBalancers, logEntries, mitreAttack,
+         moduleName, mute, muteInfo, muteInitiator, muteUpdateTime, name,
+         networks, nextSteps, notebook, orgPolicies, parent, parentDisplayName,
          policyViolationSummary, processes, resourceName, secret, securityMarks,
          securityPosture, severity, sourceProperties, state, toxicCombination,
          vertexAi, vulnerability;
@@ -4273,6 +4303,34 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding
 @dynamic action, member, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamDetails
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamDetails
+@dynamic iamRolePermissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"iamRolePermissions" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission
+@dynamic name, role;
 @end
 
 

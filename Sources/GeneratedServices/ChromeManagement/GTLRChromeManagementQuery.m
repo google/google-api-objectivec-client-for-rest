@@ -23,6 +23,36 @@ NSString * const kGTLRChromeManagementAppTypeExtension         = @"EXTENSION";
 NSString * const kGTLRChromeManagementAppTypeHostedApp         = @"HOSTED_APP";
 NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
+// breakdown
+NSString * const kGTLRChromeManagementBreakdownContentCategory = @"CONTENT_CATEGORY";
+NSString * const kGTLRChromeManagementBreakdownContentTransfersBreakdownDimensionUnspecified = @"CONTENT_TRANSFERS_BREAKDOWN_DIMENSION_UNSPECIFIED";
+NSString * const kGTLRChromeManagementBreakdownEventDomain     = @"EVENT_DOMAIN";
+NSString * const kGTLRChromeManagementBreakdownUrlVisitsBreakdownDimensionUnspecified = @"URL_VISITS_BREAKDOWN_DIMENSION_UNSPECIFIED";
+NSString * const kGTLRChromeManagementBreakdownUser            = @"USER";
+
+// fixedTimeRange
+NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourHours = @"FIXED_TIME_RANGE_FOUR_HOURS";
+NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeFourWeeks = @"FIXED_TIME_RANGE_FOUR_WEEKS";
+NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneDay = @"FIXED_TIME_RANGE_ONE_DAY";
+NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeOneWeek = @"FIXED_TIME_RANGE_ONE_WEEK";
+NSString * const kGTLRChromeManagementFixedTimeRangeFixedTimeRangeUnspecified = @"FIXED_TIME_RANGE_UNSPECIFIED";
+
+// metric
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricSensitiveDownloads = @"CONTENT_TRANSFERS_METRIC_SENSITIVE_DOWNLOADS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricSensitivePrints = @"CONTENT_TRANSFERS_METRIC_SENSITIVE_PRINTS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricSensitiveUploads = @"CONTENT_TRANSFERS_METRIC_SENSITIVE_UPLOADS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalDownloads = @"CONTENT_TRANSFERS_METRIC_TOTAL_DOWNLOADS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalPrints = @"CONTENT_TRANSFERS_METRIC_TOTAL_PRINTS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalSensitiveTransfers = @"CONTENT_TRANSFERS_METRIC_TOTAL_SENSITIVE_TRANSFERS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalTransfers = @"CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricTotalUploads = @"CONTENT_TRANSFERS_METRIC_TOTAL_UPLOADS";
+NSString * const kGTLRChromeManagementMetricContentTransfersMetricUnspecified = @"CONTENT_TRANSFERS_METRIC_UNSPECIFIED";
+NSString * const kGTLRChromeManagementMetricUrlVisitsMetricHighRiskUrlVisits = @"URL_VISITS_METRIC_HIGH_RISK_URL_VISITS";
+NSString * const kGTLRChromeManagementMetricUrlVisitsMetricLowRiskUrlVisits = @"URL_VISITS_METRIC_LOW_RISK_URL_VISITS";
+NSString * const kGTLRChromeManagementMetricUrlVisitsMetricMediumRiskUrlVisits = @"URL_VISITS_METRIC_MEDIUM_RISK_URL_VISITS";
+NSString * const kGTLRChromeManagementMetricUrlVisitsMetricTotalSuspiciousUrlVisits = @"URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS";
+NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUnspecified = @"URL_VISITS_METRIC_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -472,6 +502,84 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.customer = customer;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1EnableInsightsResponse class];
   query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.enable";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfers
+
+@dynamic customer, filter;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/enterprise/securityInsights:queryContentTransfers";
+  GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersResponse class];
+  query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.queryContentTransfers";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfersBreakdowns
+
+@dynamic breakdown, customer, filter, fixedTimeRange, metric, pageSize,
+         pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/enterprise/securityInsights:queryContentTransfersBreakdowns";
+  GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryContentTransfersBreakdowns *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersBreakdownsResponse class];
+  query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.queryContentTransfersBreakdowns";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisits
+
+@dynamic customer, filter;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/enterprise/securityInsights:queryUrlVisits";
+  GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisits *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsResponse class];
+  query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.queryUrlVisits";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisitsBreakdowns
+
+@dynamic breakdown, customer, filter, fixedTimeRange, metric, pageSize,
+         pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/enterprise/securityInsights:queryUrlVisitsBreakdowns";
+  GTLRChromeManagementQuery_CustomersEnterpriseSecurityInsightsQueryUrlVisitsBreakdowns *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsBreakdownsResponse class];
+  query.loggingName = @"chromemanagement.customers.enterprise.securityInsights.queryUrlVisitsBreakdowns";
   return query;
 }
 

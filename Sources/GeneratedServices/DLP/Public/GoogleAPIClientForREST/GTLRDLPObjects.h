@@ -74,6 +74,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2ContentItem;
 @class GTLRDLP_GooglePrivacyDlpV2ContentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ContentMetadata;
+@class GTLRDLP_GooglePrivacyDlpV2ContentPolicy;
 @class GTLRDLP_GooglePrivacyDlpV2Conversation;
 @class GTLRDLP_GooglePrivacyDlpV2ConversationLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ConversationMessage;
@@ -151,6 +152,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2FileClusterSummary;
 @class GTLRDLP_GooglePrivacyDlpV2FileClusterType;
 @class GTLRDLP_GooglePrivacyDlpV2FileExtensionInfo;
+@class GTLRDLP_GooglePrivacyDlpV2FileLabel;
+@class GTLRDLP_GooglePrivacyDlpV2FileLabelInfoType;
 @class GTLRDLP_GooglePrivacyDlpV2FileSet;
 @class GTLRDLP_GooglePrivacyDlpV2FileStoreCollection;
 @class GTLRDLP_GooglePrivacyDlpV2FileStoreDataProfile;
@@ -165,6 +168,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig;
 @class GTLRDLP_GooglePrivacyDlpV2FullyInside;
 @class GTLRDLP_GooglePrivacyDlpV2GlobalProcessing;
+@class GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabel;
+@class GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabelMetadata;
 @class GTLRDLP_GooglePrivacyDlpV2HotwordRule;
 @class GTLRDLP_GooglePrivacyDlpV2HybridContentItem;
 @class GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails;
@@ -180,9 +185,11 @@
 @class GTLRDLP_GooglePrivacyDlpV2ImageTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2InfoType;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeCategory;
+@class GTLRDLP_GooglePrivacyDlpV2InfoTypeCondition;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeLikelihood;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit;
+@class GTLRDLP_GooglePrivacyDlpV2InfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeStats;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeSummary;
 @class GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation;
@@ -209,6 +216,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationQuasiIdValues;
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationResult;
 @class GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey;
+@class GTLRDLP_GooglePrivacyDlpV2LabelField;
+@class GTLRDLP_GooglePrivacyDlpV2LabelFieldMetadata;
 @class GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig;
 @class GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryStats;
 @class GTLRDLP_GooglePrivacyDlpV2LDiversityConfig;
@@ -219,6 +228,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment;
 @class GTLRDLP_GooglePrivacyDlpV2Location;
 @class GTLRDLP_GooglePrivacyDlpV2LocationSupport;
+@class GTLRDLP_GooglePrivacyDlpV2LoggingConfig;
+@class GTLRDLP_GooglePrivacyDlpV2LogToBigQuery;
 @class GTLRDLP_GooglePrivacyDlpV2Manual;
 @class GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression;
 @class GTLRDLP_GooglePrivacyDlpV2MetadataLocation;
@@ -238,6 +249,9 @@
 @class GTLRDLP_GooglePrivacyDlpV2Overlap;
 @class GTLRDLP_GooglePrivacyDlpV2PartitionId;
 @class GTLRDLP_GooglePrivacyDlpV2PathElement;
+@class GTLRDLP_GooglePrivacyDlpV2PolicyAction;
+@class GTLRDLP_GooglePrivacyDlpV2PolicyCondition;
+@class GTLRDLP_GooglePrivacyDlpV2PolicyRule;
 @class GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2PrivacyMetric;
 @class GTLRDLP_GooglePrivacyDlpV2ProcessingLocation;
@@ -284,6 +298,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2SecretManagerCredential;
 @class GTLRDLP_GooglePrivacyDlpV2SecretsDiscoveryTarget;
 @class GTLRDLP_GooglePrivacyDlpV2SelectedInfoTypes;
+@class GTLRDLP_GooglePrivacyDlpV2SensitivityLabel;
+@class GTLRDLP_GooglePrivacyDlpV2SensitivityLabelMetadata;
 @class GTLRDLP_GooglePrivacyDlpV2SensitivityScore;
 @class GTLRDLP_GooglePrivacyDlpV2StatisticalTable;
 @class GTLRDLP_GooglePrivacyDlpV2StorageConfig;
@@ -3135,6 +3151,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfi
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2PolicyAction.returnVerdict
+
+/**
+ *  The policy allows the provided content to be used.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Allow;
+/**
+ *  The policy prevents the provided content from being used. This should result
+ *  in a blocked file upload, exclusion from training dataset, or other similar
+ *  block action. (specific action will depend on the caller).
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Block;
+/**
+ *  Not used.
+ *
+ *  Value: "CONTENT_POLICY_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_ContentPolicyVerdictUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2PolicyRule.returnVerdict
+
+/**
+ *  The policy allows the provided content to be used.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Allow;
+/**
+ *  The policy prevents the provided content from being used. This should result
+ *  in a blocked file upload, exclusion from training dataset, or other similar
+ *  block action. (specific action will depend on the caller).
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Block;
+/**
+ *  Not used.
+ *
+ *  Value: "CONTENT_POLICY_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_ContentPolicyVerdictUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2PubSubCondition.minimumRiskScore
 
 /**
@@ -5502,8 +5566,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentMetadata : GTLRObject
 
+/** Optional. The file labels associated with the content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FileLabel *> *fileLabels;
+
 /** User provided key-value pairs of content metadata. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty *> *properties;
+
+@end
+
+
+/**
+ *  A policy to apply to content based on its inspection findings.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ContentPolicy : GTLRObject
+
+/**
+ *  Output only. The creation timestamp of a contentPolicy; output-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Action to take if the content is scanned and no rules match. Defaults to
+ *  returning an ALLOW verdict if not set.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PolicyAction *defaultAction;
+
+/** Optional. Display name (max 63 chars) */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. A stream of errors encountered when the policy was applied.
+ *  Output only field. Will return the last 100 errors. Whenever the policy is
+ *  modified this list will be cleared.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
+
+/**
+ *  Optional. Action to take if the content is a supported file type and size
+ *  but fails to be scanned, for example because the file is encrypted or
+ *  corrupted.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PolicyAction *failedToScanSupportedFileType;
+
+/**
+ *  Optional. Action to take if the content is a supported file type but is too
+ *  large to be scanned.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PolicyAction *inputTooLarge;
+
+/** Optional. InspectConfig to use to produce findings. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
+
+/**
+ *  Optional. InspectTemplate to use to produce findings. Deprecated: use
+ *  inspect_config instead.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *inspectTemplate GTLR_DEPRECATED;
+
+/**
+ *  Optional. Log the actions taken by the content policy to external systems.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2LoggingConfig *> *loggingConfigs;
+
+/** Output only. Resource name of the policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Policies to apply, based on the findings returned by inspection.
+ *  The first rule to match applies.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2PolicyRule *> *rules;
+
+/** Optional. Action to take if the content is an unsupported file type. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PolicyAction *unsupportedFileType;
+
+/**
+ *  Output only. The last update timestamp of a contentPolicy; output-only
+ *  field.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -5586,6 +5727,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Required. The connection resource. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Connection *connection;
+
+@end
+
+
+/**
+ *  Request message for CreateContentPolicy.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2CreateContentPolicyRequest : GTLRObject
+
+/** Required. The content_policy resource. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentPolicy *contentPolicy;
+
+/**
+ *  Optional. The content policy ID can contain uppercase and lowercase letters,
+ *  numbers, and hyphens; that is, it must match the regular expression:
+ *  `[a-zA-Z\\d-_]+`. The maximum length is 100 characters. If empty, the system
+ *  will generate a random id.
+ */
+@property(nonatomic, copy, nullable) NSString *contentPolicyId;
 
 @end
 
@@ -5946,6 +6106,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        (Value: "EXCLUSION_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *exclusionType;
+
+/** File label to detect. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileLabelInfoType *fileLabelInfoType;
 
 /**
  *  CustomInfoType can either be a new infoType, or an extension of built-in
@@ -8275,6 +8438,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Represents a file label.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileLabel : GTLRObject
+
+/** Google Drive labels published by Google. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabelMetadata *googleDriveLabel;
+
+/** Sensitivity labels published by Microsoft. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityLabelMetadata *sensitivityLabel;
+
+@end
+
+
+/**
+ *  Configuration for a custom infoType that detects file labels.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FileLabelInfoType : GTLRObject
+
+/** Google Drive labels published by Google. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabel *googleDriveLabel;
+
+/** Sensitivity labels published by Microsoft. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityLabel *sensitivityLabel;
+
+@end
+
+
+/**
  *  Set of files to scan.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FileSet : GTLRObject
@@ -8757,6 +8948,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Processing occurs in the global region.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2GlobalProcessing : GTLRObject
+@end
+
+
+/**
+ *  Google Drive labels published by Google.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabel : GTLRObject
+
+/** The field values of the Google Drive label to match. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2LabelField *> *labelFieldsToMatch;
+
+/**
+ *  The [label
+ *  ID](https://developers.google.com/workspace/drive/labels/guides/overview) of
+ *  the Google Drive label.
+ */
+@property(nonatomic, copy, nullable) NSString *labelId;
+
+@end
+
+
+/**
+ *  Google Drive labels published by Google.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabelMetadata : GTLRObject
+
+/** The field values of the Google Drive label */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2LabelFieldMetadata *> *labelFields;
+
+/**
+ *  The [label
+ *  ID](https://developers.google.com/workspace/drive/labels/guides/overview) of
+ *  the Google Drive label.
+ */
+@property(nonatomic, copy, nullable) NSString *labelId;
+
 @end
 
 
@@ -9334,6 +9561,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  A info type based condition.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2InfoTypeCondition : GTLRObject
+
+/** match any info types. */
+@property(nonatomic, strong, nullable) GTLRDLP_GoogleProtobufEmpty *anyInfoType;
+
+/** match any of these info types. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoTypes *infoTypes;
+
+@end
+
+
+/**
  *  InfoType description.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription : GTLRObject
@@ -9457,6 +9698,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFindings;
+
+@end
+
+
+/**
+ *  Info types to match.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2InfoTypes : GTLRObject
+
+/** Required. A list of info types to match. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *infoTypeNames;
 
 @end
 
@@ -10214,6 +10466,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The field values of the Google Drive label to match.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2LabelField : GTLRObject
+
+/**
+ *  The identifier of the Label Field.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The value of the Label Field to match. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The field values of the Google Drive label
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2LabelFieldMetadata : GTLRObject
+
+/**
+ *  The identifier of the Label Field.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The value of the Label Field. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *value;
+
+@end
+
+
+/**
  *  Configuration for a custom dictionary created from a data source of any size
  *  up to the maximum size defined in the
  *  [limits](https://cloud.google.com/sensitive-data-protection/limits) page.
@@ -10454,6 +10742,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Connection *> *connections;
+
+/**
+ *  Token to retrieve the next page of results. An empty value means there are
+ *  no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListContentPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "contentPolicies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ListContentPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  List of content policies.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ContentPolicy *> *contentPolicies;
 
 /**
  *  Token to retrieve the next page of results. An empty value means there are
@@ -10765,6 +11080,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Invalid. (Value: "REGIONALIZATION_SCOPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *regionalizationScope;
+
+@end
+
+
+/**
+ *  A single logging configuration.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2LoggingConfig : GTLRObject
+
+/** Optional. Log the actions taken to a BigQuery table. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LogToBigQuery *logToBigQuery;
+
+@end
+
+
+/**
+ *  Configuration for logging content policy actions to BigQuery.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2LogToBigQuery : GTLRObject
+
+/**
+ *  Required. The ID of the dataset containing the BigQuery table to write to.
+ */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  Required. The ID of the project containing the BigQuery table to write to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The ID of the BigQuery table to write to. */
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 @end
 
@@ -11151,6 +11498,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  encoded. Cannot be `""`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A possible action to take when applying a content policy.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PolicyAction : GTLRObject
+
+/**
+ *  Optional. If set, the verdict will be returned to the user.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Allow The
+ *        policy allows the provided content to be used. (Value: "ALLOW")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Block The
+ *        policy prevents the provided content from being used. This should
+ *        result in a blocked file upload, exclusion from training dataset, or
+ *        other similar block action. (specific action will depend on the
+ *        caller). (Value: "BLOCK")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_ContentPolicyVerdictUnspecified
+ *        Not used. (Value: "CONTENT_POLICY_VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *returnVerdict;
+
+@end
+
+
+/**
+ *  A condition that must match for this rule to apply.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PolicyCondition : GTLRObject
+
+/** A condition based on info types. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoTypeCondition *infoTypeCondition;
+
+@end
+
+
+/**
+ *  A single policy rule. The first rule to match from the list above controls
+ *  the result.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PolicyRule : GTLRObject
+
+/** Required. Action to take if this rule applies. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PolicyAction *action;
+
+/**
+ *  Optional. Conditions that must match for this rule to apply. All conditions
+ *  must match (`AND`). For `OR` conditions, use multiple rules.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2PolicyCondition *> *conditions;
+
+/**
+ *  If set, the verdict will be returned to the user. Deprecated: Use `action`
+ *  instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Allow The
+ *        policy allows the provided content to be used. (Value: "ALLOW")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Block The
+ *        policy prevents the provided content from being used. This should
+ *        result in a blocked file upload, exclusion from training dataset, or
+ *        other similar block action. (specific action will depend on the
+ *        caller). (Value: "BLOCK")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_ContentPolicyVerdictUnspecified
+ *        Not used. (Value: "CONTENT_POLICY_VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *returnVerdict GTLR_DEPRECATED;
 
 @end
 
@@ -12252,6 +12669,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Sensitivity labels published by Microsoft.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2SensitivityLabel : GTLRObject
+
+/** The GUID of the sensitivity label. */
+@property(nonatomic, copy, nullable) NSString *guid;
+
+@end
+
+
+/**
+ *  Sensitivity labels published by Microsoft.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2SensitivityLabelMetadata : GTLRObject
+
+/** Required. The GUID of the sensitivity label. */
+@property(nonatomic, copy, nullable) NSString *guid;
+
+@end
+
+
+/**
  *  Score is calculated from of all elements in the data profile. A higher level
  *  means the data is more sensitive.
  */
@@ -12352,7 +12791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Current version of the stored info type. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion *currentVersion;
 
-/** Resource name. */
+/** Output only. Resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -12413,28 +12852,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
 
 /**
- *  Create timestamp of the version. Read-only, determined by the system when
- *  the version is created.
+ *  Output only. Create timestamp of the version. Read-only, determined by the
+ *  system when the version is created.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Errors that occurred when creating this storedInfoType version, or anomalies
- *  detected in the storedInfoType data that render it unusable. Only the five
- *  most recent errors will be displayed, with the most recent error appearing
- *  first. For example, some of the data for stored custom dictionaries is put
- *  in the user's Cloud Storage bucket, and if this data is modified or deleted
- *  by the user or another system, the dictionary becomes invalid. If any errors
- *  occur, fix the problem indicated by the error message and use the
- *  UpdateStoredInfoType API method to create another version of the
+ *  Output only. Errors that occurred when creating this storedInfoType version,
+ *  or anomalies detected in the storedInfoType data that render it unusable.
+ *  Only the five most recent errors will be displayed, with the most recent
+ *  error appearing first. For example, some of the data for stored custom
+ *  dictionaries is put in the user's Cloud Storage bucket, and if this data is
+ *  modified or deleted by the user or another system, the dictionary becomes
+ *  invalid. If any errors occur, fix the problem indicated by the error message
+ *  and use the UpdateStoredInfoType API method to create another version of the
  *  storedInfoType to continue using it, reusing the same `config` if it was not
  *  the source of the error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
 
 /**
- *  Stored info type version state. Read-only, updated by the system during
- *  dictionary creation.
+ *  Output only. Stored info type version state. Read-only, updated by the
+ *  system during dictionary creation.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed
@@ -12454,7 +12893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Statistics about this storedInfoType version. */
+/** Output only. Statistics about this storedInfoType version. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeStats *stats;
 
 @end
@@ -13461,6 +13900,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Required. The connection with new values for the relevant fields. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Connection *connection;
+
+/**
+ *  Optional. Mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message for UpdateContentPolicy.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2UpdateContentPolicyRequest : GTLRObject
+
+/** Required. The content_policy with new values for the relevant fields. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentPolicy *contentPolicy;
 
 /**
  *  Optional. Mask to control which fields get updated.

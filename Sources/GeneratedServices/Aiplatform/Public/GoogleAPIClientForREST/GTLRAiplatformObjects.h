@@ -37,6 +37,11 @@
 @class GTLRAiplatform_GoogleApiHttpBody;
 @class GTLRAiplatform_GoogleApiHttpBody_Extensions_Item;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ActiveLearningConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Agent;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Agent_Metadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentTool;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AgentTool_Headers;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AggregationOutput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AggregationResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Annotation;
@@ -47,6 +52,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Artifact_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Artifact_Metadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Attribution;
+@class GTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequestModel;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig;
@@ -240,6 +246,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpecRepeatedRubrics;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet_AgentConfigs;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EventActions;
@@ -365,6 +372,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionResponseBlob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionResponseFileData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1FunctionResponsePart;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GcsSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GdcConfig;
@@ -375,6 +383,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateLossClustersRequestEvaluationResultList;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_Metadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_RevisionLabels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_Scope;
@@ -383,6 +392,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSourceDirectMemory;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestVertexSessionSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateUserScenariosRequest_Agents;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponseVideo;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfig;
@@ -415,9 +425,15 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1IdMatcher;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ImageConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ImageConfigImageOutputOptions;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ImportDataConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ImportDataConfig_AnnotationLabels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ImportDataConfig_DataItemLabels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestAgentEngineSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestCloudTraceSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestGcsSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestInlineSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ImportFeatureValuesRequestFeatureSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ImportRagFilesConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Index;
@@ -432,6 +448,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexEndpoint_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexPrivateEndpoints;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IndexStats;
+@class GTLRAiplatform_GoogleCloudAiplatformV1IngestEventsRequest_Scope;
+@class GTLRAiplatform_GoogleCloudAiplatformV1IngestionDirectContentsSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1IngestionDirectContentsSourceEvent;
 @class GTLRAiplatform_GoogleCloudAiplatformV1InputDataConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Int64Array;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IntegratedGradientsAttribution;
@@ -447,6 +466,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates;
+@class GTLRAiplatform_GoogleCloudAiplatformV1LossAnalysisConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LustreMount;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ManualBatchTuningParameters;
@@ -586,6 +606,15 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplateRef;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookSoftwareConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservability;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityOpenTelemetry;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScope;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScopePredicate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorConfigRandomSampling;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorStateDetails;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OutputConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OutputInfo;
@@ -743,6 +772,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecContainerSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfigAgentToAnywhereConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfigClientToAgentConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecAgentConfigSource;
@@ -762,6 +794,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntime_AccessUris;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntimeSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcesConsumed;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ResponseFormat;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Retrieval;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RetrievalConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RetrievalMetadata;
@@ -933,6 +966,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SecretEnvVar;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SecretRef;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Segment;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicy;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_GatewayConfigs;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyMcpTool;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Session;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Session_Labels;
@@ -1010,6 +1046,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1TensorboardTensor;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TensorboardTimeSeries;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TensorboardTimeSeriesMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TFRecordDestination;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ThresholdConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1TimeSeriesData;
@@ -1102,6 +1139,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1UserActionReference;
+@class GTLRAiplatform_GoogleCloudAiplatformV1UserScenario;
+@class GTLRAiplatform_GoogleCloudAiplatformV1UserScenarioGenerationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Value;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexAiSearchConfig;
@@ -1111,6 +1150,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStore;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VideoMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat;
 @class GTLRAiplatform_GoogleCloudAiplatformV1VoiceConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1WorkerPoolSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1WriteFeatureValuesPayload;
@@ -1404,6 +1444,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifa
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat.delivery
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DELIVERY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_Delivery_DeliveryUnspecified;
+/**
+ *  Generated bytes are returned inline in the response.
+ *
+ *  Value: "INLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_Delivery_Inline;
+/**
+ *  Generated content is stored and a URI is returned.
+ *
+ *  Value: "URI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_Delivery_Uri;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat.mimeType
+
+/**
+ *  A-law audio format.
+ *
+ *  Value: "AUDIO_ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioAlaw;
+/**
+ *  Raw PCM (L16) audio format.
+ *
+ *  Value: "AUDIO_L16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioL16;
+/**
+ *  MP3 audio format.
+ *
+ *  Value: "AUDIO_MP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioMp3;
+/**
+ *  Mu-law audio format.
+ *
+ *  Value: "AUDIO_MULAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioMulaw;
+/**
+ *  OGG Opus audio format.
+ *
+ *  Value: "AUDIO_OGG_OPUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioOggOpus;
+/**
+ *  WAV audio format.
+ *
+ *  Value: "AUDIO_WAV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioWav;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MIME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_MimeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig.authType
@@ -3286,6 +3394,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Functi
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionResponse_Scheduling_WhenIdle;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig.state
+
+/**
+ *  The Gateway is active and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Active;
+/**
+ *  The Gateway is being de-provisioned.
+ *
+ *  Value: "DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Deprovisioning;
+/**
+ *  The Gateway failed to be provisioned.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Failed;
+/**
+ *  The Gateway is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Inactive;
+/**
+ *  The Gateway is being provisioned.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Provisioning;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback.blockReason
 
 /**
@@ -3682,6 +3830,200 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageC
  *  Value: "PROMINENT_PEOPLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageConfig_ProminentPeople_ProminentPeopleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat.aspectRatio
+
+/**
+ *  8:1 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_EIGHT_BY_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioEightByOne;
+/**
+ *  5:4 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FIVE_BY_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFiveByFour;
+/**
+ *  4:5 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FOUR_BY_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFourByFive;
+/**
+ *  4:1 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FOUR_BY_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFourByOne;
+/**
+ *  4:3 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_FOUR_BY_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFourByThree;
+/**
+ *  9:16 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_NINE_BY_SIXTEEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioNineBySixteen;
+/**
+ *  1:8 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_ONE_BY_EIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioOneByEight;
+/**
+ *  1:4 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_ONE_BY_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioOneByFour;
+/**
+ *  1:1 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_ONE_BY_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioOneByOne;
+/**
+ *  16:9 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_SIXTEEN_BY_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioSixteenByNine;
+/**
+ *  3:4 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_THREE_BY_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioThreeByFour;
+/**
+ *  3:2 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_THREE_BY_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioThreeByTwo;
+/**
+ *  21:9 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_TWENTY_ONE_BY_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioTwentyOneByNine;
+/**
+ *  2:3 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_TWO_BY_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioTwoByThree;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ASPECT_RATIO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat.delivery
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DELIVERY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_Delivery_DeliveryUnspecified;
+/**
+ *  Generated bytes are returned inline in the response.
+ *
+ *  Value: "INLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_Delivery_Inline;
+/**
+ *  Generated content is stored and a URI is returned.
+ *
+ *  Value: "URI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_Delivery_Uri;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat.imageSize
+
+/**
+ *  512px image size.
+ *
+ *  Value: "IMAGE_SIZE_FIVE_TWELVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeFiveTwelve;
+/**
+ *  4K image size.
+ *
+ *  Value: "IMAGE_SIZE_FOUR_K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeFourK;
+/**
+ *  1K image size.
+ *
+ *  Value: "IMAGE_SIZE_ONE_K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeOneK;
+/**
+ *  2K image size.
+ *
+ *  Value: "IMAGE_SIZE_TWO_K"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeTwoK;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "IMAGE_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat.mimeType
+
+/**
+ *  JPEG image format.
+ *
+ *  Value: "IMAGE_JPEG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_MimeType_ImageJpeg;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MIME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_MimeType_MimeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig.dataFormat
+
+/**
+ *  Unspecified data format.
+ *
+ *  Value: "DATA_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_DataFormatUnspecified;
+/**
+ *  JSONL format mapping directly to EvaluationItem schema.
+ *
+ *  Value: "JSONL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_Jsonl;
+/**
+ *  OpenTelemetry JSON format.
+ *
+ *  Value: "OTEL_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_OtelJson;
+/**
+ *  OpenTelemetry Protobuf format (e.g. TracesData).
+ *
+ *  Value: "OTEL_PROTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_OtelProto;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Index.indexUpdateMethod
@@ -5033,6 +5375,91 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Notebo
  *  Value: "USER_DEFINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_UserDefined;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator.state
+
+/**
+ *  Indicates that the OnlineEvaluator is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Active;
+/**
+ *  Indicates that the OnlineEvaluator is in a failed state. This can happen if,
+ *  for example, the `log_view` or `trace_view` set on the `CloudObservability`
+ *  does not exist.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Failed;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_StateUnspecified;
+/**
+ *  Indicates that the OnlineEvaluator is suspended. In this state, the
+ *  OnlineEvaluator will not evaluate any samples.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Suspended;
+/**
+ *  Indicates that the OnlineEvaluator is in a warning state. This can happen
+ *  if, for example, some of the metrics in the `metric_sources` are invalid.
+ *  Evaluation will still run with the remaining valid metrics.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate.comparisonOperator
+
+/**
+ *  Unspecified comparison operator. This value should not be used.
+ *
+ *  Value: "COMPARISON_OPERATOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_ComparisonOperatorUnspecified;
+/**
+ *  Equal to.
+ *
+ *  Value: "EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_Equal;
+/**
+ *  Greater than.
+ *
+ *  Value: "GREATER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_Greater;
+/**
+ *  Greater than or equal to.
+ *
+ *  Value: "GREATER_OR_EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_GreaterOrEqual;
+/**
+ *  Less than.
+ *
+ *  Value: "LESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_Less;
+/**
+ *  Less than or equal to.
+ *
+ *  Value: "LESS_OR_EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_LessOrEqual;
+/**
+ *  Not equal to.
+ *
+ *  Value: "NOT_EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_NotEqual;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec.fieldType
@@ -7135,6 +7562,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Search
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequestStatsAnomaliesObjective_Type_RawFeatureSkew;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine.state
+
+/**
+ *  The engine and all of its gateway configurations are provisioned and ready
+ *  to serve traffic.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Active;
+/**
+ *  A deprovisioning operation is in progress. The engine will transition to
+ *  INACTIVE on success or FAILED on failure.
+ *
+ *  Value: "DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Deprovisioning;
+/**
+ *  The most recent provisioning or deprovisioning operation failed. The engine
+ *  may have partial infrastructure that needs explicit deprovision; the engine
+ *  may be either re-provisioned or deprovisioned to recover.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Failed;
+/**
+ *  The engine has no provisioned infrastructure: either never provisioned, or
+ *  successfully deprovisioned.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Inactive;
+/**
+ *  A provisioning operation is in progress. The engine will transition to
+ *  ACTIVE on success or FAILED on failure.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Provisioning;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Study.state
 
 /**
@@ -7434,6 +7907,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tensor
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TensorboardTimeSeries_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat.mimeType
+
+/**
+ *  JSON output format.
+ *
+ *  Value: "APPLICATION_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat_MimeType_ApplicationJson;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MIME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat_MimeType_MimeTypeUnspecified;
+/**
+ *  Plain text output format.
+ *
+ *  Value: "TEXT_PLAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat_MimeType_TextPlain;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1TimeSeriesData.valueType
 
 /**
@@ -7473,6 +7968,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TimeSe
  *  Value: "ENVIRONMENT_BROWSER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentBrowser;
+/**
+ *  Operates in a desktop environment.
+ *
+ *  Value: "ENVIRONMENT_DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentDesktop;
+/**
+ *  Operates in a mobile environment.
+ *
+ *  Value: "ENVIRONMENT_MOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentMobile;
 /**
  *  Defaults to browser.
  *
@@ -7761,6 +8268,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  Value: "TRAFFIC_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficType_TrafficTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat.aspectRatio
+
+/**
+ *  9:16 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_NINE_BY_SIXTEEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_AspectRatio_AspectRatioNineBySixteen;
+/**
+ *  16:9 aspect ratio.
+ *
+ *  Value: "ASPECT_RATIO_SIXTEEN_BY_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_AspectRatio_AspectRatioSixteenByNine;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ASPECT_RATIO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_AspectRatio_AspectRatioUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat.delivery
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DELIVERY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Delivery_DeliveryUnspecified;
+/**
+ *  Generated bytes are returned inline in the response.
+ *
+ *  Value: "INLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Delivery_Inline;
+/**
+ *  Generated content is stored and a URI is returned.
+ *
+ *  Value: "URI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Delivery_Uri;
 
 /**
  *  Experimental parameters for video generation.
@@ -8515,6 +9066,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Metadata for the ActivateOnlineEvaluator operation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ActivateOnlineEvaluatorOperationMetadata : GTLRObject
+
+/** Common part of operation metadata. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Request message for ActivateOnlineEvaluator.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ActivateOnlineEvaluatorRequest : GTLRObject
+@end
+
+
+/**
  *  Parameters that configure the active learning pipeline. Active learning will
  *  label the data incrementally by several iterations. For every iteration, it
  *  will select a batch of data based on the sampling strategy.
@@ -8622,6 +9191,182 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 /** Required. The measurement to be added to a Trial. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Measurement *measurement;
 
+@end
+
+
+/**
+ *  A Vertex agent contains instructions and configurations for the LLM to
+ *  execute a certain task.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Agent : GTLRObject
+
+/**
+ *  Required. The base agent for the agent. Supported values: *
+ *  `antigravity-preview-05-2026`
+ */
+@property(nonatomic, copy, nullable) NSString *baseAgent;
+
+/**
+ *  Optional. The base environment configuration for the agent. Valid types: * A
+ *  string value for the environment ID, or `remote` for the default. * A struct
+ *  value for the `environment_config`.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id baseEnvironment;
+
+/** Output only. The time the agent was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *created;
+
+/**
+ *  Optional. The description of the agent.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Immutable. The user-specified ID for the agent. This ID becomes the final
+ *  component of the agent resource name. If not provided, Vertex AI will
+ *  generate a value for this ID. The ID can be up to 63 characters and must
+ *  match the regular expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. The metadata for the agent. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Agent_Metadata *metadata;
+
+/**
+ *  Identifier. The resource name of the agent. Format:
+ *  `projects/{project}/locations/{location}/agents/{agent}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The object type of the resource. For agents, the value is
+ *  `agent`.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  Optional. The instructions for the agent to follow. These instructions are
+ *  passed to the LLM as a system instruction.
+ */
+@property(nonatomic, copy, nullable) NSString *systemInstruction;
+
+/** Optional. The tools available to the agent. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1AgentTool *> *tools;
+
+/** Output only. The time the agent was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+
+@end
+
+
+/**
+ *  Optional. The metadata for the agent.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Agent_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents configuration for an Agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentConfig : GTLRObject
+
+/**
+ *  Required. Unique identifier of the agent. This ID is used to refer to this
+ *  agent, e.g., in AgentEvent.author, or in the `sub_agents` field. It must be
+ *  unique within the `agents` map.
+ */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/**
+ *  Optional. The type or class of the agent (e.g., "LlmAgent", "RouterAgent",
+ *  "ToolUseAgent"). Useful for the autorater to understand the expected
+ *  behavior of the agent.
+ */
+@property(nonatomic, copy, nullable) NSString *agentType;
+
+/**
+ *  Optional. A high-level description of the agent's role and responsibilities.
+ *  Critical for evaluating if the agent is routing tasks correctly.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Provides instructions for the LLM model, guiding the agent's
+ *  behavior. Can be static or dynamic. Dynamic instructions can contain
+ *  placeholders like {variable_name} that will be resolved at runtime using the
+ *  `AgentEvent.state_delta` field.
+ */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/**
+ *  Optional. The list of valid agent IDs that this agent can delegate to. This
+ *  defines the directed edges in the multi-agent system graph topology.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subAgents;
+
+/** Optional. The list of tools available to this agent. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Tool *> *tools;
+
+@end
+
+
+/**
+ *  A tool provides a list of actions available to the Agent during the process
+ *  of executing a task.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentTool : GTLRObject
+
+/**
+ *  Optional. The headers for the MCP server, such as for authentication. Only
+ *  applicable when `type` is `mcp_server`.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AgentTool_Headers *headers;
+
+/**
+ *  Optional. The name of the MCP server. Only applicable when `type` is
+ *  `mcp_server`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The type of the tool. Supported types: * `code_execution` *
+ *  `filesystem` * `google_search` * `mcp_server` * `url_context`
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Optional. The URL for the MCP server endpoint. Only applicable when `type`
+ *  is `mcp_server`.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Optional. The headers for the MCP server, such as for authentication. Only
+ *  applicable when `type` is `mcp_server`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AgentTool_Headers : GTLRObject
 @end
 
 
@@ -9174,6 +9919,63 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  ExplanationMetadata.outputs.
  */
 @property(nonatomic, copy, nullable) NSString *outputName;
+
+@end
+
+
+/**
+ *  Configuration for audio-specific output formatting.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat : GTLRObject
+
+/**
+ *  Optional. Bit rate in bits per second (bps). Only applicable for compressed
+ *  formats (MP3, Opus).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitRate;
+
+/**
+ *  Optional. Delivery mode for the generated content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_Delivery_DeliveryUnspecified
+ *        Default value. This value is unused. (Value: "DELIVERY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_Delivery_Inline
+ *        Generated bytes are returned inline in the response. (Value: "INLINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_Delivery_Uri
+ *        Generated content is stored and a URI is returned. (Value: "URI")
+ */
+@property(nonatomic, copy, nullable) NSString *delivery;
+
+/**
+ *  Optional. The MIME type of the audio output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioAlaw
+ *        A-law audio format. (Value: "AUDIO_ALAW")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioL16
+ *        Raw PCM (L16) audio format. (Value: "AUDIO_L16")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioMp3
+ *        MP3 audio format. (Value: "AUDIO_MP3")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioMulaw
+ *        Mu-law audio format. (Value: "AUDIO_MULAW")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioOggOpus
+ *        OGG Opus audio format. (Value: "AUDIO_OGG_OPUS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_AudioWav
+ *        WAV audio format. (Value: "AUDIO_WAV")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat_MimeType_MimeTypeUnspecified
+ *        Default value. This value is unused. (Value: "MIME_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Optional. Sample rate for the generated audio in Hertz.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRate;
 
 @end
 
@@ -12298,6 +13100,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Metadata for the CreateOnlineEvaluator operation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CreateOnlineEvaluatorOperationMetadata : GTLRObject
+
+/** Common part of operation metadata. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
  *  Details of operations that perform create PersistentResource.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CreatePersistentResourceOperationMetadata : GTLRObject
@@ -13695,6 +14508,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Metadata for the DeleteOnlineEvaluator operation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1DeleteOnlineEvaluatorOperationMetadata : GTLRObject
+
+/** Generic operation metadata. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
  *  Details of operations that perform deletes of any entities.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DeleteOperationMetadata : GTLRObject
@@ -14586,6 +15410,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  */
 @property(nonatomic, copy, nullable) NSString *publisherModel;
 
+@end
+
+
+/**
+ *  Request message for
+ *  SemanticGovernancePolicyEngineService.DeprovisionSemanticGovernancePolicyEngine.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1DeprovisionSemanticGovernancePolicyEngineRequest : GTLRObject
 @end
 
 
@@ -17150,6 +17982,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet : GTLRObject
 
+/**
+ *  Optional. Static configurations for each agent associated with the items in
+ *  this set. Key: `agent_id` (matches the `author` field in `events`). Value:
+ *  The static configuration of the agent.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet_AgentConfigs *agentConfigs;
+
 /** Output only. Timestamp when this item was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -17175,6 +18014,21 @@ GTLR_DEPRECATED
 /** Output only. Timestamp when this item was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Static configurations for each agent associated with the items in
+ *  this set. Key: `agent_id` (matches the `author` field in `events`). Value:
+ *  The static configuration of the agent.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1AgentConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet_AgentConfigs : GTLRObject
 @end
 
 
@@ -21582,6 +22436,70 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for a single gateway.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig : GTLRObject
+
+/**
+ *  Output only. The fully qualified record name of the created A-record in
+ *  Cloud DNS.
+ */
+@property(nonatomic, copy, nullable) NSString *dnsRecord;
+
+/**
+ *  Optional. FQDN of the private DNS zone to create DNS record set for PSC
+ *  endpoint.
+ */
+@property(nonatomic, copy, nullable) NSString *dnsZoneName;
+
+/** Output only. The private IP address of the PSC endpoint. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  Optional. The URI of the network resource where PSC-E will be provisioned.
+ *  if not provided `default` network will be used. Format:
+ *  projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The self-link or name of the Private Service Connect endpoint
+ *  forwarding rule.
+ */
+@property(nonatomic, copy, nullable) NSString *pscEndpoint;
+
+/**
+ *  Output only. The state of the Gateway configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Active
+ *        The Gateway is active and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Deprovisioning
+ *        The Gateway is being de-provisioned. (Value: "DEPROVISIONING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Failed
+ *        The Gateway failed to be provisioned. (Value: "FAILED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Inactive
+ *        The Gateway is inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_Provisioning
+ *        The Gateway is being provisioned. (Value: "PROVISIONING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig_State_StateUnspecified
+ *        The default value. This value is used if the state is omitted. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. The URI of the subnetwork resource where PSC-E will be
+ *  provisioned. if not provided `default` subnet will be used from the same
+ *  {location} Format:
+ *  projects/{project}/regions/{region}/subnetworks/{subnetwork}
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+@end
+
+
+/**
  *  The Google Cloud Storage location where the output is to be written to.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination : GTLRObject
@@ -22039,6 +22957,43 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for EvaluationAnalyticsService.GenerateLossClusters.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateLossClustersRequest : GTLRObject
+
+/**
+ *  Required. Configuration for the analysis algorithm. Analysis for multiple
+ *  metrics and multiple candidates could be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1LossAnalysisConfig *> *configs;
+
+/**
+ *  Reference to a persisted EvaluationSet. The service will read items from
+ *  this set.
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationSet;
+
+/**
+ *  Inline evaluation results. Useful for ephemeral analysis in notebooks/SDKs
+ *  where data isn't persisted.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateLossClustersRequestEvaluationResultList *inlineResults;
+
+@end
+
+
+/**
+ *  A wrapper to allow providing a list of items inline.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateLossClustersRequestEvaluationResultList : GTLRObject
+
+/** Required. The list of evaluation results to analyze. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResult *> *evaluationResults;
+
+@end
+
+
+/**
  *  Request message for MemoryBankService.GenerateMemories. Maximum size is 8
  *  MB.
  */
@@ -22321,6 +23276,68 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for DataFoundryService.GenerateUserScenarios.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateUserScenariosRequest : GTLRObject
+
+/**
+ *  Required. A map containing the static configurations for each agent in the
+ *  system. Key: agent_id (matches the `author` field in events). Value: The
+ *  static configuration of the agent.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateUserScenariosRequest_Agents *agents;
+
+/**
+ *  Optional. Allows the scenario generation to use cross region models. When
+ *  this flag is set, the service may route traffic to other regions if a model
+ *  is unavailable in the current region (e.g., to a `global` endpoint). If a
+ *  fully-qualified model endpoint resource name with a different region than
+ *  the request location is provided elsewhere in the request, this flag must be
+ *  set to true or the request will fail.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossRegionModel;
+
+/** Required. The agent id to identify the root agent. */
+@property(nonatomic, copy, nullable) NSString *rootAgentId;
+
+/** Required. Configuration for generating user scenarios. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1UserScenarioGenerationConfig *userScenarioGenerationConfig;
+
+@end
+
+
+/**
+ *  Required. A map containing the static configurations for each agent in the
+ *  system. Key: agent_id (matches the `author` field in events). Value: The
+ *  static configuration of the agent.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1AgentConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateUserScenariosRequest_Agents : GTLRObject
+@end
+
+
+/**
+ *  Response message for DataFoundryService.GenerateUserScenarios.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateUserScenariosResponse : GTLRObject
+
+/**
+ *  The generated user scenarios used to simulate multi-turn agent running
+ *  results and agent evaluation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1UserScenario *> *userScenarios;
+
+@end
+
+
+/**
  *  Generate video response.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponse : GTLRObject
@@ -22405,8 +23422,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *frequencyPenalty;
 
-/** Optional. Config for image generation features. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImageConfig *imageConfig;
+/**
+ *  Optional. Config for image generation features. Deprecated: Use
+ *  `response_format.image` instead.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImageConfig *imageConfig GTLR_DEPRECATED;
 
 /**
  *  Optional. The number of top log probabilities to return for each token. This
@@ -22462,12 +23482,19 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *presencePenalty;
 
 /**
+ *  Optional. New response format field for the model to configure output
+ *  formatting and delivery.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ResponseFormat *> *responseFormat;
+
+/**
  *  Optional. When this field is set, response_schema must be omitted and
- *  response_mime_type must be set to `application/json`.
+ *  response_mime_type must be set to `application/json`. Deprecated: Use
+ *  `response_format` instead.
  *
  *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) id responseJsonSchema;
+@property(nonatomic, strong, nullable) id responseJsonSchema GTLR_DEPRECATED;
 
 /**
  *  Optional. If set to true, the log probabilities of the output tokens are
@@ -22485,9 +23512,9 @@ GTLR_DEPRECATED
  *  generate output that conforms to this MIME type. Supported values include
  *  'text/plain' (default) and 'application/json'. The model needs to be
  *  prompted to output the appropriate response type, otherwise the behavior is
- *  undefined.
+ *  undefined. Deprecated: Use `response_format` instead.
  */
-@property(nonatomic, copy, nullable) NSString *responseMimeType;
+@property(nonatomic, copy, nullable) NSString *responseMimeType GTLR_DEPRECATED;
 
 /**
  *  Optional. The modalities of the response. The model will generate a response
@@ -22502,9 +23529,9 @@ GTLR_DEPRECATED
  *  generating structured data such as JSON. The schema is a subset of the
  *  [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema)
  *  object. When this field is set, you must also set the `response_mime_type`
- *  to `application/json`.
+ *  to `application/json`. Deprecated: Use `response_format` instead.
  */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Schema *responseSchema;
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Schema *responseSchema GTLR_DEPRECATED;
 
 /** Optional. Routing configuration. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfig *routingConfig;
@@ -22760,11 +23787,14 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps : GTLRObject
 
 /**
- *  Optional. If true, include the widget context token in the response.
+ *  Optional. Deprecated: The Google Maps contextual widget behavior in
+ *  Grounding with Google Maps is being deprecated; this field is planned for
+ *  removal and no longer has any effect once removed. If true, include the
+ *  widget context token in the response.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableWidget;
+@property(nonatomic, strong, nullable) NSNumber *enableWidget GTLR_DEPRECATED;
 
 @end
 
@@ -23059,11 +24089,13 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata : GTLRObject
 
 /**
- *  Optional. Output only. A token that can be used to render a Google Maps
- *  widget with the contextual data. This field is populated only when the
- *  grounding source is Google Maps.
+ *  Optional. Output only. Deprecated: The Google Maps contextual widget
+ *  behavior in Grounding with Google Maps is being deprecated; this field is
+ *  planned for removal and will no longer be populated once removed. A token
+ *  that can be used to render a Google Maps widget with the contextual data.
+ *  This field is populated only when the grounding source is Google Maps.
  */
-@property(nonatomic, copy, nullable) NSString *googleMapsWidgetContextToken;
+@property(nonatomic, copy, nullable) NSString *googleMapsWidgetContextToken GTLR_DEPRECATED;
 
 /**
  *  A list of supporting references retrieved from the grounding source. This
@@ -23440,6 +24472,93 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for image-specific output formatting.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat : GTLRObject
+
+/**
+ *  Optional. The aspect ratio for the image output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioEightByOne
+ *        8:1 aspect ratio. (Value: "ASPECT_RATIO_EIGHT_BY_ONE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFiveByFour
+ *        5:4 aspect ratio. (Value: "ASPECT_RATIO_FIVE_BY_FOUR")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFourByFive
+ *        4:5 aspect ratio. (Value: "ASPECT_RATIO_FOUR_BY_FIVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFourByOne
+ *        4:1 aspect ratio. (Value: "ASPECT_RATIO_FOUR_BY_ONE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioFourByThree
+ *        4:3 aspect ratio. (Value: "ASPECT_RATIO_FOUR_BY_THREE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioNineBySixteen
+ *        9:16 aspect ratio. (Value: "ASPECT_RATIO_NINE_BY_SIXTEEN")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioOneByEight
+ *        1:8 aspect ratio. (Value: "ASPECT_RATIO_ONE_BY_EIGHT")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioOneByFour
+ *        1:4 aspect ratio. (Value: "ASPECT_RATIO_ONE_BY_FOUR")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioOneByOne
+ *        1:1 aspect ratio. (Value: "ASPECT_RATIO_ONE_BY_ONE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioSixteenByNine
+ *        16:9 aspect ratio. (Value: "ASPECT_RATIO_SIXTEEN_BY_NINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioThreeByFour
+ *        3:4 aspect ratio. (Value: "ASPECT_RATIO_THREE_BY_FOUR")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioThreeByTwo
+ *        3:2 aspect ratio. (Value: "ASPECT_RATIO_THREE_BY_TWO")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioTwentyOneByNine
+ *        21:9 aspect ratio. (Value: "ASPECT_RATIO_TWENTY_ONE_BY_NINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioTwoByThree
+ *        2:3 aspect ratio. (Value: "ASPECT_RATIO_TWO_BY_THREE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_AspectRatio_AspectRatioUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ASPECT_RATIO_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *aspectRatio;
+
+/**
+ *  Optional. Delivery mode for the generated content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_Delivery_DeliveryUnspecified
+ *        Default value. This value is unused. (Value: "DELIVERY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_Delivery_Inline
+ *        Generated bytes are returned inline in the response. (Value: "INLINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_Delivery_Uri
+ *        Generated content is stored and a URI is returned. (Value: "URI")
+ */
+@property(nonatomic, copy, nullable) NSString *delivery;
+
+/**
+ *  Optional. The size of the image output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeFiveTwelve
+ *        512px image size. (Value: "IMAGE_SIZE_FIVE_TWELVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeFourK
+ *        4K image size. (Value: "IMAGE_SIZE_FOUR_K")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeOneK
+ *        1K image size. (Value: "IMAGE_SIZE_ONE_K")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeTwoK
+ *        2K image size. (Value: "IMAGE_SIZE_TWO_K")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_ImageSize_ImageSizeUnspecified
+ *        Default value. This value is unused. (Value: "IMAGE_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *imageSize;
+
+/**
+ *  Optional. The MIME type of the image output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_MimeType_ImageJpeg
+ *        JPEG image format. (Value: "IMAGE_JPEG")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat_MimeType_MimeTypeUnspecified
+ *        Default value. This value is unused. (Value: "MIME_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
  *  Describes the location from where we import data into a Dataset, together
  *  with the labels that will be applied to the DataItems and the Annotations.
  */
@@ -23552,6 +24671,142 @@ GTLR_DEPRECATED
  *  Response message for DatasetService.ImportData.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ImportDataResponse : GTLRObject
+@end
+
+
+/**
+ *  Request message for EvaluationManagementService.ImportEvaluationSet.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequest : GTLRObject
+
+/** Source for loading Agent Engine sessions. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestAgentEngineSource *agentEngineSource;
+
+/** BigQuery source with column mappings. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSet *bigquerySource;
+
+/** Source for loading data directly from Cloud Trace. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestCloudTraceSource *cloudTraceSource;
+
+/**
+ *  Required. The EvaluationSet to create. Used to specify 'display_name' and
+ *  'metadata'. The 'evaluation_items' field is ignored and populated by the
+ *  import process.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet *evaluationSet;
+
+/**
+ *  Required. The Cloud Storage location where the resulting EvaluationItem
+ *  payloads will be stored.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination *gcsDestination;
+
+/** Google Cloud Storage location. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestGcsSource *gcsSource;
+
+/** Inline source for small payloads (< 4MB). */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestInlineSource *inlineSource;
+
+@end
+
+
+/**
+ *  Source for loading Agent Engine sessions.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestAgentEngineSource : GTLRObject
+
+/** Required. Location for the Agent Engine sessions. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Required. Project ID for the Agent Engine sessions. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Reasoning Engine ID for the Agent Engine sessions. */
+@property(nonatomic, copy, nullable) NSString *reasoningEngineId;
+
+/** Required. Session IDs for the Agent Engine sessions to retrieve. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sessionIds;
+
+@end
+
+
+/**
+ *  Source for loading traces directly from Cloud Trace.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestCloudTraceSource : GTLRObject
+
+/** Required. Project ID for the Cloud Trace. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Optional. Session IDs to import traces for. If both trace_ids and
+ *  session_ids are specified, the union of the two will be imported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sessionIds;
+
+/** Optional. Trace IDs to import. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *traceIds;
+
+@end
+
+
+/**
+ *  Source for loading data from Cloud Storage.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestGcsSource : GTLRObject
+
+/** Required. The Cloud Storage location of the input data. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** Required. Schema configuration for the input data. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig *importSchemaConfig;
+
+@end
+
+
+/**
+ *  Configuration for the input data format.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig : GTLRObject
+
+/**
+ *  Required. The format of the input data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_DataFormatUnspecified
+ *        Unspecified data format. (Value: "DATA_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_Jsonl
+ *        JSONL format mapping directly to EvaluationItem schema. (Value:
+ *        "JSONL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_OtelJson
+ *        OpenTelemetry JSON format. (Value: "OTEL_JSON")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig_DataFormat_OtelProto
+ *        OpenTelemetry Protobuf format (e.g. TracesData). (Value: "OTEL_PROTO")
+ */
+@property(nonatomic, copy, nullable) NSString *dataFormat;
+
+/** Optional. Version of the data format. */
+@property(nonatomic, copy, nullable) NSString *dataFormatVersion;
+
+@end
+
+
+/**
+ *  Wrapper for inline data.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestInlineSource : GTLRObject
+
+/**
+ *  Required. The content of the inline data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Required. Schema configuration for the inline data. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImportEvaluationSetRequestImportSchemaConfig *importSchemaConfig;
+
 @end
 
 
@@ -24361,6 +25616,94 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for MemoryBankService.IngestEvents.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IngestEventsRequest : GTLRObject
+
+/** Ingest events directly from the request. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1IngestionDirectContentsSource *directContentsSource;
+
+/**
+ *  Optional. Forces a flush of all pending events in the stream and triggers
+ *  memory generation immediately bypassing any conditions configured in the
+ *  `generation_trigger_config`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forceFlush;
+
+/**
+ *  Optional. Configuration for triggering memory generation from this
+ *  ingestion. If not set, then the stream will be force flushed immediately.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MemoryGenerationTriggerConfig *generationTriggerConfig;
+
+/**
+ *  Required. The scope of the memories that should be generated from the
+ *  stream. Memories will be consolidated across memories with the same scope.
+ *  Scope values cannot contain the wildcard character '*'.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1IngestEventsRequest_Scope *scope;
+
+/**
+ *  Optional. The ID of the stream to ingest events into. If not provided, a new
+ *  one will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *streamId;
+
+@end
+
+
+/**
+ *  Required. The scope of the memories that should be generated from the
+ *  stream. Memories will be consolidated across memories with the same scope.
+ *  Scope values cannot contain the wildcard character '*'.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IngestEventsRequest_Scope : GTLRObject
+@end
+
+
+/**
+ *  Ingest events directly from the request.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IngestionDirectContentsSource : GTLRObject
+
+/** Required. The events to ingest. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1IngestionDirectContentsSourceEvent *> *events;
+
+@end
+
+
+/**
+ *  A single event to ingest.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IngestionDirectContentsSourceEvent : GTLRObject
+
+/** Required. The content of the event. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *content;
+
+/**
+ *  Optional. A unique identifier for the event. If an event with the same
+ *  event_id is ingested multiple times, it will be de-duplicated.
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  Optional. The time at which the event occurred. If provided, this timestamp
+ *  will be used for ordering events within a stream. If not provided, the
+ *  server-side ingestion time will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+@end
+
+
+/**
  *  Specifies Vertex AI owned input data to be used for training, and possibly
  *  evaluating, the Model.
  */
@@ -24690,6 +26033,33 @@ GTLR_DEPRECATED
 
 /** The Execution nodes in the subgraph. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Execution *> *executions;
+
+@end
+
+
+/**
+ *  Response message for AgentService.ListAgents.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "agents" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListAgentsResponse : GTLRCollectionObject
+
+/**
+ *  The agents matching the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Agent *> *agents;
+
+/**
+ *  A token to retrieve the next page of results. Pass this value as
+ *  ListAgentsRequest.page_token in a subsequent call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -25816,6 +27186,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for ListOnlineEvaluators.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "onlineEvaluators" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListOnlineEvaluatorsResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page. Absence of this field indicates there are
+ *  no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of OnlineEvaluators matching the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator *> *onlineEvaluators;
+
+@end
+
+
+/**
  *  Request message for VizierService.ListOptimalTrials.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ListOptimalTrialsRequest : GTLRObject
@@ -26105,6 +27502,34 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Schedule *> *schedules;
+
+@end
+
+
+/**
+ *  Response message for
+ *  SemanticGovernancePolicyService.ListSemanticGovernancePolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "semanticGovernancePolicies" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListSemanticGovernancePoliciesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Pass to
+ *  ListSemanticGovernancePoliciesRequest.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of SemanticGovernancePolicies.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicy *> *semanticGovernancePolicies;
 
 @end
 
@@ -26507,6 +27932,27 @@ GTLR_DEPRECATED
 
 /** Required. The user-defined display name of the Study */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  Configuration for the loss analysis job.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1LossAnalysisConfig : GTLRObject
+
+/**
+ *  Required. The candidate model/agent to analyze (e.g., "gemini-3.0-pro").
+ *  This targets the specific CandidateResult within the EvaluationResult.
+ */
+@property(nonatomic, copy, nullable) NSString *candidate;
+
+/**
+ *  Required. The metric to analyze (e.g., "tool_use_quality"). This filters the
+ *  EvaluationItems in the EvalSet to only those where EvaluationResult.metric
+ *  matches this value.
+ */
+@property(nonatomic, copy, nullable) NSString *metric;
 
 @end
 
@@ -31413,6 +32859,248 @@ GTLR_DEPRECATED
 
 
 /**
+ *  An OnlineEvaluator contains the configuration for an Online Evaluation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator : GTLRObject
+
+/**
+ *  Required. Immutable. The name of the agent that the OnlineEvaluator
+ *  evaluates periodically. This value is used to filter the traces with a
+ *  matching cloud.resource_id and link the evaluation results with relevant
+ *  dashboards/UIs. This field is immutable. Once set, it cannot be changed.
+ */
+@property(nonatomic, copy, nullable) NSString *agentResource;
+
+/**
+ *  Data source for the OnlineEvaluator, based on Google Cloud Observability
+ *  stack (Cloud Trace & Cloud Logging).
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservability *cloudObservability;
+
+/** Required. Configuration for the OnlineEvaluator. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorConfig *config;
+
+/** Output only. Timestamp when the OnlineEvaluator was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Human-readable name for the `OnlineEvaluator`. The name doesn't
+ *  have to be unique. The name can consist of any UTF-8 characters. The maximum
+ *  length is `63` characters. If the display name exceeds max characters, an
+ *  `INVALID_ARGUMENT` error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. A list of metric sources to be used for evaluating samples. At
+ *  least one MetricSource must be provided. Right now, only predefined metrics
+ *  and registered metrics are supported. Every registered metric must have
+ *  `display_name` (or `title`) and `score_range` defined. Otherwise, the
+ *  evaluations will fail. The maximum number of `metric_sources` is 25.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MetricSource *> *metricSources;
+
+/**
+ *  Identifier. The resource name of the OnlineEvaluator. Format:
+ *  projects/{project}/locations/{location}/onlineEvaluators/{id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the OnlineEvaluator.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Active
+ *        Indicates that the OnlineEvaluator is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Failed
+ *        Indicates that the OnlineEvaluator is in a failed state. This can
+ *        happen if, for example, the `log_view` or `trace_view` set on the
+ *        `CloudObservability` does not exist. (Value: "FAILED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Suspended
+ *        Indicates that the OnlineEvaluator is suspended. In this state, the
+ *        OnlineEvaluator will not evaluate any samples. (Value: "SUSPENDED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluator_State_Warning
+ *        Indicates that the OnlineEvaluator is in a warning state. This can
+ *        happen if, for example, some of the metrics in the `metric_sources`
+ *        are invalid. Evaluation will still run with the remaining valid
+ *        metrics. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Contains additional information about the state of the
+ *  OnlineEvaluator. This is used to provide more details in the event of a
+ *  failure.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorStateDetails *> *stateDetails;
+
+/** Output only. Timestamp when the OnlineEvaluator was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Data source for the OnlineEvaluator, based on Google Cloud Observability
+ *  stack (Cloud Trace & Cloud Logging).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservability : GTLRObject
+
+/**
+ *  Optional. Optional log view that will be used to query logs. If empty, the
+ *  `_Default` view will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *logView;
+
+/** Data source follows OpenTelemetry convention. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityOpenTelemetry *openTelemetry;
+
+/** Scope online evaluation to single traces. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScope *traceScope;
+
+/**
+ *  Optional. Optional trace view that will be used to query traces. If empty,
+ *  the `_Default` view will be used. NOTE: This field is not supported yet and
+ *  will be ignored if set.
+ */
+@property(nonatomic, copy, nullable) NSString *traceView;
+
+@end
+
+
+/**
+ *  Defines a predicate for filtering based on a numeric value.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate : GTLRObject
+
+/**
+ *  Required. The comparison operator to apply.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_ComparisonOperatorUnspecified
+ *        Unspecified comparison operator. This value should not be used.
+ *        (Value: "COMPARISON_OPERATOR_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_Equal
+ *        Equal to. (Value: "EQUAL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_Greater
+ *        Greater than. (Value: "GREATER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_GreaterOrEqual
+ *        Greater than or equal to. (Value: "GREATER_OR_EQUAL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_Less
+ *        Less than. (Value: "LESS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_LessOrEqual
+ *        Less than or equal to. (Value: "LESS_OR_EQUAL")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate_ComparisonOperator_NotEqual
+ *        Not equal to. (Value: "NOT_EQUAL")
+ */
+@property(nonatomic, copy, nullable) NSString *comparisonOperator;
+
+/**
+ *  Required. The value to compare against.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  Configuration for data source following OpenTelemetry.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityOpenTelemetry : GTLRObject
+
+/**
+ *  Required. Defines which version OTel Semantic Convention the data follows.
+ *  Can be "1.39.0" or newer.
+ */
+@property(nonatomic, copy, nullable) NSString *semconvVersion;
+
+@end
+
+
+/**
+ *  If chosen, the online evaluator will evaluate single traces matching
+ *  specified `filter`.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScope : GTLRObject
+
+/**
+ *  Optional. A list of predicates to filter traces. Multiple predicates are
+ *  combined using AND. The maximum number of predicates is 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScopePredicate *> *filter;
+
+@end
+
+
+/**
+ *  Defines a single filter predicate.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityTraceScopePredicate : GTLRObject
+
+/** Filter on the duration of a trace. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate *duration;
+
+/** Filter on the total token usage within a trace. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorCloudObservabilityNumericPredicate *totalTokenUsage;
+
+@end
+
+
+/**
+ *  Configuration for sampling behavior of the OnlineEvaluator. The
+ *  OnlineEvaluator runs at a fixed interval of 10 minutes.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorConfig : GTLRObject
+
+/**
+ *  Optional. The maximum number of evaluations to perform per run. If set to 0,
+ *  the number is unbounded.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxEvaluatedSamplesPerRun;
+
+/** Random sampling method. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorConfigRandomSampling *randomSampling;
+
+@end
+
+
+/**
+ *  Configuration for random sampling.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorConfigRandomSampling : GTLRObject
+
+/**
+ *  Required. The percentage of traces to sample for evaluation. Must be an
+ *  integer between `1` and `100`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  Contains additional information about the state of the OnlineEvaluator.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OnlineEvaluatorStateDetails : GTLRObject
+
+/**
+ *  Output only. Human-readable message describing the state of the
+ *  OnlineEvaluator.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  Config for evaluation output.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1OutputConfig : GTLRObject
@@ -31916,6 +33604,13 @@ GTLR_DEPRECATED
  *  Request message for JobService.PauseModelDeploymentMonitoringJob.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PauseModelDeploymentMonitoringJobRequest : GTLRObject
+@end
+
+
+/**
+ *  Request message for SandboxEnvironmentService.PauseSandboxEnvironment.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PauseSandboxEnvironmentRequest : GTLRObject
 @end
 
 
@@ -36127,6 +37822,11 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec : GTLRObject
 
 /**
+ *  Optional. Agent Gateway configuration for the Reasoning Engine deployment.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfig *agentGatewayConfig;
+
+/**
  *  Optional. Concurrency for each container and agent server. Recommended
  *  value: 2 * cpu + 1. Defaults to 9.
  *
@@ -36205,6 +37905,58 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits : GTLRObject
+@end
+
+
+/**
+ *  Agent Gateway configuration for a Reasoning Engine deployment.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfig : GTLRObject
+
+/**
+ *  Optional. Configuration for traffic originating from the Reasoning Engine.
+ *  When unset, outgoing traffic is not routed through an Agent Gateway.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfigAgentToAnywhereConfig *agentToAnywhereConfig;
+
+/**
+ *  Optional. Configuration for traffic targeting the Reasoning Engine. When
+ *  unset, incoming traffic is not routed through an Agent Gateway.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfigClientToAgentConfig *clientToAgentConfig;
+
+@end
+
+
+/**
+ *  Configuration for traffic originating from a Reasoning Engine.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfigAgentToAnywhereConfig : GTLRObject
+
+/**
+ *  Required. The resource name of the Agent Gateway for outbound traffic. It
+ *  must be set to a Google-managed gateway whose `governed_access_path` is
+ *  `AGENT_TO_ANYWHERE`. Format:
+ *  `projects/{project}/locations/{location}/agentGateways/{agent_gateway}`
+ */
+@property(nonatomic, copy, nullable) NSString *agentGateway;
+
+@end
+
+
+/**
+ *  Configuration for traffic targeting a Reasoning Engine.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpecAgentGatewayConfigClientToAgentConfig : GTLRObject
+
+/**
+ *  Required. The resource name of the Agent Gateway to use for inbound traffic.
+ *  It must be set to a Google-managed gateway whose `governed_access_path` is
+ *  `CLIENT_TO_AGENT`. Format:
+ *  `projects/{project}/locations/{location}/agentGateways/{agent_gateway}`
+ */
+@property(nonatomic, copy, nullable) NSString *agentGateway;
+
 @end
 
 
@@ -36718,6 +38470,26 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for the model to configure output formatting and delivery.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ResponseFormat : GTLRObject
+
+/** Audio output format. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AudioResponseFormat *audio;
+
+/** Image output format. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImageResponseFormat *image;
+
+/** Text output format. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat *text;
+
+/** Video output format. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat *video;
+
+@end
+
+
+/**
  *  Runtime operation information for DatasetService.RestoreDatasetVersion.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RestoreDatasetVersionOperationMetadata : GTLRObject
@@ -36732,6 +38504,13 @@ GTLR_DEPRECATED
  *  Request message for JobService.ResumeModelDeploymentMonitoringJob.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ResumeModelDeploymentMonitoringJobRequest : GTLRObject
+@end
+
+
+/**
+ *  Request message for SandboxEnvironmentService.ResumeSandboxEnvironment.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ResumeSandboxEnvironmentRequest : GTLRObject
 @end
 
 
@@ -44660,6 +46439,176 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents a governance policy applied to a specific Agent and optionally a
+ *  specific Tool within that Agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicy : GTLRObject
+
+/**
+ *  Required. The name of the agent in Agent Registry that is affected by this
+ *  policy.
+ */
+@property(nonatomic, copy, nullable) NSString *agent;
+
+/**
+ *  Output only. Represents the principal of the agent, used by the Policy
+ *  Decision Point (PDP) for governance checks. For more information, see
+ *  https://docs.cloud.google.com/agent-builder/agent-engine/agent-identity
+ *  Format: `principal://TRUST_DOMAIN/NAMESPACE/AGENT_NAME` Example:
+ *  `principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/AGENT_ENGINE_ID`
+ */
+@property(nonatomic, copy, nullable) NSString *agentIdentity;
+
+/** Output only. Timestamp when this SemanticGovernancePolicy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The description of the SemanticGovernancePolicy.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. The user-defined name of the SemanticGovernancePolicy. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Used to perform consistent read-modify-write transactions. If
+ *  provided, the request will only succeed if the etag matches the current
+ *  value. Otherwise, an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. The McpTools that are affected by this policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyMcpTool *> *mcpTools;
+
+/** Identifier. Resource name of the SemanticGovernancePolicy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The natural language constraint of the SemanticGovernancePolicy.
+ */
+@property(nonatomic, copy, nullable) NSString *naturalLanguageConstraint;
+
+/**
+ *  Output only. Timestamp when this SemanticGovernancePolicy was last updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Define a singleton SemanticGovernancePolicyEngine resource under a project
+ *  and location.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine : GTLRObject
+
+/**
+ *  Output only. Timestamp when this SemanticGovernancePolicyEngine was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Configurations for gateways. The keys are user-defined names for
+ *  each gateway. At most 5 gateway configurations are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_GatewayConfigs *gatewayConfigs;
+
+/** Output only. The private IPv4 address of the PSC endpoint. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  Identifier. The resource name of the SemanticGovernancePolicyEngine. Format:
+ *  projects/{project}/locations/{location}/semanticGovernancePolicyEngine
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The URI of the PSC endpoint resource created in customer
+ *  project. Format:
+ *  projects/{project}/regions/{region}/forwardingRules/{forwarding_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *pscForwardingRule;
+
+/**
+ *  Output only. URI of the PSC attachment resource provided by SGP. Format:
+ *  projects/{project}/regions/{region}/serviceAttachments/{service_attachment}
+ */
+@property(nonatomic, copy, nullable) NSString *pscServiceAttachment;
+
+/**
+ *  Output only. The state of the SemanticGovernancePolicyEngine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Active
+ *        The engine and all of its gateway configurations are provisioned and
+ *        ready to serve traffic. (Value: "ACTIVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Deprovisioning
+ *        A deprovisioning operation is in progress. The engine will transition
+ *        to INACTIVE on success or FAILED on failure. (Value: "DEPROVISIONING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Failed
+ *        The most recent provisioning or deprovisioning operation failed. The
+ *        engine may have partial infrastructure that needs explicit
+ *        deprovision; the engine may be either re-provisioned or deprovisioned
+ *        to recover. (Value: "FAILED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Inactive
+ *        The engine has no provisioned infrastructure: either never
+ *        provisioned, or successfully deprovisioned. (Value: "INACTIVE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_Provisioning
+ *        A provisioning operation is in progress. The engine will transition to
+ *        ACTIVE on success or FAILED on failure. (Value: "PROVISIONING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Timestamp when this SemanticGovernancePolicyEngine was last
+ *  updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Configurations for gateways. The keys are user-defined names for
+ *  each gateway. At most 5 gateway configurations are allowed.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1GatewayConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyEngine_GatewayConfigs : GTLRObject
+@end
+
+
+/**
+ *  Represents a governance policy applied to MCP tools used by an Agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SemanticGovernancePolicyMcpTool : GTLRObject
+
+/**
+ *  Required. The resource name of the McpServer in Agent Registry that is
+ *  affected by this policy. Format:
+ *  `projects/{project}/locations/{location}/mcpServers/{mcp_server}`
+ */
+@property(nonatomic, copy, nullable) NSString *mcpServer;
+
+/**
+ *  Optional. The resource names of the McpTools used by the Agent that is
+ *  affected by this policy. If not specified, the policy applies to all
+ *  McpTools in the McpServer.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tools;
+
+@end
+
+
+/**
  *  Configuration for the use of custom service account to run the workloads.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec : GTLRObject
@@ -46616,6 +48565,24 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata for the SuspendOnlineEvaluator operation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SuspendOnlineEvaluatorOperationMetadata : GTLRObject
+
+/** Common part of operation metadata. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Request message for SuspendOnlineEvaluator.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SuspendOnlineEvaluatorRequest : GTLRObject
+@end
+
+
+/**
  *  Request message for FeatureOnlineStoreAdminService.SyncFeatureView.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SyncFeatureViewRequest : GTLRObject
@@ -47275,6 +49242,35 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for text-specific output formatting.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat : GTLRObject
+
+/**
+ *  Optional. The IANA standard MIME type of the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat_MimeType_ApplicationJson
+ *        JSON output format. (Value: "APPLICATION_JSON")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat_MimeType_MimeTypeUnspecified
+ *        Default value. This value is unused. (Value: "MIME_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1TextResponseFormat_MimeType_TextPlain
+ *        Plain text output format. (Value: "TEXT_PLAIN")
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Optional. The JSON schema that the output should conform to. Only applicable
+ *  when mime_type is APPLICATION_JSON.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id schema;
+
+@end
+
+
+/**
  *  The storage details for TFRecord output content.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1TFRecordDestination : GTLRObject
@@ -47604,11 +49600,23 @@ GTLR_DEPRECATED
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse : GTLRObject
 
 /**
+ *  Optional. Enables the prompt injection detection check on computer-use
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePromptInjectionDetection;
+
+/**
  *  Required. The environment being operated.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentBrowser
  *        Operates in a web browser. (Value: "ENVIRONMENT_BROWSER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentDesktop
+ *        Operates in a desktop environment. (Value: "ENVIRONMENT_DESKTOP")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentMobile
+ *        Operates in a mobile environment. (Value: "ENVIRONMENT_MOBILE")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ToolComputerUse_Environment_EnvironmentUnspecified
  *        Defaults to browser. (Value: "ENVIRONMENT_UNSPECIFIED")
  */
@@ -47841,6 +49849,17 @@ GTLR_DEPRECATED
  *  "fetch_policy": { "max_age_seconds": 3600 } }
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolParallelAiSearch_CustomConfigs *customConfigs;
+
+/**
+ *  Optional. Instructs Vertex Grounding to use Parallel's Zero Data Retention
+ *  Marketplace product. If this value is "false" or omitted, the Parallel Web
+ *  Search for Grounding standard subscription will be used. If this value is
+ *  "true", the Parallel Web Search for Grounding - ZDR subscription will be
+ *  used.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableDataRetention;
 
 @end
 
@@ -49288,6 +51307,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata for the UpdateOnlineEvaluator operation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UpdateOnlineEvaluatorOperationMetadata : GTLRObject
+
+/** Generic operation metadata. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenericOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
  *  Details of operations that perform update PersistentResource.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1UpdatePersistentResourceOperationMetadata : GTLRObject
@@ -49668,6 +51698,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Output of user scenario generation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UserScenario : GTLRObject
+
+/**
+ *  Conversation plan to drive multi-turn agent run and get simulated agent eval
+ *  dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationPlan;
+
+/**
+ *  Starting prompt for the conversation between simulated user and agent under
+ *  the test.
+ */
+@property(nonatomic, copy, nullable) NSString *startingPrompt;
+
+/** Represents a short 3-5 word title for eval test case. */
+@property(nonatomic, copy, nullable) NSString *testCaseTitle;
+
+@end
+
+
+/**
+ *  User scenario generation configuration.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1UserScenarioGenerationConfig : GTLRObject
+
+/** Optional. Environment data in string type. */
+@property(nonatomic, copy, nullable) NSString *environmentData;
+
+/**
+ *  Optional. The model name to use for generation. It can be model name, e.g.
+ *  "gemini-3-pro-preview". or the fully qualified name of the publisher model
+ *  or endpoint. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Endpoint
+ *  format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *modelName;
+
+/** Optional. Simulation instruction to guide the user scenario generation. */
+@property(nonatomic, copy, nullable) NSString *simulationInstruction;
+
+/**
+ *  Required. The number of user scenarios to generate. The maximum number of
+ *  scenarios that can be generated is 100.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userScenarioCount;
+
+@end
+
+
+/**
  *  Value is the value of the field.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Value : GTLRObject
@@ -49875,6 +51959,50 @@ GTLR_DEPRECATED
 
 /** Optional. The start offset of the video. */
 @property(nonatomic, strong, nullable) GTLRDuration *startOffset;
+
+@end
+
+
+/**
+ *  Configuration for video-specific output formatting.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat : GTLRObject
+
+/**
+ *  The aspect ratio for the video output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_AspectRatio_AspectRatioNineBySixteen
+ *        9:16 aspect ratio. (Value: "ASPECT_RATIO_NINE_BY_SIXTEEN")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_AspectRatio_AspectRatioSixteenByNine
+ *        16:9 aspect ratio. (Value: "ASPECT_RATIO_SIXTEEN_BY_NINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_AspectRatio_AspectRatioUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ASPECT_RATIO_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *aspectRatio;
+
+/**
+ *  Optional. Delivery mode for the generated content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Delivery_DeliveryUnspecified
+ *        Default value. This value is unused. (Value: "DELIVERY_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Delivery_Inline
+ *        Generated bytes are returned inline in the response. (Value: "INLINE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1VideoResponseFormat_Delivery_Uri
+ *        Generated content is stored and a URI is returned. (Value: "URI")
+ */
+@property(nonatomic, copy, nullable) NSString *delivery;
+
+/** Optional. The duration for the video output. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Optional. The Google Cloud Storage URI to store the video output. Required
+ *  for Vertex if delivery is URI.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
 
 @end
 

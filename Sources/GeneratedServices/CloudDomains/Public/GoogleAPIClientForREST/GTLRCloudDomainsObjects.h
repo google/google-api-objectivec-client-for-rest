@@ -1912,6 +1912,14 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
+/**
+ *  Optional. If set, validates the request without actually initiating the
+ *  transfer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
 @end
 
 

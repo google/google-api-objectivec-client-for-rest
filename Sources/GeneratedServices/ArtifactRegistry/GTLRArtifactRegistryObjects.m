@@ -1357,7 +1357,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_PrewarmArtifactRequest
-@dynamic force, retentionDays, streamLocation, tag, version;
+@dynamic force, platform, retentionDays, streamLocation, tag, version;
 @end
 
 
@@ -1378,6 +1378,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_PrewarmedArtifact
 @dynamic expirationTime, location, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_PrewarmPlatform
+//
+
+@implementation GTLRArtifactRegistry_PrewarmPlatform
+@dynamic architecture, os;
 @end
 
 

@@ -29,6 +29,7 @@
 @class GTLRVMwareEngine_Datastore;
 @class GTLRVMwareEngine_DatastoreMountConfig;
 @class GTLRVMwareEngine_DatastoreNetwork;
+@class GTLRVMwareEngine_EncryptionConfig;
 @class GTLRVMwareEngine_Expr;
 @class GTLRVMwareEngine_ExternalAccessRule;
 @class GTLRVMwareEngine_ExternalAddress;
@@ -264,6 +265,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVer
  *  Value: "NFS_VERSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsVersionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_EncryptionConfig.type
+
+/**
+ *  Customer-managed encryption keys (CMEK).
+ *
+ *  Value: "CMEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_Cmek;
+/**
+ *  Legacy customer-managed encryption keys (CMEK).
+ *
+ *  Value: "LEGACY_CMEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_LegacyCmek;
+/**
+ *  Other encryption types, such as self-managed external KMS.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_Other;
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMwareEngine_ExternalAccessRule.action
@@ -2334,6 +2363,41 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRVMwareEngine_Empty : GTLRObject
+@end
+
+
+/**
+ *  Encryption configuration for a private cloud.
+ */
+@interface GTLRVMwareEngine_EncryptionConfig : GTLRObject
+
+/**
+ *  Optional. The resource name of the Cloud KMS key to be used for CMEK
+ *  encryption. The format of this field is
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ *  The key must be in the same region as the private cloud. This key is used
+ *  for wrapping the key-encrypting key of vSAN clusters. This field must be
+ *  provided when `type` is `CMEK` or `LEGACY_CMEK`, and must not be set when
+ *  `type` is `OTHER`.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
+
+/**
+ *  Required. The encryption type of the private cloud.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_EncryptionConfig_Type_Cmek Customer-managed
+ *        encryption keys (CMEK). (Value: "CMEK")
+ *    @arg @c kGTLRVMwareEngine_EncryptionConfig_Type_LegacyCmek Legacy
+ *        customer-managed encryption keys (CMEK). (Value: "LEGACY_CMEK")
+ *    @arg @c kGTLRVMwareEngine_EncryptionConfig_Type_Other Other encryption
+ *        types, such as self-managed external KMS. (Value: "OTHER")
+ *    @arg @c kGTLRVMwareEngine_EncryptionConfig_Type_TypeUnspecified The
+ *        default value. This value should never be used. (Value:
+ *        "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -4699,6 +4763,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Encryption configuration for the private cloud. If this field is
+ *  left unspecified, Google default encryption is used.
+ */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_EncryptionConfig *encryptionConfig;
 
 /** Output only. Time when the resource will be irreversibly deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;

@@ -1003,6 +1003,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  contains progress information and common metadata such as create time. Some
  *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
+ *
+ *  Documented to be a google.protobuf.Any.
  */
 @property(nonatomic, strong, nullable) GTLRDns_GoogleLongrunningOperation_Metadata *metadata;
 
@@ -1021,6 +1023,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
  *  original method name. For example, if the original method name is
  *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  Documented to be a google.protobuf.Any.
  */
 @property(nonatomic, strong, nullable) GTLRDns_GoogleLongrunningOperation_Response *response;
 
@@ -2709,6 +2713,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 /**
  *  A list of messages that carry the error details. There is a common set of
  *  message types for APIs to use.
+ *
+ *  Documented to be a google.protobuf.Any.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_Status_Details_Item *> *details;
 

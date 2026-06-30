@@ -975,7 +975,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaPropertySummary
-@dynamic displayName, parent, property, propertyType;
+@dynamic canEdit, displayName, parent, property, propertyType;
 @end
 
 

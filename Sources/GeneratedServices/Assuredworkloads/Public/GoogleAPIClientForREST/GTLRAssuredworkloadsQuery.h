@@ -88,6 +88,114 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists the finding summary by category for a given scope.
+ *
+ *  Method: assuredworkloads.folders.locations.dbFindingSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFindingSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework overview page. Formats: -
+ *  projects/{project}/locations/{location} -
+ *  folders/{folder}/locations/{location} -
+ *  organizations/{organization}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse.
+ *
+ *  Lists the finding summary by category for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework overview page.
+ *    Formats: - projects/{project}/locations/{location} -
+ *    folders/{folder}/locations/{location} -
+ *    organizations/{organization}/locations/{location}
+ *
+ *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFindingSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the finding summary by category for a given scope.
+ *
+ *  Method: assuredworkloads.organizations.locations.dbFindingSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework overview page. Formats: -
+ *  projects/{project}/locations/{location} -
+ *  folders/{folder}/locations/{location} -
+ *  organizations/{organization}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse.
+ *
+ *  Lists the finding summary by category for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework overview page.
+ *    Formats: - projects/{project}/locations/{location} -
+ *    folders/{folder}/locations/{location} -
+ *    organizations/{organization}/locations/{location}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -849,6 +957,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The start of the time window. */
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
+/** Optional. Actionable sorting delegation. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** Optional. Page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -875,6 +986,60 @@ NS_ASSUME_NONNULL_BEGIN
  *    `organizations/{org_id}/locations/{location}/workloads/{workload}`.
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the finding summary by category for a given scope.
+ *
+ *  Method: assuredworkloads.projects.locations.dbFindingSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFindingSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework overview page. Formats: -
+ *  projects/{project}/locations/{location} -
+ *  folders/{folder}/locations/{location} -
+ *  organizations/{organization}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse.
+ *
+ *  Lists the finding summary by category for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework overview page.
+ *    Formats: - projects/{project}/locations/{location} -
+ *    folders/{folder}/locations/{location} -
+ *    organizations/{organization}/locations/{location}
+ *
+ *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFindingSummariesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

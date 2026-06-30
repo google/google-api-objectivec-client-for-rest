@@ -3874,7 +3874,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ChartAction
-@dynamic redirectAction;
+@dynamic conversationFilter, redirectAction;
 @end
 
 

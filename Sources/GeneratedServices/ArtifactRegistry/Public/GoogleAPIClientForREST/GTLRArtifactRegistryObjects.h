@@ -65,6 +65,7 @@
 @class GTLRArtifactRegistry_PlatformLogsConfig;
 @class GTLRArtifactRegistry_Policy;
 @class GTLRArtifactRegistry_PrewarmedArtifact;
+@class GTLRArtifactRegistry_PrewarmPlatform;
 @class GTLRArtifactRegistry_PythonPackage;
 @class GTLRArtifactRegistry_PythonRepository;
 @class GTLRArtifactRegistry_RemoteRepositoryConfig;
@@ -2847,6 +2848,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, strong, nullable) NSNumber *force;
 
+/** Optional. The platform (architecture and OS) of the image or tag. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_PrewarmPlatform *platform;
+
 /**
  *  Optional. The retention days of the prewarmed artifact. If not specified,
  *  the artifact will be cached for 3 days.
@@ -2889,7 +2893,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  PrewarmedArtifact represents a streamed artifact.
+ *  PrewarmedArtifact represents a streamed artifact. This is not a request
+ *  message, so field_behavior annotations are not required.
  */
 @interface GTLRArtifactRegistry_PrewarmedArtifact : GTLRObject
 
@@ -2904,6 +2909,25 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  us-west4-docker.pkg.dev/test-project/test-repo/nginx\@sha256:e9954c1fc875017be1c3e36eca16be2d9e9bccc4bf072163515467d6a823c7cf
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The platform (architecture and OS) of the image. This is a sub-message.
+ */
+@interface GTLRArtifactRegistry_PrewarmPlatform : GTLRObject
+
+/**
+ *  Optional. The architecture of the image or tag. For example, "arm64" or
+ *  "amd64".
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  Optional. The OS of the image or tag. For example, "linux" or "windows".
+ */
+@property(nonatomic, copy, nullable) NSString *os;
 
 @end
 

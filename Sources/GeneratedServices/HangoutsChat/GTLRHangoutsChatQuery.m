@@ -763,6 +763,133 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
 
 @end
 
+@implementation GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Availability class];
+  query.loggingName = @"chat.users.availability.getAvailability";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersAvailabilityMarkAsActive
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MarkAsActiveRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markAsActive";
+  GTLRHangoutsChatQuery_UsersAvailabilityMarkAsActive *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Availability class];
+  query.loggingName = @"chat.users.availability.markAsActive";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersAvailabilityMarkAsAway
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MarkAsAwayRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markAsAway";
+  GTLRHangoutsChatQuery_UsersAvailabilityMarkAsAway *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Availability class];
+  query.loggingName = @"chat.users.availability.markAsAway";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersAvailabilityMarkAsDoNotDisturb
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MarkAsDoNotDisturbRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markAsDoNotDisturb";
+  GTLRHangoutsChatQuery_UsersAvailabilityMarkAsDoNotDisturb *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Availability class];
+  query.loggingName = @"chat.users.availability.markAsDoNotDisturb";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Availability *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Availability class];
+  query.loggingName = @"chat.users.availability.updateAvailability";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_UsersSectionsCreate
 
 @dynamic parent;

@@ -7260,14 +7260,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Precisions (maximum number of total digits in base 10) for seconds of
  *  TIMESTAMP types that are allowed to the destination table for autodetection
- *  mode. Available for the formats: CSV, PARQUET, and AVRO. Possible values
- *  include: Not Specified, [], or [6]: timestamp(6) for all auto detected
- *  TIMESTAMP columns [6, 12]: timestamp(6) for all auto detected TIMESTAMP
- *  columns that have less than 6 digits of subseconds. timestamp(12) for all
- *  auto detected TIMESTAMP columns that have more than 6 digits of subseconds.
- *  [12]: timestamp(12) for all auto detected TIMESTAMP columns. The order of
- *  the elements in this array is ignored. Inputs that have higher precision
- *  than the highest target precision in this array will be truncated.
+ *  mode. Available for the formats: CSV, PARQUET, AVRO, and Iceberg External
+ *  Table. Possible values include: Not Specified, [], or [6]: timestamp(6) for
+ *  all auto detected TIMESTAMP columns [6, 12]: timestamp(6) for all auto
+ *  detected TIMESTAMP columns that have less than 6 digits of subseconds.
+ *  timestamp(12) for all auto detected TIMESTAMP columns that have more than 6
+ *  digits of subseconds. [12]: timestamp(12) for all auto detected TIMESTAMP
+ *  columns. The order of the elements in this array is ignored. Inputs that
+ *  have higher precision than the highest target precision in this array will
+ *  be truncated.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7325,8 +7326,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *containerMemory;
 
 /**
- *  Optional. Maximum number of requests that a Cloud Run instance can handle
- *  concurrently. If absent or if `0`, a default concurrency is used.
+ *  Optional. Maximum number of requests that a Python UDF instance can handle
+ *  concurrently. If absent or if `0`, the default concurrency value is used.
+ *  For more information, see [Configure container limits for Python
+ *  UDFs](https://cloud.google.com/bigquery/docs/user-defined-functions-python#configure-container-limits).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9112,14 +9115,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Precisions (maximum number of total digits in base 10) for seconds of
  *  TIMESTAMP types that are allowed to the destination table for autodetection
- *  mode. Available for the formats: CSV, PARQUET, and AVRO. Possible values
- *  include: Not Specified, [], or [6]: timestamp(6) for all auto detected
- *  TIMESTAMP columns [6, 12]: timestamp(6) for all auto detected TIMESTAMP
- *  columns that have less than 6 digits of subseconds. timestamp(12) for all
- *  auto detected TIMESTAMP columns that have more than 6 digits of subseconds.
- *  [12]: timestamp(12) for all auto detected TIMESTAMP columns. The order of
- *  the elements in this array is ignored. Inputs that have higher precision
- *  than the highest target precision in this array will be truncated.
+ *  mode. Available for the formats: CSV, PARQUET, AVRO, and Iceberg External
+ *  Table. Possible values include: Not Specified, [], or [6]: timestamp(6) for
+ *  all auto detected TIMESTAMP columns [6, 12]: timestamp(6) for all auto
+ *  detected TIMESTAMP columns that have less than 6 digits of subseconds.
+ *  timestamp(12) for all auto detected TIMESTAMP columns that have more than 6
+ *  digits of subseconds. [12]: timestamp(12) for all auto detected TIMESTAMP
+ *  columns. The order of the elements in this array is ignored. Inputs that
+ *  have higher precision than the highest target precision in this array will
+ *  be truncated.
  *
  *  Uses NSNumber of intValue.
  */
@@ -10144,8 +10148,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
 
 /**
- *  Output only. Total bytes transferred for cross-cloud queries such as Cross
- *  Cloud Transfer and CREATE TABLE AS SELECT (CTAS).
+ *  Output only. Total bytes transferred for BigQuery Omni queries from the
+ *  remote cloud back to Google Cloud. This tracks data movement over
+ *  Google-managed connections (like query results). It doesn't include input
+ *  data read from the external data lake (for example, S3) because that data
+ *  stays within the remote cloud.
  *
  *  Uses NSNumber of longLongValue.
  */

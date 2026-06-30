@@ -58,6 +58,44 @@
 
 @end
 
+@implementation GTLRAssuredworkloadsQuery_FoldersLocationsDbFindingSummariesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbFindingSummaries";
+  GTLRAssuredworkloadsQuery_FoldersLocationsDbFindingSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse class];
+  query.loggingName = @"assuredworkloads.folders.locations.dbFindingSummaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbFindingSummaries";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.dbFindingSummaries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsOperationsGet
 
 @dynamic name;
@@ -450,8 +488,8 @@
 
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList
 
-@dynamic filter, intervalEndTime, intervalStartTime, pageSize, pageToken,
-         parent;
+@dynamic filter, intervalEndTime, intervalStartTime, orderBy, pageSize,
+         pageToken, parent;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -471,6 +509,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListViolationsResponse class];
   query.loggingName = @"assuredworkloads.organizations.locations.workloads.violations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_ProjectsLocationsDbFindingSummariesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbFindingSummaries";
+  GTLRAssuredworkloadsQuery_ProjectsLocationsDbFindingSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse class];
+  query.loggingName = @"assuredworkloads.projects.locations.dbFindingSummaries.list";
   return query;
 }
 

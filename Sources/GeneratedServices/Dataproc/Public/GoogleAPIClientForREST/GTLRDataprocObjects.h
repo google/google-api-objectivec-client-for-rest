@@ -764,6 +764,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_CohortInfo_CohortSource_CohortS
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_CohortInfo_CohortSource_UserProvided;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_ConfidentialInstanceConfig.confidentialInstanceType
+
+/**
+ *  Confidential Instance Type is not specified.
+ *
+ *  Value: "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified;
+/**
+ *  AMD Secure Encrypted Virtualization
+ *  (https://cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#amd_sev)
+ *
+ *  Value: "SEV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev;
+/**
+ *  AMD Secure Encrypted Virtualization-Secure Nested Paging
+ *  (https://cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#amd_sev-snp)
+ *
+ *  Value: "SEV_SNP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp;
+/**
+ *  Intel Trust Domain Extensions
+ *  (https://cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#intel_tdx)
+ *
+ *  Value: "TDX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_DiagnoseClusterRequest.tarballAccess
 
 /**
@@ -3404,9 +3435,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Confidential Instance Config for clusters using Confidential VMs
- *  (https://cloud.google.com/compute/confidential-vm/docs)
+ *  (https://cloud.google.com/confidential-computing/confidential-vm/docs)
  */
 @interface GTLRDataproc_ConfidentialInstanceConfig : GTLRObject
+
+/**
+ *  Optional. Defines the type of Confidential Compute technology to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified
+ *        Confidential Instance Type is not specified. (Value:
+ *        "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev
+ *        AMD Secure Encrypted Virtualization
+ *        (https://cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#amd_sev)
+ *        (Value: "SEV")
+ *    @arg @c kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp
+ *        AMD Secure Encrypted Virtualization-Secure Nested Paging
+ *        (https://cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#amd_sev-snp)
+ *        (Value: "SEV_SNP")
+ *    @arg @c kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx
+ *        Intel Trust Domain Extensions
+ *        (https://cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview#intel_tdx)
+ *        (Value: "TDX")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialInstanceType;
 
 /**
  *  Optional. Deprecated: Use 'confidential_instance_type' instead. Defines
@@ -4550,7 +4603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Confidential Instance Config for clusters using Confidential VMs
- *  (https://cloud.google.com/compute/confidential-vm/docs).
+ *  (https://cloud.google.com/confidential-computing/confidential-vm/docs).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ConfidentialInstanceConfig *confidentialInstanceConfig;
 
@@ -4835,6 +4888,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
+
+/**
+ *  Optional. Specifies the service account
+ *  (https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke-iam) to be
+ *  used by the node pools. Specify the email address of the service account or
+ *  its full resource name.Format:
+ *  projects/{project}/serviceAccounts/{service_account_email} or
+ *  {service_account_email}.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Optional. Whether the nodes are created as Spot VM instances

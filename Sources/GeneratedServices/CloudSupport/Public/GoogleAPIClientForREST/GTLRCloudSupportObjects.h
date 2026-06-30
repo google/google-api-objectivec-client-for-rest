@@ -31,6 +31,7 @@
 @class GTLRCloudSupport_DownloadParameters;
 @class GTLRCloudSupport_Escalation;
 @class GTLRCloudSupport_ObjectId;
+@class GTLRCloudSupport_SupportEventSubscription;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -268,6 +269,66 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Inline;
  *  Value: "PATH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSupport_SupportEventSubscription.failureReason
+
+/**
+ *  Unspecified failure reason.
+ *
+ *  Value: "FAILURE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_FailureReasonUnspecified;
+/**
+ *  Message failed to publish due to a system-side error.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_Other;
+/**
+ *  The service account (i.e.
+ *  cloud-support-apievents\@system.gserviceaccount.com) lacks the permission to
+ *  publish to the customer's Pub/Sub topic.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_PermissionDenied;
+/**
+ *  The specified Pub/Sub topic does not exist.
+ *
+ *  Value: "TOPIC_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_TopicNotFound;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudSupport_SupportEventSubscription.state
+
+/**
+ *  Subscription has been deleted and is pending purge. Notifications are not
+ *  sent for deleted subscriptions. Deleted subscriptions are purged after their
+ *  `purge_time` has passed.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Deleted;
+/**
+ *  Subscription is failing. Notifications cannot be published for some reason.
+ *
+ *  Value: "FAILING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Failing;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_State_StateUnspecified;
+/**
+ *  Subscription is active and working.
+ *
+ *  Value: "WORKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Working;
 
 /**
  *  An Actor represents an entity that performed an action. For example, an
@@ -974,6 +1035,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
 
 
 /**
+ *  Response message for ListSupportEventSubscriptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "supportEventSubscriptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudSupport_ListSupportEventSubscriptionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The support event subscriptions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSupport_SupportEventSubscription *> *supportEventSubscriptions;
+
+@end
+
+
+/**
  *  # gdata.* are outside protos with mising documentation
  */
 @interface GTLRCloudSupport_Media : GTLRObject
@@ -1256,6 +1344,79 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+@end
+
+
+/**
+ *  A support event subscription.
+ */
+@interface GTLRCloudSupport_SupportEventSubscription : GTLRObject
+
+/** Output only. The time at which the subscription was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time at which the subscription was deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. Reason why subscription is failing. State of subscription must
+ *  be FAILING in order for this to have a value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_FailureReason_FailureReasonUnspecified
+ *        Unspecified failure reason. (Value: "FAILURE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_FailureReason_Other
+ *        Message failed to publish due to a system-side error. (Value: "OTHER")
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_FailureReason_PermissionDenied
+ *        The service account (i.e.
+ *        cloud-support-apievents\@system.gserviceaccount.com) lacks the
+ *        permission to publish to the customer's Pub/Sub topic. (Value:
+ *        "PERMISSION_DENIED")
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_FailureReason_TopicNotFound
+ *        The specified Pub/Sub topic does not exist. (Value: "TOPIC_NOT_FOUND")
+ */
+@property(nonatomic, copy, nullable) NSString *failureReason;
+
+/** Identifier. The resource name of the support event subscription. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The name of the Pub/Sub topic to publish notifications to. Format:
+ *  projects/{project}/topics/{topic}
+ */
+@property(nonatomic, copy, nullable) NSString *pubSubTopic;
+
+/** Output only. The time at which the subscription will be purged. */
+@property(nonatomic, strong, nullable) GTLRDateTime *purgeTime;
+
+/**
+ *  Output only. The state of the subscription.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_State_Deleted
+ *        Subscription has been deleted and is pending purge. Notifications are
+ *        not sent for deleted subscriptions. Deleted subscriptions are purged
+ *        after their `purge_time` has passed. (Value: "DELETED")
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_State_Failing
+ *        Subscription is failing. Notifications cannot be published for some
+ *        reason. (Value: "FAILING")
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSupport_SupportEventSubscription_State_Working
+ *        Subscription is active and working. (Value: "WORKING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time at which the subscription was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Request message for UndeleteSupportEventSubscription.
+ */
+@interface GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1237,7 +1237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Outp
 /** Value: "OUTPUT_AUDIO_ENCODING_LINEAR_16" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16;
 /** Value: "OUTPUT_AUDIO_ENCODING_MP3" */
-FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3 GTLR_DEPRECATED;
 /** Value: "OUTPUT_AUDIO_ENCODING_MP3_64_KBPS" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp364Kbps;
 /** Value: "OUTPUT_AUDIO_ENCODING_MULAW" */
@@ -12800,6 +12800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult : GTLRObject
 
+@property(nonatomic, copy, nullable) NSString *answerRecord;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery *suggestedQuery;
 
 @end
@@ -15270,6 +15271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult : GTLRObject
 
+@property(nonatomic, copy, nullable) NSString *answerRecord;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery *suggestedQuery;
 
 @end

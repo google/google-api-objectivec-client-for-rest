@@ -19,6 +19,8 @@ NSString * const kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonl
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementProfiles = @"https://www.googleapis.com/auth/chrome.management.profiles";
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly = @"https://www.googleapis.com/auth/chrome.management.profiles.readonly";
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly = @"https://www.googleapis.com/auth/chrome.management.reports.readonly";
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights = @"https://www.googleapis.com/auth/chrome.management.securityinsights";
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementSecurityinsightsReadonly = @"https://www.googleapis.com/auth/chrome.management.securityinsights.readonly";
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementTelemetryReadonly = @"https://www.googleapis.com/auth/chrome.management.telemetry.readonly";
 
 // ----------------------------------------------------------------------------

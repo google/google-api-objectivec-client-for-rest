@@ -19,6 +19,7 @@
 @class GTLRCloudSecurityToken_GoogleIdentityStsV1AccessBoundaryRule;
 @class GTLRCloudSecurityToken_GoogleIdentityStsV1betaAccessBoundary;
 @class GTLRCloudSecurityToken_GoogleIdentityStsV1betaAccessBoundaryRule;
+@class GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk;
 @class GTLRCloudSecurityToken_GoogleTypeExpr;
 
 // Generated comments include content from the discovery document; avoid them
@@ -461,6 +462,93 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The type of access token. Always has the value `Bearer`. */
 @property(nonatomic, copy, nullable) NSString *tokenType;
+
+@end
+
+
+/**
+ *  A JSON web key set (JWK) See also
+ *  https://datatracker.ietf.org/doc/html/rfc7517 and
+ *  https://github.com/spiffe/spiffe/blob/main/standards/JWT-SVID.md#6-representation-in-the-spiffe-bundle
+ */
+@interface GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk : GTLRObject
+
+/** Exponent value for kty="RSA". */
+@property(nonatomic, copy, nullable) NSString *e;
+
+/** Key ID. */
+@property(nonatomic, copy, nullable) NSString *kid;
+
+/** Key type. Currently "RSA". */
+@property(nonatomic, copy, nullable) NSString *kty;
+
+/** Modulus value for kty="RSA". */
+@property(nonatomic, copy, nullable) NSString *n;
+
+/** Public key use. Currently "jwt-svid". */
+@property(nonatomic, copy, nullable) NSString *use;
+
+@end
+
+
+/**
+ *  Response message for GetJwks.
+ */
+@interface GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks : GTLRObject
+
+/** The JWKS for this OP. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk *> *keys;
+
+@end
+
+
+/**
+ *  Response message for GetOpenIdProviderConfig. Message fields are defined in
+ *  https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse
+ */
+@interface GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig : GTLRObject
+
+/**
+ *  URL pointing to an authorization endpoint under this issuer. Note: Currently
+ *  this endpoint returns a 404.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationEndpoint;
+
+/**
+ *  JSON array containing a list of the JWS signing algorithms (alg values)
+ *  supported by the OP for the ID token to encode the claims in a JWT [JWT].
+ *  Note: Currently always "["RS256"]".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *idTokenSigningAlgValuesSupported;
+
+/**
+ *  URL using the https scheme with no query or fragment components that the OP
+ *  asserts as its issuer identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *issuer;
+
+/**
+ *  URL of the OP's JWK Set [JWK] document, which MUST use the https scheme.
+ */
+@property(nonatomic, copy, nullable) NSString *jwksUri;
+
+/**
+ *  JSON array containing a list of the OAuth 2.0 response_type values that this
+ *  OP supports. Note: Currently always "["id_token"]".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *responseTypesSupported;
+
+/**
+ *  JSON array containing a list of the subject identifier types that this OP
+ *  supports. Note: Currently always "["public"]".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjectTypesSupported;
+
+/**
+ *  URL pointing to a token endpoint under this issuer. Note: Currently this
+ *  endpoint returns a 404.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenEndpoint;
 
 @end
 

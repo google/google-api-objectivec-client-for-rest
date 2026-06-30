@@ -121,6 +121,10 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstrain
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
 
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices.servicePatternsEnforcementScopes
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices_ServicePatternsEnforcementScopes_GoogleApisViaPrivatePath = @"GOOGLE_APIS_VIA_PRIVATE_PATH";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices_ServicePatternsEnforcementScopes_ServicePatternsEnforcementScopeUnspecified = @"SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED";
+
 // GTLRCloudAsset_IamPolicyAnalysisState.code
 NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Aborted = @"ABORTED";
 NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_AlreadyExists = @"ALREADY_EXISTS";
@@ -1146,6 +1150,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AddRequestHeader
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AddRequestHeader
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation
 //
 
@@ -1270,7 +1284,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource
-@dynamic accessLevel, resource;
+@dynamic accessLevel, pscEndpoint, resource;
 @end
 
 
@@ -1330,7 +1344,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressSource
-@dynamic accessLevel, resource;
+@dynamic accessLevel, pscEndpoint, resource;
 @end
 
 
@@ -1366,11 +1380,49 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier
+@dynamic addRequestHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint
 @dynamic minimumVersion, osType, requireVerifiedChromeOs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1PrivateServiceConnectEndpoint
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1PrivateServiceConnectEndpoint
+@dynamic forwardingRule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePattern
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePattern
+@dynamic modifiers, pattern, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modifiers" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1423,11 +1475,14 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices
-@dynamic allowedServices, enableRestriction;
+@dynamic allowedServicePatterns, allowedServices, enableRestriction,
+         servicePatternsEnforcementScopes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"allowedServices" : [NSString class]
+    @"allowedServicePatterns" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePattern class],
+    @"allowedServices" : [NSString class],
+    @"servicePatternsEnforcementScopes" : [NSString class]
   };
   return map;
 }

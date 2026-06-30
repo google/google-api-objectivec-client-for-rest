@@ -45,7 +45,25 @@ NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_Compliant = @"COMP
 NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_NeedsWork = @"NEEDS_WORK";
 NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRPostmasterTools_CreateUserRequest.permission
+NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_Admin = @"ADMIN";
+NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_None = @"NONE";
+NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_Owner = @"OWNER";
+NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_CreateUserRequest_Permission_Reader = @"READER";
+
+// GTLRPostmasterTools_DeliverabilityStatusVerdict.reason
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_MessageVolumeLow = @"MESSAGE_VOLUME_LOW";
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SenderNotCompliant = @"SENDER_NOT_COMPLIANT";
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SmtpErrorsHigh = @"SMTP_ERRORS_HIGH";
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_SpamRateHigh = @"SPAM_RATE_HIGH";
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackLow = @"USER_FEEDBACK_LOW";
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackNegative = @"USER_FEEDBACK_NEGATIVE";
+NSString * const kGTLRPostmasterTools_DeliverabilityStatusVerdict_Reason_UserFeedbackPositive = @"USER_FEEDBACK_POSITIVE";
+
 // GTLRPostmasterTools_Domain.permission
+NSString * const kGTLRPostmasterTools_Domain_Permission_Admin  = @"ADMIN";
 NSString * const kGTLRPostmasterTools_Domain_Permission_None   = @"NONE";
 NSString * const kGTLRPostmasterTools_Domain_Permission_Owner  = @"OWNER";
 NSString * const kGTLRPostmasterTools_Domain_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
@@ -55,6 +73,11 @@ NSString * const kGTLRPostmasterTools_Domain_Permission_Reader = @"READER";
 NSString * const kGTLRPostmasterTools_Domain_VerificationState_Unverified = @"UNVERIFIED";
 NSString * const kGTLRPostmasterTools_Domain_VerificationState_VerificationStateUnspecified = @"VERIFICATION_STATE_UNSPECIFIED";
 NSString * const kGTLRPostmasterTools_Domain_VerificationState_Verified = @"VERIFIED";
+
+// GTLRPostmasterTools_DomainVerificationToken.verificationMethod
+NSString * const kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_Cname = @"CNAME";
+NSString * const kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_DomainVerificationMethodUnspecified = @"DOMAIN_VERIFICATION_METHOD_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_DomainVerificationToken_VerificationMethod_Txt = @"TXT";
 
 // GTLRPostmasterTools_HonorUnsubscribeVerdict.reason
 NSString * const kGTLRPostmasterTools_HonorUnsubscribeVerdict_Reason_NotHonoring = @"NOT_HONORING";
@@ -72,6 +95,18 @@ NSString * const kGTLRPostmasterTools_OneClickUnsubscribeVerdict_Reason_ReasonUn
 NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranularity_AggregationGranularityUnspecified = @"AGGREGATION_GRANULARITY_UNSPECIFIED";
 NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranularity_Daily = @"DAILY";
 NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranularity_Overall = @"OVERALL";
+
+// GTLRPostmasterTools_User.permission
+NSString * const kGTLRPostmasterTools_User_Permission_Admin    = @"ADMIN";
+NSString * const kGTLRPostmasterTools_User_Permission_None     = @"NONE";
+NSString * const kGTLRPostmasterTools_User_Permission_Owner    = @"OWNER";
+NSString * const kGTLRPostmasterTools_User_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_User_Permission_Reader   = @"READER";
+
+// GTLRPostmasterTools_VerifyDomainRequest.verificationMethod
+NSString * const kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_Cname = @"CNAME";
+NSString * const kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_DomainVerificationMethodUnspecified = @"DOMAIN_VERIFICATION_METHOD_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_VerifyDomainRequest_VerificationMethod_Txt = @"TXT";
 
 // ----------------------------------------------------------------------------
 //
@@ -151,6 +186,26 @@ NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranula
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPostmasterTools_CreateDomainRequest
+//
+
+@implementation GTLRPostmasterTools_CreateDomainRequest
+@dynamic domainId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_CreateUserRequest
+//
+
+@implementation GTLRPostmasterTools_CreateUserRequest
+@dynamic permission, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPostmasterTools_Date
 //
 
@@ -207,6 +262,16 @@ NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranula
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPostmasterTools_DeliverabilityStatusVerdict
+//
+
+@implementation GTLRPostmasterTools_DeliverabilityStatusVerdict
+@dynamic reason, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPostmasterTools_Domain
 //
 
@@ -221,7 +286,8 @@ NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranula
 //
 
 @implementation GTLRPostmasterTools_DomainComplianceData
-@dynamic domainId, honorUnsubscribeVerdict, oneClickUnsubscribeVerdict, rowData;
+@dynamic deliverabilityStatusVerdict, domainId, honorUnsubscribeVerdict,
+         oneClickUnsubscribeVerdict, rowData;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -255,6 +321,25 @@ NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranula
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPostmasterTools_DomainVerificationToken
+//
+
+@implementation GTLRPostmasterTools_DomainVerificationToken
+@dynamic name, token, verificationMethod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_Empty
+//
+
+@implementation GTLRPostmasterTools_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPostmasterTools_HonorUnsubscribeVerdict
 //
 
@@ -280,6 +365,28 @@ NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranula
 
 + (NSString *)collectionItemsKey {
   return @"domains";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_ListUsersResponse
+//
+
+@implementation GTLRPostmasterTools_ListUsersResponse
+@dynamic nextPageToken, users;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"users" : [GTLRPostmasterTools_User class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"users";
 }
 
 @end
@@ -413,4 +520,33 @@ NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranula
 
 @implementation GTLRPostmasterTools_TimeQuery
 @dynamic dateList, dateRanges;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_User
+//
+
+@implementation GTLRPostmasterTools_User
+@dynamic accessGranter, createTime, name, permission, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_VerifyDomainRequest
+//
+
+@implementation GTLRPostmasterTools_VerifyDomainRequest
+@dynamic verificationMethod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_VerifyDomainResponse
+//
+
+@implementation GTLRPostmasterTools_VerifyDomainResponse
 @end

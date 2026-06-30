@@ -225,6 +225,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesCreate;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly;
 /**
+ *  Authorization scope: See and change your availability status in Google Chat.
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.availability"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersAvailability;
+/**
+ *  Authorization scope: See your availability status in Google Chat.
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.availability.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersAvailabilityReadonly;
+/**
  *  Authorization scope: View and modify last read time for Google Chat
  *  conversations
  *

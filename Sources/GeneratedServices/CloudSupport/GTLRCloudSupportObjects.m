@@ -58,6 +58,18 @@ NSString * const kGTLRCloudSupport_Media_ReferenceType_GetMedia = @"GET_MEDIA";
 NSString * const kGTLRCloudSupport_Media_ReferenceType_Inline  = @"INLINE";
 NSString * const kGTLRCloudSupport_Media_ReferenceType_Path    = @"PATH";
 
+// GTLRCloudSupport_SupportEventSubscription.failureReason
+NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_FailureReasonUnspecified = @"FAILURE_REASON_UNSPECIFIED";
+NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_Other = @"OTHER";
+NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRCloudSupport_SupportEventSubscription_FailureReason_TopicNotFound = @"TOPIC_NOT_FOUND";
+
+// GTLRCloudSupport_SupportEventSubscription.state
+NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Deleted = @"DELETED";
+NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Failing = @"FAILING";
+NSString * const kGTLRCloudSupport_SupportEventSubscription_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Working = @"WORKING";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudSupport_Actor
@@ -334,6 +346,28 @@ NSString * const kGTLRCloudSupport_Media_ReferenceType_Path    = @"PATH";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSupport_ListSupportEventSubscriptionsResponse
+//
+
+@implementation GTLRCloudSupport_ListSupportEventSubscriptionsResponse
+@dynamic nextPageToken, supportEventSubscriptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportEventSubscriptions" : [GTLRCloudSupport_SupportEventSubscription class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"supportEventSubscriptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSupport_Media
 //
 
@@ -415,4 +449,24 @@ NSString * const kGTLRCloudSupport_Media_ReferenceType_Path    = @"PATH";
   return @"cases";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSupport_SupportEventSubscription
+//
+
+@implementation GTLRCloudSupport_SupportEventSubscription
+@dynamic createTime, deleteTime, failureReason, name, pubSubTopic, purgeTime,
+         state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest
+//
+
+@implementation GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest
 @end

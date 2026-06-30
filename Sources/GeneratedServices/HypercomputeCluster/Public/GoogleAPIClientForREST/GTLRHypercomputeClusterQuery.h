@@ -4,8 +4,9 @@
 // API:
 //   Cluster Director API (hypercomputecluster/v1)
 // Description:
-//   The Cluster Director API allows you to deploy, manage, and monitor clusters
-//   that run AI, ML, or HPC workloads.
+//   The Cluster Director API lets you deploy, manage, and monitor clusters that
+//   run artificial intelligence (AI), machine learning (ML), or high
+//   performance computing (HPC) workloads.
 // Documentation:
 //   https://docs.cloud.google.com/cluster-director/docs
 
@@ -45,9 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHypercomputeClusterQuery_ProjectsLocationsClustersCreate : GTLRHypercomputeClusterQuery
 
 /**
- *  Required. ID of the cluster to create. Must conform to
- *  [RFC-1034](https://datatracker.ietf.org/doc/html/rfc1034) (lower-case,
- *  alphanumeric, and at most 63 characters).
+ *  Required. The ID of the cluster to create. The cluster ID must start with a
+ *  lowercase letter (`a`-`z`), use only lowercase letters or numbers, and
+ *  contain up to 10 characters. For example, specify `cluster001`.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 

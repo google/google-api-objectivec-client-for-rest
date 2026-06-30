@@ -15,6 +15,7 @@
 // Constants
 
 // monitoringPointType
+NSString * const kGTLRNetworkManagementMonitoringPointTypeAwsEc2 = @"AWS_EC2";
 NSString * const kGTLRNetworkManagementMonitoringPointTypeAzureVm = @"AZURE_VM";
 NSString * const kGTLRNetworkManagementMonitoringPointTypeContainer = @"CONTAINER";
 NSString * const kGTLRNetworkManagementMonitoringPointTypeGceVm = @"GCE_VM";

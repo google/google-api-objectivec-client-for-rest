@@ -290,6 +290,54 @@ NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconImpression = @"AD_U
 NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconSkip = @"AD_URL_TYPE_BEACON_SKIP";
 NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeUnspecified = @"AD_URL_TYPE_UNSPECIFIED";
 
+// GTLRDisplayVideo_AdvancedProductTargeting.ageRange
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1824 = @"PLANNABLE_AGE_RANGE_18_24";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1834 = @"PLANNABLE_AGE_RANGE_18_34";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1844 = @"PLANNABLE_AGE_RANGE_18_44";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1849 = @"PLANNABLE_AGE_RANGE_18_49";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1854 = @"PLANNABLE_AGE_RANGE_18_54";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1864 = @"PLANNABLE_AGE_RANGE_18_64";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1865Up = @"PLANNABLE_AGE_RANGE_18_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2134 = @"PLANNABLE_AGE_RANGE_21_34";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2144 = @"PLANNABLE_AGE_RANGE_21_44";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2149 = @"PLANNABLE_AGE_RANGE_21_49";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2154 = @"PLANNABLE_AGE_RANGE_21_54";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2164 = @"PLANNABLE_AGE_RANGE_21_64";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2165Up = @"PLANNABLE_AGE_RANGE_21_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2534 = @"PLANNABLE_AGE_RANGE_25_34";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2544 = @"PLANNABLE_AGE_RANGE_25_44";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2549 = @"PLANNABLE_AGE_RANGE_25_49";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2554 = @"PLANNABLE_AGE_RANGE_25_54";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2564 = @"PLANNABLE_AGE_RANGE_25_64";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2565Up = @"PLANNABLE_AGE_RANGE_25_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3544 = @"PLANNABLE_AGE_RANGE_35_44";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3549 = @"PLANNABLE_AGE_RANGE_35_49";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3554 = @"PLANNABLE_AGE_RANGE_35_54";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3564 = @"PLANNABLE_AGE_RANGE_35_64";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3565Up = @"PLANNABLE_AGE_RANGE_35_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4554 = @"PLANNABLE_AGE_RANGE_45_54";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4564 = @"PLANNABLE_AGE_RANGE_45_64";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4565Up = @"PLANNABLE_AGE_RANGE_45_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5065Up = @"PLANNABLE_AGE_RANGE_50_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5564 = @"PLANNABLE_AGE_RANGE_55_64";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5565Up = @"PLANNABLE_AGE_RANGE_55_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange65Up = @"PLANNABLE_AGE_RANGE_65_UP";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRangeUnspecified = @"PLANNABLE_AGE_RANGE_UNSPECIFIED";
+
+// GTLRDisplayVideo_AdvancedProductTargeting.devices
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeComputer = @"DEVICE_TYPE_COMPUTER";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeConnectedDevice = @"DEVICE_TYPE_CONNECTED_DEVICE";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeConnectedTv = @"DEVICE_TYPE_CONNECTED_TV";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeSmartPhone = @"DEVICE_TYPE_SMART_PHONE";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeTablet = @"DEVICE_TYPE_TABLET";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+
+// GTLRDisplayVideo_AdvancedProductTargeting.genders
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderFemale = @"GENDER_FEMALE";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderMale = @"GENDER_MALE";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderUnknown = @"GENDER_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderUnspecified = @"GENDER_UNSPECIFIED";
+
 // GTLRDisplayVideo_Advertiser.containsEuPoliticalAds
 NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising = @"CONTAINS_EU_POLITICAL_ADVERTISING";
 NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising = @"DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING";
@@ -396,6 +444,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_E
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDailymotion = @"EXCHANGE_DAILYMOTION";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDax = @"EXCHANGE_DAX";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDrax = @"EXCHANGE_DRAX";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeExte = @"EXCHANGE_EXTE";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFive = @"EXCHANGE_FIVE";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFluct = @"EXCHANGE_FLUCT";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFreewheel = @"EXCHANGE_FREEWHEEL";
@@ -500,6 +549,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesRuleset_AggregationType_SumOfVa
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewSignalUnspecified = @"ACTIVE_VIEW_SIGNAL_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewViewed = @"ACTIVE_VIEW_VIEWED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_Audible = @"AUDIBLE";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_AudioCompleted = @"AUDIO_COMPLETED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_CompletedInViewAudible = @"COMPLETED_IN_VIEW_AUDIBLE";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_TimeOnScreen = @"TIME_ON_SCREEN";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoCompleted = @"VIDEO_COMPLETED";
@@ -539,6 +589,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOper
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewSignalUnspecified = @"ACTIVE_VIEW_SIGNAL_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewViewed = @"ACTIVE_VIEW_VIEWED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_Audible = @"AUDIBLE";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_AudioCompleted = @"AUDIO_COMPLETED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_CompletedInViewAudible = @"COMPLETED_IN_VIEW_AUDIBLE";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_TimeOnScreen = @"TIME_ON_SCREEN";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoCompleted = @"VIDEO_COMPLETED";
@@ -640,6 +691,7 @@ NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_Targeti
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeVideoPlayerSize = @"TARGETING_TYPE_VIDEO_PLAYER_SIZE";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeViewability = @"TARGETING_TYPE_VIEWABILITY";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeChannel = @"TARGETING_TYPE_YOUTUBE_CHANNEL";
+NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeChannelPack = @"TARGETING_TYPE_YOUTUBE_CHANNEL_PACK";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeVideo = @"TARGETING_TYPE_YOUTUBE_VIDEO";
 
 // GTLRDisplayVideo_AssignedUserRole.userRole
@@ -933,9 +985,11 @@ NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeVideoPlayerSize = @"TARGETING_TYPE_VIDEO_PLAYER_SIZE";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeViewability = @"TARGETING_TYPE_VIEWABILITY";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel = @"TARGETING_TYPE_YOUTUBE_CHANNEL";
+NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannelPack = @"TARGETING_TYPE_YOUTUBE_CHANNEL_PACK";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeVideo = @"TARGETING_TYPE_YOUTUBE_VIDEO";
 
 // GTLRDisplayVideo_CreateSdfDownloadTaskRequest.version
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion10 = @"SDF_VERSION_10";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion31 = @"SDF_VERSION_3_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion4 = @"SDF_VERSION_4";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion41 = @"SDF_VERSION_4_1";
@@ -1165,6 +1219,7 @@ NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeVideoPlayerSize = @"TARGETING_TYPE_VIDEO_PLAYER_SIZE";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeViewability = @"TARGETING_TYPE_VIEWABILITY";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel = @"TARGETING_TYPE_YOUTUBE_CHANNEL";
+NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannelPack = @"TARGETING_TYPE_YOUTUBE_CHANNEL_PACK";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeVideo = @"TARGETING_TYPE_YOUTUBE_VIDEO";
 
 // GTLRDisplayVideo_DemandGenBiddingStrategy.effectiveBiddingValueSource
@@ -1406,6 +1461,7 @@ NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDailymotion = @"EXCHANGE_DAILYMOTION";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDax = @"EXCHANGE_DAX";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDrax = @"EXCHANGE_DRAX";
+NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeExte = @"EXCHANGE_EXTE";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFive = @"EXCHANGE_FIVE";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFluct = @"EXCHANGE_FLUCT";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFreewheel = @"EXCHANGE_FREEWHEEL";
@@ -1497,6 +1553,7 @@ NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDailymotion = @"EXCHANGE_DAILYMOTION";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax = @"EXCHANGE_DAX";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDrax = @"EXCHANGE_DRAX";
+NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeExte = @"EXCHANGE_EXTE";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFive = @"EXCHANGE_FIVE";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFluct = @"EXCHANGE_FLUCT";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFreewheel = @"EXCHANGE_FREEWHEEL";
@@ -1588,6 +1645,7 @@ NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCore = 
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDailymotion = @"EXCHANGE_DAILYMOTION";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax = @"EXCHANGE_DAX";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDrax = @"EXCHANGE_DRAX";
+NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeExte = @"EXCHANGE_EXTE";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFive = @"EXCHANGE_FIVE";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFluct = @"EXCHANGE_FLUCT";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFreewheel = @"EXCHANGE_FREEWHEEL";
@@ -1685,6 +1743,7 @@ NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_Excha
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDailymotion = @"EXCHANGE_DAILYMOTION";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax = @"EXCHANGE_DAX";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDrax = @"EXCHANGE_DRAX";
+NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeExte = @"EXCHANGE_EXTE";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFive = @"EXCHANGE_FIVE";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFluct = @"EXCHANGE_FLUCT";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFreewheel = @"EXCHANGE_FREEWHEEL";
@@ -1966,6 +2025,7 @@ NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCore = @"EXC
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion = @"EXCHANGE_DAILYMOTION";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax = @"EXCHANGE_DAX";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDrax = @"EXCHANGE_DRAX";
+NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeExte = @"EXCHANGE_EXTE";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFive = @"EXCHANGE_FIVE";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFluct = @"EXCHANGE_FLUCT";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFreewheel = @"EXCHANGE_FREEWHEEL";
@@ -2210,6 +2270,7 @@ NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCore = @"EXC
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDailymotion = @"EXCHANGE_DAILYMOTION";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax = @"EXCHANGE_DAX";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDrax = @"EXCHANGE_DRAX";
+NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeExte = @"EXCHANGE_EXTE";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFive = @"EXCHANGE_FIVE";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFluct = @"EXCHANGE_FLUCT";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFreewheel = @"EXCHANGE_FREEWHEEL";
@@ -2622,6 +2683,112 @@ NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalTyp
 NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeUnspecified = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM";
 
+// GTLRDisplayVideo_PlannableLocation.geoRegionType
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeAirport = @"GEO_REGION_TYPE_AIRPORT";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeArrondissement = @"GEO_REGION_TYPE_ARRONDISSEMENT";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeAutonomousCommunity = @"GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeBarrio = @"GEO_REGION_TYPE_BARRIO";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeBorough = @"GEO_REGION_TYPE_BOROUGH";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCanton = @"GEO_REGION_TYPE_CANTON";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCity = @"GEO_REGION_TYPE_CITY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCityRegion = @"GEO_REGION_TYPE_CITY_REGION";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeColloquialArea = @"GEO_REGION_TYPE_COLLOQUIAL_AREA";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCommune = @"GEO_REGION_TYPE_COMMUNE";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCongressionalDistrict = @"GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCountry = @"GEO_REGION_TYPE_COUNTRY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCounty = @"GEO_REGION_TYPE_COUNTY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDepartment = @"GEO_REGION_TYPE_DEPARTMENT";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDistrict = @"GEO_REGION_TYPE_DISTRICT";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDivision = @"GEO_REGION_TYPE_DIVISION";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDmaRegion = @"GEO_REGION_TYPE_DMA_REGION";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeGovernorate = @"GEO_REGION_TYPE_GOVERNORATE";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMetro = @"GEO_REGION_TYPE_METRO";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMunicipality = @"GEO_REGION_TYPE_MUNICIPALITY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMunicipalityDistrict = @"GEO_REGION_TYPE_MUNICIPALITY_DISTRICT";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeNationalPark = @"GEO_REGION_TYPE_NATIONAL_PARK";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeNeighborhood = @"GEO_REGION_TYPE_NEIGHBORHOOD";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeOkrug = @"GEO_REGION_TYPE_OKRUG";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeOther = @"GEO_REGION_TYPE_OTHER";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePostalCode = @"GEO_REGION_TYPE_POSTAL_CODE";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePostTown = @"GEO_REGION_TYPE_POST_TOWN";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePrefecture = @"GEO_REGION_TYPE_PREFECTURE";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeProvince = @"GEO_REGION_TYPE_PROVINCE";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeQuarter = @"GEO_REGION_TYPE_QUARTER";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeRegion = @"GEO_REGION_TYPE_REGION";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeState = @"GEO_REGION_TYPE_STATE";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeSubDistrict = @"GEO_REGION_TYPE_SUB_DISTRICT";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeSubWard = @"GEO_REGION_TYPE_SUB_WARD";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeTerritory = @"GEO_REGION_TYPE_TERRITORY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeTvRegion = @"GEO_REGION_TYPE_TV_REGION";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUnionTerritory = @"GEO_REGION_TYPE_UNION_TERRITORY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUniversity = @"GEO_REGION_TYPE_UNIVERSITY";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUnknown = @"GEO_REGION_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeWard = @"GEO_REGION_TYPE_WARD";
+
+// GTLRDisplayVideo_PlannableTargeting.ageRanges
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1824 = @"PLANNABLE_AGE_RANGE_18_24";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1834 = @"PLANNABLE_AGE_RANGE_18_34";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1844 = @"PLANNABLE_AGE_RANGE_18_44";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1849 = @"PLANNABLE_AGE_RANGE_18_49";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1854 = @"PLANNABLE_AGE_RANGE_18_54";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1864 = @"PLANNABLE_AGE_RANGE_18_64";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1865Up = @"PLANNABLE_AGE_RANGE_18_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2134 = @"PLANNABLE_AGE_RANGE_21_34";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2144 = @"PLANNABLE_AGE_RANGE_21_44";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2149 = @"PLANNABLE_AGE_RANGE_21_49";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2154 = @"PLANNABLE_AGE_RANGE_21_54";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2164 = @"PLANNABLE_AGE_RANGE_21_64";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2165Up = @"PLANNABLE_AGE_RANGE_21_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2534 = @"PLANNABLE_AGE_RANGE_25_34";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2544 = @"PLANNABLE_AGE_RANGE_25_44";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2549 = @"PLANNABLE_AGE_RANGE_25_49";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2554 = @"PLANNABLE_AGE_RANGE_25_54";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2564 = @"PLANNABLE_AGE_RANGE_25_64";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2565Up = @"PLANNABLE_AGE_RANGE_25_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3544 = @"PLANNABLE_AGE_RANGE_35_44";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3549 = @"PLANNABLE_AGE_RANGE_35_49";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3554 = @"PLANNABLE_AGE_RANGE_35_54";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3564 = @"PLANNABLE_AGE_RANGE_35_64";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3565Up = @"PLANNABLE_AGE_RANGE_35_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange4554 = @"PLANNABLE_AGE_RANGE_45_54";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange4564 = @"PLANNABLE_AGE_RANGE_45_64";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange4565Up = @"PLANNABLE_AGE_RANGE_45_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange5065Up = @"PLANNABLE_AGE_RANGE_50_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange5564 = @"PLANNABLE_AGE_RANGE_55_64";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange5565Up = @"PLANNABLE_AGE_RANGE_55_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange65Up = @"PLANNABLE_AGE_RANGE_65_UP";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRangeUnspecified = @"PLANNABLE_AGE_RANGE_UNSPECIFIED";
+
+// GTLRDisplayVideo_PlannableTargeting.devices
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeComputer = @"DEVICE_TYPE_COMPUTER";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeConnectedDevice = @"DEVICE_TYPE_CONNECTED_DEVICE";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeConnectedTv = @"DEVICE_TYPE_CONNECTED_TV";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeSmartPhone = @"DEVICE_TYPE_SMART_PHONE";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeTablet = @"DEVICE_TYPE_TABLET";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+
+// GTLRDisplayVideo_PlannableTargeting.genders
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderFemale = @"GENDER_FEMALE";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderMale = @"GENDER_MALE";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderUnknown = @"GENDER_UNKNOWN";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderUnspecified = @"GENDER_UNSPECIFIED";
+
+// GTLRDisplayVideo_PlannableTargeting.networks
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkGoogleVideoPartners = @"PLANNABLE_NETWORK_GOOGLE_VIDEO_PARTNERS";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkUnspecified = @"PLANNABLE_NETWORK_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkYoutube = @"PLANNABLE_NETWORK_YOUTUBE";
+NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkYoutubeAndGoogleVideoPartners = @"PLANNABLE_NETWORK_YOUTUBE_AND_GOOGLE_VIDEO_PARTNERS";
+
+// GTLRDisplayVideo_PlannableUserList.plannableStatus
+NSString * const kGTLRDisplayVideo_PlannableUserList_PlannableStatus_Plannable = @"PLANNABLE";
+NSString * const kGTLRDisplayVideo_PlannableUserList_PlannableStatus_PlannableStatusUnspecified = @"PLANNABLE_STATUS_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_PlannableUserList_PlannableStatus_Unplannable = @"UNPLANNABLE";
+
+// GTLRDisplayVideo_PlannableUserList.userListType
+NSString * const kGTLRDisplayVideo_PlannableUserList_UserListType_FirstParty = @"FIRST_PARTY";
+NSString * const kGTLRDisplayVideo_PlannableUserList_UserListType_ThirdParty = @"THIRD_PARTY";
+NSString * const kGTLRDisplayVideo_PlannableUserList_UserListType_UserListTypeUnspecified = @"USER_LIST_TYPE_UNSPECIFIED";
+
 // GTLRDisplayVideo_PoiAssignedTargetingOptionDetails.proximityRadiusUnit
 NSString * const kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitKilometers = @"DISTANCE_UNIT_KILOMETERS";
 NSString * const kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitMiles = @"DISTANCE_UNIT_MILES";
@@ -2681,6 +2848,7 @@ NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_InternalError = @"INTER
 NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_SyntaxError = @"SYNTAX_ERROR";
 
 // GTLRDisplayVideo_SdfConfig.version
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion10 = @"SDF_VERSION_10";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion31 = @"SDF_VERSION_3_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion4 = @"SDF_VERSION_4";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion41 = @"SDF_VERSION_4_1";
@@ -2702,6 +2870,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion92 = @"SDF_VERSIO
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion10 = @"SDF_VERSION_10";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion31 = @"SDF_VERSION_3_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion4 = @"SDF_VERSION_4";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion41 = @"SDF_VERSION_4_1";
@@ -2770,6 +2939,42 @@ NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_Sensi
 NSString * const kGTLRDisplayVideo_SessionPositionAssignedTargetingOptionDetails_SessionPosition_SessionPositionFirstImpression = @"SESSION_POSITION_FIRST_IMPRESSION";
 NSString * const kGTLRDisplayVideo_SessionPositionAssignedTargetingOptionDetails_SessionPosition_SessionPositionUnspecified = @"SESSION_POSITION_UNSPECIFIED";
 
+// GTLRDisplayVideo_SurfaceTargetingCombination.choices
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceDiscoverFeed = @"PLANNABLE_SURFACE_DISCOVER_FEED";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceGmail = @"PLANNABLE_SURFACE_GMAIL";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceGoogleDisplayNetwork = @"PLANNABLE_SURFACE_GOOGLE_DISPLAY_NETWORK";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInFeed = @"PLANNABLE_SURFACE_IN_FEED";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamBumper = @"PLANNABLE_SURFACE_IN_STREAM_BUMPER";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamNonSkippable = @"PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamNonSkippableThirtySeconds = @"PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamSkippable = @"PLANNABLE_SURFACE_IN_STREAM_SKIPPABLE";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceShorts = @"PLANNABLE_SURFACE_SHORTS";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceUnspecified = @"PLANNABLE_SURFACE_UNSPECIFIED";
+
+// GTLRDisplayVideo_SurfaceTargetingCombinations.availableSurfaceTypes
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceDiscoverFeed = @"PLANNABLE_SURFACE_DISCOVER_FEED";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceGmail = @"PLANNABLE_SURFACE_GMAIL";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceGoogleDisplayNetwork = @"PLANNABLE_SURFACE_GOOGLE_DISPLAY_NETWORK";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInFeed = @"PLANNABLE_SURFACE_IN_FEED";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamBumper = @"PLANNABLE_SURFACE_IN_STREAM_BUMPER";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamNonSkippable = @"PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamNonSkippableThirtySeconds = @"PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamSkippable = @"PLANNABLE_SURFACE_IN_STREAM_SKIPPABLE";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceShorts = @"PLANNABLE_SURFACE_SHORTS";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceUnspecified = @"PLANNABLE_SURFACE_UNSPECIFIED";
+
+// GTLRDisplayVideo_SurfaceTargetingSettings.surfaces
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceDiscoverFeed = @"PLANNABLE_SURFACE_DISCOVER_FEED";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceGmail = @"PLANNABLE_SURFACE_GMAIL";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceGoogleDisplayNetwork = @"PLANNABLE_SURFACE_GOOGLE_DISPLAY_NETWORK";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInFeed = @"PLANNABLE_SURFACE_IN_FEED";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamBumper = @"PLANNABLE_SURFACE_IN_STREAM_BUMPER";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamNonSkippable = @"PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamNonSkippableThirtySeconds = @"PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamSkippable = @"PLANNABLE_SURFACE_IN_STREAM_SKIPPABLE";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceShorts = @"PLANNABLE_SURFACE_SHORTS";
+NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceUnspecified = @"PLANNABLE_SURFACE_UNSPECIFIED";
+
 // GTLRDisplayVideo_TargetFrequency.timeUnit
 NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitDays = @"TIME_UNIT_DAYS";
 NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitHours = @"TIME_UNIT_HOURS";
@@ -2778,6 +2983,54 @@ NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitMinutes = @"
 NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitMonths = @"TIME_UNIT_MONTHS";
 NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitUnspecified = @"TIME_UNIT_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitWeeks = @"TIME_UNIT_WEEKS";
+
+// GTLRDisplayVideo_Targeting.ageRange
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1824 = @"PLANNABLE_AGE_RANGE_18_24";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1834 = @"PLANNABLE_AGE_RANGE_18_34";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1844 = @"PLANNABLE_AGE_RANGE_18_44";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1849 = @"PLANNABLE_AGE_RANGE_18_49";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1854 = @"PLANNABLE_AGE_RANGE_18_54";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1864 = @"PLANNABLE_AGE_RANGE_18_64";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1865Up = @"PLANNABLE_AGE_RANGE_18_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2134 = @"PLANNABLE_AGE_RANGE_21_34";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2144 = @"PLANNABLE_AGE_RANGE_21_44";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2149 = @"PLANNABLE_AGE_RANGE_21_49";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2154 = @"PLANNABLE_AGE_RANGE_21_54";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2164 = @"PLANNABLE_AGE_RANGE_21_64";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2165Up = @"PLANNABLE_AGE_RANGE_21_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2534 = @"PLANNABLE_AGE_RANGE_25_34";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2544 = @"PLANNABLE_AGE_RANGE_25_44";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2549 = @"PLANNABLE_AGE_RANGE_25_49";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2554 = @"PLANNABLE_AGE_RANGE_25_54";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2564 = @"PLANNABLE_AGE_RANGE_25_64";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2565Up = @"PLANNABLE_AGE_RANGE_25_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3544 = @"PLANNABLE_AGE_RANGE_35_44";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3549 = @"PLANNABLE_AGE_RANGE_35_49";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3554 = @"PLANNABLE_AGE_RANGE_35_54";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3564 = @"PLANNABLE_AGE_RANGE_35_64";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3565Up = @"PLANNABLE_AGE_RANGE_35_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4554 = @"PLANNABLE_AGE_RANGE_45_54";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4564 = @"PLANNABLE_AGE_RANGE_45_64";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4565Up = @"PLANNABLE_AGE_RANGE_45_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5065Up = @"PLANNABLE_AGE_RANGE_50_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5564 = @"PLANNABLE_AGE_RANGE_55_64";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5565Up = @"PLANNABLE_AGE_RANGE_55_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange65Up = @"PLANNABLE_AGE_RANGE_65_UP";
+NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRangeUnspecified = @"PLANNABLE_AGE_RANGE_UNSPECIFIED";
+
+// GTLRDisplayVideo_Targeting.devices
+NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeComputer = @"DEVICE_TYPE_COMPUTER";
+NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeConnectedDevice = @"DEVICE_TYPE_CONNECTED_DEVICE";
+NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeConnectedTv = @"DEVICE_TYPE_CONNECTED_TV";
+NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeSmartPhone = @"DEVICE_TYPE_SMART_PHONE";
+NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeTablet = @"DEVICE_TYPE_TABLET";
+NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+
+// GTLRDisplayVideo_Targeting.genders
+NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderFemale = @"GENDER_FEMALE";
+NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderMale = @"GENDER_MALE";
+NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderUnknown = @"GENDER_UNKNOWN";
+NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderUnspecified = @"GENDER_UNSPECIFIED";
 
 // GTLRDisplayVideo_TargetingExpansionConfig.audienceExpansionLevel
 NSString * const kGTLRDisplayVideo_TargetingExpansionConfig_AudienceExpansionLevel_LeastReach = @"LEAST_REACH";
@@ -2836,6 +3089,7 @@ NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeUs
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeVideoPlayerSize = @"TARGETING_TYPE_VIDEO_PLAYER_SIZE";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeViewability = @"TARGETING_TYPE_VIEWABILITY";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeChannel = @"TARGETING_TYPE_YOUTUBE_CHANNEL";
+NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeChannelPack = @"TARGETING_TYPE_YOUTUBE_CHANNEL_PACK";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeVideo = @"TARGETING_TYPE_YOUTUBE_VIDEO";
 
 // GTLRDisplayVideo_ThirdPartyUrl.type
@@ -3448,6 +3702,30 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_AdvancedProductTargeting
+//
+
+@implementation GTLRDisplayVideo_AdvancedProductTargeting
+@dynamic ageRange, dateRange, devices, frequencyCap, genders,
+         plannableLocationIds, surfaceTargetingSettings, targetFrequency,
+         userInterestIds, userListIds, youtubeSelectSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"devices" : [NSString class],
+    @"genders" : [NSString class],
+    @"plannableLocationIds" : [NSNumber class],
+    @"userInterestIds" : [NSString class],
+    @"userListIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_Advertiser
 //
 
@@ -3763,7 +4041,8 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
          sensitiveCategoryExclusionDetails, sessionPositionDetails,
          subExchangeDetails, targetingType, thirdPartyVerifierDetails,
          urlDetails, userRewardedContentDetails, videoPlayerSizeDetails,
-         viewabilityDetails, youtubeChannelDetails, youtubeVideoDetails;
+         viewabilityDetails, youtubeChannelDetails, youtubeChannelPackDetails,
+         youtubeVideoDetails;
 @end
 
 
@@ -4462,6 +4741,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 @dynamic budgetAmountMicros, budgetId, budgetUnit, dateRange, displayName,
          externalBudgetId, externalBudgetSource, invoiceGroupingId,
          prismaConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_CampaignDuration
+//
+
+@implementation GTLRDisplayVideo_CampaignDuration
+@dynamic dateRange, durationDays;
 @end
 
 
@@ -5575,6 +5864,17 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_EffectiveFrequencyBreakdown
+//
+
+@implementation GTLRDisplayVideo_EffectiveFrequencyBreakdown
+@dynamic effectiveCoviewReach, effectiveFrequency, onTargetEffectiveCoviewReach,
+         onTargetReach, totalReach;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_Empty
 //
 
@@ -5802,6 +6102,35 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 @implementation GTLRDisplayVideo_GenderTargetingOptionDetails
 @dynamic gender;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_GenerateReachForecastRequest
+//
+
+@implementation GTLRDisplayVideo_GenerateReachForecastRequest
+@dynamic campaignDuration, currencyCode, effectiveFrequencyBreakdownLimit,
+         minEffectiveFrequency, plannedProducts, targeting;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"plannedProducts" : [GTLRDisplayVideo_PlannedProduct class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_GenerateReachForecastResponse
+//
+
+@implementation GTLRDisplayVideo_GenerateReachForecastResponse
+@dynamic onTargetAudienceMetrics, reachCurve;
 @end
 
 
@@ -7363,6 +7692,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_OnTargetAudienceMetrics
+//
+
+@implementation GTLRDisplayVideo_OnTargetAudienceMetrics
+@dynamic censusAudienceSize, youtubeAudienceSize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_OperatingSystemAssignedTargetingOptionDetails
 //
 
@@ -7564,6 +7903,99 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_PlannableLocation
+//
+
+@implementation GTLRDisplayVideo_PlannableLocation
+@dynamic displayName, geoRegionType, name, plannableLocationId, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_PlannableTargeting
+//
+
+@implementation GTLRDisplayVideo_PlannableTargeting
+@dynamic ageRanges, devices, genders, networks, surfaceTargetingCombinations,
+         youtubeSelectLineups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ageRanges" : [NSString class],
+    @"devices" : [NSString class],
+    @"genders" : [NSString class],
+    @"networks" : [NSString class],
+    @"youtubeSelectLineups" : [GTLRDisplayVideo_YouTubeSelectLineUp class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_PlannableUserInterest
+//
+
+@implementation GTLRDisplayVideo_PlannableUserInterest
+@dynamic userInterest, userInterestDisplayName, userInterestPath,
+         userInterestType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_PlannableUserList
+//
+
+@implementation GTLRDisplayVideo_PlannableUserList
+@dynamic displayName, name, plannableStatus, userListType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_PlannedProduct
+//
+
+@implementation GTLRDisplayVideo_PlannedProduct
+@dynamic advancedProductTargeting, budgetMicros, plannableProductCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_PlannedProductForecast
+//
+
+@implementation GTLRDisplayVideo_PlannedProductForecast
+@dynamic effectiveFrequencyBreakdowns, onTargetImpressions, onTargetReach,
+         totalImpressions, totalReach, trueviewViews, viewableImpressions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectiveFrequencyBreakdowns" : [GTLRDisplayVideo_EffectiveFrequencyBreakdown class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_PlannedProductReachForecast
+//
+
+@implementation GTLRDisplayVideo_PlannedProductReachForecast
+@dynamic costMicros, plannableProductCode, plannedProductForecast;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_PoiAssignedTargetingOptionDetails
 //
 
@@ -7643,6 +8075,17 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_ProductMetadata
+//
+
+@implementation GTLRDisplayVideo_ProductMetadata
+@dynamic displayName, plannableProductCode, plannableProductDescription,
+         plannableTargeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails
 //
 
@@ -7658,6 +8101,42 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 @implementation GTLRDisplayVideo_RateDetails
 @dynamic inventorySourceRateType, minimumSpend, rate, unitsPurchased;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ReachCurve
+//
+
+@implementation GTLRDisplayVideo_ReachCurve
+@dynamic reachForecasts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reachForecasts" : [GTLRDisplayVideo_ReachForecast class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ReachForecast
+//
+
+@implementation GTLRDisplayVideo_ReachForecast
+@dynamic costMicros, forecast, plannedProductReachForecasts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"plannedProductReachForecasts" : [GTLRDisplayVideo_PlannedProductReachForecast class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -7748,6 +8227,82 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
     @"sites" : [GTLRDisplayVideo_Site class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_RetrievePlannableLocationsResponse
+//
+
+@implementation GTLRDisplayVideo_RetrievePlannableLocationsResponse
+@dynamic plannableLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"plannableLocations" : [GTLRDisplayVideo_PlannableLocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_RetrievePlannableProductsResponse
+//
+
+@implementation GTLRDisplayVideo_RetrievePlannableProductsResponse
+@dynamic productMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productMetadata" : [GTLRDisplayVideo_ProductMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_RetrievePlannableUserInterestsResponse
+//
+
+@implementation GTLRDisplayVideo_RetrievePlannableUserInterestsResponse
+@dynamic plannableUserInterests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"plannableUserInterests" : [GTLRDisplayVideo_PlannableUserInterest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_RetrievePlannableUserListsResponse
+//
+
+@implementation GTLRDisplayVideo_RetrievePlannableUserListsResponse
+@dynamic nextPageToken, plannableUserLists;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"plannableUserLists" : [GTLRDisplayVideo_PlannableUserList class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"plannableUserLists";
 }
 
 @end
@@ -7960,11 +8515,86 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_SurfaceTargetingCombination
+//
+
+@implementation GTLRDisplayVideo_SurfaceTargetingCombination
+@dynamic choices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"choices" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_SurfaceTargetingCombinations
+//
+
+@implementation GTLRDisplayVideo_SurfaceTargetingCombinations
+@dynamic availableSurfaceTypes, validSurfaceCombinations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableSurfaceTypes" : [NSString class],
+    @"validSurfaceCombinations" : [GTLRDisplayVideo_SurfaceTargetingCombination class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_SurfaceTargetingSettings
+//
+
+@implementation GTLRDisplayVideo_SurfaceTargetingSettings
+@dynamic surfaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"surfaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_TargetFrequency
 //
 
 @implementation GTLRDisplayVideo_TargetFrequency
 @dynamic targetCount, timeUnit, timeUnitCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_Targeting
+//
+
+@implementation GTLRDisplayVideo_Targeting
+@dynamic ageRange, devices, genders, plannableLocationIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"devices" : [NSString class],
+    @"genders" : [NSString class],
+    @"plannableLocationIds" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -8165,6 +8795,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_UserInterest
+//
+
+@implementation GTLRDisplayVideo_UserInterest
+@dynamic userInterestCategory, userInterestUserList;
 @end
 
 
@@ -8462,6 +9102,36 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 @implementation GTLRDisplayVideo_YoutubeChannelAssignedTargetingOptionDetails
 @dynamic channelId, negative;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeChannelPackAssignedTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_YoutubeChannelPackAssignedTargetingOptionDetails
+@dynamic channelPackId, negative;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YouTubeSelectLineUp
+//
+
+@implementation GTLRDisplayVideo_YouTubeSelectLineUp
+@dynamic displayName, lineupId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YouTubeSelectSettings
+//
+
+@implementation GTLRDisplayVideo_YouTubeSelectSettings
+@dynamic lineupId;
 @end
 
 

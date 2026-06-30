@@ -9,9 +9,11 @@
 #import <GoogleAPIClientForREST/GTLRAPIhub.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 NSString * const kGTLRAuthScopeAPIhubCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeAPIhubReadonly      = @"https://www.googleapis.com/auth/apihub.readonly";
+NSString * const kGTLRAuthScopeAPIhubReadwrite     = @"https://www.googleapis.com/auth/apihub.readwrite";
 
 // ----------------------------------------------------------------------------
 //   GTLRAPIhubService

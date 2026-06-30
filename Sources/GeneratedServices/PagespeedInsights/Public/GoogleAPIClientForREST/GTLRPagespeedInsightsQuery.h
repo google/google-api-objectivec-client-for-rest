@@ -38,6 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryAccessibility;
 /**
+ *  Agentic Browsing, category pertaining to a website's ability to be rendered
+ *  by an agentic browsing system.
+ *
+ *  Value: "AGENTIC_BROWSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryAgenticBrowsing;
+/**
  *  Best Practices, category pertaining to a website's conformance to web best
  *  practice.
  *
@@ -143,6 +150,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspeci
  *    @arg @c kGTLRPagespeedInsightsCategorySeo Search Engine Optimization
  *        (SEO), category pertaining to a website's ability to be indexed by
  *        search engines. (Value: "SEO")
+ *    @arg @c kGTLRPagespeedInsightsCategoryAgenticBrowsing Agentic Browsing,
+ *        category pertaining to a website's ability to be rendered by an
+ *        agentic browsing system. (Value: "AGENTIC_BROWSING")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *category;
 

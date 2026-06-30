@@ -461,6 +461,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger = @"
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCloudTrace = @"OPEN_TELEMETRY_CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCollector = @"OPEN_TELEMETRY_COLLECTOR";
 
+// GTLRApigee_GoogleCloudApigeeV1TraceConfig.traceProtocol
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_OpenCensus = @"OPEN_CENSUS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_Otlp = @"OTLP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_TraceProtocolUnspecified = @"TRACE_PROTOCOL_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig.sampler
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Off = @"OFF";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Probability = @"PROBABILITY";
@@ -842,8 +847,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @dynamic apiResources, approvalType, attributes, createdAt, descriptionProperty,
          displayName, environments, graphqlOperationGroup, grpcOperationGroup,
          lastModifiedAt, llmOperationGroup, llmQuota, llmQuotaInterval,
-         llmQuotaTimeUnit, name, operationGroup, proxies, quota,
-         quotaCounterScope, quotaInterval, quotaTimeUnit, scopes, space;
+         llmQuotaTimeUnit, name, operationGroup, payloadOperationGroup, proxies,
+         quota, quotaCounterScope, quotaInterval, quotaTimeUnit, scopes, space;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -4023,6 +4028,53 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1PayloadOperation
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1PayloadOperation
+@dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1PayloadOperationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1PayloadOperationConfig
+@dynamic apiSource, attributes, operations, quota;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
+    @"operations" : [GTLRApigee_GoogleCloudApigeeV1PayloadOperation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1PayloadOperationGroup
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1PayloadOperationGroup
+@dynamic operationConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationConfigs" : [GTLRApigee_GoogleCloudApigeeV1PayloadOperationConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1PodStatus
 //
 
@@ -5623,7 +5675,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1TraceConfig
-@dynamic endpoint, exporter, samplingConfig;
+@dynamic endpoint, exporter, samplingConfig, traceProtocol;
 @end
 
 

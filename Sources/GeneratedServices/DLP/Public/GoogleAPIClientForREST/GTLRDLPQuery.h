@@ -4917,6 +4917,182 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
+ *  Create a ContentPolicy.
+ *
+ *  Method: dlp.projects.locations.contentPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentPoliciesCreate : GTLRDLPQuery
+
+/**
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization): + Projects scope:
+ *  `projects/{project_id}/locations/{location_id}` + Organizations scope:
+ *  `organizations/{org_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ContentPolicy.
+ *
+ *  Create a ContentPolicy.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateContentPolicyRequest to
+ *    include in the query.
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization): +
+ *    Projects scope: `projects/{project_id}/locations/{location_id}` +
+ *    Organizations scope: `organizations/{org_id}/locations/{location_id}`
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateContentPolicyRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a ContentPolicy.
+ *
+ *  Method: dlp.projects.locations.contentPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentPoliciesDelete : GTLRDLPQuery
+
+/**
+ *  Required. Resource name of the ContentPolicy to be deleted, in the format:
+ *  `projects/{project}/locations/{location}/contentPolicies/{content_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Delete a ContentPolicy.
+ *
+ *  @param name Required. Resource name of the ContentPolicy to be deleted, in
+ *    the format:
+ *    `projects/{project}/locations/{location}/contentPolicies/{content_policy}`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a ContentPolicy.
+ *
+ *  Method: dlp.projects.locations.contentPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentPoliciesGet : GTLRDLPQuery
+
+/**
+ *  Required. Resource name in the format:
+ *  `projects/{project}/locations/{location}/contentPolicies/{content_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ContentPolicy.
+ *
+ *  Get a ContentPolicy.
+ *
+ *  @param name Required. Resource name in the format:
+ *    `projects/{project}/locations/{location}/contentPolicies/{content_policy}`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ContentPolicies in a parent.
+ *
+ *  Method: dlp.projects.locations.contentPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentPoliciesList : GTLRDLPQuery
+
+/** Optional. Number of results per page, max 1000. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token from a previous page to return the next set of results.
+ *  If set, all other request fields must match the original request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the organization or project, for example,
+ *  `organizations/433245324/locations/europe` or
+ *  `projects/project-id/locations/asia`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListContentPoliciesResponse.
+ *
+ *  Lists ContentPolicies in a parent.
+ *
+ *  @param parent Required. Resource name of the organization or project, for
+ *    example, `organizations/433245324/locations/europe` or
+ *    `projects/project-id/locations/asia`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a ContentPolicy.
+ *
+ *  Method: dlp.projects.locations.contentPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentPoliciesPatch : GTLRDLPQuery
+
+/**
+ *  Required. Resource name in the format:
+ *  `projects/{project}/locations/{location}/contentPolicies/{content_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ContentPolicy.
+ *
+ *  Update a ContentPolicy.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateContentPolicyRequest to
+ *    include in the query.
+ *  @param name Required. Resource name in the format:
+ *    `projects/{project}/locations/{location}/contentPolicies/{content_policy}`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateContentPolicyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Re-identifies content that has been de-identified. See
  *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.

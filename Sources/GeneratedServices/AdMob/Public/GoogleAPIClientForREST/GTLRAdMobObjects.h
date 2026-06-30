@@ -1132,7 +1132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 /**
  *  The externally visible ID of the ad unit which can be used to integrate with
- *  the AdMob SDK. This is a read only property. Example:
+ *  AdMob. This is a read only property. Example:
  *  ca-app-pub-9876543210987654/0123456789
  */
 @property(nonatomic, copy, nullable) NSString *adUnitId;
@@ -1184,8 +1184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, copy, nullable) NSString *appApprovalState;
 
 /**
- *  The externally visible ID of the app which can be used to integrate with the
- *  AdMob SDK. This is a read only property. Example:
+ *  The externally visible ID of the app which can be used to integrate with
+ *  AdMob. This is a read only property. Example:
  *  ca-app-pub-9876543210987654~0123456789
  */
 @property(nonatomic, copy, nullable) NSString *appId;

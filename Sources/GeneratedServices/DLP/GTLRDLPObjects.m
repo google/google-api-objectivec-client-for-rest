@@ -548,6 +548,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_Dat
 NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_GcsColumns = @"GCS_COLUMNS";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified = @"OUTPUT_SCHEMA_UNSPECIFIED";
 
+// GTLRDLP_GooglePrivacyDlpV2PolicyAction.returnVerdict
+NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Allow = @"ALLOW";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Block = @"BLOCK";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_ContentPolicyVerdictUnspecified = @"CONTENT_POLICY_VERDICT_UNSPECIFIED";
+
+// GTLRDLP_GooglePrivacyDlpV2PolicyRule.returnVerdict
+NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Allow = @"ALLOW";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Block = @"BLOCK";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_ContentPolicyVerdictUnspecified = @"CONTENT_POLICY_VERDICT_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2PubSubCondition.minimumRiskScore
 NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_High = @"HIGH";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_MediumOrHigh = @"MEDIUM_OR_HIGH";
@@ -1420,11 +1430,35 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ContentMetadata
-@dynamic properties;
+@dynamic fileLabels, properties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"fileLabels" : [GTLRDLP_GooglePrivacyDlpV2FileLabel class],
     @"properties" : [GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ContentPolicy
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ContentPolicy
+@dynamic createTime, defaultAction, displayName, errors,
+         failedToScanSupportedFileType, inputTooLarge, inspectConfig,
+         inspectTemplate, loggingConfigs, name, rules, unsupportedFileType,
+         updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDLP_GooglePrivacyDlpV2Error class],
+    @"loggingConfigs" : [GTLRDLP_GooglePrivacyDlpV2LoggingConfig class],
+    @"rules" : [GTLRDLP_GooglePrivacyDlpV2PolicyRule class]
   };
   return map;
 }
@@ -1477,6 +1511,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CreateConnectionRequest
 @dynamic connection;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2CreateContentPolicyRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2CreateContentPolicyRequest
+@dynamic contentPolicy, contentPolicyId;
 @end
 
 
@@ -1587,9 +1631,9 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CustomInfoType
-@dynamic detectionRules, dictionary, exclusionType, infoType, likelihood,
-         metadataKeyValueExpression, regex, sensitivityScore, storedType,
-         surrogateType;
+@dynamic detectionRules, dictionary, exclusionType, fileLabelInfoType, infoType,
+         likelihood, metadataKeyValueExpression, regex, sensitivityScore,
+         storedType, surrogateType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2529,6 +2573,26 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2FileLabel
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2FileLabel
+@dynamic googleDriveLabel, sensitivityLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2FileLabelInfoType
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2FileLabelInfoType
+@dynamic googleDriveLabel, sensitivityLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2FileSet
 //
 
@@ -2720,6 +2784,42 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2GlobalProcessing
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabel
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabel
+@dynamic labelFieldsToMatch, labelId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelFieldsToMatch" : [GTLRDLP_GooglePrivacyDlpV2LabelField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabelMetadata
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2GoogleDriveLabelMetadata
+@dynamic labelFields, labelId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelFields" : [GTLRDLP_GooglePrivacyDlpV2LabelFieldMetadata class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2940,6 +3040,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypeCondition
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeCondition
+@dynamic anyInfoType, infoTypes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
 //
 
@@ -2982,6 +3092,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit
 @dynamic infoType, maxFindings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2InfoTypes
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2InfoTypes
+@dynamic infoTypeNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypeNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3414,6 +3542,36 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2LabelField
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LabelField
+@dynamic identifier, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2LabelFieldMetadata
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LabelFieldMetadata
+@dynamic identifier, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig
 //
 
@@ -3565,6 +3723,28 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 + (NSString *)collectionItemsKey {
   return @"connections";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ListContentPoliciesResponse
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ListContentPoliciesResponse
+@dynamic contentPolicies, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contentPolicies" : [GTLRDLP_GooglePrivacyDlpV2ContentPolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"contentPolicies";
 }
 
 @end
@@ -3824,6 +4004,26 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2LoggingConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LoggingConfig
+@dynamic logToBigQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2LogToBigQuery
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LogToBigQuery
+@dynamic datasetId, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2Manual
 //
 
@@ -4031,6 +4231,44 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2PolicyAction
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PolicyAction
+@dynamic returnVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2PolicyCondition
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PolicyCondition
+@dynamic infoTypeCondition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2PolicyRule
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PolicyRule
+@dynamic action, conditions, returnVerdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRDLP_GooglePrivacyDlpV2PolicyCondition class]
+  };
+  return map;
 }
 
 @end
@@ -4660,6 +4898,26 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2SensitivityLabel
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2SensitivityLabel
+@dynamic guid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2SensitivityLabelMetadata
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2SensitivityLabelMetadata
+@dynamic guid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2SensitivityScore
 //
 
@@ -5201,6 +5459,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2UpdateConnectionRequest
 @dynamic connection, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2UpdateContentPolicyRequest
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2UpdateContentPolicyRequest
+@dynamic contentPolicy, updateMask;
 @end
 
 

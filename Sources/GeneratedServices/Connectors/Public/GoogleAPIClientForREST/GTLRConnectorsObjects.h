@@ -51,6 +51,7 @@
 @class GTLRConnectors_GetResourceResponse_Metadata;
 @class GTLRConnectors_GetResourceResponse_Metadata_Metadata;
 @class GTLRConnectors_GetResourceResponse_XMeta;
+@class GTLRConnectors_HttpHeader;
 @class GTLRConnectors_InputParameter;
 @class GTLRConnectors_InputParameter_AdditionalDetails;
 @class GTLRConnectors_Instance_Labels;
@@ -195,6 +196,26 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Operati
  *  Value: "UPDATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Update;
+
+// ----------------------------------------------------------------------------
+// GTLRConnectors_ExecuteHttpRequestRequest.httpMethod
+
+/** Value: "HTTP_METHOD_DELETE" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodDelete;
+/** Value: "HTTP_METHOD_GET" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodGet;
+/** Value: "HTTP_METHOD_HEAD" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodHead;
+/** Value: "HTTP_METHOD_OPTIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodOptions;
+/** Value: "HTTP_METHOD_PATCH" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPatch;
+/** Value: "HTTP_METHOD_POST" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPost;
+/** Value: "HTTP_METHOD_PUT" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPut;
+/** Value: "HTTP_METHOD_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRConnectors_Field.dataType
@@ -2319,6 +2340,93 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  GTLRConnectors_ExecuteHttpRequestRequest
+ */
+@interface GTLRConnectors_ExecuteHttpRequestRequest : GTLRObject
+
+/**
+ *  HTTP headers to send with the request (e.g., Content-Type:
+ *  application/json). Order is preserved and duplicate keys are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_HttpHeader *> *headers;
+
+/**
+ *  Required. The HTTP method to use for the request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodDelete
+ *        Value "HTTP_METHOD_DELETE"
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodGet
+ *        Value "HTTP_METHOD_GET"
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodHead
+ *        Value "HTTP_METHOD_HEAD"
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodOptions
+ *        Value "HTTP_METHOD_OPTIONS"
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPatch
+ *        Value "HTTP_METHOD_PATCH"
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPost
+ *        Value "HTTP_METHOD_POST"
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPut
+ *        Value "HTTP_METHOD_PUT"
+ *    @arg @c kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodUnspecified
+ *        Value "HTTP_METHOD_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *httpMethod;
+
+/**
+ *  Raw byte payload. Used for all pre-serialized formats including JSON, XML,
+ *  GraphQL, and Multipart.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *rawBody;
+
+/**
+ *  Required. The fully resolved absolute target URL. Callers must pre-encode
+ *  any query parameters.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  GTLRConnectors_ExecuteHttpRequestResponse
+ */
+@interface GTLRConnectors_ExecuteHttpRequestResponse : GTLRObject
+
+/**
+ *  The raw response body.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/**
+ *  HTTP headers received in the response. Order is preserved and duplicate keys
+ *  are allowed (e.g., multiple Set-Cookie headers).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_HttpHeader *> *headers;
+
+/**
+ *  The HTTP status reason phrase received from the backend (e.g., "Not Found").
+ *  May be empty if the backend did not provide one.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  The HTTP status code received from the backend.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *statusCode;
+
+@end
+
+
+/**
  *  An execute sql query request containing the query and the connection to
  *  execute it on.
  */
@@ -2733,6 +2841,21 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_GetResourceResponse_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
+ *  A single HTTP header. Keys are case-insensitive. Multiple headers with the
+ *  same key may be present.
+ */
+@interface GTLRConnectors_HttpHeader : GTLRObject
+
+/** The header name. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The header value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 

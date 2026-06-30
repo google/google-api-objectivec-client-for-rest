@@ -23,6 +23,7 @@
 @class GTLRAnalyticsHub_BigtableConfig;
 @class GTLRAnalyticsHub_Binding;
 @class GTLRAnalyticsHub_CloudStorageConfig;
+@class GTLRAnalyticsHub_Compression;
 @class GTLRAnalyticsHub_DataExchange;
 @class GTLRAnalyticsHub_DataProvider;
 @class GTLRAnalyticsHub_DcrExchangeConfig;
@@ -110,6 +111,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_Data
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Compression.compressionAlgorithm
+
+/**
+ *  Unspecified algorithm.
+ *
+ *  Value: "COMPRESSION_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Compression_CompressionAlgorithm_CompressionAlgorithmUnspecified;
+/**
+ *  ZLIB compression.
+ *
+ *  Value: "ZLIB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Compression_CompressionAlgorithm_Zlib;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Compression.compressionMode
+
+/**
+ *  Compress.
+ *
+ *  Value: "COMPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Compression_CompressionMode_Compress;
+/**
+ *  Unspecified mode.
+ *
+ *  Value: "COMPRESSION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Compression_CompressionMode_CompressionModeUnspecified;
+/**
+ *  Decompress.
+ *
+ *  Value: "DECOMPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Compression_CompressionMode_Decompress;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_DataExchange.discoveryType
@@ -658,10 +697,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Configuration for a Bigtable subscription. The Pub/Sub message will be
- *  written to a Bigtable row as follows: - row key: subscription name and
- *  message ID delimited by #. - columns: message bytes written to a single
- *  column family "data" with an empty-string column qualifier. - cell
- *  timestamp: the message publish timestamp.
+ *  written to a Bigtable row as follows: - row key: subscription name, message
+ *  ID hash, and message ID delimited by `#`. - columns: message bytes written
+ *  to a single column family `data` with an empty-string column qualifier. -
+ *  cell timestamp: the message publish timestamp.
  */
 @interface GTLRAnalyticsHub_BigtableConfig : GTLRObject
 
@@ -870,6 +909,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  format.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_TextConfig *textConfig;
+
+@end
+
+
+/**
+ *  Configuration for compressing/decompressing message data using a
+ *  user-specified compression algorithm.
+ */
+@interface GTLRAnalyticsHub_Compression : GTLRObject
+
+/**
+ *  Required. Specifies the compression algorithm to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Compression_CompressionAlgorithm_CompressionAlgorithmUnspecified
+ *        Unspecified algorithm. (Value: "COMPRESSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsHub_Compression_CompressionAlgorithm_Zlib ZLIB
+ *        compression. (Value: "ZLIB")
+ */
+@property(nonatomic, copy, nullable) NSString *compressionAlgorithm;
+
+/**
+ *  Required. Specifies whether to compress or decompress the message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Compression_CompressionMode_Compress Compress.
+ *        (Value: "COMPRESS")
+ *    @arg @c kGTLRAnalyticsHub_Compression_CompressionMode_CompressionModeUnspecified
+ *        Unspecified mode. (Value: "COMPRESSION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsHub_Compression_CompressionMode_Decompress
+ *        Decompress. (Value: "DECOMPRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *compressionMode;
 
 @end
 
@@ -1900,6 +1972,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  sent to.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_AIInference *aiInference;
+
+/** Optional. Compression/Decompression. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_Compression *compression;
 
 /**
  *  Optional. If true, the transform is disabled and will not be applied to

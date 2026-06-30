@@ -1591,7 +1591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  in different ways: * rate_limits controls the total rate of dispatches from
  *  a queue (i.e. all traffic dispatched from the queue, regardless of whether
  *  the dispatch is from a first attempt or a retry). * retry_config controls
- *  what happens to particular a task after its first attempt fails. That is,
+ *  what happens to a particular task after its first attempt fails. That is,
  *  retry_config controls task retries (the second attempt, third attempt, etc).
  *  The queue's actual dispatch rate is the result of: * Number of tasks in the
  *  queue * User-specified throttling: rate_limits, retry_config, and the

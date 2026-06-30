@@ -114,6 +114,12 @@ NSString * const kGTLRDataproc_CohortInfo_CohortSource_Airflow = @"AIRFLOW";
 NSString * const kGTLRDataproc_CohortInfo_CohortSource_CohortSourceUnspecified = @"COHORT_SOURCE_UNSPECIFIED";
 NSString * const kGTLRDataproc_CohortInfo_CohortSource_UserProvided = @"USER_PROVIDED";
 
+// GTLRDataproc_ConfidentialInstanceConfig.confidentialInstanceType
+NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified = @"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev = @"SEV";
+NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp = @"SEV_SNP";
+NSString * const kGTLRDataproc_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx = @"TDX";
+
 // GTLRDataproc_DiagnoseClusterRequest.tarballAccess
 NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudSupport = @"GOOGLE_CLOUD_SUPPORT";
 NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleDataprocDiagnose = @"GOOGLE_DATAPROC_DIAGNOSE";
@@ -1116,7 +1122,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ConfidentialInstanceConfig
-@dynamic enableConfidentialCompute;
+@dynamic confidentialInstanceType, enableConfidentialCompute;
 @end
 
 
@@ -1603,7 +1609,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_GkeNodeConfig
 @dynamic accelerators, bootDiskKmsKey, localSsdCount, machineType,
-         minCpuPlatform, preemptible, spot;
+         minCpuPlatform, preemptible, serviceAccount, spot;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

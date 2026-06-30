@@ -80,6 +80,15 @@ NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMismatch = @"SCHEMA_
 NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_VertexAiLocationRestriction = @"VERTEX_AI_LOCATION_RESTRICTION";
 
+// GTLRPubsub_Compression.compressionAlgorithm
+NSString * const kGTLRPubsub_Compression_CompressionAlgorithm_CompressionAlgorithmUnspecified = @"COMPRESSION_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRPubsub_Compression_CompressionAlgorithm_Zlib = @"ZLIB";
+
+// GTLRPubsub_Compression.compressionMode
+NSString * const kGTLRPubsub_Compression_CompressionMode_Compress = @"COMPRESS";
+NSString * const kGTLRPubsub_Compression_CompressionMode_CompressionModeUnspecified = @"COMPRESSION_MODE_UNSPECIFIED";
+NSString * const kGTLRPubsub_Compression_CompressionMode_Decompress = @"DECOMPRESS";
+
 // GTLRPubsub_ConfluentCloud.state
 NSString * const kGTLRPubsub_ConfluentCloud_State_Active       = @"ACTIVE";
 NSString * const kGTLRPubsub_ConfluentCloud_State_ClusterNotFound = @"CLUSTER_NOT_FOUND";
@@ -285,6 +294,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_CommitSchemaRequest
 @dynamic schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Compression
+//
+
+@implementation GTLRPubsub_Compression
+@dynamic compressionAlgorithm, compressionMode;
 @end
 
 
@@ -605,7 +624,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_MessageTransform
-@dynamic aiInference, disabled, enabled, javascriptUdf;
+@dynamic aiInference, compression, disabled, enabled, javascriptUdf;
 @end
 
 

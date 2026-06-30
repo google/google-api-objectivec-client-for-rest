@@ -8164,7 +8164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  The search API request. NEXT ID: 25
+ *  The search API request. NEXT ID: 26
  */
 @interface GTLRCloudSearch_SearchRequest : GTLRObject
 
@@ -8218,7 +8218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  The search API response. NEXT ID: 19
+ *  The search API response. NEXT ID: 20
  */
 @interface GTLRCloudSearch_SearchResponse : GTLRObject
 
@@ -8277,7 +8277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Results containing indexed information for a document. Next ID: 16
+ *  Results containing indexed information for a document. Next ID: 17
  */
 @interface GTLRCloudSearch_SearchResult : GTLRObject
 

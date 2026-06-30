@@ -224,6 +224,11 @@ NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Terminated =
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Terminating = @"TERMINATING";
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Updating = @"UPDATING";
 
+// GTLROracleDatabase_CloudVmClusterProperties.storageManagementType
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_Asm = @"ASM";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_Exascale = @"EXASCALE";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_StorageManagementTypeUnspecified = @"STORAGE_MANAGEMENT_TYPE_UNSPECIFIED";
+
 // GTLROracleDatabase_Database.opsInsightsStatus
 NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Disabling = @"DISABLING";
 NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Enabled = @"ENABLED";
@@ -1203,8 +1208,8 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 @dynamic activatedStorageCount, additionalStorageCount, availableStorageSizeGb,
          computeCount, computeModel, cpuCount, customerContacts,
          databaseServerType, dataStorageSizeTb, dbNodeStorageSizeGb,
-         dbServerVersion, maintenanceWindow, maxCpuCount, maxDataStorageTb,
-         maxDbNodeStorageSizeGb, maxMemoryGb, memorySizeGb,
+         dbServerVersion, exascaleConfig, maintenanceWindow, maxCpuCount,
+         maxDataStorageTb, maxDbNodeStorageSizeGb, maxMemoryGb, memorySizeGb,
          monthlyDbServerVersion, monthlyStorageServerVersion,
          nextMaintenanceRunId, nextMaintenanceRunTime,
          nextSecurityMaintenanceRunTime, ocid, ociUrl, shape, state,
@@ -1228,8 +1233,9 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 @implementation GTLROracleDatabase_CloudVmCluster
 @dynamic backupOdbSubnet, backupSubnetCidr, cidr, createTime, displayName,
-         exadataInfrastructure, gcpOracleZone, identityConnector, labels, name,
-         network, odbNetwork, odbSubnet, properties;
+         exadataInfrastructure, exascaleDbStorageVault, gcpOracleZone,
+         identityConnector, labels, name, network, odbNetwork, odbSubnet,
+         properties;
 @end
 
 
@@ -1260,7 +1266,7 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
          localBackupEnabled, memorySizeGb, nodeCount, ocid, ociUrl, ocpuCount,
          scanDns, scanDnsRecordId, scanIpIds, scanListenerPortTcp,
          scanListenerPortTcpSsl, shape, sparseDiskgroupEnabled, sshPublicKeys,
-         state, storageSizeGb, systemVersion, timeZone;
+         state, storageManagementType, storageSizeGb, systemVersion, timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1271,6 +1277,16 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest
+//
+
+@implementation GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest
+@dynamic requestId, totalStorageSizeGb;
 @end
 
 
@@ -1710,6 +1726,16 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ExascaleConfig
+//
+
+@implementation GTLROracleDatabase_ExascaleConfig
+@dynamic availableStorageSizeGb, totalStorageSizeGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ExascaleDbStorageDetails
 //
 
@@ -1724,8 +1750,8 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 //
 
 @implementation GTLROracleDatabase_ExascaleDbStorageVault
-@dynamic createTime, displayName, entitlementId, gcpOracleZone, labels, name,
-         properties;
+@dynamic createTime, displayName, entitlementId, exadataInfrastructure,
+         gcpOracleZone, labels, name, properties;
 @end
 
 

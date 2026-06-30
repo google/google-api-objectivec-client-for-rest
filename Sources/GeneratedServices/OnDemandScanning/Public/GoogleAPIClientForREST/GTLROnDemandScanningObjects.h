@@ -68,6 +68,7 @@
 @class GTLROnDemandScanning_Hash;
 @class GTLROnDemandScanning_Identity;
 @class GTLROnDemandScanning_ImageOccurrence;
+@class GTLROnDemandScanning_IngestionSource;
 @class GTLROnDemandScanning_InTotoProvenance;
 @class GTLROnDemandScanning_InTotoSlsaProvenanceV1;
 @class GTLROnDemandScanning_InTotoStatement;
@@ -391,6 +392,40 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImp
  *  Value: "IMPACT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.exploitMaturity
+
+/**
+ *  Exploit maturity: Attacked (E:A). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_ATTACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityAttacked;
+/**
+ *  Exploit maturity: Not defined (E:X). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_NOT_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityNotDefined;
+/**
+ *  Exploit maturity: Proof-of-concept (E:P). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_POC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityPoc;
+/**
+ *  Exploit maturity: Unreported (E:U). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_UNREPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityUnreported;
+/**
+ *  Unspecified.
+ *
+ *  Value: "EXPLOIT_MATURITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_CVSS.integrityImpact
@@ -873,6 +908,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Scanner_Scanner
  *  Value: "STATIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Scanner_Static;
+/**
+ *  WS_POLICY scanner.
+ *
+ *  Value: "WS_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Scanner_WsPolicy;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Finding.severity
@@ -895,6 +936,16 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Severity_High;
  *  Value: "SEVERITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_IngestionSource.source
+
+/** Value: "DOCKER_IMAGE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_IngestionSource_Source_DockerImage;
+/** Value: "SBOM_ATTACHMENT" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_IngestionSource_Source_SbomAttachment;
+/** Value: "SOURCE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_IngestionSource_Source_SourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Justification.justificationType
@@ -2319,6 +2370,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, strong, nullable) NSNumber *exploitabilityScore;
 
 /**
+ *  Exploit Maturity (E). Defined in CVSS v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityAttacked
+ *        Exploit maturity: Attacked (E:A). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_ATTACKED")
+ *    @arg @c kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityNotDefined
+ *        Exploit maturity: Not defined (E:X). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_NOT_DEFINED")
+ *    @arg @c kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityPoc
+ *        Exploit maturity: Proof-of-concept (E:P). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_POC")
+ *    @arg @c kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityUnreported
+ *        Exploit maturity: Unreported (E:U). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_UNREPORTED")
+ *    @arg @c kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityUnspecified
+ *        Unspecified. (Value: "EXPLOIT_MATURITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *exploitMaturity;
+
+/**
  *  impactScore
  *
  *  Uses NSNumber of floatValue.
@@ -2813,6 +2885,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        Unspecified scanner. (Value: "SCANNER_UNSPECIFIED")
  *    @arg @c kGTLROnDemandScanning_Finding_Scanner_Static Static scanner.
  *        (Value: "STATIC")
+ *    @arg @c kGTLROnDemandScanning_Finding_Scanner_WsPolicy WS_POLICY scanner.
+ *        (Value: "WS_POLICY")
  */
 @property(nonatomic, copy, nullable) NSString *scanner;
 
@@ -3217,6 +3291,33 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  base image and [1] being the final layer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Layer *> *layerInfo;
+
+@end
+
+
+/**
+ *  Indicates where an extracted package originates from.
+ */
+@interface GTLROnDemandScanning_IngestionSource : GTLRObject
+
+/** The attachment URI that this package was extracted from. */
+@property(nonatomic, copy, nullable) NSString *attachmentUri;
+
+/** The resource URL of the resource that was scanned to find this package. */
+@property(nonatomic, copy, nullable) NSString *resourceUrl;
+
+/**
+ *  source
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_IngestionSource_Source_DockerImage Value
+ *        "DOCKER_IMAGE"
+ *    @arg @c kGTLROnDemandScanning_IngestionSource_Source_SbomAttachment Value
+ *        "SBOM_ATTACHMENT"
+ *    @arg @c kGTLROnDemandScanning_IngestionSource_Source_SourceUnspecified
+ *        Value "SOURCE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *source;
 
 @end
 
@@ -3841,6 +3942,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  of type Maven. This field will be unset for non Maven packages.
  */
 @property(nonatomic, copy, nullable) NSString *hashDigest;
+
+/**
+ *  The list of sources that were scanned to find this package. This can be a
+ *  Docker image, an SBOM attachment, or both, for example.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_IngestionSource *> *ingestionSources;
 
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_LayerDetails *layerDetails;
 

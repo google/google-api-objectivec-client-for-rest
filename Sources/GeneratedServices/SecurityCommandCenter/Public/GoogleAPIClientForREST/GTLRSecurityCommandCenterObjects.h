@@ -109,6 +109,8 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1CustomOutputSpec;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1EffectiveSecurityHealthAnalyticsCustomModule;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamDetails;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamRolePermission;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties;
@@ -198,6 +200,8 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2HttpResponse;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamDetails;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InfoType;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule;
@@ -4949,6 +4953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *loadBalancerFirewallPolicy;
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
 @property(nonatomic, copy, nullable) NSString *networkIngressFirewallPolicy;
+@property(nonatomic, strong, nullable) GTLRDateTime *networkPathInsightsGenerationTime;
 @property(nonatomic, copy, nullable) NSString *privateIpAddress;
 @property(nonatomic, copy, nullable) NSString *privatePort;
 @property(nonatomic, copy, nullable) NSString *pscNetworkAttachment;
@@ -5113,6 +5118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GroupMembership *> *groupMemberships;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_IamBinding *> *iamBindings;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamDetails *iamDetails;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_IpRules *ipRules;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Job *job;
@@ -5486,6 +5492,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, copy, nullable) NSString *status;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_TicketInfo *ticketInfo;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamDetails
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamDetails : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamRolePermission *> *iamRolePermissions;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamRolePermission
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1IamRolePermission : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -7285,6 +7312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *loadBalancerFirewallPolicy;
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
 @property(nonatomic, copy, nullable) NSString *networkIngressFirewallPolicy;
+@property(nonatomic, strong, nullable) GTLRDateTime *networkPathInsightsGenerationTime;
 @property(nonatomic, copy, nullable) NSString *privateIpAddress;
 @property(nonatomic, copy, nullable) NSString *privatePort;
 @property(nonatomic, copy, nullable) NSString *pscNetworkAttachment;
@@ -7473,6 +7501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership *> *groupMemberships;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding *> *iamBindings;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamDetails *iamDetails;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator *indicator;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules *ipRules;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job *job;
@@ -7692,6 +7721,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *action;
 
 @property(nonatomic, copy, nullable) NSString *member;
+@property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamDetails
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamDetails : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission *> *iamRolePermissions;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, copy, nullable) NSString *role;
 
 @end

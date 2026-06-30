@@ -472,6 +472,17 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Connector
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_DisabledByFailures = @"DISABLED_BY_FAILURES";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_Enabled = @"ENABLED";
 
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary.metric
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitiveDownloads = @"CONTENT_TRANSFERS_METRIC_SENSITIVE_DOWNLOADS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitivePrints = @"CONTENT_TRANSFERS_METRIC_SENSITIVE_PRINTS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitiveUploads = @"CONTENT_TRANSFERS_METRIC_SENSITIVE_UPLOADS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalDownloads = @"CONTENT_TRANSFERS_METRIC_TOTAL_DOWNLOADS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalPrints = @"CONTENT_TRANSFERS_METRIC_TOTAL_PRINTS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalSensitiveTransfers = @"CONTENT_TRANSFERS_METRIC_TOTAL_SENSITIVE_TRANSFERS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalTransfers = @"CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalUploads = @"CONTENT_TRANSFERS_METRIC_TOTAL_UPLOADS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricUnspecified = @"CONTENT_TRANSFERS_METRIC_UNSPECIFIED";
+
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_ChromeBrowser = @"CHROME_BROWSER";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
@@ -583,6 +594,13 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_Rfc822Name = @"RFC822_NAME";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_SubjectAltNameTypeUnspecified = @"SUBJECT_ALT_NAME_TYPE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_UniformResourceIdentifier = @"UNIFORM_RESOURCE_IDENTIFIER";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary.metric
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricHighRiskUrlVisits = @"URL_VISITS_METRIC_HIGH_RISK_URL_VISITS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricLowRiskUrlVisits = @"URL_VISITS_METRIC_LOW_RISK_URL_VISITS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricMediumRiskUrlVisits = @"URL_VISITS_METRIC_MEDIUM_RISK_URL_VISITS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricTotalSuspiciousUrlVisits = @"URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricUnspecified = @"URL_VISITS_METRIC_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -2257,6 +2275,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersBreakdown
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersBreakdown
+@dynamic contentCategory, eventDomain, summary, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary
+@dynamic count, metric;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig
 //
 
@@ -2527,6 +2565,86 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersBreakdownsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersBreakdownsResponse
+@dynamic contentTransfersBreakdowns, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contentTransfersBreakdowns" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersBreakdown class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"contentTransfersBreakdowns";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersResponse
+@dynamic summaries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"summaries" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsBreakdownsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsBreakdownsResponse
+@dynamic nextPageToken, urlVisitsBreakdowns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urlVisitsBreakdowns" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsBreakdown class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"urlVisitsBreakdowns";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsResponse
+@dynamic summaries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"summaries" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData
 //
 
@@ -2762,6 +2880,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsBreakdown
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsBreakdown
+@dynamic eventDomain, summary, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary
+@dynamic count, metric;
 @end
 
 

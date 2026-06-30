@@ -2804,6 +2804,10 @@ NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_OnFail
 NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_OnFailedHealthCheck_DoNothing = @"DO_NOTHING";
 NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_OnFailedHealthCheck_Repair = @"REPAIR";
 
+// GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair.allowChangingZone
+NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair_AllowChangingZone_No = @"NO";
+NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair_AllowChangingZone_Yes = @"YES";
+
 // GTLRCompute_InstanceGroupManagerList_Warning.code
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -7358,6 +7362,13 @@ NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_St
 NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_LogLevel_Normal = @"NORMAL";
 NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_LogLevel_Verbose = @"VERBOSE";
 
+// GTLRCompute_SecurityPolicyDdosProtectionConfig.ddosAdaptiveProtection
+NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_DdosAdaptiveProtectionUnspecified = @"DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED";
+NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Disabled = @"DISABLED";
+NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Enabled = @"ENABLED";
+NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Preview = @"PREVIEW";
+NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_UnspecifiedAdaptiveProtection = @"UNSPECIFIED_ADAPTIVE_PROTECTION";
+
 // GTLRCompute_SecurityPolicyDdosProtectionConfig.ddosProtection
 NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosProtection_Advanced = @"ADVANCED";
 NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosProtection_AdvancedPreview = @"ADVANCED_PREVIEW";
@@ -8808,6 +8819,12 @@ NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_Unreachabl
 // GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest.proxyHeader
 NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_None = @"NONE";
 NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1 = @"PROXY_V1";
+
+// GTLRCompute_TargetTcpProxy.loadBalancingScheme
+NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_External = @"EXTERNAL";
+NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
+NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
+NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
 
 // GTLRCompute_TargetTcpProxy.proxyHeader
 NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_None  = @"NONE";
@@ -17103,7 +17120,18 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy
-@dynamic defaultActionOnFailure, forceUpdateOnRepair, onFailedHealthCheck;
+@dynamic defaultActionOnFailure, forceUpdateOnRepair, onFailedHealthCheck,
+         onRepair;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair
+//
+
+@implementation GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair
+@dynamic allowChangingZone;
 @end
 
 
@@ -19240,13 +19268,13 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_Interconnect
 @dynamic aaiEnabled, adminEnabled, applicationAwareInterconnect,
          availableFeatures, circuitInfos, creationTimestamp, customerName,
-         descriptionProperty, expectedOutages, googleIpAddress,
-         googleReferenceId, identifier, interconnectAttachments,
-         interconnectGroups, interconnectType, kind, labelFingerprint, labels,
-         linkType, location, macsec, macsecEnabled, name, nocContactEmail,
-         operationalStatus, params, peerIpAddress, provisionedLinkCount,
-         remoteLocation, requestedFeatures, requestedLinkCount, satisfiesPzs,
-         selfLink, state, subzone, wireGroups;
+         descriptionProperty, effectiveLocation, expectedOutages,
+         googleIpAddress, googleReferenceId, identifier,
+         interconnectAttachments, interconnectGroups, interconnectType, kind,
+         labelFingerprint, labels, linkType, location, macsec, macsecEnabled,
+         name, nocContactEmail, operationalStatus, params, peerIpAddress,
+         provisionedLinkCount, remoteLocation, requestedFeatures,
+         requestedLinkCount, satisfiesPzs, selfLink, state, subzone, wireGroups;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -22492,16 +22520,17 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkInterface
-@dynamic accessConfigs, aliasIpRanges, enableVpcScopedDns, fingerprint,
-         igmpQuery, internalIpv6PrefixLength, ipv6AccessConfigs, ipv6AccessType,
-         ipv6Address, kind, name, network, networkAttachment, networkIP,
-         nicType, parentNicName, queueCount, serviceClassId, stackType,
-         subnetwork, vlan;
+@dynamic accessConfigs, aliasIpRanges, aliasIpv6Ranges, enableVpcScopedDns,
+         fingerprint, igmpQuery, internalIpv6PrefixLength, ipv6AccessConfigs,
+         ipv6AccessType, ipv6Address, kind, name, network, networkAttachment,
+         networkIP, nicType, parentNicName, queueCount, serviceClassId,
+         stackType, subnetwork, vlan;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessConfigs" : [GTLRCompute_AccessConfig class],
     @"aliasIpRanges" : [GTLRCompute_AliasIpRange class],
+    @"aliasIpv6Ranges" : [GTLRCompute_AliasIpRange class],
     @"ipv6AccessConfigs" : [GTLRCompute_AccessConfig class]
   };
   return map;
@@ -26323,7 +26352,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ReservationBlock
-@dynamic count, creationTimestamp, healthInfo, identifier, inUseCount,
+@dynamic blockHealthInfo, count, creationTimestamp, identifier, inUseCount,
          inUseHostCount, kind, name, physicalTopology, reservationMaintenance,
          reservationSubBlockCount, reservationSubBlockInUseCount, selfLink,
          selfLinkWithId, status, zoneProperty;
@@ -26730,10 +26759,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ReservationSubBlock
-@dynamic acceleratorTopologiesInfo, count, creationTimestamp, healthInfo,
-         identifier, inUseCount, inUseHostCount, kind, name, physicalTopology,
+@dynamic acceleratorTopologiesInfo, count, creationTimestamp, identifier,
+         inUseCount, inUseHostCount, kind, name, physicalTopology,
          reservationSubBlockMaintenance, selfLink, selfLinkWithId, status,
-         zoneProperty;
+         subBlockHealthInfo, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -28157,12 +28186,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RouterNat
-@dynamic autoNetworkTier, drainNatIps, enableDynamicPortAllocation,
-         enableEndpointIndependentMapping, endpointTypes, icmpIdleTimeoutSec,
-         logConfig, maxPortsPerVm, minPortsPerVm, name, nat64Subnetworks,
-         natIpAllocateOption, natIps, rules, sourceSubnetworkIpRangesToNat,
-         sourceSubnetworkIpRangesToNat64, subnetworks,
-         tcpEstablishedIdleTimeoutSec, tcpTimeWaitTimeoutSec,
+@dynamic autoNetworkTier, drainNatIps, effectiveTcpTimeWaitTimeoutSec,
+         enableDynamicPortAllocation, enableEndpointIndependentMapping,
+         endpointTypes, icmpIdleTimeoutSec, logConfig, maxPortsPerVm,
+         minPortsPerVm, name, nat64Subnetworks, natIpAllocateOption, natIps,
+         rules, sourceSubnetworkIpRangesToNat, sourceSubnetworkIpRangesToNat64,
+         subnetworks, tcpEstablishedIdleTimeoutSec, tcpTimeWaitTimeoutSec,
          tcpTransitoryIdleTimeoutSec, type, udpIdleTimeoutSec;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -28975,7 +29004,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_SecurityPolicyDdosProtectionConfig
-@dynamic ddosProtection;
+@dynamic ddosAdaptiveProtection, ddosImpactedBaselineThreshold, ddosProtection;
 @end
 
 
@@ -29372,7 +29401,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic connectedEndpoints, connectionPreference, consumerAcceptLists,
          consumerRejectLists, creationTimestamp, descriptionProperty,
          domainNames, enableProxyProtocol, fingerprint, identifier, kind,
-         metadata, name, natSubnets, producerForwardingRule,
+         metadata, name, natIpsPerEndpoint, natSubnets, producerForwardingRule,
          propagatedConnectionLimit, pscServiceAttachmentId,
          reconcileConnections, region, selfLink, targetService;
 
@@ -32645,8 +32674,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_TargetTcpProxy
-@dynamic creationTimestamp, descriptionProperty, identifier, kind, name,
-         proxyBind, proxyHeader, region, selfLink, service;
+@dynamic creationTimestamp, descriptionProperty, identifier, kind,
+         loadBalancingScheme, name, proxyBind, proxyHeader, region, selfLink,
+         service;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

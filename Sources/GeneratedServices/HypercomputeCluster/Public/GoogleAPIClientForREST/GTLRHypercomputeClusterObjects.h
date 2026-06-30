@@ -4,8 +4,9 @@
 // API:
 //   Cluster Director API (hypercomputecluster/v1)
 // Description:
-//   The Cluster Director API allows you to deploy, manage, and monitor clusters
-//   that run AI, ML, or HPC workloads.
+//   The Cluster Director API lets you deploy, manage, and monitor clusters that
+//   run artificial intelligence (AI), machine learning (ML), or high
+//   performance computing (HPC) workloads.
 // Documentation:
 //   https://docs.cloud.google.com/cluster-director/docs
 
@@ -260,14 +261,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @interface GTLRHypercomputeCluster_BootDisk : GTLRObject
 
 /**
- *  Required. Immutable. Size of the disk in gigabytes. Must be at least 40GB.
+ *  Optional. The size of the disk in gigabytes (GB), which must be at least 40
+ *  GB.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeGb;
 
 /**
- *  Required. Immutable. [Persistent disk
+ *  Optional. [Persistent disk
  *  type](https://cloud.google.com/compute/docs/disks#disk-types), in the format
  *  `projects/{project}/zones/{zone}/diskTypes/{disk_type}`.
  */
@@ -325,7 +327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. User-provided description of the cluster. Maximum of 2048
+ *  Optional. A description for your cluster. You can use up to 2,048
  *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1097,7 +1099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_NetworkResourceConfig *config;
 
-/** Output only. Reference to a network in Google Compute Engine. */
+/** Output only. A reference to a network in Google Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_NetworkReference *network;
 
 @end
@@ -1192,7 +1194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 
 /**
  *  Required. Immutable. Name of the Filestore instance to create, in the format
- *  `projects/{project}/locations/{location}/instances/{instance}`
+ *  `projects/{project}/locations/{location}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *filestore;
 
@@ -1819,7 +1821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @interface GTLRHypercomputeCluster_SlurmNodeSet : GTLRObject
 
 /**
- *  Required. ID of the compute resource on which this nodeset will run. Must
+ *  Required. The ID of the compute resource on which this nodeset runs. Must
  *  match a key in the cluster's compute_resources.
  */
 @property(nonatomic, copy, nullable) NSString *computeId;
@@ -1831,10 +1833,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_ComputeInstanceSlurmNodeSet *computeInstance;
 
 /**
- *  Required. Identifier for the nodeset, which allows it to be referenced by
- *  partitions. Must conform to
- *  [RFC-1034](https://datatracker.ietf.org/doc/html/rfc1034) (lower-case,
- *  alphanumeric, and at most 63 characters).
+ *  Required. The ID for the nodeset, which allows it to be referenced by
+ *  cluster partitions. The nodeset ID must start with a lowercase letter
+ *  (`a`-`z`), use only lowercase letters or numbers, and contain up to 15
+ *  characters. For example, specify `nodeset001`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2010,13 +2012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 
 
 /**
- *  A resource representing a form of persistent storage that can be mounted
- *  onto compute resources in the cluster.
+ *  Represents a form of persistent storage that you can mount onto compute
+ *  resources in the cluster.
  */
 @interface GTLRHypercomputeCluster_StorageResource : GTLRObject
 
 /**
- *  Output only. Reference to a Google Cloud Storage bucket. Populated if and
+ *  Output only. A reference to a Google Cloud Storage bucket. Populated if and
  *  only if the storage resource was configured to use Google Cloud Storage.
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_BucketReference *bucket;
@@ -2031,13 +2033,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_StorageResourceConfig *config;
 
 /**
- *  Output only. Reference to a Filestore instance. Populated if and only if the
- *  storage resource was configured to use Filestore.
+ *  Output only. A reference to a Filestore instance. Populated if and only if
+ *  the storage resource was configured to use Filestore.
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_FilestoreReference *filestore;
 
 /**
- *  Output only. Reference to a Managed Lustre instance. Populated if and only
+ *  Output only. A reference to a Managed Lustre instance. Populated if and only
  *  if the storage resource was configured to use Managed Lustre.
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_LustreReference *lustre;

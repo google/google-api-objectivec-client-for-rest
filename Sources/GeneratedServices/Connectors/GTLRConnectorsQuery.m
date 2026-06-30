@@ -420,6 +420,33 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @end
 
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteHttpRequest
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteHttpRequestRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:executeHttpRequest";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteHttpRequest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_ExecuteHttpRequestResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.executeHttpRequest";
+  return query;
+}
+
+@end
+
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsExecuteSqlQuery
 
 @dynamic connection;

@@ -4,7 +4,7 @@
 // API:
 //   Cloud SQL Admin API (sqladmin/v1)
 // Description:
-//   API for Cloud SQL database instance management
+//   Cloud SQL Admin API
 // Documentation:
 //   https://cloud.google.com/sql/docs
 
@@ -530,6 +530,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Retrieves connect settings about a Cloud SQL instance using the instance DNS
+ *  name.
+ *
+ *  Method: sql.connect.resolve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ConnectResolve : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *dnsName;
+
+/** Required. The region of the instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_ConnectSettings.
+ *
+ *  Retrieves connect settings about a Cloud SQL instance using the instance DNS
+ *  name.
+ *
+ *  @param dnsName Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *  @param location Required. The region of the instance.
+ *
+ *  @return GTLRSQLAdminQuery_ConnectResolve
+ */
++ (instancetype)queryWithDnsName:(NSString *)dnsName
+                        location:(NSString *)location;
 
 @end
 

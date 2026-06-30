@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Agent Registry API (agentregistry/v1alpha)
+//   Agent Registry API (agentregistry/v1)
 // Description:
 //   Agent Registry is a centralized, unified catalog that lets you store,
 //   discover, and govern Model Context Protocol (MCP) servers, tools, and AI
@@ -46,6 +46,33 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_A2ASkill
+//
+
+@implementation GTLRAgentRegistry_A2ASkill
+@dynamic descriptionProperty, examples, identifier, name, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"examples" : [NSString class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_Agent
 //
 
@@ -61,7 +88,7 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"protocols" : [GTLRAgentRegistry_Protocol class],
-    @"skills" : [GTLRAgentRegistry_Skill class]
+    @"skills" : [GTLRAgentRegistry_A2ASkill class]
   };
   return map;
 }
@@ -730,33 +757,6 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"interfaces" : [GTLRAgentRegistry_Interface class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAgentRegistry_Skill
-//
-
-@implementation GTLRAgentRegistry_Skill
-@dynamic descriptionProperty, examples, identifier, name, tags;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"examples" : [NSString class],
-    @"tags" : [NSString class]
   };
   return map;
 }

@@ -2447,11 +2447,12 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo
 @dynamic currentVersionReleaseDate, denyMaintenanceSchedules, isInstanceStopped,
          maintenanceSchedule, maintenanceState, maintenanceVersion,
-         upcomingMaintenance;
+         nextAvailableMaintenanceVersions, upcomingMaintenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"denyMaintenanceSchedules" : [GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule class]
+    @"denyMaintenanceSchedules" : [GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule class],
+    @"nextAvailableMaintenanceVersions" : [NSString class]
   };
   return map;
 }

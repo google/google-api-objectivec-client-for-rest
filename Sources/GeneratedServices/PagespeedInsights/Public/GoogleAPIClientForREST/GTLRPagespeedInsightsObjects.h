@@ -124,6 +124,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *accessibility;
 
 /**
+ *  The agentic browsing category, containing all agentic browsing related
+ *  audits.
+ */
+@property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *agenticBrowsing;
+
+/**
  *  The best practices category, containing all best practices related audits.
  */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *bestPractices;

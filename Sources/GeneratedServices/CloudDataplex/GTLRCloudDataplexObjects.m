@@ -128,6 +128,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec.generationScopes
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_All = @"ALL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_BusinessGlossaryTermAssociations = @"BUSINESS_GLOSSARY_TERM_ASSOCIATIONS";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_GenerationScopeUnspecified = @"GENERATION_SCOPE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_SqlQueries = @"SQL_QUERIES";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_TableAndColumnDescriptions = @"TABLE_AND_COLUMN_DESCRIPTIONS";
@@ -1065,6 +1066,34 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ContactIdentity
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ContactIdentity
+@dynamic contactId, contactName, contactRole;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1Contacts
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1Contacts
+@dynamic identities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identities" : [GTLRCloudDataplex_GoogleCloudDataplexV1ContactIdentity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest
 //
 
@@ -1386,7 +1415,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions
-@dynamic semanticInferenceEnabled;
+@dynamic globalEndpointEnabled, semanticInferenceEnabled;
 @end
 
 
@@ -1543,6 +1572,46 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain
+@dynamic contacts, createTime, descriptionProperty, displayName, labels, name,
+         parentDataDomain, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding
+@dynamic createTime, name, resource, uid;
 @end
 
 
@@ -3631,6 +3700,50 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 + (NSString *)collectionItemsKey {
   return @"dataAttributes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainBindingsResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainBindingsResponse
+@dynamic dataDomainBindings, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataDomainBindings" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataDomainBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainsResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainsResponse
+@dynamic dataDomains, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataDomains" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataDomains";
 }
 
 @end

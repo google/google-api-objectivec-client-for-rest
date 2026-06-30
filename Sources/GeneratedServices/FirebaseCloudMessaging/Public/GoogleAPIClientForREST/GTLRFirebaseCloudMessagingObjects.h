@@ -807,7 +807,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Color *color;
 
 /**
- *  Required. Along with `light_on_duration `, define the blink rate of LED
+ *  Required. Along with `light_on_duration`, define the blink rate of LED
  *  flashes. Resolution defined by
  *  [proto.Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration)
  */
@@ -861,6 +861,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_FcmOptions *fcmOptions;
 
+/** Firebase Installation ID to send a message to. */
+@property(nonatomic, copy, nullable) NSString *fid;
+
 /**
  *  Output Only. The identifier of the message sent, in the format of `projects/
  *  * /messages/{message_id}`.
@@ -870,8 +873,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /** Input only. Basic notification template to use across all platforms. */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Notification *notification;
 
-/** Registration token to send a message to. */
-@property(nonatomic, copy, nullable) NSString *token;
+/**
+ *  Deprecated: Use `fid` instead. Registration token to send a message to.
+ *  During the transition period, this field also accepts a Firebase
+ *  Installation ID (FID).
+ */
+@property(nonatomic, copy, nullable) NSString *token GTLR_DEPRECATED;
 
 /**
  *  Topic name to send a message to, e.g. "weather". Note: "/topics/" prefix

@@ -423,6 +423,28 @@
 
 @end
 
+@implementation GTLRDataManagerQuery_AdEventsIngest
+
++ (instancetype)queryWithObject:(GTLRDataManager_IngestAdEventsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/adEvents:ingest";
+  GTLRDataManagerQuery_AdEventsIngest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDataManager_IngestAdEventsResponse class];
+  query.loggingName = @"datamanager.adEvents.ingest";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataManagerQuery_AudienceMembersIngest
 
 + (instancetype)queryWithObject:(GTLRDataManager_IngestAudienceMembersRequest *)object {

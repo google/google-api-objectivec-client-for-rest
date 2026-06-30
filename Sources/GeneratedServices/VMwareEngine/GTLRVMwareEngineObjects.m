@@ -51,6 +51,12 @@ NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadWrite = @
 NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsV3 = @"NFS_V3";
 NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsVersionUnspecified = @"NFS_VERSION_UNSPECIFIED";
 
+// GTLRVMwareEngine_EncryptionConfig.type
+NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_Cmek  = @"CMEK";
+NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_LegacyCmek = @"LEGACY_CMEK";
+NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_Other = @"OTHER";
+NSString * const kGTLRVMwareEngine_EncryptionConfig_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRVMwareEngine_ExternalAccessRule.action
 NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_Allow = @"ALLOW";
@@ -611,6 +617,16 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_EncryptionConfig
+//
+
+@implementation GTLRVMwareEngine_EncryptionConfig
+@dynamic cryptoKeyName, type;
 @end
 
 
@@ -1642,9 +1658,9 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_PrivateCloud
-@dynamic createTime, deleteTime, descriptionProperty, expireTime, hcx,
-         managementCluster, name, networkConfig, nsx, state, type, uid,
-         updateTime, vcenter;
+@dynamic createTime, deleteTime, descriptionProperty, encryptionConfig,
+         expireTime, hcx, managementCluster, name, networkConfig, nsx, state,
+         type, uid, updateTime, vcenter;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

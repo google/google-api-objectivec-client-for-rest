@@ -1927,7 +1927,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Searches direct groups of a member.
+ *  Searches direct groups of a member. Groups for which the actor does not have
+ *  the permission to view memberships are silently filtered out.
  *
  *  Method: cloudidentity.groups.memberships.searchDirectGroups
  *
@@ -1979,7 +1980,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_SearchDirectGroupsResponse.
  *
- *  Searches direct groups of a member.
+ *  Searches direct groups of a member. Groups for which the actor does not have
+ *  the permission to view memberships are silently filtered out.
  *
  *  @param parent [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the group to

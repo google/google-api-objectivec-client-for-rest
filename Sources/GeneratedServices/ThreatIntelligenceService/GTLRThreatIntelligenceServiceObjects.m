@@ -26,6 +26,16 @@ NSString * const kGTLRThreatIntelligenceService_Alert_State_StateUnspecified = @
 NSString * const kGTLRThreatIntelligenceService_Alert_State_TrackedExternally = @"TRACKED_EXTERNALLY";
 NSString * const kGTLRThreatIntelligenceService_Alert_State_Triaged = @"TRIAGED";
 
+// GTLRThreatIntelligenceService_Association.type
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeCampaign = @"THREAT_INTEL_OBJECT_TYPE_CAMPAIGN";
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeIocCollection = @"THREAT_INTEL_OBJECT_TYPE_IOC_COLLECTION";
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeMalware = @"THREAT_INTEL_OBJECT_TYPE_MALWARE";
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeReport = @"THREAT_INTEL_OBJECT_TYPE_REPORT";
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeSoftwareAndToolkits = @"THREAT_INTEL_OBJECT_TYPE_SOFTWARE_AND_TOOLKITS";
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeThreatActor = @"THREAT_INTEL_OBJECT_TYPE_THREAT_ACTOR";
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeUnspecified = @"THREAT_INTEL_OBJECT_TYPE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeVulnerability = @"THREAT_INTEL_OBJECT_TYPE_VULNERABILITY";
+
 // GTLRThreatIntelligenceService_Configuration.state
 NSString * const kGTLRThreatIntelligenceService_Configuration_State_Deprecated = @"DEPRECATED";
 NSString * const kGTLRThreatIntelligenceService_Configuration_State_Disabled = @"DISABLED";
@@ -66,6 +76,21 @@ NSString * const kGTLRThreatIntelligenceService_PriorityAnalysis_PriorityLevel_P
 NSString * const kGTLRThreatIntelligenceService_PriorityAnalysis_PriorityLevel_PriorityLevelMedium = @"PRIORITY_LEVEL_MEDIUM";
 NSString * const kGTLRThreatIntelligenceService_PriorityAnalysis_PriorityLevel_PriorityLevelUnspecified = @"PRIORITY_LEVEL_UNSPECIFIED";
 
+// GTLRThreatIntelligenceService_PublicExploit.exploitGrade
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_ExploitGradeUnspecified = @"EXPLOIT_GRADE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Fake = @"FAKE";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_NonWeaponized = @"NON_WEAPONIZED";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_ProofOfConcept = @"PROOF_OF_CONCEPT";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Scanner = @"SCANNER";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Weaponized = @"WEAPONIZED";
+
+// GTLRThreatIntelligenceService_PublicExploit.exploitReliability
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_ExploitReliabilityUnspecified = @"EXPLOIT_RELIABILITY_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Reviewed = @"REVIEWED";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Tested = @"TESTED";
+NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Unreviewed = @"UNREVIEWED";
+
 // GTLRThreatIntelligenceService_RelevanceAnalysis.confidence
 NSString * const kGTLRThreatIntelligenceService_RelevanceAnalysis_Confidence_ConfidenceLevelHigh = @"CONFIDENCE_LEVEL_HIGH";
 NSString * const kGTLRThreatIntelligenceService_RelevanceAnalysis_Confidence_ConfidenceLevelLow = @"CONFIDENCE_LEVEL_LOW";
@@ -89,6 +114,89 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_SeverityLevelLow = @"SEVERITY_LEVEL_LOW";
 NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_SeverityLevelMedium = @"SEVERITY_LEVEL_MEDIUM";
 NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_SeverityLevelUnspecified = @"SEVERITY_LEVEL_UNSPECIFIED";
+
+// GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold.exploitationStates
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateConfirmed = @"EXPLOITATION_STATE_CONFIRMED";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateNoKnown = @"EXPLOITATION_STATE_NO_KNOWN";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateReported = @"EXPLOITATION_STATE_REPORTED";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateSuspected = @"EXPLOITATION_STATE_SUSPECTED";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateUnspecified = @"EXPLOITATION_STATE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateWidespread = @"EXPLOITATION_STATE_WIDESPREAD";
+
+// GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold.priorityMinimum
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P0 = @"P0";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P1 = @"P1";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P2 = @"P2";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P3 = @"P3";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P4 = @"P4";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
+// GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold.riskRatingMinimum
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Critical = @"CRITICAL";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_High = @"HIGH";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Low = @"LOW";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Medium = @"MEDIUM";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_RiskRatingUnspecified = @"RISK_RATING_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Unrated = @"UNRATED";
+
+// GTLRThreatIntelligenceService_VulnerabilityMatch.exploitationConsequences
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_CodeExecution = @"CODE_EXECUTION";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_CommandExecution = @"COMMAND_EXECUTION";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_ContainerEscape = @"CONTAINER_ESCAPE";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_DataManipulation = @"DATA_MANIPULATION";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_DenialOfService = @"DENIAL_OF_SERVICE";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_ExploitationConsequenceUnspecified = @"EXPLOITATION_CONSEQUENCE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_InformationDisclosure = @"INFORMATION_DISCLOSURE";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_PrivilegeEscalation = @"PRIVILEGE_ESCALATION";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_SandboxEscape = @"SANDBOX_ESCAPE";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_SecurityBypass = @"SECURITY_BYPASS";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_Spoofing = @"SPOOFING";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_UnauthorizedAccess = @"UNAUTHORIZED_ACCESS";
+
+// GTLRThreatIntelligenceService_VulnerabilityMatch.exploitationState
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateConfirmed = @"EXPLOITATION_STATE_CONFIRMED";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateNoKnown = @"EXPLOITATION_STATE_NO_KNOWN";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateReported = @"EXPLOITATION_STATE_REPORTED";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateSuspected = @"EXPLOITATION_STATE_SUSPECTED";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateUnspecified = @"EXPLOITATION_STATE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateWidespread = @"EXPLOITATION_STATE_WIDESPREAD";
+
+// GTLRThreatIntelligenceService_VulnerabilityMatch.exploitationVectors
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_AdministrativeInterface = @"ADMINISTRATIVE_INTERFACE";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_BluetoothAccess = @"BLUETOOTH_ACCESS";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_Browser = @"BROWSER";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_CompromisedCommunicationChannel = @"COMPROMISED_COMMUNICATION_CHANNEL";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_Email = @"EMAIL";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_ExploitationVectorUnspecified = @"EXPLOITATION_VECTOR_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_ExposedWebApplication = @"EXPOSED_WEB_APPLICATION";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_LocalNetworkAccess = @"LOCAL_NETWORK_ACCESS";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_MaliciousApplication = @"MALICIOUS_APPLICATION";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_MaliciousFile = @"MALICIOUS_FILE";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_MaliciousServer = @"MALICIOUS_SERVER";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_OpenPort = @"OPEN_PORT";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_PhysicalAccess = @"PHYSICAL_ACCESS";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_ShortRangeRadio = @"SHORT_RANGE_RADIO";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_UnspecifiedLocalVector = @"UNSPECIFIED_LOCAL_VECTOR";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_UnspecifiedRemoteVector = @"UNSPECIFIED_REMOTE_VECTOR";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_VpnAccess = @"VPN_ACCESS";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_WifiAccess = @"WIFI_ACCESS";
+
+// GTLRThreatIntelligenceService_VulnerabilityMatch.priority
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P0 = @"P0";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P1 = @"P1";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P2 = @"P2";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P3 = @"P3";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P4 = @"P4";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
+// GTLRThreatIntelligenceService_VulnerabilityMatch.riskRating
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Critical = @"CRITICAL";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_High = @"HIGH";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Low = @"LOW";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Medium = @"MEDIUM";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_RiskRatingUnspecified = @"RISK_RATING_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Unrated = @"UNRATED";
 
 // ----------------------------------------------------------------------------
 //
@@ -122,7 +230,8 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 //
 
 @implementation GTLRThreatIntelligenceService_AlertDetail
-@dynamic dataLeak, detailType, initialAccessBroker, insiderThreat;
+@dynamic dataLeak, detailType, initialAccessBroker, insiderThreat,
+         targetTechnology;
 @end
 
 
@@ -145,6 +254,21 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 
 @implementation GTLRThreatIntelligenceService_AlertDocumentTranslation
 @dynamic translatedContent, translatedTitle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_Association
+//
+
+@implementation GTLRThreatIntelligenceService_Association
+@dynamic identifier, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -184,7 +308,7 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 //
 
 @implementation GTLRThreatIntelligenceService_ConfigurationDetail
-@dynamic customerProfile, detailType;
+@dynamic customerProfile, detailType, technologyWatchlist;
 @end
 
 
@@ -529,7 +653,8 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 //
 
 @implementation GTLRThreatIntelligenceService_FindingDetail
-@dynamic dataLeak, detailType, initialAccessBroker, insiderThreat;
+@dynamic dataLeak, detailType, initialAccessBroker, insiderThreat,
+         targetTechnology;
 @end
 
 
@@ -819,6 +944,27 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRThreatIntelligenceService_ProductFix
+//
+
+@implementation GTLRThreatIntelligenceService_ProductFix
+@dynamic displayName, publishTime, sourceId, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_PublicExploit
+//
+
+@implementation GTLRThreatIntelligenceService_PublicExploit
+@dynamic exploitGrade, exploitName, exploitReliability, releaseTime, sizeBytes,
+         uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRThreatIntelligenceService_RelevanceAnalysis
 //
 
@@ -893,9 +1039,97 @@ NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRThreatIntelligenceService_TargetTechnologyAlertDetail
+//
+
+@implementation GTLRThreatIntelligenceService_TargetTechnologyAlertDetail
+@dynamic vulnerabilityMatch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_TargetTechnologyFindingDetail
+//
+
+@implementation GTLRThreatIntelligenceService_TargetTechnologyFindingDetail
+@dynamic vulnerabilityMatch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold
+//
+
+@implementation GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold
+@dynamic cvssScoreMinimum, epssScoreMinimum, exploitationStates,
+         priorityMinimum, riskRatingMinimum;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exploitationStates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_TechnologyWatchListConfig
+//
+
+@implementation GTLRThreatIntelligenceService_TechnologyWatchListConfig
+@dynamic alertThreshold, technologies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"technologies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRThreatIntelligenceService_UpsertConfigurationResponse
 //
 
 @implementation GTLRThreatIntelligenceService_UpsertConfigurationResponse
 @dynamic configuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_VulnerabilityMatch
+//
+
+@implementation GTLRThreatIntelligenceService_VulnerabilityMatch
+@dynamic associations, collectionId, cveId, cvss3Score, descriptionProperty,
+         disclosureTime, epssScore, exploitationConsequences, exploitationState,
+         exploitationVectors, matchedTechnologies, priority, productFixes,
+         publicExploits, publiclyAvailableExploit, riskRating, technologies;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"associations" : [GTLRThreatIntelligenceService_Association class],
+    @"exploitationConsequences" : [NSString class],
+    @"exploitationVectors" : [NSString class],
+    @"matchedTechnologies" : [NSString class],
+    @"productFixes" : [GTLRThreatIntelligenceService_ProductFix class],
+    @"publicExploits" : [GTLRThreatIntelligenceService_PublicExploit class],
+    @"technologies" : [NSString class]
+  };
+  return map;
+}
+
 @end

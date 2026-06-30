@@ -5049,7 +5049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /** The location in bucket that can be used for reading. */
 @property(nonatomic, copy, nullable) NSString *readLocation;
 
-/** The downscoped token that was created. */
+/** Input only. The downscoped token that was created. */
 @property(nonatomic, copy, nullable) NSString *token;
 
 /** The location in bucket that can be used for writing. */

@@ -731,7 +731,7 @@ NSString * const kGTLRFirebaseManagement_WebApp_State_StateUnspecified = @"STATE
 @implementation GTLRFirebaseManagement_WebAppConfig
 @dynamic apiKey, appId, authDomain, databaseURL, locationId, measurementId,
          messagingSenderId, projectId, projectNumber, realtimeDatabaseUrl,
-         storageBucket, version;
+         recaptchaSiteKey, storageBucket, version;
 @end
 
 #pragma clang diagnostic pop

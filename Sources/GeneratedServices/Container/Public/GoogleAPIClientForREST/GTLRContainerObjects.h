@@ -64,6 +64,7 @@
 @class GTLRContainer_CostManagementConfig;
 @class GTLRContainer_CrashLoopBackOffConfig;
 @class GTLRContainer_CustomImageConfig;
+@class GTLRContainer_CustomImageInfo;
 @class GTLRContainer_CustomNodeInit;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
@@ -1509,6 +1510,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableC
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpSshd;
 /**
+ *  vertical pod autoscaler decision logs
+ *
+ *  Value: "KCP_VPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpVpa;
+/**
  *  kube-scheduler
  *
  *  Value: "SCHEDULER"
@@ -2449,11 +2456,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Regular
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Stable;
 /**
- *  No channel specified.
+ *  Deprecated: No channel specified. it will be removed in the future, use
+ *  RAPID, REGULAR, STABLE or EXTENDED instead.
  *
  *  Value: "UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Unspecified GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ReleaseChannelConfig.channel
@@ -2490,11 +2498,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Stable;
 /**
- *  No channel specified.
+ *  Deprecated: No channel specified. it will be removed in the future, use
+ *  RAPID, REGULAR, STABLE or EXTENDED instead.
  *
  *  Value: "UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ReservationAffinity.consumeReservationType
@@ -2505,6 +2514,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_U
  *  Value: "ANY_RESERVATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation;
+/**
+ *  Consume any reservation available. If no reservation is available, fail the
+ *  node creation.
+ *
+ *  Value: "ANY_RESERVATION_THEN_FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservationThenFail;
 /**
  *  Do not consume from any reserved capacity.
  *
@@ -5661,11 +5677,19 @@ GTLR_DEPRECATED
 /** The name of the image to use for this node. */
 @property(nonatomic, copy, nullable) NSString *image;
 
-/** The name of the image family to use for this node. */
-@property(nonatomic, copy, nullable) NSString *imageFamily;
-
 /** The project containing the image to use for this node. */
 @property(nonatomic, copy, nullable) NSString *imageProject;
+
+@end
+
+
+/**
+ *  Contains the custom image info for a node pool.
+ */
+@interface GTLRContainer_CustomImageInfo : GTLRObject
+
+/** Output only. The human-readable upgrade message for the custom image. */
+@property(nonatomic, copy, nullable) NSString *upgradeMessage;
 
 @end
 
@@ -9336,16 +9360,16 @@ GTLR_DEPRECATED
 /** Enable best effort provisioning for nodes */
 @property(nonatomic, strong, nullable) GTLRContainer_BestEffortProvisioning *bestEffortProvisioning;
 
-/** Which conditions caused the current node pool state. */
+/** Output only. Which conditions caused the current node pool state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
 
 /** The node configuration of the pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *config;
 
 /**
- *  This checksum is computed by the server based on the value of node pool
- *  fields, and may be sent on update requests to ensure the client has an
- *  up-to-date value before proceeding.
+ *  Output only. This checksum is computed by the server based on the value of
+ *  node pool fields, and may be sent on update requests to ensure the client
+ *  has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -9614,6 +9638,12 @@ GTLR_DEPRECATED
 
 /** The auto upgrade status. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoUpgradeStatus;
+
+/**
+ *  Output only. Upgrade info for the node pool specific to the usage of custom
+ *  images.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_CustomImageInfo *customImageInfo;
 
 /**
  *  The node pool's current minor version's end of extended support timestamp.
@@ -10527,8 +10557,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Stable Clusters subscribed
  *        to STABLE receive versions that are known to be stable and reliable in
  *        production. (Value: "STABLE")
- *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Unspecified No channel
- *        specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Unspecified Deprecated: No
+ *        channel specified. it will be removed in the future, use RAPID,
+ *        REGULAR, STABLE or EXTENDED instead. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
@@ -10560,8 +10591,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Stable Clusters
  *        subscribed to STABLE receive versions that are known to be stable and
  *        reliable in production. (Value: "STABLE")
- *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified No channel
- *        specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified
+ *        Deprecated: No channel specified. it will be removed in the future,
+ *        use RAPID, REGULAR, STABLE or EXTENDED instead. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
@@ -10590,6 +10622,9 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation
  *        Consume any reservation available. (Value: "ANY_RESERVATION")
+ *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservationThenFail
+ *        Consume any reservation available. If no reservation is available,
+ *        fail the node creation. (Value: "ANY_RESERVATION_THEN_FAIL")
  *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation
  *        Do not consume from any reserved capacity. (Value: "NO_RESERVATION")
  *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation
@@ -12421,6 +12456,12 @@ GTLR_DEPRECATED
  *  node pool to the specified machine type.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. Specifies the maintenance policy for the node pool, including
+ *  maintenance exclusion options.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolMaintenancePolicy *maintenancePolicy;
 
 /**
  *  The maximum duration for the nodes to exist. If unspecified, the nodes can

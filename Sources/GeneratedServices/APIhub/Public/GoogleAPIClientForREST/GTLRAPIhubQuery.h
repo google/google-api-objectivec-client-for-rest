@@ -91,6 +91,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAddonsGet : GTLRAPIhubQuery
 
@@ -121,6 +123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAddonsList : GTLRAPIhubQuery
 
@@ -182,6 +186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAddonsManageConfig : GTLRAPIhubQuery
 
@@ -217,6 +222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesCreate : GTLRAPIhubQuery
 
@@ -260,6 +266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesDelete : GTLRAPIhubQuery
 
@@ -292,6 +299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesGet : GTLRAPIhubQuery
 
@@ -324,6 +333,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesLookup : GTLRAPIhubQuery
 
@@ -360,6 +371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesPatch : GTLRAPIhubQuery
 
@@ -403,6 +415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisCreate : GTLRAPIhubQuery
 
@@ -448,6 +461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisDelete : GTLRAPIhubQuery
 
@@ -485,6 +499,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisGet : GTLRAPIhubQuery
 
@@ -515,6 +531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisList : GTLRAPIhubQuery
 
@@ -670,6 +688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisPatch : GTLRAPIhubQuery
 
@@ -715,6 +734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsCreate : GTLRAPIhubQuery
 
@@ -760,6 +780,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsDefinitionsGet : GTLRAPIhubQuery
 
@@ -791,6 +813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsDelete : GTLRAPIhubQuery
 
@@ -830,6 +853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsGet : GTLRAPIhubQuery
 
@@ -862,6 +887,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsList : GTLRAPIhubQuery
 
@@ -987,6 +1014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsOperationsCreate : GTLRAPIhubQuery
 
@@ -1038,6 +1066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsOperationsDelete : GTLRAPIhubQuery
 
@@ -1070,6 +1099,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsOperationsGet : GTLRAPIhubQuery
 
@@ -1100,6 +1131,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsOperationsList : GTLRAPIhubQuery
 
@@ -1225,6 +1258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsOperationsPatch : GTLRAPIhubQuery
 
@@ -1283,6 +1317,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsPatch : GTLRAPIhubQuery
 
@@ -1338,6 +1373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsCreate : GTLRAPIhubQuery
 
@@ -1397,6 +1433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsDelete : GTLRAPIhubQuery
 
@@ -1428,6 +1465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsFetchAdditionalSpecContent : GTLRAPIhubQuery
 
@@ -1477,6 +1516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsGet : GTLRAPIhubQuery
 
@@ -1509,6 +1550,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsGetContents : GTLRAPIhubQuery
 
@@ -1542,6 +1585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsLint : GTLRAPIhubQuery
 
@@ -1577,6 +1621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsList : GTLRAPIhubQuery
 
@@ -1700,6 +1746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsPatch : GTLRAPIhubQuery
 
@@ -1751,6 +1798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAttributesCreate : GTLRAPIhubQuery
 
@@ -1799,6 +1847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAttributesDelete : GTLRAPIhubQuery
 
@@ -1831,6 +1880,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAttributesGet : GTLRAPIhubQuery
 
@@ -1861,6 +1912,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAttributesList : GTLRAPIhubQuery
 
@@ -1955,6 +2008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsAttributesPatch : GTLRAPIhubQuery
 
@@ -2008,6 +2062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsCollectApiData : GTLRAPIhubQuery
 
@@ -2042,6 +2097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsCurationsCreate : GTLRAPIhubQuery
 
@@ -2087,6 +2143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsCurationsDelete : GTLRAPIhubQuery
 
@@ -2118,6 +2175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsCurationsGet : GTLRAPIhubQuery
 
@@ -2148,6 +2207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsCurationsList : GTLRAPIhubQuery
 
@@ -2223,6 +2284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsCurationsPatch : GTLRAPIhubQuery
 
@@ -2265,6 +2327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDependenciesCreate : GTLRAPIhubQuery
 
@@ -2308,6 +2371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDependenciesDelete : GTLRAPIhubQuery
 
@@ -2338,6 +2402,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDependenciesGet : GTLRAPIhubQuery
 
@@ -2369,6 +2435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDependenciesList : GTLRAPIhubQuery
 
@@ -2449,6 +2517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDependenciesPatch : GTLRAPIhubQuery
 
@@ -2491,6 +2560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDeploymentsCreate : GTLRAPIhubQuery
 
@@ -2535,6 +2605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDeploymentsDelete : GTLRAPIhubQuery
 
@@ -2565,6 +2636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDeploymentsGet : GTLRAPIhubQuery
 
@@ -2595,6 +2668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDeploymentsList : GTLRAPIhubQuery
 
@@ -2733,6 +2808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDeploymentsPatch : GTLRAPIhubQuery
 
@@ -2779,6 +2855,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsGet : GTLRAPIhubQuery
 
@@ -2812,6 +2890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsDiscoveredApiOperationsList : GTLRAPIhubQuery
 
@@ -2866,6 +2946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsGet : GTLRAPIhubQuery
 
@@ -2898,6 +2980,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsDiscoveredApiObservationsList : GTLRAPIhubQuery
 
@@ -2949,6 +3033,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsExternalApisCreate : GTLRAPIhubQuery
 
@@ -2992,6 +3077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsExternalApisDelete : GTLRAPIhubQuery
 
@@ -3023,6 +3109,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsExternalApisGet : GTLRAPIhubQuery
 
@@ -3054,6 +3142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsExternalApisList : GTLRAPIhubQuery
 
@@ -3106,6 +3196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsExternalApisPatch : GTLRAPIhubQuery
 
@@ -3148,6 +3239,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsGet : GTLRAPIhubQuery
 
@@ -3177,6 +3270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsHostProjectRegistrationsCreate : GTLRAPIhubQuery
 
@@ -3221,6 +3315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsHostProjectRegistrationsGet : GTLRAPIhubQuery
 
@@ -3251,6 +3347,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsHostProjectRegistrationsList : GTLRAPIhubQuery
 
@@ -3329,6 +3427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsList : GTLRAPIhubQuery
 
@@ -3395,6 +3495,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsLookupRuntimeProjectAttachment : GTLRAPIhubQuery
 
@@ -3437,6 +3539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsOperationsCancel : GTLRAPIhubQuery
 
@@ -3477,6 +3580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsOperationsDelete : GTLRAPIhubQuery
 
@@ -3508,6 +3612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsOperationsGet : GTLRAPIhubQuery
 
@@ -3537,6 +3643,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsOperationsList : GTLRAPIhubQuery
 
@@ -3589,6 +3697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsCreate : GTLRAPIhubQuery
 
@@ -3636,6 +3745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsDelete : GTLRAPIhubQuery
 
@@ -3667,6 +3777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsDisable : GTLRAPIhubQuery
 
@@ -3700,6 +3811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsEnable : GTLRAPIhubQuery
 
@@ -3733,6 +3845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsGet : GTLRAPIhubQuery
 
@@ -3763,6 +3877,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsGetStyleGuide : GTLRAPIhubQuery
 
@@ -3793,6 +3909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesCreate : GTLRAPIhubQuery
 
@@ -3836,6 +3953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesDelete : GTLRAPIhubQuery
 
@@ -3866,6 +3984,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesDisableAction : GTLRAPIhubQuery
 
@@ -3900,6 +4019,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesEnableAction : GTLRAPIhubQuery
 
@@ -3934,6 +4054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesExecuteAction : GTLRAPIhubQuery
 
@@ -3968,6 +4089,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesGet : GTLRAPIhubQuery
 
@@ -3999,6 +4122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesList : GTLRAPIhubQuery
 
@@ -4080,6 +4205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesManageSourceData : GTLRAPIhubQuery
 
@@ -4121,6 +4247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesPatch : GTLRAPIhubQuery
 
@@ -4166,6 +4293,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsList : GTLRAPIhubQuery
 
@@ -4233,6 +4362,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsStyleGuideGetContents : GTLRAPIhubQuery
 
@@ -4267,6 +4398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsPluginsUpdateStyleGuide : GTLRAPIhubQuery
 
@@ -4307,6 +4439,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsRetrieveApiViews : GTLRAPIhubQuery
 
@@ -4366,6 +4500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsRuntimeProjectAttachmentsCreate : GTLRAPIhubQuery
 
@@ -4408,6 +4543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsRuntimeProjectAttachmentsDelete : GTLRAPIhubQuery
 
@@ -4440,6 +4576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsRuntimeProjectAttachmentsGet : GTLRAPIhubQuery
 
@@ -4470,6 +4608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsRuntimeProjectAttachmentsList : GTLRAPIhubQuery
 
@@ -4538,6 +4678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadonly
+ *    @c kGTLRAuthScopeAPIhubReadwrite
  */
 @interface GTLRAPIhubQuery_ProjectsLocationsSearchResources : GTLRAPIhubQuery
 

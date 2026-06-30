@@ -178,6 +178,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -3813,8 +3814,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Connected app authentication. */
 @property(nonatomic, strong, nullable) GTLRDatastream_Oauth2ClientCredentials *oauth2ClientCredentials;
 
-/** User-password authentication. */
-@property(nonatomic, strong, nullable) GTLRDatastream_UserCredentials *userCredentials;
+/**
+ *  Deprecated: Salesforce is retiring Username-Password authentication. Use
+ *  `oauth2_client_credentials` instead.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_UserCredentials *userCredentials GTLR_DEPRECATED;
 
 @end
 
@@ -4872,8 +4876,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Username-password credentials.
+ *  Deprecated: Salesforce is retiring Username-Password authentication. Use
+ *  `Oauth2ClientCredentials` instead.
  */
+GTLR_DEPRECATED
 @interface GTLRDatastream_UserCredentials : GTLRObject
 
 /**

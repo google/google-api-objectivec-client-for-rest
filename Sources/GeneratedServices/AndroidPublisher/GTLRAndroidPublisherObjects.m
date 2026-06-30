@@ -177,6 +177,11 @@ NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewAppQuali
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewFinancialData = @"CAN_VIEW_FINANCIAL_DATA";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewNonFinancialData = @"CAN_VIEW_NON_FINANCIAL_DATA";
 
+// GTLRAndroidPublisher_Image.aiGeneratedState
+NSString * const kGTLRAndroidPublisher_Image_AiGeneratedState_AiGeneratedStateAiGeneratedDeveloperAttested = @"aiGeneratedStateAiGeneratedDeveloperAttested";
+NSString * const kGTLRAndroidPublisher_Image_AiGeneratedState_AiGeneratedStateNotAiGenerated = @"aiGeneratedStateNotAiGenerated";
+NSString * const kGTLRAndroidPublisher_Image_AiGeneratedState_AiGeneratedStateUnspecified = @"aiGeneratedStateUnspecified";
+
 // GTLRAndroidPublisher_InAppProduct.purchaseType
 NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_ManagedUser = @"managedUser";
 NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_PurchaseTypeUnspecified = @"purchaseTypeUnspecified";
@@ -2325,7 +2330,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_Image
-@dynamic identifier, sha1, sha256, url;
+@dynamic aiGeneratedState, identifier, sha1, sha256, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

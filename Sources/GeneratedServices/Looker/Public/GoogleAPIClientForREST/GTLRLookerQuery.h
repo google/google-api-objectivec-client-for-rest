@@ -379,6 +379,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Required. Format: `projects/{project}/locations/{location}`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** Optional. Whether to include deleted instances in the response. */
+@property(nonatomic, assign) BOOL showDeleted;
+
 /**
  *  Fetches a @c GTLRLooker_ListInstancesResponse.
  *
@@ -500,6 +503,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLookerQuery_ProjectsLocationsInstancesRestore
  */
 + (instancetype)queryWithObject:(GTLRLooker_RestoreInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes Looker instance.
+ *
+ *  Method: looker.projects.locations.instances.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesUndelete : GTLRLookerQuery
+
+/**
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLooker_Operation.
+ *
+ *  Undeletes Looker instance.
+ *
+ *  @param object The @c GTLRLooker_UndeleteInstanceRequest to include in the
+ *    query.
+ *  @param name Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesUndelete
+ */
++ (instancetype)queryWithObject:(GTLRLooker_UndeleteInstanceRequest *)object
                            name:(NSString *)name;
 
 @end

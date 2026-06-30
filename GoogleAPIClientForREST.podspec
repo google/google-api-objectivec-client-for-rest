@@ -505,6 +505,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudOSLogin/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudOSLogin/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudProductRegistry' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudProductRegistry/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudProductRegistry/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CloudProfiler' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudProfiler/**/*.{h,m}'
@@ -634,6 +639,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CustomSearchAPI/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CustomSearchAPI/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'DatabaseCenter' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DatabaseCenter/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DatabaseCenter/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'DatabaseMigrationService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -20,6 +20,11 @@ NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeMedia = 
 NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypePlatform = @"LOI_SAPIN_INVOICE_TYPE_PLATFORM";
 NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeUnspecified = @"LOI_SAPIN_INVOICE_TYPE_UNSPECIFIED";
 
+// productCategory
+NSString * const kGTLRDisplayVideoProductCategoryOpenAuction   = @"OPEN_AUCTION";
+NSString * const kGTLRDisplayVideoProductCategoryPlannableProductCategoryUnspecified = @"PLANNABLE_PRODUCT_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRDisplayVideoProductCategoryYoutube       = @"YOUTUBE";
+
 // targetingType
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange = @"TARGETING_TYPE_AGE_RANGE";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeApp = @"TARGETING_TYPE_APP";
@@ -70,6 +75,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent 
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize = @"TARGETING_TYPE_VIDEO_PLAYER_SIZE";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARGETING_TYPE_VIEWABILITY";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel = @"TARGETING_TYPE_YOUTUBE_CHANNEL";
+NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack = @"TARGETING_TYPE_YOUTUBE_CHANNEL_PACK";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TARGETING_TYPE_YOUTUBE_VIDEO";
 
 // youtubeAssetType
@@ -2493,6 +2499,109 @@ NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified = 
   query.advertiserId = advertiserId;
   query.expectedObjectClass = [GTLRDisplayVideo_Advertiser class];
   query.loggingName = @"displayvideo.advertisers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersReachForecastGenerateReachForecast
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GenerateReachForecastRequest *)object
+                   advertiserId:(long long)advertiserId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/reachForecast:generateReachForecast";
+  GTLRDisplayVideoQuery_AdvertisersReachForecastGenerateReachForecast *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_GenerateReachForecastResponse class];
+  query.loggingName = @"displayvideo.advertisers.reachForecast.generateReachForecast";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableLocations
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/reachForecast:retrievePlannableLocations";
+  GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableLocations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_RetrievePlannableLocationsResponse class];
+  query.loggingName = @"displayvideo.advertisers.reachForecast.retrievePlannableLocations";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableProducts
+
+@dynamic advertiserId, plannableLocationId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/reachForecast:retrievePlannableProducts";
+  GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableProducts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_RetrievePlannableProductsResponse class];
+  query.loggingName = @"displayvideo.advertisers.reachForecast.retrievePlannableProducts";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserInterests
+
+@dynamic advertiserId, productCategory;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/reachForecast:retrievePlannableUserInterests";
+  GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserInterests *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_RetrievePlannableUserInterestsResponse class];
+  query.loggingName = @"displayvideo.advertisers.reachForecast.retrievePlannableUserInterests";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserLists
+
+@dynamic advertiserId, filter, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/reachForecast:retrievePlannableUserLists";
+  GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserLists *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_RetrievePlannableUserListsResponse class];
+  query.loggingName = @"displayvideo.advertisers.reachForecast.retrievePlannableUserLists";
   return query;
 }
 

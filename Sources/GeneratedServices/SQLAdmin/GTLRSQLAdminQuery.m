@@ -4,7 +4,7 @@
 // API:
 //   Cloud SQL Admin API (sqladmin/v1)
 // Description:
-//   API for Cloud SQL database instance management
+//   Cloud SQL Admin API
 // Documentation:
 //   https://cloud.google.com/sql/docs
 
@@ -305,6 +305,29 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_ConnectSettings class];
   query.loggingName = @"sql.connect.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_ConnectResolve
+
+@dynamic dnsName, location;
+
++ (instancetype)queryWithDnsName:(NSString *)dnsName
+                        location:(NSString *)location {
+  NSArray *pathParams = @[
+    @"dnsName", @"location"
+  ];
+  NSString *pathURITemplate = @"v1/dns/{dnsName}/locations/{location}:resolveConnectSettings";
+  GTLRSQLAdminQuery_ConnectResolve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.dnsName = dnsName;
+  query.location = location;
+  query.expectedObjectClass = [GTLRSQLAdmin_ConnectSettings class];
+  query.loggingName = @"sql.connect.resolve";
   return query;
 }
 

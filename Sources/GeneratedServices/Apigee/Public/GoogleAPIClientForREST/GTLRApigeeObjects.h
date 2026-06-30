@@ -143,6 +143,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode;
 @class GTLRApigee_GoogleCloudApigeeV1OptimizedStatsResponse;
 @class GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping;
+@class GTLRApigee_GoogleCloudApigeeV1PayloadOperation;
+@class GTLRApigee_GoogleCloudApigeeV1PayloadOperationConfig;
+@class GTLRApigee_GoogleCloudApigeeV1PayloadOperationGroup;
 @class GTLRApigee_GoogleCloudApigeeV1PodStatus;
 @class GTLRApigee_GoogleCloudApigeeV1Point;
 @class GTLRApigee_GoogleCloudApigeeV1ProfileConfig;
@@ -2365,6 +2368,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Ex
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCollector;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1TraceConfig.traceProtocol
+
+/**
+ *  Uses OpenCensus protocol.
+ *
+ *  Value: "OPEN_CENSUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_OpenCensus;
+/**
+ *  Uses OpenTelemetry Protocol (OTLP).
+ *
+ *  Value: "OTLP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_Otlp;
+/**
+ *  Protocol unspecified. Defaults to OPEN_CENSUS.
+ *
+ *  Value: "TRACE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_TraceProtocolUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig.sampler
 
 /**
@@ -3529,6 +3554,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  for both the API product and operation group; otherwise the call will fail.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1OperationGroup *operationGroup;
+
+/**
+ *  Optional. Configuration used to group Apigee proxies with payload-based
+ *  operations and quotas. Unlike `operation_group`, which matches on the URL
+ *  path, this grouping matches on operation identifiers extracted from the
+ *  request payload (for example, JSON-RPC method and tool names). This enables
+ *  fine-grained authorization and quota enforcement for protocols such as MCP
+ *  where multiple operations share a single endpoint. **Note:** The `proxies`
+ *  and `api_resources` settings cannot be specified for both the API product
+ *  and payload operation group; otherwise the call will fail.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1PayloadOperationGroup *payloadOperationGroup;
 
 /**
  *  Comma-separated list of API proxy names to which this API product is bound.
@@ -9790,6 +9827,70 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Represents a single operation identifier extracted from the request payload.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1PayloadOperation : GTLRObject
+
+/**
+ *  Required. The operation name extracted from the request payload at runtime
+ *  by the ParsePayload policy. For example, for MCP protocol requests, this
+ *  could be `"tools/list"` or `"tools/call/get_weather"`. Wildcards are not
+ *  supported.
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+@end
+
+
+/**
+ *  Binds the payload operations in an API proxy with the associated quota
+ *  enforcement.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1PayloadOperationConfig : GTLRObject
+
+/**
+ *  Required. Name of the API proxy with which the payload operations and quota
+ *  are associated.
+ */
+@property(nonatomic, copy, nullable) NSString *apiSource;
+
+/** Optional. Custom attributes associated with the operation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
+
+/**
+ *  Required. List of payload operations for the API proxy to which quota will
+ *  be applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1PayloadOperation *> *operations;
+
+/**
+ *  Optional. Quota parameters to be enforced for the operations and API source
+ *  combination. If none are specified, quota enforcement will not be done
+ *  unless a quota is defined at the API product level.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Quota *quota;
+
+@end
+
+
+/**
+ *  List of payload operation configuration details associated with Apigee API
+ *  proxies. Payload operations enable governance of protocols where operations
+ *  are embedded in the request body (such as JSON-RPC) rather than defined by
+ *  the URL path.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1PayloadOperationGroup : GTLRObject
+
+/**
+ *  Required. List of payload operation configurations for Apigee API proxies
+ *  that are associated with this API product.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1PayloadOperationConfig *> *operationConfigs;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1PodStatus
  */
 @interface GTLRApigee_GoogleCloudApigeeV1PodStatus : GTLRObject
@@ -13416,6 +13517,24 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  distributed trace configuration overrides API.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig *samplingConfig;
+
+/**
+ *  Optional. The trace protocol to use. Configuration Requirements (if
+ *  trace_protocol is OTLP): - Allowed Exporters: CLOUD_TRACE or
+ *  OPEN_TELEMETRY_COLLECTOR. - If Exporter is OPEN_TELEMETRY_COLLECTOR: -
+ *  endpoint refers to a valid OTLP collector URL. - If Exporter is CLOUD_TRACE:
+ *  - endpoint refers to a valid project ID.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_OpenCensus
+ *        Uses OpenCensus protocol. (Value: "OPEN_CENSUS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_Otlp Uses
+ *        OpenTelemetry Protocol (OTLP). (Value: "OTLP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_TraceProtocolUnspecified
+ *        Protocol unspecified. Defaults to OPEN_CENSUS. (Value:
+ *        "TRACE_PROTOCOL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *traceProtocol;
 
 @end
 

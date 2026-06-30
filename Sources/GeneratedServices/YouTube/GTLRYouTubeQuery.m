@@ -97,8 +97,9 @@ NSString * const kGTLRYouTubeTextFormatPlainText             = @"plainText";
 NSString * const kGTLRYouTubeTextFormatTextFormatUnspecified = @"textFormatUnspecified";
 
 // type
-NSString * const kGTLRYouTubeTypeChannelToStoreLink = @"channelToStoreLink";
-NSString * const kGTLRYouTubeTypeLinkUnspecified    = @"linkUnspecified";
+NSString * const kGTLRYouTubeTypeChannelToAffiliateProgramLink = @"channelToAffiliateProgramLink";
+NSString * const kGTLRYouTubeTypeChannelToStoreLink            = @"channelToStoreLink";
+NSString * const kGTLRYouTubeTypeLinkUnspecified               = @"linkUnspecified";
 
 // videoCaption
 NSString * const kGTLRYouTubeVideoCaptionAny                   = @"any";

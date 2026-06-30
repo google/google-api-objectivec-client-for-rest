@@ -51,6 +51,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinI
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// productCategory
+
+/**
+ *  Open Auction.
+ *
+ *  Value: "OPEN_AUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoProductCategoryOpenAuction;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_PRODUCT_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoProductCategoryPlannableProductCategoryUnspecified;
+/**
+ *  YouTube.
+ *
+ *  Value: "YOUTUBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoProductCategoryYoutube;
+
+// ----------------------------------------------------------------------------
 // targetingType
 
 /**
@@ -368,6 +390,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel;
 /**
+ *  Target ads to a specific YouTube channel pack.
+ *
+ *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack;
+/**
  *  Target ads to a specific YouTube video. Targeting of this type cannot be
  *  created or updated using the API. Although this targeting is inherited by
  *  child resources, **inherited targeting of this type will not be
@@ -631,9 +659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Creates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  method will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This method will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroupAds.create
  *
@@ -649,9 +676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroupAd.
  *
  *  Creates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  method will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This method will be available to all partners by *June 24, 2026*.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroupAd to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -666,9 +692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Deletes an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  method will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This method will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroupAds.delete
  *
@@ -689,9 +714,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
  *  Deletes an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  method will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This method will be available to all partners by *June 24, 2026*.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad belongs to.
  *  @param adGroupAdId Required. The ID of the ad to delete. Only Demand Gen ads
@@ -808,9 +832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Updates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  method will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This method will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroupAds.patch
  *
@@ -836,9 +859,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroupAd.
  *
  *  Updates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  method will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This method will be available to all partners by *June 24, 2026*.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroupAd to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -862,9 +884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  from each ad group, and then create the assigned targeting options provided
  *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This
  *  method is only supported for Demand Gen ad groups. Retrieval and management
- *  of Demand Gen resources is currently in beta. This method will begin rolling
- *  out to all partners on *June 10, 2026* and be available to all partners on
- *  *June 24, 2026*.
+ *  of Demand Gen resources is currently rolling out. This method will be
+ *  available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroups.bulkEditAssignedTargetingOptions
  *
@@ -887,9 +908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  from each ad group, and then create the assigned targeting options provided
  *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This
  *  method is only supported for Demand Gen ad groups. Retrieval and management
- *  of Demand Gen resources is currently in beta. This method will begin rolling
- *  out to all partners on *June 10, 2026* and be available to all partners on
- *  *June 24, 2026*.
+ *  of Demand Gen resources is currently rolling out. This method will be
+ *  available to all partners by *June 24, 2026*.
  *
  *  @param object The @c
  *    GTLRDisplayVideo_BulkEditAdGroupAssignedTargetingOptionsRequest to include
@@ -988,9 +1008,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Creates a new ad group. Returns the newly created ad group if successful.
  *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This method will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This method
+ *  will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroups.create
  *
@@ -1007,9 +1026,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *
  *  Creates a new ad group. Returns the newly created ad group if successful.
  *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This method will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This method
+ *  will be available to all partners by *June 24, 2026*.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroup to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -1025,9 +1043,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not
  *  exist. This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This method will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This method
+ *  will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroups.delete
  *
@@ -1047,9 +1064,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *
  *  Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not
  *  exist. This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This method will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This method
+ *  will be available to all partners by *June 24, 2026*.
  *
  *  @param advertiserId Required. The ID of the advertiser this ad group belongs
  *    to.
@@ -1170,9 +1186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Updates an existing ad group. Returns the updated ad group if successful.
  *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This method will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This method
+ *  will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroups.patch
  *
@@ -1199,9 +1214,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *
  *  Updates an existing ad group. Returns the updated ad group if successful.
  *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This method will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This method
+ *  will be available to all partners by *June 24, 2026*.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroup to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -1220,9 +1234,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Assigns a targeting option to an ad group. Returns the assigned targeting
  *  option if successful. This method is only supported for Demand Gen ad
- *  groups. Retrieval and management of Demand Gen resources is currently in
- *  beta. This method will begin rolling out to all partners on *June 10, 2026*
- *  and be available to all partners on *June 24, 2026*.
+ *  groups. Retrieval and management of Demand Gen resources is currently
+ *  rolling out. This method will be available to all partners by *June 24,
+ *  2026*.
  *
  *  Method: displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.create
  *
@@ -1413,6 +1427,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1421,9 +1438,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *
  *  Assigns a targeting option to an ad group. Returns the assigned targeting
  *  option if successful. This method is only supported for Demand Gen ad
- *  groups. Retrieval and management of Demand Gen resources is currently in
- *  beta. This method will begin rolling out to all partners on *June 10, 2026*
- *  and be available to all partners on *June 24, 2026*.
+ *  groups. Retrieval and management of Demand Gen resources is currently
+ *  rolling out. This method will be available to all partners by *June 24,
+ *  2026*.
  *
  *  @param object The @c GTLRDisplayVideo_AssignedTargetingOption to include in
  *    the query.
@@ -1604,6 +1621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -1618,9 +1638,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Deletes an assigned targeting option from an ad group. This method is only
  *  supported for Demand Gen ad groups with the AdGroupFormat
  *  `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen
- *  resources is currently in beta. This method will begin rolling out to all
- *  partners on *June 10, 2026* and be available to all partners on *June 24,
- *  2026*.
+ *  resources is currently rolling out. This method will be available to all
+ *  partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.delete
  *
@@ -1814,6 +1833,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1823,9 +1845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Deletes an assigned targeting option from an ad group. This method is only
  *  supported for Demand Gen ad groups with the AdGroupFormat
  *  `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen
- *  resources is currently in beta. This method will begin rolling out to all
- *  partners on *June 10, 2026* and be available to all partners on *June 24,
- *  2026*.
+ *  resources is currently rolling out. This method will be available to all
+ *  partners by *June 24, 2026*.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad group belongs
  *    to.
@@ -2006,6 +2027,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -2215,6 +2239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -2405,6 +2432,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -2645,6 +2675,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -2832,6 +2865,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsTargetingTypesAssignedTargetingOptionsList
  *
@@ -5219,6 +5255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5430,6 +5469,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -5658,6 +5700,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5869,6 +5914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -6099,6 +6147,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6310,6 +6361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -6574,6 +6628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6782,6 +6839,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -8111,6 +8171,199 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
+ *  Generates a reach forecast for a given advertiser and targeting
+ *  configuration.
+ *
+ *  Method: displayvideo.advertisers.reachForecast.generateReachForecast
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersReachForecastGenerateReachForecast : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser that will run the planned campaign. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_GenerateReachForecastResponse.
+ *
+ *  Generates a reach forecast for a given advertiser and targeting
+ *  configuration.
+ *
+ *  @param object The @c GTLRDisplayVideo_GenerateReachForecastRequest to
+ *    include in the query.
+ *  @param advertiserId Required. The ID of the advertiser that will run the
+ *    planned campaign.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersReachForecastGenerateReachForecast
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GenerateReachForecastRequest *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Retrieves the list of countries where reach forecasting is supported.
+ *
+ *  Method: displayvideo.advertisers.reachForecast.retrievePlannableLocations
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableLocations : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser to list plannable locations for. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_RetrievePlannableLocationsResponse.
+ *
+ *  Retrieves the list of countries where reach forecasting is supported.
+ *
+ *  @param advertiserId Required. The ID of the advertiser to list plannable
+ *    locations for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableLocations
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Retrieves the list of products that can be planned for a location.
+ *
+ *  Method: displayvideo.advertisers.reachForecast.retrievePlannableProducts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableProducts : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser to list plannable products for. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the plannable location. */
+@property(nonatomic, copy, nullable) NSString *plannableLocationId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_RetrievePlannableProductsResponse.
+ *
+ *  Retrieves the list of products that can be planned for a location.
+ *
+ *  @param advertiserId Required. The ID of the advertiser to list plannable
+ *    products for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableProducts
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Retrieves Google Audiences (User Interests) available for forecasting.
+ *
+ *  Method: displayvideo.advertisers.reachForecast.retrievePlannableUserInterests
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserInterests : GTLRDisplayVideoQuery
+
+/**
+ *  Required. The ID of the advertiser to list plannable user interests for.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The product category to retrieve plannable user interests for.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoProductCategoryPlannableProductCategoryUnspecified
+ *        Not specified. (Value: "PLANNABLE_PRODUCT_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoProductCategoryYoutube YouTube. (Value:
+ *        "YOUTUBE")
+ *    @arg @c kGTLRDisplayVideoProductCategoryOpenAuction Open Auction. (Value:
+ *        "OPEN_AUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *productCategory;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_RetrievePlannableUserInterestsResponse.
+ *
+ *  Retrieves Google Audiences (User Interests) available for forecasting.
+ *
+ *  @param advertiserId Required. The ID of the advertiser to list plannable
+ *    user interests for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserInterests
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Retrieves first and third party user lists available for forecasting.
+ *
+ *  Method: displayvideo.advertisers.reachForecast.retrievePlannableUserLists
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserLists : GTLRDisplayVideoQuery
+
+/**
+ *  Required. The ID of the advertiser to retrieve plannable user lists for.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Optional. Allows filtering by plannable user list properties. Supported
+ *  syntax: * Filter expressions are made up of one or more restrictions. *
+ *  Restrictions can be combined by `AND` or `OR` logical operators. * A
+ *  restriction has the form of `{field} {operator} {value}`. * The `updateTime`
+ *  field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO
+ *  (<=)` operators. * All other fields must use the `EQUALS (=)` operator.
+ *  Supported fields: * `plannableStatus` Examples: * All plannable user lists:
+ *  `plannableStatus="PLANNABLE"` The length of this field should be no more
+ *  than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  information.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Must be between `1` and `5000`. If
+ *  unspecified will default to `5000`.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  Typically, this is the value of next_page_token returned from the previous
+ *  call to `RetrievePlannableUserLists` method. If not specified, the first
+ *  page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_RetrievePlannableUserListsResponse.
+ *
+ *  Retrieves first and third party user lists available for forecasting.
+ *
+ *  @param advertiserId Required. The ID of the advertiser to retrieve plannable
+ *    user lists for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersReachForecastRetrievePlannableUserLists
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
  *  Assigns a targeting option to an advertiser. Returns the assigned targeting
  *  option if successful.
  *
@@ -8293,6 +8546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -8473,6 +8729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -8667,6 +8926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -8846,6 +9108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -9045,6 +9310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9227,6 +9495,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -9457,6 +9728,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9637,6 +9911,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -12688,6 +12965,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -12866,6 +13146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -13058,6 +13341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13235,6 +13521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -13430,6 +13719,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -13608,6 +13900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -13834,6 +14129,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -14009,6 +14307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -14314,6 +14615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -14505,6 +14809,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -14750,6 +15057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -14939,6 +15249,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -15129,6 +15442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -15307,6 +15623,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *        created or updated using the API. This targeting is only inherited by
  *        child YouTube and Demand Gen line item resources. (Value:
  *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

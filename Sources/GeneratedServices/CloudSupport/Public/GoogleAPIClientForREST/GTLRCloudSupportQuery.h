@@ -982,6 +982,235 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Creates a support event subscription for an organization.
+ *
+ *  Method: cloudsupport.supportEventSubscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_SupportEventSubscriptionsCreate : GTLRCloudSupportQuery
+
+/**
+ *  Required. The parent resource name where the support event subscription will
+ *  be created. Format: organizations/{organization_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
+ *
+ *  Creates a support event subscription for an organization.
+ *
+ *  @param object The @c GTLRCloudSupport_SupportEventSubscription to include in
+ *    the query.
+ *  @param parent Required. The parent resource name where the support event
+ *    subscription will be created. Format: organizations/{organization_id}
+ *
+ *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudSupport_SupportEventSubscription *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Soft deletes a support event subscription.
+ *
+ *  Method: cloudsupport.supportEventSubscriptions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_SupportEventSubscriptionsDelete : GTLRCloudSupportQuery
+
+/**
+ *  Required. The name of the support event subscription to delete. Format:
+ *  organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
+ *
+ *  Soft deletes a support event subscription.
+ *
+ *  @param name Required. The name of the support event subscription to delete.
+ *    Format:
+ *    organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ *
+ *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a support event subscription.
+ *
+ *  Method: cloudsupport.supportEventSubscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_SupportEventSubscriptionsGet : GTLRCloudSupportQuery
+
+/**
+ *  Required. The name of the support event subscription to retrieve. Format:
+ *  organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
+ *
+ *  Gets a support event subscription.
+ *
+ *  @param name Required. The name of the support event subscription to
+ *    retrieve. Format:
+ *    organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ *
+ *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists support event subscriptions.
+ *
+ *  Method: cloudsupport.supportEventSubscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_SupportEventSubscriptionsList : GTLRCloudSupportQuery
+
+/**
+ *  Optional. Filter expression based on AIP-160. Supported fields: -
+ *  pub_sub_topic - state Examples: -
+ *  `pub_sub_topic="projects/example-project/topics/example-topic"` -
+ *  `state=WORKING` -
+ *  `pub_sub_topic="projects/example-project/topics/example-topic" AND
+ *  state=WORKING`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The maximum number of support event subscriptions to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying the page of results to return. If unspecified,
+ *  the first page is retrieved. When paginating, all other parameters provided
+ *  to `ListSupportEventSubscriptions` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The fully qualified name of the Cloud resource to list support
+ *  event subscriptions under. Format: organizations/{organization_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Whether to show deleted subscriptions. By default, deleted
+ *  subscriptions are not returned.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_ListSupportEventSubscriptionsResponse.
+ *
+ *  Lists support event subscriptions.
+ *
+ *  @param parent Required. The fully qualified name of the Cloud resource to
+ *    list support event subscriptions under. Format:
+ *    organizations/{organization_id}
+ *
+ *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a support event subscription.
+ *
+ *  Method: cloudsupport.supportEventSubscriptions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_SupportEventSubscriptionsPatch : GTLRCloudSupportQuery
+
+/** Identifier. The resource name of the support event subscription. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. The only supported value is
+ *  pub_sub_topic.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
+ *
+ *  Updates a support event subscription.
+ *
+ *  @param object The @c GTLRCloudSupport_SupportEventSubscription to include in
+ *    the query.
+ *  @param name Identifier. The resource name of the support event subscription.
+ *
+ *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudSupport_SupportEventSubscription *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a support event subscription.
+ *
+ *  Method: cloudsupport.supportEventSubscriptions.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_SupportEventSubscriptionsUndelete : GTLRCloudSupportQuery
+
+/**
+ *  Required. The name of the support event subscription to undelete. Format:
+ *  organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
+ *
+ *  Undeletes a support event subscription.
+ *
+ *  @param object The @c
+ *    GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest to include in the
+ *    query.
+ *  @param name Required. The name of the support event subscription to
+ *    undelete. Format:
+ *    organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ *
+ *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

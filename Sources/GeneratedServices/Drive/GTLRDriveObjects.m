@@ -643,8 +643,9 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 //
 
 @implementation GTLRDrive_File_Capabilities
-@dynamic canAcceptOwnership, canAddChildren, canAddFolderFromAnotherDrive,
-         canAddMyDriveParent, canChangeCopyRequiresWriterPermission,
+@dynamic canAcceptOwnership, canAccessViaGenAi, canAddChildren,
+         canAddFolderFromAnotherDrive, canAddMyDriveParent,
+         canChangeCopyRequiresWriterPermission,
          canChangeItemDownloadRestriction, canChangeSecurityUpdateEnabled,
          canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
          canDeleteChildren, canDisableInheritedPermissions, canDownload,

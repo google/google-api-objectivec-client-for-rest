@@ -274,6 +274,7 @@ NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Controll
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpConnection = @"KCP_CONNECTION";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpHpa = @"KCP_HPA";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpSshd = @"KCP_SSHD";
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpVpa = @"KCP_VPA";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Scheduler = @"SCHEDULER";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads = @"WORKLOADS";
@@ -462,6 +463,7 @@ NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified = @"UNS
 
 // GTLRContainer_ReservationAffinity.consumeReservationType
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
+NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservationThenFail = @"ANY_RESERVATION_THEN_FAIL";
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified = @"UNSPECIFIED";
@@ -1386,7 +1388,17 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_CustomImageConfig
-@dynamic image, imageFamily, imageProject;
+@dynamic image, imageProject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_CustomImageInfo
+//
+
+@implementation GTLRContainer_CustomImageInfo
+@dynamic upgradeMessage;
 @end
 
 
@@ -2800,7 +2812,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodePoolUpgradeInfo
-@dynamic autoUpgradeStatus, endOfExtendedSupportTimestamp,
+@dynamic autoUpgradeStatus, customImageInfo, endOfExtendedSupportTimestamp,
          endOfStandardSupportTimestamp, minorTargetVersion, patchTargetVersion,
          pausedReason, upgradeDetails;
 
@@ -3904,8 +3916,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          consolidationDelay, containerdConfig, diskSizeGb, diskType, ETag,
          fastSocket, flexStart, gcfsConfig, gvnic, image, imageProject,
          imageType, kubeletConfig, labels, linuxNodeConfig, locations,
-         loggingConfig, machineType, maxRunDuration, name, nodeDrainConfig,
-         nodeNetworkConfig, nodePoolId, nodeVersion, projectId,
+         loggingConfig, machineType, maintenancePolicy, maxRunDuration, name,
+         nodeDrainConfig, nodeNetworkConfig, nodePoolId, nodeVersion, projectId,
          queuedProvisioning, resourceLabels, resourceManagerTags, storagePools,
          tags, taintConfig, taints, upgradeSettings, windowsNodeConfig,
          workloadMetadataConfig, zoneProperty;

@@ -431,6 +431,7 @@
 @class GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicy_InstanceSelections;
 @class GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicyInstanceSelection;
 @class GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy;
+@class GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair;
 @class GTLRCompute_InstanceGroupManagerList_Warning;
 @class GTLRCompute_InstanceGroupManagerList_Warning_Data_Item;
 @class GTLRCompute_InstanceGroupManagerResizeRequest;
@@ -16648,14 +16649,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedLi
 // GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy.defaultActionOnFailure
 
 /**
- *  MIG does not repair a failed or an unhealthy VM.
+ *  MIG does not repair a failed VM.
  *
  *  Value: "DO_NOTHING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_DefaultActionOnFailure_DoNothing;
 /**
- *  (Default) MIG automatically repairs a failed or an unhealthy
- *  VM by recreating it. For more information, see About
+ *  (default): MIG automatically repairs a failed VM by recreating it.
+ *  For more information, see About
  *  repairing VMs in a MIG.
  *
  *  Value: "REPAIR"
@@ -16692,6 +16693,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerInstanceLife
  *  Value: "REPAIR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_OnFailedHealthCheck_Repair;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair.allowChangingZone
+
+/**
+ *  [Default] MIG cannot change a VM's zone during a repair.
+ *
+ *  Value: "NO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair_AllowChangingZone_No;
+/**
+ *  MIG can select a different zone for the VM during a repair.
+ *
+ *  Value: "YES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair_AllowChangingZone_Yes;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerList_Warning.code
@@ -41018,6 +41035,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsCon
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_LogLevel_Verbose;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SecurityPolicyDdosProtectionConfig.ddosAdaptiveProtection
+
+/** Value: "DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_DdosAdaptiveProtectionUnspecified;
+/** Value: "DISABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Disabled;
+/** Value: "ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Enabled;
+/** Value: "PREVIEW" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Preview;
+/** Value: "UNSPECIFIED_ADAPTIVE_PROTECTION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_UnspecifiedAdaptiveProtection GTLR_DEPRECATED;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SecurityPolicyDdosProtectionConfig.ddosProtection
 
 /** Value: "ADVANCED" */
@@ -49397,6 +49428,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_None;
 /** Value: "PROXY_V1" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_TargetTcpProxy.loadBalancingScheme
+
+/** Value: "EXTERNAL" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_External;
+/** Value: "EXTERNAL_MANAGED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_ExternalManaged;
+/** Value: "INTERNAL_MANAGED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_InternalManaged;
+/** Value: "LOAD_BALANCING_SCHEME_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetTcpProxy.proxyHeader
@@ -81840,22 +81883,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy : GTLRObject
 
 /**
- *  The action that a MIG performs on a failed or an unhealthy VM.
- *  A VM is marked as unhealthy when the application running on that
- *  VM fails a health check.
+ *  The action that a MIG performs on a failed VM. If the value of the
+ *  onFailedHealthCheck field is `DEFAULT_ACTION`, then the same action also
+ *  applies to the VMs on which your application fails a health check.
  *  Valid values are
- *  - REPAIR (default): MIG automatically repairs a failed or
- *  an unhealthy VM by recreating it. For more information, see About
+ *  - REPAIR (default): MIG automatically repairs a failed VM
+ *  by recreating it. For more information, see About
  *  repairing VMs in a MIG.
- *  - DO_NOTHING: MIG does not repair a failed or an unhealthy
- *  VM.
+ *  - DO_NOTHING: MIG does not repair a failed VM.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_DefaultActionOnFailure_DoNothing
- *        MIG does not repair a failed or an unhealthy VM. (Value: "DO_NOTHING")
+ *        MIG does not repair a failed VM. (Value: "DO_NOTHING")
  *    @arg @c kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_DefaultActionOnFailure_Repair
- *        (Default) MIG automatically repairs a failed or an unhealthy
- *        VM by recreating it. For more information, see About
+ *        (default): MIG automatically repairs a failed VM by recreating it.
+ *        For more information, see About
  *        repairing VMs in a MIG. (Value: "REPAIR")
  */
 @property(nonatomic, copy, nullable) NSString *defaultActionOnFailure;
@@ -81901,6 +81943,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "REPAIR")
  */
 @property(nonatomic, copy, nullable) NSString *onFailedHealthCheck;
+
+/** Configuration for VM repairs in the MIG. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair *onRepair;
+
+@end
+
+
+/**
+ *  Configuration for VM repairs in the MIG.
+ */
+@interface GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair : GTLRObject
+
+/**
+ *  Specifies whether the MIG can change a VM's zone during a repair.
+ *  Valid values are:
+ *  - NO (default): MIG cannot change a VM's zone during a
+ *  repair.
+ *  - YES: MIG can select a different zone for the VM during
+ *  a repair.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair_AllowChangingZone_No
+ *        [Default] MIG cannot change a VM's zone during a repair. (Value: "NO")
+ *    @arg @c kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicyOnRepair_AllowChangingZone_Yes
+ *        MIG can select a different zone for the VM during a repair. (Value:
+ *        "YES")
+ */
+@property(nonatomic, copy, nullable) NSString *allowChangingZone;
 
 @end
 
@@ -87711,6 +87781,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. URL of the InterconnectLocation object that represents where
+ *  this connection is to be provisioned. By default it will be the same as the
+ *  location field.
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveLocation;
 
 /**
  *  Output only. [Output Only] A list of outages expected for this Interconnect.
@@ -98274,6 +98351,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  You can only specify this field for network interfaces in VPC networks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AliasIpRange *> *aliasIpRanges;
+
+/**
+ *  An array of alias IPv6 ranges for this network interface.
+ *  You can only specify this field for network interfaces in VPC networks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AliasIpRange *> *aliasIpv6Ranges;
 
 /**
  *  Optional. If true, DNS resolution will be enabled over this interface. Only
@@ -111330,6 +111413,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_ReservationBlock : GTLRObject
 
 /**
+ *  Output only. [Output Only] Health information for the reservation block.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ReservationBlockHealthInfo *blockHealthInfo;
+
+/**
  *  Output only. [Output Only] The number of resources that are allocated in
  *  this
  *  reservation block.
@@ -111340,11 +111428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Output only. [Output Only] Creation timestamp inRFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
-
-/**
- *  Output only. [Output Only] Health information for the reservation block.
- */
-@property(nonatomic, strong, nullable) GTLRCompute_ReservationBlockHealthInfo *healthInfo;
 
 /**
  *  Output only. [Output Only] The unique identifier for the resource. This
@@ -112603,11 +112686,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
- *  Output only. [Output Only] Health information for the reservation subBlock.
- */
-@property(nonatomic, strong, nullable) GTLRCompute_ReservationSubBlockHealthInfo *healthInfo;
-
-/**
  *  Output only. [Output Only] The unique identifier for the resource. This
  *  identifier is
  *  defined by the server.
@@ -112684,6 +112762,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        has allocated all its resources. (Value: "READY")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Output only. [Output Only] Health information for the reservation subBlock.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ReservationSubBlockHealthInfo *subBlockHealthInfo;
 
 /**
  *  Output only. [Output Only] Zone in which the reservation subBlock resides.
@@ -117232,6 +117315,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<NSString *> *drainNatIps;
 
 /**
+ *  Output only. Effective timeout (in seconds) for TCP connections that are in
+ *  TIME_WAIT
+ *  state. This value is equal to tcp_time_wait_timeout_sec.
+ *  If tcp_time_wait_timeout_sec isn't set, the effective timeout is 30s or
+ *  120s. The field is output only.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveTcpTimeWaitTimeoutSec;
+
+/**
  *  Enable Dynamic Port Allocation.
  *  If not specified, it is disabled by default.
  *  If set to true,
@@ -119835,6 +119929,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_SecurityPolicyDdosProtectionConfig : GTLRObject
 
 /**
+ *  ddosAdaptiveProtection
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_DdosAdaptiveProtectionUnspecified
+ *        Value "DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Disabled
+ *        Value "DISABLED"
+ *    @arg @c kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Enabled
+ *        Value "ENABLED"
+ *    @arg @c kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_Preview
+ *        Value "PREVIEW"
+ *    @arg @c kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosAdaptiveProtection_UnspecifiedAdaptiveProtection
+ *        Value "UNSPECIFIED_ADAPTIVE_PROTECTION"
+ */
+@property(nonatomic, copy, nullable) NSString *ddosAdaptiveProtection;
+
+/**
+ *  DDoS Protection for Network Load Balancers (and VMs with public IPs)
+ *  builds DDoS mitigations that minimize collateral damage. It quantifies
+ *  this as the fraction of a non-abuse baseline that's inadvertently
+ *  blocked.
+ *  Rules whose collateral damage exceeds ddosImpactedBaselineThreshold will
+ *  not be deployed. Using a lower value will prioritize keeping collateral
+ *  damage low, possibly at the cost of its effectiveness in rate limiting
+ *  some or all of the attack. It should typically be unset, so Advanced DDoS
+ *  (and Adaptive Protection) uses the best mitigation it can find. Setting
+ *  the threshold is advised if there are logs for false positive detections
+ *  with high collateral damage, and will cause Advanced DDoS to attempt to
+ *  find a less aggressive rule that satisfies the constraint. If a suitable
+ *  rule cannot be found, the system falls back to either no mitigation for
+ *  smaller attacks or broader network throttles for larger ones.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ddosImpactedBaselineThreshold;
+
+/**
  *  ddosProtection
  *
  *  Likely values:
@@ -121082,6 +121213,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  cannot be a dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The number of NAT IP addresses to be allocated per connected endpoint.
+ *  If not specified, the default value is 1.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *natIpsPerEndpoint;
 
 /**
  *  An array of URLs where each entry is the URL of a subnet provided
@@ -122410,11 +122549,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *storageBytes;
 
 /**
- *  Output only. [Output Only] An indicator whether storageBytes is in a
+ *  Output only. [Deprecated] Instead, check the storageBytes field. After
+ *  snapshot creation, the storageBytesStatus field is alwaysUP_TO_DATE.
+ *  [Output Only] An indicator whether storageBytes is in a
  *  stable state or it is being adjusted as a result of shared storage
- *  reallocation. This status can either be UPDATING, meaning
- *  the size of the snapshot is being updated, or UP_TO_DATE,
- *  meaning the size of the snapshot is up-to-date.
+ *  reallocation. This status can either be unset, meaning the snapshot is
+ *  being created, or UP_TO_DATE, meaning the size of the snapshot
+ *  is up-to-date.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Snapshot_StorageBytesStatus_Updating Value "UPDATING"
@@ -132171,6 +132312,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Alwayscompute#targetTcpProxy for target TCP proxies.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Specifies the type of load balancing scheme used by this target proxy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_External Value
+ *        "EXTERNAL"
+ *    @arg @c kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_ExternalManaged
+ *        Value "EXTERNAL_MANAGED"
+ *    @arg @c kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_InternalManaged
+ *        Value "INTERNAL_MANAGED"
+ *    @arg @c kGTLRCompute_TargetTcpProxy_LoadBalancingScheme_LoadBalancingSchemeUnspecified
+ *        Value "LOAD_BALANCING_SCHEME_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
  *  Name of the resource. Provided by the client when the resource is created.

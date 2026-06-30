@@ -46,6 +46,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ContactIdentity;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1Contacts;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryCategoryRequest;
@@ -79,6 +81,9 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationshipSchemaPaths;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_AccessGroups;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_Labels;
@@ -861,6 +866,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataD
  *  Value: "ALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_All;
+/**
+ *  Business glossary term associations will be generated.
+ *
+ *  Value: "BUSINESS_GLOSSARY_TERM_ASSOCIATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_BusinessGlossaryTermAssociations;
 /**
  *  Unspecified generation scope. If no generation scope is specified, all
  *  available documentation components will be generated.
@@ -4289,6 +4300,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Identity of a business contact.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ContactIdentity : GTLRObject
+
+/** Optional. Email ID or freeform ID of the Contact person. */
+@property(nonatomic, copy, nullable) NSString *contactId;
+
+/**
+ *  Required. Name of the contact person for the Data Domain; unvalidated
+ *  freeform text.
+ */
+@property(nonatomic, copy, nullable) NSString *contactName;
+
+/**
+ *  Required. Designation of the person i.e. Data Steward or Data Analyst.
+ *  Example values: owner, steward, producer, admin.
+ */
+@property(nonatomic, copy, nullable) NSString *contactRole;
+
+@end
+
+
+/**
+ *  Business contacts part of business context of a Data Domain. Corresponds to
+ *  the Contacts Aspect in Dataplex Universal Catalog.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1Contacts : GTLRObject
+
+/** Required. Identities of the business contacts. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1ContactIdentity *> *identities;
+
+@end
+
+
+/**
  *  Request message for CreateEntryLink.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1CreateEntryLinkRequest : GTLRObject
@@ -5024,6 +5070,13 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions : GTLRObject
 
 /**
+ *  Optional. Whether to use the global model endpoint.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *globalEndpointEnabled;
+
+/**
  *  Optional. Specifies whether deeper semantic inference over the objects'
  *  contents using GenAI is enabled.
  *
@@ -5226,6 +5279,109 @@ GTLR_DEPRECATED
  *  documentation components will be generated.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *generationScopes;
+
+@end
+
+
+/**
+ *  A DataDomain is a logical grouping of data resources for governance,
+ *  discovery, and management at scale.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain : GTLRObject
+
+/** Required. Contact info for the Data Domains. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Contacts *contacts;
+
+/** Output only. The time at which the DataDomain was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the DataDomain.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. User-friendly display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. User-defined labels for the DataDomain. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain_Labels *labels;
+
+/**
+ *  Identifier. The relative resource name of the DataDomain, of the form:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Immutable. The resource name of the parent DataDomain. Empty if
+ *  this is a top-level DataDomain. Format:
+ *  projects/{project_id_or_number}/locations/{location}/dataDomains/{parent_data_domain_id}
+ *  This field is immutable after creation.
+ */
+@property(nonatomic, copy, nullable) NSString *parentDataDomain;
+
+/** Output only. System-generated globally unique ID for the DataDomain. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time at which the DataDomain was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels for the DataDomain.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain_Labels : GTLRObject
+@end
+
+
+/**
+ *  DataDomainBinding represents a rule that includes a Google Cloud resource
+ *  and its contents into a DataDomain.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding : GTLRObject
+
+/** Output only. The time at which the DataDomainBinding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The relative resource name of the DataDomainBinding. Format:
+ *  projects/{project_id_or_number}/locations/{location}/dataDomains/{data_domain_id}/bindings/{binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The full resource name of the Google Cloud resource to
+ *  be bound (i.e. included together with its contents) to the
+ *  DataDomain.Format: IAM Full resource name
+ *  (https://docs.cloud.google.com/iam/docs/full-resource-names) Examples: - GCP
+ *  Project: //cloudresourcemanager.googleapis.com/projects/{project-id} -
+ *  BigQuery Dataset:
+ *  //bigquery.googleapis.com/projects/{project-id}/datasets/{dataset-id} -
+ *  BigQuery Table:
+ *  //bigquery.googleapis.com/projects/{project-id}/datasets/{dataset-id}/tables/{table-id}
+ *  - Dataplex Data Product:
+ *  //dataplex.googleapis.com/projects/{project-number}/locations/{location}/dataProducts/{data-product-id}Authorization:
+ *  the resource to be bound must first grant an IAM role with the
+ *  resource-specific setIamPolicy permission to the DataDomain. Example: -
+ *  resource:
+ *  //bigquery.googleapis.com/projects/{project-id}/datasets/{dataset-id} - IAM
+ *  role: with bigquery.datasets.setIamPolicy permission (e.g. roles/owner) -
+ *  IAM member:
+ *  principal://dataplex.googleapis.com/projects/{project-number}/name/locations/{location}/dataDomains/{data-domain-id}
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/** Output only. System-generated unique ID. */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 
@@ -10084,6 +10240,54 @@ GTLR_DEPRECATED
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
+ *  List DataDomainBindings response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataDomainBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainBindingsResponse : GTLRCollectionObject
+
+/**
+ *  DataDomainBindings under the given parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding *> *dataDomainBindings;
+
+/** Token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  List DataDomains response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataDomains" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainsResponse : GTLRCollectionObject
+
+/**
+ *  DataDomains under the given parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain *> *dataDomains;
+
+/** Token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

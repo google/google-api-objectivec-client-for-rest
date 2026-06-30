@@ -2666,11 +2666,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @end
 
 /**
- *  Returns a list of spaces in a Google Workspace organization based on an
- *  administrator's search. In the request, set `use_admin_access` to `true`.
- *  For an example, see [Search for and manage
+ *  Returns a list of spaces in a Google Workspace organization. For an example,
+ *  see [Search for and manage
  *  spaces](https://developers.google.com/workspace/chat/search-manage-admin).
- *  Requires [user authentication with administrator
+ *  When `use_admin_access` is set to `false`, the results are limited to spaces
+ *  where the calling user is a joined member. To search with administrator
+ *  privileges, set `use_admin_access` to `true`. Setting `use_admin_access` to
+ *  `false` is available under Developer Preview. Supports the following types
+ *  of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
+ *  `https://www.googleapis.com/auth/chat.spaces` - [User authentication with
+ *  administrator
  *  privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges)
  *  and one of the following [authorization
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
@@ -2692,12 +2702,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  by are: - `membership_count.joined_direct_human_user_count` — Denotes the
  *  count of human users that have directly joined a space. - `last_active_time`
  *  — Denotes the time when last eligible item is added to any topic of this
- *  space. - `create_time` — Denotes the time of the space creation. Valid
- *  ordering operation values are: - `ASC` for ascending. Default value. -
- *  `DESC` for descending. The supported syntax are: -
+ *  space. - `create_time` — Denotes the time of the space creation. When
+ *  `useAdminAccess` is `false`, only `create_time` and `relevance` are
+ *  supported for ordering. Only `DESC` is supported for these fields in
+ *  non-admin searches. Valid ordering operation values are: - `ASC` for
+ *  ascending. Default value. - `DESC` for descending. The supported syntax are
+ *  when `useAdminAccess` is set to `true`: -
  *  `membership_count.joined_direct_human_user_count DESC` -
  *  `membership_count.joined_direct_human_user_count ASC` - `last_active_time
- *  DESC` - `last_active_time ASC` - `create_time DESC` - `create_time ASC`
+ *  DESC` - `last_active_time ASC` - `create_time DESC` - `create_time ASC` When
+ *  `useAdminAccess` is set to `false`: - `create_time DESC` - `relevance DESC`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2719,44 +2733,54 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. A search query. You can search by using the following parameters :
- *  - `create_time` - `customer` - `display_name` - `external_user_allowed` -
- *  `last_active_time` - `space_history_state` - `space_type` `create_time` and
+ *  Required. A search query. You can search by using the following parameters
+ *  when `useAdminAccess` is set to `true`: - `create_time` - `customer` -
+ *  `display_name` - `external_user_allowed` - `last_active_time` -
+ *  `space_history_state` - `space_type` When `useAdminAccess` is set to
+ *  `false`: - `display_name` - `external_user_allowed` `create_time` and
  *  `last_active_time` accept a timestamp in
  *  [RFC-3339](https://www.rfc-editor.org/rfc/rfc3339) format and the supported
  *  comparison operators are: `=`, `<`, `>`, `<=`, `>=`. `customer` is required
- *  and is used to indicate which customer to fetch spaces from.
- *  `customers/my_customer` is the only supported value. `display_name` only
- *  accepts the `HAS` (`:`) operator. The text to match is first tokenized into
- *  tokens and each token is prefix-matched case-insensitively and independently
- *  as a substring anywhere in the space's `display_name`. For example, `Fun
- *  Eve` matches `Fun event` or `The evening was fun`, but not `notFun event` or
- *  `even`. `external_user_allowed` accepts either `true` or `false`.
+ *  when `useAdminAccess` is set to `true`, and is used to indicate which
+ *  customer to fetch spaces from. `customers/my_customer` is the only supported
+ *  value. `display_name` only accepts the `HAS` (`:`) operator. The text to
+ *  match is first tokenized into tokens and each token is prefix-matched
+ *  case-insensitively and independently as a substring anywhere in the space's
+ *  `display_name`. For example, `Fun Eve` matches `Fun event` or `The evening
+ *  was fun`, but not `notFun event` or `even`. When `useAdminAccess` is set to
+ *  `false`, `display_name` is required to retrieve meaningful results.
+ *  Otherwise, the default behavior is to return an empty response.
+ *  `external_user_allowed` accepts either `true` or `false`.
  *  `space_history_state` only accepts values from the [`historyState`]
  *  (https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces#Space.HistoryState)
- *  field of a `space` resource. `space_type` is required and the only valid
- *  value is `SPACE`. Across different fields, only `AND` operators are
- *  supported. A valid example is `space_type = "SPACE" AND
- *  display_name:"Hello"` and an invalid example is `space_type = "SPACE" OR
- *  display_name:"Hello"`. Among the same field, `space_type` doesn't support
- *  `AND` or `OR` operators. `display_name`, 'space_history_state', and
+ *  field of a `space` resource. `space_type` is required when `useAdminAccess`
+ *  is set to `true`, and the only valid value is `SPACE`. Across different
+ *  fields, only `AND` operators are supported. A valid example is `space_type =
+ *  "SPACE" AND display_name:"Hello"` and an invalid example is `space_type =
+ *  "SPACE" OR display_name:"Hello"`. Among the same field, `space_type` doesn't
+ *  support `AND` or `OR` operators. `display_name`, 'space_history_state', and
  *  'external_user_allowed' only support `OR` operators. `last_active_time` and
  *  `create_time` support both `AND` and `OR` operators. `AND` can only be used
  *  to represent an interval, such as `last_active_time <
  *  "2022-01-01T00:00:00+00:00" AND last_active_time >
- *  "2023-01-01T00:00:00+00:00"`. The following example queries are valid: ```
- *  customer = "customers/my_customer" AND space_type = "SPACE" customer =
- *  "customers/my_customer" AND space_type = "SPACE" AND display_name:"Hello
- *  World" customer = "customers/my_customer" AND space_type = "SPACE" AND
- *  (last_active_time < "2020-01-01T00:00:00+00:00" OR last_active_time >
+ *  "2023-01-01T00:00:00+00:00"`. The following example queries are valid when
+ *  `useAdminAccess` is set to `true`: ``` customer = "customers/my_customer"
+ *  AND space_type = "SPACE" customer = "customers/my_customer" AND space_type =
+ *  "SPACE" AND display_name:"Hello World" customer = "customers/my_customer"
+ *  AND space_type = "SPACE" AND (last_active_time < "2020-01-01T00:00:00+00:00"
+ *  OR last_active_time > "2022-01-01T00:00:00+00:00") customer =
+ *  "customers/my_customer" AND space_type = "SPACE" AND (display_name:"Hello
+ *  World" OR display_name:"Fun event") AND (last_active_time >
+ *  "2020-01-01T00:00:00+00:00" AND last_active_time <
  *  "2022-01-01T00:00:00+00:00") customer = "customers/my_customer" AND
- *  space_type = "SPACE" AND (display_name:"Hello World" OR display_name:"Fun
- *  event") AND (last_active_time > "2020-01-01T00:00:00+00:00" AND
- *  last_active_time < "2022-01-01T00:00:00+00:00") customer =
- *  "customers/my_customer" AND space_type = "SPACE" AND (create_time >
- *  "2019-01-01T00:00:00+00:00" AND create_time < "2020-01-01T00:00:00+00:00")
- *  AND (external_user_allowed = "true") AND (space_history_state = "HISTORY_ON"
- *  OR space_history_state = "HISTORY_OFF") ```
+ *  space_type = "SPACE" AND (create_time > "2019-01-01T00:00:00+00:00" AND
+ *  create_time < "2020-01-01T00:00:00+00:00") AND (external_user_allowed =
+ *  "true") AND (space_history_state = "HISTORY_ON" OR space_history_state =
+ *  "HISTORY_OFF") ``` The following example queries are valid when
+ *  `useAdminAccess` is set to `false`: ``` display_name:"Hello World"
+ *  (display_name:"Hello" OR display_name:"Fun") (external_user_allowed =
+ *  "true") // Returns an empty response. (external_user_allowed = "true" AND
+ *  display_name:"Hello") ```
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -2767,19 +2791,29 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  privilege](https://support.google.com/a/answer/13369245). Requires either
  *  the `chat.admin.spaces.readonly` or `chat.admin.spaces` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
- *  This method currently only supports admin access, thus only `true` is
- *  accepted for this field.
+ *  Setting `use_admin_access` to `false` is available under Developer Preview.
+ *  [Developer Preview](https://developers.google.com/workspace/preview).
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
 /**
  *  Fetches a @c GTLRHangoutsChat_SearchSpacesResponse.
  *
- *  Returns a list of spaces in a Google Workspace organization based on an
- *  administrator's search. In the request, set `use_admin_access` to `true`.
- *  For an example, see [Search for and manage
+ *  Returns a list of spaces in a Google Workspace organization. For an example,
+ *  see [Search for and manage
  *  spaces](https://developers.google.com/workspace/chat/search-manage-admin).
- *  Requires [user authentication with administrator
+ *  When `use_admin_access` is set to `false`, the results are limited to spaces
+ *  where the calling user is a joined member. To search with administrator
+ *  privileges, set `use_admin_access` to `true`. Setting `use_admin_access` to
+ *  `false` is available under Developer Preview. Supports the following types
+ *  of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
+ *  `https://www.googleapis.com/auth/chat.spaces` - [User authentication with
+ *  administrator
  *  privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges)
  *  and one of the following [authorization
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
@@ -3166,6 +3200,285 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns availability information for a human user in Google Chat. For
+ *  example, this can be used to check if a user is online or away, or to
+ *  retrieve their custom status message. This method only retrieves the
+ *  authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability.readonly` -
+ *  `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  Method: chat.users.availability.getAvailability
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
+ *    @c kGTLRAuthScopeHangoutsChatUsersAvailabilityReadonly
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ */
+@interface GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the availability to retrieve. Format:
+ *  users/{user}/availability `{user}` is the id for the Person in the People
+ *  API or Admin SDK directory API. For example, `users/123456789`. The user's
+ *  email address or `me` can also be used as an alias to refer to the caller.
+ *  For example, `users/user\@example.com` or `users/me`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Availability.
+ *
+ *  Returns availability information for a human user in Google Chat. For
+ *  example, this can be used to check if a user is online or away, or to
+ *  retrieve their custom status message. This method only retrieves the
+ *  authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability.readonly` -
+ *  `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  @param name Required. The resource name of the availability to retrieve.
+ *    Format: users/{user}/availability `{user}` is the id for the Person in the
+ *    People API or Admin SDK directory API. For example, `users/123456789`. The
+ *    user's email address or `me` can also be used as an alias to refer to the
+ *    caller. For example, `users/user\@example.com` or `users/me`.
+ *
+ *  @return GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Marks user as `ACTIVE` in Google Chat. Sets the user's availability state to
+ *  `ACTIVE`. The `ACTIVE` state lasts until the specified expiration, at which
+ *  point the user's state becomes `AWAY`. Note that if the user is actively
+ *  using Chat, the `ACTIVE` state duration may extend beyond the provided
+ *  expiration. This method only updates the authenticated user's availability.
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  Method: chat.users.availability.markAsActive
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ */
+@interface GTLRHangoutsChatQuery_UsersAvailabilityMarkAsActive : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the availability to mark as active. Format:
+ *  users/{user}/availability `{user}` is the id for the Person in the People
+ *  API or Admin SDK directory API. For example, `users/123456789`. The user's
+ *  email address or `me` can also be used as an alias to refer to the caller.
+ *  For example, `users/user\@example.com` or `users/me`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Availability.
+ *
+ *  Marks user as `ACTIVE` in Google Chat. Sets the user's availability state to
+ *  `ACTIVE`. The `ACTIVE` state lasts until the specified expiration, at which
+ *  point the user's state becomes `AWAY`. Note that if the user is actively
+ *  using Chat, the `ACTIVE` state duration may extend beyond the provided
+ *  expiration. This method only updates the authenticated user's availability.
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  @param object The @c GTLRHangoutsChat_MarkAsActiveRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the availability to mark as
+ *    active. Format: users/{user}/availability `{user}` is the id for the
+ *    Person in the People API or Admin SDK directory API. For example,
+ *    `users/123456789`. The user's email address or `me` can also be used as an
+ *    alias to refer to the caller. For example, `users/user\@example.com` or
+ *    `users/me`.
+ *
+ *  @return GTLRHangoutsChatQuery_UsersAvailabilityMarkAsActive
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MarkAsActiveRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks user as `AWAY` in Google Chat. Sets the user's state to away and is
+ *  not affected by the user's activity. This method only updates the
+ *  authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  Method: chat.users.availability.markAsAway
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ */
+@interface GTLRHangoutsChatQuery_UsersAvailabilityMarkAsAway : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the availability to mark as away. Format:
+ *  users/{user}/availability `{user}` is the id for the Person in the People
+ *  API or Admin SDK directory API. For example, `users/123456789`. The user's
+ *  email address or `me` can also be used as an alias to refer to the caller.
+ *  For example, `users/user\@example.com` or `users/me`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Availability.
+ *
+ *  Marks user as `AWAY` in Google Chat. Sets the user's state to away and is
+ *  not affected by the user's activity. This method only updates the
+ *  authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  @param object The @c GTLRHangoutsChat_MarkAsAwayRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the availability to mark as away.
+ *    Format: users/{user}/availability `{user}` is the id for the Person in the
+ *    People API or Admin SDK directory API. For example, `users/123456789`. The
+ *    user's email address or `me` can also be used as an alias to refer to the
+ *    caller. For example, `users/user\@example.com` or `users/me`.
+ *
+ *  @return GTLRHangoutsChatQuery_UsersAvailabilityMarkAsAway
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MarkAsAwayRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks user as`DO_NOT_DISTURB` in Google Chat. Sets a user's availability
+ *  state to `DO_NOT_DISTURB` until a specified expiration time. When in
+ *  `DO_NOT_DISTURB`, users typically won't receive notifications. This method
+ *  only updates the authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  Method: chat.users.availability.markAsDoNotDisturb
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ */
+@interface GTLRHangoutsChatQuery_UsersAvailabilityMarkAsDoNotDisturb : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the availability to mark as Do Not Disturb.
+ *  Format: users/{user}/availability `{user}` is the id for the Person in the
+ *  People API or Admin SDK directory API. For example, `users/123456789`. The
+ *  user's email address or `me` can also be used as an alias to refer to the
+ *  caller. For example, `users/user\@example.com` or `users/me`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Availability.
+ *
+ *  Marks user as`DO_NOT_DISTURB` in Google Chat. Sets a user's availability
+ *  state to `DO_NOT_DISTURB` until a specified expiration time. When in
+ *  `DO_NOT_DISTURB`, users typically won't receive notifications. This method
+ *  only updates the authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  @param object The @c GTLRHangoutsChat_MarkAsDoNotDisturbRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the availability to mark as Do
+ *    Not Disturb. Format: users/{user}/availability `{user}` is the id for the
+ *    Person in the People API or Admin SDK directory API. For example,
+ *    `users/123456789`. The user's email address or `me` can also be used as an
+ *    alias to refer to the caller. For example, `users/user\@example.com` or
+ *    `users/me`.
+ *
+ *  @return GTLRHangoutsChatQuery_UsersAvailabilityMarkAsDoNotDisturb
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MarkAsDoNotDisturbRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates availability information for a human user. Only the `custom_status`
+ *  field can be updated through this method. This method only updates the
+ *  authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  Method: chat.users.availability.updateAvailability
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
+ *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
+ */
+@interface GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability : GTLRHangoutsChatQuery
+
+/**
+ *  Identifier. Resource name of the user's availability. Format:
+ *  `users/{user}/availability` `{user}` is the id for the Person in the People
+ *  API or Admin SDK directory API. For example, `users/123456789`. The user's
+ *  email address or `me` can also be used as an alias to refer to the caller.
+ *  For example, `users/user\@example.com` or `users/me`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. The only field that can be updated
+ *  is `custom_status`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Availability.
+ *
+ *  Updates availability information for a human user. Only the `custom_status`
+ *  field can be updated through this method. This method only updates the
+ *  authenticated user's availability. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.availability`
+ *
+ *  @param object The @c GTLRHangoutsChat_Availability to include in the query.
+ *  @param name Identifier. Resource name of the user's availability. Format:
+ *    `users/{user}/availability` `{user}` is the id for the Person in the
+ *    People API or Admin SDK directory API. For example, `users/123456789`. The
+ *    user's email address or `me` can also be used as an alias to refer to the
+ *    caller. For example, `users/user\@example.com` or `users/me`.
+ *
+ *  @return GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Availability *)object
+                           name:(NSString *)name;
 
 @end
 

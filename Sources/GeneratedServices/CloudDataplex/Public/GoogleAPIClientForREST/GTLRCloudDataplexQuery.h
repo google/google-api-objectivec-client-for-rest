@@ -1744,6 +1744,276 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Creates a DataDomainBinding resource.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.bindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. DataDomainBinding identifier. * Must contain only lowercase
+ *  letters, numbers and hyphens. * Must start with a letter. * Must be between
+ *  1-63 characters. * Must end with a number or a letter. * Must be unique
+ *  within the parent DataDomain. If not provided, a system-generated UUID will
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *dataDomainBindingId;
+
+/**
+ *  Required. The resource name of the parent DataDomain:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Only validate the request, but do not perform mutations. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Creates a DataDomainBinding resource.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding to include in the
+ *    query.
+ *  @param parent Required. The resource name of the parent DataDomain:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DataDomainBinding resource.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.bindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the DataDomainBinding:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}/bindings/{binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a DataDomainBinding resource.
+ *
+ *  @param name Required. The resource name of the DataDomainBinding:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}/bindings/{binding_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a DataDomainBinding resource.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.bindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the DataDomainBinding:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}/bindings/{binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataDomainBinding.
+ *
+ *  Retrieves a DataDomainBinding resource.
+ *
+ *  @param name Required. The resource name of the DataDomainBinding:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}/bindings/{binding_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DataDomainBinding resources under a DataDomain.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.bindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsList : GTLRCloudDataplexQuery
+
+/** Optional. Filter request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of DataDomainBindings to return. The service may
+ *  return fewer. If unspecified, at most 50 bindings will be returned. The
+ *  maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous ListDataDomainBindings call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent DataDomain:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainBindingsResponse.
+ *
+ *  Lists DataDomainBinding resources under a DataDomain.
+ *
+ *  @param parent Required. The resource name of the parent DataDomain:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a DataDomain resource.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Required. DataDomain identifier. * Must contain only lowercase letters,
+ *  numbers and hyphens. * Must start with a letter. * Must be between 1-63
+ *  characters. * Must end with a number or a letter. * Must be unique within
+ *  the project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *dataDomainId;
+
+/**
+ *  Required. The resource name of the parent location:
+ *  projects/{project_id_or_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Only validate the request, but do not perform mutations. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Creates a DataDomain resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent location:
+ *    projects/{project_id_or_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DataDomain resource (allowed only when there are no bindings).
+ *
+ *  Method: dataplex.projects.locations.dataDomains.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the DataDomain:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a DataDomain resource (allowed only when there are no bindings).
+ *
+ *  @param name Required. The resource name of the DataDomain:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a DataDomain resource.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the DataDomain:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain.
+ *
+ *  Retrieves a DataDomain resource.
+ *
+ *  @param name Required. The resource name of the DataDomain:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1791,6 +2061,102 @@ GTLR_DEPRECATED
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists DataDomain resources in a project and location.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsList : GTLRCloudDataplexQuery
+
+/** Optional. Filter request. Supports filter by parent_data_domain. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Order by fields for the result. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of DataDomains to return. The service may return
+ *  fewer. If unspecified, at most 50 domains will be returned. The maximum
+ *  value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page token received from a previous ListDataDomains call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent location:
+ *  projects/{project_id_or_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ListDataDomainsResponse.
+ *
+ *  Lists DataDomain resources in a project and location.
+ *
+ *  @param parent Required. The resource name of the parent location:
+ *    projects/{project_id_or_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DataDomain resource.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Identifier. The relative resource name of the DataDomain, of the form:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Mask of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** Optional. Only validate the request, but do not perform mutations. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a DataDomain resource.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain to
+ *    include in the query.
+ *  @param name Identifier. The relative resource name of the DataDomain, of the
+ *    form:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataDomains/{data_domain_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain *)object
+                           name:(NSString *)name;
 
 @end
 

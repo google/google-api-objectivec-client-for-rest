@@ -300,6 +300,7 @@ NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreami
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu32 = @"E2_HIGHCPU_32";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu8 = @"E2_HIGHCPU_8";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium = @"E2_MEDIUM";
+NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Standard2 = @"E2_STANDARD_2";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32 = @"N1_HIGHCPU_32";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8 = @"N1_HIGHCPU_8";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";
@@ -507,8 +508,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Container
 @dynamic args, baseImageUri, buildInfo, command, dependsOn, env, image,
-         livenessProbe, name, ports, readinessProbe, resources, sourceCode,
-         startupProbe, volumeMounts, workingDir;
+         livenessProbe, name, ports, readinessProbe, resources, sandboxLauncher,
+         sourceCode, startupProbe, volumeMounts, workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

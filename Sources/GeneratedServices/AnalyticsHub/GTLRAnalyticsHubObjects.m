@@ -19,6 +19,15 @@ NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_DataRead = @"DATA_READ
 NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRAnalyticsHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRAnalyticsHub_Compression.compressionAlgorithm
+NSString * const kGTLRAnalyticsHub_Compression_CompressionAlgorithm_CompressionAlgorithmUnspecified = @"COMPRESSION_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRAnalyticsHub_Compression_CompressionAlgorithm_Zlib = @"ZLIB";
+
+// GTLRAnalyticsHub_Compression.compressionMode
+NSString * const kGTLRAnalyticsHub_Compression_CompressionMode_Compress = @"COMPRESS";
+NSString * const kGTLRAnalyticsHub_Compression_CompressionMode_CompressionModeUnspecified = @"COMPRESSION_MODE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsHub_Compression_CompressionMode_Decompress = @"DECOMPRESS";
+
 // GTLRAnalyticsHub_DataExchange.discoveryType
 NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePrivate = @"DISCOVERY_TYPE_PRIVATE";
 NSString * const kGTLRAnalyticsHub_DataExchange_DiscoveryType_DiscoveryTypePublic = @"DISCOVERY_TYPE_PUBLIC";
@@ -235,6 +244,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 @dynamic avroConfig, bucket, filenameDatetimeFormat, filenamePrefix,
          filenameSuffix, maxBytes, maxDuration, maxMessages,
          serviceAccountEmail, textConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Compression
+//
+
+@implementation GTLRAnalyticsHub_Compression
+@dynamic compressionAlgorithm, compressionMode;
 @end
 
 
@@ -680,7 +699,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_MessageTransform
-@dynamic aiInference, disabled, enabled, javascriptUdf;
+@dynamic aiInference, compression, disabled, enabled, javascriptUdf;
 @end
 
 

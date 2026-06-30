@@ -4,7 +4,7 @@
 // API:
 //   Cloud SQL Admin API (sqladmin/v1)
 // Description:
-//   API for Cloud SQL database instance management
+//   Cloud SQL Admin API
 // Documentation:
 //   https://cloud.google.com/sql/docs
 
@@ -45,7 +45,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin;
 /**
  *  Service for executing Cloud SQL Admin API queries.
  *
- *  API for Cloud SQL database instance management
+ *  Cloud SQL Admin API
  */
 @interface GTLRSQLAdminService : GTLRService
 

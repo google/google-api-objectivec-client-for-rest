@@ -895,10 +895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsGet : GTLRDataformQuery
 
-/**
- *  Required. The compilation result's name.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetCompilationResultRequest)
- */
+/** Required. The compilation result's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -907,7 +904,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  *  Fetches a single CompilationResult.
  *
  *  @param name Required. The compilation result's name.
- *    LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetCompilationResultRequest)
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsGet
  */
@@ -926,10 +922,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList : GTLRDataformQuery
 
-/**
- *  Optional. Filter for the returned list.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListCompilationResultsRequest)
- */
+/** Optional. Filter for the returned list. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -1544,7 +1537,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
 /**
  *  Required. The ID to use for the release config, which will become the final
  *  component of the release config's resource name.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:CreateReleaseConfigRequest)
  */
 @property(nonatomic, copy, nullable) NSString *releaseConfigId;
 
@@ -1576,10 +1568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsDelete : GTLRDataformQuery
 
-/**
- *  Required. The release config's name.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:DeleteReleaseConfigRequest)
- */
+/** Required. The release config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1588,7 +1577,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  *  Deletes a single ReleaseConfig.
  *
  *  @param name Required. The release config's name.
- *    LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:DeleteReleaseConfigRequest)
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsDelete
  */
@@ -1607,10 +1595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsGet : GTLRDataformQuery
 
-/**
- *  Required. The release config's name.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetReleaseConfigRequest)
- */
+/** Required. The release config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1619,7 +1604,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  *  Fetches a single ReleaseConfig.
  *
  *  @param name Required. The release config's name.
- *    LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetReleaseConfigRequest)
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsGet
  */
@@ -1650,7 +1634,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
  *  Provide this to retrieve the subsequent page. When paginating, all other
  *  parameters provided to `ListReleaseConfigs`, with the exception of
  *  `page_size`, must match the call that provided the page token.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListReleaseConfigsRequest)
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -3403,9 +3386,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspeci
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. Maximum number of TeamFolders to return. The server may return
+ *  Optional. Maximum number of `TeamFolders` to return. The server may return
  *  fewer items than requested. If unspecified, the server will pick a default
- *  of page_size = 50.
+ *  of `page_size` = 50.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

@@ -55,6 +55,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagemen
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly;
 /**
+ *  Authorization scope: Turn Chrome Security Insights on and off and view the
+ *  data it generates
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.securityinsights"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementSecurityinsights;
+/**
+ *  Authorization scope: See Chrome Security Insights reports
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.securityinsights.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementSecurityinsightsReadonly;
+/**
  *  Authorization scope: See basic device and telemetry information collected
  *  from ChromeOS devices or users managed within your organization
  *

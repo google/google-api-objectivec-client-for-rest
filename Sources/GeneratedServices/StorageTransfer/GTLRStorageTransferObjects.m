@@ -470,14 +470,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_ObjectConditions
-@dynamic excludePrefixes, includePrefixes, lastModifiedBefore,
-         lastModifiedSince, matchGlob, maxTimeElapsedSinceLastModification,
+@dynamic excludePrefixes, includePrefixes, includeStorageClasses,
+         lastModifiedBefore, lastModifiedSince, matchGlob,
+         maxTimeElapsedSinceLastModification,
          minTimeElapsedSinceLastModification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludePrefixes" : [NSString class],
-    @"includePrefixes" : [NSString class]
+    @"includePrefixes" : [NSString class],
+    @"includeStorageClasses" : [NSString class]
   };
   return map;
 }

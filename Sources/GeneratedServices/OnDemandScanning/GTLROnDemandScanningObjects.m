@@ -64,6 +64,13 @@ NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone = @
 NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
+// GTLROnDemandScanning_CVSS.exploitMaturity
+NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityAttacked = @"EXPLOIT_MATURITY_ATTACKED";
+NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityNotDefined = @"EXPLOIT_MATURITY_NOT_DEFINED";
+NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityPoc = @"EXPLOIT_MATURITY_POC";
+NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityUnreported = @"EXPLOIT_MATURITY_UNREPORTED";
+NSString * const kGTLROnDemandScanning_CVSS_ExploitMaturity_ExploitMaturityUnspecified = @"EXPLOIT_MATURITY_UNSPECIFIED";
+
 // GTLROnDemandScanning_CVSS.integrityImpact
 NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
@@ -162,11 +169,17 @@ NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_In
 NSString * const kGTLROnDemandScanning_Finding_Scanner_Llm     = @"LLM";
 NSString * const kGTLROnDemandScanning_Finding_Scanner_ScannerUnspecified = @"SCANNER_UNSPECIFIED";
 NSString * const kGTLROnDemandScanning_Finding_Scanner_Static  = @"STATIC";
+NSString * const kGTLROnDemandScanning_Finding_Scanner_WsPolicy = @"WS_POLICY";
 
 // GTLROnDemandScanning_Finding.severity
 NSString * const kGTLROnDemandScanning_Finding_Severity_Critical = @"CRITICAL";
 NSString * const kGTLROnDemandScanning_Finding_Severity_High   = @"HIGH";
 NSString * const kGTLROnDemandScanning_Finding_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLROnDemandScanning_IngestionSource.source
+NSString * const kGTLROnDemandScanning_IngestionSource_Source_DockerImage = @"DOCKER_IMAGE";
+NSString * const kGTLROnDemandScanning_IngestionSource_Source_SbomAttachment = @"SBOM_ATTACHMENT";
+NSString * const kGTLROnDemandScanning_IngestionSource_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 
 // GTLROnDemandScanning_Justification.justificationType
 NSString * const kGTLROnDemandScanning_Justification_JustificationType_ComponentNotPresent = @"COMPONENT_NOT_PRESENT";
@@ -693,8 +706,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 @implementation GTLROnDemandScanning_CVSS
 @dynamic attackComplexity, attackRequirements, attackVector, authentication,
          availabilityImpact, baseScore, confidentialityImpact,
-         exploitabilityScore, impactScore, integrityImpact, privilegesRequired,
-         scope, subsequentSystemAvailabilityImpact,
+         exploitabilityScore, exploitMaturity, impactScore, integrityImpact,
+         privilegesRequired, scope, subsequentSystemAvailabilityImpact,
          subsequentSystemConfidentialityImpact, subsequentSystemIntegrityImpact,
          userInteraction, vulnerableSystemAvailabilityImpact,
          vulnerableSystemConfidentialityImpact, vulnerableSystemIntegrityImpact;
@@ -1108,6 +1121,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_IngestionSource
+//
+
+@implementation GTLROnDemandScanning_IngestionSource
+@dynamic attachmentUri, resourceUrl, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_InTotoProvenance
 //
 
@@ -1419,15 +1442,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_PackageData
 @dynamic architecture, binarySourceInfo, binaryVersion, cpeUri, dependencyChain,
-         fileLocation, hashDigest, layerDetails, licenses, maintainer, os,
-         osVersion, package, packageType, patchedCve, sourceVersion, unused,
-         version;
+         fileLocation, hashDigest, ingestionSources, layerDetails, licenses,
+         maintainer, os, osVersion, package, packageType, patchedCve,
+         sourceVersion, unused, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"binarySourceInfo" : [GTLROnDemandScanning_BinarySourceInfo class],
     @"dependencyChain" : [GTLROnDemandScanning_LanguagePackageDependency class],
     @"fileLocation" : [GTLROnDemandScanning_FileLocation class],
+    @"ingestionSources" : [GTLROnDemandScanning_IngestionSource class],
     @"licenses" : [NSString class],
     @"patchedCve" : [NSString class]
   };

@@ -197,6 +197,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_Sig
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExtendedSupport = @"SIGNAL_TYPE_EXTENDED_SUPPORT";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions = @"SIGNAL_TYPE_GROUP_NOT_REPLICATING_ACROSS_REGIONS";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes = @"SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES";
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk = @"SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfOpenTables = @"SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfTables = @"SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighReadPressure = @"SIGNAL_TYPE_HIGH_READ_PRESSURE";
@@ -214,6 +215,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_Sig
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLoggingOnlyCriticalErrors = @"SIGNAL_TYPE_LOGGING_ONLY_CRITICAL_ERRORS";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLoggingQueryStatistics = @"SIGNAL_TYPE_LOGGING_QUERY_STATISTICS";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
@@ -338,6 +340,8 @@ NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResour
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeUnspecified = @"SUB_RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRCloudRedis_DatabaseResourceMetadata.modes
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeClusterDisabled = @"MODE_CLUSTER_DISABLED";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeClusterEnabled = @"MODE_CLUSTER_ENABLED";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeDatastore = @"MODE_DATASTORE";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeMongodbCompatible = @"MODE_MONGODB_COMPATIBLE";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeNative = @"MODE_NATIVE";
@@ -384,6 +388,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_Signal
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExtendedSupport = @"SIGNAL_TYPE_EXTENDED_SUPPORT";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions = @"SIGNAL_TYPE_GROUP_NOT_REPLICATING_ACROSS_REGIONS";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes = @"SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES";
+NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk = @"SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfOpenTables = @"SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfTables = @"SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighReadPressure = @"SIGNAL_TYPE_HIGH_READ_PRESSURE";
@@ -401,6 +406,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_Signal
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLoggingOnlyCriticalErrors = @"SIGNAL_TYPE_LOGGING_ONLY_CRITICAL_ERRORS";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLoggingQueryStatistics = @"SIGNAL_TYPE_LOGGING_QUERY_STATISTICS";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting = @"SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING";
+NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime = @"SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections = @"SIGNAL_TYPE_MANY_IDLE_CONNECTIONS";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
@@ -602,9 +608,9 @@ NSString * const kGTLRCloudRedis_Product_Engine_EngineExadataOracle = @"ENGINE_E
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithDatastoreMode = @"ENGINE_FIRESTORE_WITH_DATASTORE_MODE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithMongodbCompatibilityMode = @"ENGINE_FIRESTORE_WITH_MONGODB_COMPATIBILITY_MODE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode = @"ENGINE_FIRESTORE_WITH_NATIVE_MODE";
-NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorstoreForValkey = @"ENGINE_MEMORSTORE_FOR_VALKEY";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedis = @"ENGINE_MEMORYSTORE_FOR_REDIS";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedisCluster = @"ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER";
+NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForValkey = @"ENGINE_MEMORYSTORE_FOR_VALKEY";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineMysql    = @"ENGINE_MYSQL";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineNative   = @"ENGINE_NATIVE";
 NSString * const kGTLRCloudRedis_Product_Engine_EngineOther    = @"ENGINE_OTHER";
@@ -2478,10 +2484,17 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_ZoneDistributionConfig
-@dynamic mode, zoneProperty;
+@dynamic mode, zoneProperty, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [NSString class]
+  };
+  return map;
 }
 
 @end

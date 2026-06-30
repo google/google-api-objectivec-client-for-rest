@@ -9,6 +9,15 @@
 #import <GoogleAPIClientForREST/GTLRHomeGraphServiceObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRHomeGraphService_QueryRequest.deviceView
+NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_DeviceViewUnspecified = @"DEVICE_VIEW_UNSPECIFIED";
+NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitAndSmartHomeTrait = @"HOME_TRAIT_AND_SMART_HOME_TRAIT";
+NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitOnly = @"HOME_TRAIT_ONLY";
+NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnly = @"SMART_HOME_TRAIT_ONLY";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRHomeGraphService_AgentDeviceId
 //
@@ -30,6 +39,30 @@
 
 @implementation GTLRHomeGraphService_AgentOtherDeviceId
 @dynamic agentId, deviceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_Component
+//
+
+@implementation GTLRHomeGraphService_Component
+@dynamic childComponents, deviceTypes, identifier, traitData;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childComponents" : [GTLRHomeGraphService_Component class],
+    @"deviceTypes" : [NSString class],
+    @"traitData" : [GTLRHomeGraphService_TraitData class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -228,6 +261,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHomeGraphService_HomeTraitPayload
+//
+
+@implementation GTLRHomeGraphService_HomeTraitPayload
+@dynamic rootComponent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHomeGraphService_HomeTraitUpdates
 //
 
@@ -250,7 +293,7 @@
 //
 
 @implementation GTLRHomeGraphService_QueryRequest
-@dynamic agentUserId, includeDeviceMetadata, inputs, requestId;
+@dynamic agentUserId, deviceView, includeDeviceMetadata, inputs, requestId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -306,7 +349,7 @@
 //
 
 @implementation GTLRHomeGraphService_QueryResponsePayload
-@dynamic deviceMetadata, devices;
+@dynamic deviceMetadata, devices, homeTraitPayload;
 @end
 
 
@@ -333,6 +376,20 @@
 
 + (Class)classForAdditionalProperties {
   return [GTLRHomeGraphService_QueryResponsePayload_Devices_Device class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_QueryResponsePayload_HomeTraitPayload
+//
+
+@implementation GTLRHomeGraphService_QueryResponsePayload_HomeTraitPayload
+
++ (Class)classForAdditionalProperties {
+  return [GTLRHomeGraphService_HomeTraitPayload class];
 }
 
 @end
@@ -492,7 +549,7 @@
 //
 
 @implementation GTLRHomeGraphService_TraitData
-@dynamic trait;
+@dynamic commitTime, trait;
 @end
 
 

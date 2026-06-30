@@ -826,7 +826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *  The URI will be opened in an iframe with the `courseId`, `itemId`,
  *  `itemType`, `attachmentId`, and `submissionId` query parameters set. This is
  *  the same `submissionId` returned in the
- *  [`AddOnContext.studentContext`](//devsite.google.com/classroom/reference/rest/v1/AddOnContext#StudentContext)
+ *  [`AddOnContext.studentContext`](/workspace/classroom/reference/rest/v1/AddOnContext#StudentContext)
  *  field when a student views the attachment. If the URI is omitted or removed,
  *  `max_points` will also be discarded.
  */
@@ -900,7 +900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 /**
  *  Identifier for the student that owns this submission. Requires the user to
  *  be a teacher in the course and have permission to read student submissions.
- *  Read-only.
+ *  See
+ *  [`courseWork.studentSubmissions.get`](/workspace/classroom/reference/rest/v1/courses.courseWork.studentSubmissions/get#authorization-scopes)
+ *  for the list of acceptable OAuth scopes for this field. Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 

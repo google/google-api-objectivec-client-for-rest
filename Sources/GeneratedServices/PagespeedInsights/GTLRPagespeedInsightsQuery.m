@@ -20,6 +20,7 @@
 
 // category
 NSString * const kGTLRPagespeedInsightsCategoryAccessibility   = @"ACCESSIBILITY";
+NSString * const kGTLRPagespeedInsightsCategoryAgenticBrowsing = @"AGENTIC_BROWSING";
 NSString * const kGTLRPagespeedInsightsCategoryBestPractices   = @"BEST_PRACTICES";
 NSString * const kGTLRPagespeedInsightsCategoryCategoryUnspecified = @"CATEGORY_UNSPECIFIED";
 NSString * const kGTLRPagespeedInsightsCategoryPerformance     = @"PERFORMANCE";

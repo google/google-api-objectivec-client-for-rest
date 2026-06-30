@@ -159,6 +159,7 @@ NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_None = @"NONE";
 
 // GTLRCloudIdentity_Membership.type
 NSString * const kGTLRCloudIdentity_Membership_Type_CbcmBrowser = @"CBCM_BROWSER";
+NSString * const kGTLRCloudIdentity_Membership_Type_ChromeOsDevice = @"CHROME_OS_DEVICE";
 NSString * const kGTLRCloudIdentity_Membership_Type_Group      = @"GROUP";
 NSString * const kGTLRCloudIdentity_Membership_Type_Other      = @"OTHER";
 NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount = @"SERVICE_ACCOUNT";

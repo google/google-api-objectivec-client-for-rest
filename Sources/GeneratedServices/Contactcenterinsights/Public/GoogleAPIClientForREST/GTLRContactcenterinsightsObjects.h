@@ -4957,9 +4957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, copy, nullable) NSString *medium;
 
 /**
- *  Input only. JSON metadata encoded as a string. This field is primarily used
- *  by Insights integrations with various telephony systems and must be in one
- *  of Insight's supported formats.
+ *  Optional. JSON metadata encoded as a string. This field is primarily used by
+ *  Insights integrations with various telephony systems and must be in one of
+ *  Insight's supported formats.
  */
 @property(nonatomic, copy, nullable) NSString *metadataJson;
 
@@ -10681,6 +10681,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ChartAction : GTLRObject
 
+/** The conversation filter string. */
+@property(nonatomic, copy, nullable) NSString *conversationFilter;
+
 /** Redirect action. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedirectAction *redirectAction;
 
@@ -10855,9 +10858,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *medium;
 
 /**
- *  Input only. JSON metadata encoded as a string. This field is primarily used
- *  by Insights integrations with various telephony systems and must be in one
- *  of Insight's supported formats.
+ *  Optional. JSON metadata encoded as a string. This field is primarily used by
+ *  Insights integrations with various telephony systems and must be in one of
+ *  Insight's supported formats.
  */
 @property(nonatomic, copy, nullable) NSString *metadataJson;
 
@@ -15469,9 +15472,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *medium;
 
 /**
- *  Input only. JSON metadata encoded as a string. This field is primarily used
- *  by Insights integrations with various telephony systems and must be in one
- *  of Insight's supported formats.
+ *  Optional. JSON metadata encoded as a string. This field is primarily used by
+ *  Insights integrations with various telephony systems and must be in one of
+ *  Insight's supported formats.
  */
 @property(nonatomic, copy, nullable) NSString *metadataJson;
 

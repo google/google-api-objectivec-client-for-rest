@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Agent Registry API (agentregistry/v1alpha)
+//   Agent Registry API (agentregistry/v1)
 // Description:
 //   Agent Registry is a centralized, unified catalog that lets you store,
 //   discover, and govern Model Context Protocol (MCP) servers, tools, and AI
@@ -157,6 +157,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
  *    @c kGTLRAuthScopeAgentRegistryReadWrite
  */
 @interface GTLRAgentRegistryQuery_ProjectsLocationsBindingsCreate : GTLRAgentRegistryQuery
@@ -213,6 +215,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
  *    @c kGTLRAuthScopeAgentRegistryReadWrite
  */
 @interface GTLRAgentRegistryQuery_ProjectsLocationsBindingsDelete : GTLRAgentRegistryQuery
@@ -413,6 +417,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
  *    @c kGTLRAuthScopeAgentRegistryReadWrite
  */
 @interface GTLRAgentRegistryQuery_ProjectsLocationsBindingsPatch : GTLRAgentRegistryQuery
@@ -950,6 +956,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
  *    @c kGTLRAuthScopeAgentRegistryReadWrite
  */
 @interface GTLRAgentRegistryQuery_ProjectsLocationsServicesCreate : GTLRAgentRegistryQuery
@@ -1005,6 +1013,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
  *    @c kGTLRAuthScopeAgentRegistryReadWrite
  */
 @interface GTLRAgentRegistryQuery_ProjectsLocationsServicesDelete : GTLRAgentRegistryQuery
@@ -1142,6 +1152,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAgentRegistryCloudPlatform
+ *    @c kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeAgentRegistryReadOnly
  *    @c kGTLRAuthScopeAgentRegistryReadWrite
  */
 @interface GTLRAgentRegistryQuery_ProjectsLocationsServicesPatch : GTLRAgentRegistryQuery

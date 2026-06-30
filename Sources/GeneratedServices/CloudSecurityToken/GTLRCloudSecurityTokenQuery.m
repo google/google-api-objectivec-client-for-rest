@@ -17,6 +17,82 @@
 
 @end
 
+@implementation GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsOpenidGetJwks
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/openid/jwks";
+  GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsOpenidGetJwks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks class];
+  query.loggingName = @"sts.organizations.locations.workloadIdentityPools.openid.getJwks";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/.well-known/openid-configuration";
+  GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig class];
+  query.loggingName = @"sts.organizations.locations.workloadIdentityPools.well-known.getOpenid-configuration";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsOpenidGetJwks
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/openid/jwks";
+  GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsOpenidGetJwks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks class];
+  query.loggingName = @"sts.projects.locations.workloadIdentityPools.openid.getJwks";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/.well-known/openid-configuration";
+  GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig class];
+  query.loggingName = @"sts.projects.locations.workloadIdentityPools.well-known.getOpenid-configuration";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSecurityTokenQuery_V1Token
 
 + (instancetype)queryWithObject:(GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest *)object {

@@ -41,11 +41,13 @@
 @class GTLRHangoutsChat_CustomEmoji;
 @class GTLRHangoutsChat_CustomEmojiMetadata;
 @class GTLRHangoutsChat_CustomEmojiPayload;
+@class GTLRHangoutsChat_CustomStatus;
 @class GTLRHangoutsChat_DateInput;
 @class GTLRHangoutsChat_DateTimeInput;
 @class GTLRHangoutsChat_DeletionMetadata;
 @class GTLRHangoutsChat_Dialog;
 @class GTLRHangoutsChat_DialogAction;
+@class GTLRHangoutsChat_DoNotDisturbMetadata;
 @class GTLRHangoutsChat_DriveDataRef;
 @class GTLRHangoutsChat_DriveLinkData;
 @class GTLRHangoutsChat_Emoji;
@@ -495,6 +497,44 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_SourceUns
  *  Value: "UPLOADED_CONTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_UploadedContent;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_Availability.state
+
+/**
+ *  The user is currently active, based on recent activity.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Availability_State_Active;
+/**
+ *  The user is currently away. This can be either automatically set after a
+ *  period of inactivity in ACTIVE or IDLE state, or it can be manually set by
+ *  the user. When manually set via `MarkAsAway`, this state persists regardless
+ *  of user activity.
+ *
+ *  Value: "AWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Availability_State_Away;
+/**
+ *  The user is in Do Not Disturb state, which is manually set.
+ *
+ *  Value: "DO_NOT_DISTURB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Availability_State_DoNotDisturb;
+/**
+ *  The user is currently idle. This state indicates a period of inactivity
+ *  after being ACTIVE, before potentially transitioning to AWAY.
+ *
+ *  Value: "IDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Availability_State_Idle;
+/**
+ *  Default value. The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Availability_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_CardHeader.imageStyle
@@ -1873,16 +1913,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_PositionSectionRequest_Rela
 // GTLRHangoutsChat_QuotedMessageMetadata.quoteType
 
 /**
+ *  When `quote_type` is `FORWARD`, you can quote a: * Message from a different
+ *  space. * Message reply from a different thread in the same space.
+ *
+ *  Value: "FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Forward;
+/**
  *  Reserved. This value is unused.
  *
  *  Value: "QUOTE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_QuoteTypeUnspecified;
 /**
- *  If quote_type is `REPLY`, you can do the following: * If you're replying in
- *  a thread, you can quote another message in that thread. * If you're creating
- *  a root message, you can quote another root message in that space. You can't
- *  quote a message reply from a different thread.
+ *  When `quote_type` is `REPLY`, you can do the following: * If you're replying
+ *  in a thread, you can quote another message in that thread. * If you're
+ *  creating a root message, you can quote another root message in that space.
  *
  *  Value: "REPLY"
  */
@@ -2668,6 +2714,52 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Represents a user's current availability information in Google Chat,
+ *  including their state (for example, Active, Away, Do Not Disturb) and any
+ *  custom status.
+ */
+@interface GTLRHangoutsChat_Availability : GTLRObject
+
+/** Optional. The user's custom status. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_CustomStatus *customStatus;
+
+/** Output only. Metadata if the user state is set to DO_NOT_DISTURB. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_DoNotDisturbMetadata *doNotDisturbMetadata;
+
+/**
+ *  Identifier. Resource name of the user's availability. Format:
+ *  `users/{user}/availability` `{user}` is the id for the Person in the People
+ *  API or Admin SDK directory API. For example, `users/123456789`. The user's
+ *  email address or `me` can also be used as an alias to refer to the caller.
+ *  For example, `users/user\@example.com` or `users/me`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The user's current availability state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_Availability_State_Active The user is currently
+ *        active, based on recent activity. (Value: "ACTIVE")
+ *    @arg @c kGTLRHangoutsChat_Availability_State_Away The user is currently
+ *        away. This can be either automatically set after a period of
+ *        inactivity in ACTIVE or IDLE state, or it can be manually set by the
+ *        user. When manually set via `MarkAsAway`, this state persists
+ *        regardless of user activity. (Value: "AWAY")
+ *    @arg @c kGTLRHangoutsChat_Availability_State_DoNotDisturb The user is in
+ *        Do Not Disturb state, which is manually set. (Value: "DO_NOT_DISTURB")
+ *    @arg @c kGTLRHangoutsChat_Availability_State_Idle The user is currently
+ *        idle. This state indicates a period of inactivity after being ACTIVE,
+ *        before potentially transitioning to AWAY. (Value: "IDLE")
+ *    @arg @c kGTLRHangoutsChat_Availability_State_StateUnspecified Default
+ *        value. The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  A button. Can be a text button or an image button.
  */
 @interface GTLRHangoutsChat_Button : GTLRObject
@@ -3278,6 +3370,36 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Represents a user's custom status in Google Chat. This includes a short text
+ *  message with an optional emoji that a user sets to give more context about
+ *  their availability.
+ */
+@interface GTLRHangoutsChat_CustomStatus : GTLRObject
+
+/**
+ *  Required. The emoji of the custom status. Only Unicode emojis are supported;
+ *  custom emojis are not supported.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Emoji *emoji;
+
+/** The timestamp when the custom status expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Required. The text of the custom status. This will be a string with maximum
+ *  length of 64.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Input only. The time-to-live duration after which the custom status expires.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
  *  Date input values.
  */
 @interface GTLRHangoutsChat_DateInput : GTLRObject
@@ -3579,6 +3701,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  for the request.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Dialog *dialog;
+
+@end
+
+
+/**
+ *  Metadata associated with the `DO_NOT_DISTURB` availability state, specifying
+ *  when the state is set to expire.
+ */
+@interface GTLRHangoutsChat_DoNotDisturbMetadata : GTLRObject
+
+/**
+ *  Output only. Timestamp until which the user should be marked as
+ *  DO_NOT_DISTURB. This can be maximum of 1 year in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 @end
 
@@ -6655,6 +6792,45 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Request message for the `MarkAsActive` method.
+ */
+@interface GTLRHangoutsChat_MarkAsActiveRequest : GTLRObject
+
+/** The absolute timestamp when the ACTIVE state expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  The duration from the current time until the ACTIVE state expires. Using a
+ *  short TTL can effectively reset the user's state to be based on activity
+ *  after this brief duration.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
+ *  Request message for the `MarkAsAway` method.
+ */
+@interface GTLRHangoutsChat_MarkAsAwayRequest : GTLRObject
+@end
+
+
+/**
+ *  Request message for the `MarkAsDoNotDisturb` method.
+ */
+@interface GTLRHangoutsChat_MarkAsDoNotDisturbRequest : GTLRObject
+
+/** The absolute timestamp when the DND state expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** The duration from the current time until the DND state expires. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
  *  A matched URL in a Chat message. Chat apps can preview matched URLs. For
  *  more information, see [Preview
  *  links](https://developers.google.com/chat/how-tos/preview-links).
@@ -7422,12 +7598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Information about a message that another message quotes. When you create a
- *  message, you can quote messages within the same thread, or quote a root
- *  message to create a new root message. However, you can't quote a message
- *  reply from a different thread. When you update a message, you can't add or
- *  replace the `quotedMessageMetadata` field, but you can remove it. For
- *  example usage, see [Quote another
+ *  Information about a message that another message quotes. When you update a
+ *  message, you can't add or replace the `quotedMessageMetadata` field, but you
+ *  can remove it. For example usage, see [Quote another
  *  message](https://developers.google.com/workspace/chat/create-messages#quote-a-message).
  */
 @interface GTLRHangoutsChat_QuotedMessageMetadata : GTLRObject
@@ -7461,14 +7634,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  message read/write path for backward compatibility.
  *
  *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Forward When
+ *        `quote_type` is `FORWARD`, you can quote a: * Message from a different
+ *        space. * Message reply from a different thread in the same space.
+ *        (Value: "FORWARD")
  *    @arg @c kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_QuoteTypeUnspecified
  *        Reserved. This value is unused. (Value: "QUOTE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Reply If
- *        quote_type is `REPLY`, you can do the following: * If you're replying
- *        in a thread, you can quote another message in that thread. * If you're
- *        creating a root message, you can quote another root message in that
- *        space. You can't quote a message reply from a different thread.
- *        (Value: "REPLY")
+ *    @arg @c kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Reply When
+ *        `quote_type` is `REPLY`, you can do the following: * If you're
+ *        replying in a thread, you can quote another message in that thread. *
+ *        If you're creating a root message, you can quote another root message
+ *        in that space. (Value: "REPLY")
  */
 @property(nonatomic, copy, nullable) NSString *quoteType;
 
@@ -7649,12 +7825,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  A page of the requested spaces.
+ *  Deprecated: Please use the new `results` field instead. A page of the
+ *  requested spaces. This field will be populated only when `useAdminAccess` is
+ *  set to `true` and deprecated in favor of the new `results` field.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Space *> *spaces;
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Space *> *spaces GTLR_DEPRECATED;
 
 /**
  *  The total number of spaces that match the query, across all pages. If the

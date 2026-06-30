@@ -8799,7 +8799,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerAdditionalSuggestedQueryResult
-@dynamic suggestedQuery;
+@dynamic answerRecord, suggestedQuery;
 @end
 
 
@@ -10547,7 +10547,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerAdditionalSuggestedQueryResult
-@dynamic suggestedQuery;
+@dynamic answerRecord, suggestedQuery;
 @end
 
 

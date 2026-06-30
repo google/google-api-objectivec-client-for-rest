@@ -167,77 +167,133 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ClassType_R1;
 // GTLRLooker_Instance.platformEdition
 
 /**
- *  Subscription Embed.
+ *  Represents the Looker Core Embed Annual edition.
  *
  *  Value: "LOOKER_CORE_EMBED_ANNUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEmbedAnnual;
 /**
- *  Subscription Enterprise.
+ *  Represents the Looker Core Enterprise Annual edition.
  *
  *  Value: "LOOKER_CORE_ENTERPRISE_ANNUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEnterpriseAnnual;
 /**
- *  Nonprod Subscription Embed.
+ *  Represents the Looker Core Nonprod Embed Annual edition.
  *
  *  Value: "LOOKER_CORE_NONPROD_EMBED_ANNUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEmbedAnnual;
 /**
- *  Nonprod Subscription Enterprise.
+ *  Represents the Looker Core Nonprod Enterprise Annual edition.
  *
  *  Value: "LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEnterpriseAnnual;
 /**
- *  Nonprod Subscription Standard.
+ *  Represents the Looker Core Nonprod Standard Annual edition.
  *
  *  Value: "LOOKER_CORE_NONPROD_STANDARD_ANNUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodStandardAnnual;
 /**
- *  Standard.
+ *  Represents the Looker Core Standard edition.
  *
  *  Value: "LOOKER_CORE_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandard;
 /**
- *  Subscription Standard.
+ *  Represents the Looker Core Standard Annual edition.
  *
  *  Value: "LOOKER_CORE_STANDARD_ANNUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandardAnnual;
 /**
- *  Trial.
+ *  Represents the Looker Core Trial edition.
  *
  *  Value: "LOOKER_CORE_TRIAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial;
 /**
- *  Trial Embed.
+ *  Represents the Looker Core Trial Embed edition.
  *
  *  Value: "LOOKER_CORE_TRIAL_EMBED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEmbed;
 /**
- *  Trial Enterprise.
+ *  Represents the Looker Core Trial Enterprise edition.
  *
  *  Value: "LOOKER_CORE_TRIAL_ENTERPRISE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEnterprise;
 /**
- *  Trial Standard.
+ *  Represents the Looker Core Trial Standard edition.
  *
  *  Value: "LOOKER_CORE_TRIAL_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard;
 /**
- *  Platform edition is unspecified.
+ *  Represents an unspecified platform edition.
  *
  *  Value: "PLATFORM_EDITION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_PlatformEditionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRLooker_Instance.releaseChannel
+
+/**
+ *  Rapid: Most frequent updates.
+ *
+ *  Value: "RAPID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ReleaseChannel_Rapid;
+/**
+ *  Regular: Balanced, default for production.
+ *
+ *  Value: "REGULAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ReleaseChannel_Regular;
+/**
+ *  Unspecified release channel.
+ *
+ *  Value: "RELEASE_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ReleaseChannel_ReleaseChannelUnspecified;
+/**
+ *  Stable: Least frequent, for maximum stability.
+ *
+ *  Value: "STABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_ReleaseChannel_Stable;
+
+// ----------------------------------------------------------------------------
+// GTLRLooker_Instance.softDeleteReason
+
+/**
+ *  Instance is soft deleted due to billing account issues.
+ *
+ *  Value: "BILLING_ACCOUNT_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_BillingAccountIssue;
+/**
+ *  Instance is soft deleted by the customer.
+ *
+ *  Value: "CUSTOMER_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_CustomerRequest;
+/**
+ *  Soft delete reason is unspecified. This is the default value.
+ *
+ *  Value: "SOFT_DELETE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_SoftDeleteReasonUnspecified;
+/**
+ *  Instance is soft deleted due to trial expiration.
+ *
+ *  Value: "TRIAL_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_TrialExpired;
 
 // ----------------------------------------------------------------------------
 // GTLRLooker_Instance.state
@@ -760,6 +816,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @interface GTLRLooker_Instance : GTLRObject
 
+/**
+ *  Optional. Accelerated security patch enabled for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acceleratedSecurityPatchEnabled;
+
 /** Looker Instance Admin settings. */
 @property(nonatomic, strong, nullable) GTLRLooker_AdminSettings *adminSettings;
 
@@ -886,32 +949,38 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *
  *  Likely values:
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreEmbedAnnual
- *        Subscription Embed. (Value: "LOOKER_CORE_EMBED_ANNUAL")
+ *        Represents the Looker Core Embed Annual edition. (Value:
+ *        "LOOKER_CORE_EMBED_ANNUAL")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreEnterpriseAnnual
- *        Subscription Enterprise. (Value: "LOOKER_CORE_ENTERPRISE_ANNUAL")
+ *        Represents the Looker Core Enterprise Annual edition. (Value:
+ *        "LOOKER_CORE_ENTERPRISE_ANNUAL")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEmbedAnnual
- *        Nonprod Subscription Embed. (Value:
+ *        Represents the Looker Core Nonprod Embed Annual edition. (Value:
  *        "LOOKER_CORE_NONPROD_EMBED_ANNUAL")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEnterpriseAnnual
- *        Nonprod Subscription Enterprise. (Value:
+ *        Represents the Looker Core Nonprod Enterprise Annual edition. (Value:
  *        "LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodStandardAnnual
- *        Nonprod Subscription Standard. (Value:
+ *        Represents the Looker Core Nonprod Standard Annual edition. (Value:
  *        "LOOKER_CORE_NONPROD_STANDARD_ANNUAL")
- *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreStandard Standard.
- *        (Value: "LOOKER_CORE_STANDARD")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreStandard Represents
+ *        the Looker Core Standard edition. (Value: "LOOKER_CORE_STANDARD")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreStandardAnnual
- *        Subscription Standard. (Value: "LOOKER_CORE_STANDARD_ANNUAL")
- *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial Trial.
- *        (Value: "LOOKER_CORE_TRIAL")
- *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEmbed Trial
- *        Embed. (Value: "LOOKER_CORE_TRIAL_EMBED")
+ *        Represents the Looker Core Standard Annual edition. (Value:
+ *        "LOOKER_CORE_STANDARD_ANNUAL")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial Represents
+ *        the Looker Core Trial edition. (Value: "LOOKER_CORE_TRIAL")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEmbed
+ *        Represents the Looker Core Trial Embed edition. (Value:
+ *        "LOOKER_CORE_TRIAL_EMBED")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEnterprise
- *        Trial Enterprise. (Value: "LOOKER_CORE_TRIAL_ENTERPRISE")
- *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard Trial
- *        Standard. (Value: "LOOKER_CORE_TRIAL_STANDARD")
+ *        Represents the Looker Core Trial Enterprise edition. (Value:
+ *        "LOOKER_CORE_TRIAL_ENTERPRISE")
+ *    @arg @c kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard
+ *        Represents the Looker Core Trial Standard edition. (Value:
+ *        "LOOKER_CORE_TRIAL_STANDARD")
  *    @arg @c kGTLRLooker_Instance_PlatformEdition_PlatformEditionUnspecified
- *        Platform edition is unspecified. (Value:
+ *        Represents an unspecified platform edition. (Value:
  *        "PLATFORM_EDITION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *platformEdition;
@@ -943,6 +1012,21 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, strong, nullable) NSNumber *publicIpEnabled;
 
 /**
+ *  Optional. The selected release channel for the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLooker_Instance_ReleaseChannel_Rapid Rapid: Most frequent
+ *        updates. (Value: "RAPID")
+ *    @arg @c kGTLRLooker_Instance_ReleaseChannel_Regular Regular: Balanced,
+ *        default for production. (Value: "REGULAR")
+ *    @arg @c kGTLRLooker_Instance_ReleaseChannel_ReleaseChannelUnspecified
+ *        Unspecified release channel. (Value: "RELEASE_CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRLooker_Instance_ReleaseChannel_Stable Stable: Least frequent,
+ *        for maximum stability. (Value: "STABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *releaseChannel;
+
+/**
  *  Name of a reserved IP address range within the Instance.consumer_network, to
  *  be used for private services access connection. May or may not be specified
  *  in a create request.
@@ -962,6 +1046,23 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
+ *  Output only. The reason for the instance being in a soft-deleted state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_BillingAccountIssue Instance
+ *        is soft deleted due to billing account issues. (Value:
+ *        "BILLING_ACCOUNT_ISSUE")
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_CustomerRequest Instance is
+ *        soft deleted by the customer. (Value: "CUSTOMER_REQUEST")
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_SoftDeleteReasonUnspecified
+ *        Soft delete reason is unspecified. This is the default value. (Value:
+ *        "SOFT_DELETE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_TrialExpired Instance is
+ *        soft deleted due to trial expiration. (Value: "TRIAL_EXPIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *softDeleteReason;
 
 /**
  *  Output only. The state of the instance.
@@ -987,6 +1088,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *        progress. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The time when the Looker instance was suspended (soft deleted).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *suspendedTime;
 
 /** Output only. The time when the Looker instance was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1617,6 +1723,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @property(nonatomic, strong, nullable) NSNumber *seconds;
 
+@end
+
+
+/**
+ *  Request options for undeleting an instance.
+ */
+@interface GTLRLooker_UndeleteInstanceRequest : GTLRObject
 @end
 
 

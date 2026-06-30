@@ -46,6 +46,7 @@
 @class GTLRDisplayVideo_AdPolicyTopicEvidenceTrademark;
 @class GTLRDisplayVideo_AdPolicyTopicEvidenceWebsiteList;
 @class GTLRDisplayVideo_AdUrl;
+@class GTLRDisplayVideo_AdvancedProductTargeting;
 @class GTLRDisplayVideo_Advertiser;
 @class GTLRDisplayVideo_AdvertiserAdServerConfig;
 @class GTLRDisplayVideo_AdvertiserBillingConfig;
@@ -90,6 +91,7 @@
 @class GTLRDisplayVideo_BusinessChainTargetingOptionDetails;
 @class GTLRDisplayVideo_Campaign;
 @class GTLRDisplayVideo_CampaignBudget;
+@class GTLRDisplayVideo_CampaignDuration;
 @class GTLRDisplayVideo_CampaignFlight;
 @class GTLRDisplayVideo_CampaignGoal;
 @class GTLRDisplayVideo_CarouselCard;
@@ -166,6 +168,7 @@
 @class GTLRDisplayVideo_DoubleVerifyFraudInvalidTraffic;
 @class GTLRDisplayVideo_DoubleVerifyVideoViewability;
 @class GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequestAdvertisersUpdate;
+@class GTLRDisplayVideo_EffectiveFrequencyBreakdown;
 @class GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_EnvironmentTargetingOptionDetails;
 @class GTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails;
@@ -242,6 +245,7 @@
 @class GTLRDisplayVideo_OmidTargetingOptionDetails;
 @class GTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_OnScreenPositionTargetingOptionDetails;
+@class GTLRDisplayVideo_OnTargetAudienceMetrics;
 @class GTLRDisplayVideo_OperatingSystemAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_OperatingSystemTargetingOptionDetails;
 @class GTLRDisplayVideo_Operation_Metadata;
@@ -259,6 +263,13 @@
 @class GTLRDisplayVideo_PartnerRevenueModel;
 @class GTLRDisplayVideo_PerformanceGoal;
 @class GTLRDisplayVideo_PerformanceGoalBidStrategy;
+@class GTLRDisplayVideo_PlannableLocation;
+@class GTLRDisplayVideo_PlannableTargeting;
+@class GTLRDisplayVideo_PlannableUserInterest;
+@class GTLRDisplayVideo_PlannableUserList;
+@class GTLRDisplayVideo_PlannedProduct;
+@class GTLRDisplayVideo_PlannedProductForecast;
+@class GTLRDisplayVideo_PlannedProductReachForecast;
 @class GTLRDisplayVideo_PoiAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_PoiSearchTerms;
 @class GTLRDisplayVideo_PoiTargetingOptionDetails;
@@ -266,8 +277,11 @@
 @class GTLRDisplayVideo_PrismaCpeCode;
 @class GTLRDisplayVideo_ProductFeedData;
 @class GTLRDisplayVideo_ProductMatchDimension;
+@class GTLRDisplayVideo_ProductMetadata;
 @class GTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_RateDetails;
+@class GTLRDisplayVideo_ReachCurve;
+@class GTLRDisplayVideo_ReachForecast;
 @class GTLRDisplayVideo_RegionalLocationListAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_RemarketingConfig;
 @class GTLRDisplayVideo_ReviewStatusInfo;
@@ -283,7 +297,11 @@
 @class GTLRDisplayVideo_Status_Details_Item;
 @class GTLRDisplayVideo_SubExchangeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_SubExchangeTargetingOptionDetails;
+@class GTLRDisplayVideo_SurfaceTargetingCombination;
+@class GTLRDisplayVideo_SurfaceTargetingCombinations;
+@class GTLRDisplayVideo_SurfaceTargetingSettings;
 @class GTLRDisplayVideo_TargetFrequency;
+@class GTLRDisplayVideo_Targeting;
 @class GTLRDisplayVideo_TargetingExpansionConfig;
 @class GTLRDisplayVideo_TargetingOption;
 @class GTLRDisplayVideo_ThirdPartyMeasurementConfigs;
@@ -298,6 +316,7 @@
 @class GTLRDisplayVideo_UniversalAdId;
 @class GTLRDisplayVideo_UrlAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_User;
+@class GTLRDisplayVideo_UserInterest;
 @class GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_UserRewardedContentTargetingOptionDetails;
 @class GTLRDisplayVideo_VideoAdInventoryControl;
@@ -322,6 +341,9 @@
 @class GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction;
 @class GTLRDisplayVideo_YoutubeAssetAssociationSitelinkAsset;
 @class GTLRDisplayVideo_YoutubeChannelAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_YoutubeChannelPackAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_YouTubeSelectLineUp;
+@class GTLRDisplayVideo_YouTubeSelectSettings;
 @class GTLRDisplayVideo_YoutubeVideoAsset;
 @class GTLRDisplayVideo_YoutubeVideoAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_YoutubeVideoDetails;
@@ -648,8 +670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper;
 /**
  *  Demand Gen ads. Retrieval and management of Demand Gen resources is
- *  currently in beta. This field will begin rolling out to all partners on
- *  *June 10, 2026* and be available to all partners on *June 24, 2026*.
+ *  currently rolling out. This field will be available to all partners by *June
+ *  24, 2026*.
  *
  *  Value: "AD_GROUP_FORMAT_DEMAND_GEN"
  */
@@ -1716,6 +1738,273 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconS
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdvancedProductTargeting.ageRange
+
+/**
+ *  18 to 24 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_24"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1824;
+/**
+ *  18 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1834;
+/**
+ *  18 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1844;
+/**
+ *  18 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1849;
+/**
+ *  18 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1854;
+/**
+ *  18 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1864;
+/**
+ *  18 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1865Up;
+/**
+ *  21 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2134;
+/**
+ *  21 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2144;
+/**
+ *  21 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2149;
+/**
+ *  21 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2154;
+/**
+ *  21 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2164;
+/**
+ *  21 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2165Up;
+/**
+ *  25 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2534;
+/**
+ *  25 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2544;
+/**
+ *  25 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2549;
+/**
+ *  25 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2554;
+/**
+ *  25 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2564;
+/**
+ *  25 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2565Up;
+/**
+ *  35 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3544;
+/**
+ *  35 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3549;
+/**
+ *  35 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3554;
+/**
+ *  35 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3564;
+/**
+ *  35 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3565Up;
+/**
+ *  45 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4554;
+/**
+ *  45 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4564;
+/**
+ *  45 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4565Up;
+/**
+ *  50 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_50_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5065Up;
+/**
+ *  55 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_55_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5564;
+/**
+ *  55 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_55_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5565Up;
+/**
+ *  65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange65Up;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRangeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdvancedProductTargeting.devices
+
+/**
+ *  Computer.
+ *
+ *  Value: "DEVICE_TYPE_COMPUTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeComputer;
+/**
+ *  Connected device.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeConnectedDevice;
+/**
+ *  Connected TV.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeConnectedTv;
+/**
+ *  Smart phone.
+ *
+ *  Value: "DEVICE_TYPE_SMART_PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeSmartPhone;
+/**
+ *  Tablet.
+ *
+ *  Value: "DEVICE_TYPE_TABLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeTablet;
+/**
+ *  Default value when device type is not specified in this version. This enum
+ *  is a placeholder for default value and does not represent a real device type
+ *  option.
+ *
+ *  Value: "DEVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Devices_DeviceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdvancedProductTargeting.genders
+
+/**
+ *  The audience gender is female.
+ *
+ *  Value: "GENDER_FEMALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderFemale;
+/**
+ *  The audience gender is male.
+ *
+ *  Value: "GENDER_MALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderMale;
+/**
+ *  The audience gender is unknown.
+ *
+ *  Value: "GENDER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderUnknown;
+/**
+ *  Default value when gender is not specified in this version. This enum is a
+ *  place holder for default value and does not represent a real gender option.
+ *
+ *  Value: "GENDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Advertiser.containsEuPoliticalAds
 
 /**
@@ -2323,6 +2612,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDrax;
 /**
+ *  Exte.
+ *
+ *  Value: "EXCHANGE_EXTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeExte;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -2907,6 +3202,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_Active
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_Audible;
 /**
+ *  Whether the audio ad was completed. Value is stored in the boolValue field
+ *  of the comparison value.
+ *
+ *  Value: "AUDIO_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_AudioCompleted;
+/**
  *  Whether the ad was completed in view and audible. Value is stored in the
  *  boolValue field of the comparison value.
  *
@@ -3133,6 +3435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_A
  *  Value: "AUDIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_Audible;
+/**
+ *  Whether the audio ad was completed. Value is stored in the boolValue field
+ *  of the comparison value.
+ *
+ *  Value: "AUDIO_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_AudioCompleted;
 /**
  *  Whether the ad was completed in view and audible. Value is stored in the
  *  boolValue field of the comparison value.
@@ -3788,6 +4097,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeChannel;
+/**
+ *  Target ads to a specific YouTube channel pack.
+ *
+ *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeChannelPack;
 /**
  *  Target ads to a specific YouTube video. Targeting of this type cannot be
  *  created or updated using the API. Although this targeting is inherited by
@@ -5409,6 +5724,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel;
 /**
+ *  Target ads to a specific YouTube channel pack.
+ *
+ *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannelPack;
+/**
  *  Target ads to a specific YouTube video. Targeting of this type cannot be
  *  created or updated using the API. Although this targeting is inherited by
  *  child resources, **inherited targeting of this type will not be
@@ -5421,6 +5742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CreateSdfDownloadTaskRequest.version
 
+/**
+ *  SDF version 10.
+ *
+ *  Value: "SDF_VERSION_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion10;
 /**
  *  SDF version 3.1
  *
@@ -6723,6 +7050,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannel;
+/**
+ *  Target ads to a specific YouTube channel pack.
+ *
+ *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannelPack;
 /**
  *  Target ads to a specific YouTube video. Targeting of this type cannot be
  *  created or updated using the API. Although this targeting is inherited by
@@ -8039,6 +8372,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDrax;
 /**
+ *  Exte.
+ *
+ *  Value: "EXCHANGE_EXTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeExte;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -8577,6 +8916,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDrax;
 /**
+ *  Exte.
+ *
+ *  Value: "EXCHANGE_EXTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeExte;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -9114,6 +9459,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_DRAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDrax;
+/**
+ *  Exte.
+ *
+ *  Value: "EXCHANGE_EXTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeExte;
 /**
  *  Five.
  *
@@ -9680,6 +10031,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_DRAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDrax;
+/**
+ *  Exte.
+ *
+ *  Value: "EXCHANGE_EXTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeExte;
 /**
  *  Five.
  *
@@ -11262,6 +11619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDrax;
 /**
+ *  Exte.
+ *
+ *  Value: "EXCHANGE_EXTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeExte;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -12546,6 +12909,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDrax;
 /**
+ *  Exte.
+ *
+ *  Value: "EXCHANGE_EXTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeExte;
+/**
  *  Five.
  *
  *  Value: "EXCHANGE_FIVE"
@@ -13376,8 +13745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_Entit
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault;
 /**
  *  Demand Gen ads. Retrieval and management of Demand Gen resources is
- *  currently in beta. This field will begin rolling out to all partners on
- *  *June 10, 2026* and be available to all partners on *June 24, 2026*.
+ *  currently rolling out. This field will be available to all partners by *June
+ *  24, 2026*.
  *
  *  Value: "LINE_ITEM_TYPE_DEMAND_GEN"
  */
@@ -14809,6 +15178,589 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableLocation.geoRegionType
+
+/**
+ *  The geographic region is an airport.
+ *
+ *  Value: "GEO_REGION_TYPE_AIRPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeAirport;
+/**
+ *  The geographic region is an arrondissement.
+ *
+ *  Value: "GEO_REGION_TYPE_ARRONDISSEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeArrondissement;
+/**
+ *  The geographic region is an autonomous community.
+ *
+ *  Value: "GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeAutonomousCommunity;
+/**
+ *  The geographic region is a barrio.
+ *
+ *  Value: "GEO_REGION_TYPE_BARRIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeBarrio;
+/**
+ *  The geographic region is a borough.
+ *
+ *  Value: "GEO_REGION_TYPE_BOROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeBorough;
+/**
+ *  The geographic region is a canton.
+ *
+ *  Value: "GEO_REGION_TYPE_CANTON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCanton;
+/**
+ *  The geographic region is a city.
+ *
+ *  Value: "GEO_REGION_TYPE_CITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCity;
+/**
+ *  The geographic region is a city region.
+ *
+ *  Value: "GEO_REGION_TYPE_CITY_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCityRegion;
+/**
+ *  The geographic region is a colloquial area.
+ *
+ *  Value: "GEO_REGION_TYPE_COLLOQUIAL_AREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeColloquialArea;
+/**
+ *  The geographic region is a commune.
+ *
+ *  Value: "GEO_REGION_TYPE_COMMUNE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCommune;
+/**
+ *  The geographic region is a congressional district.
+ *
+ *  Value: "GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCongressionalDistrict;
+/**
+ *  The geographic region is a country.
+ *
+ *  Value: "GEO_REGION_TYPE_COUNTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCountry;
+/**
+ *  The geographic region is a county.
+ *
+ *  Value: "GEO_REGION_TYPE_COUNTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCounty;
+/**
+ *  The geographic region targeting type is department.
+ *
+ *  Value: "GEO_REGION_TYPE_DEPARTMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDepartment;
+/**
+ *  The geographic region is a district.
+ *
+ *  Value: "GEO_REGION_TYPE_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDistrict;
+/**
+ *  The geographic region is a division.
+ *
+ *  Value: "GEO_REGION_TYPE_DIVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDivision;
+/**
+ *  The geographic region is a designated market area (DMA) region.
+ *
+ *  Value: "GEO_REGION_TYPE_DMA_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDmaRegion;
+/**
+ *  The geographic region is a governorate.
+ *
+ *  Value: "GEO_REGION_TYPE_GOVERNORATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeGovernorate;
+/**
+ *  The geographic region type is metro.
+ *
+ *  Value: "GEO_REGION_TYPE_METRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMetro;
+/**
+ *  The geographic region is a municipality.
+ *
+ *  Value: "GEO_REGION_TYPE_MUNICIPALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMunicipality;
+/**
+ *  The geographic region is a municipality district.
+ *
+ *  Value: "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMunicipalityDistrict;
+/**
+ *  The geographic region is a national park.
+ *
+ *  Value: "GEO_REGION_TYPE_NATIONAL_PARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeNationalPark;
+/**
+ *  The geographic region is a neighborhood.
+ *
+ *  Value: "GEO_REGION_TYPE_NEIGHBORHOOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeNeighborhood;
+/**
+ *  The geographic region is an okrug.
+ *
+ *  Value: "GEO_REGION_TYPE_OKRUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeOkrug;
+/**
+ *  The geographic region type is other.
+ *
+ *  Value: "GEO_REGION_TYPE_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeOther;
+/**
+ *  The geographic region targeting type is postal code.
+ *
+ *  Value: "GEO_REGION_TYPE_POSTAL_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePostalCode;
+/**
+ *  The geographic region is a post town.
+ *
+ *  Value: "GEO_REGION_TYPE_POST_TOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePostTown;
+/**
+ *  The geographic region is a prefecture.
+ *
+ *  Value: "GEO_REGION_TYPE_PREFECTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePrefecture;
+/**
+ *  The geographic region is a province.
+ *
+ *  Value: "GEO_REGION_TYPE_PROVINCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeProvince;
+/**
+ *  The geographic region is a quarter.
+ *
+ *  Value: "GEO_REGION_TYPE_QUARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeQuarter;
+/**
+ *  The geographic region type is region.
+ *
+ *  Value: "GEO_REGION_TYPE_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeRegion;
+/**
+ *  The geographic region is a state.
+ *
+ *  Value: "GEO_REGION_TYPE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeState;
+/**
+ *  The geographic region is a sub district.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeSubDistrict;
+/**
+ *  The geographic region is a sub ward.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeSubWard;
+/**
+ *  The geographic region is a territory.
+ *
+ *  Value: "GEO_REGION_TYPE_TERRITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeTerritory;
+/**
+ *  The geographic region is a TV region.
+ *
+ *  Value: "GEO_REGION_TYPE_TV_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeTvRegion;
+/**
+ *  The geographic region is a union territory.
+ *
+ *  Value: "GEO_REGION_TYPE_UNION_TERRITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUnionTerritory;
+/**
+ *  The geographic region is a university.
+ *
+ *  Value: "GEO_REGION_TYPE_UNIVERSITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUniversity;
+/**
+ *  The geographic region type is unknown.
+ *
+ *  Value: "GEO_REGION_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUnknown;
+/**
+ *  The geographic region is a ward.
+ *
+ *  Value: "GEO_REGION_TYPE_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeWard;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableTargeting.ageRanges
+
+/**
+ *  18 to 24 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_24"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1824;
+/**
+ *  18 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1834;
+/**
+ *  18 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1844;
+/**
+ *  18 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1849;
+/**
+ *  18 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1854;
+/**
+ *  18 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1864;
+/**
+ *  18 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange1865Up;
+/**
+ *  21 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2134;
+/**
+ *  21 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2144;
+/**
+ *  21 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2149;
+/**
+ *  21 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2154;
+/**
+ *  21 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2164;
+/**
+ *  21 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2165Up;
+/**
+ *  25 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2534;
+/**
+ *  25 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2544;
+/**
+ *  25 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2549;
+/**
+ *  25 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2554;
+/**
+ *  25 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2564;
+/**
+ *  25 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange2565Up;
+/**
+ *  35 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3544;
+/**
+ *  35 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3549;
+/**
+ *  35 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3554;
+/**
+ *  35 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3564;
+/**
+ *  35 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange3565Up;
+/**
+ *  45 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange4554;
+/**
+ *  45 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange4564;
+/**
+ *  45 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange4565Up;
+/**
+ *  50 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_50_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange5065Up;
+/**
+ *  55 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_55_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange5564;
+/**
+ *  55 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_55_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange5565Up;
+/**
+ *  65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRange65Up;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_AgeRanges_PlannableAgeRangeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableTargeting.devices
+
+/**
+ *  Computer.
+ *
+ *  Value: "DEVICE_TYPE_COMPUTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeComputer;
+/**
+ *  Connected device.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeConnectedDevice;
+/**
+ *  Connected TV.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeConnectedTv;
+/**
+ *  Smart phone.
+ *
+ *  Value: "DEVICE_TYPE_SMART_PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeSmartPhone;
+/**
+ *  Tablet.
+ *
+ *  Value: "DEVICE_TYPE_TABLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeTablet;
+/**
+ *  Default value when device type is not specified in this version. This enum
+ *  is a placeholder for default value and does not represent a real device type
+ *  option.
+ *
+ *  Value: "DEVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Devices_DeviceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableTargeting.genders
+
+/**
+ *  The audience gender is female.
+ *
+ *  Value: "GENDER_FEMALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderFemale;
+/**
+ *  The audience gender is male.
+ *
+ *  Value: "GENDER_MALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderMale;
+/**
+ *  The audience gender is unknown.
+ *
+ *  Value: "GENDER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderUnknown;
+/**
+ *  Default value when gender is not specified in this version. This enum is a
+ *  place holder for default value and does not represent a real gender option.
+ *
+ *  Value: "GENDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Genders_GenderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableTargeting.networks
+
+/**
+ *  Google Video Partners.
+ *
+ *  Value: "PLANNABLE_NETWORK_GOOGLE_VIDEO_PARTNERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkGoogleVideoPartners;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_NETWORK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkUnspecified;
+/**
+ *  YouTube.
+ *
+ *  Value: "PLANNABLE_NETWORK_YOUTUBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkYoutube;
+/**
+ *  YouTube and Google Video Partners.
+ *
+ *  Value: "PLANNABLE_NETWORK_YOUTUBE_AND_GOOGLE_VIDEO_PARTNERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableTargeting_Networks_PlannableNetworkYoutubeAndGoogleVideoPartners;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableUserList.plannableStatus
+
+/**
+ *  The user list is plannable.
+ *
+ *  Value: "PLANNABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableUserList_PlannableStatus_Plannable;
+/**
+ *  Unspecified plannability status.
+ *
+ *  Value: "PLANNABLE_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableUserList_PlannableStatus_PlannableStatusUnspecified;
+/**
+ *  The user list is unplannable.
+ *
+ *  Value: "UNPLANNABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableUserList_PlannableStatus_Unplannable;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableUserList.userListType
+
+/**
+ *  A first-party user list.
+ *
+ *  Value: "FIRST_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableUserList_UserListType_FirstParty;
+/**
+ *  A third-party user list.
+ *
+ *  Value: "THIRD_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableUserList_UserListType_ThirdParty;
+/**
+ *  Unspecified user list type.
+ *
+ *  Value: "USER_LIST_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableUserList_UserListType_UserListTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_PoiAssignedTargetingOptionDetails.proximityRadiusUnit
 
 /**
@@ -15092,6 +16044,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_Synta
 // GTLRDisplayVideo_SdfConfig.version
 
 /**
+ *  SDF version 10.
+ *
+ *  Value: "SDF_VERSION_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion10;
+/**
  *  SDF version 3.1
  *
  *  Value: "SDF_VERSION_3_1"
@@ -15217,6 +16175,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
 
+/**
+ *  SDF version 10.
+ *
+ *  Value: "SDF_VERSION_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion10;
 /**
  *  SDF version 3.1
  *
@@ -15649,6 +16613,198 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SessionPositionAssignedTarg
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SessionPositionAssignedTargetingOptionDetails_SessionPosition_SessionPositionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_SurfaceTargetingCombination.choices
+
+/**
+ *  Discover feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_DISCOVER_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceDiscoverFeed;
+/**
+ *  Gmail.
+ *
+ *  Value: "PLANNABLE_SURFACE_GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceGmail;
+/**
+ *  Google Display Network.
+ *
+ *  Value: "PLANNABLE_SURFACE_GOOGLE_DISPLAY_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceGoogleDisplayNetwork;
+/**
+ *  In-feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInFeed;
+/**
+ *  In-stream bumper.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_BUMPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamBumper;
+/**
+ *  In-stream non-skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamNonSkippable;
+/**
+ *  In-stream non-skippable (30 seconds).
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamNonSkippableThirtySeconds;
+/**
+ *  In-stream skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceInStreamSkippable;
+/**
+ *  Shorts.
+ *
+ *  Value: "PLANNABLE_SURFACE_SHORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceShorts;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_SURFACE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination_Choices_PlannableSurfaceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_SurfaceTargetingCombinations.availableSurfaceTypes
+
+/**
+ *  Discover feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_DISCOVER_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceDiscoverFeed;
+/**
+ *  Gmail.
+ *
+ *  Value: "PLANNABLE_SURFACE_GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceGmail;
+/**
+ *  Google Display Network.
+ *
+ *  Value: "PLANNABLE_SURFACE_GOOGLE_DISPLAY_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceGoogleDisplayNetwork;
+/**
+ *  In-feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInFeed;
+/**
+ *  In-stream bumper.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_BUMPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamBumper;
+/**
+ *  In-stream non-skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamNonSkippable;
+/**
+ *  In-stream non-skippable (30 seconds).
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamNonSkippableThirtySeconds;
+/**
+ *  In-stream skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceInStreamSkippable;
+/**
+ *  Shorts.
+ *
+ *  Value: "PLANNABLE_SURFACE_SHORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceShorts;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_SURFACE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_SurfaceTargetingSettings.surfaces
+
+/**
+ *  Discover feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_DISCOVER_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceDiscoverFeed;
+/**
+ *  Gmail.
+ *
+ *  Value: "PLANNABLE_SURFACE_GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceGmail;
+/**
+ *  Google Display Network.
+ *
+ *  Value: "PLANNABLE_SURFACE_GOOGLE_DISPLAY_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceGoogleDisplayNetwork;
+/**
+ *  In-feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInFeed;
+/**
+ *  In-stream bumper.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_BUMPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamBumper;
+/**
+ *  In-stream non-skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamNonSkippable;
+/**
+ *  In-stream non-skippable (30 seconds).
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamNonSkippableThirtySeconds;
+/**
+ *  In-stream skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceInStreamSkippable;
+/**
+ *  Shorts.
+ *
+ *  Value: "PLANNABLE_SURFACE_SHORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceShorts;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_SURFACE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingSettings_Surfaces_PlannableSurfaceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_TargetFrequency.timeUnit
 
 /**
@@ -15693,6 +16849,273 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_Ti
  *  Value: "TIME_UNIT_WEEKS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitWeeks;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Targeting.ageRange
+
+/**
+ *  18 to 24 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_24"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1824;
+/**
+ *  18 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1834;
+/**
+ *  18 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1844;
+/**
+ *  18 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1849;
+/**
+ *  18 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1854;
+/**
+ *  18 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1864;
+/**
+ *  18 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_18_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1865Up;
+/**
+ *  21 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2134;
+/**
+ *  21 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2144;
+/**
+ *  21 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2149;
+/**
+ *  21 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2154;
+/**
+ *  21 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2164;
+/**
+ *  21 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_21_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2165Up;
+/**
+ *  25 to 34 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2534;
+/**
+ *  25 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2544;
+/**
+ *  25 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2549;
+/**
+ *  25 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2554;
+/**
+ *  25 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2564;
+/**
+ *  25 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_25_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2565Up;
+/**
+ *  35 to 44 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3544;
+/**
+ *  35 to 49 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_49"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3549;
+/**
+ *  35 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3554;
+/**
+ *  35 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3564;
+/**
+ *  35 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_35_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3565Up;
+/**
+ *  45 to 54 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_54"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4554;
+/**
+ *  45 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4564;
+/**
+ *  45 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_45_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4565Up;
+/**
+ *  50 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_50_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5065Up;
+/**
+ *  55 to 64 years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_55_64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5564;
+/**
+ *  55 to 65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_55_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5565Up;
+/**
+ *  65+ years old.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_65_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange65Up;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_AGE_RANGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRangeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Targeting.devices
+
+/**
+ *  Computer.
+ *
+ *  Value: "DEVICE_TYPE_COMPUTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeComputer;
+/**
+ *  Connected device.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeConnectedDevice;
+/**
+ *  Connected TV.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeConnectedTv;
+/**
+ *  Smart phone.
+ *
+ *  Value: "DEVICE_TYPE_SMART_PHONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeSmartPhone;
+/**
+ *  Tablet.
+ *
+ *  Value: "DEVICE_TYPE_TABLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeTablet;
+/**
+ *  Default value when device type is not specified in this version. This enum
+ *  is a placeholder for default value and does not represent a real device type
+ *  option.
+ *
+ *  Value: "DEVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Devices_DeviceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Targeting.genders
+
+/**
+ *  The audience gender is female.
+ *
+ *  Value: "GENDER_FEMALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderFemale;
+/**
+ *  The audience gender is male.
+ *
+ *  Value: "GENDER_MALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderMale;
+/**
+ *  The audience gender is unknown.
+ *
+ *  Value: "GENDER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderUnknown;
+/**
+ *  Default value when gender is not specified in this version. This enum is a
+ *  place holder for default value and does not represent a real gender option.
+ *
+ *  Value: "GENDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Targeting_Genders_GenderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_TargetingExpansionConfig.audienceExpansionLevel
@@ -16045,6 +17468,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeChannel;
+/**
+ *  Target ads to a specific YouTube channel pack.
+ *
+ *  Value: "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeChannelPack;
 /**
  *  Target ads to a specific YouTube video. Targeting of this type cannot be
  *  created or updated using the API. Although this targeting is inherited by
@@ -17174,9 +18603,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        ads. (Value: "AD_GROUP_FORMAT_BUMPER")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen
  *        Demand Gen ads. Retrieval and management of Demand Gen resources is
- *        currently in beta. This field will begin rolling out to all partners
- *        on *June 10, 2026* and be available to all partners on *June 24,
- *        2026*. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
+ *        currently rolling out. This field will be available to all partners by
+ *        *June 24, 2026*. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream
  *        In-stream ads. (Value: "AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead
@@ -17333,45 +18761,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. The DCM tracking ad info. Only valid for Demand Gen ads. To remove
  *  the DCM tracking ad info, please leave this field empty. Retrieval and
- *  management of Demand Gen resources is currently in beta. This field will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This field will
+ *  be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DcmTrackingInfo *dcmTrackingInfo;
 
 /**
  *  Details of a [Demand Gen carousel
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd).
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenCarouselAd *demandGenCarouselAd;
 
 /**
  *  Details of a [Demand Gen image
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd).
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenImageAd *demandGenImageAd;
 
 /**
  *  Details of a [Demand Gen product
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#Product-onlyAd).
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenProductAd *demandGenProductAd;
 
 /**
  *  Details of a [Demand Gen video
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#VideoAd).
- *  Retrieval and management of Demand Gen resources is currently in beta. This
- *  field will begin rolling out to all partners on *June 10, 2026* and be
- *  available to all partners on *June 24, 2026*.
+ *  Retrieval and management of Demand Gen resources is currently rolling out.
+ *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenVideoAd *demandGenVideoAd;
 
@@ -18387,6 +19810,128 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Product-specific targeting overrides.
+ */
+@interface GTLRDisplayVideo_AdvancedProductTargeting : GTLRObject
+
+/**
+ *  Optional. The age range to target.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1824
+ *        18 to 24 years old. (Value: "PLANNABLE_AGE_RANGE_18_24")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1834
+ *        18 to 34 years old. (Value: "PLANNABLE_AGE_RANGE_18_34")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1844
+ *        18 to 44 years old. (Value: "PLANNABLE_AGE_RANGE_18_44")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1849
+ *        18 to 49 years old. (Value: "PLANNABLE_AGE_RANGE_18_49")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1854
+ *        18 to 54 years old. (Value: "PLANNABLE_AGE_RANGE_18_54")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1864
+ *        18 to 64 years old. (Value: "PLANNABLE_AGE_RANGE_18_64")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange1865Up
+ *        18 to 65+ years old. (Value: "PLANNABLE_AGE_RANGE_18_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2134
+ *        21 to 34 years old. (Value: "PLANNABLE_AGE_RANGE_21_34")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2144
+ *        21 to 44 years old. (Value: "PLANNABLE_AGE_RANGE_21_44")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2149
+ *        21 to 49 years old. (Value: "PLANNABLE_AGE_RANGE_21_49")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2154
+ *        21 to 54 years old. (Value: "PLANNABLE_AGE_RANGE_21_54")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2164
+ *        21 to 64 years old. (Value: "PLANNABLE_AGE_RANGE_21_64")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2165Up
+ *        21 to 65+ years old. (Value: "PLANNABLE_AGE_RANGE_21_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2534
+ *        25 to 34 years old. (Value: "PLANNABLE_AGE_RANGE_25_34")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2544
+ *        25 to 44 years old. (Value: "PLANNABLE_AGE_RANGE_25_44")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2549
+ *        25 to 49 years old. (Value: "PLANNABLE_AGE_RANGE_25_49")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2554
+ *        25 to 54 years old. (Value: "PLANNABLE_AGE_RANGE_25_54")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2564
+ *        25 to 64 years old. (Value: "PLANNABLE_AGE_RANGE_25_64")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange2565Up
+ *        25 to 65+ years old. (Value: "PLANNABLE_AGE_RANGE_25_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3544
+ *        35 to 44 years old. (Value: "PLANNABLE_AGE_RANGE_35_44")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3549
+ *        35 to 49 years old. (Value: "PLANNABLE_AGE_RANGE_35_49")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3554
+ *        35 to 54 years old. (Value: "PLANNABLE_AGE_RANGE_35_54")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3564
+ *        35 to 64 years old. (Value: "PLANNABLE_AGE_RANGE_35_64")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange3565Up
+ *        35 to 65+ years old. (Value: "PLANNABLE_AGE_RANGE_35_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4554
+ *        45 to 54 years old. (Value: "PLANNABLE_AGE_RANGE_45_54")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4564
+ *        45 to 64 years old. (Value: "PLANNABLE_AGE_RANGE_45_64")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange4565Up
+ *        45 to 65+ years old. (Value: "PLANNABLE_AGE_RANGE_45_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5065Up
+ *        50 to 65+ years old. (Value: "PLANNABLE_AGE_RANGE_50_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5564
+ *        55 to 64 years old. (Value: "PLANNABLE_AGE_RANGE_55_64")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange5565Up
+ *        55 to 65+ years old. (Value: "PLANNABLE_AGE_RANGE_55_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRange65Up
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_65_UP")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_AgeRange_PlannableAgeRangeUnspecified
+ *        Not specified. (Value: "PLANNABLE_AGE_RANGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ageRange;
+
+/** Optional. The date range to target. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_DateRange *dateRange;
+
+/** Optional. The devices to target. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *devices;
+
+/** Optional. The frequency cap for the specific product. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_FrequencyCap *frequencyCap;
+
+/** Optional. The gender options to target. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *genders;
+
+/**
+ *  Optional. Plannable location IDs to target.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *plannableLocationIds;
+
+/** Optional. Plannable surfaces to target. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_SurfaceTargetingSettings *surfaceTargetingSettings;
+
+/**
+ *  Optional. The average number of times the ads will show to the same person
+ *  over a certain period of time.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetFrequency *targetFrequency;
+
+/**
+ *  Optional. The user interest IDs to target. Plannable user interests can be
+ *  retrieved using the `RetrievePlannableUserInterests` method.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userInterestIds;
+
+/**
+ *  Optional. The user list IDs to target. Plannable user lists can be retrieved
+ *  using the `RetrievePlannableUserInterests` method.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userListIds;
+
+/** Optional. YouTube Select settings. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YouTubeSelectSettings *youtubeSelectSettings;
+
+@end
+
+
+/**
  *  A single advertiser in Display & Video 360 (DV360).
  */
 @interface GTLRDisplayVideo_Advertiser : GTLRObject
@@ -19056,6 +20601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        DAX. (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDrax
  *        Drax. (Value: "EXCHANGE_DRAX")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeExte
+ *        Exte. (Value: "EXCHANGE_EXTE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFluct
@@ -19401,6 +20948,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_Audible
  *        Whether Active View detects that your ad was audible. Value is stored
  *        in the boolValue field of the comparison value. (Value: "AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_AudioCompleted
+ *        Whether the audio ad was completed. Value is stored in the boolValue
+ *        field of the comparison value. (Value: "AUDIO_COMPLETED")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_CompletedInViewAudible
  *        Whether the ad was completed in view and audible. Value is stored in
  *        the boolValue field of the comparison value. (Value:
@@ -19553,6 +21103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_Audible
  *        Whether Active View detects that your ad was audible. Value is stored
  *        in the boolValue field of the comparison value. (Value: "AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_AudioCompleted
+ *        Whether the audio ad was completed. Value is stored in the boolValue
+ *        field of the comparison value. (Value: "AUDIO_COMPLETED")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_CompletedInViewAudible
  *        Whether the ad was completed in view and audible. Value is stored in
  *        the boolValue field of the comparison value. (Value:
@@ -20392,6 +21945,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        cannot be created or updated using the API. Although this targeting is
  *        inherited by child resources, **inherited targeting of this type will
  *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeYoutubeVideo
  *        Target ads to a specific YouTube video. Targeting of this type cannot
  *        be created or updated using the API. Although this targeting is
@@ -20436,6 +21992,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  targeting_type is `TARGETING_TYPE_YOUTUBE_CHANNEL`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeChannelAssignedTargetingOptionDetails *youtubeChannelDetails;
+
+/**
+ *  YouTube channel pack details. This field will be populated when the
+ *  targeting_type is `TARGETING_TYPE_YOUTUBE_CHANNEL_PACK`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeChannelPackAssignedTargetingOptionDetails *youtubeChannelPackDetails;
 
 /**
  *  YouTube video details. This field will be populated when the targeting_type
@@ -22048,6 +23610,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  The duration of the reach plan.
+ */
+@interface GTLRDisplayVideo_CampaignDuration : GTLRObject
+
+/** Required. The date range the plan covers. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_DateRange *dateRange;
+
+/**
+ *  Required. The number of days the plan covers.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationDays;
+
+@end
+
+
+/**
  *  Settings that track the planned spend and duration of a campaign.
  */
 @interface GTLRDisplayVideo_CampaignFlight : GTLRObject
@@ -23144,9 +24724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  model can be set by you for a floodlight config or group. More details
  *  [here](https://support.google.com/displayvideo/answer/7409983). Only
  *  applicable to Demand Gen line items. Retrieval and management of Demand Gen
- *  resources is currently in beta. This field will begin rolling out to all
- *  partners on *June 10, 2026* and be available to all partners on *June 24,
- *  2026*.
+ *  resources is currently rolling out. This field will be available to all
+ *  partners by *June 24, 2026*.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -23382,6 +24961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        cannot be created or updated using the API. Although this targeting is
  *        inherited by child resources, **inherited targeting of this type will
  *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeVideo
  *        Target ads to a specific YouTube video. Targeting of this type cannot
  *        be created or updated using the API. Although this targeting is
@@ -23432,6 +25014,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  SDF version from its partner unless configured otherwise.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion10
+ *        SDF version 10. (Value: "SDF_VERSION_10")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion31
  *        SDF version 3.1 (Value: "SDF_VERSION_3_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion4
@@ -24970,6 +26554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        cannot be created or updated using the API. Although this targeting is
  *        inherited by child resources, **inherited targeting of this type will
  *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeYoutubeVideo
  *        Target ads to a specific YouTube video. Targeting of this type cannot
  *        be created or updated using the API. Although this targeting is
@@ -26203,6 +27790,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  A breakdown of the number of unique people reached at a given effective
+ *  frequency.
+ */
+@interface GTLRDisplayVideo_EffectiveFrequencyBreakdown : GTLRObject
+
+/**
+ *  The number of unique individuals, including co-viewers, exactly matching the
+ *  targeting that were served the ad at least the number of times dictated by
+ *  the effective_frequency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveCoviewReach;
+
+/**
+ *  The set effective frequency.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveFrequency;
+
+/**
+ *  The total number of unique individuals, including co-viewers that were
+ *  served the ad at least the number of times dictated by the
+ *  effective_frequency. This includes individuals that may fall outside of
+ *  targeting.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onTargetEffectiveCoviewReach;
+
+/**
+ *  The number of unique individuals exactly matching the targeting that were
+ *  served the ad at least the number of times dictated by the
+ *  effective_frequency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onTargetReach;
+
+/**
+ *  The total number of unique individuals that were served the ad at least the
+ *  number of times dictated by the effective_frequency. This includes
+ *  individuals that may fall outside of targeting.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalReach;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -26339,6 +27979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        DAX. (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDrax
  *        Drax. (Value: "EXCHANGE_DRAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeExte
+ *        Exte. (Value: "EXCHANGE_EXTE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFluct
@@ -26550,6 +28192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        DAX. (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDrax
  *        Drax. (Value: "EXCHANGE_DRAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeExte
+ *        Exte. (Value: "EXCHANGE_EXTE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFluct
@@ -26762,6 +28406,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDrax Drax.
  *        (Value: "EXCHANGE_DRAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeExte Exte.
+ *        (Value: "EXCHANGE_EXTE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFluct
@@ -26977,6 +28623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        DAX. (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDrax
  *        Drax. (Value: "EXCHANGE_DRAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeExte
+ *        Exte. (Value: "EXCHANGE_EXTE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFluct
@@ -27788,6 +29436,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Request message for ReachForecastService.GenerateReachForecast.
+ */
+@interface GTLRDisplayVideo_GenerateReachForecastRequest : GTLRObject
+
+/** Required. The duration of the planned campaign. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_CampaignDuration *campaignDuration;
+
+/** Required. The currency code for the plan in ISO 4217 format. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Optional. The highest minimum effective frequency to include in
+ *  PlannedProductForecast.effective_frequency_breakdowns. Must be between 1 and
+ *  10, inclusive. If not specified,
+ *  PlannedProductForecast.effective_frequency_breakdowns will not be populated.
+ *  If set, this value will also be used as the minimum effective frequency for
+ *  reach metrics reporting. This field cannot be combined with the
+ *  min_effective_frequency field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveFrequencyBreakdownLimit;
+
+/**
+ *  Optional. The minimum effective frequency for the reported reach metrics.
+ *  This is the smallest number of times a customer must be exposed to the ad
+ *  for it to be considered effective. This setting only impacts reporting. Must
+ *  be between 1 and 10, inclusive. If not specified, a default of 1 is applied.
+ *  This field cannot be combined with effective_frequency_breakdown_limit.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minEffectiveFrequency;
+
+/** Required. The list of line items to include in the forecast. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PlannedProduct *> *plannedProducts;
+
+/** Required. The targeting parameters of the planned campaign. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_Targeting *targeting;
+
+@end
+
+
+/**
+ *  Response message for ReachForecastService.GenerateReachForecast.
+ */
+@interface GTLRDisplayVideo_GenerateReachForecastResponse : GTLRObject
+
+/** The estimated audience sizes for the targeted geography. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_OnTargetAudienceMetrics *onTargetAudienceMetrics;
+
+/** The generated forecast curve. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ReachCurve *reachCurve;
+
+@end
+
+
+/**
  *  Details for assigned geographic region targeting option. This will be
  *  populated in the details field of an AssignedTargetingOption when
  *  targeting_type is `TARGETING_TYPE_GEO_REGION`.
@@ -28245,6 +29951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDrax Drax.
  *        (Value: "EXCHANGE_DRAX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeExte Exte.
+ *        (Value: "EXCHANGE_EXTE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFluct Fluct.
@@ -29374,6 +31082,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "EXCHANGE_DAX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDrax Drax.
  *        (Value: "EXCHANGE_DRAX")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeExte Exte.
+ *        (Value: "EXCHANGE_EXTE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFluct Fluct.
@@ -30264,8 +31974,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. Settings specific to Demand Gen line items. Only applicable to
  *  Demand Gen line items. Retrieval and management of Demand Gen resources is
- *  currently in beta. This field will begin rolling out to all partners on
- *  *June 10, 2026* and be available to all partners on *June 24, 2026*.
+ *  currently rolling out. This field will be available to all partners by *June
+ *  24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenSettings *demandGenSettings;
 
@@ -30352,9 +32062,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "LINE_ITEM_TYPE_AUDIO_DEFAULT")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDemandGen
  *        Demand Gen ads. Retrieval and management of Demand Gen resources is
- *        currently in beta. This field will begin rolling out to all partners
- *        on *June 10, 2026* and be available to all partners on *June 24,
- *        2026*. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
+ *        currently rolling out. This field will be available to all partners by
+ *        *June 24, 2026*. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayDefault
  *        Image, HTML5, native, or rich media ads. (Value:
  *        "LINE_ITEM_TYPE_DISPLAY_DEFAULT")
@@ -32377,6 +34086,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Estimated audience sizes for a targeted geography.
+ */
+@interface GTLRDisplayVideo_OnTargetAudienceMetrics : GTLRObject
+
+/**
+ *  Size of the audience based on the census data of the targeted geography.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *censusAudienceSize;
+
+/**
+ *  Estimated size of the YouTube audience.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *youtubeAudienceSize;
+
+@end
+
+
+/**
  *  Assigned operating system targeting option details. This will be populated
  *  in the operating_system_details field when targeting_type is
  *  `TARGETING_TYPE_OPERATING_SYSTEM`.
@@ -33224,6 +34955,342 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  A plannable location used for forecasting.
+ */
+@interface GTLRDisplayVideo_PlannableLocation : GTLRObject
+
+/** Output only. The display name of the location, for example "Algeria". */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The type of location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeAirport
+ *        The geographic region is an airport. (Value:
+ *        "GEO_REGION_TYPE_AIRPORT")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeArrondissement
+ *        The geographic region is an arrondissement. (Value:
+ *        "GEO_REGION_TYPE_ARRONDISSEMENT")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeAutonomousCommunity
+ *        The geographic region is an autonomous community. (Value:
+ *        "GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeBarrio
+ *        The geographic region is a barrio. (Value: "GEO_REGION_TYPE_BARRIO")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeBorough
+ *        The geographic region is a borough. (Value: "GEO_REGION_TYPE_BOROUGH")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCanton
+ *        The geographic region is a canton. (Value: "GEO_REGION_TYPE_CANTON")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCity
+ *        The geographic region is a city. (Value: "GEO_REGION_TYPE_CITY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCityRegion
+ *        The geographic region is a city region. (Value:
+ *        "GEO_REGION_TYPE_CITY_REGION")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeColloquialArea
+ *        The geographic region is a colloquial area. (Value:
+ *        "GEO_REGION_TYPE_COLLOQUIAL_AREA")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCommune
+ *        The geographic region is a commune. (Value: "GEO_REGION_TYPE_COMMUNE")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCongressionalDistrict
+ *        The geographic region is a congressional district. (Value:
+ *        "GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCountry
+ *        The geographic region is a country. (Value: "GEO_REGION_TYPE_COUNTRY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeCounty
+ *        The geographic region is a county. (Value: "GEO_REGION_TYPE_COUNTY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDepartment
+ *        The geographic region targeting type is department. (Value:
+ *        "GEO_REGION_TYPE_DEPARTMENT")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDistrict
+ *        The geographic region is a district. (Value:
+ *        "GEO_REGION_TYPE_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDivision
+ *        The geographic region is a division. (Value:
+ *        "GEO_REGION_TYPE_DIVISION")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeDmaRegion
+ *        The geographic region is a designated market area (DMA) region.
+ *        (Value: "GEO_REGION_TYPE_DMA_REGION")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeGovernorate
+ *        The geographic region is a governorate. (Value:
+ *        "GEO_REGION_TYPE_GOVERNORATE")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMetro
+ *        The geographic region type is metro. (Value: "GEO_REGION_TYPE_METRO")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMunicipality
+ *        The geographic region is a municipality. (Value:
+ *        "GEO_REGION_TYPE_MUNICIPALITY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeMunicipalityDistrict
+ *        The geographic region is a municipality district. (Value:
+ *        "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeNationalPark
+ *        The geographic region is a national park. (Value:
+ *        "GEO_REGION_TYPE_NATIONAL_PARK")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeNeighborhood
+ *        The geographic region is a neighborhood. (Value:
+ *        "GEO_REGION_TYPE_NEIGHBORHOOD")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeOkrug
+ *        The geographic region is an okrug. (Value: "GEO_REGION_TYPE_OKRUG")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeOther
+ *        The geographic region type is other. (Value: "GEO_REGION_TYPE_OTHER")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePostalCode
+ *        The geographic region targeting type is postal code. (Value:
+ *        "GEO_REGION_TYPE_POSTAL_CODE")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePostTown
+ *        The geographic region is a post town. (Value:
+ *        "GEO_REGION_TYPE_POST_TOWN")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypePrefecture
+ *        The geographic region is a prefecture. (Value:
+ *        "GEO_REGION_TYPE_PREFECTURE")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeProvince
+ *        The geographic region is a province. (Value:
+ *        "GEO_REGION_TYPE_PROVINCE")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeQuarter
+ *        The geographic region is a quarter. (Value: "GEO_REGION_TYPE_QUARTER")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeRegion
+ *        The geographic region type is region. (Value:
+ *        "GEO_REGION_TYPE_REGION")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeState
+ *        The geographic region is a state. (Value: "GEO_REGION_TYPE_STATE")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeSubDistrict
+ *        The geographic region is a sub district. (Value:
+ *        "GEO_REGION_TYPE_SUB_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeSubWard
+ *        The geographic region is a sub ward. (Value:
+ *        "GEO_REGION_TYPE_SUB_WARD")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeTerritory
+ *        The geographic region is a territory. (Value:
+ *        "GEO_REGION_TYPE_TERRITORY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeTvRegion
+ *        The geographic region is a TV region. (Value:
+ *        "GEO_REGION_TYPE_TV_REGION")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUnionTerritory
+ *        The geographic region is a union territory. (Value:
+ *        "GEO_REGION_TYPE_UNION_TERRITORY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUniversity
+ *        The geographic region is a university. (Value:
+ *        "GEO_REGION_TYPE_UNIVERSITY")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeUnknown
+ *        The geographic region type is unknown. (Value:
+ *        "GEO_REGION_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeWard
+ *        The geographic region is a ward. (Value: "GEO_REGION_TYPE_WARD")
+ */
+@property(nonatomic, copy, nullable) NSString *geoRegionType;
+
+/** Output only. The resource name of the plannable location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The plannable location ID.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *plannableLocationId;
+
+/**
+ *  Output only. The region code of the location, for example "DZ" for Algeria.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Targeting capabilities for a given product.
+ */
+@interface GTLRDisplayVideo_PlannableTargeting : GTLRObject
+
+/**
+ *  Output only. Allowed plannable age ranges for the product. Actual targeting
+ *  is computed by mapping this age range onto standard Google age targeting.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ageRanges;
+
+/** Output only. Targetable devices for the ad product. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *devices;
+
+/** Output only. Targetable genders for the ad product. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *genders;
+
+/** Output only. Targetable networks for the ad product. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *networks;
+
+/** Output only. Targetable surface combinations for the ad product. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_SurfaceTargetingCombinations *surfaceTargetingCombinations;
+
+/** Output only. Targetable YouTube Select Lineups for the ad product. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_YouTubeSelectLineUp *> *youtubeSelectLineups;
+
+@end
+
+
+/**
+ *  A plannable user interest used for targeting.
+ */
+@interface GTLRDisplayVideo_PlannableUserInterest : GTLRObject
+
+/**
+ *  Output only. The identifier for the user interest. The product_category
+ *  specified in the request dictates the field populated in the object. *
+ *  user_interest_category is populated for "Youtube". * user_interest_user_list
+ *  is populated for "Open Auction".
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_UserInterest *userInterest;
+
+/**
+ *  Output only. The display name of the interest, for example "Outdoor
+ *  Enthusiasts".
+ */
+@property(nonatomic, copy, nullable) NSString *userInterestDisplayName;
+
+/** Output only. The category path of the interest. */
+@property(nonatomic, copy, nullable) NSString *userInterestPath;
+
+/** Output only. The type of audience, e.g., "AFFINITY", "IN_MARKET". */
+@property(nonatomic, copy, nullable) NSString *userInterestType;
+
+@end
+
+
+/**
+ *  A plannable user list used for reach forecasting.
+ */
+@interface GTLRDisplayVideo_PlannableUserList : GTLRObject
+
+/** Output only. The display name of the user list. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The resource name identifying the user list. Format:
+ *  `advertisers/{advertiser_id}/userLists/{user_list_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The plannability status of the user list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PlannableUserList_PlannableStatus_Plannable The
+ *        user list is plannable. (Value: "PLANNABLE")
+ *    @arg @c kGTLRDisplayVideo_PlannableUserList_PlannableStatus_PlannableStatusUnspecified
+ *        Unspecified plannability status. (Value:
+ *        "PLANNABLE_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_PlannableUserList_PlannableStatus_Unplannable
+ *        The user list is unplannable. (Value: "UNPLANNABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *plannableStatus;
+
+/**
+ *  Output only. The type of the user list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PlannableUserList_UserListType_FirstParty A
+ *        first-party user list. (Value: "FIRST_PARTY")
+ *    @arg @c kGTLRDisplayVideo_PlannableUserList_UserListType_ThirdParty A
+ *        third-party user list. (Value: "THIRD_PARTY")
+ *    @arg @c kGTLRDisplayVideo_PlannableUserList_UserListType_UserListTypeUnspecified
+ *        Unspecified user list type. (Value: "USER_LIST_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userListType;
+
+@end
+
+
+/**
+ *  Configuration for a specific product in the plan.
+ */
+@interface GTLRDisplayVideo_PlannedProduct : GTLRObject
+
+/** Optional. Optional line item level targeting overrides. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvancedProductTargeting *advancedProductTargeting;
+
+/**
+ *  Required. The budget for this product in micros.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *budgetMicros;
+
+/** Required. The code for the product, e.g. "VIDEO_REACH_CAMPAIGN". */
+@property(nonatomic, copy, nullable) NSString *plannableProductCode;
+
+@end
+
+
+/**
+ *  Performance metrics for a forecast point.
+ */
+@interface GTLRDisplayVideo_PlannedProductForecast : GTLRObject
+
+/** A list of effective frequency breakdowns. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_EffectiveFrequencyBreakdown *> *effectiveFrequencyBreakdowns;
+
+/**
+ *  Number of on-target impressions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onTargetImpressions;
+
+/**
+ *  Number of unique people reached that match the on-target definition.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onTargetReach;
+
+/**
+ *  Total number of impressions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalImpressions;
+
+/**
+ *  Total number of unique people reached.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalReach;
+
+/**
+ *  Number of TrueView views.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trueviewViews;
+
+/**
+ *  Number of viewable impressions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *viewableImpressions;
+
+@end
+
+
+/**
+ *  Performance forecast for a specific product.
+ */
+@interface GTLRDisplayVideo_PlannedProductReachForecast : GTLRObject
+
+/**
+ *  The cost in micros for this product.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costMicros;
+
+/** The code for the product. */
+@property(nonatomic, copy, nullable) NSString *plannableProductCode;
+
+/** Performance metrics for the product. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PlannedProductForecast *plannedProductForecast;
+
+@end
+
+
+/**
  *  Details for assigned POI targeting option. This will be populated in the
  *  details field of an AssignedTargetingOption when targeting_type is
  *  `TARGETING_TYPE_POI`.
@@ -33446,6 +35513,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Metadata for a plannable product.
+ */
+@interface GTLRDisplayVideo_ProductMetadata : GTLRObject
+
+/**
+ *  Output only. The name associated with the ad product. For example: "Video
+ *  View Campaign".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. The plannable product code (e.g. "YOUTUBE_REACH_MIX"). */
+@property(nonatomic, copy, nullable) NSString *plannableProductCode;
+
+/** Output only. The plain-text description of the ad product. */
+@property(nonatomic, copy, nullable) NSString *plannableProductDescription;
+
+/** Output only. The targeting capabilities available for this product. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PlannableTargeting *plannableTargeting;
+
+@end
+
+
+/**
  *  Targeting details for proximity location list. This will be populated in the
  *  details field of an AssignedTargetingOption when targeting_type is
  *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST`.
@@ -33537,6 +35627,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unitsPurchased;
+
+@end
+
+
+/**
+ *  The generated reach curve.
+ */
+@interface GTLRDisplayVideo_ReachCurve : GTLRObject
+
+/** Points along the curve, ordered by cost. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ReachForecast *> *reachForecasts;
+
+@end
+
+
+/**
+ *  A single point in the reach curve.
+ */
+@interface GTLRDisplayVideo_ReachForecast : GTLRObject
+
+/**
+ *  Total cost for this point in micros.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costMicros;
+
+/** Aggregate forecast for the entire plan. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PlannedProductForecast *forecast;
+
+/** Breakdown for individual products at this cost point. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PlannedProductReachForecast *> *plannedProductReachForecasts;
 
 @end
 
@@ -33653,6 +35775,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** The list of sites in the channel after replacing. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Site *> *sites;
+
+@end
+
+
+/**
+ *  Response for RetrievePlannableLocations
+ */
+@interface GTLRDisplayVideo_RetrievePlannableLocationsResponse : GTLRObject
+
+/** Output only. The list of plannable locations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PlannableLocation *> *plannableLocations;
+
+@end
+
+
+/**
+ *  Response for RetrievePlannableProducts
+ */
+@interface GTLRDisplayVideo_RetrievePlannableProductsResponse : GTLRObject
+
+/**
+ *  Output only. The list of product metadata showing targeting possibilities.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ProductMetadata *> *productMetadata;
+
+@end
+
+
+/**
+ *  Response for RetrievePlannableUserInterests.
+ */
+@interface GTLRDisplayVideo_RetrievePlannableUserInterestsResponse : GTLRObject
+
+/** The list of plannable user interests (Google Audiences). */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PlannableUserInterest *> *plannableUserInterests;
+
+@end
+
+
+/**
+ *  Response for RetrievePlannableUserLists.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "plannableUserLists" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_RetrievePlannableUserListsResponse : GTLRCollectionObject
+
+/** Output only. A token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. The list of plannable user lists.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PlannableUserList *> *plannableUserLists;
 
 @end
 
@@ -33783,6 +35964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Required. The version of SDF being used.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion10 SDF version 10.
+ *        (Value: "SDF_VERSION_10")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion31 SDF version 3.1
  *        (Value: "SDF_VERSION_3_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion4 SDF version 4
@@ -33869,6 +36052,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The SDF version used to execute this download task.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion10 SDF
+ *        version 10. (Value: "SDF_VERSION_10")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion31 SDF
  *        version 3.1 (Value: "SDF_VERSION_3_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion4 SDF
@@ -34370,6 +36555,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  A valid combination of surfaces.
+ */
+@interface GTLRDisplayVideo_SurfaceTargetingCombination : GTLRObject
+
+/** Output only. The combination of surfaces. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *choices;
+
+@end
+
+
+/**
+ *  Surface targeting rules.
+ */
+@interface GTLRDisplayVideo_SurfaceTargetingCombinations : GTLRObject
+
+/** Output only. The surface types available. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableSurfaceTypes;
+
+/**
+ *  Output only. Valid combinations of surfaces that can be selected together.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_SurfaceTargetingCombination *> *validSurfaceCombinations;
+
+@end
+
+
+/**
+ *  Surface targeting selection.
+ */
+@interface GTLRDisplayVideo_SurfaceTargetingSettings : GTLRObject
+
+/** Optional. The surfaces to target. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *surfaces;
+
+@end
+
+
+/**
  *  Setting that controls the average number of times the ads will show to the
  *  same person over a certain period of time.
  */
@@ -34420,6 +36643,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timeUnitCount;
+
+@end
+
+
+/**
+ *  Targeting settings for a planned campaign.
+ */
+@interface GTLRDisplayVideo_Targeting : GTLRObject
+
+/**
+ *  Optional. The age range to target.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1824 18 to
+ *        24 years old. (Value: "PLANNABLE_AGE_RANGE_18_24")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1834 18 to
+ *        34 years old. (Value: "PLANNABLE_AGE_RANGE_18_34")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1844 18 to
+ *        44 years old. (Value: "PLANNABLE_AGE_RANGE_18_44")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1849 18 to
+ *        49 years old. (Value: "PLANNABLE_AGE_RANGE_18_49")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1854 18 to
+ *        54 years old. (Value: "PLANNABLE_AGE_RANGE_18_54")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1864 18 to
+ *        64 years old. (Value: "PLANNABLE_AGE_RANGE_18_64")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange1865Up 18 to
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_18_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2134 21 to
+ *        34 years old. (Value: "PLANNABLE_AGE_RANGE_21_34")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2144 21 to
+ *        44 years old. (Value: "PLANNABLE_AGE_RANGE_21_44")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2149 21 to
+ *        49 years old. (Value: "PLANNABLE_AGE_RANGE_21_49")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2154 21 to
+ *        54 years old. (Value: "PLANNABLE_AGE_RANGE_21_54")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2164 21 to
+ *        64 years old. (Value: "PLANNABLE_AGE_RANGE_21_64")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2165Up 21 to
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_21_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2534 25 to
+ *        34 years old. (Value: "PLANNABLE_AGE_RANGE_25_34")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2544 25 to
+ *        44 years old. (Value: "PLANNABLE_AGE_RANGE_25_44")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2549 25 to
+ *        49 years old. (Value: "PLANNABLE_AGE_RANGE_25_49")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2554 25 to
+ *        54 years old. (Value: "PLANNABLE_AGE_RANGE_25_54")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2564 25 to
+ *        64 years old. (Value: "PLANNABLE_AGE_RANGE_25_64")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange2565Up 25 to
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_25_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3544 35 to
+ *        44 years old. (Value: "PLANNABLE_AGE_RANGE_35_44")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3549 35 to
+ *        49 years old. (Value: "PLANNABLE_AGE_RANGE_35_49")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3554 35 to
+ *        54 years old. (Value: "PLANNABLE_AGE_RANGE_35_54")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3564 35 to
+ *        64 years old. (Value: "PLANNABLE_AGE_RANGE_35_64")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange3565Up 35 to
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_35_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4554 45 to
+ *        54 years old. (Value: "PLANNABLE_AGE_RANGE_45_54")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4564 45 to
+ *        64 years old. (Value: "PLANNABLE_AGE_RANGE_45_64")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange4565Up 45 to
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_45_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5065Up 50 to
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_50_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5564 55 to
+ *        64 years old. (Value: "PLANNABLE_AGE_RANGE_55_64")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange5565Up 55 to
+ *        65+ years old. (Value: "PLANNABLE_AGE_RANGE_55_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRange65Up 65+
+ *        years old. (Value: "PLANNABLE_AGE_RANGE_65_UP")
+ *    @arg @c kGTLRDisplayVideo_Targeting_AgeRange_PlannableAgeRangeUnspecified
+ *        Not specified. (Value: "PLANNABLE_AGE_RANGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ageRange;
+
+/** Optional. The devices to target. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *devices;
+
+/** Optional. The gender options to target. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *genders;
+
+/**
+ *  Required. IDs of plannable locations to target. Plannable locations can be
+ *  retrieved using the `RetrievePlannableLocations` method.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *plannableLocationIds;
 
 @end
 
@@ -34483,9 +36799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. Whether to exclude demographic expansion for Optimized Targeting.
  *  This field can only be set for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently in beta. This field will
- *  begin rolling out to all partners on *June 10, 2026* and be available to all
- *  partners on *June 24, 2026*.
+ *  management of Demand Gen resources is currently rolling out. This field will
+ *  be available to all partners by *June 24, 2026*.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -34767,6 +37082,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        cannot be created or updated using the API. Although this targeting is
  *        inherited by child resources, **inherited targeting of this type will
  *        not be retrieveable**. (Value: "TARGETING_TYPE_YOUTUBE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeChannelPack
+ *        Target ads to a specific YouTube channel pack. (Value:
+ *        "TARGETING_TYPE_YOUTUBE_CHANNEL_PACK")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeYoutubeVideo
  *        Target ads to a specific YouTube video. Targeting of this type cannot
  *        be created or updated using the API. Although this targeting is
@@ -35262,6 +37580,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *userId;
+
+@end
+
+
+/**
+ *  The identifier for a user interest.
+ */
+@interface GTLRDisplayVideo_UserInterest : GTLRObject
+
+/**
+ *  Output only. The resource name of the interest category. Populated when
+ *  `product_category` is "Youtube". Format:
+ *  customers/{customer_id}/userInterests/{user_interest_id}
+ */
+@property(nonatomic, copy, nullable) NSString *userInterestCategory;
+
+/**
+ *  Output only. The resource name of the user list. Populated when
+ *  `product_category` is "Open Auction". Format:
+ *  customers/{customer_id}/userLists/{user_list_id}
+ */
+@property(nonatomic, copy, nullable) NSString *userInterestUserList;
 
 @end
 
@@ -36192,6 +38532,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *negative;
+
+@end
+
+
+/**
+ *  Details for YouTube channel pack assigned targeting option. This will be
+ *  populated in the youtube_channel_pack_details field when targeting_type is
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL_PACK`.
+ */
+@interface GTLRDisplayVideo_YoutubeChannelPackAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Required. The ID of the YouTube channel pack.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *channelPackId;
+
+/**
+ *  Optional. Indicates if this option is being negatively targeted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *negative;
+
+@end
+
+
+/**
+ *  A Plannable YouTube Select Lineup for product targeting.
+ */
+@interface GTLRDisplayVideo_YouTubeSelectLineUp : GTLRObject
+
+/** Output only. The display name of the YouTube Select Lineup. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The ID of the YouTube Select Lineup.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineupId;
+
+@end
+
+
+/**
+ *  Settings for YouTube Select Lineups.
+ */
+@interface GTLRDisplayVideo_YouTubeSelectSettings : GTLRObject
+
+/**
+ *  Optional. The ID of the YouTube Select Lineup.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineupId;
 
 @end
 

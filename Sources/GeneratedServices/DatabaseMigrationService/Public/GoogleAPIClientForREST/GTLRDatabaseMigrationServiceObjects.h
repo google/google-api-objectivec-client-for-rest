@@ -93,6 +93,7 @@
 @class GTLRDatabaseMigrationService_MultiColumnDatatypeChange_CustomFeatures;
 @class GTLRDatabaseMigrationService_MultiEntityRename;
 @class GTLRDatabaseMigrationService_MySqlConnectionProfile;
+@class GTLRDatabaseMigrationService_MySqlHomogeneousConfig;
 @class GTLRDatabaseMigrationService_Operation;
 @class GTLRDatabaseMigrationService_Operation_Metadata;
 @class GTLRDatabaseMigrationService_Operation_Response;
@@ -1985,6 +1986,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Cdc;
 /**
+ *  The migration job object is creating a fully managed backup of the source.
+ *
+ *  Value: "CREATING_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_CreatingBackup;
+/**
  *  The migration job object is in the differential backup phase.
  *
  *  Value: "DIFF_BACKUP"
@@ -2020,6 +2027,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObj
  *  Value: "READY_FOR_PROMOTE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_ReadyForPromote;
+/**
+ *  The migration job object is restoring a fully managed backup to the
+ *  destination.
+ *
+ *  Value: "RESTORING_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobObject_Phase_RestoringBackup;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_MigrationJobObject.state
@@ -5982,6 +5996,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MigrationJob_Labels *labels;
 
+/** Optional. Configuration for MySQL homogeneous migration. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_MySqlHomogeneousConfig *mysqlHomogeneousConfig;
+
 /**
  *  The name (URI) of this migration job resource, in the form of:
  *  projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
@@ -6199,6 +6216,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Likely values:
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_Cdc The
  *        migration job object is in CDC phase. (Value: "CDC")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_CreatingBackup
+ *        The migration job object is creating a fully managed backup of the
+ *        source. (Value: "CREATING_BACKUP")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_DiffBackup
  *        The migration job object is in the differential backup phase. (Value:
  *        "DIFF_BACKUP")
@@ -6216,6 +6236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_ReadyForPromote
  *        The migration job object is ready to be promoted. (Value:
  *        "READY_FOR_PROMOTE")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobObject_Phase_RestoringBackup
+ *        The migration job object is restoring a fully managed backup to the
+ *        destination. (Value: "RESTORING_BACKUP")
  */
 @property(nonatomic, copy, nullable) NSString *phase;
 
@@ -6553,6 +6576,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Service.
  */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Configuration for MySQL to MySQL migrations.
+ */
+@interface GTLRDatabaseMigrationService_MySqlHomogeneousConfig : GTLRObject
+
+/**
+ *  Optional. Whether the destination for the migration job is a primary
+ *  instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPrimaryDestination;
 
 @end
 

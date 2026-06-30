@@ -17,6 +17,7 @@
 @class GTLRThreatIntelligenceService_Alert;
 @class GTLRThreatIntelligenceService_AlertDetail;
 @class GTLRThreatIntelligenceService_AlertDocumentTranslation;
+@class GTLRThreatIntelligenceService_Association;
 @class GTLRThreatIntelligenceService_Audit;
 @class GTLRThreatIntelligenceService_Configuration;
 @class GTLRThreatIntelligenceService_ConfigurationDetail;
@@ -47,10 +48,17 @@
 @class GTLRThreatIntelligenceService_Operation_Metadata;
 @class GTLRThreatIntelligenceService_Operation_Response;
 @class GTLRThreatIntelligenceService_PriorityAnalysis;
+@class GTLRThreatIntelligenceService_ProductFix;
+@class GTLRThreatIntelligenceService_PublicExploit;
 @class GTLRThreatIntelligenceService_RelevanceAnalysis;
 @class GTLRThreatIntelligenceService_SeverityAnalysis;
 @class GTLRThreatIntelligenceService_Status;
 @class GTLRThreatIntelligenceService_Status_Details_Item;
+@class GTLRThreatIntelligenceService_TargetTechnologyAlertDetail;
+@class GTLRThreatIntelligenceService_TargetTechnologyFindingDetail;
+@class GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold;
+@class GTLRThreatIntelligenceService_TechnologyWatchListConfig;
+@class GTLRThreatIntelligenceService_VulnerabilityMatch;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -131,6 +139,58 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_State_Tr
  *  Value: "TRIAGED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_State_Triaged;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_Association.type
+
+/**
+ *  Campaign object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_CAMPAIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeCampaign;
+/**
+ *  IoC Collection object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_IOC_COLLECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeIocCollection;
+/**
+ *  Malware object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeMalware;
+/**
+ *  Report object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_REPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeReport;
+/**
+ *  Software and toolkits object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_SOFTWARE_AND_TOOLKITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeSoftwareAndToolkits;
+/**
+ *  Threat actor object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_THREAT_ACTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeThreatActor;
+/**
+ *  Unspecified object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeUnspecified;
+/**
+ *  Vulnerability object type.
+ *
+ *  Value: "THREAT_INTEL_OBJECT_TYPE_VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeVulnerability;
 
 // ----------------------------------------------------------------------------
 // GTLRThreatIntelligenceService_Configuration.state
@@ -305,6 +365,80 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PriorityAnalys
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PriorityAnalysis_PriorityLevel_PriorityLevelUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_PublicExploit.exploitGrade
+
+/**
+ *  Unspecified exploit grade.
+ *
+ *  Value: "EXPLOIT_GRADE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_ExploitGradeUnspecified;
+/**
+ *  Fake exploit grade.
+ *
+ *  Value: "FAKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Fake;
+/**
+ *  Non-weaponized exploit grade.
+ *
+ *  Value: "NON_WEAPONIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_NonWeaponized;
+/**
+ *  Proof-of-concept exploit grade.
+ *
+ *  Value: "PROOF_OF_CONCEPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_ProofOfConcept;
+/**
+ *  Scanner exploit grade.
+ *
+ *  Value: "SCANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Scanner;
+/**
+ *  Unevaluated exploit grade.
+ *
+ *  Value: "UNEVALUATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Unevaluated;
+/**
+ *  Weaponized exploit grade.
+ *
+ *  Value: "WEAPONIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Weaponized;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_PublicExploit.exploitReliability
+
+/**
+ *  Unspecified exploit reliability.
+ *
+ *  Value: "EXPLOIT_RELIABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_ExploitReliabilityUnspecified;
+/**
+ *  Uncorroborated exploit reliability.
+ *
+ *  Value: "REVIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Reviewed;
+/**
+ *  Unconfirmed exploit reliability.
+ *
+ *  Value: "TESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Tested;
+/**
+ *  Confirmed exploit reliability.
+ *
+ *  Value: "UNREVIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Unreviewed;
+
+// ----------------------------------------------------------------------------
 // GTLRThreatIntelligenceService_RelevanceAnalysis.confidence
 
 /**
@@ -415,6 +549,444 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
  *  Value: "SEVERITY_LEVEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalysis_SeverityLevel_SeverityLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold.exploitationStates
+
+/**
+ *  Exploitation is confirmed.
+ *
+ *  Value: "EXPLOITATION_STATE_CONFIRMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateConfirmed;
+/**
+ *  No known exploitation.
+ *
+ *  Value: "EXPLOITATION_STATE_NO_KNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateNoKnown;
+/**
+ *  Exploitation has been reported.
+ *
+ *  Value: "EXPLOITATION_STATE_REPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateReported;
+/**
+ *  Exploitation is suspected.
+ *
+ *  Value: "EXPLOITATION_STATE_SUSPECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateSuspected;
+/**
+ *  Unspecified exploitation state.
+ *
+ *  Value: "EXPLOITATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateUnspecified;
+/**
+ *  Widespread exploitation.
+ *
+ *  Value: "EXPLOITATION_STATE_WIDESPREAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_ExploitationStates_ExploitationStateWidespread;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold.priorityMinimum
+
+/**
+ *  Priority level 0.
+ *
+ *  Value: "P0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P0;
+/**
+ *  Priority level 1.
+ *
+ *  Value: "P1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P1;
+/**
+ *  Priority level 2.
+ *
+ *  Value: "P2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P2;
+/**
+ *  Priority level 3.
+ *
+ *  Value: "P3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P3;
+/**
+ *  Priority level 4.
+ *
+ *  Value: "P4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P4;
+/**
+ *  Unspecified priority.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_PriorityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold.riskRatingMinimum
+
+/**
+ *  Critical risk rating.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Critical;
+/**
+ *  High risk rating.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_High;
+/**
+ *  Low risk rating.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Low;
+/**
+ *  Medium risk rating.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Medium;
+/**
+ *  Unspecified risk rating. This is the default value when the risk rating is
+ *  not set.
+ *
+ *  Value: "RISK_RATING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_RiskRatingUnspecified;
+/**
+ *  The vulnerability has been assessed, but a specific risk rating could not be
+ *  determined or assigned.
+ *
+ *  Value: "UNRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Unrated;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_VulnerabilityMatch.exploitationConsequences
+
+/**
+ *  Code execution consequence.
+ *
+ *  Value: "CODE_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_CodeExecution;
+/**
+ *  Command execution consequence.
+ *
+ *  Value: "COMMAND_EXECUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_CommandExecution;
+/**
+ *  Container escape consequence.
+ *
+ *  Value: "CONTAINER_ESCAPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_ContainerEscape;
+/**
+ *  Data loss consequence.
+ *
+ *  Value: "DATA_LOSS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_DataLoss;
+/**
+ *  Data manipulation consequence.
+ *
+ *  Value: "DATA_MANIPULATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_DataManipulation;
+/**
+ *  Denial-of-Service consequence.
+ *
+ *  Value: "DENIAL_OF_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_DenialOfService;
+/**
+ *  Unspecified exploitation consequence.
+ *
+ *  Value: "EXPLOITATION_CONSEQUENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_ExploitationConsequenceUnspecified;
+/**
+ *  Information disclosure consequence.
+ *
+ *  Value: "INFORMATION_DISCLOSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_InformationDisclosure;
+/**
+ *  Privilege escalation consequence.
+ *
+ *  Value: "PRIVILEGE_ESCALATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_PrivilegeEscalation;
+/**
+ *  Sandbox escape consequence.
+ *
+ *  Value: "SANDBOX_ESCAPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_SandboxEscape;
+/**
+ *  Security bypass consequence.
+ *
+ *  Value: "SECURITY_BYPASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_SecurityBypass;
+/**
+ *  Spoofing consequence.
+ *
+ *  Value: "SPOOFING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_Spoofing;
+/**
+ *  Unauthorized access consequence.
+ *
+ *  Value: "UNAUTHORIZED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationConsequences_UnauthorizedAccess;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_VulnerabilityMatch.exploitationState
+
+/**
+ *  Exploitation is confirmed.
+ *
+ *  Value: "EXPLOITATION_STATE_CONFIRMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateConfirmed;
+/**
+ *  No known exploitation.
+ *
+ *  Value: "EXPLOITATION_STATE_NO_KNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateNoKnown;
+/**
+ *  Exploitation has been reported.
+ *
+ *  Value: "EXPLOITATION_STATE_REPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateReported;
+/**
+ *  Exploitation is suspected.
+ *
+ *  Value: "EXPLOITATION_STATE_SUSPECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateSuspected;
+/**
+ *  Unspecified exploitation state.
+ *
+ *  Value: "EXPLOITATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateUnspecified;
+/**
+ *  Widespread exploitation.
+ *
+ *  Value: "EXPLOITATION_STATE_WIDESPREAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateWidespread;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_VulnerabilityMatch.exploitationVectors
+
+/**
+ *  Administrative interface vector.
+ *
+ *  Value: "ADMINISTRATIVE_INTERFACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_AdministrativeInterface;
+/**
+ *  Bluetooth access vector.
+ *
+ *  Value: "BLUETOOTH_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_BluetoothAccess;
+/**
+ *  Browser vector.
+ *
+ *  Value: "BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_Browser;
+/**
+ *  Compromised communication channel vector.
+ *
+ *  Value: "COMPROMISED_COMMUNICATION_CHANNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_CompromisedCommunicationChannel;
+/**
+ *  Email vector.
+ *
+ *  Value: "EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_Email;
+/**
+ *  Unspecified exploitation vector.
+ *
+ *  Value: "EXPLOITATION_VECTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_ExploitationVectorUnspecified;
+/**
+ *  Exposed web application vector.
+ *
+ *  Value: "EXPOSED_WEB_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_ExposedWebApplication;
+/**
+ *  Local network access vector.
+ *
+ *  Value: "LOCAL_NETWORK_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_LocalNetworkAccess;
+/**
+ *  Malicious application vector.
+ *
+ *  Value: "MALICIOUS_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_MaliciousApplication;
+/**
+ *  Malicious file vector.
+ *
+ *  Value: "MALICIOUS_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_MaliciousFile;
+/**
+ *  Malicious server vector.
+ *
+ *  Value: "MALICIOUS_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_MaliciousServer;
+/**
+ *  Open port vector.
+ *
+ *  Value: "OPEN_PORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_OpenPort;
+/**
+ *  Physical access vector.
+ *
+ *  Value: "PHYSICAL_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_PhysicalAccess;
+/**
+ *  Short range radio vector.
+ *
+ *  Value: "SHORT_RANGE_RADIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_ShortRangeRadio;
+/**
+ *  Unspecified local vector.
+ *
+ *  Value: "UNSPECIFIED_LOCAL_VECTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_UnspecifiedLocalVector;
+/**
+ *  Unspecified remote vector.
+ *
+ *  Value: "UNSPECIFIED_REMOTE_VECTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_UnspecifiedRemoteVector;
+/**
+ *  VPN access vector.
+ *
+ *  Value: "VPN_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_VpnAccess;
+/**
+ *  WiFi access vector.
+ *
+ *  Value: "WIFI_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationVectors_WifiAccess;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_VulnerabilityMatch.priority
+
+/**
+ *  Priority level 0.
+ *
+ *  Value: "P0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P0;
+/**
+ *  Priority level 1.
+ *
+ *  Value: "P1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P1;
+/**
+ *  Priority level 2.
+ *
+ *  Value: "P2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P2;
+/**
+ *  Priority level 3.
+ *
+ *  Value: "P3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P3;
+/**
+ *  Priority level 4.
+ *
+ *  Value: "P4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P4;
+/**
+ *  Unspecified priority.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_PriorityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_VulnerabilityMatch.riskRating
+
+/**
+ *  Critical risk rating.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Critical;
+/**
+ *  High risk rating.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_High;
+/**
+ *  Low risk rating.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Low;
+/**
+ *  Medium risk rating.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Medium;
+/**
+ *  Unspecified risk rating. This is the default value when the risk rating is
+ *  not set.
+ *
+ *  Value: "RISK_RATING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_RiskRatingUnspecified;
+/**
+ *  The vulnerability has been assessed, but a specific risk rating could not be
+ *  determined or assigned.
+ *
+ *  Value: "UNRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Unrated;
 
 /**
  *  Stateful object representing a group of Findings. Key feature to an Alert is
@@ -546,6 +1118,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 /** Insider Threat alert detail type. */
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_InsiderThreatAlertDetail *insiderThreat;
 
+/** Technology Watchlist alert detail type. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_TargetTechnologyAlertDetail *targetTechnology;
+
 @end
 
 
@@ -612,6 +1187,49 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 
 /** Output only. The translated title of the document. */
 @property(nonatomic, copy, nullable) NSString *translatedTitle;
+
+@end
+
+
+/**
+ *  Represents an association with a vulnerability.
+ */
+@interface GTLRThreatIntelligenceService_Association : GTLRObject
+
+/**
+ *  Required. The ID of the association.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. The type of the association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeCampaign
+ *        Campaign object type. (Value: "THREAT_INTEL_OBJECT_TYPE_CAMPAIGN")
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeIocCollection
+ *        IoC Collection object type. (Value:
+ *        "THREAT_INTEL_OBJECT_TYPE_IOC_COLLECTION")
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeMalware
+ *        Malware object type. (Value: "THREAT_INTEL_OBJECT_TYPE_MALWARE")
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeReport
+ *        Report object type. (Value: "THREAT_INTEL_OBJECT_TYPE_REPORT")
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeSoftwareAndToolkits
+ *        Software and toolkits object type. (Value:
+ *        "THREAT_INTEL_OBJECT_TYPE_SOFTWARE_AND_TOOLKITS")
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeThreatActor
+ *        Threat actor object type. (Value:
+ *        "THREAT_INTEL_OBJECT_TYPE_THREAT_ACTOR")
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeUnspecified
+ *        Unspecified object type. (Value:
+ *        "THREAT_INTEL_OBJECT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeVulnerability
+ *        Vulnerability object type. (Value:
+ *        "THREAT_INTEL_OBJECT_TYPE_VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -719,6 +1337,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
  *  creation to the name of the field that is set in the detail union.
  */
 @property(nonatomic, copy, nullable) NSString *detailType;
+
+/** Technology Watchlist detail config. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_TechnologyWatchListConfig *technologyWatchlist;
 
 @end
 
@@ -1252,6 +1873,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 /** Insider Threat finding detail type. */
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_InsiderThreatFindingDetail *insiderThreat;
 
+/** Technology Watchlist finding detail type. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_TargetTechnologyFindingDetail *targetTechnology;
+
 @end
 
 
@@ -1688,6 +2312,87 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 
 
 /**
+ *  Contains details about a product fix.
+ */
+@interface GTLRThreatIntelligenceService_ProductFix : GTLRObject
+
+/** Required. The name of the fix. Ex: "Magento". */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. The published time of the fix. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
+
+/** Required. The source ID of the fix. Ex: "APPSEC-1420". */
+@property(nonatomic, copy, nullable) NSString *sourceId;
+
+/** Optional. The URI of the fix. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Contains details about a public exploit.
+ */
+@interface GTLRThreatIntelligenceService_PublicExploit : GTLRObject
+
+/**
+ *  Optional. The grade of the exploit. Ex: "non-weaponized".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_ExploitGradeUnspecified
+ *        Unspecified exploit grade. (Value: "EXPLOIT_GRADE_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Fake
+ *        Fake exploit grade. (Value: "FAKE")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_NonWeaponized
+ *        Non-weaponized exploit grade. (Value: "NON_WEAPONIZED")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_ProofOfConcept
+ *        Proof-of-concept exploit grade. (Value: "PROOF_OF_CONCEPT")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Scanner
+ *        Scanner exploit grade. (Value: "SCANNER")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Unevaluated
+ *        Unevaluated exploit grade. (Value: "UNEVALUATED")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitGrade_Weaponized
+ *        Weaponized exploit grade. (Value: "WEAPONIZED")
+ */
+@property(nonatomic, copy, nullable) NSString *exploitGrade;
+
+/** Required. The name of the exploit. Ex: "Magentounauth.php.txt". */
+@property(nonatomic, copy, nullable) NSString *exploitName;
+
+/**
+ *  Optional. The reliability of the exploit. Ex: "Unreviewed".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_ExploitReliabilityUnspecified
+ *        Unspecified exploit reliability. (Value:
+ *        "EXPLOIT_RELIABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Reviewed
+ *        Uncorroborated exploit reliability. (Value: "REVIEWED")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Tested
+ *        Unconfirmed exploit reliability. (Value: "TESTED")
+ *    @arg @c kGTLRThreatIntelligenceService_PublicExploit_ExploitReliability_Unreviewed
+ *        Confirmed exploit reliability. (Value: "UNREVIEWED")
+ */
+@property(nonatomic, copy, nullable) NSString *exploitReliability;
+
+/** Optional. The release time of the exploit. */
+@property(nonatomic, strong, nullable) GTLRDateTime *releaseTime;
+
+/**
+ *  Optional. The size of the exploit.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/** Optional. The URI of the exploit. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Structured relevance analysis for a threat.
  */
 @interface GTLRThreatIntelligenceService_RelevanceAnalysis : GTLRObject
@@ -1859,12 +2564,262 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 
 
 /**
+ *  Contains details for a technology watchlist alert.
+ */
+@interface GTLRThreatIntelligenceService_TargetTechnologyAlertDetail : GTLRObject
+
+/** Optional. The vulnerability match details. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_VulnerabilityMatch *vulnerabilityMatch;
+
+@end
+
+
+/**
+ *  Contains details for a technology watchlist finding.
+ */
+@interface GTLRThreatIntelligenceService_TargetTechnologyFindingDetail : GTLRObject
+
+/** Optional. The vulnerability match details. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_VulnerabilityMatch *vulnerabilityMatch;
+
+@end
+
+
+/**
+ *  TechnologyWatchListAlertThreshold contains the thresholds for alerting.
+ */
+@interface GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold : GTLRObject
+
+/**
+ *  Optional. The minimum CVSS score for the alert. Evaluates to CVSS v3 when
+ *  available with a fallback to v2 and v4. Ex: 7.0. Valid range is [0.0, 10.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cvssScoreMinimum;
+
+/**
+ *  Optional. The minimum epss score for the alert. Ex: 0.8. Valid range is
+ *  [0.0, 1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *epssScoreMinimum;
+
+/** Optional. The exploitation states of the alert. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exploitationStates;
+
+/**
+ *  Optional. The minimum priority for the alert.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P0
+ *        Priority level 0. (Value: "P0")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P1
+ *        Priority level 1. (Value: "P1")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P2
+ *        Priority level 2. (Value: "P2")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P3
+ *        Priority level 3. (Value: "P3")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_P4
+ *        Priority level 4. (Value: "P4")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_PriorityMinimum_PriorityUnspecified
+ *        Unspecified priority. (Value: "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priorityMinimum;
+
+/**
+ *  Optional. The minimum risk rating for the alert.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Critical
+ *        Critical risk rating. (Value: "CRITICAL")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_High
+ *        High risk rating. (Value: "HIGH")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Low
+ *        Low risk rating. (Value: "LOW")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Medium
+ *        Medium risk rating. (Value: "MEDIUM")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_RiskRatingUnspecified
+ *        Unspecified risk rating. This is the default value when the risk
+ *        rating is not set. (Value: "RISK_RATING_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold_RiskRatingMinimum_Unrated
+ *        The vulnerability has been assessed, but a specific risk rating could
+ *        not be determined or assigned. (Value: "UNRATED")
+ */
+@property(nonatomic, copy, nullable) NSString *riskRatingMinimum;
+
+@end
+
+
+/**
+ *  TechnologyWatchListConfig is the configuration for the technology watchlist.
+ */
+@interface GTLRThreatIntelligenceService_TechnologyWatchListConfig : GTLRObject
+
+/** Optional. Alert thresholds to effectively reduce noise. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold *alertThreshold;
+
+/**
+ *  Optional. List of vendor, technology or cpe fingerprint. example: Microsoft
+ *  office 360 Apache Server 3.5 cpe:2.3:a:microsoft:outlook:*:*:*:*:*:*:*:*
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *technologies;
+
+@end
+
+
+/**
  *  Response message for UpsertConfiguration.
  */
 @interface GTLRThreatIntelligenceService_UpsertConfigurationResponse : GTLRObject
 
 /** Output only. Created configuration ID with server assigned id. */
 @property(nonatomic, copy, nullable) NSString *configuration;
+
+@end
+
+
+/**
+ *  Contains details about a vulnerability match.
+ */
+@interface GTLRThreatIntelligenceService_VulnerabilityMatch : GTLRObject
+
+/**
+ *  Optional. Associated threat actors, malware, etc. This is embedded as a
+ *  snapshot because the details of the association at the time of the
+ *  vulnerability match are important for context and reporting.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_Association *> *associations;
+
+/**
+ *  Required. The collection ID of the vulnerability. Ex:
+ *  "vulnerability--cve-2025-9876".
+ */
+@property(nonatomic, copy, nullable) NSString *collectionId;
+
+/**
+ *  Required. The CVE ID of the vulnerability. Ex: "CVE-2025-9876". See
+ *  https://www.cve.org/ for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *cveId;
+
+/**
+ *  Required. The CVSS score of the vulnerability. Evaluates to CVSS v3 when
+ *  available with a fallback to v2 and v4. Example: 6.4.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cvss3Score;
+
+/**
+ *  Required. A description of the vulnerability.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. The disclosure time of the vulnerability. */
+@property(nonatomic, strong, nullable) GTLRDateTime *disclosureTime;
+
+/**
+ *  Optional. The EPSS score, representing the probability of exploitation.
+ *  Example: 0.87.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *epssScore;
+
+/** Optional. List of exploitation consequences for the vulnerability. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exploitationConsequences;
+
+/**
+ *  Required. The exploitation state of the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateConfirmed
+ *        Exploitation is confirmed. (Value: "EXPLOITATION_STATE_CONFIRMED")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateNoKnown
+ *        No known exploitation. (Value: "EXPLOITATION_STATE_NO_KNOWN")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateReported
+ *        Exploitation has been reported. (Value: "EXPLOITATION_STATE_REPORTED")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateSuspected
+ *        Exploitation is suspected. (Value: "EXPLOITATION_STATE_SUSPECTED")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateUnspecified
+ *        Unspecified exploitation state. (Value:
+ *        "EXPLOITATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_ExploitationState_ExploitationStateWidespread
+ *        Widespread exploitation. (Value: "EXPLOITATION_STATE_WIDESPREAD")
+ */
+@property(nonatomic, copy, nullable) NSString *exploitationState;
+
+/** Optional. List of exploitation vectors for the vulnerability. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exploitationVectors;
+
+/**
+ *  Optional. The specific technologies from the configured watchlist that
+ *  triggered the match. Ex: "Apache Struts".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *matchedTechnologies;
+
+/**
+ *  Optional. The priority level of the vulnerability data. Ex: "P1".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P0
+ *        Priority level 0. (Value: "P0")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P1
+ *        Priority level 1. (Value: "P1")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P2
+ *        Priority level 2. (Value: "P2")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P3
+ *        Priority level 3. (Value: "P3")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_P4
+ *        Priority level 4. (Value: "P4")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_Priority_PriorityUnspecified
+ *        Unspecified priority. (Value: "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
+
+/** Optional. List of product fixes for the vulnerability. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_ProductFix *> *productFixes;
+
+/** Optional. List of public exploits. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_PublicExploit *> *publicExploits;
+
+/**
+ *  Output only. Whether a publicly available exploit exists.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publiclyAvailableExploit;
+
+/**
+ *  Required. The risk rating of the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Critical
+ *        Critical risk rating. (Value: "CRITICAL")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_High
+ *        High risk rating. (Value: "HIGH")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Low
+ *        Low risk rating. (Value: "LOW")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Medium
+ *        Medium risk rating. (Value: "MEDIUM")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_RiskRatingUnspecified
+ *        Unspecified risk rating. This is the default value when the risk
+ *        rating is not set. (Value: "RISK_RATING_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Unrated
+ *        The vulnerability has been assessed, but a specific risk rating could
+ *        not be determined or assigned. (Value: "UNRATED")
+ */
+@property(nonatomic, copy, nullable) NSString *riskRating;
+
+/**
+ *  Required. All technologies affected by the vulnerability. Ex: "Apache
+ *  Struts".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *technologies;
 
 @end
 

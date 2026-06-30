@@ -238,7 +238,7 @@
 
 @implementation GTLRLookerQuery_ProjectsLocationsInstancesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -331,6 +331,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLooker_Operation class];
   query.loggingName = @"looker.projects.locations.instances.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLRLookerQuery_ProjectsLocationsInstancesUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRLooker_UndeleteInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undelete";
+  GTLRLookerQuery_ProjectsLocationsInstancesUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLooker_Operation class];
+  query.loggingName = @"looker.projects.locations.instances.undelete";
   return query;
 }
 

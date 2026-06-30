@@ -16,6 +16,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContainerAnalysis_AISkillAnalysisOccurrence.maxSeverity
+NSString * const kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_High = @"HIGH";
+NSString * const kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRContainerAnalysis_AliasContext.kind
 NSString * const kGTLRContainerAnalysis_AliasContext_Kind_Fixed = @"FIXED";
 NSString * const kGTLRContainerAnalysis_AliasContext_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
@@ -252,6 +257,16 @@ NSString * const kGTLRContainerAnalysis_Distribution_Architecture_ArchitectureUn
 NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X64 = @"X64";
 NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86 = @"X86";
 
+// GTLRContainerAnalysis_Finding.scanner
+NSString * const kGTLRContainerAnalysis_Finding_Scanner_Llm    = @"LLM";
+NSString * const kGTLRContainerAnalysis_Finding_Scanner_ScannerUnspecified = @"SCANNER_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_Finding_Scanner_Static = @"STATIC";
+
+// GTLRContainerAnalysis_Finding.severity
+NSString * const kGTLRContainerAnalysis_Finding_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRContainerAnalysis_Finding_Severity_High  = @"HIGH";
+NSString * const kGTLRContainerAnalysis_Finding_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRContainerAnalysis_FixableTotalByDigest.severity
 NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_High = @"HIGH";
@@ -315,6 +330,7 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_L
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu32 = @"E2_HIGHCPU_32";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu8 = @"E2_HIGHCPU_8";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium = @"E2_MEDIUM";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Standard2 = @"E2_STANDARD_2";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32 = @"N1_HIGHCPU_32";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8 = @"N1_HIGHCPU_8";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";
@@ -1360,7 +1376,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_Finding
-@dynamic category, location, scanner, severity;
+@dynamic category, details, location, scanner, severity;
 @end
 
 
@@ -3559,8 +3575,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityNote
-@dynamic advisoryPublishTime, cvssScore, cvssV2, cvssV3, cvssVersion, details,
-         severity, sourceUpdateTime, windowsDetails;
+@dynamic advisoryPublishTime, cvssScore, cvssV2, cvssV3, cvssV4, cvssVersion,
+         details, severity, sourceUpdateTime, windowsDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3579,7 +3595,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityOccurrence
-@dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
+@dynamic cvssScore, cvssV2, cvssv3, cvssV4, cvssVersion, effectiveSeverity,
          extraDetails, fixAvailable, longDescription, packageIssue, relatedUrls,
          risk, severity, shortDescription, type, vexAssessment;
 

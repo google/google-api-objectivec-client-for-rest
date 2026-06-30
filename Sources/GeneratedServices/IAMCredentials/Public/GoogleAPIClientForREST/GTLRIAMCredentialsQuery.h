@@ -42,10 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations : GTLRIAMCredentialsQuery
 
-/**
- *  Required. Resource name of workforce pool. Format:
- *  `locations/global/workforcePools/{pool_id}`
- */
+/** Required. Resource name of workforce pool. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -53,8 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns the trust boundary info for a given workforce pool.
  *
- *  @param name Required. Resource name of workforce pool. Format:
- *    `locations/global/workforcePools/{pool_id}`
+ *  @param name Required. Resource name of workforce pool.
  *
  *  @return GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations
  */
@@ -69,10 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations : GTLRIAMCredentialsQuery
 
-/**
- *  Required. Resource name of workload identity pool. Format:
- *  `projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}`
- */
+/** Required. Resource name of workload identity pool. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -80,8 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns the trust boundary info for a given workload identity pool.
  *
- *  @param name Required. Resource name of workload identity pool. Format:
- *    `projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}`
+ *  @param name Required. Resource name of workload identity pool.
  *
  *  @return GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations
  */

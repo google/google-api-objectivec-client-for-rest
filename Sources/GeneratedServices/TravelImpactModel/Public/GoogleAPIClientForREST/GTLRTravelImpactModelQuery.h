@@ -34,6 +34,56 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves detailed emission estimates. Detailed Flight Emissions are
+ *  transparent per-passenger greenhouse gas emission estimates supplemented by
+ *  comprehensive metadata detailing the calculation methodology, emissions
+ *  breakdown, contrail impact, and data provenance. Details on how emission
+ *  estimates are computed are in
+ *  [GitHub](https://github.com/google/travel-impact-model). The response will
+ *  contain all entries that match the input flight legs, in the same order. If
+ *  there are no estimates available for a certain flight leg, the response will
+ *  return the flight leg object with empty emission fields. The request will
+ *  still be considered successful. Reasons for missing emission estimates
+ *  include: * The flight is unknown to the server. * The input flight leg is
+ *  missing one or more identifiers. * The flight date is in the past. * The
+ *  aircraft type is not supported by the model. * Missing seat configuration.
+ *  The request can contain up to 100 flight legs. If the request has more than
+ *  100 flight legs, it will fail with an INVALID_ARGUMENT error.
+ *
+ *  Method: travelimpactmodel.flights.computeDetailedFlightEmissions
+ */
+@interface GTLRTravelImpactModelQuery_FlightsComputeDetailedFlightEmissions : GTLRTravelImpactModelQuery
+
+/**
+ *  Fetches a @c GTLRTravelImpactModel_ComputeDetailedFlightEmissionsResponse.
+ *
+ *  Retrieves detailed emission estimates. Detailed Flight Emissions are
+ *  transparent per-passenger greenhouse gas emission estimates supplemented by
+ *  comprehensive metadata detailing the calculation methodology, emissions
+ *  breakdown, contrail impact, and data provenance. Details on how emission
+ *  estimates are computed are in
+ *  [GitHub](https://github.com/google/travel-impact-model). The response will
+ *  contain all entries that match the input flight legs, in the same order. If
+ *  there are no estimates available for a certain flight leg, the response will
+ *  return the flight leg object with empty emission fields. The request will
+ *  still be considered successful. Reasons for missing emission estimates
+ *  include: * The flight is unknown to the server. * The input flight leg is
+ *  missing one or more identifiers. * The flight date is in the past. * The
+ *  aircraft type is not supported by the model. * Missing seat configuration.
+ *  The request can contain up to 100 flight legs. If the request has more than
+ *  100 flight legs, it will fail with an INVALID_ARGUMENT error.
+ *
+ *  @param object The @c
+ *    GTLRTravelImpactModel_ComputeDetailedFlightEmissionsRequest to include in
+ *    the query.
+ *
+ *  @return GTLRTravelImpactModelQuery_FlightsComputeDetailedFlightEmissions
+ */
++ (instancetype)queryWithObject:(GTLRTravelImpactModel_ComputeDetailedFlightEmissionsRequest *)object;
+
+@end
+
+/**
  *  Retrieves emission estimates. Details on how emission estimates are computed
  *  are in [GitHub](https://github.com/google/travel-impact-model). The response
  *  will contain all entries that match the input flight legs, in the same

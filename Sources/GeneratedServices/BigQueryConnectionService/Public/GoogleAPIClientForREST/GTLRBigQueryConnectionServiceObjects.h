@@ -26,10 +26,13 @@
 @class GTLRBigQueryConnectionService_CloudSqlProperties;
 @class GTLRBigQueryConnectionService_Connection;
 @class GTLRBigQueryConnectionService_ConnectorConfiguration;
+@class GTLRBigQueryConnectionService_ConnectorConfiguration_Parameters;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationAsset;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication_Parameters;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationNetwork;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationSecret;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword;
@@ -571,6 +574,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 /** Networking configuration. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationNetwork *network;
 
+/**
+ *  Optional. A map of name-value pairs for connector-specific parameters. Extra
+ *  configuration parameters, that are not standardized in configuration
+ *  sections. To update a single parameter value call
+ *  ConnectionService.UpdateConnection with `update_mask` set to
+ *  `configuration.parameters.parameter_id`. If parameter id does not fit
+ *  `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for example
+ *  ``configuration.parameters.`parameter id` ``.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfiguration_Parameters *parameters;
+
+@end
+
+
+/**
+ *  Optional. A map of name-value pairs for connector-specific parameters. Extra
+ *  configuration parameters, that are not standardized in configuration
+ *  sections. To update a single parameter value call
+ *  ConnectionService.UpdateConnection with `update_mask` set to
+ *  `configuration.parameters.parameter_id`. If parameter id does not fit
+ *  `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for example
+ *  ``configuration.parameters.`parameter id` ``.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfiguration_Parameters : GTLRObject
 @end
 
 
@@ -599,6 +632,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 @interface GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication : GTLRObject
 
 /**
+ *  Optional. A map of name-value pairs for authentication-specific parameters.
+ *  Extra configuration parameters, that are not standardized in authentication.
+ *  To update a single parameter value call ConnectionService.UpdateConnection
+ *  with `update_mask` set to
+ *  `configuration.authentication.parameters.parameter_id`. If parameter id does
+ *  not fit `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for
+ *  example ``configuration.authentication.parameters.`parameter id` ``.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication_Parameters *parameters;
+
+/**
  *  Output only. Google-managed service account associated with this connection,
  *  e.g.,
  *  `service-{project_number}\@gcp-sa-bigqueryconnection.iam.gserviceaccount.com`.
@@ -610,6 +654,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 /** Username/password authentication. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword *usernamePassword;
 
+@end
+
+
+/**
+ *  Optional. A map of name-value pairs for authentication-specific parameters.
+ *  Extra configuration parameters, that are not standardized in authentication.
+ *  To update a single parameter value call ConnectionService.UpdateConnection
+ *  with `update_mask` set to
+ *  `configuration.authentication.parameters.parameter_id`. If parameter id does
+ *  not fit `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for
+ *  example ``configuration.authentication.parameters.`parameter id` ``.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication_Parameters : GTLRObject
 @end
 
 
@@ -635,6 +698,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 
 /** Private Service Connect networking configuration. */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect *privateServiceConnect;
+
+@end
+
+
+/**
+ *  Represents a value for a connector parameter.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue : GTLRObject
+
+/**
+ *  A boolean parameter value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  A double parameter value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
+
+/**
+ *  An int32 parameter value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *int32Value;
+
+/** A secret parameter value. Allowed only for Authentication parameters. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationSecret *secretValue;
+
+/** A string parameter value. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 

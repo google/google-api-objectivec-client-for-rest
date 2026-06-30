@@ -865,7 +865,7 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

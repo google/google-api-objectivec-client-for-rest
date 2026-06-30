@@ -2141,6 +2141,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, strong, nullable) NSNumber *canAcceptOwnership;
 
 /**
+ *  Whether the current user can access this file via Gen AI features.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canAccessViaGenAi;
+
+/**
  *  Output only. Whether the current user can add children to this folder. This
  *  is always `false` when the item isn't a folder.
  *

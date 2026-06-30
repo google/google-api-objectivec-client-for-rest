@@ -82,7 +82,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 
 /**
  *  Required. The resource name of the Actuation location using the form:
- *  'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ *  'projects/{project_id}/locations/{location}/deployments/{deployment}'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -109,7 +109,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *  @param object The @c GTLRWorkloadManager_Actuation to include in the query.
  *  @param parent Required. The resource name of the Actuation location using
  *    the form:
- *    'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ *    'projects/{project_id}/locations/{location}/deployments/{deployment}'.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsCreate
  */
@@ -119,7 +119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @end
 
 /**
- *  Deletes a single Actuation
+ *  Deletes a single Actuation.
  *
  *  Method: workloadmanager.projects.locations.deployments.actuations.delete
  *
@@ -129,18 +129,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsDelete : GTLRWorkloadManagerQuery
 
 /**
- *  Required. The name of the book to delete.
- *  project/{project_id}/locations/{location_id}/deployments/{deployment_id}/actuations/{actuation_id}
+ *  Required. The name of the actuation to delete.
+ *  projects/{project}/locations/{location}/deployments/{deployment}/actuations/{actuation}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRWorkloadManager_Operation.
  *
- *  Deletes a single Actuation
+ *  Deletes a single Actuation.
  *
- *  @param name Required. The name of the book to delete.
- *    project/{project_id}/locations/{location_id}/deployments/{deployment_id}/actuations/{actuation_id}
+ *  @param name Required. The name of the actuation to delete.
+ *    projects/{project}/locations/{location}/deployments/{deployment}/actuations/{actuation}.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsDelete
  */
@@ -158,7 +158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsGet : GTLRWorkloadManagerQuery
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -166,7 +166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Gets details of a single Actuation.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsGet
  */
@@ -184,7 +184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsList : GTLRWorkloadManagerQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -206,7 +206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 
 /**
  *  Required. The resource prefix of the Actuation using the form:
- *  'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ *  'projects/{project_id}/locations/{location}/deployments/{deployment}'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -216,7 +216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *  Lists Actuations in a given project, location and deployment.
  *
  *  @param parent Required. The resource prefix of the Actuation using the form:
- *    'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ *    'projects/{project_id}/locations/{location}/deployments/{deployment}'.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsList
  *
@@ -238,7 +238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsCreate : GTLRWorkloadManagerQuery
 
-/** Required. Id of the deployment */
+/** Required. ID of the deployment. */
 @property(nonatomic, copy, nullable) NSString *deploymentId;
 
 /**
@@ -289,12 +289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsDelete : GTLRWorkloadManagerQuery
 
 /**
- *  Optional. If set to true, any actuation will also be deleted. Followed the
- *  best practice from https://aip.dev/135#cascading-delete
+ *  Optional. If set to true, any actuation will also be deleted. Follows the
+ *  best practice from https://aip.dev/135#cascading-delete.
  */
 @property(nonatomic, assign) BOOL force;
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -302,7 +302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Deletes a single Deployment.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsDelete
  */
@@ -321,8 +321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsGet : GTLRWorkloadManagerQuery
 
 /**
- *  Required. Name of the resource. The format will be
- *  'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'
+ *  Required. Name of the resource. The format is
+ *  'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -331,8 +331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Gets details of a single Deployment.
  *
- *  @param name Required. Name of the resource. The format will be
- *    'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'
+ *  @param name Required. Name of the resource. The format is
+ *    'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsGet
  */
@@ -350,7 +350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsList : GTLRWorkloadManagerQuery
 
-/** Optional. Filter resource follow https://google.aip.dev/160 */
+/** Optional. Filter resource following https://google.aip.dev/160. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**

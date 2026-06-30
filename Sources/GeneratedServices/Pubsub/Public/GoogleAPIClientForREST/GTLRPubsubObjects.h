@@ -27,6 +27,7 @@
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CloudStorage;
 @class GTLRPubsub_CloudStorageConfig;
+@class GTLRPubsub_Compression;
 @class GTLRPubsub_ConfluentCloud;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
 @class GTLRPubsub_CreateSnapshotRequest_Tags;
@@ -333,7 +334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_NotFound;
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_PermissionDenied;
 /**
- *  Cannot write to Bigtable because of a missing column family ("data"), or if
+ *  Cannot write to Bigtable because of a missing column family (`data`), or if
  *  there is no structured row key for the subscription name + message ID, if
  *  because the app profile is not configured for single-cluster routing.
  *
@@ -459,6 +460,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUns
  *  Value: "VERTEX_AI_LOCATION_RESTRICTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_VertexAiLocationRestriction;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_Compression.compressionAlgorithm
+
+/**
+ *  Unspecified algorithm.
+ *
+ *  Value: "COMPRESSION_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Compression_CompressionAlgorithm_CompressionAlgorithmUnspecified;
+/**
+ *  ZLIB compression.
+ *
+ *  Value: "ZLIB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Compression_CompressionAlgorithm_Zlib;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_Compression.compressionMode
+
+/**
+ *  Compress.
+ *
+ *  Value: "COMPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Compression_CompressionMode_Compress;
+/**
+ *  Unspecified mode.
+ *
+ *  Value: "COMPRESSION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Compression_CompressionMode_CompressionModeUnspecified;
+/**
+ *  Decompress.
+ *
+ *  Value: "DECOMPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Compression_CompressionMode_Decompress;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsub_ConfluentCloud.state
@@ -765,10 +804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  Configuration for reading Cloud Storage data written via [Cloud Storage
- *  subscriptions](https://cloud.google.com/pubsub/docs/cloudstorage). The data
- *  and attributes fields of the originally exported Pub/Sub message will be
- *  restored when publishing.
+ *  Configuration for reading Cloud Storage data in Avro binary format. The
+ *  bytes of each object will be set to the `data` field of a Pub/Sub message.
  */
 @interface GTLRPubsub_AvroFormat : GTLRObject
 @end
@@ -1078,10 +1115,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  Configuration for a Bigtable subscription. The Pub/Sub message will be
- *  written to a Bigtable row as follows: - row key: subscription name and
- *  message ID delimited by #. - columns: message bytes written to a single
- *  column family "data" with an empty-string column qualifier. - cell
- *  timestamp: the message publish timestamp.
+ *  written to a Bigtable row as follows: - row key: subscription name, message
+ *  ID hash, and message ID delimited by `#`. - columns: message bytes written
+ *  to a single column family `data` with an empty-string column qualifier. -
+ *  cell timestamp: the message publish timestamp.
  */
 @interface GTLRPubsub_BigtableConfig : GTLRObject
 
@@ -1128,7 +1165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        ([instructions]({$universe.dns_names.final_documentation_domain}/service-usage/docs/enable-disable))
  *        (Value: "PERMISSION_DENIED")
  *    @arg @c kGTLRPubsub_BigtableConfig_State_SchemaMismatch Cannot write to
- *        Bigtable because of a missing column family ("data"), or if there is
+ *        Bigtable because of a missing column family (`data`), or if there is
  *        no structured row key for the subscription name + message ID, if
  *        because the app profile is not configured for single-cluster routing.
  *        (Value: "SCHEMA_MISMATCH")
@@ -1442,6 +1479,39 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /** Required. The schema revision to commit. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Schema *schema;
+
+@end
+
+
+/**
+ *  Configuration for compressing/decompressing message data using a
+ *  user-specified compression algorithm.
+ */
+@interface GTLRPubsub_Compression : GTLRObject
+
+/**
+ *  Required. Specifies the compression algorithm to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_Compression_CompressionAlgorithm_CompressionAlgorithmUnspecified
+ *        Unspecified algorithm. (Value: "COMPRESSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_Compression_CompressionAlgorithm_Zlib ZLIB
+ *        compression. (Value: "ZLIB")
+ */
+@property(nonatomic, copy, nullable) NSString *compressionAlgorithm;
+
+/**
+ *  Required. Specifies whether to compress or decompress the message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_Compression_CompressionMode_Compress Compress. (Value:
+ *        "COMPRESS")
+ *    @arg @c kGTLRPubsub_Compression_CompressionMode_CompressionModeUnspecified
+ *        Unspecified mode. (Value: "COMPRESSION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_Compression_CompressionMode_Decompress Decompress.
+ *        (Value: "DECOMPRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *compressionMode;
 
 @end
 
@@ -2040,6 +2110,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  sent to.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_AIInference *aiInference;
+
+/** Optional. Compression/Decompression. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Compression *compression;
 
 /**
  *  Optional. If true, the transform is disabled and will not be applied to

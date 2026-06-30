@@ -374,6 +374,33 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresConfigureExascale
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:configureExascale";
+  GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresConfigureExascale *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.cloudExadataInfrastructures.configureExascale";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresCreate
 
 @dynamic cloudExadataInfrastructureId, parent, requestId;
@@ -1290,25 +1317,6 @@
 
 @end
 
-@implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROracleDatabase_GoldengateConnectionType class];
-  query.loggingName = @"oracledatabase.projects.locations.goldengateConnectionTypes.get";
-  return query;
-}
-
-@end
-
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -1323,25 +1331,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLROracleDatabase_ListGoldengateConnectionTypesResponse class];
   query.loggingName = @"oracledatabase.projects.locations.goldengateConnectionTypes.list";
-  return query;
-}
-
-@end
-
-@implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROracleDatabase_GoldengateDeploymentEnvironment class];
-  query.loggingName = @"oracledatabase.projects.locations.goldengateDeploymentEnvironments.get";
   return query;
 }
 
@@ -1504,25 +1493,6 @@
 
 @end
 
-@implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROracleDatabase_GoldengateDeploymentType class];
-  query.loggingName = @"oracledatabase.projects.locations.goldengateDeploymentTypes.get";
-  return query;
-}
-
-@end
-
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -1537,25 +1507,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLROracleDatabase_ListGoldengateDeploymentTypesResponse class];
   query.loggingName = @"oracledatabase.projects.locations.goldengateDeploymentTypes.list";
-  return query;
-}
-
-@end
-
-@implementation GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROracleDatabase_GoldengateDeploymentVersion class];
-  query.loggingName = @"oracledatabase.projects.locations.goldengateDeploymentVersions.get";
   return query;
 }
 

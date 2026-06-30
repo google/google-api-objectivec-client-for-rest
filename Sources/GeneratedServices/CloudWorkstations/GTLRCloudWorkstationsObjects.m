@@ -237,7 +237,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability
-@dynamic archiveTimeout, reclaimPolicy, sizeGb, sourceSnapshot;
+@dynamic archiveTimeout, maxSizeGb, reclaimPolicy, sizeGb, sourceSnapshot;
 @end
 
 
@@ -329,7 +329,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_GceRegionalPersistentDisk
-@dynamic archiveTimeout, diskType, fsType, reclaimPolicy, sizeGb,
+@dynamic archiveTimeout, diskType, fsType, maxSizeGb, reclaimPolicy, sizeGb,
          sourceSnapshot;
 @end
 
@@ -827,11 +827,18 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 @implementation GTLRCloudWorkstations_Workstation
 @dynamic annotations, createTime, deleteTime, displayName, env, ETag, host,
-         kmsKey, labels, name, reconciling, runtimeHost, sourceWorkstation,
-         startTime, state, uid, updateTime;
+         kmsKey, labels, name, persistentDirectories, reconciling, runtimeHost,
+         sourceWorkstation, startTime, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"persistentDirectories" : [GTLRCloudWorkstations_WorkstationPersistentDirectory class]
+  };
+  return map;
 }
 
 @end
@@ -1003,4 +1010,14 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_WorkstationPersistentDirectory
+//
+
+@implementation GTLRCloudWorkstations_WorkstationPersistentDirectory
+@dynamic mountPath, sizeGb;
 @end

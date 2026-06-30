@@ -1725,6 +1725,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium;
 /**
+ *  E2 machine with 2 CPUs.
+ *
+ *  Value: "E2_STANDARD_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Standard2;
+/**
  *  Highcpu machine with 32 CPUs.
  *
  *  Value: "N1_HIGHCPU_32"
@@ -2563,6 +2569,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Compute Resource requirements by this container. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ResourceRequirements *resources;
+
+/**
+ *  Optional. Indicates that this container can act as a sandbox supervisor and
+ *  launch sandboxes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sandboxLauncher;
 
 /** Optional. Location of the source. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2SourceCode *sourceCode;
@@ -3442,7 +3456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *encryptionKeyRevocationAction;
 
 /**
- *  If encryption_key_revocation_action is SHUTDOWN, the duration before
+ *  If `encryption_key_revocation_action` is `SHUTDOWN`, the duration before
  *  shutting down all instances. The minimum increment is 1 hour.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *encryptionKeyShutdownDuration;
@@ -3461,7 +3475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Output only. A number that monotonically increases every time the user
- *  modifies the desired state. Please note that unlike v1, this is an int64
+ *  modifies the desired state. Please note that unlike v1, this is an `int64`
  *  value. As with most Google APIs, its JSON representation will be a `string`
  *  instead of an `integer`.
  *
@@ -3486,7 +3500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Optional. Provides the ingress settings for this Instance. On output,
  *  returns the currently observed ingress settings, or
- *  INGRESS_TRAFFIC_UNSPECIFIED if no revision is active.
+ *  `INGRESS_TRAFFIC_UNSPECIFIED` if no revision is active.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Instance_Ingress_IngressTrafficAll
@@ -3505,8 +3519,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *ingress;
 
 /**
- *  Optional. Disables IAM permission check for run.routes.invoke for callers of
- *  this Instance. For more information, visit
+ *  Optional. Disables IAM permission check for `run.routes.invoke` for callers
+ *  of this Instance. For more information, visit
  *  https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
  *
  *  Uses NSNumber of boolValue.
@@ -3521,11 +3535,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  The launch stage as defined by [Google Cloud Platform Launch
  *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
- *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the
- *  launch stage to a preview stage on input to allow use of preview features in
- *  that stage. On read (or output), describes whether the resource uses preview
- *  features. For example, if ALPHA is provided as input, but only BETA and
- *  GA-level features are used, this field will be BETA on output.
+ *  `ALPHA`, `BETA`, and `GA`. If no value is specified, `GA` is assumed. Set
+ *  the launch stage to a preview stage on input to allow use of preview
+ *  features in that stage. On read (or output), describes whether the resource
+ *  uses preview features. For example, if `ALPHA` is provided as input, but
+ *  only `BETA` and `GA`-level features are used, this field will be `BETA` on
+ *  output.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Instance_LaunchStage_Alpha Alpha is
@@ -3575,10 +3590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *logUri;
 
 /**
- *  The fully qualified name of this Instance. In CreateInstanceRequest, this
- *  field is ignored, and instead composed from CreateInstanceRequest.parent and
- *  CreateInstanceRequest.instance_id. Format:
- *  projects/{project}/locations/{location}/instances/{instance_id}
+ *  The fully qualified name of this Instance. In `CreateInstanceRequest`, this
+ *  field is ignored, and instead composed from `CreateInstanceRequest.parent`
+ *  and `CreateInstanceRequest.instance_id`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3588,23 +3602,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Output only. The generation of this Instance currently serving traffic. See
  *  comments in `reconciling` for additional information on reconciliation
- *  process in Cloud Run. Please note that unlike v1, this is an int64 value. As
- *  with most Google APIs, its JSON representation will be a `string` instead of
- *  an `integer`.
+ *  process in Cloud Run. Please note that unlike v1, this is an `int64` value.
+ *  As with most Google APIs, its JSON representation will be a `string` instead
+ *  of an `integer`.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *observedGeneration;
 
 /**
- *  Output only. Returns true if the Instance is currently being acted upon by
+ *  Output only. Returns `true` if the Instance is currently being acted upon by
  *  the system to bring it into the desired state. When a new Instance is
  *  created, or an existing one is updated, Cloud Run will asynchronously
  *  perform all necessary steps to bring the Instance to the desired serving
  *  state. This process is called reconciliation. While reconciliation is in
  *  process, `observed_generation` will have a transient value that might
  *  mismatch the intended state. Once reconciliation is over (and this field is
- *  false), there are two possible outcomes: reconciliation succeeded and the
+ *  `false`), there are two possible outcomes: reconciliation succeeded and the
  *  serving state matches the Instance, or there was an error, and
  *  reconciliation failed. This state can be found in
  *  `terminal_condition.state`.
@@ -7421,6 +7435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        Highcpu e2 machine with 8 CPUs. (Value: "E2_HIGHCPU_8")
  *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium
  *        E2 machine with 1 CPU. (Value: "E2_MEDIUM")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Standard2
+ *        E2 machine with 2 CPUs. (Value: "E2_STANDARD_2")
  *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32
  *        Highcpu machine with 32 CPUs. (Value: "N1_HIGHCPU_32")
  *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8

@@ -126,6 +126,11 @@ NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted = @"unlisted";
 
+// GTLRYouTube_ChannelToAffiliateProgramLinkDetails.programStatus
+NSString * const kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_Active = @"active";
+NSString * const kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_AffiliateProgramStatusUnspecified = @"affiliateProgramStatusUnspecified";
+NSString * const kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_Inactive = @"inactive";
+
 // GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails.billingStatus
 NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusActive = @"billingStatusActive";
 NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusInactive = @"billingStatusInactive";
@@ -1071,6 +1076,7 @@ NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_Subscripti
 NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_Uploads = @"uploads";
 
 // GTLRYouTube_ThirdPartyLinkSnippet.type
+NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToAffiliateProgramLink = @"channelToAffiliateProgramLink";
 NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToStoreLink = @"channelToStoreLink";
 NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_LinkUnspecified = @"linkUnspecified";
 
@@ -1905,6 +1911,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 @implementation GTLRYouTube_ChannelStatus
 @dynamic isChannelMonetizationEnabled, isLinked, longUploadsStatus, madeForKids,
          privacyStatus, selfDeclaredMadeForKids;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ChannelToAffiliateProgramLinkDetails
+//
+
+@implementation GTLRYouTube_ChannelToAffiliateProgramLinkDetails
+@dynamic merchantId, programStatus, statusUpdateReason, statusUpdateTime;
 @end
 
 
@@ -3639,7 +3655,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ThirdPartyLinkSnippet
-@dynamic channelToStoreLink, type;
+@dynamic channelToAffiliateProgramLink, channelToStoreLink, type;
 @end
 
 

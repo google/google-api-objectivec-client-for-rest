@@ -51,10 +51,14 @@
 //
 
 @implementation GTLRPagespeedInsights_Categories
-@dynamic accessibility, bestPractices, performance, pwa, seo;
+@dynamic accessibility, agenticBrowsing, bestPractices, performance, pwa, seo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"bestPractices" : @"best-practices" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"agenticBrowsing" : @"agentic-browsing",
+    @"bestPractices" : @"best-practices"
+  };
+  return map;
 }
 
 @end

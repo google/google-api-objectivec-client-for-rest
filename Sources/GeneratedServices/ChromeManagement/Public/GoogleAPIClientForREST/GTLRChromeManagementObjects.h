@@ -106,6 +106,8 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigDetails;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersBreakdown;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig;
@@ -129,6 +131,8 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsBreakdown;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings;
 @class GTLRChromeManagement_GoogleLongrunningOperation;
 @class GTLRChromeManagement_GoogleLongrunningOperation_Metadata;
@@ -2517,6 +2521,67 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_Enabled;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary.metric
+
+/**
+ *  The number of sensitive content downloads.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_SENSITIVE_DOWNLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitiveDownloads;
+/**
+ *  The number of sensitive content prints.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_SENSITIVE_PRINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitivePrints;
+/**
+ *  The number of sensitive content uploads.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_SENSITIVE_UPLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitiveUploads;
+/**
+ *  The total number of content downloads (sensitive and non-sensitive).
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_DOWNLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalDownloads;
+/**
+ *  The total number of content prints (sensitive and non-sensitive).
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_PRINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalPrints;
+/**
+ *  The total number of sensitive content transfers. This is the sum of the
+ *  sensitive_uploads, sensitive_downloads, and sensitive_prints.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_SENSITIVE_TRANSFERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalSensitiveTransfers;
+/**
+ *  The total number of content transfers (sensitive and non-sensitive). This is
+ *  the sum of the total_uploads, total_downloads, and total_prints.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalTransfers;
+/**
+ *  The total number of content uploads (sensitive and non-sensitive).
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_TOTAL_UPLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalUploads;
+/**
+ *  Unspecified content transfers metric. Defaults to
+ *  CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS.
+ *
+ *  Value: "CONTENT_TRANSFERS_METRIC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
 
 /**
@@ -3070,6 +3135,42 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "UNIFORM_RESOURCE_IDENTIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_UniformResourceIdentifier;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary.metric
+
+/**
+ *  The number of suspicious URL visits with high risk.
+ *
+ *  Value: "URL_VISITS_METRIC_HIGH_RISK_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricHighRiskUrlVisits;
+/**
+ *  The number of suspicious URL visits with low risk.
+ *
+ *  Value: "URL_VISITS_METRIC_LOW_RISK_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricLowRiskUrlVisits;
+/**
+ *  The number of suspicious URL visits with medium risk.
+ *
+ *  Value: "URL_VISITS_METRIC_MEDIUM_RISK_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricMediumRiskUrlVisits;
+/**
+ *  The total number of suspicious URL visits. This is the sum of the
+ *  high_risk_url_visits, medium_risk_url_visits, and low_risk_url_visits.
+ *
+ *  Value: "URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricTotalSuspiciousUrlVisits;
+/**
+ *  Unspecified URL visits metric. Defaults to
+ *  URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS.
+ *
+ *  Value: "URL_VISITS_METRIC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricUnspecified;
 
 /**
  *  Android app information.
@@ -8016,6 +8117,78 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  A content transfers summary for a given breakdown dimension.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersBreakdown : GTLRObject
+
+/** The content category of the content transfers. */
+@property(nonatomic, copy, nullable) NSString *contentCategory;
+
+/** The event domain of the content transfers. */
+@property(nonatomic, copy, nullable) NSString *eventDomain;
+
+/** The summary of content transfers for the breakdown dimension. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary *summary;
+
+/** The user that transferred the content. */
+@property(nonatomic, copy, nullable) NSString *user;
+
+@end
+
+
+/**
+ *  Summary of content transfers for a given metric.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary : GTLRObject
+
+/**
+ *  The count of the content transfers metric.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  The type of content transfers metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitiveDownloads
+ *        The number of sensitive content downloads. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_SENSITIVE_DOWNLOADS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitivePrints
+ *        The number of sensitive content prints. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_SENSITIVE_PRINTS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricSensitiveUploads
+ *        The number of sensitive content uploads. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_SENSITIVE_UPLOADS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalDownloads
+ *        The total number of content downloads (sensitive and non-sensitive).
+ *        (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_DOWNLOADS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalPrints
+ *        The total number of content prints (sensitive and non-sensitive).
+ *        (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_PRINTS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalSensitiveTransfers
+ *        The total number of sensitive content transfers. This is the sum of
+ *        the sensitive_uploads, sensitive_downloads, and sensitive_prints.
+ *        (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_SENSITIVE_TRANSFERS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalTransfers
+ *        The total number of content transfers (sensitive and non-sensitive).
+ *        This is the sum of the total_uploads, total_downloads, and
+ *        total_prints. (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricTotalUploads
+ *        The total number of content uploads (sensitive and non-sensitive).
+ *        (Value: "CONTENT_TRANSFERS_METRIC_TOTAL_UPLOADS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary_Metric_ContentTransfersMetricUnspecified
+ *        Unspecified content transfers metric. Defaults to
+ *        CONTENT_TRANSFERS_METRIC_TOTAL_TRANSFERS. (Value:
+ *        "CONTENT_TRANSFERS_METRIC_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
  *  CrowdStrike connector config.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig : GTLRObject
@@ -8479,6 +8652,82 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Required. The XDR settings for the Pub/Sub XDR config. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings *xdrSettings;
+
+@end
+
+
+/**
+ *  Response message for QueryContentTransfersBreakdowns.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "contentTransfersBreakdowns" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersBreakdownsResponse : GTLRCollectionObject
+
+/**
+ *  The content transfer breakdowns from the specified insight.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersBreakdown *> *contentTransfersBreakdowns;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for QueryContentTransfers.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryContentTransfersResponse : GTLRObject
+
+/** A collection of summaries for various content transfers metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ContentTransfersSummary *> *summaries;
+
+@end
+
+
+/**
+ *  Response message for QueryUrlVisitsBreakdowns.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "urlVisitsBreakdowns" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsBreakdownsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The URL visit breakdowns from the specified insight.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsBreakdown *> *urlVisitsBreakdowns;
+
+@end
+
+
+/**
+ *  Response message for QueryUrlVisits.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsResponse : GTLRObject
+
+/** A collection of summaries for various URL visit metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary *> *summaries;
 
 @end
 
@@ -8982,6 +9231,62 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  provisioning process.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse : GTLRObject
+@end
+
+
+/**
+ *  A URL visits summary for a given breakdown dimension.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsBreakdown : GTLRObject
+
+/** The event domain of the URL visits. */
+@property(nonatomic, copy, nullable) NSString *eventDomain;
+
+/** The summary of URL visits for the breakdown dimension. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary *summary;
+
+/** The user that visited the URL. */
+@property(nonatomic, copy, nullable) NSString *user;
+
+@end
+
+
+/**
+ *  Summary of URL visits for a given metric.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary : GTLRObject
+
+/**
+ *  The count of the URL visits metric.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  The type of URL visits metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricHighRiskUrlVisits
+ *        The number of suspicious URL visits with high risk. (Value:
+ *        "URL_VISITS_METRIC_HIGH_RISK_URL_VISITS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricLowRiskUrlVisits
+ *        The number of suspicious URL visits with low risk. (Value:
+ *        "URL_VISITS_METRIC_LOW_RISK_URL_VISITS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricMediumRiskUrlVisits
+ *        The number of suspicious URL visits with medium risk. (Value:
+ *        "URL_VISITS_METRIC_MEDIUM_RISK_URL_VISITS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricTotalSuspiciousUrlVisits
+ *        The total number of suspicious URL visits. This is the sum of the
+ *        high_risk_url_visits, medium_risk_url_visits, and low_risk_url_visits.
+ *        (Value: "URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisitsSummary_Metric_UrlVisitsMetricUnspecified
+ *        Unspecified URL visits metric. Defaults to
+ *        URL_VISITS_METRIC_TOTAL_SUSPICIOUS_URL_VISITS. (Value:
+ *        "URL_VISITS_METRIC_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metric;
+
 @end
 
 

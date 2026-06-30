@@ -93,6 +93,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarMinAccessRoleReader;
  *  Value: "writer"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCalendarMinAccessRoleWriter;
+/**
+ *  The user can read and modify events that aren't private. The user can read
+ *  free/busy information about private events. The user can't modify private
+ *  events.
+ *
+ *  Value: "writerWithoutPrivateAccess"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCalendarMinAccessRoleWriterWithoutPrivateAccess;
 
 // ----------------------------------------------------------------------------
 // orderBy
@@ -627,6 +635,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *        not private. (Value: "reader")
  *    @arg @c kGTLRCalendarMinAccessRoleWriter The user can read and modify
  *        events. (Value: "writer")
+ *    @arg @c kGTLRCalendarMinAccessRoleWriterWithoutPrivateAccess The user can
+ *        read and modify events that aren't private. The user can read
+ *        free/busy information about private events. The user can't modify
+ *        private events. (Value: "writerWithoutPrivateAccess")
  */
 @property(nonatomic, copy, nullable) NSString *minAccessRole;
 
@@ -798,6 +810,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *        not private. (Value: "reader")
  *    @arg @c kGTLRCalendarMinAccessRoleWriter The user can read and modify
  *        events. (Value: "writer")
+ *    @arg @c kGTLRCalendarMinAccessRoleWriterWithoutPrivateAccess The user can
+ *        read and modify events that aren't private. The user can read
+ *        free/busy information about private events. The user can't modify
+ *        private events. (Value: "writerWithoutPrivateAccess")
  */
 @property(nonatomic, copy, nullable) NSString *minAccessRole;
 

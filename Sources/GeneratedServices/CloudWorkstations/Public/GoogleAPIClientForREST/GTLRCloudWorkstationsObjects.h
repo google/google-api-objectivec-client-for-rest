@@ -62,6 +62,7 @@
 @class GTLRCloudWorkstations_WorkstationConfig;
 @class GTLRCloudWorkstations_WorkstationConfig_Annotations;
 @class GTLRCloudWorkstations_WorkstationConfig_Labels;
+@class GTLRCloudWorkstations_WorkstationPersistentDirectory;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -651,6 +652,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) GTLRDuration *archiveTimeout;
 
 /**
+ *  Optional. Maximum size in GB to which this persistent directory can be
+ *  resized. Defaults to unlimited if not set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSizeGb;
+
+/**
  *  Optional. Whether the persistent disk should be deleted when the workstation
  *  is deleted. Valid values are `DELETE` and `RETAIN`. Defaults to `DELETE`.
  *
@@ -981,6 +990,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  source_snapshot is set. Defaults to `"ext4"`.
  */
 @property(nonatomic, copy, nullable) NSString *fsType;
+
+/**
+ *  Optional. Maximum size in GB to which this persistent directory can be
+ *  resized. Defaults to unlimited if not set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSizeGb;
 
 /**
  *  Optional. Whether the persistent disk should be deleted when the workstation
@@ -1915,6 +1932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 /** Identifier. Full name of this workstation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Optional. Directories to persist across workstation sessions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudWorkstations_WorkstationPersistentDirectory *> *persistentDirectories;
+
 /**
  *  Output only. Indicates whether this workstation is currently being updated
  *  to match its intended state.
@@ -2427,6 +2447,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *        fetch them all at once.
  */
 @interface GTLRCloudWorkstations_WorkstationConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  A directory to persist across workstation sessions. Updates to this field
+ *  will only take effect on this workstation after it is restarted.
+ */
+@interface GTLRCloudWorkstations_WorkstationPersistentDirectory : GTLRObject
+
+/** Optional. The mount path of the persistent directory. */
+@property(nonatomic, copy, nullable) NSString *mountPath;
+
+/**
+ *  Optional. Size of the persistent directory in GB. If specified in an update
+ *  request, this is the desired size of the directory.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
 @end
 
 NS_ASSUME_NONNULL_END

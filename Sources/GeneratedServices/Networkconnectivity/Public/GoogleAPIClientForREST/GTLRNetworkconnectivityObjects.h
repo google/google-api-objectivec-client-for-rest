@@ -2629,7 +2629,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /**
  *  Required. Immutable. The service class identifier which authorizes this
  *  AutomatedDnsRecord. Any API calls targeting this AutomatedDnsRecord must
- *  have `networkconnectivity.serviceclasses.use` IAM permission for the
+ *  have `networkconnectivity.serviceClasses.use` IAM permission for the
  *  provided service class.
  */
 @property(nonatomic, copy, nullable) NSString *serviceClass;

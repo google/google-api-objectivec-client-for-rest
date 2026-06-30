@@ -130,14 +130,14 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudRedis_AclPolicy.state
 
 /**
- *  ACL Policy has been created and is fully usable. Since ACL Policy creation
+ *  ACL policy has been created and is fully usable. Since ACL policy creation
  *  is synchronous and not an LRO, there is no CREATING state.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicy_State_Active;
 /**
- *  ACL Policy is being deleted.
+ *  ACL policy is being deleted.
  *
  *  Value: "DELETING"
  */
@@ -149,7 +149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicy_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicy_State_StateUnspecified;
 /**
- *  ACL Policy is being updated.
+ *  ACL policy is being updated.
  *
  *  Value: "UPDATING"
  */
@@ -245,7 +245,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AutomatedBackupConfig_Automat
  *  Value: "AVAILABILITY_TYPE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_AvailabilityTypeOther;
-/** Value: "AVAILABILITY_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified availability type.
+ *
+ *  Value: "AVAILABILITY_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_AvailabilityTypeUnspecified;
 /**
  *  Multi regional instance
@@ -384,7 +388,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Backup_State_Suspended;
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_BackupRun_Status_Failed;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Unspecified status.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_BackupRun_Status_StatusUnspecified;
 /**
  *  The backup was successful.
@@ -760,7 +768,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType
  *  Value: "DATABASE_RESOURCE_SIGNAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_DatabaseResourceSignalData;
-/** Value: "FEEDTYPE_UNSPECIFIED" */
+/**
+ *  Unspecified feed type. Not expected to be used.
+ *
+ *  Value: "FEEDTYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified;
 /**
  *  Database resource monitoring data
@@ -823,7 +835,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "PROVIDER_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_Provider_ProviderOther;
-/** Value: "PROVIDER_UNSPECIFIED" */
+/**
+ *  Unspecified provider.
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_Provider_ProviderUnspecified;
 /**
  *  Self-managed database provider. These are resources on a cloud platform,
@@ -1075,6 +1091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes;
 /**
+ *  Indicates a high risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk;
+/**
  *  Represents high number of concurrently opened tables.
  *
  *  Value: "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES"
@@ -1182,6 +1204,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
+/**
+ *  Indicates both a low cache hit rate and a risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
  *  High number of idle connections.
  *
@@ -1668,7 +1696,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceId_Provider_O
  *  Value: "PROVIDER_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceId_Provider_ProviderOther;
-/** Value: "PROVIDER_UNSPECIFIED" */
+/**
+ *  Unspecified provider.
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceId_Provider_ProviderUnspecified;
 /**
  *  Self-managed database provider. These are resources on a cloud platform,
@@ -1882,6 +1914,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Inst
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_DatabaseResourceMetadata.modes
 
+/**
+ *  Memorystore/ValKey: Cluster disabled mode.
+ *
+ *  Value: "MODE_CLUSTER_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeClusterDisabled;
+/**
+ *  Memorystore/ValKey: Cluster enabled mode.
+ *
+ *  Value: "MODE_CLUSTER_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeClusterEnabled;
 /**
  *  Datastore mode.
  *
@@ -2156,6 +2200,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes;
 /**
+ *  Indicates a high risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk;
+/**
  *  Represents high number of concurrently opened tables.
  *
  *  Value: "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES"
@@ -2263,6 +2313,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
+/**
+ *  Indicates both a low cache hit rate and a risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
 /**
  *  High number of idle connections.
  *
@@ -3355,12 +3411,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestor
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode;
 /**
- *  Memorystore with Valkey dialect.
- *
- *  Value: "ENGINE_MEMORSTORE_FOR_VALKEY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorstoreForValkey;
-/**
  *  Memorystore with Redis dialect.
  *
  *  Value: "ENGINE_MEMORYSTORE_FOR_REDIS"
@@ -3372,6 +3422,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineMemoryst
  *  Value: "ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedisCluster;
+/**
+ *  Memorystore with Valkey.
+ *
+ *  Value: "ENGINE_MEMORYSTORE_FOR_VALKEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Engine_EngineMemorystoreForValkey;
 /**
  *  MySQL binary running as an engine in the database instance.
  *
@@ -4116,24 +4172,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Output only. The state of the ACL policy.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRedis_AclPolicy_State_Active ACL Policy has been created
- *        and is fully usable. Since ACL Policy creation is synchronous and not
+ *    @arg @c kGTLRCloudRedis_AclPolicy_State_Active ACL policy has been created
+ *        and is fully usable. Since ACL policy creation is synchronous and not
  *        an LRO, there is no CREATING state. (Value: "ACTIVE")
- *    @arg @c kGTLRCloudRedis_AclPolicy_State_Deleting ACL Policy is being
+ *    @arg @c kGTLRCloudRedis_AclPolicy_State_Deleting ACL policy is being
  *        deleted. (Value: "DELETING")
  *    @arg @c kGTLRCloudRedis_AclPolicy_State_StateUnspecified Not set. (Value:
  *        "STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudRedis_AclPolicy_State_Updating ACL Policy is being
+ *    @arg @c kGTLRCloudRedis_AclPolicy_State_Updating ACL policy is being
  *        updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. The version of the ACL policy. Used in drift resolution.
+ *  Output only. Deprecated: Used in drift resolution.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *version;
+@property(nonatomic, strong, nullable) NSNumber *version GTLR_DEPRECATED;
 
 @end
 
@@ -4302,7 +4358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_AvailabilityTypeOther
  *        For rest of the other category (Value: "AVAILABILITY_TYPE_OTHER")
  *    @arg @c kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_AvailabilityTypeUnspecified
- *        Value "AVAILABILITY_TYPE_UNSPECIFIED"
+ *        Unspecified availability type. (Value:
+ *        "AVAILABILITY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_MultiRegional
  *        Multi regional instance (Value: "MULTI_REGIONAL")
  *    @arg @c kGTLRCloudRedis_AvailabilityConfiguration_AvailabilityType_Regional
@@ -4640,8 +4697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_BackupRun_Status_Failed The backup was
  *        unsuccessful. (Value: "FAILED")
- *    @arg @c kGTLRCloudRedis_BackupRun_Status_StatusUnspecified Value
- *        "STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRCloudRedis_BackupRun_Status_StatusUnspecified Unspecified
+ *        status. (Value: "STATUS_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_BackupRun_Status_Successful The backup was
  *        successful. (Value: "SUCCESSFUL")
  */
@@ -4687,13 +4744,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, copy, nullable) NSString *aclPolicy;
 
 /**
- *  Optional. Output only. Indicates whether the ACL rules applied to the
- *  cluster are in sync with the latest ACL policy rules. This field is only
- *  applicable if the ACL policy is set for the cluster.
+ *  Optional. Output only. Deprecated: Indicates whether the ACL rules applied
+ *  to the cluster are in sync.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *aclPolicyInSync;
+@property(nonatomic, strong, nullable) NSNumber *aclPolicyInSync GTLR_DEPRECATED;
 
 /**
  *  Optional. Immutable. Deprecated, do not use.
@@ -5374,7 +5430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_DatabaseResourceSignalData
  *        Database resource signal data (Value: "DATABASE_RESOURCE_SIGNAL_DATA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified
- *        Value "FEEDTYPE_UNSPECIFIED"
+ *        Unspecified feed type. Not expected to be used. (Value:
+ *        "FEEDTYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ObservabilityData
  *        Database resource monitoring data (Value: "OBSERVABILITY_DATA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_RecommendationSignalData
@@ -5389,8 +5446,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *feedType;
 
+/** Observability metric data. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ObservabilityMetricData *observabilityMetricData;
+
+/** Database resource recommendation signal data. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceRecommendationSignalData *recommendationSignalData;
+
+/** Database resource health signal data. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceHealthSignalData *resourceHealthSignalData;
 
 /**
@@ -5399,6 +5461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId GTLR_DEPRECATED;
 
+/** Database resource metadata. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceMetadata *resourceMetadata;
 
 /**
@@ -5484,7 +5547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        is not present in the existing set of enum values. (Value:
  *        "PROVIDER_OTHER")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_Provider_ProviderUnspecified
- *        Value "PROVIDER_UNSPECIFIED"
+ *        Unspecified provider. (Value: "PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_Provider_Selfmanaged
  *        Self-managed database provider. These are resources on a cloud
  *        platform, e.g., database resource installed in a GCE VM, but not a
@@ -5651,6 +5714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes
  *        Performance impact of high joins without indexes (Value:
  *        "SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk
+ *        Indicates a high risk of maintenance downtime. (Value:
+ *        "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfOpenTables
  *        Represents high number of concurrently opened tables. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES")
@@ -5707,6 +5773,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime
+ *        Indicates both a low cache hit rate and a risk of maintenance
+ *        downtime. (Value:
+ *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections
  *        High number of idle connections. (Value:
  *        "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
@@ -5919,7 +5989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, copy, nullable) NSString *signalType;
 
 /**
- *  state
+ *  Required. The state of the signal, such as if it's ACTIVE or RESOLVED.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_State_Active The
@@ -5974,7 +6044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        needs to be provided when the provider is known, but it is not present
  *        in the existing set of enum values. (Value: "PROVIDER_OTHER")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceId_Provider_ProviderUnspecified
- *        Value "PROVIDER_UNSPECIFIED"
+ *        Unspecified provider. (Value: "PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceId_Provider_Selfmanaged
  *        Self-managed database provider. These are resources on a cloud
  *        platform, e.g., database resource installed in a GCE VM, but not a
@@ -6450,6 +6520,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes
  *        Performance impact of high joins without indexes (Value:
  *        "SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk
+ *        Indicates a high risk of maintenance downtime. (Value:
+ *        "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfOpenTables
  *        Represents high number of concurrently opened tables. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES")
@@ -6506,6 +6579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime
+ *        Indicates both a low cache hit rate and a risk of maintenance
+ *        downtime. (Value:
+ *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections
  *        High number of idle connections. (Value:
  *        "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
@@ -7623,7 +7700,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) NSNumber *isDeletionProtectionEnabled;
 
+/** The product this resource represents. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Product *product;
+
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
 
 /**
@@ -7683,7 +7762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Locations that could not be reached. */
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -8540,15 +8619,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineFirestoreWithNativeMode
  *        Firestore with native mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_NATIVE_MODE")
- *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMemorstoreForValkey
- *        Memorystore with Valkey dialect. (Value:
- *        "ENGINE_MEMORSTORE_FOR_VALKEY")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedis
  *        Memorystore with Redis dialect. (Value:
  *        "ENGINE_MEMORYSTORE_FOR_REDIS")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMemorystoreForRedisCluster
  *        Memorystore with Redis cluster dialect. (Value:
  *        "ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER")
+ *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMemorystoreForValkey
+ *        Memorystore with Valkey. (Value: "ENGINE_MEMORYSTORE_FOR_VALKEY")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineMysql MySQL binary running as
  *        an engine in the database instance. (Value: "ENGINE_MYSQL")
  *    @arg @c kGTLRCloudRedis_Product_Engine_EngineNative Native database binary
@@ -9189,7 +9267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) GTLRDuration *durationBasedRetention;
 
 /**
- *  quantityBasedRetention
+ *  Quantity based retention period i.e. 7 backups
  *
  *  Uses NSNumber of intValue.
  */
@@ -9216,6 +9294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *retentionUnit GTLR_DEPRECATED;
 
+/** Duration based retention period i.e. 172800 seconds (2 days) */
 @property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention GTLR_DEPRECATED;
 
 /** Timestamp based retention period i.e. 2024-05-01T00:00:00Z */
@@ -9648,6 +9727,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Optional. Specify the zones of a multi-zone cluster where Redis Cluster
+ *  allocates resources. This flag isn't applicable for single-zone clusters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *zones;
 
 @end
 

@@ -1565,6 +1565,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIam
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamPermissionDenied;
 /**
+ *  Missing control plane configuration error code
+ *
+ *  Value: "MISSING_CONTROL_PLANE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_MissingControlPlaneConfig;
+/**
  *  Modernization is aborted for a cluster.
  *
  *  Value: "MODERNIZATION_ABORTED"
@@ -1602,6 +1608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatible;
 /**
+ *  Incompatible config found in the cluster.
+ *
+ *  Value: "MODERNIZATION_INCOMPATIBLE_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleConfig;
+/**
  *  Fleet exceeds service mesh fleet-level quota limits.
  *
  *  Value: "MODERNIZATION_INCOMPATIBLE_FLEET_QUOTA"
@@ -1613,6 +1625,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  *  Value: "MODERNIZATION_INCOMPATIBLE_FLEET_SCALE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleFleetScale;
+/**
+ *  Gateway pods per cluster limit exceeded.
+ *
+ *  Value: "MODERNIZATION_INCOMPATIBLE_GATEWAY_POD_SCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleGatewayPodScale;
+/**
+ *  One or more Pods have unsupported annotations.
+ *
+ *  Value: "MODERNIZATION_INCOMPATIBLE_POD_ANNOTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatiblePodAnnotation;
 /**
  *  Modernization is in progress for a cluster.
  *
@@ -1788,6 +1812,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaEx
  *  Value: "QUOTA_EXCEEDED_TRAFFIC_POLICIES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies;
+/**
+ *  Required org policy disabled error code
+ *
+ *  Value: "REQUIRED_ORG_POLICY_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_RequiredOrgPolicyDisabled;
+/**
+ *  Shared VPC missing permissions error code
+ *
+ *  Value: "SHARED_VPC_MISSING_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_SharedVpcMissingPermissions;
 /**
  *  Unsupported gateway class error code
  *
@@ -5263,6 +5299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *        "MESH_IAM_CROSS_PROJECT_PERMISSION_DENIED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_MeshIamPermissionDenied Mesh
  *        IAM permission denied error code (Value: "MESH_IAM_PERMISSION_DENIED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_MissingControlPlaneConfig
+ *        Missing control plane configuration error code (Value:
+ *        "MISSING_CONTROL_PLANE_CONFIG")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationAborted
  *        Modernization is aborted for a cluster. (Value:
  *        "MODERNIZATION_ABORTED")
@@ -5280,12 +5319,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatible
  *        Fleet is not yet compatible for modernization. (Value:
  *        "MODERNIZATION_INCOMPATIBLE")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleConfig
+ *        Incompatible config found in the cluster. (Value:
+ *        "MODERNIZATION_INCOMPATIBLE_CONFIG")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleFleetQuota
  *        Fleet exceeds service mesh fleet-level quota limits. (Value:
  *        "MODERNIZATION_INCOMPATIBLE_FLEET_QUOTA")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleFleetScale
  *        Fleet exceeds service mesh fleet-level scalability limits. (Value:
  *        "MODERNIZATION_INCOMPATIBLE_FLEET_SCALE")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatibleGatewayPodScale
+ *        Gateway pods per cluster limit exceeded. (Value:
+ *        "MODERNIZATION_INCOMPATIBLE_GATEWAY_POD_SCALE")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatiblePodAnnotation
+ *        One or more Pods have unsupported annotations. (Value:
+ *        "MODERNIZATION_INCOMPATIBLE_POD_ANNOTATION")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress
  *        Modernization is in progress for a cluster. (Value:
  *        "MODERNIZATION_IN_PROGRESS")
@@ -5371,6 +5419,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_QuotaExceededTrafficPolicies
  *        TrafficPolicy quota exceeded error code. (Value:
  *        "QUOTA_EXCEEDED_TRAFFIC_POLICIES")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_RequiredOrgPolicyDisabled
+ *        Required org policy disabled error code (Value:
+ *        "REQUIRED_ORG_POLICY_DISABLED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_SharedVpcMissingPermissions
+ *        Shared VPC missing permissions error code (Value:
+ *        "SHARED_VPC_MISSING_PERMISSIONS")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_UnsupportedGatewayClass
  *        Unsupported gateway class error code (Value:
  *        "UNSUPPORTED_GATEWAY_CLASS")

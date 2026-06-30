@@ -1826,6 +1826,18 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includePrefixes;
 
 /**
+ *  Optional. If specified, objects in the source matching any of the storage
+ *  classes in this field will be transferred. Objects in storage classes not
+ *  included in this field will be skipped. If empty, the default behavior
+ *  regarding the storage classes is applied. This includes all storage classes
+ *  except "GLACIER" as per default behavior. Currently, this field only
+ *  supports S3 data source. For the list of valid Amazon S3 storage classnames,
+ *  please refer to the AWS documentation:
+ *  https://docs.aws.amazon.com/AmazonS3/latest/userguide/sc-howtoset.html
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeStorageClasses;
+
+/**
  *  If specified, only objects with a "last modification time" before this
  *  timestamp and objects that don't have a "last modification time" are
  *  transferred.
@@ -2633,9 +2645,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 @property(nonatomic, strong, nullable) NSNumber *deleteObjectsFromSourceAfterTransfer;
 
 /**
- *  Whether objects that exist only in the sink should be deleted. **Note:**
- *  This option and delete_objects_from_source_after_transfer are mutually
- *  exclusive.
+ *  Whether objects that exist only in the sink should be deleted from the sink.
+ *  **Note:** This option and delete_objects_from_source_after_transfer are
+ *  mutually exclusive.
  *
  *  Uses NSNumber of boolValue.
  */

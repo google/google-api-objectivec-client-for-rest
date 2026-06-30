@@ -147,6 +147,67 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk
+//
+
+@implementation GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk
+@dynamic e, kid, kty, n, use;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks
+//
+
+@implementation GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks
+@dynamic keys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keys" : [GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig
+//
+
+@implementation GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig
+@dynamic authorizationEndpoint, idTokenSigningAlgValuesSupported, issuer,
+         jwksUri, responseTypesSupported, subjectTypesSupported, tokenEndpoint;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"authorizationEndpoint" : @"authorization_endpoint",
+    @"idTokenSigningAlgValuesSupported" : @"id_token_signing_alg_values_supported",
+    @"jwksUri" : @"jwks_uri",
+    @"responseTypesSupported" : @"response_types_supported",
+    @"subjectTypesSupported" : @"subject_types_supported",
+    @"tokenEndpoint" : @"token_endpoint"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id_token_signing_alg_values_supported" : [NSString class],
+    @"response_types_supported" : [NSString class],
+    @"subject_types_supported" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSecurityToken_GoogleIdentityStsV1Options
 //
 

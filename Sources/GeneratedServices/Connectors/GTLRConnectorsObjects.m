@@ -28,6 +28,16 @@ NSString * const kGTLRConnectors_EntityType_Operations_List    = @"LIST";
 NSString * const kGTLRConnectors_EntityType_Operations_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 NSString * const kGTLRConnectors_EntityType_Operations_Update  = @"UPDATE";
 
+// GTLRConnectors_ExecuteHttpRequestRequest.httpMethod
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodDelete = @"HTTP_METHOD_DELETE";
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodGet = @"HTTP_METHOD_GET";
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodHead = @"HTTP_METHOD_HEAD";
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodOptions = @"HTTP_METHOD_OPTIONS";
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPatch = @"HTTP_METHOD_PATCH";
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPost = @"HTTP_METHOD_POST";
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodPut = @"HTTP_METHOD_PUT";
+NSString * const kGTLRConnectors_ExecuteHttpRequestRequest_HttpMethod_HttpMethodUnspecified = @"HTTP_METHOD_UNSPECIFIED";
+
 // GTLRConnectors_Field.dataType
 NSString * const kGTLRConnectors_Field_DataType_Array          = @"ARRAY";
 NSString * const kGTLRConnectors_Field_DataType_Bigint         = @"BIGINT";
@@ -708,6 +718,42 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_ExecuteHttpRequestRequest
+//
+
+@implementation GTLRConnectors_ExecuteHttpRequestRequest
+@dynamic headers, httpMethod, rawBody, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"headers" : [GTLRConnectors_HttpHeader class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteHttpRequestResponse
+//
+
+@implementation GTLRConnectors_ExecuteHttpRequestResponse
+@dynamic body, headers, reason, statusCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"headers" : [GTLRConnectors_HttpHeader class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_ExecuteSqlQueryRequest
 //
 
@@ -989,6 +1035,16 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_HttpHeader
+//
+
+@implementation GTLRConnectors_HttpHeader
+@dynamic key, value;
 @end
 
 

@@ -14,6 +14,91 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataManager_AdEvent.adFormat
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatAr  = @"AD_FORMAT_AR";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatAudio = @"AD_FORMAT_AUDIO";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatBanner = @"AD_FORMAT_BANNER";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatBumper = @"AD_FORMAT_BUMPER";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatCarousel = @"AD_FORMAT_CAROUSEL";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatCollection = @"AD_FORMAT_COLLECTION";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatImage = @"AD_FORMAT_IMAGE";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInFeed = @"AD_FORMAT_IN_FEED";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStream = @"AD_FORMAT_IN_STREAM";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamNonSkippable = @"AD_FORMAT_IN_STREAM_NON_SKIPPABLE";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamSkippable = @"AD_FORMAT_IN_STREAM_SKIPPABLE";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInteractive = @"AD_FORMAT_INTERACTIVE";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInterstitial = @"AD_FORMAT_INTERSTITIAL";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatNative = @"AD_FORMAT_NATIVE";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatShorts = @"AD_FORMAT_SHORTS";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatSponsored = @"AD_FORMAT_SPONSORED";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatStory = @"AD_FORMAT_STORY";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatUnspecified = @"AD_FORMAT_UNSPECIFIED";
+NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatVideo = @"AD_FORMAT_VIDEO";
+
+// GTLRDataManager_AdEvent.adPlacement
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementDiscover = @"AD_PLACEMENT_DISCOVER";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFeed = @"AD_PLACEMENT_FEED";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFooter = @"AD_PLACEMENT_FOOTER";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHeader = @"AD_PLACEMENT_HEADER";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHome = @"AD_PLACEMENT_HOME";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementInContent = @"AD_PLACEMENT_IN_CONTENT";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementPromoted = @"AD_PLACEMENT_PROMOTED";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementSearch = @"AD_PLACEMENT_SEARCH";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementStory = @"AD_PLACEMENT_STORY";
+NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementUnspecified = @"AD_PLACEMENT_UNSPECIFIED";
+
+// GTLRDataManager_AdEvent.adType
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeAudio   = @"AD_TYPE_AUDIO";
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeDisplay = @"AD_TYPE_DISPLAY";
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeHtml    = @"AD_TYPE_HTML";
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeImage   = @"AD_TYPE_IMAGE";
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeRichMedia = @"AD_TYPE_RICH_MEDIA";
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeText    = @"AD_TYPE_TEXT";
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeUnspecified = @"AD_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeVideo   = @"AD_TYPE_VIDEO";
+
+// GTLRDataManager_AdEvent.attributionHint
+NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintConverted = @"ATTRIBUTION_HINT_CONVERTED";
+NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintNotConverted = @"ATTRIBUTION_HINT_NOT_CONVERTED";
+NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintUnspecified = @"ATTRIBUTION_HINT_UNSPECIFIED";
+
+// GTLRDataManager_AdEvent.eventSubtype
+NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeEngagedView = @"EVENT_SUBTYPE_ENGAGED_VIEW";
+NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeImpression = @"EVENT_SUBTYPE_IMPRESSION";
+NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOnsiteClick = @"EVENT_SUBTYPE_ONSITE_CLICK";
+NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOutboundClick = @"EVENT_SUBTYPE_OUTBOUND_CLICK";
+NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeUnspecified = @"EVENT_SUBTYPE_UNSPECIFIED";
+
+// GTLRDataManager_AdEvent.eventType
+NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeClick = @"EVENT_TYPE_CLICK";
+NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeView = @"EVENT_TYPE_VIEW";
+
+// GTLRDataManager_AdEvent.platform
+NSString * const kGTLRDataManager_AdEvent_Platform_PlatformAndroid = @"PLATFORM_ANDROID";
+NSString * const kGTLRDataManager_AdEvent_Platform_PlatformIos = @"PLATFORM_IOS";
+NSString * const kGTLRDataManager_AdEvent_Platform_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
+NSString * const kGTLRDataManager_AdEvent_Platform_PlatformWeb = @"PLATFORM_WEB";
+
+// GTLRDataManager_AdEvent.platformType
+NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeCtv = @"PLATFORM_TYPE_CTV";
+NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeDesktop = @"PLATFORM_TYPE_DESKTOP";
+NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeMobile = @"PLATFORM_TYPE_MOBILE";
+NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypePhone = @"PLATFORM_TYPE_PHONE";
+NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeTablet = @"PLATFORM_TYPE_TABLET";
+NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeUnspecified = @"PLATFORM_TYPE_UNSPECIFIED";
+
+// GTLRDataManager_AdEvent.targetingType
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeAudience = @"TARGETING_TYPE_AUDIENCE";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeContextual = @"TARGETING_TYPE_CONTEXTUAL";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDemographic = @"TARGETING_TYPE_DEMOGRAPHIC";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDevice = @"TARGETING_TYPE_DEVICE";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeGeo = @"TARGETING_TYPE_GEO";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeInterest = @"TARGETING_TYPE_INTEREST";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypePurchaseIntent = @"TARGETING_TYPE_PURCHASE_INTENT";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeRemarketing = @"TARGETING_TYPE_REMARKETING";
+NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeUnspecified = @"TARGETING_TYPE_UNSPECIFIED";
+
 // GTLRDataManager_AwsWrappedKeyInfo.keyType
 NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_Xchacha20Poly1305 = @"XCHACHA20_POLY1305";
@@ -201,6 +286,11 @@ NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_Comm
 NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_LinearTvAudience = @"LINEAR_TV_AUDIENCE";
 NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_PartnerAudienceSourceUnspecified = @"PARTNER_AUDIENCE_SOURCE_UNSPECIFIED";
 
+// GTLRDataManager_PartnerLink.featureSet
+NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAdEventManagement = @"FEATURE_SET_AD_EVENT_MANAGEMENT";
+NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAudienceAndEventManagement = @"FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT";
+NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetUnspecified = @"FEATURE_SET_UNSPECIFIED";
+
 // GTLRDataManager_ProductAccount.accountType
 NSString * const kGTLRDataManager_ProductAccount_AccountType_AccountTypeUnspecified = @"ACCOUNT_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DataPartner = @"DATA_PARTNER";
@@ -335,6 +425,19 @@ NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_High = @"HI
 NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_Low = @"LOW";
 NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_Medium = @"MEDIUM";
 
+// GTLRDataManager_ViewabilityInfo.mediaQuartile
+NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileComplete = @"MEDIA_QUARTILE_COMPLETE";
+NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileFirstQuartile = @"MEDIA_QUARTILE_FIRST_QUARTILE";
+NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileMidpoint = @"MEDIA_QUARTILE_MIDPOINT";
+NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileStart = @"MEDIA_QUARTILE_START";
+NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileThirdQuartile = @"MEDIA_QUARTILE_THIRD_QUARTILE";
+NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileUnspecified = @"MEDIA_QUARTILE_UNSPECIFIED";
+
+// GTLRDataManager_ViewabilityInfo.viewType
+NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcRendered = @"VIEW_TYPE_MRC_RENDERED";
+NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcViewed = @"VIEW_TYPE_MRC_VIEWED";
+NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
+
 // GTLRDataManager_WarningCount.reason
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed = @"PROCESSING_WARNING_REASON_AWS_AUTH_FAILED";
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError = @"PROCESSING_WARNING_REASON_DECRYPTION_ERROR";
@@ -354,6 +457,22 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_AddressInfo
 @dynamic familyName, givenName, postalCode, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_AdEvent
+//
+
+@implementation GTLRDataManager_AdEvent
+@dynamic adFormat, adFormatString, adGroupId, adHeight, adId, adPlacement,
+         adPlacementString, adType, adTypeString, advertiserId, adWidth,
+         attributionHint, campaignId, campaignName, deviceInfo, eventId,
+         eventSubtype, eventSubtypeString, eventType, measurementAllowed,
+         medium, mobileDeviceId, platform, platformString, platformType,
+         platformTypeString, regionCode, source, targetingType,
+         targetingTypeString, timestamp, userData, viewabilityInfo;
 @end
 
 
@@ -476,6 +595,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_CoordinatorKeyInfo
+//
+
+@implementation GTLRDataManager_CoordinatorKeyInfo
+@dynamic keyId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_CustomVariable
 //
 
@@ -550,7 +679,7 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_EncryptionInfo
-@dynamic awsWrappedKeyInfo, gcpWrappedKeyInfo;
+@dynamic awsWrappedKeyInfo, coordinatorKeyInfo, gcpWrappedKeyInfo;
 @end
 
 
@@ -650,6 +779,33 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_GcpWrappedKeyInfo
 @dynamic encryptedDek, kekUri, keyType, wipProvider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IngestAdEventsRequest
+//
+
+@implementation GTLRDataManager_IngestAdEventsRequest
+@dynamic adEvents, encryptionInfo, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adEvents" : [GTLRDataManager_AdEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IngestAdEventsResponse
+//
+
+@implementation GTLRDataManager_IngestAdEventsResponse
 @end
 
 
@@ -1083,11 +1239,40 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_PartnerCustomerAccount
+//
+
+@implementation GTLRDataManager_PartnerCustomerAccount
+@dynamic accountId, accountName, accountType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_PartnerLink
 //
 
 @implementation GTLRDataManager_PartnerLink
-@dynamic name, owningAccount, partnerAccount, partnerLinkId;
+@dynamic featureSet, name, owningAccount, partnerAccount,
+         partnerCustomerAccount, partnerLinkId, partnerLinkMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerLinkMetadata
+//
+
+@implementation GTLRDataManager_PartnerLinkMetadata
+@dynamic implicitAccounts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"implicitAccounts" : [GTLRDataManager_PartnerCustomerAccount class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1556,6 +1741,17 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_UserProperty
 @dynamic propertyName, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_ViewabilityInfo
+//
+
+@implementation GTLRDataManager_ViewabilityInfo
+@dynamic mediaDuration, mediaQuartile, mediaSkippable, mediaVolumePercent,
+         playbackDuration, viewableDuration, viewablePercent, viewType;
 @end
 
 

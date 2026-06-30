@@ -35,6 +35,176 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Fetches the signing keys for an agentic or managed workload identity pool
+ *  and returns them in JWKs format, defined in [RFC
+ *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
+ *  pools are supported.
+ *
+ *  Method: sts.organizations.locations.workloadIdentityPools.openid.getJwks
+ */
+@interface GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsOpenidGetJwks : GTLRCloudSecurityTokenQuery
+
+/**
+ *  Required. The name of the pool whose JWKS needs to be retrieved. Format:
+ *  'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  Example(s):
+ *  'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *  'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks.
+ *
+ *  Fetches the signing keys for an agentic or managed workload identity pool
+ *  and returns them in JWKs format, defined in [RFC
+ *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
+ *  pools are supported.
+ *
+ *  @param name Required. The name of the pool whose JWKS needs to be retrieved.
+ *    Format:
+ *    'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    Example(s):
+ *    'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *    'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ *
+ *  @return GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsOpenidGetJwks
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the OIDC provider configuration for an agentic or managed workload
+ *  identity pool following [the OIDC 1.0 discovery
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
+ *  For now, only agentic system pools are supported.
+ *
+ *  Method: sts.organizations.locations.workloadIdentityPools.well-known.getOpenid-configuration
+ */
+@interface GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration : GTLRCloudSecurityTokenQuery
+
+/**
+ *  Required. The name of the pool whose OpenID provider configuration to
+ *  retrieve. Format:
+ *  'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  Example:
+ *  'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *  'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig.
+ *
+ *  Gets the OIDC provider configuration for an agentic or managed workload
+ *  identity pool following [the OIDC 1.0 discovery
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
+ *  For now, only agentic system pools are supported.
+ *
+ *  @param name Required. The name of the pool whose OpenID provider
+ *    configuration to retrieve. Format:
+ *    'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    Example:
+ *    'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *    'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ *
+ *  @return GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches the signing keys for an agentic or managed workload identity pool
+ *  and returns them in JWKs format, defined in [RFC
+ *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
+ *  pools are supported.
+ *
+ *  Method: sts.projects.locations.workloadIdentityPools.openid.getJwks
+ */
+@interface GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsOpenidGetJwks : GTLRCloudSecurityTokenQuery
+
+/**
+ *  Required. The name of the pool whose JWKS needs to be retrieved. Format:
+ *  'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  Example(s):
+ *  'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *  'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks.
+ *
+ *  Fetches the signing keys for an agentic or managed workload identity pool
+ *  and returns them in JWKs format, defined in [RFC
+ *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
+ *  pools are supported.
+ *
+ *  @param name Required. The name of the pool whose JWKS needs to be retrieved.
+ *    Format:
+ *    'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    Example(s):
+ *    'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *    'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ *
+ *  @return GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsOpenidGetJwks
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the OIDC provider configuration for an agentic or managed workload
+ *  identity pool following [the OIDC 1.0 discovery
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
+ *  For now, only agentic system pools are supported.
+ *
+ *  Method: sts.projects.locations.workloadIdentityPools.well-known.getOpenid-configuration
+ */
+@interface GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration : GTLRCloudSecurityTokenQuery
+
+/**
+ *  Required. The name of the pool whose OpenID provider configuration to
+ *  retrieve. Format:
+ *  'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *  Example:
+ *  'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *  'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig.
+ *
+ *  Gets the OIDC provider configuration for an agentic or managed workload
+ *  identity pool following [the OIDC 1.0 discovery
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
+ *  For now, only agentic system pools are supported.
+ *
+ *  @param name Required. The name of the pool whose OpenID provider
+ *    configuration to retrieve. Format:
+ *    'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
+ *    Example:
+ *    'organizations/1234/locations/global/workloadIdentityPools/agents.global.org-1234.system.id.goog'
+ *    'projects/12345678/locations/global/workloadIdentityPools/agents.global.proj-12345678.system.id.goog'
+ *
+ *  @return GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsWellKnownGetOpenidConfiguration
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Exchanges a credential for a Google OAuth 2.0 access token. The token
  *  asserts an external identity within an identity pool, or it applies a
  *  Credential Access Boundary to a Google access token. Note that workforce

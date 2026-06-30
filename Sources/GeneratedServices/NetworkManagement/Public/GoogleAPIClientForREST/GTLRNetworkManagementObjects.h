@@ -3662,7 +3662,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectsMissingPermission;
 
-/** URI of the resource that caused the abort. */
+/**
+ *  URI of the resource that caused the abort. Format: *
+ *  `projects/{project_id}/global/networks/{network_id}` (VPC network) *
+ *  `projects/{project_id}/zones/{zone}/instances/{instance_id}` (VM instance)
+ */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
 @end
@@ -3697,7 +3701,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Runtime of the App Engine version. */
 @property(nonatomic, copy, nullable) NSString *runtime;
 
-/** URI of an App Engine version. */
+/**
+ *  URI of the App Engine version. Format:
+ *  `apps/{app_id}/services/{service_id}/versions/{version_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -3884,7 +3891,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Location in which the Cloud Function is deployed. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** URI of a Cloud Function. */
+/**
+ *  URI of the Cloud Function. Format:
+ *  `projects/{project_id}/locations/{location}/functions/{function_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /**
@@ -3908,7 +3918,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Location in which this job is deployed. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** URI of a Cloud Run job. */
+/**
+ *  URI of the Cloud Run job. Format:
+ *  `projects/{project_id}/locations/{location}/jobs/{job_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -3947,10 +3960,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Location in which this revision is deployed. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** URI of Cloud Run service this revision belongs to. */
+/**
+ *  URI of Cloud Run service this revision belongs to. Format:
+ *  `projects/{project_id}/locations/{location}/services/{service_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *serviceUri;
 
-/** URI of a Cloud Run revision. */
+/**
+ *  URI of the Cloud Run revision. Format:
+ *  `projects/{project_id}/locations/{location}/revisions/{revision_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -3972,14 +3991,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  URI of a Cloud SQL instance network or empty string if the instance does not
- *  have one.
+ *  have one. In format "projects/{project}/global/networks/{network}".
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Region in which the Cloud SQL instance is running. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** URI of a Cloud SQL instance. */
+/**
+ *  URI of a Cloud SQL instance in format
+ *  "projects/{project}/instances/{instance}"
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -4140,7 +4162,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** PSC Google API target the packet is delivered to (if applicable). */
 @property(nonatomic, copy, nullable) NSString *pscGoogleApiTarget;
 
-/** URI of the resource that the packet is delivered to. */
+/**
+ *  URI of the resource that the packet is delivered to. For example: *
+ *  `"projects/{project}/zones/{zone}/instances/{instance}"` *
+ *  `"projects/{project}/regions/{region}/networkEndpointGroups/{network_endpoint_group}"`
+ */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
@@ -4221,7 +4247,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @interface GTLRNetworkManagement_DirectVpcEgressConnectionInfo : GTLRObject
 
-/** URI of direct access network. */
+/**
+ *  URI of the VPC network for direct egress. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Region in which the Direct VPC egress is deployed. */
@@ -4233,7 +4262,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Selected IP range. */
 @property(nonatomic, copy, nullable) NSString *selectedIpRange;
 
-/** URI of direct access subnetwork. */
+/**
+ *  URI of the subnetwork for direct egress. Format:
+ *  `projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
 
 @end
@@ -4660,7 +4692,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Region of the dropped packet (if relevant). */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** URI of the resource that caused the drop. */
+/**
+ *  URI of the resource that caused the drop. Format: *
+ *  `projects/{project_id}/global/firewalls/{firewall_id}` (firewall rule) *
+ *  `projects/{project_id}/global/routes/{route_id}` (route)
+ */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /** Geolocation (region code) of the source IP address (if relevant). */
@@ -4896,6 +4932,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *cloudSqlInstance;
 
 /**
+ *  A [DMS Private
+ *  Connection](https://docs.cloud.google.com/database-migration/docs/reference/rest/v1/projects.locations.privateConnections)
+ *  name format:
+ *  projects/{project}/locations/{location}/privateConnections/{privateConnection}.
+ */
+@property(nonatomic, copy, nullable) NSString *dmsPrivateConnection;
+
+/**
  *  A forwarding rule and its corresponding IP address represent the frontend
  *  configuration of a Google Cloud load balancer. Forwarding rules are also
  *  used for protocol forwarding, Private Service Connect and other network
@@ -5078,7 +5122,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Destination IP address. */
 @property(nonatomic, copy, nullable) NSString *destinationIp;
 
-/** URI of the network where this packet is sent to. */
+/**
+ *  URI of the network where this packet is sent to. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *destinationNetworkUri;
 
 /**
@@ -5097,7 +5144,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Source IP address. */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
 
-/** URI of the network where this packet originates from. */
+/**
+ *  URI of the network where this packet originates from. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *sourceNetworkUri;
 
 /**
@@ -5236,8 +5286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *firewallRuleType;
 
 /**
- *  The URI of the VPC network that the firewall rule is associated with. This
- *  field is not applicable to hierarchical firewall policy rules.
+ *  The URI of the VPC network that the firewall rule is associated with in
+ *  format "projects/{project}/global/networks/{network}". This field is not
+ *  applicable to hierarchical firewall policy rules.
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
@@ -5260,6 +5311,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /**
  *  The URI of the firewall policy that this rule is associated with. This field
  *  is not applicable to VPC firewall rules and implied VPC firewall rules.
+ *  Format: * `locations/global/firewallPolicies/{policy_id}` (hierarchical
+ *  policy) * `projects/{project_id}/global/firewallPolicies/{policy_id}`
+ *  (global network firewall policy) *
+ *  `projects/{project_id}/regions/{region}/firewallPolicies/{policy_id}`
+ *  (regional network firewall policy)
  */
 @property(nonatomic, copy, nullable) NSString *policyUri;
 
@@ -5295,8 +5351,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *targetType;
 
 /**
- *  The URI of the firewall rule. This field is not applicable to implied VPC
- *  firewall rules.
+ *  The URI of the firewall rule in format
+ *  "projects/{project}/global/firewalls/{firewall}". This field is not
+ *  applicable to implied VPC firewall rules.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -5311,7 +5368,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** IP address of the target (if applicable). */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
-/** URI of the resource that the packet is forwarded to. */
+/**
+ *  URI of the resource that the packet is forwarded to. Format: *
+ *  `projects/{project_id}/global/networks/{network_id}` (VPC peering network) *
+ *  `projects/{project_id}/regions/{region}/vpnGateways/{vpn_gateway_id}` (VPN
+ *  gateway)
+ */
 @property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
@@ -5369,7 +5431,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Protocol defined in the forwarding rule that matches the packet. */
 @property(nonatomic, copy, nullable) NSString *matchedProtocol;
 
-/** Network URI. */
+/**
+ *  URI of a VPC network where the forwarding rule is located in format
+ *  "projects/{project}/global/networks/{network}".
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** PSC Google API target this forwarding rule targets (if applicable). */
@@ -5377,7 +5442,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  URI of the PSC service attachment this forwarding rule targets (if
- *  applicable).
+ *  applicable) in format
+ *  "projects/{project}/regions/{region}/serviceAttachments/{service_attachment}".
  */
 @property(nonatomic, copy, nullable) NSString *pscServiceAttachmentUri;
 
@@ -5387,7 +5453,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Target type of the forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** URI of the forwarding rule. */
+/**
+ *  URI of the forwarding rule in format
+ *  "projects/{project}/global/forwardingRules/{forwarding_rule}" (global) or
+ *  "projects/{project}/regions/{region}/forwardingRules/{forwarding_rule}"
+ *  (regional).
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /** VIP of the forwarding rule. */
@@ -5452,10 +5523,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @interface GTLRNetworkManagement_GKEMasterInfo : GTLRObject
 
-/** URI of a GKE cluster network. */
+/**
+ *  URI of the GKE cluster network. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *clusterNetworkUri;
 
-/** URI of a GKE cluster. */
+/**
+ *  URI of the GKE cluster. Format: *
+ *  `projects/{project_id}/locations/{location}/clusters/{cluster_id}` (regional
+ *  cluster) * `projects/{project_id}/zones/{zone}/clusters/{cluster_id}` (zonal
+ *  cluster)
+ */
 @property(nonatomic, copy, nullable) NSString *clusterUri;
 
 /** DNS endpoint of a GKE cluster control plane. */
@@ -5545,7 +5624,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
-/** URI of the network containing the GKE Pod. */
+/**
+ *  URI of the network containing the GKE Pod. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /**
@@ -5707,7 +5789,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Name of a Google Cloud region where the hybrid subnet is configured. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** URI of a hybrid subnet. */
+/**
+ *  URI of the hybrid subnet. Format:
+ *  `projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -5733,10 +5818,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Network tags configured on the instance. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
 
-/** URI of a Compute Engine network. */
+/**
+ *  URI of a Compute Engine network in format
+ *  "projects/{project}/global/networks/{network}"
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
-/** URI of the PSC network attachment the NIC is attached to (if relevant). */
+/**
+ *  URI of the PSC network attachment the NIC is attached to (if relevant) in
+ *  format
+ *  "projects/{project}/regions/{region}/networkAttachments/{network_attachment}"
+ */
 @property(nonatomic, copy, nullable) NSString *pscNetworkAttachmentUri;
 
 /**
@@ -5763,7 +5855,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** URI of a Compute Engine instance. */
+/**
+ *  URI of a Compute Engine instance in format
+ *  "projects/{project}/zones/{zone}/instances/{instance}"
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -5774,14 +5869,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @interface GTLRNetworkManagement_InterconnectAttachmentInfo : GTLRObject
 
-/** URI of the Cloud Router to be used for dynamic routing. */
+/**
+ *  URI of the Cloud Router to be used for dynamic routing. Format:
+ *  `projects/{project_id}/regions/{region}/routers/{router_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *cloudRouterUri;
 
 /** Name of an Interconnect attachment. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  URI of the Interconnect where the Interconnect attachment is configured.
+ *  URI of the Interconnect. Format:
+ *  `projects/{project_id}/global/interconnects/{interconnect_id}`
  */
 @property(nonatomic, copy, nullable) NSString *interconnectUri;
 
@@ -5814,7 +5913,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** URI of an Interconnect attachment. */
+/**
+ *  URI of the Interconnect attachment. Format:
+ *  `projects/{project_id}/regions/{region}/interconnectAttachments/{attachment_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -6151,7 +6253,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *healthCheckFirewallState;
 
-/** URI of a Compute Engine instance or network endpoint. */
+/**
+ *  URI of the backend instance or network endpoint. Format: *
+ *  `projects/{project_id}/zones/{zone}/instances/{instance_id}` (instance) *
+ *  `projects/{project_id}/zones/{zone}/networkEndpointGroups/{neg_id}` (zonal
+ *  NEG) *
+ *  `projects/{project_id}/regions/{region}/networkEndpointGroups/{neg_id}`
+ *  (regional NEG) *
+ *  `projects/{project_id}/global/networkEndpointGroups/{neg_id}` (global NEG)
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -6162,10 +6272,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @interface GTLRNetworkManagement_LoadBalancerBackendInfo : GTLRObject
 
-/** URI of the backend bucket this backend targets (if applicable). */
+/**
+ *  URI of the backend bucket this backend targets (if applicable) in format
+ *  "projects/{project}/global/backendBuckets/{backend_bucket}".
+ */
 @property(nonatomic, copy, nullable) NSString *backendBucketUri;
 
-/** URI of the backend service this backend belongs to (if applicable). */
+/**
+ *  URI of the backend service this backend belongs to (if applicable) in format
+ *  "projects/{project}/regions/{region}/backendServices/{backend_service}"
+ *  (regional) or "projects/{project}/global/backendServices/{backend_service}"
+ *  (global).
+ */
 @property(nonatomic, copy, nullable) NSString *backendServiceUri;
 
 /**
@@ -6203,15 +6321,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *healthCheckFirewallsConfigState;
 
-/** URI of the health check attached to this backend (if applicable). */
+/**
+ *  URI of the health check attached to this backend (if applicable). Format: *
+ *  `projects/{project_id}/global/healthChecks/{health_check_id}` *
+ *  `projects/{project_id}/regions/{region}/healthChecks/{health_check_id}` *
+ *  `projects/{project_id}/global/httpHealthChecks/{health_check_id}` (legacy)
+ */
 @property(nonatomic, copy, nullable) NSString *healthCheckUri;
 
-/** URI of the instance group this backend belongs to (if applicable). */
+/**
+ *  URI of the instance group this backend belongs to (if applicable) in format
+ *  "projects/{project}/zones/{zone}/instanceGroups/{instance_group}".
+ */
 @property(nonatomic, copy, nullable) NSString *instanceGroupUri;
 
 /**
- *  URI of the backend instance (if applicable). Populated for instance group
- *  backends, and zonal NEG backends.
+ *  URI of the backend instance (if applicable) in format
+ *  "projects/{project}/zones/{zone}/instances/{instance}". Populated for
+ *  instance group backends, and zonal NEG backends.
  */
 @property(nonatomic, copy, nullable) NSString *instanceUri;
 
@@ -6223,7 +6350,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  URI of the network endpoint group this backend belongs to (if applicable).
+ *  URI of the network endpoint group this backend belongs to (if applicable)
+ *  Format: *
+ *  `projects/{project_id}/zones/{zone}/networkEndpointGroups/{neg_id}` (zonal
+ *  NEG) *
+ *  `projects/{project_id}/regions/{region}/networkEndpointGroups/{neg_id}`
+ *  (regional NEG) *
+ *  `projects/{project_id}/global/networkEndpointGroups/{neg_id}` (global NEG)
  */
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroupUri;
 
@@ -6232,7 +6365,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  URI of the PSC service attachment this PSC NEG backend targets (if
- *  applicable).
+ *  applicable) in format
+ *  "projects/{project}/regions/{region}/serviceAttachments/{service_attachment}".
  */
 @property(nonatomic, copy, nullable) NSString *pscServiceAttachmentUri;
 
@@ -6264,7 +6398,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *backendType;
 
-/** Backend configuration URI. */
+/**
+ *  URI of the backend associated with the load balancer. Format: *
+ *  `projects/{project_id}/regions/{region}/backendServices/{backend_service_id}`
+ *  * `projects/{project_id}/global/backendServices/{backend_service_id}` *
+ *  `projects/{project_id}/regions/{region}/targetPools/{target_pool_id}` *
+ *  `projects/{project_id}/zones/{zone}/targetInstances/{target_instance_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *backendUri;
 
 /**
@@ -6506,7 +6646,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** The name of Cloud NAT Gateway. Only valid when type is CLOUD_NAT. */
 @property(nonatomic, copy, nullable) NSString *natGatewayName;
 
-/** URI of the network where NAT translation takes place. */
+/**
+ *  URI of the VPC network where NAT translation takes place. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Destination IP address after NAT translation. */
@@ -6554,7 +6697,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** IP protocol in string format, for example: "TCP", "UDP", "ICMP". */
 @property(nonatomic, copy, nullable) NSString *protocol;
 
-/** Uri of the Cloud Router. Only valid when type is CLOUD_NAT. */
+/**
+ *  URI of the Cloud Router. Only valid when type is CLOUD_NAT. Format:
+ *  `projects/{project_id}/regions/{region}/routers/{router_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *routerUri;
 
 /**
@@ -6592,13 +6738,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** The IP range of the subnet matching the source IP address of the test. */
 @property(nonatomic, copy, nullable) NSString *matchedIpRange;
 
-/** URI of the subnet matching the source IP address of the test. */
+/**
+ *  URI of the subnet matching the source IP address of the test in format
+ *  "projects/{project}/regions/{region}/subnetworks/{subnetwork}"
+ */
 @property(nonatomic, copy, nullable) NSString *matchedSubnetUri;
 
 /** The region of the subnet matching the source IP address of the test. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** URI of a Compute Engine network. */
+/**
+ *  URI of a Compute Engine network in format
+ *  "projects/{project}/global/networks/{network}"
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -6819,7 +6971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  URI of the security profile group associated with this firewall packet
- *  inspection.
+ *  inspection. Format:
+ *  `organizations/{organization_id}/locations/global/securityProfileGroups/{security_profile_group_id}`
  */
 @property(nonatomic, copy, nullable) NSString *securityProfileGroupUri;
 
@@ -7192,7 +7345,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @interface GTLRNetworkManagement_ProxyConnectionInfo : GTLRObject
 
-/** URI of the network where connection is proxied. */
+/**
+ *  URI of the VPC network where connection is proxied. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Destination IP address of a new connection. */
@@ -7241,7 +7397,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** IP protocol in string format, for example: "TCP", "UDP", "ICMP". */
 @property(nonatomic, copy, nullable) NSString *protocol;
 
-/** Uri of proxy subnet. */
+/**
+ *  URI of the proxy subnet. Format:
+ *  `projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *subnetUri;
 
 @end
@@ -7374,7 +7533,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Name of a Cloud Redis Instance. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** URI of a Cloud Redis Instance network. */
+/**
+ *  URI of a Cloud Redis Instance network in format
+ *  "projects/{project}/global/networks/{network}".
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Primary endpoint IP address of a Cloud Redis Instance. */
@@ -7386,7 +7548,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Region in which the Cloud Redis Instance is defined. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** URI of a Cloud Redis Instance. */
+/**
+ *  URI of a Cloud Redis Instance in format
+ *  "projects/{project}/locations/{location}/instances/{instance}"
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -7415,7 +7580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  For ADVERTISED dynamic routes, the URI of the Cloud Router that advertised
- *  the corresponding IP prefix.
+ *  the corresponding IP prefix in format
+ *  "projects/{project}/regions/{region}/routers/{router}".
  */
 @property(nonatomic, copy, nullable) NSString *advertisedRouteSourceRouterUri;
 
@@ -7433,23 +7599,31 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  For PEERING_SUBNET and PEERING_DYNAMIC routes that are advertised by NCC
- *  Hub, the URI of the corresponding route in NCC Hub's routing table.
+ *  Hub, the URI of the corresponding route in NCC Hub's routing table. Format:
+ *  `projects/{project_id}/locations/global/hubs/{hub_id}/routeTables/{route_table_id}/routes/{route_id}`
  */
 @property(nonatomic, copy, nullable) NSString *nccHubRouteUri;
 
 /**
- *  URI of the NCC Hub the route is advertised by. PEERING_SUBNET and
+ *  URI of the NCC Hub the route is advertised by in format
+ *  "projects/{project}/locations/global/hubs/{hub}". PEERING_SUBNET and
  *  PEERING_DYNAMIC routes that are advertised by NCC Hub only.
  */
 @property(nonatomic, copy, nullable) NSString *nccHubUri;
 
 /**
- *  URI of the destination NCC Spoke. PEERING_SUBNET and PEERING_DYNAMIC routes
- *  that are advertised by NCC Hub only.
+ *  URI of the destination NCC Spoke in format
+ *  "projects/{project}/locations/{location}/spokes/{spoke}" (regional) or
+ *  "projects/{project}/locations/global/spokes/{spoke}" (global).
+ *  PEERING_SUBNET and PEERING_DYNAMIC routes that are advertised by NCC Hub
+ *  only.
  */
 @property(nonatomic, copy, nullable) NSString *nccSpokeUri;
 
-/** URI of a VPC network where route is located. */
+/**
+ *  URI of a VPC network where route is located in format
+ *  "projects/{project}/global/networks/{network}".
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /**
@@ -7459,7 +7633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *nextHop GTLR_DEPRECATED;
 
-/** URI of a VPC network where the next hop resource is located. */
+/**
+ *  URI of a VPC network where the next hop resource is located in format
+ *  "projects/{project}/global/networks/{network}".
+ */
 @property(nonatomic, copy, nullable) NSString *nextHopNetworkUri;
 
 /**
@@ -7521,7 +7698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  For PEERING_SUBNET and PEERING_STATIC routes, the URI of the originating
- *  SUBNET/STATIC route.
+ *  SUBNET/STATIC route. Format:
+ *  `projects/{project_id}/global/routes/{route_id}`
  */
 @property(nonatomic, copy, nullable) NSString *originatingRouteUri;
 
@@ -7596,8 +7774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcPortRanges;
 
 /**
- *  URI of a route. SUBNET, STATIC, PEERING_SUBNET (only for peering network)
- *  and POLICY_BASED routes only.
+ *  URI of a route in format "projects/{project}/global/routes/{route}". SUBNET,
+ *  STATIC, PEERING_SUBNET (only for peering network) and POLICY_BASED routes
+ *  only.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -7621,7 +7800,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @interface GTLRNetworkManagement_ServerlessNegInfo : GTLRObject
 
-/** URI of the serverless network endpoint group. */
+/**
+ *  URI of the serverless network endpoint group in format
+ *  "projects/{project}/regions/{region}/networkEndpointGroups/{network_endpoint_group}".
+ */
 @property(nonatomic, copy, nullable) NSString *negUri;
 
 @end
@@ -8203,7 +8385,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Location in which the VPC connector is deployed. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** URI of a VPC connector. */
+/**
+ *  URI of a VPC connector. Format:
+ *  `projects/{project_id}/locations/{location}/connectors/{connector_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -8405,19 +8590,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** IP address of the VPN gateway. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
-/** URI of a Compute Engine network where the VPN gateway is configured. */
+/**
+ *  URI of the VPC network where the VPN gateway is configured. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Name of a Google Cloud region where this VPN gateway is configured. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** URI of a VPN gateway. */
+/**
+ *  URI of the VPN gateway. Format: *
+ *  `projects/{project_id}/regions/{region}/vpnGateways/{vpn_gateway_id}` (HA
+ *  VPN gateway) *
+ *  `projects/{project_id}/regions/{region}/targetVpnGateways/{target_vpn_gateway_id}`
+ *  (Classic VPN gateway)
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /**
- *  A VPN tunnel that is associated with this VPN gateway. There may be multiple
+ *  URI of the VPN tunnel associated with the VPN gateway. There may be multiple
  *  VPN tunnels configured on a VPN gateway, and only the one relevant to the
- *  test is displayed.
+ *  test is displayed. Format:
+ *  `projects/{project_id}/regions/{region}/vpnTunnels/{vpn_tunnel_id}`
  */
 @property(nonatomic, copy, nullable) NSString *vpnTunnelUri;
 
@@ -8432,13 +8627,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Name of a VPN tunnel. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** URI of a Compute Engine network where the VPN tunnel is configured. */
+/**
+ *  URI of the VPC network where the VPN tunnel is configured. Format:
+ *  `projects/{project_id}/global/networks/{network_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /** Name of a Google Cloud region where this VPN tunnel is configured. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** URI of a VPN gateway at remote end of the tunnel. */
+/**
+ *  URI of a VPN gateway at remote end of the tunnel. Format: *
+ *  `projects/{project_id}/regions/{region}/vpnGateways/{vpn_gateway_id}` (GCP
+ *  HA VPN gateway) *
+ *  `projects/{project_id}/global/peerVpnGateways/{peer_vpn_gateway_id}` (GCP
+ *  peer VPN gateway)
+ */
 @property(nonatomic, copy, nullable) NSString *remoteGateway;
 
 /** Remote VPN gateway's IP address. */
@@ -8459,13 +8663,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *routingType;
 
-/** URI of the VPN gateway at local end of the tunnel. */
+/**
+ *  URI of the VPN gateway at local end of the tunnel. Format: *
+ *  `projects/{project_id}/regions/{region}/vpnGateways/{vpn_gateway_id}` (HA
+ *  VPN gateway) *
+ *  `projects/{project_id}/regions/{region}/targetVpnGateways/{target_vpn_gateway_id}`
+ *  (Classic VPN gateway)
+ */
 @property(nonatomic, copy, nullable) NSString *sourceGateway;
 
 /** Local VPN gateway's IP address. */
 @property(nonatomic, copy, nullable) NSString *sourceGatewayIp;
 
-/** URI of a VPN tunnel. */
+/**
+ *  URI of the VPN tunnel. Format:
+ *  `projects/{project_id}/regions/{region}/vpnTunnels/{vpn_tunnel_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end

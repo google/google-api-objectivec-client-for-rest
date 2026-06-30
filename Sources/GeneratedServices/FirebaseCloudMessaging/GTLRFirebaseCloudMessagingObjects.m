@@ -183,8 +183,8 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_Message
-@dynamic android, apns, condition, data, fcmOptions, name, notification, token,
-         topic, webpush;
+@dynamic android, apns, condition, data, fcmOptions, fid, name, notification,
+         token, topic, webpush;
 @end
 
 

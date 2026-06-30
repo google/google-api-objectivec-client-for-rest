@@ -550,7 +550,7 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_InitiatePushTransferRequest
-@dynamic tag;
+@dynamic tag, validateOnly;
 @end
 
 

@@ -297,7 +297,6 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_None = @
 NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercase = @"uppercase";
 
 // GTLRTagManager_VariableFormatValue.convertToNumber
-NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Automatic = @"automatic";
 NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Comma = @"comma";
 NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_DecimalSeparatorTypeUnspecified = @"decimalSeparatorTypeUnspecified";
 NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period = @"period";

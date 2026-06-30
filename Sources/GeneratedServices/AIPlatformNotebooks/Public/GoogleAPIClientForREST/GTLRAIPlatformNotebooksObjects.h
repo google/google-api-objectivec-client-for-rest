@@ -1043,7 +1043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
- *  Optional. Input only. Indicates the type of the disk.
+ *  Optional. Indicates the type of the disk.
  *
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_DiskTypeUnspecified

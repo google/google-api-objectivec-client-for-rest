@@ -55,6 +55,7 @@
 @class GTLRYouTube_ChannelSnippet;
 @class GTLRYouTube_ChannelStatistics;
 @class GTLRYouTube_ChannelStatus;
+@class GTLRYouTube_ChannelToAffiliateProgramLinkDetails;
 @class GTLRYouTube_ChannelTopicDetails;
 @class GTLRYouTube_ChannelToStoreLinkDetails;
 @class GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails;
@@ -424,6 +425,28 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Priv
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ChannelToAffiliateProgramLinkDetails.programStatus
+
+/**
+ *  Channel is active in the affiliate program.
+ *
+ *  Value: "active"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_Active;
+/**
+ *  Unspecified status.
+ *
+ *  Value: "affiliateProgramStatusUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_AffiliateProgramStatusUnspecified;
+/**
+ *  Channel is inactive in the affiliate program.
+ *
+ *  Value: "inactive"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_Inactive;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails.billingStatus
@@ -4088,6 +4111,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_SubscriptionContentDetails_Activ
 // GTLRYouTube_ThirdPartyLinkSnippet.type
 
 /**
+ *  A link that is connecting (or about to connect) a channel with an affiliate
+ *  program of a partner to enable that channel to earn commissions from that
+ *  partner through affiliate links.
+ *
+ *  Value: "channelToAffiliateProgramLink"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToAffiliateProgramLink;
+/**
  *  A link that is connecting (or about to connect) a channel with a store on a
  *  merchandising platform in order to enable retail commerce capabilities for
  *  that channel on YouTube.
@@ -6269,6 +6300,41 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *selfDeclaredMadeForKids;
+
+@end
+
+
+/**
+ *  Information specific to a creator in an affiliate program linked to a
+ *  YouTube channel.
+ */
+@interface GTLRYouTube_ChannelToAffiliateProgramLinkDetails : GTLRObject
+
+/**
+ *  Required. Google Merchant Center ID of the partner.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+/**
+ *  Required. Affiliate program status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_Active
+ *        Channel is active in the affiliate program. (Value: "active")
+ *    @arg @c kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_AffiliateProgramStatusUnspecified
+ *        Unspecified status. (Value: "affiliateProgramStatusUnspecified")
+ *    @arg @c kGTLRYouTube_ChannelToAffiliateProgramLinkDetails_ProgramStatus_Inactive
+ *        Channel is inactive in the affiliate program. (Value: "inactive")
+ */
+@property(nonatomic, copy, nullable) NSString *programStatus;
+
+/** Optional. Reason for the last update of the affiliate program status. */
+@property(nonatomic, copy, nullable) NSString *statusUpdateReason;
+
+/** Optional. Timestamp when the affiliate program status was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *statusUpdateTime;
 
 @end
 
@@ -11919,6 +11985,12 @@ GTLR_DEPRECATED
 @interface GTLRYouTube_ThirdPartyLinkSnippet : GTLRObject
 
 /**
+ *  Information specific to a link between a channel and an affiliate program of
+ *  a partner.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelToAffiliateProgramLinkDetails *channelToAffiliateProgramLink;
+
+/**
  *  Information specific to a link between a channel and a store on a
  *  merchandising platform.
  */
@@ -11928,6 +12000,11 @@ GTLR_DEPRECATED
  *  Type of the link named after the entities that are being linked.
  *
  *  Likely values:
+ *    @arg @c kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToAffiliateProgramLink
+ *        A link that is connecting (or about to connect) a channel with an
+ *        affiliate program of a partner to enable that channel to earn
+ *        commissions from that partner through affiliate links. (Value:
+ *        "channelToAffiliateProgramLink")
  *    @arg @c kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToStoreLink A link
  *        that is connecting (or about to connect) a channel with a store on a
  *        merchandising platform in order to enable retail commerce capabilities

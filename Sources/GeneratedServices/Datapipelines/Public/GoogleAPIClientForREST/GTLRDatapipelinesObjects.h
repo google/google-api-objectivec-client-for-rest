@@ -827,8 +827,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatapipelines_GoogleCloudDatapipelinesV1
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. The sources of the pipeline (for example, Dataplex). The keys and
- *  values are set by the corresponding sources during pipeline creation.
+ *  Immutable. The sources of the pipeline (for example, Knowledge Catalog). The
+ *  keys and values are set by the corresponding sources during pipeline
+ *  creation.
  */
 @property(nonatomic, strong, nullable) GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline_PipelineSources *pipelineSources;
 
@@ -903,8 +904,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatapipelines_GoogleCloudDatapipelinesV1
 
 
 /**
- *  Immutable. The sources of the pipeline (for example, Dataplex). The keys and
- *  values are set by the corresponding sources during pipeline creation.
+ *  Immutable. The sources of the pipeline (for example, Knowledge Catalog). The
+ *  keys and values are set by the corresponding sources during pipeline
+ *  creation.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

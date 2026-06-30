@@ -649,13 +649,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateFailed;
 /**
- *  `JOB_STATE_PAUSED` is not implemented yet.
+ *  `JOB_STATE_PAUSED` indicates that the job is not currently processing. Jobs
+ *  in this state can transition back to `JOB_STATE_RUNNING` to continue
+ *  processing where they left off, or can transition to `JOB_STATE_CANCELLING`
+ *  if cancellation is requested.
  *
  *  Value: "JOB_STATE_PAUSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePaused;
 /**
- *  `JOB_STATE_PAUSING` is not implemented yet.
+ *  `JOB_STATE_PAUSING` indicates that the job is in the process of pausing. A
+ *  pausing job will stop processing, archive in-flight Shuffle data, and
+ *  transition to `JOB_STATE_PAUSED`. Jobs in this state can transition to
+ *  `JOB_STATE_CANCELLING` if cancellation is requested, or can transition back
+ *  to `JOB_STATE_RUNNING` if the pause fails to complete.
  *
  *  Value: "JOB_STATE_PAUSING"
  */
@@ -943,13 +950,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraini
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
 /**
- *  `JOB_STATE_PAUSED` is not implemented yet.
+ *  `JOB_STATE_PAUSED` indicates that the job is not currently processing. Jobs
+ *  in this state can transition back to `JOB_STATE_RUNNING` to continue
+ *  processing where they left off, or can transition to `JOB_STATE_CANCELLING`
+ *  if cancellation is requested.
  *
  *  Value: "JOB_STATE_PAUSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePaused;
 /**
- *  `JOB_STATE_PAUSING` is not implemented yet.
+ *  `JOB_STATE_PAUSING` indicates that the job is in the process of pausing. A
+ *  pausing job will stop processing, archive in-flight Shuffle data, and
+ *  transition to `JOB_STATE_PAUSED`. Jobs in this state can transition to
+ *  `JOB_STATE_CANCELLING` if cancellation is requested, or can transition back
+ *  to `JOB_STATE_RUNNING` if the pause fails to complete.
  *
  *  Value: "JOB_STATE_PAUSING"
  */
@@ -1066,13 +1080,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDrai
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
 /**
- *  `JOB_STATE_PAUSED` is not implemented yet.
+ *  `JOB_STATE_PAUSED` indicates that the job is not currently processing. Jobs
+ *  in this state can transition back to `JOB_STATE_RUNNING` to continue
+ *  processing where they left off, or can transition to `JOB_STATE_CANCELLING`
+ *  if cancellation is requested.
  *
  *  Value: "JOB_STATE_PAUSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePaused;
 /**
- *  `JOB_STATE_PAUSING` is not implemented yet.
+ *  `JOB_STATE_PAUSING` indicates that the job is in the process of pausing. A
+ *  pausing job will stop processing, archive in-flight Shuffle data, and
+ *  transition to `JOB_STATE_PAUSED`. Jobs in this state can transition to
+ *  `JOB_STATE_CANCELLING` if cancellation is requested, or can transition back
+ *  to `JOB_STATE_RUNNING` if the pause fails to complete.
  *
  *  Value: "JOB_STATE_PAUSING"
  */
@@ -3401,10 +3422,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
  *        "JOB_STATE_FAILED")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePaused
- *        `JOB_STATE_PAUSED` is not implemented yet. (Value: "JOB_STATE_PAUSED")
+ *        `JOB_STATE_PAUSED` indicates that the job is not currently processing.
+ *        Jobs in this state can transition back to `JOB_STATE_RUNNING` to
+ *        continue processing where they left off, or can transition to
+ *        `JOB_STATE_CANCELLING` if cancellation is requested. (Value:
+ *        "JOB_STATE_PAUSED")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePausing
- *        `JOB_STATE_PAUSING` is not implemented yet. (Value:
- *        "JOB_STATE_PAUSING")
+ *        `JOB_STATE_PAUSING` indicates that the job is in the process of
+ *        pausing. A pausing job will stop processing, archive in-flight Shuffle
+ *        data, and transition to `JOB_STATE_PAUSED`. Jobs in this state can
+ *        transition to `JOB_STATE_CANCELLING` if cancellation is requested, or
+ *        can transition back to `JOB_STATE_RUNNING` if the pause fails to
+ *        complete. (Value: "JOB_STATE_PAUSING")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending
  *        `JOB_STATE_PENDING` indicates that the job has been created but is not
  *        yet running. Jobs that are pending may only transition to
@@ -4297,9 +4326,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        state may only be set by the Cloud Dataflow service, and only as a
  *        transition from `JOB_STATE_RUNNING`. (Value: "JOB_STATE_FAILED")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePaused `JOB_STATE_PAUSED`
- *        is not implemented yet. (Value: "JOB_STATE_PAUSED")
+ *        indicates that the job is not currently processing. Jobs in this state
+ *        can transition back to `JOB_STATE_RUNNING` to continue processing
+ *        where they left off, or can transition to `JOB_STATE_CANCELLING` if
+ *        cancellation is requested. (Value: "JOB_STATE_PAUSED")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePausing `JOB_STATE_PAUSING`
- *        is not implemented yet. (Value: "JOB_STATE_PAUSING")
+ *        indicates that the job is in the process of pausing. A pausing job
+ *        will stop processing, archive in-flight Shuffle data, and transition
+ *        to `JOB_STATE_PAUSED`. Jobs in this state can transition to
+ *        `JOB_STATE_CANCELLING` if cancellation is requested, or can transition
+ *        back to `JOB_STATE_RUNNING` if the pause fails to complete. (Value:
+ *        "JOB_STATE_PAUSING")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePending `JOB_STATE_PENDING`
  *        indicates that the job has been created but is not yet running. Jobs
  *        that are pending may only transition to `JOB_STATE_RUNNING`, or
@@ -4460,10 +4497,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        state may only be set by the Cloud Dataflow service, and only as a
  *        transition from `JOB_STATE_RUNNING`. (Value: "JOB_STATE_FAILED")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePaused `JOB_STATE_PAUSED`
- *        is not implemented yet. (Value: "JOB_STATE_PAUSED")
+ *        indicates that the job is not currently processing. Jobs in this state
+ *        can transition back to `JOB_STATE_RUNNING` to continue processing
+ *        where they left off, or can transition to `JOB_STATE_CANCELLING` if
+ *        cancellation is requested. (Value: "JOB_STATE_PAUSED")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePausing
- *        `JOB_STATE_PAUSING` is not implemented yet. (Value:
- *        "JOB_STATE_PAUSING")
+ *        `JOB_STATE_PAUSING` indicates that the job is in the process of
+ *        pausing. A pausing job will stop processing, archive in-flight Shuffle
+ *        data, and transition to `JOB_STATE_PAUSED`. Jobs in this state can
+ *        transition to `JOB_STATE_CANCELLING` if cancellation is requested, or
+ *        can transition back to `JOB_STATE_RUNNING` if the pause fails to
+ *        complete. (Value: "JOB_STATE_PAUSING")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePending
  *        `JOB_STATE_PENDING` indicates that the job has been created but is not
  *        yet running. Jobs that are pending may only transition to

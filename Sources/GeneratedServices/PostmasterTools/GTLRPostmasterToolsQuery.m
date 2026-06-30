@@ -12,9 +12,62 @@
 
 #import <GoogleAPIClientForREST/GTLRPostmasterToolsQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// verificationMethod
+NSString * const kGTLRPostmasterToolsVerificationMethodCname   = @"CNAME";
+NSString * const kGTLRPostmasterToolsVerificationMethodDomainVerificationMethodUnspecified = @"DOMAIN_VERIFICATION_METHOD_UNSPECIFIED";
+NSString * const kGTLRPostmasterToolsVerificationMethodTxt     = @"TXT";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRPostmasterToolsQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsCreate
+
++ (instancetype)queryWithObject:(GTLRPostmasterTools_CreateDomainRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2/domains";
+  GTLRPostmasterToolsQuery_DomainsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPostmasterTools_Domain class];
+  query.loggingName = @"gmailpostmastertools.domains.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRPostmasterToolsQuery_DomainsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPostmasterTools_Empty class];
+  query.loggingName = @"gmailpostmastertools.domains.delete";
+  return query;
+}
 
 @end
 
@@ -83,6 +136,25 @@
 
 @end
 
+@implementation GTLRPostmasterToolsQuery_DomainsGetVerificationToken
+
+@dynamic name, verificationMethod;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRPostmasterToolsQuery_DomainsGetVerificationToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPostmasterTools_DomainVerificationToken class];
+  query.loggingName = @"gmailpostmastertools.domains.getVerificationToken";
+  return query;
+}
+
+@end
+
 @implementation GTLRPostmasterToolsQuery_DomainsList
 
 @dynamic pageSize, pageToken;
@@ -117,6 +189,144 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRPostmasterTools_BatchQueryDomainStatsResponse class];
   query.loggingName = @"gmailpostmastertools.domainStats.batchQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsUsersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRPostmasterTools_CreateUserRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/users";
+  GTLRPostmasterToolsQuery_DomainsUsersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPostmasterTools_User class];
+  query.loggingName = @"gmailpostmastertools.domains.users.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsUsersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRPostmasterToolsQuery_DomainsUsersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPostmasterTools_Empty class];
+  query.loggingName = @"gmailpostmastertools.domains.users.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsUsersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRPostmasterToolsQuery_DomainsUsersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPostmasterTools_User class];
+  query.loggingName = @"gmailpostmastertools.domains.users.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsUsersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/users";
+  GTLRPostmasterToolsQuery_DomainsUsersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPostmasterTools_ListUsersResponse class];
+  query.loggingName = @"gmailpostmastertools.domains.users.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsUsersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRPostmasterTools_User *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRPostmasterToolsQuery_DomainsUsersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPostmasterTools_User class];
+  query.loggingName = @"gmailpostmastertools.domains.users.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsVerify
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPostmasterTools_VerifyDomainRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:verify";
+  GTLRPostmasterToolsQuery_DomainsVerify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPostmasterTools_VerifyDomainResponse class];
+  query.loggingName = @"gmailpostmastertools.domains.verify";
   return query;
 }
 

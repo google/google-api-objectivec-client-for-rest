@@ -67,6 +67,7 @@
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AddRequestHeader;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Condition;
@@ -81,7 +82,10 @@
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressSource;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1MethodSelector;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1PrivateServiceConnectEndpoint;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePattern;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices;
@@ -668,6 +672,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  Value: "PERIMETER_TYPE_REGULAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices.servicePatternsEnforcementScopes
+
+/**
+ *  Enables VPC Accessible Services enforcement for all APIs (including
+ *  unsupported APIs) for Private Google Access configured with Private VIP and
+ *  Private Service Connect Endpoint for Global Google APIs that uses 'all-apis'
+ *  bundle.
+ *
+ *  Value: "GOOGLE_APIS_VIA_PRIVATE_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices_ServicePatternsEnforcementScopes_GoogleApisViaPrivatePath;
+/**
+ *  Default value. This can not be used.
+ *
+ *  Value: "SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices_ServicePatternsEnforcementScopes_ServicePatternsEnforcementScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_IamPolicyAnalysisState.code
@@ -3361,6 +3384,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  Adds a request header to the API.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AddRequestHeader : GTLRObject
+
+/** HTTP header key. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** HTTP header value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Identification for an API Operation.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation : GTLRObject
@@ -3668,6 +3705,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
+/** Requests from this PSC will be allowed from access perimeter data. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1PrivateServiceConnectEndpoint *pscEndpoint;
+
 /**
  *  A Google Cloud resource from the service perimeter that you want to allow to
  *  access data outside the perimeter. This field supports only projects. The
@@ -3825,6 +3865,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
+/** Requests from this PSC will be allowed to access perimeter data. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1PrivateServiceConnectEndpoint *pscEndpoint;
+
 /**
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
  *  from these resources will be allowed to access perimeter data. Currently
@@ -3894,6 +3937,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  Modifier to apply to the API requests.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier : GTLRObject
+
+/** Adds additional HTTP request headers. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AddRequestHeader *addRequestHeader;
+
+@end
+
+
+/**
  *  A restriction on the OS type and version of devices making requests.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint : GTLRObject
@@ -3936,6 +3990,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requireVerifiedChromeOs;
+
+@end
+
+
+/**
+ *  Specifies the PSC an API call refers to.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1PrivateServiceConnectEndpoint : GTLRObject
+
+/**
+ *  The global forwarding rule identifier. Forwarding rule format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/forwardingRules/{FORWARDING_RULE_ID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+@end
+
+
+/**
+ *  Service patterns used to allow access.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePattern : GTLRObject
+
+/** Modifiers to apply to the requests that match the URL pattern. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier *> *modifiers;
+
+/**
+ *  URL pattern to allow. Only patterns of ".googleapis.com/ *",
+ *  "www.googleapis.com// *" and "*.appspot.com/ * forms are supported, where
+ *  should be alphanumerical name.
+ */
+@property(nonatomic, copy, nullable) NSString *pattern;
+
+/** Supported service to allow. */
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -4092,6 +4181,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices : GTLRObject
 
 /**
+ *  Specifies which Google services are allowed to be accessed from VPC networks
+ *  in the service perimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePattern *> *allowedServicePatterns;
+
+/**
  *  The list of APIs usable within the Service Perimeter. Must be empty unless
  *  'enable_restriction' is True. You can specify a list of individual services,
  *  as well as include the 'RESTRICTED-SERVICES' value, which automatically
@@ -4106,6 +4201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableRestriction;
+
+/** Defines the enforcement scopes of service patterns. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servicePatternsEnforcementScopes;
 
 @end
 

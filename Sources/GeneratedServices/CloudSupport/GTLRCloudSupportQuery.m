@@ -358,3 +358,141 @@
 }
 
 @end
+
+@implementation GTLRCloudSupportQuery_SupportEventSubscriptionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudSupport_SupportEventSubscription *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/supportEventSubscriptions";
+  GTLRCloudSupportQuery_SupportEventSubscriptionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudSupport_SupportEventSubscription class];
+  query.loggingName = @"cloudsupport.supportEventSubscriptions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSupportQuery_SupportEventSubscriptionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudSupportQuery_SupportEventSubscriptionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSupport_SupportEventSubscription class];
+  query.loggingName = @"cloudsupport.supportEventSubscriptions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSupportQuery_SupportEventSubscriptionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudSupportQuery_SupportEventSubscriptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSupport_SupportEventSubscription class];
+  query.loggingName = @"cloudsupport.supportEventSubscriptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSupportQuery_SupportEventSubscriptionsList
+
+@dynamic filter, pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/supportEventSubscriptions";
+  GTLRCloudSupportQuery_SupportEventSubscriptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudSupport_ListSupportEventSubscriptionsResponse class];
+  query.loggingName = @"cloudsupport.supportEventSubscriptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSupportQuery_SupportEventSubscriptionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudSupport_SupportEventSubscription *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudSupportQuery_SupportEventSubscriptionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSupport_SupportEventSubscription class];
+  query.loggingName = @"cloudsupport.supportEventSubscriptions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSupportQuery_SupportEventSubscriptionsUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:undelete";
+  GTLRCloudSupportQuery_SupportEventSubscriptionsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSupport_SupportEventSubscription class];
+  query.loggingName = @"cloudsupport.supportEventSubscriptions.undelete";
+  return query;
+}
+
+@end

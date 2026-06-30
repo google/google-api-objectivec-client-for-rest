@@ -710,6 +710,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
+ *  Optional. If set, validates the request without actually updating the
+ *  registration.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRCloudDomains_Operation.
  *
  *  Updates select fields of a `Registration` resource, notably `labels`. To

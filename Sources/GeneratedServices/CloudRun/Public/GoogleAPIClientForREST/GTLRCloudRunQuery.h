@@ -249,6 +249,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
+/**
+ *  Required. The location and project in which this Instance should be created.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -264,7 +267,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Instance to include in the
  *    query.
- *  @param parent NSString
+ *  @param parent Required. The location and project in which this Instance
+ *    should be created.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesCreate
  */
@@ -274,7 +278,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Instance
+ *  Deletes an Instance
  *
  *  Method: run.projects.locations.instances.delete
  *
@@ -290,6 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/** Required. The name of the Instance to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -301,9 +306,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
  *
- *  Deletes a Instance
+ *  Deletes an Instance
  *
- *  @param name NSString
+ *  @param name Required. The name of the Instance to delete.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesDelete
  */
@@ -312,7 +317,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a Instance
+ *  Gets an Instance
  *
  *  Method: run.projects.locations.instances.get
  *
@@ -323,14 +328,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesGet : GTLRCloudRunQuery
 
+/** Required. The name of the Instance to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Instance.
  *
- *  Gets a Instance
+ *  Gets an Instance
  *
- *  @param name NSString
+ *  @param name Required. The name of the Instance to retrieve.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesGet
  */
@@ -410,11 +416,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Required. The location and project to list resources on. Format:
- *  projects/{project}/locations/{location}, where {project} can be project id
- *  or number.
- */
+/** Required. The location and project to list resources on. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -429,8 +431,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists Instances. Results are sorted by creation time, descending.
  *
  *  @param parent Required. The location and project to list resources on.
- *    Format: projects/{project}/locations/{location}, where {project} can be
- *    project id or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesList
  *
@@ -454,17 +454,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesPatch : GTLRCloudRunQuery
 
 /**
- *  Optional. If set to true, and if the Instance does not exist, it will create
- *  a new one. The caller must have 'run.instances.create' permissions if this
- *  is set to true and the Instance does not exist.
+ *  Optional. If set to `true`, and if the Instance does not exist, it will
+ *  create a new one. The caller must have `run.instances.create` permissions if
+ *  this is set to `true` and the Instance does not exist.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  The fully qualified name of this Instance. In CreateInstanceRequest, this
- *  field is ignored, and instead composed from CreateInstanceRequest.parent and
- *  CreateInstanceRequest.instance_id. Format:
- *  projects/{project}/locations/{location}/instances/{instance_id}
+ *  The fully qualified name of this Instance. In `CreateInstanceRequest`, this
+ *  field is ignored, and instead composed from `CreateInstanceRequest.parent`
+ *  and `CreateInstanceRequest.instance_id`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -489,9 +488,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Instance to include in the
  *    query.
  *  @param name The fully qualified name of this Instance. In
- *    CreateInstanceRequest, this field is ignored, and instead composed from
- *    CreateInstanceRequest.parent and CreateInstanceRequest.instance_id.
- *    Format: projects/{project}/locations/{location}/instances/{instance_id}
+ *    `CreateInstanceRequest`, this field is ignored, and instead composed from
+ *    `CreateInstanceRequest.parent` and `CreateInstanceRequest.instance_id`.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesPatch
  */
@@ -550,11 +548,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesStart : GTLRCloudRunQuery
 
-/**
- *  Required. The name of the Instance to stop. Format:
- *  `projects/{project}/locations/{location}/instances/{instance}`, where
- *  `{project}` can be project id or number.
- */
+/** Required. The name of the Instance to start. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -564,9 +558,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2StartInstanceRequest to
  *    include in the query.
- *  @param name Required. The name of the Instance to stop. Format:
- *    `projects/{project}/locations/{location}/instances/{instance}`, where
- *    `{project}` can be project id or number.
+ *  @param name Required. The name of the Instance to start.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesStart
  */
@@ -586,11 +578,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesStop : GTLRCloudRunQuery
 
-/**
- *  Required. The name of the Instance to stop. Format:
- *  `projects/{project}/locations/{location}/instances/{instance}`, where
- *  `{project}` can be project id or number.
- */
+/** Required. The name of the Instance to stop. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -600,9 +588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2StopInstanceRequest to
  *    include in the query.
- *  @param name Required. The name of the Instance to stop. Format:
- *    `projects/{project}/locations/{location}/instances/{instance}`, where
- *    `{project}` can be project id or number.
+ *  @param name Required. The name of the Instance to stop.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesStop
  */

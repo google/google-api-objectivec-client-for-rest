@@ -49,6 +49,18 @@ NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEnterprise 
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard = @"LOOKER_CORE_TRIAL_STANDARD";
 NSString * const kGTLRLooker_Instance_PlatformEdition_PlatformEditionUnspecified = @"PLATFORM_EDITION_UNSPECIFIED";
 
+// GTLRLooker_Instance.releaseChannel
+NSString * const kGTLRLooker_Instance_ReleaseChannel_Rapid     = @"RAPID";
+NSString * const kGTLRLooker_Instance_ReleaseChannel_Regular   = @"REGULAR";
+NSString * const kGTLRLooker_Instance_ReleaseChannel_ReleaseChannelUnspecified = @"RELEASE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRLooker_Instance_ReleaseChannel_Stable    = @"STABLE";
+
+// GTLRLooker_Instance.softDeleteReason
+NSString * const kGTLRLooker_Instance_SoftDeleteReason_BillingAccountIssue = @"BILLING_ACCOUNT_ISSUE";
+NSString * const kGTLRLooker_Instance_SoftDeleteReason_CustomerRequest = @"CUSTOMER_REQUEST";
+NSString * const kGTLRLooker_Instance_SoftDeleteReason_SoftDeleteReasonUnspecified = @"SOFT_DELETE_REASON_UNSPECIFIED";
+NSString * const kGTLRLooker_Instance_SoftDeleteReason_TrialExpired = @"TRIAL_EXPIRED";
+
 // GTLRLooker_Instance.state
 NSString * const kGTLRLooker_Instance_State_Active           = @"ACTIVE";
 NSString * const kGTLRLooker_Instance_State_Creating         = @"CREATING";
@@ -278,15 +290,17 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_Instance
-@dynamic adminSettings, catalogIntegrationOptOut, classType, consumerNetwork,
+@dynamic acceleratedSecurityPatchEnabled, adminSettings,
+         catalogIntegrationOptOut, classType, consumerNetwork,
          controlledEgressConfig, controlledEgressEnabled, createTime,
          customDomain, denyMaintenancePeriod, egressPublicIp, encryptionConfig,
          fipsEnabled, geminiEnabled, ingressIpAllowlistConfig, ingressPrivateIp,
          ingressPublicIp, lastDenyMaintenancePeriod, linkedLspProjectNumber,
          lookerUri, lookerVersion, maintenanceSchedule, maintenanceWindow, name,
          oauthConfig, periodicExportConfig, platformEdition, privateIpEnabled,
-         pscConfig, pscEnabled, publicIpEnabled, reservedRange, satisfiesPzi,
-         satisfiesPzs, state, updateTime, userMetadata;
+         pscConfig, pscEnabled, publicIpEnabled, releaseChannel, reservedRange,
+         satisfiesPzi, satisfiesPzs, softDeleteReason, state, suspendedTime,
+         updateTime, userMetadata;
 @end
 
 
@@ -614,6 +628,15 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 @implementation GTLRLooker_TimeOfDay
 @dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_UndeleteInstanceRequest
+//
+
+@implementation GTLRLooker_UndeleteInstanceRequest
 @end
 
 

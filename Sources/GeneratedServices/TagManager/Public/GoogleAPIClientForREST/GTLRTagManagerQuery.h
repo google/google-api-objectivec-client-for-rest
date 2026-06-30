@@ -426,6 +426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
+GTLR_DEPRECATED
 @interface GTLRTagManagerQuery_AccountsContainersDestinationsGet : GTLRTagManagerQuery
 
 /** Google Tag Destination's API relative path. */
@@ -453,6 +454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
+GTLR_DEPRECATED
 @interface GTLRTagManagerQuery_AccountsContainersDestinationsLink : GTLRTagManagerQuery
 
 /**

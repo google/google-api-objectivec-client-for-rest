@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Agent Registry API (agentregistry/v1alpha)
+//   Agent Registry API (agentregistry/v1)
 // Description:
 //   Agent Registry is a centralized, unified catalog that lets you store,
 //   discover, and govern Model Context Protocol (MCP) servers, tools, and AI

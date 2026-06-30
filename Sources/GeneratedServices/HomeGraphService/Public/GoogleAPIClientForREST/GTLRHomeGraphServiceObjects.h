@@ -14,6 +14,7 @@
 
 @class GTLRHomeGraphService_AgentDeviceId;
 @class GTLRHomeGraphService_AgentOtherDeviceId;
+@class GTLRHomeGraphService_Component;
 @class GTLRHomeGraphService_ComponentTraitUpdates;
 @class GTLRHomeGraphService_Device;
 @class GTLRHomeGraphService_Device_Attributes;
@@ -26,6 +27,7 @@
 @class GTLRHomeGraphService_EventData_Event;
 @class GTLRHomeGraphService_Events;
 @class GTLRHomeGraphService_HomeEvents;
+@class GTLRHomeGraphService_HomeTraitPayload;
 @class GTLRHomeGraphService_HomeTraitUpdates;
 @class GTLRHomeGraphService_QueryRequestInput;
 @class GTLRHomeGraphService_QueryRequestPayload;
@@ -33,6 +35,7 @@
 @class GTLRHomeGraphService_QueryResponsePayload_DeviceMetadata;
 @class GTLRHomeGraphService_QueryResponsePayload_Devices;
 @class GTLRHomeGraphService_QueryResponsePayload_Devices_Device;
+@class GTLRHomeGraphService_QueryResponsePayload_HomeTraitPayload;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice_Notifications;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice_States;
@@ -47,6 +50,38 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRHomeGraphService_QueryRequest.deviceView
+
+/**
+ *  Default value. Equivalent to SMART_HOME_TRAIT_ONLY.
+ *
+ *  Value: "DEVICE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_DeviceViewUnspecified;
+/**
+ *  Return both standard Smart Home traits and UDDM traits.
+ *
+ *  Value: "HOME_TRAIT_AND_SMART_HOME_TRAIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitAndSmartHomeTrait;
+/**
+ *  Return only Unified Device Data Model (UDDM) traits in the
+ *  `home_trait_payload` map.
+ *
+ *  Value: "HOME_TRAIT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitOnly;
+/**
+ *  Return only standard Smart Home traits in the `devices` map.
+ *
+ *  Value: "SMART_HOME_TRAIT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnly;
 
 /**
  *  Third-party device ID for one device.
@@ -73,6 +108,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Unique third-party device ID. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+@end
+
+
+/**
+ *  Component of a provider device.
+ */
+@interface GTLRHomeGraphService_Component : GTLRObject
+
+/** Optional. Child components. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_Component *> *childComponents;
+
+/**
+ *  Required. List of Device types associated with this component. Supported
+ *  device types are defined in
+ *  cs//depot/google3/home/homeservicelayer/uddm/types/uddm_device_types.proto
+ *  and the type string is the enum name, for example: ON_OFF_LIGHT =>
+ *  "ON_OFF_LIGHT".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deviceTypes;
+
+/**
+ *  Required. ID of the component from the device provider.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Required. List of trait data associated with the component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_TraitData *> *traitData;
 
 @end
 
@@ -345,6 +410,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Container for UDDM trait data associated with a device.
+ */
+@interface GTLRHomeGraphService_HomeTraitPayload : GTLRObject
+
+/** The root component of the device as reported by the provider. */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_Component *rootComponent;
+
+@end
+
+
+/**
  *  Contains the set of updates for a device.
  */
 @interface GTLRHomeGraphService_HomeTraitUpdates : GTLRObject
@@ -366,6 +442,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Required. Third-party user ID. */
 @property(nonatomic, copy, nullable) NSString *agentUserId;
+
+/**
+ *  Optional. Specifies the type of device data to be returned in the response.
+ *  This allows callers to request traditional Smart Home traits, Unified Device
+ *  Data Model (UDDM) traits, or both. If unspecified, defaults to
+ *  SMART_HOME_TRAIT_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_DeviceViewUnspecified
+ *        Default value. Equivalent to SMART_HOME_TRAIT_ONLY. (Value:
+ *        "DEVICE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitAndSmartHomeTrait
+ *        Return both standard Smart Home traits and UDDM traits. (Value:
+ *        "HOME_TRAIT_AND_SMART_HOME_TRAIT")
+ *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitOnly Return
+ *        only Unified Device Data Model (UDDM) traits in the
+ *        `home_trait_payload` map. (Value: "HOME_TRAIT_ONLY")
+ *    @arg @c kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnly
+ *        Return only standard Smart Home traits in the `devices` map. (Value:
+ *        "SMART_HOME_TRAIT_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceView;
 
 /**
  *  Optional. If true, the response will include device metadata in the
@@ -448,6 +546,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_QueryResponsePayload_Devices *devices;
 
+/**
+ *  Map of device IDs to their Unified Device Data Model (UDDM) trait payloads.
+ *  This field is populated when `device_view` is set to HOME_TRAIT_ONLY or
+ *  HOME_TRAIT_AND_SMART_HOME_TRAIT.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_QueryResponsePayload_HomeTraitPayload *homeTraitPayload;
+
 @end
 
 
@@ -476,6 +581,20 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them all at once.
  */
 @interface GTLRHomeGraphService_QueryResponsePayload_Devices : GTLRObject
+@end
+
+
+/**
+ *  Map of device IDs to their Unified Device Data Model (UDDM) trait payloads.
+ *  This field is populated when `device_view` is set to HOME_TRAIT_ONLY or
+ *  HOME_TRAIT_AND_SMART_HOME_TRAIT.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRHomeGraphService_HomeTraitPayload. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_QueryResponsePayload_HomeTraitPayload : GTLRObject
 @end
 
 
@@ -550,12 +669,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Request type for the
  *  [`ReportStateAndNotification`](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
- *  call. It may include states, notifications, or both. States and
- *  notifications are defined per `device_id` (for example, "123" and "456" in
- *  the following example). Example: ```json { "requestId":
+ *  call. It may include states, notifications, home_traits, home_events, or any
+ *  combination thereof. Smart Home Device Traits (SHDT) `states` and
+ *  `notifications` are defined per `device_id` (for example, "123" and "456" in
+ *  the following example). Google Home Traits `home_traits` and `home_events`
+ *  are lists of updates or events, each associated with a `device_id` (for
+ *  example, "789" in the following example). Example: ```json { "requestId":
  *  "ff36a3cc-ec34-11e6-b1a0-64510650abcf", "agentUserId": "1234", "payload": {
  *  "devices": { "states": { "123": { "on": true }, "456": { "on": true,
- *  "brightness": 10 }, }, } } } ```
+ *  "brightness": 10 }, }, "homeTraits": [ { "deviceId": "789", "components": [
+ *  { "componentId": "main", "traitData": [ { "trait": { "\@type":
+ *  "type.googleapis.com/home.graph.v1.OnOffTrait", "onOff": true } } ] } ] } ],
+ *  "homeEvents": [ { "deviceId": "789", "events": [ { "componentId": "main",
+ *  "events": [ { "eventId": "event-123", "eventTime": "2026-01-01T00:00:00Z",
+ *  "event": { "\@type":
+ *  "type.googleapis.com/home.graph.v1.DoorbellPressTrait.DoorbellPressedEvent"
+ *  } } ] } ] } ] } } } ```
  */
 @interface GTLRHomeGraphService_ReportStateAndNotificationRequest : GTLRObject
 
@@ -693,6 +822,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Contains the trait payload for a single trait.
  */
 @interface GTLRHomeGraphService_TraitData : GTLRObject
+
+/**
+ *  Other metadata for the trait. The time the client update was committed in
+ *  the server.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
 
 /** The Provider Home API trait payload. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_TraitData_Trait *trait;

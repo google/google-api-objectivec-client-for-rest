@@ -4,8 +4,9 @@
 // API:
 //   Cluster Director API (hypercomputecluster/v1)
 // Description:
-//   The Cluster Director API allows you to deploy, manage, and monitor clusters
-//   that run AI, ML, or HPC workloads.
+//   The Cluster Director API lets you deploy, manage, and monitor clusters that
+//   run artificial intelligence (AI), machine learning (ML), or high
+//   performance computing (HPC) workloads.
 // Documentation:
 //   https://docs.cloud.google.com/cluster-director/docs
 
@@ -40,8 +41,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHypercomputeClusterCloudPlatfor
 /**
  *  Service for executing Cluster Director API queries.
  *
- *  The Cluster Director API allows you to deploy, manage, and monitor clusters
- *  that run AI, ML, or HPC workloads.
+ *  The Cluster Director API lets you deploy, manage, and monitor clusters that
+ *  run artificial intelligence (AI), machine learning (ML), or high performance
+ *  computing (HPC) workloads.
  */
 @interface GTLRHypercomputeClusterService : GTLRService
 

@@ -2756,6 +2756,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaPropertySummary : GTLRObject
 
+/**
+ *  If true, then the user has a Google Analytics role that permits them to edit
+ *  the property.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canEdit;
+
 /** Display name for the property referred to in this property summary. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

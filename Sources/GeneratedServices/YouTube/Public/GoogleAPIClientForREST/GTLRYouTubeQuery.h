@@ -366,6 +366,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeTextFormatTextFormatUnspecified;
 // type
 
 /**
+ *  A link that is connecting (or about to connect) a channel with an affiliate
+ *  program of a partner to enable that channel to earn commissions from that
+ *  partner through affiliate links.
+ *
+ *  Value: "channelToAffiliateProgramLink"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTypeChannelToAffiliateProgramLink;
+/**
  *  A link that is connecting (or about to connect) a channel with a store on a
  *  merchandising platform in order to enable retail commerce capabilities for
  *  that channel on YouTube.
@@ -4871,6 +4879,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *        about to connect) a channel with a store on a merchandising platform
  *        in order to enable retail commerce capabilities for that channel on
  *        YouTube. (Value: "channelToStoreLink")
+ *    @arg @c kGTLRYouTubeTypeChannelToAffiliateProgramLink A link that is
+ *        connecting (or about to connect) a channel with an affiliate program
+ *        of a partner to enable that channel to earn commissions from that
+ *        partner through affiliate links. (Value:
+ *        "channelToAffiliateProgramLink")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4889,6 +4902,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *        about to connect) a channel with a store on a merchandising platform
  *        in order to enable retail commerce capabilities for that channel on
  *        YouTube. (Value: "channelToStoreLink")
+ *    @arg @c kGTLRYouTubeTypeChannelToAffiliateProgramLink A link that is
+ *        connecting (or about to connect) a channel with an affiliate program
+ *        of a partner to enable that channel to earn commissions from that
+ *        partner through affiliate links. (Value:
+ *        "channelToAffiliateProgramLink")
  *
  *  @return GTLRYouTubeQuery_ThirdPartyLinksDelete
  */
@@ -4960,6 +4978,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *        about to connect) a channel with a store on a merchandising platform
  *        in order to enable retail commerce capabilities for that channel on
  *        YouTube. (Value: "channelToStoreLink")
+ *    @arg @c kGTLRYouTubeTypeChannelToAffiliateProgramLink A link that is
+ *        connecting (or about to connect) a channel with an affiliate program
+ *        of a partner to enable that channel to earn commissions from that
+ *        partner through affiliate links. (Value:
+ *        "channelToAffiliateProgramLink")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

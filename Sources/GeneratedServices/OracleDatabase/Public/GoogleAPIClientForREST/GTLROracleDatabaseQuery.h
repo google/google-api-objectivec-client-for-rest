@@ -669,6 +669,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Configures Exascale for a single Exadata Infrastructure.
+ *
+ *  Method: oracledatabase.projects.locations.cloudExadataInfrastructures.configureExascale
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresConfigureExascale : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Cloud Exadata Infrastructure in the following
+ *  format:
+ *  projects/{project}/locations/{location}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Configures Exascale for a single Exadata Infrastructure.
+ *
+ *  @param object The @c
+ *    GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Cloud Exadata Infrastructure in the
+ *    following format:
+ *    projects/{project}/locations/{location}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresConfigureExascale
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Exadata Infrastructure in a given project and location.
  *
  *  Method: oracledatabase.projects.locations.cloudExadataInfrastructures.create
@@ -2712,36 +2748,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single GoldengateConnectionType.
- *
- *  Method: oracledatabase.projects.locations.goldengateConnectionTypes.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
- */
-@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesGet : GTLROracleDatabaseQuery
-
-/**
- *  Required. Name of the resource in the format:
- *  projects/{project}/locations/{location}/goldengateConnectionTypes/{goldengate_connection_type}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROracleDatabase_GoldengateConnectionType.
- *
- *  Gets details of a single GoldengateConnectionType.
- *
- *  @param name Required. Name of the resource in the format:
- *    projects/{project}/locations/{location}/goldengateConnectionTypes/{goldengate_connection_type}
- *
- *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateConnectionTypesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Lists GoldengateConnectionTypes in a given project and location.
  *
  *  Method: oracledatabase.projects.locations.goldengateConnectionTypes.list
@@ -2791,36 +2797,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets details of a single GoldengateDeploymentEnvironment.
- *
- *  Method: oracledatabase.projects.locations.goldengateDeploymentEnvironments.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
- */
-@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsGet : GTLROracleDatabaseQuery
-
-/**
- *  Required. Name of the resource with the format:
- *  projects/{project}/locations/{location}/goldengateDeploymentEnvironments/{goldengate_deployment_environment}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROracleDatabase_GoldengateDeploymentEnvironment.
- *
- *  Gets details of a single GoldengateDeploymentEnvironment.
- *
- *  @param name Required. Name of the resource with the format:
- *    projects/{project}/locations/{location}/goldengateDeploymentEnvironments/{goldengate_deployment_environment}
- *
- *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentEnvironmentsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -3124,37 +3100,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single GoldenGateDeploymentType.
- *
- *  Method: oracledatabase.projects.locations.goldengateDeploymentTypes.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
- */
-@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesGet : GTLROracleDatabaseQuery
-
-/**
- *  Required. The name of the GoldengateDeploymentType to retrieve. Format:
- *  projects/{project}/locations/{location}/goldengateDeploymentTypes/{goldengate_deployment_type}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROracleDatabase_GoldengateDeploymentType.
- *
- *  Gets details of a single GoldenGateDeploymentType.
- *
- *  @param name Required. The name of the GoldengateDeploymentType to retrieve.
- *    Format:
- *    projects/{project}/locations/{location}/goldengateDeploymentTypes/{goldengate_deployment_type}
- *
- *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentTypesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Lists GoldenGateDeploymentTypes in a given project and location.
  *
  *  Method: oracledatabase.projects.locations.goldengateDeploymentTypes.list
@@ -3209,37 +3154,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets details of a single GoldengateDeploymentVersion.
- *
- *  Method: oracledatabase.projects.locations.goldengateDeploymentVersions.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
- */
-@interface GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsGet : GTLROracleDatabaseQuery
-
-/**
- *  Required. The name of the GoldengateDeploymentVersion to retrieve. Format:
- *  projects/{project}/locations/{location}/goldengateDeploymentVersions/{goldengate_deployment_version}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROracleDatabase_GoldengateDeploymentVersion.
- *
- *  Gets details of a single GoldengateDeploymentVersion.
- *
- *  @param name Required. The name of the GoldengateDeploymentVersion to
- *    retrieve. Format:
- *    projects/{project}/locations/{location}/goldengateDeploymentVersions/{goldengate_deployment_version}
- *
- *  @return GTLROracleDatabaseQuery_ProjectsLocationsGoldengateDeploymentVersionsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

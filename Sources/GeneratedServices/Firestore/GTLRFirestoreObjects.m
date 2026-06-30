@@ -683,7 +683,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_ExecutePipelineRequest
-@dynamic newTransaction, readTime, structuredPipeline, transaction;
+@dynamic autoCommitTransaction, newTransaction, readTime, structuredPipeline,
+         transaction;
 @end
 
 

@@ -22,10 +22,11 @@ NSString * const kGTLRCalendarEventTypesOutOfOffice     = @"outOfOffice";
 NSString * const kGTLRCalendarEventTypesWorkingLocation = @"workingLocation";
 
 // minAccessRole
-NSString * const kGTLRCalendarMinAccessRoleFreeBusyReader = @"freeBusyReader";
-NSString * const kGTLRCalendarMinAccessRoleOwner          = @"owner";
-NSString * const kGTLRCalendarMinAccessRoleReader         = @"reader";
-NSString * const kGTLRCalendarMinAccessRoleWriter         = @"writer";
+NSString * const kGTLRCalendarMinAccessRoleFreeBusyReader      = @"freeBusyReader";
+NSString * const kGTLRCalendarMinAccessRoleOwner               = @"owner";
+NSString * const kGTLRCalendarMinAccessRoleReader              = @"reader";
+NSString * const kGTLRCalendarMinAccessRoleWriter              = @"writer";
+NSString * const kGTLRCalendarMinAccessRoleWriterWithoutPrivateAccess = @"writerWithoutPrivateAccess";
 
 // orderBy
 NSString * const kGTLRCalendarOrderByStartTime = @"startTime";

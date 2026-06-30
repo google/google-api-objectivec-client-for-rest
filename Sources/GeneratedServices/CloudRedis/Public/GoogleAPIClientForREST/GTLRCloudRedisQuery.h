@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an ACL Policy. The creation is executed synchronously and the policy
+ *  Creates an ACL policy. The creation is executed synchronously and the policy
  *  is available for use immediately after the RPC returns.
  *
  *  Method: redis.projects.locations.aclPolicies.create
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesCreate : GTLRCloudRedisQuery
 
 /**
- *  Required. The logical name of the ACL Policy in the customer project with
+ *  Required. The logical name of the ACL policy in the customer project with
  *  the following restrictions: * Must contain only lowercase letters, numbers,
  *  and hyphens. * Must start with a letter. * Must be between 1-63 characters.
  *  * Must end with a number or a letter. * Must be unique within the customer
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRedis_AclPolicy.
  *
- *  Creates an ACL Policy. The creation is executed synchronously and the policy
+ *  Creates an ACL policy. The creation is executed synchronously and the policy
  *  is available for use immediately after the RPC returns.
  *
  *  @param object The @c GTLRCloudRedis_AclPolicy to include in the query.
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a specific Acl Policy. This action will delete the Acl Policy and
+ *  Deletes a specific ACL policy. This action will delete the ACL policy and
  *  all the rules associated with it. An ACL policy cannot be deleted if it is
  *  attached to a cluster.
  *
@@ -102,7 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. Redis ACL Policy resource name using the form:
+ *  Required. Redis ACL policy resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
  *  where `location_id` refers to a GCP region.
  */
@@ -114,11 +114,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRedis_Operation.
  *
- *  Deletes a specific Acl Policy. This action will delete the Acl Policy and
+ *  Deletes a specific ACL policy. This action will delete the ACL policy and
  *  all the rules associated with it. An ACL policy cannot be deleted if it is
  *  attached to a cluster.
  *
- *  @param name Required. Redis ACL Policy resource name using the form:
+ *  @param name Required. Redis ACL policy resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
  *    where `location_id` refers to a GCP region.
  *
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the details of a specific Redis Cluster ACL Policy.
+ *  Gets the details of a specific Redis Cluster ACL policy.
  *
  *  Method: redis.projects.locations.aclPolicies.get
  *
@@ -140,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesGet : GTLRCloudRedisQuery
 
 /**
- *  Required. Redis ACL Policy resource name using the form:
+ *  Required. Redis ACL policy resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
  *  where `location_id` refers to a GCP region.
  */
@@ -149,9 +149,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRedis_AclPolicy.
  *
- *  Gets the details of a specific Redis Cluster ACL Policy.
+ *  Gets the details of a specific Redis Cluster ACL policy.
  *
- *  @param name Required. Redis ACL Policy resource name using the form:
+ *  @param name Required. Redis ACL policy resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
  *    where `location_id` refers to a GCP region.
  *
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all ACL Policies owned by a project in either the specified location
+ *  Lists all ACL policies owned by a project in either the specified location
  *  (region) or all locations. The location should have the following format: *
  *  `projects/{project_id}/locations/{location_id}` If `location_id` is
  *  specified as `-` (wildcard), then all regions available to the project are
@@ -193,7 +193,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the cluster location using the form:
+ *  Required. The resource name of the ACL policy location using the form:
  *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
  *  to a Google Cloud region.
  */
@@ -202,15 +202,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRedis_ListAclPoliciesResponse.
  *
- *  Lists all ACL Policies owned by a project in either the specified location
+ *  Lists all ACL policies owned by a project in either the specified location
  *  (region) or all locations. The location should have the following format: *
  *  `projects/{project_id}/locations/{location_id}` If `location_id` is
  *  specified as `-` (wildcard), then all regions available to the project are
  *  queried, and the results are aggregated.
  *
- *  @param parent Required. The resource name of the cluster location using the
- *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
- *    refers to a Google Cloud region.
+ *  @param parent Required. The resource name of the ACL policy location using
+ *    the form: `projects/{project_id}/locations/{location_id}` where
+ *    `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesList
  *
@@ -228,7 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  then the operation returns a SUCCESS status. If Memorystore can't apply the
  *  policy to all clusters, then to ensure eventual consistency, Memorystore
  *  uses reconciliation to apply the policy to the failed clusters. Completed
- *  longrunning.Operation will contain the new ACL Policy object in the response
+ *  longrunning.Operation will contain the new ACL policy object in the response
  *  field.
  *
  *  Method: redis.projects.locations.aclPolicies.patch
@@ -262,7 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  then the operation returns a SUCCESS status. If Memorystore can't apply the
  *  policy to all clusters, then to ensure eventual consistency, Memorystore
  *  uses reconciliation to apply the policy to the failed clusters. Completed
- *  longrunning.Operation will contain the new ACL Policy object in the response
+ *  longrunning.Operation will contain the new ACL policy object in the response
  *  field.
  *
  *  @param object The @c GTLRCloudRedis_AclPolicy to include in the query.

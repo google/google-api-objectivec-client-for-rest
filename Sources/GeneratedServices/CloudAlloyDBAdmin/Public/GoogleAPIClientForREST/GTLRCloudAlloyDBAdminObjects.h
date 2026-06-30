@@ -9900,6 +9900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *maintenanceVersion;
 
+/** Optional. List of next available maintenance versions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nextAvailableMaintenanceVersions;
+
 /**
  *  Optional. Upcoming maintenance for the database resource. This field is
  *  populated once SLM generates and publishes upcoming maintenance window.

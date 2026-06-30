@@ -285,7 +285,25 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_AgentGatewayNetworkConfigEgress
-@dynamic networkAttachment;
+@dynamic networkAttachment, trustConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentGatewayNetworkConfigEgressTrustConfig
+//
+
+@implementation GTLRNetworkServices_AgentGatewayNetworkConfigEgressTrustConfig
+@dynamic pemCertificates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pemCertificates" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

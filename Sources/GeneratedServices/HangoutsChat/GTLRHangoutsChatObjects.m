@@ -65,6 +65,13 @@ NSString * const kGTLRHangoutsChat_Attachment_Source_DriveFile = @"DRIVE_FILE";
 NSString * const kGTLRHangoutsChat_Attachment_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Attachment_Source_UploadedContent = @"UPLOADED_CONTENT";
 
+// GTLRHangoutsChat_Availability.state
+NSString * const kGTLRHangoutsChat_Availability_State_Active   = @"ACTIVE";
+NSString * const kGTLRHangoutsChat_Availability_State_Away     = @"AWAY";
+NSString * const kGTLRHangoutsChat_Availability_State_DoNotDisturb = @"DO_NOT_DISTURB";
+NSString * const kGTLRHangoutsChat_Availability_State_Idle     = @"IDLE";
+NSString * const kGTLRHangoutsChat_Availability_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRHangoutsChat_CardHeader.imageStyle
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar = @"AVATAR";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image = @"IMAGE";
@@ -373,6 +380,7 @@ NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_Posit
 NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_Start = @"START";
 
 // GTLRHangoutsChat_QuotedMessageMetadata.quoteType
+NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Forward = @"FORWARD";
 NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_QuoteTypeUnspecified = @"QUOTE_TYPE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Reply = @"REPLY";
 
@@ -543,6 +551,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 @implementation GTLRHangoutsChat_AttachmentDataRef
 @dynamic attachmentUploadToken, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Availability
+//
+
+@implementation GTLRHangoutsChat_Availability
+@dynamic customStatus, doNotDisturbMetadata, name, state;
 @end
 
 
@@ -745,6 +763,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_CustomStatus
+//
+
+@implementation GTLRHangoutsChat_CustomStatus
+@dynamic emoji, expireTime, text, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_DateInput
 //
 
@@ -802,6 +830,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 @implementation GTLRHangoutsChat_DialogAction
 @dynamic actionStatus, dialog;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DoNotDisturbMetadata
+//
+
+@implementation GTLRHangoutsChat_DoNotDisturbMetadata
+@dynamic expirationTime;
 @end
 
 
@@ -1820,6 +1858,35 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
   return @"spaces";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MarkAsActiveRequest
+//
+
+@implementation GTLRHangoutsChat_MarkAsActiveRequest
+@dynamic expireTime, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MarkAsAwayRequest
+//
+
+@implementation GTLRHangoutsChat_MarkAsAwayRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MarkAsDoNotDisturbRequest
+//
+
+@implementation GTLRHangoutsChat_MarkAsDoNotDisturbRequest
+@dynamic expireTime, ttl;
 @end
 
 

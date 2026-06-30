@@ -374,6 +374,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudOSLogin"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudProductRegistry",
+            targets: ["GoogleAPIClientForREST_CloudProductRegistry"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudProfiler",
             targets: ["GoogleAPIClientForREST_CloudProfiler"]
         ),
@@ -476,6 +480,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CustomSearchAPI",
             targets: ["GoogleAPIClientForREST_CustomSearchAPI"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_DatabaseCenter",
+            targets: ["GoogleAPIClientForREST_DatabaseCenter"]
         ),
         .library(
             name: "GoogleAPIClientForREST_DatabaseMigrationService",
@@ -1802,6 +1810,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_CloudProductRegistry",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudProductRegistry",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CloudProfiler",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudProfiler",
@@ -1955,6 +1969,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CustomSearchAPI",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CustomSearchAPI",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DatabaseCenter",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DatabaseCenter",
             publicHeadersPath: "Public"
         ),
         .target(

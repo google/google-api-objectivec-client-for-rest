@@ -846,7 +846,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /**
  *  Output only. The identifier of the action where this error occurred, if
  *  available.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:CompilationError)
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Target *actionTarget;
 
@@ -1490,7 +1489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *authenticationTokenSecretVersion;
 
 /**
- *  Optional. The Git remote's default branch name. If not set `main` will be
+ *  Optional. The Git remote's default branch name. If not set, `main` will be
  *  used.
  */
 @property(nonatomic, copy, nullable) NSString *defaultBranch;
@@ -1502,7 +1501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *effectiveDefaultBranch;
 
 /**
- *  Optional. Resource name for the GitRepositoryLink used for machine
+ *  Optional. Resource name for the `GitRepositoryLink` used for machine
  *  credentials. Must be in the format `projects/ * /locations/ * /connections/
  *  * /gitRepositoryLinks/ *`
  */
@@ -1740,10 +1739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  Locations which could not be reached.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListCompilationResultsResponse)
- */
+/** Locations which could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1829,10 +1825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_ReleaseConfig *> *releaseConfigs;
 
-/**
- *  Locations which could not be reached.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListReleaseConfigsResponse)
- */
+/** Locations which could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -2990,7 +2983,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Output only. All the metadata information that is used internally to serve
  *  the resource. For example: timestamps, flags, status fields, etc. The format
  *  of this field is a JSON string.
- *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ReleaseConfig)
  */
 @property(nonatomic, copy, nullable) NSString *internalMetadata;
 
