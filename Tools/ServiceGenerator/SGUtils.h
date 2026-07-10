@@ -24,14 +24,14 @@
 
 // The currently built up comment as one large string. Always includes the
 // comment ender.
-@property(readonly) NSString *string;
+@property(nonatomic, readonly) NSString *string;
 
-@property(readonly) BOOL hasText;
-@property(readonly) BOOL isEmpty;
+@property(nonatomic, readonly) BOOL hasText;
+@property(nonatomic, readonly) BOOL isEmpty;
 
 // A string that will become "@c" in the final comment. This is needed because
 // any use of '@' has to be escape show it shows up in the help.
-@property(readonly) NSString *atC;
+@property(nonatomic, readonly) NSString *atC;
 
 // if autoOneLine is true, then if there is a single line, it will be
 // generated as a oneline comment instead.
@@ -64,7 +64,7 @@
 // A shadow HeaderDoc will get everything appended to it also (but not the text
 // from a queueAppend). Useful when you have two things needing the same basic
 // docs.
-@property(strong) SGHeaderDoc *shadow;
+@property(nonatomic, strong) SGHeaderDoc *shadow;
 
 @end
 
@@ -72,22 +72,22 @@
 @interface SGClangDirectives : NSObject
 
 // -Wdeprecated-implementations
-@property BOOL disableDeprecatedImplementations;
+@property(nonatomic) BOOL disableDeprecatedImplementations;
 // -Wdeprecated-declarations
-@property BOOL disableDeprecatedDeclarations;
+@property(nonatomic) BOOL disableDeprecatedDeclarations;
 // -Wdocumentation
-@property BOOL disableDocumentation;
+@property(nonatomic) BOOL disableDocumentation;
 
 // Create a new instance with disableDocumentation set to YES;
 + (instancetype)disabledDocumentation;
 
 // If there are any directives enabled.
-@property(readonly) BOOL hasDirectives;
+@property(nonatomic, readonly) BOOL hasDirectives;
 
 // The string with the start directive block.
-@property(readonly) NSString *start;
+@property(nonatomic, readonly) NSString *start;
 // The string with the end directive block.
-@property(readonly) NSString *end;
+@property(nonatomic, readonly) NSString *end;
 
 @end
 

@@ -209,8 +209,8 @@ typedef enum {
 
 @interface SGMain : NSObject
 
-@property(assign) int argc;
-@property(assign) char * const *argv;
+@property(nonatomic, assign) int argc;
+@property(nonatomic, assign) char * const *argv;
 
 - (instancetype)initWithArgc:(int)argc argv:(char * const *)argv;
 - (int)run;
@@ -219,42 +219,42 @@ typedef enum {
 
 @interface SGMain ()
 
-@property(copy) NSString *appName;
-@property(copy) NSString *outputDir;
-@property(copy) NSString *discoveryRootURLString;
-@property(copy) NSString *gtlrFrameworkName;
-@property(copy) NSString *gtlrModularFramework;
-@property(copy) NSString *gtlrImportPrefix;
-@property(copy) NSString *publicHeadersSubDir;
-@property(copy) NSString *apiLogDir;
-@property(copy) NSString *httpLogDir;
-@property(copy) NSString *messageFilterPath;
-@property(strong) NSMutableDictionary *messageFilters;
-@property(assign) BOOL generatePreferred;
-@property(assign) BOOL addServiceNameDir;
-@property(assign) BOOL removeUnknownFiles;
-@property(assign) BOOL forceAuditServiceDirectories;
-@property(assign) BOOL rootURLOverrides;
-@property(assign) BOOL auditJSON;
-@property(assign) BOOL guessFormattedNames;
-@property(assign) BOOL parseTextHTMLReplies;
-@property(assign) BOOL briefOutput;
-@property(assign) NSUInteger verboseLevel;
-@property(strong) NSMutableDictionary *additionalHTTPHeaders;
-@property(strong) NSMutableDictionary *formattedNames;
+@property(nonatomic, copy) NSString *appName;
+@property(nonatomic, copy) NSString *outputDir;
+@property(nonatomic, copy) NSString *discoveryRootURLString;
+@property(nonatomic, copy) NSString *gtlrFrameworkName;
+@property(nonatomic, copy) NSString *gtlrModularFramework;
+@property(nonatomic, copy) NSString *gtlrImportPrefix;
+@property(nonatomic, copy) NSString *publicHeadersSubDir;
+@property(nonatomic, copy) NSString *apiLogDir;
+@property(nonatomic, copy) NSString *httpLogDir;
+@property(nonatomic, copy) NSString *messageFilterPath;
+@property(nonatomic, strong) NSMutableDictionary *messageFilters;
+@property(nonatomic, assign) BOOL generatePreferred;
+@property(nonatomic, assign) BOOL addServiceNameDir;
+@property(nonatomic, assign) BOOL removeUnknownFiles;
+@property(nonatomic, assign) BOOL forceAuditServiceDirectories;
+@property(nonatomic, assign) BOOL rootURLOverrides;
+@property(nonatomic, assign) BOOL auditJSON;
+@property(nonatomic, assign) BOOL guessFormattedNames;
+@property(nonatomic, assign) BOOL parseTextHTMLReplies;
+@property(nonatomic, assign) BOOL briefOutput;
+@property(nonatomic, assign) NSUInteger verboseLevel;
+@property(nonatomic, strong) NSMutableDictionary *additionalHTTPHeaders;
+@property(nonatomic, strong) NSMutableDictionary *formattedNames;
 
-@property(strong) GTLRDiscoveryService *discoveryService;
-@property(strong) NSMutableArray *apisToFetch;
-@property(strong) NSMutableSet *apisToSkip;
-@property(strong) NSMutableArray *collectedApis;
-@property(strong) NSMutableDictionary *generatedData;
+@property(nonatomic, strong) GTLRDiscoveryService *discoveryService;
+@property(nonatomic, strong) NSMutableArray *apisToFetch;
+@property(nonatomic, strong) NSMutableSet *apisToSkip;
+@property(nonatomic, strong) NSMutableArray *collectedApis;
+@property(nonatomic, strong) NSMutableDictionary *generatedData;
 
-@property(assign) int numberOfActiveNetworkActions;
-@property(assign) SGMainState state;
-@property(assign) SGMainState postWaitState;
-@property(assign) int status;
-@property(assign) BOOL printedError;
-@property(assign) BOOL didPrintUsage;
+@property(nonatomic, assign) int numberOfActiveNetworkActions;
+@property(nonatomic, assign) SGMainState state;
+@property(nonatomic, assign) SGMainState postWaitState;
+@property(nonatomic, assign) int status;
+@property(nonatomic, assign) BOOL printedError;
+@property(nonatomic, assign) BOOL didPrintUsage;
 
 // "print*" goes to stdout, "report*" goes to stderr. In brief mode, the
 // section/subsection is only printed in something else does get printed.

@@ -36,14 +36,14 @@ typedef NS_OPTIONS(NSUInteger, SGGeneratorOptions) {
 
 @interface SGGenerator : NSObject
 
-@property(readonly) GTLRDiscovery_RestDescription* api;
-@property(readonly) SGGeneratorOptions options;
-@property(readonly) NSUInteger verboseLevel;
-@property(readonly) NSString *importPrefix;
-@property(readonly) NSString *publicHeadersSubDir;
+@property(nonatomic, readonly) GTLRDiscovery_RestDescription* api;
+@property(nonatomic, readonly) SGGeneratorOptions options;
+@property(nonatomic, readonly) NSUInteger verboseLevel;
+@property(nonatomic, readonly) NSString *importPrefix;
+@property(nonatomic, readonly) NSString *publicHeadersSubDir;
 
 // The API name formatted for use as a directory name.
-@property(readonly) NSString *formattedAPIName;
+@property(nonatomic, readonly) NSString *formattedAPIName;
 
 + (instancetype)generatorForApi:(GTLRDiscovery_RestDescription *)api
                         options:(SGGeneratorOptions)options

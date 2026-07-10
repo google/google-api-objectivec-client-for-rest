@@ -82,8 +82,8 @@ typedef enum {
 
 // This is added so it can be called on Methods, Parameters, and Schema.
 @interface GTLRObject (SGGeneratorAdditions)
-@property(readonly) NSString *sg_errorReportingName;
-@property(readonly) SGGenerator *sg_generator;
+@property(nonatomic, readonly) NSString *sg_errorReportingName;
+@property(nonatomic, readonly) SGGenerator *sg_generator;
 
 - (void)sg_setProperty:(id)obj forKey:(NSString *)key;
 - (id)sg_propertyForKey:(NSString *)key;
@@ -91,38 +91,38 @@ typedef enum {
 @end
 
 @interface GTLRDiscovery_RestDescription (SGGeneratorAdditions)
-@property(readonly) NSArray *sg_allMethods;
-@property(readonly) BOOL sg_hasDeprecatedMethod;
-@property(readonly) NSDictionary *sg_queryEnumsMap;
-@property(readonly) NSDictionary *sg_objectEnumsMap;
-@property(readonly) NSArray *sg_allSchemas;
-@property(readonly) NSArray *sg_topLevelObjectSchemas;
-@property(readonly) BOOL sg_hasDeprecatedSchema;
-@property(readonly) NSArray *sg_allMethodObjectParameterReferences;
-@property(readonly) NSString *sg_resumableUploadPath;
-@property(readonly) NSString *sg_simpleUploadPath;
+@property(nonatomic, readonly) NSArray *sg_allMethods;
+@property(nonatomic, readonly) BOOL sg_hasDeprecatedMethod;
+@property(nonatomic, readonly) NSDictionary *sg_queryEnumsMap;
+@property(nonatomic, readonly) NSDictionary *sg_objectEnumsMap;
+@property(nonatomic, readonly) NSArray *sg_allSchemas;
+@property(nonatomic, readonly) NSArray *sg_topLevelObjectSchemas;
+@property(nonatomic, readonly) BOOL sg_hasDeprecatedSchema;
+@property(nonatomic, readonly) NSArray *sg_allMethodObjectParameterReferences;
+@property(nonatomic, readonly) NSString *sg_resumableUploadPath;
+@property(nonatomic, readonly) NSString *sg_simpleUploadPath;
 
 - (NSString *)sg_cleanedRootURLString;
 - (void)sg_calculateMediaPaths;
 @end
 
 @interface GTLRDiscovery_JsonSchema (SGGeneratorAdditions)
-@property(readonly) NSString *sg_name;
-@property(readonly) NSString *sg_objcName;
-@property(readonly) NSString *sg_capObjCName;
-@property(readonly) NSString *sg_forceNameComment;
-@property(readonly) GTLRDiscovery_RestMethod *sg_method;
-@property(readonly, getter=sg_isParameter) BOOL sg_parameter;
-@property(readonly) GTLRDiscovery_JsonSchema *sg_parentSchema;
-@property(readonly) NSString *sg_fullSchemaName;
-@property(readonly) NSString *sg_objcClassName;
-@property(readonly) NSArray *sg_childObjectSchemas;
-@property(readonly) GTLRDiscovery_JsonSchema *sg_resolvedSchema;
-@property(readonly) NSString *sg_kindToRegister;
-@property(readonly) BOOL sg_isLikelyInvalidUseOfKind;
-@property(readonly) NSString *sg_formattedRange;
-@property(readonly) NSString *sg_formattedDefault;
-@property(readonly) NSString *sg_rangeAndDefaultDescription;
+@property(nonatomic, readonly) NSString *sg_name;
+@property(nonatomic, readonly) NSString *sg_objcName;
+@property(nonatomic, readonly) NSString *sg_capObjCName;
+@property(nonatomic, readonly) NSString *sg_forceNameComment;
+@property(nonatomic, readonly) GTLRDiscovery_RestMethod *sg_method;
+@property(nonatomic, readonly, getter=sg_isParameter) BOOL sg_parameter;
+@property(nonatomic, readonly) GTLRDiscovery_JsonSchema *sg_parentSchema;
+@property(nonatomic, readonly) NSString *sg_fullSchemaName;
+@property(nonatomic, readonly) NSString *sg_objcClassName;
+@property(nonatomic, readonly) NSArray *sg_childObjectSchemas;
+@property(nonatomic, readonly) GTLRDiscovery_JsonSchema *sg_resolvedSchema;
+@property(nonatomic, readonly) NSString *sg_kindToRegister;
+@property(nonatomic, readonly) BOOL sg_isLikelyInvalidUseOfKind;
+@property(nonatomic, readonly) NSString *sg_formattedRange;
+@property(nonatomic, readonly) NSString *sg_formattedDefault;
+@property(nonatomic, readonly) NSString *sg_rangeAndDefaultDescription;
 
 - (NSString *)sg_collectionItemsKey:(BOOL *)outSupportsPagination;
 
@@ -144,29 +144,29 @@ typedef enum {
 @end
 
 @interface GTLRDiscovery_RestResource (SGGeneratorAdditions)
-@property(readonly) NSString *sg_name;
+@property(nonatomic, readonly) NSString *sg_name;
 @end
 
 @interface GTLRDiscovery_RestMethod (SGGeneratorAdditions)
-@property(readonly) NSString *sg_name;
-@property(readonly) NSArray *sg_sortedParameters;
-@property(readonly) NSArray *sg_sortedParametersWithRequest;
-@property(readonly) NSString *sg_resumableUploadPathOverride;
-@property(readonly) NSString *sg_simpleUploadPathOverride;
-@property(readonly) BOOL sg_deprecated;
+@property(nonatomic, readonly) NSString *sg_name;
+@property(nonatomic, readonly) NSArray *sg_sortedParameters;
+@property(nonatomic, readonly) NSArray *sg_sortedParametersWithRequest;
+@property(nonatomic, readonly) NSString *sg_resumableUploadPathOverride;
+@property(nonatomic, readonly) NSString *sg_simpleUploadPathOverride;
+@property(nonatomic, readonly) BOOL sg_deprecated;
 @end
 
 @interface GTLRDiscovery_RestMethod_Request (SGGeneratorAdditions)
-@property(readonly) GTLRDiscovery_JsonSchema *sg_resolvedSchema;
+@property(nonatomic, readonly) GTLRDiscovery_JsonSchema *sg_resolvedSchema;
 @end
 
 @interface GTLRDiscovery_RestMethod_Response (SGGeneratorAdditions)
-@property(readonly) GTLRDiscovery_JsonSchema *sg_resolvedSchema;
+@property(nonatomic, readonly) GTLRDiscovery_JsonSchema *sg_resolvedSchema;
 @end
 
 @interface SGGenerator ()
-@property(strong) NSMutableArray *warnings;
-@property(strong) NSMutableArray *infos;
+@property(nonatomic, strong) NSMutableArray *warnings;
+@property(nonatomic, strong) NSMutableArray *infos;
 @end
 
 // Helper to get the objects of a dictionary out in a sorted order.
