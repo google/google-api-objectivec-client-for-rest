@@ -92,6 +92,38 @@ NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyRea
 NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonTechnicalIssues = @"CANCEL_SURVEY_REASON_TECHNICAL_ISSUES";
 NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonUnspecified = @"CANCEL_SURVEY_REASON_UNSPECIFIED";
 
+// GTLRAndroidPublisher_CatalogAppView.appCategory
+NSString * const kGTLRAndroidPublisher_CatalogAppView_AppCategory_App = @"APP";
+NSString * const kGTLRAndroidPublisher_CatalogAppView_AppCategory_AppCategoryUnspecified = @"APP_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_CatalogAppView_AppCategory_Game = @"GAME";
+
+// GTLRAndroidPublisher_CatalogDeviceSelector.deviceTypeSelector
+NSString * const kGTLRAndroidPublisher_CatalogDeviceSelector_DeviceTypeSelector_AndroidGo = @"ANDROID_GO";
+NSString * const kGTLRAndroidPublisher_CatalogDeviceSelector_DeviceTypeSelector_DeviceTypeSelectorUnspecified = @"DEVICE_TYPE_SELECTOR_UNSPECIFIED";
+
+// GTLRAndroidPublisher_CompatibleScreen.density
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density280 = @"DENSITY_280";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density360 = @"DENSITY_360";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density400 = @"DENSITY_400";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density420 = @"DENSITY_420";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density560 = @"DENSITY_560";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityHdpi = @"DENSITY_HDPI";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityLdpi = @"DENSITY_LDPI";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityMdpi = @"DENSITY_MDPI";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityNodpi = @"DENSITY_NODPI";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityTvdpi = @"DENSITY_TVDPI";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityUnspecified = @"DENSITY_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXhdpi = @"DENSITY_XHDPI";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXxhdpi = @"DENSITY_XXHDPI";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXxxhdpi = @"DENSITY_XXXHDPI";
+
+// GTLRAndroidPublisher_CompatibleScreen.screenSize
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeExtraLarge = @"SCREEN_SIZE_EXTRA_LARGE";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeLarge = @"SCREEN_SIZE_LARGE";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeNormal = @"SCREEN_SIZE_NORMAL";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeSmall = @"SCREEN_SIZE_SMALL";
+NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeUnspecified = @"SCREEN_SIZE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_DeactivateBasePlanRequest.latencyTolerance
 NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
 NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
@@ -131,6 +163,18 @@ NSString * const kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolera
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_DeobfuscationFileTypeUnspecified = @"deobfuscationFileTypeUnspecified";
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode = @"nativeCode";
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard = @"proguard";
+
+// GTLRAndroidPublisher_DeviceCompatibilityRequirements.supportedScreens
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeExtraLarge = @"SCREEN_SIZE_EXTRA_LARGE";
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeLarge = @"SCREEN_SIZE_LARGE";
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeNormal = @"SCREEN_SIZE_NORMAL";
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeSmall = @"SCREEN_SIZE_SMALL";
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeUnspecified = @"SCREEN_SIZE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_DeviceCompatibilityRequirements.use32BitAbi
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiOther = @"USE_32_BIT_ABI_OTHER";
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiTrue = @"USE_32_BIT_ABI_TRUE";
+NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiUnspecified = @"USE_32_BIT_ABI_UNSPECIFIED";
 
 // GTLRAndroidPublisher_ExternalOfferDetails.installedAppCategory
 NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_App = @"APP";
@@ -299,6 +343,12 @@ NSString * const kGTLRAndroidPublisher_Order_State_Processed   = @"PROCESSED";
 NSString * const kGTLRAndroidPublisher_Order_State_Refunded    = @"REFUNDED";
 NSString * const kGTLRAndroidPublisher_Order_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_OrdersReviewRefundRequest.refundPreference
+NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Approve = @"APPROVE";
+NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Decline = @"DECLINE";
+NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Neutral = @"NEUTRAL";
+NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_RefundPreferenceUnspecified = @"REFUND_PREFERENCE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_PartialRefundEvent.state
 NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_Pending = @"PENDING";
 NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_ProcessedSuccessfully = @"PROCESSED_SUCCESSFULLY";
@@ -347,6 +397,11 @@ NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Cancel
 NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Pending = @"PENDING";
 NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Purchased = @"PURCHASED";
 NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_PurchaseStateUnspecified = @"PURCHASE_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_RecentUpdateEvent.updateType
+NSString * const kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_Deletion = @"DELETION";
+NSString * const kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_Modification = @"MODIFICATION";
+NSString * const kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_UpdateTypeUnspecified = @"UPDATE_TYPE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AlternativeBillingOnly = @"ALTERNATIVE_BILLING_ONLY";
@@ -504,6 +559,11 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Halted = @"halted";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InProgress = @"inProgress";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @"statusUnspecified";
 
+// GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest.publishState
+NSString * const kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStatePublished = @"APP_STORE_APP_PUBLISH_STATE_PUBLISHED";
+NSString * const kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStateUnpublished = @"APP_STORE_APP_PUBLISH_STATE_UNPUBLISHED";
+NSString * const kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStateUnspecified = @"APP_STORE_APP_PUBLISH_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest.latencyTolerance
 NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
 NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
@@ -523,6 +583,10 @@ NSString * const kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTol
 NSString * const kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
 NSString * const kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
 NSString * const kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest.fileType
+NSString * const kGTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest_FileType_DeclarationFileTypeDocument = @"DECLARATION_FILE_TYPE_DOCUMENT";
+NSString * const kGTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest_FileType_DeclarationFileTypeUnspecified = @"DECLARATION_FILE_TYPE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_User.accessState
 NSString * const kGTLRAndroidPublisher_User_AccessState_AccessExpired = @"ACCESS_EXPIRED";
@@ -553,6 +617,28 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewC
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewFinancialDataGlobal = @"CAN_VIEW_FINANCIAL_DATA_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewNonFinancialDataGlobal = @"CAN_VIEW_NON_FINANCIAL_DATA_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified = @"DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED";
+
+// GTLRAndroidPublisher_UsesConfiguration.requiredKeyboardType
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeNoKeys = @"KEYBOARD_TYPE_NO_KEYS";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeQwerty = @"KEYBOARD_TYPE_QWERTY";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeTwelveKey = @"KEYBOARD_TYPE_TWELVE_KEY";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeUndefined = @"KEYBOARD_TYPE_UNDEFINED";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeUnspecified = @"KEYBOARD_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_UsesConfiguration.requiredNavigationType
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeDpad = @"NAVIGATION_TYPE_DPAD";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeNoNavigation = @"NAVIGATION_TYPE_NO_NAVIGATION";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeTrackball = @"NAVIGATION_TYPE_TRACKBALL";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeUndefined = @"NAVIGATION_TYPE_UNDEFINED";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeUnspecified = @"NAVIGATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeWheel = @"NAVIGATION_TYPE_WHEEL";
+
+// GTLRAndroidPublisher_UsesConfiguration.requiredTouchscreenType
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeFinger = @"TOUCHSCREEN_TYPE_FINGER";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeNoTouchscreen = @"TOUCHSCREEN_TYPE_NO_TOUCHSCREEN";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeStylus = @"TOUCHSCREEN_TYPE_STYLUS";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeUndefined = @"TOUCHSCREEN_TYPE_UNDEFINED";
+NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeUnspecified = @"TOUCHSCREEN_TYPE_UNSPECIFIED";
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -791,6 +877,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_AppContactInformation
+//
+
+@implementation GTLRAndroidPublisher_AppContactInformation
+@dynamic contactEmail, phoneNumber, websiteUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_AppDetails
 //
 
@@ -822,6 +918,89 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_AppRecoveryAction
 @dynamic appRecoveryId, cancelTime, createTime, deployTime, lastUpdateTime,
          remoteInAppUpdateData, status, targeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppStoreAppActiveApks
+//
+
+@implementation GTLRAndroidPublisher_AppStoreAppActiveApks
+@dynamic activeApkSets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeApkSets" : [GTLRAndroidPublisher_AppStoreAppActiveApkSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppStoreAppActiveApkSet
+//
+
+@implementation GTLRAndroidPublisher_AppStoreAppActiveApkSet
+@dynamic baseApkId, splitApkId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"splitApkId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppStoreAppDetails
+//
+
+@implementation GTLRAndroidPublisher_AppStoreAppDetails
+@dynamic contactEmail, developerName, developerWebsite;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppStoreAppPolicyDeclaration
+//
+
+@implementation GTLRAndroidPublisher_AppStoreAppPolicyDeclaration
+@dynamic declarationId, responses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responses" : [GTLRAndroidPublisher_PolicyResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_AppStoreAppStoreListing
+//
+
+@implementation GTLRAndroidPublisher_AppStoreAppStoreListing
+@dynamic appIconId, appName, fullDescription, languageCode, screenshotId,
+         shortDescription, videoLink;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"screenshotId" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1600,11 +1779,109 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_CatalogAppView
+//
+
+@implementation GTLRAndroidPublisher_CatalogAppView
+@dynamic activeVersionNames, appCategory, appContactInformation, appSubcategory,
+         deliveryToken, developerDetails, deviceCompatibilityRequirements,
+         excludedDevicesByIdentifier, excludedDevicesBySelector,
+         firstReleaseDate, hasInAppAds, hasInAppPurchases, iarcCertificateId,
+         isAdultOnlyAudience, lastPublishTime, localizedStoreListings,
+         packageName, permissions, permissionsSdk23, priceInTheUnitedStates,
+         privacyPolicyUrl, salePriceInTheUnitedStates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeVersionNames" : [NSString class],
+    @"deviceCompatibilityRequirements" : [GTLRAndroidPublisher_DeviceCompatibilityRequirements class],
+    @"excludedDevicesByIdentifier" : [GTLRAndroidPublisher_DeviceIdentifier class],
+    @"excludedDevicesBySelector" : [GTLRAndroidPublisher_CatalogDeviceSelector class],
+    @"permissions" : [GTLRAndroidPublisher_CatalogPermission class],
+    @"permissionsSdk23" : [GTLRAndroidPublisher_CatalogPermission class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CatalogDeviceSelector
+//
+
+@implementation GTLRAndroidPublisher_CatalogDeviceSelector
+@dynamic deviceTypeSelector, ramSelector, socSelectors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"socSelectors" : [GTLRAndroidPublisher_SocSelector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CatalogPermission
+//
+
+@implementation GTLRAndroidPublisher_CatalogPermission
+@dynamic maxSdkVersion, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CatalogSdkVersion
+//
+
+@implementation GTLRAndroidPublisher_CatalogSdkVersion
+@dynamic maxSdkVersion, minSdkVersion, targetSdkVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CoarseLocation
+//
+
+@implementation GTLRAndroidPublisher_CoarseLocation
+@dynamic administrativeArea, locality, regionCode, sublocality;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Comment
 //
 
 @implementation GTLRAndroidPublisher_Comment
 @dynamic developerComment, userComment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CompatibleScreen
+//
+
+@implementation GTLRAndroidPublisher_CompatibleScreen
+@dynamic density, screenSize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ConsumptionUsageEvent
+//
+
+@implementation GTLRAndroidPublisher_ConsumptionUsageEvent
+@dynamic consumptionItemDescription, consumptionTime, ipAddress, location,
+         obfuscatedAccountId, obfuscatedProfileId;
 @end
 
 
@@ -1682,11 +1959,40 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_CreateAppStoreHostedAppRequest
+//
+
+@implementation GTLRAndroidPublisher_CreateAppStoreHostedAppRequest
+@dynamic packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CreateAppStoreHostedAppResponse
+//
+
+@implementation GTLRAndroidPublisher_CreateAppStoreHostedAppResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CreateDraftAppRecoveryRequest
 //
 
 @implementation GTLRAndroidPublisher_CreateDraftAppRecoveryRequest
 @dynamic remoteInAppUpdate, targeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Date
+//
+
+@implementation GTLRAndroidPublisher_Date
+@dynamic day, month, year;
 @end
 
 
@@ -1872,10 +2178,47 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeveloperDetails
+//
+
+@implementation GTLRAndroidPublisher_DeveloperDetails
+@dynamic address, contactEmail, developerName, phoneNumber, website;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeveloperInitiatedCancellation
 //
 
 @implementation GTLRAndroidPublisher_DeveloperInitiatedCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceCompatibilityRequirements
+//
+
+@implementation GTLRAndroidPublisher_DeviceCompatibilityRequirements
+@dynamic compatibleScreens, glEsVersion, isScreenRequired, nativePlatforms,
+         requiredSoftwareLibraries, requiredSystemFeatures,
+         requiresSmallestWidthDp, sdkVersion, supportedGlTextures,
+         supportedScreens, use32BitAbi, usesConfigurations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"compatibleScreens" : [GTLRAndroidPublisher_CompatibleScreen class],
+    @"nativePlatforms" : [NSString class],
+    @"requiredSoftwareLibraries" : [NSString class],
+    @"requiredSystemFeatures" : [NSString class],
+    @"supportedGlTextures" : [NSString class],
+    @"supportedScreens" : [NSString class],
+    @"usesConfigurations" : [GTLRAndroidPublisher_UsesConfiguration class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1924,6 +2267,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_DeviceId
 @dynamic buildBrand, buildDevice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeviceIdentifier
+//
+
+@implementation GTLRAndroidPublisher_DeviceIdentifier
+@dynamic deviceBrand, deviceModel;
 @end
 
 
@@ -2326,6 +2679,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Group
+//
+
+@implementation GTLRAndroidPublisher_Group
+@dynamic responses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responses" : [GTLRAndroidPublisher_NestedPolicyResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Image
 //
 
@@ -2336,6 +2707,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ImageAsset
+//
+
+@implementation GTLRAndroidPublisher_ImageAsset
+@dynamic imageUrl;
 @end
 
 
@@ -2618,17 +2999,6 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_IntroductoryPriceInfo
-//
-
-@implementation GTLRAndroidPublisher_IntroductoryPriceInfo
-@dynamic introductoryPriceAmountMicros, introductoryPriceCurrencyCode,
-         introductoryPriceCycles, introductoryPricePeriod;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_IntroductoryPriceOfferPhase
 //
 
@@ -2653,6 +3023,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ItemReplacement
 @dynamic basePlanId, offerId, productId, replacementMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_KeyedGroup
+//
+
+@implementation GTLRAndroidPublisher_KeyedGroup
+@dynamic key, responses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responses" : [GTLRAndroidPublisher_NestedPolicyResponse class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2806,6 +3194,28 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ListRecentUpdateEventsResponse
+//
+
+@implementation GTLRAndroidPublisher_ListRecentUpdateEventsResponse
+@dynamic nextPageToken, recentUpdateEvents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentUpdateEvents" : [GTLRAndroidPublisher_RecentUpdateEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"recentUpdateEvents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ListReleaseSummariesResponse
 //
 
@@ -2883,6 +3293,36 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 + (NSString *)collectionItemsKey {
   return @"users";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_LocalizedStoreListing
+//
+
+@implementation GTLRAndroidPublisher_LocalizedStoreListing
+@dynamic appName, featureGraphic, fullDescription, icon, languageCode,
+         phoneScreenshots, shortDescription, tabletRegularScreenshots,
+         tabletSmallScreenshots, video;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_LocalizedStoreListings
+//
+
+@implementation GTLRAndroidPublisher_LocalizedStoreListings
+@dynamic defaultLanguageCode, localizedStoreListings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"localizedStoreListings" : [GTLRAndroidPublisher_LocalizedStoreListing class]
+  };
+  return map;
 }
 
 @end
@@ -3040,6 +3480,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_NestedPolicyResponse
+//
+
+@implementation GTLRAndroidPublisher_NestedPolicyResponse
+@dynamic booleanResponse, documentResponse, multipleChoiceResponse, questionId,
+         singleChoiceResponse, stringResponse;
 @end
 
 
@@ -3359,6 +3810,25 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OrdersReviewRefundRequest
+//
+
+@implementation GTLRAndroidPublisher_OrdersReviewRefundRequest
+@dynamic consumptionPercentageMilliunits, consumptionUsageEvents,
+         pendingRefundToken, refundPreference, sampleContentProvided;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consumptionUsageEvents" : [GTLRAndroidPublisher_ConsumptionUsageEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OtherRecurringProduct
 //
 
@@ -3491,6 +3961,112 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_PointsDetails
 @dynamic pointsCouponValue, pointsDiscountRateMicros, pointsOfferId,
          pointsSpent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicyBooleanResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicyBooleanResponse
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicyDocumentResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicyDocumentResponse
+@dynamic documentId, expiryDate, nonExpiring;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicyGroupResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicyGroupResponse
+@dynamic groups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groups" : [GTLRAndroidPublisher_Group class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicyKeyedGroupResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicyKeyedGroupResponse
+@dynamic groups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groups" : [GTLRAndroidPublisher_KeyedGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicyMultipleChoiceResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicyMultipleChoiceResponse
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicyResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicyResponse
+@dynamic booleanResponse, documentResponse, groupResponse, keyedGroupResponse,
+         multipleChoiceResponse, questionId, singleChoiceResponse,
+         stringResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicySingleChoiceResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicySingleChoiceResponse
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PolicyStringResponse
+//
+
+@implementation GTLRAndroidPublisher_PolicyStringResponse
+@dynamic value;
 @end
 
 
@@ -3686,6 +4262,36 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_PurchaseStateContext
 @dynamic purchaseState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RamSelector
+//
+
+@implementation GTLRAndroidPublisher_RamSelector
+@dynamic ramMbLessThanOrEqual;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RecentAppView
+//
+
+@implementation GTLRAndroidPublisher_RecentAppView
+@dynamic appView;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RecentUpdateEvent
+//
+
+@implementation GTLRAndroidPublisher_RecentUpdateEvent
+@dynamic eventTime, playAppPackageName, updateType;
 @end
 
 
@@ -4123,6 +4729,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ScreenshotSet
+//
+
+@implementation GTLRAndroidPublisher_ScreenshotSet
+@dynamic screenshots;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"screenshots" : [GTLRAndroidPublisher_ImageAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SdkVersion
 //
 
@@ -4157,6 +4781,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SignupPromotion
 @dynamic oneTimeCode, vanityCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SocSelector
+//
+
+@implementation GTLRAndroidPublisher_SocSelector
+@dynamic socMake, socModel;
 @end
 
 
@@ -4233,16 +4867,6 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_SubscriptionCancelSurveyResult
-//
-
-@implementation GTLRAndroidPublisher_SubscriptionCancelSurveyResult
-@dynamic cancelSurveyReason, userInputCancelReason;
 @end
 
 
@@ -4351,40 +4975,6 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_SubscriptionPriceChange
-//
-
-@implementation GTLRAndroidPublisher_SubscriptionPriceChange
-@dynamic newPrice, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_SubscriptionPurchase
-//
-
-@implementation GTLRAndroidPublisher_SubscriptionPurchase
-@dynamic acknowledgementState, autoRenewing, autoResumeTimeMillis, cancelReason,
-         cancelSurveyResult, countryCode, developerPayload, emailAddress,
-         expiryTimeMillis, externalAccountId, familyName, givenName,
-         introductoryPriceInfo, kind, linkedPurchaseToken,
-         obfuscatedExternalAccountId, obfuscatedExternalProfileId, orderId,
-         paymentState, priceAmountMicros, priceChange, priceCurrencyCode,
-         profileId, profileName, promotionCode, promotionType, purchaseType,
-         startTimeMillis, userCancellationTimeMillis;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_SubscriptionPurchaseLineItem
 //
 
@@ -4432,10 +5022,10 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseV2
 @dynamic acknowledgementState, canceledStateContext, ETag,
-         externalAccountIdentifiers, inGracePeriodStateContext, kind,
-         latestOrderId, lineItems, linkedPurchaseToken, onHoldStateContext,
-         outOfAppPurchaseContext, pausedStateContext, regionCode, startTime,
-         subscribeWithGoogleInfo, subscriptionState, testPurchase;
+         externalAccountIdentifiers, inGracePeriodStateContext, kind, lineItems,
+         linkedPurchaseToken, onHoldStateContext, outOfAppPurchaseContext,
+         pausedStateContext, regionCode, startTime, subscribeWithGoogleInfo,
+         subscriptionState, testPurchase;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -4803,6 +5393,54 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest
+//
+
+@implementation GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest
+@dynamic publishState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusResponse
+//
+
+@implementation GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UpdateAppStoreHostedAppRequest
+//
+
+@implementation GTLRAndroidPublisher_UpdateAppStoreHostedAppRequest
+@dynamic activeApks, activeLocalizedStoreListings, appDetails, packageName,
+         policyDeclarations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeLocalizedStoreListings" : [GTLRAndroidPublisher_AppStoreAppStoreListing class],
+    @"policyDeclarations" : [GTLRAndroidPublisher_AppStoreAppPolicyDeclaration class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UpdateAppStoreHostedAppResponse
+//
+
+@implementation GTLRAndroidPublisher_UpdateAppStoreHostedAppResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_UpdateBasePlanStateRequest
 //
 
@@ -4898,6 +5536,64 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_UploadApkRequest
+//
+
+@implementation GTLRAndroidPublisher_UploadApkRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UploadApkResponse
+//
+
+@implementation GTLRAndroidPublisher_UploadApkResponse
+@dynamic apkId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest
+//
+
+@implementation GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest
+@dynamic fileType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileResponse
+//
+
+@implementation GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileResponse
+@dynamic fileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UploadImageRequest
+//
+
+@implementation GTLRAndroidPublisher_UploadImageRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UploadImageResponse
+//
+
+@implementation GTLRAndroidPublisher_UploadImageResponse
+@dynamic imageId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_User
 //
 
@@ -4976,6 +5672,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_UsesConfiguration
+//
+
+@implementation GTLRAndroidPublisher_UsesConfiguration
+@dynamic requiredKeyboardType, requiredNavigationType, requiredTouchscreenType,
+         requiresFiveWayNavigation, requiresHardwareKeyboard;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_UsesPermission
 //
 
@@ -5012,6 +5719,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_VariantTargeting
 @dynamic abiTargeting, multiAbiTargeting, screenDensityTargeting,
          sdkVersionTargeting, textureCompressionFormatTargeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_VideoAsset
+//
+
+@implementation GTLRAndroidPublisher_VideoAsset
+@dynamic videoUrl;
 @end
 
 

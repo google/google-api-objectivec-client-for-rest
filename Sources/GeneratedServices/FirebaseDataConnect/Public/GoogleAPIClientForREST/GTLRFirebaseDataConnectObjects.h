@@ -74,6 +74,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseDataConnect_CloudSqlInstance.edition
+
+/**
+ *  Developer edition (includes AI Developer edition).
+ *
+ *  Value: "EDITION_DEVELOPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionDeveloper;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "EDITION_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionEnterprise;
+/**
+ *  Enterprise Plus edition.
+ *
+ *  Value: "EDITION_ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionEnterprisePlus;
+/**
+ *  Unspecified edition.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseDataConnect_GenerationStatus.state
 
 /**
@@ -403,6 +431,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *  Settings for CloudSQL instance configuration.
  */
 @interface GTLRFirebaseDataConnect_CloudSqlInstance : GTLRObject
+
+/**
+ *  Output only. [Output only] The Cloud SQL instance edition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionDeveloper
+ *        Developer edition (includes AI Developer edition). (Value:
+ *        "EDITION_DEVELOPER")
+ *    @arg @c kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionEnterprise
+ *        Enterprise edition. (Value: "EDITION_ENTERPRISE")
+ *    @arg @c kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionEnterprisePlus
+ *        Enterprise Plus edition. (Value: "EDITION_ENTERPRISE_PLUS")
+ *    @arg @c kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionUnspecified
+ *        Unspecified edition. (Value: "EDITION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /**
  *  Required. Name of the CloudSQL instance, in the format: ```
@@ -1745,6 +1789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 /** Optional. Stores small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Service_Annotations *annotations;
 
+/** Output only. The list of connectors in this service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_Connector *> *connectors;
+
 /** Output only. [Output only] Create time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1778,6 +1825,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/** Output only. The list of schemas in this service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_Schema *> *schemas;
+
+/**
+ *  Optional. Input only. The source files for service, schemas, and connectors.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Source *source;
 
 /** Output only. System-assigned, unique identifier. */
 @property(nonatomic, copy, nullable) NSString *uid;

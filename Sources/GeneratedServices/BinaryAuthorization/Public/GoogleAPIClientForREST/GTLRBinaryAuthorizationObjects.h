@@ -250,6 +250,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_Signat
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcSignP521Sha512;
 /**
+ *  ML-DSA-65 Post-Quantum Cryptography signature algorithm.
+ *
+ *  Value: "ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_MlDsa65;
+/**
  *  RSASSA-PSS 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_PSS_2048_SHA256"
@@ -1513,6 +1519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_VulnerabilityCheck_M
  *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcSignP521Sha512
  *        ECDSA on the NIST P-521 curve with a SHA512 digest. (Value:
  *        "EC_SIGN_P521_SHA512")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_MlDsa65
+ *        ML-DSA-65 Post-Quantum Cryptography signature algorithm. (Value:
+ *        "ML_DSA_65")
  *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss2048Sha256
  *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_PSS_2048_SHA256")

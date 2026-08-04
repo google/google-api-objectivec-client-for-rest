@@ -229,6 +229,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Execu
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_NonZeroExitCode;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Condition.instanceReason
+
+/**
+ *  Instance deleted.
+ *
+ *  Value: "INSTANCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceDeleted;
+/**
+ *  Instance exited with a non-zero exit code.
+ *
+ *  Value: "INSTANCE_NON_ZERO_EXIT_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceNonZeroExitCode;
+/**
+ *  Default value.
+ *
+ *  Value: "INSTANCE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceReasonUnspecified;
+/**
+ *  Instance stopped.
+ *
+ *  Value: "INSTANCE_STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceStopped;
+/**
+ *  Instance stopping.
+ *
+ *  Value: "INSTANCE_STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceStopping;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Condition.reason
 
 /**
@@ -2353,6 +2387,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        "NON_ZERO_EXIT_CODE")
  */
 @property(nonatomic, copy, nullable) NSString *executionReason;
+
+/**
+ *  Output only. A reason for the instance condition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceDeleted
+ *        Instance deleted. (Value: "INSTANCE_DELETED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceNonZeroExitCode
+ *        Instance exited with a non-zero exit code. (Value:
+ *        "INSTANCE_NON_ZERO_EXIT_CODE")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceReasonUnspecified
+ *        Default value. (Value: "INSTANCE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceStopped
+ *        Instance stopped. (Value: "INSTANCE_STOPPED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceStopping
+ *        Instance stopping. (Value: "INSTANCE_STOPPING")
+ */
+@property(nonatomic, copy, nullable) NSString *instanceReason;
 
 /** Last time the condition transitioned from one status to another. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastTransitionTime;
@@ -4796,7 +4848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Determines a threshold for CPU utilization before scaling begins.
- *  Accepted values are between `0.1` and `0.95` (inclusive) or `0.0` to disable
+ *  Accepted values are between `0.1` and `0.90` (inclusive) or `0.0` to disable
  *  CPU utilization as threshold for scaling. CPU and concurrency scaling cannot
  *  both be disabled.
  *
@@ -5405,6 +5457,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Optional. Specifies service-level scaling settings */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ServiceScaling *scaling;
+
+/**
+ *  Optional. Enables SSH access to the Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sshEnabled;
 
 /**
  *  Required. The template used to create revisions for this Service.

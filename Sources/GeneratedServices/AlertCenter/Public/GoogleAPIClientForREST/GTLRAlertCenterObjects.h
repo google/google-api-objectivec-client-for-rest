@@ -538,6 +538,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_
  *  Value: "STUDIO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_Studio;
+/**
+ *  Work Agent agent type.
+ *
+ *  Value: "WORK_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_WorkAgent;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.dataSource
@@ -812,6 +818,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_Ch
  *  Value: "CHAT_MESSAGE_SENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent;
+/**
+ *  Text copied from Chrome.
+ *
+ *  Value: "CHROME_DATA_COPIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeDataCopied;
 /**
  *  A file being downloaded in a Chrome browser.
  *
@@ -2738,6 +2750,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *        Unspecified agent type. (Value: "AGENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_AgentType_Studio Studio agent
  *        type. (Value: "STUDIO")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_AgentType_WorkAgent Work Agent
+ *        agent type. (Value: "WORK_AGENT")
  */
 @property(nonatomic, copy, nullable) NSString *agentType;
 
@@ -2803,6 +2817,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *        A Chat attachment is uploaded. (Value: "CHAT_ATTACHMENT_UPLOADED")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent A Chat
  *        message is sent. (Value: "CHAT_MESSAGE_SENT")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeDataCopied Text
+ *        copied from Chrome. (Value: "CHROME_DATA_COPIED")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload A
  *        file being downloaded in a Chrome browser. (Value:
  *        "CHROME_FILE_DOWNLOAD")

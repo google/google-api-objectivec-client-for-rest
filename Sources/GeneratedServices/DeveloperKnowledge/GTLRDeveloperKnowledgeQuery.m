@@ -11,8 +11,6 @@
 
 #import <GoogleAPIClientForREST/GTLRDeveloperKnowledgeQuery.h>
 
-#import <GoogleAPIClientForREST/GTLRDeveloperKnowledgeObjects.h>
-
 // ----------------------------------------------------------------------------
 // Constants
 
@@ -87,6 +85,28 @@ NSString * const kGTLRDeveloperKnowledgeViewDocumentViewUnspecified = @"DOCUMENT
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRDeveloperKnowledge_SearchDocumentChunksResponse class];
   query.loggingName = @"developerknowledge.documents.searchDocumentChunks";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperKnowledgeQuery_V1AnswerQuery
+
++ (instancetype)queryWithObject:(GTLRDeveloperKnowledge_AnswerQueryRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1:answerQuery";
+  GTLRDeveloperKnowledgeQuery_V1AnswerQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDeveloperKnowledge_AnswerQueryResponse class];
+  query.loggingName = @"developerknowledge.answerQuery";
   return query;
 }
 

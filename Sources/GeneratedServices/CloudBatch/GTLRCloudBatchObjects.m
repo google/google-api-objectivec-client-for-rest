@@ -92,6 +92,12 @@ NSString * const kGTLRCloudBatch_Message_Type_JobStateChanged  = @"JOB_STATE_CHA
 NSString * const kGTLRCloudBatch_Message_Type_TaskStateChanged = @"TASK_STATE_CHANGED";
 NSString * const kGTLRCloudBatch_Message_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudBatch_NetworkInterface.nicType
+NSString * const kGTLRCloudBatch_NetworkInterface_NicType_Gvnic = @"GVNIC";
+NSString * const kGTLRCloudBatch_NetworkInterface_NicType_Irdma = @"IRDMA";
+NSString * const kGTLRCloudBatch_NetworkInterface_NicType_Mrdma = @"MRDMA";
+NSString * const kGTLRCloudBatch_NetworkInterface_NicType_NicTypeUnspecified = @"NIC_TYPE_UNSPECIFIED";
+
 // GTLRCloudBatch_StatusEvent.taskState
 NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Assigned = @"ASSIGNED";
 NSString * const kGTLRCloudBatch_StatusEvent_TaskState_Failed  = @"FAILED";
@@ -856,7 +862,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_NetworkInterface
-@dynamic network, noExternalIpAddress, subnetwork;
+@dynamic network, nicType, noExternalIpAddress, subnetwork;
 @end
 
 

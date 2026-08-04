@@ -131,6 +131,44 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_AclPolicyRevision class];
+  query.loggingName = @"redis.projects.locations.aclPolicies.revisions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/revisions";
+  GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_ListAclPolicyRevisionsResponse class];
+  query.loggingName = @"redis.projects.locations.aclPolicies.revisions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsDelete
 
 @dynamic name, requestId;

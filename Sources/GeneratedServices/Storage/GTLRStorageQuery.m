@@ -1904,34 +1904,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
-@implementation GTLRStorageQuery_ObjectsWatchAll
-
-@dynamic bucket, delimiter, endOffset, includeTrailingDelimiter, maxResults,
-         pageToken, prefix, projection, startOffset, userProject, versions;
-
-+ (instancetype)queryWithObject:(GTLRStorage_Channel *)object
-                         bucket:(NSString *)bucket {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"bucket" ];
-  NSString *pathURITemplate = @"b/{bucket}/o/watch";
-  GTLRStorageQuery_ObjectsWatchAll *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.bucket = bucket;
-  query.expectedObjectClass = [GTLRStorage_Channel class];
-  query.loggingName = @"storage.objects.watchAll";
-  return query;
-}
-
-@end
-
 @implementation GTLRStorageQuery_OperationsAdvanceRelocateBucket
 
 @dynamic bucket, operationId;

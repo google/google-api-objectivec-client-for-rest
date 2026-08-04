@@ -7,6 +7,7 @@
     "Guessed formatted name 'GroupsSettings' from API title 'Groups Settings API'",
     "Guessed formatted name 'SASPortal' from API title 'SAS Portal API'",
     "Guessed formatted name 'StorageTransfer' from API title 'Storage Transfer API'",
+    "Unexpected JSON key under <root>: serviceVersion",
     "Unexpected JSON key under resources.accounts.methods.get: streamingType",
     "Unexpected JSON key under resources.accounts.methods.list: streamingType",
     "Unexpected JSON key under resources.accounts.resources.adUnits.methods.list: streamingType",

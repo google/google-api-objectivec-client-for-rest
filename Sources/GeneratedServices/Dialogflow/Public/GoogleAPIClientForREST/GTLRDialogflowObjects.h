@@ -2116,6 +2116,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_MessageTypeUnspecified;
 /** Value: "PARTIAL_DTMF_DIGITS" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_PartialDtmfDigits;
+/** Value: "SPEECH_ACTIVITY_BEGIN" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_SpeechActivityBegin;
+/** Value: "SPEECH_ACTIVITY_END" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_SpeechActivityEnd;
 /** Value: "TRANSCRIPT" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_Transcript;
 
@@ -2560,10 +2564,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartR
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult.messageType
 
+/** Value: "DTMF_DIGITS" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_DtmfDigits;
 /** Value: "END_OF_SINGLE_UTTERANCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_EndOfSingleUtterance;
 /** Value: "MESSAGE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_MessageTypeUnspecified;
+/** Value: "PARTIAL_DTMF_DIGITS" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_PartialDtmfDigits;
+/** Value: "SPEECH_ACTIVITY_BEGIN" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_SpeechActivityBegin;
+/** Value: "SPEECH_ACTIVITY_END" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_SpeechActivityEnd;
 /** Value: "TRANSCRIPT" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_Transcript;
 
@@ -13666,6 +13678,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Value "MESSAGE_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_PartialDtmfDigits
  *        Value "PARTIAL_DTMF_DIGITS"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_SpeechActivityBegin
+ *        Value "SPEECH_ACTIVITY_BEGIN"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_SpeechActivityEnd
+ *        Value "SPEECH_ACTIVITY_END"
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1StreamingRecognitionResult_MessageType_Transcript
  *        Value "TRANSCRIPT"
  */
@@ -16032,10 +16048,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  messageType
  *
  *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_DtmfDigits
+ *        Value "DTMF_DIGITS"
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_EndOfSingleUtterance
  *        Value "END_OF_SINGLE_UTTERANCE"
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_MessageTypeUnspecified
  *        Value "MESSAGE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_PartialDtmfDigits
+ *        Value "PARTIAL_DTMF_DIGITS"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_SpeechActivityBegin
+ *        Value "SPEECH_ACTIVITY_BEGIN"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_SpeechActivityEnd
+ *        Value "SPEECH_ACTIVITY_END"
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_Transcript
  *        Value "TRANSCRIPT"
  */

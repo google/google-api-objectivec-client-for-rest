@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan : GTLRCloudTraceQuery
 
 /**
- *  Required. The resource name of the span in the following format: *
+ *  Identifier. The resource name of the span in the following format: *
  *  `projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]` `[TRACE_ID]` is a
  *  unique identifier for a trace within a project; it is a 32-character
  *  hexadecimal encoding of a 16-byte array. It should not be zero. `[SPAN_ID]`
@@ -105,12 +105,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  span will be stored.
  *
  *  @param object The @c GTLRCloudTrace_Span to include in the query.
- *  @param name Required. The resource name of the span in the following format:
- *    * `projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]` `[TRACE_ID]`
- *    is a unique identifier for a trace within a project; it is a 32-character
- *    hexadecimal encoding of a 16-byte array. It should not be zero.
- *    `[SPAN_ID]` is a unique identifier for a span within a trace; it is a
- *    16-character hexadecimal encoding of an 8-byte array. It should not be
+ *  @param name Identifier. The resource name of the span in the following
+ *    format: * `projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]`
+ *    `[TRACE_ID]` is a unique identifier for a trace within a project; it is a
+ *    32-character hexadecimal encoding of a 16-byte array. It should not be
+ *    zero. `[SPAN_ID]` is a unique identifier for a span within a trace; it is
+ *    a 16-character hexadecimal encoding of an 8-byte array. It should not be
  *    zero. .
  *
  *  @return GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan

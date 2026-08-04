@@ -46,9 +46,11 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetails;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetailsLink;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriod;
@@ -446,6 +448,89 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_Price
  *  Value: "PRICE_LEVEL_VERY_EXPENSIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_PriceLevel_PriceLevelVeryExpensive;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance.tags
+
+/**
+ *  The entrance likely provides physical access to the primary place in the
+ *  returned destination. A place can have multiple preferred entrances. If an
+ *  entrance does not have this tag, it means the entrance is physically on the
+ *  same building as the primary place, but does not necessarily provide access
+ *  to the place. For example, if the primary place is a restaurant in a strip
+ *  mall, the "PREFERRED" entrances will be the ones that likely lead into the
+ *  restaurant itself, while the other returned entrances will be other
+ *  entrances for the building, such as entrances into other restaurants in the
+ *  strip mall. If the primary place is a building itself, the `PREFERRED`
+ *  entrances will be the ones that lead into the "main" part of the building.
+ *  For example, in a shopping center the `PREFERRED` entrances will be the ones
+ *  that allow access to the main foyer area, but if an entrance only provides
+ *  access to a store on the side of the building, it won't be a `PREFERRED`
+ *  entrance. Note: a `PREFERRED` entrance might not provide access to the
+ *  primary place, and a non-`PREFERRED` entrance might provide access to the
+ *  primary place.
+ *
+ *  Value: "PREFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance_Tags_Preferred;
+/**
+ *  Not used.
+ *
+ *  Value: "TAG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance_Tags_TagUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint.travelModes
+
+/**
+ *  Suitable for driving.
+ *
+ *  Value: "DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_TravelModes_Drive;
+/**
+ *  Not used.
+ *
+ *  Value: "TRAVEL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_TravelModes_TravelModeUnspecified;
+/**
+ *  Suitable for walking.
+ *
+ *  Value: "WALK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_TravelModes_Walk;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint.usages
+
+/**
+ *  Suitable for dropping off a passenger. For example, a rideshare drop off
+ *  location.
+ *
+ *  Value: "DROPOFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_Dropoff;
+/**
+ *  Suitable for parking. For example, within a parking lot.
+ *
+ *  Value: "PARKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_Parking;
+/**
+ *  Suitable for picking up a passenger. For example, a rideshare pick up
+ *  location.
+ *
+ *  Value: "PICKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_Pickup;
+/**
+ *  Not used.
+ *
+ *  Value: "USAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_UsageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours.secondaryHoursType
@@ -1965,6 +2050,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *editorialSummary;
 
+/** Entrances for this destination. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance *> *entrances;
+
 /** The summary of amenities near the EV charging station. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary *evChargeAmenitySummary;
 
@@ -2079,6 +2167,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
 
 /** A human-readable phone number for the place, in national format. */
 @property(nonatomic, copy, nullable) NSString *nationalPhoneNumber;
+
+/** Navigation points for this destination. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint *> *navigationPoints;
 
 /** A summary of points of interest near the place. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary *neighborhoodSummary;
@@ -2517,6 +2608,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
 
 
 /**
+ *  An entrance is a single latitude/longitude coordinate pair that defines the
+ *  location of an entry and exit point for a place.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance : GTLRObject
+
+/** The location of the entrance. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLatLng *location;
+
+/** A list of tags that describe the entrance. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
  *  The summary of amenities near the EV charging station. This only applies to
  *  places with type `electric_vehicle_charging_station`. The `overview` field
  *  is guaranteed to be provided while the other fields are optional.
@@ -2593,6 +2699,40 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine
 
 /** A link to write a review for this place on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *writeAReviewUri;
+
+@end
+
+
+/**
+ *  A navigation point is a location next to a road where navigation can end.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint : GTLRObject
+
+/**
+ *  The display name of this navigation point. For example, "5th Ave" or "Gate
+ *  B".
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/**
+ *  A point next to the road segment where navigation should end. The point is
+ *  intentionally slightly offset from the road's centerline to clearly mark the
+ *  side of the road where the place is located.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLatLng *location;
+
+/** A token that can be used to identify this navigation point. */
+@property(nonatomic, copy, nullable) NSString *navigationPointToken;
+
+/** Travel modes that are appropriate for this navigation point. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *travelModes;
+
+/**
+ *  Lists `usages` supported by this navigation point. If empty, it does not
+ *  necessarily mean its usage is restricted in any way. All navigation points
+ *  can be used for general navigation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *usages;
 
 @end
 

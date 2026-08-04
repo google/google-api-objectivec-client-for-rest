@@ -17,6 +17,8 @@
 #endif
 
 @class GTLRHangoutsChat_AccessoryWidget;
+@class GTLRHangoutsChat_AccessPermissionSetting;
+@class GTLRHangoutsChat_AccessPermissionSettings;
 @class GTLRHangoutsChat_AccessSettings;
 @class GTLRHangoutsChat_ActionParameter;
 @class GTLRHangoutsChat_ActionResponse;
@@ -26,6 +28,7 @@
 @class GTLRHangoutsChat_AttachedGif;
 @class GTLRHangoutsChat_Attachment;
 @class GTLRHangoutsChat_AttachmentDataRef;
+@class GTLRHangoutsChat_Audience;
 @class GTLRHangoutsChat_Button;
 @class GTLRHangoutsChat_CalendarEventLinkData;
 @class GTLRHangoutsChat_Card;
@@ -133,6 +136,7 @@
 @class GTLRHangoutsChat_OpenLink;
 @class GTLRHangoutsChat_PermissionSetting;
 @class GTLRHangoutsChat_PermissionSettings;
+@class GTLRHangoutsChat_Principal;
 @class GTLRHangoutsChat_QuotedMessageMetadata;
 @class GTLRHangoutsChat_QuotedMessageSnapshot;
 @class GTLRHangoutsChat_Reaction;
@@ -141,6 +145,8 @@
 @class GTLRHangoutsChat_ReactionCreatedEventData;
 @class GTLRHangoutsChat_ReactionDeletedEventData;
 @class GTLRHangoutsChat_RichLinkMetadata;
+@class GTLRHangoutsChat_SearchMessageResult;
+@class GTLRHangoutsChat_SearchSpaceResult;
 @class GTLRHangoutsChat_Section;
 @class GTLRHangoutsChat_SectionItem;
 @class GTLRHangoutsChat_SelectionItems;
@@ -1888,6 +1894,34 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Membership
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_Message.markupSyntax
+
+/**
+ *  Uses Google Chat's markup syntax. See
+ *  https://developers.google.com/workspace/chat/format-messages#format-texts
+ *  for more information.
+ *
+ *  Value: "MARKUP_SYNTAX_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxChat;
+/**
+ *  Uses Markdown syntax. This syntax is based on the
+ *  [CommonMark](https://commonmark.org/help/) specification, with additional
+ *  extensions. See
+ *  https://developers.google.com/workspace/chat/format-messages#format-texts
+ *  for more information.
+ *
+ *  Value: "MARKUP_SYNTAX_MARKDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxMarkdown;
+/**
+ *  Represents the unspecified value.
+ *
+ *  Value: "MARKUP_SYNTAX_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_PositionSectionRequest.relativePosition
 
 /**
@@ -1975,6 +2009,82 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkTy
  *  Value: "RICH_LINK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_SearchMessageResult.spaceMuteSetting
+
+/**
+ *  The user will not receive any notifications for the space, regardless of the
+ *  notification setting.
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_Muted;
+/**
+ *  Reserved.
+ *
+ *  Value: "MUTE_SETTING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_MuteSettingUnspecified;
+/**
+ *  The user will receive notifications for the space based on the notification
+ *  setting.
+ *
+ *  Value: "UNMUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_Unmuted;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_SearchMessagesRequest.markupSyntax
+
+/**
+ *  Uses Google Chat's markup syntax. See
+ *  https://developers.google.com/workspace/chat/format-messages#format-texts
+ *  for more information.
+ *
+ *  Value: "MARKUP_SYNTAX_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxChat;
+/**
+ *  Uses Markdown syntax. This syntax is based on the
+ *  [CommonMark](https://commonmark.org/help/) specification, with additional
+ *  extensions. See
+ *  https://developers.google.com/workspace/chat/format-messages#format-texts
+ *  for more information.
+ *
+ *  Value: "MARKUP_SYNTAX_MARKDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxMarkdown;
+/**
+ *  Represents the unspecified value.
+ *
+ *  Value: "MARKUP_SYNTAX_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_SearchMessagesRequest.view
+
+/**
+ *  Includes only the matched messages in the results, but no additional
+ *  metadata. This is the default value.
+ *
+ *  Value: "SEARCH_MESSAGES_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewBasic;
+/**
+ *  Includes everything in the results: the matched messages and additional
+ *  metadata.
+ *
+ *  Value: "SEARCH_MESSAGES_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewFull;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "SEARCH_MESSAGES_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_SlashCommandMetadata.type
@@ -2284,10 +2394,42 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  An access permission setting.
+ */
+@interface GTLRHangoutsChat_AccessPermissionSetting : GTLRObject
+
+/** Optional. Unordered list. Allowed principals for this permission. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Principal *> *principals;
+
+@end
+
+
+/**
+ *  Access permission settings for a space.
+ */
+@interface GTLRHangoutsChat_AccessPermissionSettings : GTLRObject
+
+/** Optional. Access permission setting for discovering the space. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_AccessPermissionSetting *discoverSpaceSetting;
+
+/** Optional. Access permission setting for joining the space. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_AccessPermissionSetting *joinSpaceSetting;
+
+@end
+
+
+/**
  *  Represents the [access
  *  setting](https://support.google.com/chat/answer/11971020) of the space.
  */
 @interface GTLRHangoutsChat_AccessSettings : GTLRObject
+
+/**
+ *  Optional. Access permission settings for the space. To set the target
+ *  audience when creating a space, specify the `accessSettings.audience` field
+ *  in your request.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_AccessPermissionSettings *accessPermissionSettings;
 
 /**
  *  Output only. Indicates the access state of the space.
@@ -2709,6 +2851,31 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  the media API to download the attachment data.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  A target audience in Google Chat. A target audience represents a group of
+ *  users within a Google Workspace organization, defined by an administrator.
+ *  Target audiences are used to configure access and visibility settings for
+ *  resources, such as making a space discoverable to a specific group of users.
+ *  For more details, see [Target
+ *  audiences](https://support.google.com/a/answer/9934697) and [Make a space
+ *  discoverable to a target
+ *  audience](https://developers.google.com/workspace/chat/space-target-audience).
+ */
+@interface GTLRHangoutsChat_Audience : GTLRObject
+
+/**
+ *  The resource name of the [target
+ *  audience](https://support.google.com/a/answer/9934697) who can discover or
+ *  join the space. For details, see [Make a space discoverable to a target
+ *  audience](https://developers.google.com/workspace/chat/space-target-audience).
+ *  Format: `audiences/{audience}` To use the default target audience for the
+ *  Google Workspace organization, set to `audiences/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -7257,6 +7424,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 
 /**
+ *  Optional. Specifies how the server interprets the message `text` field
+ *  content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxChat Uses
+ *        Google Chat's markup syntax. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_CHAT")
+ *    @arg @c kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxMarkdown Uses
+ *        Markdown syntax. This syntax is based on the
+ *        [CommonMark](https://commonmark.org/help/) specification, with
+ *        additional extensions. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_MARKDOWN")
+ *    @arg @c kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxUnspecified
+ *        Represents the unspecified value. (Value: "MARKUP_SYNTAX_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *markupSyntax;
+
+/**
  *  Output only. A URL in the Chat message `text` field that matches a link
  *  preview pattern. For more information, see [Preview
  *  links](https://developers.google.com/workspace/chat/preview-links).
@@ -7598,6 +7785,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  A principal representing an entity granted access.
+ */
+@interface GTLRHangoutsChat_Principal : GTLRObject
+
+/** An audience. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Audience *audience;
+
+@end
+
+
+/**
  *  Information about a message that another message quotes. When you update a
  *  message, you can't add or replace the `quotedMessageMetadata` field, but you
  *  can remove it. For example usage, see [Quote another
@@ -7809,14 +8007,216 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Response with a list of spaces corresponding to the search spaces request.
+ *  A single result item from a message search.
+ */
+@interface GTLRHangoutsChat_SearchMessageResult : GTLRObject
+
+/** The matched message. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Message *message;
+
+/**
+ *  Indicates if the matched message is read by the calling user. Only returned
+ *  if the request view is `SEARCH_MESSAGES_VIEW_FULL` and the calling
+ *  credentials include one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.readstate.readonly` -
+ *  `https://www.googleapis.com/auth/chat.users.readstate`
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *read;
+
+/**
+ *  The mute setting of the calling user for the space where the message is
+ *  posted. The caller app can use this information to decide how to process the
+ *  message depending on whether the space is muted for the user or not. Only
+ *  returned if the request view is `SEARCH_MESSAGES_VIEW_FULL` and the calling
+ *  credentials include the following [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.spacesettings`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_Muted The
+ *        user will not receive any notifications for the space, regardless of
+ *        the notification setting. (Value: "MUTED")
+ *    @arg @c kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_MuteSettingUnspecified
+ *        Reserved. (Value: "MUTE_SETTING_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_Unmuted The
+ *        user will receive notifications for the space based on the
+ *        notification setting. (Value: "UNMUTED")
+ */
+@property(nonatomic, copy, nullable) NSString *spaceMuteSetting;
+
+@end
+
+
+/**
+ *  Request message for searching messages.
+ */
+@interface GTLRHangoutsChat_SearchMessagesRequest : GTLRObject
+
+/**
+ *  Required. A search query. The query can specify one or more search keywords,
+ *  which are used to filter the results, You can also filter the results using
+ *  the following message fields: - `create_time`: Accepts a timestamp in
+ *  [RFC-3339](https://www.rfc-editor.org/rfc/rfc3339) format and the supported
+ *  comparison operators are: `<` and `>=`. - `sender.name`: The resource name
+ *  of the sender (`users/{user}`). Only supports `=`. You can use the e-mail as
+ *  an alias for `{user}`. For example, `users/example\@gmail.com`, where
+ *  `example\@gmail.com` is the e-mail of the Google Chat user. - `space.name`:
+ *  The resource name of the space where the message is posted.
+ *  (`spaces/{space}`). Only supports `=`. If this filter is not set, the search
+ *  is performed across all direct messages and spaces the user has access to as
+ *  a space member. - `space.display_name`: Supports the operator `:` (has) and
+ *  filters spaces based on a partial match of their display name. Results are
+ *  limited to the top five space matches. For example,
+ *  `space.display_name:Project` searches for messages in the top five spaces
+ *  that contain the word "Project" in their display names. - `attachment`:
+ *  Supports the operator `:*` (has any) to check for the presence of
+ *  attachments. If `attachment:*` is specified, only messages that have at
+ *  least one attachment are returned. - `annotations.user_mentions.user.name`:
+ *  The resource name of the mentioned user (`users/{user}`). Only supports `:`
+ *  (has). For example: `annotations.user_mentions.user.name:"users/1234567890"`
+ *  returns only messages that contain a mention to the specified user.
+ *  Alternatively, the alias `me` can be used to filter for messages that
+ *  mention the caller user, for example:
+ *  `annotations.user_mentions.user.name:users/me`. You can also use the e-mail
+ *  as an alias for `{user}`, for example, `users/example\@gmail.com`. For
+ *  advanced filtering, the following functions are also available: -
+ *  `has_link()`: Returns only messages that have at least one hyperlink in the
+ *  message text. - `is_unread()`: Filters out messages that have been read by
+ *  the calling user. Using the `space.display_name` filter requires that the
+ *  calling credentials include one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.spaces.readonly` -
+ *  `https://www.googleapis.com/auth/chat.spaces` Using the `is_unread()` filter
+ *  requires that the calling credentials include one of the following
+ *  [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.readstate.readonly` -
+ *  `https://www.googleapis.com/auth/chat.users.readstate` Across different
+ *  fields, only `AND` operators are supported. A valid example is `sender.name
+ *  = "users/1234567890" AND is_unread()`. The word `AND` is optional and is
+ *  implied if omitted. For example, `sender.name = "users/1234567890"
+ *  is_unread()` is valid and is equivalent to the previous example. An invalid
+ *  example is `sender.name = "users/1234567890" OR is_unread()` because `OR` is
+ *  not supported between different fields. Among the same field: -
+ *  `create_time` supports only `AND`, and can only be used to represent an
+ *  interval, such as `create_time >= "2022-01-01T00:00:00+00:00" AND
+ *  create_time < "2023-01-01T00:00:00+00:00"`. - `sender.name` supports only
+ *  the `OR` operator, for example: `sender.name = "users/1234567890" OR
+ *  sender.name = "users/0987654321"`. - `space.name` supports only the `OR`
+ *  operator, for example: `space.name = "spaces/ABCDEFGH" OR space.name =
+ *  "spaces/QWERTYUI"`. - `space.display_name` supports the operators `AND` and
+ *  `OR`, but not a mix of both. For example: `space.display_name:Project AND
+ *  space.display_name:Tasks` returns messages that are in spaces with display
+ *  names containing both `Project` and `Tasks`, whereas
+ *  `space.display_name:Project OR space.display_name:Tasks` returns messages
+ *  that are in spaces with display names containing either `Project` or `Tasks`
+ *  or both. - `annotations.user_mentions.user.name` supports the operators
+ *  `AND` and `OR`, but not a mix of both. For example:
+ *  `annotations.user_mentions.user.name:"users/1234567890" AND
+ *  annotations.user_mentions.user.name:"users/0987654321"` returns only
+ *  messages that mentions both users, whereas
+ *  `annotations.user_mentions.user.name:"users/1234567890" OR
+ *  annotations.user_mentions.user.name:"users/0987654321"` returns messages
+ *  that mention either user or both. Parentheses are required to disambiguate
+ *  operator precedence when combining `AND` and `OR` operators in the same
+ *  query. For example: `(sender.name="users/me" OR sender.name="users/123456")
+ *  AND is_unread()`. Otherwise, parentheses are optional. The following example
+ *  queries are valid: ``` "Pending reports" AND create_time >=
+ *  "2023-01-01T00:00:00Z" sender.name = "users/example\@gmail.com"
+ *  annotations.user_mentions.user.name:"users/0987654321" attachment:* AND
+ *  space.name = "spaces/ABCDEFGH" tasks AND is_unread() AND sender.name =
+ *  "users/1234567890" "things to do" "urgent" (sender.name =
+ *  "users/1234567890") AND (create_time < "2023-05-01T00:00:00Z") tasks AND
+ *  space.name = "spaces/ABCDEFGH" AND has_link() "project one" is_unread()
+ *  space.display_name:Project tasks ``` The maximum query length is 1,000
+ *  characters. Invalid queries are rejected by the server with an
+ *  `INVALID_ARGUMENT` error.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the desired output syntax for the Chat message
+ *  `formatted_text` field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxChat
+ *        Uses Google Chat's markup syntax. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_CHAT")
+ *    @arg @c kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxMarkdown
+ *        Uses Markdown syntax. This syntax is based on the
+ *        [CommonMark](https://commonmark.org/help/) specification, with
+ *        additional extensions. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_MARKDOWN")
+ *    @arg @c kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxUnspecified
+ *        Represents the unspecified value. (Value: "MARKUP_SYNTAX_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *markupSyntax;
+
+/**
+ *  Optional. How the results list is ordered. Supported attributes to order by
+ *  are: - `create_time`: Sorts the results by the time of the message creation.
+ *  Default value. - `relevance`: Sorts the results by relevance. [Developer
+ *  Preview](https://developers.google.com/workspace/preview). The default
+ *  ordering is `create_time desc`. Only a single order per query (`create_time`
+ *  or `relevance`) is supported. Only descending order (`desc`) is supported,
+ *  and it must be specified after the order attribute.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results to return. The service may return
+ *  fewer than this value. If unspecified, at most 25 are returned. The maximum
+ *  value is 100. If you use a value more than 100, it's automatically changed
+ *  to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A token, received from the previous search messages call. Provide
+ *  this parameter to retrieve the subsequent page. When paginating, all other
+ *  parameters provided should match the call that provided the page token.
+ *  Passing different values to the other parameters might lead to unexpected
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Specifies what kind of search results view to return. The default
+ *  is `SEARCH_MESSAGES_VIEW_BASIC`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewBasic
+ *        Includes only the matched messages in the results, but no additional
+ *        metadata. This is the default value. (Value:
+ *        "SEARCH_MESSAGES_VIEW_BASIC")
+ *    @arg @c kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewFull
+ *        Includes everything in the results: the matched messages and
+ *        additional metadata. (Value: "SEARCH_MESSAGES_VIEW_FULL")
+ *    @arg @c kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewUnspecified
+ *        The default / unset value. The API will default to the BASIC view.
+ *        (Value: "SEARCH_MESSAGES_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+@end
+
+
+/**
+ *  Response message for searching messages.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "spaces" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRHangoutsChat_SearchSpacesResponse : GTLRCollectionObject
+@interface GTLRHangoutsChat_SearchMessagesResponse : GTLRCollectionObject
 
 /**
  *  A token that can be used to retrieve the next page. If this field is empty,
@@ -7825,12 +8225,45 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Deprecated: Please use the new `results` field instead. A page of the
- *  requested spaces. This field will be populated only when `useAdminAccess` is
- *  set to `true` and deprecated in favor of the new `results` field.
+ *  The list of search results that matched the query.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_SearchMessageResult *> *results;
+
+@end
+
+
+/**
+ *  A single result item from a space search.
+ */
+@interface GTLRHangoutsChat_SearchSpaceResult : GTLRObject
+
+/** Output only. The matched space. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
+
+@end
+
+
+/**
+ *  Response with a list of spaces corresponding to the search spaces request.
+ */
+@interface GTLRHangoutsChat_SearchSpacesResponse : GTLRObject
+
+/**
+ *  A token that can be used to retrieve the next page. If this field is empty,
+ *  there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Output only. The list of search results that matched the query. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_SearchSpaceResult *> *results;
+
+/**
+ *  Deprecated: Please use the new `results` field instead. A page of the
+ *  requested spaces. This field will be populated only when `useAdminAccess` is
+ *  set to `true` and deprecated in favor of the new `results` field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Space *> *spaces GTLR_DEPRECATED;
 

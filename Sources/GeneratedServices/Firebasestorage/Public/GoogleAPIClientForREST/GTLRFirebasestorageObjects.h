@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Output only. Underlying bucket resource. */
 @property(nonatomic, strong, nullable) GTLRFirebasestorage_Bucket *bucket;
 
-/** Immutable. Location of the default bucket. */
+/** Required. Immutable. Location of the default bucket. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** Identifier. Resource name of the default bucket. */

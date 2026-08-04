@@ -188,6 +188,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Returns the effective Cloud KMS Autokey configuration for a given project or
+ *  folder.
+ *
+ *  Method: cloudkms.folders.showEffectiveAutokeyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersShowEffectiveAutokeyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. Name of the resource project or folder to show the effective Cloud
+ *  KMS Autokey configuration for. This may be helpful for interrogating the
+ *  effect of nested folder configurations on a given resource project. Format:
+ *  * projects/{project} * folders/{folder}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse.
+ *
+ *  Returns the effective Cloud KMS Autokey configuration for a given project or
+ *  folder.
+ *
+ *  @param parent Required. Name of the resource project or folder to show the
+ *    effective Cloud KMS Autokey configuration for. This may be helpful for
+ *    interrogating the effect of nested folder configurations on a given
+ *    resource project. Format: * projects/{project} * folders/{folder}
+ *
+ *  @return GTLRCloudKMSQuery_FoldersShowEffectiveAutokeyConfig
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates the AutokeyConfig for a folder or a project. The caller must have
  *  both `cloudkms.autokeyConfigs.update` permission on the parent folder and
  *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A
@@ -1198,6 +1235,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) BOOL skipInitialVersionCreation;
 
 /**
+ *  Optional. Whether trusted wrapping will be enabled on the first
+ *  CryptoKeyVersions created for this CryptoKey. This field is only supported
+ *  for keys with CryptoKeyVersionTemplate.protection_level HSM_SINGLE_TENANT.
+ *  This field is supported for all CryptoKeyPurposes except ENCRYPT_DECRYPT.
+ */
+@property(nonatomic, assign) BOOL trustedWrappingEnabled;
+
+/**
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
  *
  *  Create a new CryptoKey within a KeyRing. CryptoKey.purpose and
@@ -1436,6 +1481,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Exports a CryptoKeyVersion with a trusted key. The CryptoKeyVersion must
+ *  have trusted_wrapping_enabled set to true. The CryptoKeyVersion of the
+ *  [wrapping_key] must have the AES_WRAPPING purpose. The [wrapping_key] must
+ *  have the AES_256_KWP algorithm.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.exportTrustedKeyWrappedCryptoKeyVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsExportTrustedKeyWrappedCryptoKeyVersion : GTLRCloudKMSQuery
+
+/**
+ *  Required. The name of the CryptoKeyVersion to export. The CryptoKeyVersion
+ *  must have trusted_wrapping_enabled set to true.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The name of the CryptoKeyVersion to use as a wrapping key. The
+ *  CryptoKeyVersion must have hsm_trusted set to true.
+ */
+@property(nonatomic, copy, nullable) NSString *wrappingKey;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ExportTrustedKeyWrappedCryptoKeyVersionResponse.
+ *
+ *  Exports a CryptoKeyVersion with a trusted key. The CryptoKeyVersion must
+ *  have trusted_wrapping_enabled set to true. The CryptoKeyVersion of the
+ *  [wrapping_key] must have the AES_WRAPPING purpose. The [wrapping_key] must
+ *  have the AES_256_KWP algorithm.
+ *
+ *  @param name Required. The name of the CryptoKeyVersion to export. The
+ *    CryptoKeyVersion must have trusted_wrapping_enabled set to true.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsExportTrustedKeyWrappedCryptoKeyVersion
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns metadata for a given CryptoKeyVersion.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get
@@ -1565,6 +1653,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_ImportCryptoKeyVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Import wrapped key material into a CryptoKeyVersion with a trusted key. All
+ *  requests must specify a CryptoKey. If a CryptoKeyVersion is additionally
+ *  specified in the request, key material will be reimported into that version.
+ *  Otherwise, a new version will be created, and will be assigned the next
+ *  sequential id within the CryptoKey. The CryptoKeyVersion will have
+ *  trusted_wrapping_enabled set to true.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.importTrustedKeyWrappedCryptoKeyVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImportTrustedKeyWrappedCryptoKeyVersion : GTLRCloudKMSQuery
+
+/** Required. The name of the CryptoKey to be imported into. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
+ *
+ *  Import wrapped key material into a CryptoKeyVersion with a trusted key. All
+ *  requests must specify a CryptoKey. If a CryptoKeyVersion is additionally
+ *  specified in the request, key material will be reimported into that version.
+ *  Otherwise, a new version will be created, and will be assigned the next
+ *  sequential id within the CryptoKey. The CryptoKeyVersion will have
+ *  trusted_wrapping_enabled set to true.
+ *
+ *  @param object The @c
+ *    GTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the CryptoKey to be imported into.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImportTrustedKeyWrappedCryptoKeyVersion
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -3420,7 +3549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Returns the effective Cloud KMS Autokey configuration for a given project.
+ *  Returns the effective Cloud KMS Autokey configuration for a given project or
+ *  folder.
  *
  *  Method: cloudkms.projects.showEffectiveAutokeyConfig
  *
@@ -3431,20 +3561,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig : GTLRCloudKMSQuery
 
 /**
- *  Required. Name of the resource project to the show effective Cloud KMS
- *  Autokey configuration for. This may be helpful for interrogating the effect
- *  of nested folder configurations on a given resource project.
+ *  Required. Name of the resource project or folder to show the effective Cloud
+ *  KMS Autokey configuration for. This may be helpful for interrogating the
+ *  effect of nested folder configurations on a given resource project. Format:
+ *  * projects/{project} * folders/{folder}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse.
  *
- *  Returns the effective Cloud KMS Autokey configuration for a given project.
+ *  Returns the effective Cloud KMS Autokey configuration for a given project or
+ *  folder.
  *
- *  @param parent Required. Name of the resource project to the show effective
- *    Cloud KMS Autokey configuration for. This may be helpful for interrogating
- *    the effect of nested folder configurations on a given resource project.
+ *  @param parent Required. Name of the resource project or folder to show the
+ *    effective Cloud KMS Autokey configuration for. This may be helpful for
+ *    interrogating the effect of nested folder configurations on a given
+ *    resource project. Format: * projects/{project} * folders/{folder}
  *
  *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig
  */

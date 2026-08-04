@@ -2783,6 +2783,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Returns the semantics associated with the specified resource.
+ *
+ *  Method: cloudresourcemanager.fetchResourceSemantics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_V3FetchResourceSemantics : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The full resource name of the GCP resource to retrieve semantics
+ *  for. Examples:
+ *  "//compute.googleapis.com/projects/123/zones/us-central1-a/instances/my-instance"
+ *  "//storage.googleapis.com/projects/_/buckets/my_bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_FetchResourceSemanticsResponse.
+ *
+ *  Returns the semantics associated with the specified resource.
+ *
+ *  @return GTLRCloudResourceManagerQuery_V3FetchResourceSemantics
+ */
++ (instancetype)query;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

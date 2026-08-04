@@ -12,8 +12,9 @@
 #import <GoogleAPIClientForREST/GTLRSecurityCommandCenter.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeSecurityCommandCenter           = @"https://www.googleapis.com/auth/securitycenter";
 NSString * const kGTLRAuthScopeSecurityCommandCenterCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

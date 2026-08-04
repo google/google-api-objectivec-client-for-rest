@@ -1659,6 +1659,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_Moderni
  *  Modernization of all the fleet's clusters is complete. Soaking before
  *  finalizing the modernization.
  *
+ *  Value: "MODERNIZATION_MODERNIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernized;
+/**
+ *  Modernization of all the fleet's clusters is complete. Soaking before
+ *  finalizing the modernization.
+ *
  *  Value: "MODERNIZATION_MODERNIZED_SOAKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizedSoaking;
@@ -3433,8 +3440,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController GTLR_DEPRECATED;
 
 /**
- *  Optional. Deprecated: From version 1.21.0, automatic Feature management is
- *  unavailable, and Config Sync only supports manual upgrades.
+ *  Optional. Deprecated: Automatic Feature management is in Preview and is
+ *  unavailable in version 1.21.0 and later, after which Config Sync only
+ *  supports manual upgrades. If set to manual upgrades, clear this field
+ *  instead, which is behaviorally equivalent but helps prevent compatibility
+ *  issues with newer fields.
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementSpec_Management_ManagementAutomatic
@@ -5343,6 +5353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationMigratingWorkloads
  *        Migrating the cluster's workloads to the new implementation. (Value:
  *        "MODERNIZATION_MIGRATING_WORKLOADS")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernized
+ *        Modernization of all the fleet's clusters is complete. Soaking before
+ *        finalizing the modernization. (Value: "MODERNIZATION_MODERNIZED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizedSoaking
  *        Modernization of all the fleet's clusters is complete. Soaking before
  *        finalizing the modernization. (Value:

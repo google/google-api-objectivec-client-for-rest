@@ -473,6 +473,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk : GTLRObject
 
+/** Algorithm intended for use with the key. Currently "RS256". */
+@property(nonatomic, copy, nullable) NSString *alg;
+
 /** Exponent value for kty="RSA". */
 @property(nonatomic, copy, nullable) NSString *e;
 
@@ -485,7 +488,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Modulus value for kty="RSA". */
 @property(nonatomic, copy, nullable) NSString *n;
 
-/** Public key use. Currently "jwt-svid". */
+/** Public key use. Currently "sig". */
 @property(nonatomic, copy, nullable) NSString *use;
 
 @end

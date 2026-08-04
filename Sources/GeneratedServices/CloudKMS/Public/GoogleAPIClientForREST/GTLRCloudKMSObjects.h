@@ -60,8 +60,10 @@
 @class GTLRCloudKMS_ServiceResolver;
 @class GTLRCloudKMS_SingleTenantHsmInstance;
 @class GTLRCloudKMS_SingleTenantHsmInstanceProposal;
+@class GTLRCloudKMS_Source;
 @class GTLRCloudKMS_Status;
 @class GTLRCloudKMS_Status_Details_Item;
+@class GTLRCloudKMS_UpgradeKeyTrust;
 @class GTLRCloudKMS_WrappingPublicKey;
 
 // Generated comments include content from the discovery document; avoid them
@@ -204,8 +206,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolut
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_Disabled;
 /**
- *  Default value. KeyProjectResolutionMode when not specified will act as
- *  `DEDICATED_KEY_PROJECT`.
+ *  Default value. When KeyProjectResolutionMode is set to
+ *  KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED for a folder and that folder has a
+ *  key_project set, the folder acts like its KeyProjectResolutionMode is
+ *  DEDICATED_KEY_PROJECT.
  *
  *  Value: "KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED"
  */
@@ -257,6 +261,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_Uninitializ
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKey.purpose
 
+/**
+ *  CryptoKeys with this purpose may be used for AES key
+ *
+ *  Value: "AES_WRAPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_AesWrapping;
 /**
  *  CryptoKeys with this purpose may be used with AsymmetricDecrypt and
  *  GetPublicKey.
@@ -343,6 +353,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes2
  *  Value: "AES_256_GCM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Gcm;
+/**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Kwp;
 /**
  *  Not specified.
  *
@@ -775,6 +792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  *  Value: "AES_256_GCM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Gcm;
+/**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Kwp;
 /**
  *  Not specified.
  *
@@ -1316,6 +1340,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Gcm;
 /**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Kwp;
+/**
  *  Not specified.
  *
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
@@ -1796,6 +1827,317 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_ImportJobStateU
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_PendingGeneration;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest.algorithm
+
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes128Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes128Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 128-bit keys.
+ *
+ *  Value: "AES_128_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes128Gcm;
+/**
+ *  AES-CBC (Cipher Block Chaining Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CBC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Cbc;
+/**
+ *  AES-CTR (Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_CTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Ctr;
+/**
+ *  AES-GCM (Galois Counter Mode) using 256-bit keys.
+ *
+ *  Value: "AES_256_GCM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Gcm;
+/**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Kwp;
+/**
+ *  Not specified.
+ *
+ *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignEd25519;
+/**
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *
+ *  Value: "EC_SIGN_P256_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256;
+/**
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash functions can
+ *  also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *
+ *  Value: "EC_SIGN_P384_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384;
+/**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level. Other hash functions can also be used:
+ *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256;
+/**
+ *  Algorithm representing symmetric encryption by an external key manager.
+ *
+ *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_ExternalSymmetricEncryption;
+/**
+ *  Creates symmetric encryption keys.
+ *
+ *  Value: "GOOGLE_SYMMETRIC_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption;
+/**
+ *  HMAC-SHA1 signing with a 160 bit key.
+ *
+ *  Value: "HMAC_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha1;
+/**
+ *  HMAC-SHA224 signing with a 224 bit key.
+ *
+ *  Value: "HMAC_SHA224"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha224;
+/**
+ *  HMAC-SHA256 signing with a 256 bit key.
+ *
+ *  Value: "HMAC_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha256;
+/**
+ *  HMAC-SHA384 signing with a 384 bit key.
+ *
+ *  Value: "HMAC_SHA384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha384;
+/**
+ *  HMAC-SHA512 signing with a 512 bit key.
+ *
+ *  Value: "HMAC_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87ExternalMu;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignSlhDsaSha2128s;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256;
+/**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha1;
+/**
+ *  RSAES-OAEP 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha1;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs12048Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_3072_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs13072Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha512;
+/**
+ *  RSASSA-PSS 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_2048_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss2048Sha256;
+/**
+ *  RSASSA-PSS 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_3072_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss3072Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_KeyAccessJustificationsPolicy.allowedAccessReasons
 
 /**
@@ -2041,6 +2383,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Ctr;
  *  Value: "AES_256_GCM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Gcm;
+/**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Kwp;
 /**
  *  Not specified.
  *
@@ -2469,6 +2818,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  Value: "SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse.keyProjectResolutionMode
+
+/**
+ *  Keys are created in a dedicated project specified by `key_project`.
+ *
+ *  Value: "DEDICATED_KEY_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_DedicatedKeyProject;
+/**
+ *  Disables the AutokeyConfig. When this mode is set, any AutokeyConfig from
+ *  higher levels in the resource hierarchy are ignored for this resource and
+ *  its descendants. This setting can be overridden by a more specific
+ *  configuration at a lower level. For example, if Autokey is disabled on a
+ *  folder, it can be re-enabled on a sub-folder or project within that folder
+ *  by setting a different mode (e.g., DEDICATED_KEY_PROJECT or
+ *  RESOURCE_PROJECT).
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_Disabled;
+/**
+ *  Default value. When KeyProjectResolutionMode is set to
+ *  KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED for a folder and that folder has a
+ *  key_project set, the folder acts like its KeyProjectResolutionMode is
+ *  DEDICATED_KEY_PROJECT.
+ *
+ *  Value: "KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_KeyProjectResolutionModeUnspecified;
+/**
+ *  Keys are created in the same project as the resource requesting the key. The
+ *  `key_project` must not be set when this mode is used.
+ *
+ *  Value: "RESOURCE_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_ResourceProject;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_SingleTenantHsmInstance.state
@@ -2984,8 +3371,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        within that folder by setting a different mode (e.g.,
  *        DEDICATED_KEY_PROJECT or RESOURCE_PROJECT). (Value: "DISABLED")
  *    @arg @c kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_KeyProjectResolutionModeUnspecified
- *        Default value. KeyProjectResolutionMode when not specified will act as
- *        `DEDICATED_KEY_PROJECT`. (Value:
+ *        Default value. When KeyProjectResolutionMode is set to
+ *        KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED for a folder and that folder
+ *        has a key_project set, the folder acts like its
+ *        KeyProjectResolutionMode is DEDICATED_KEY_PROJECT. (Value:
  *        "KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_ResourceProject
  *        Keys are created in the same project as the resource requesting the
@@ -3358,6 +3747,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  Immutable. The immutable purpose of this CryptoKey.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_AesWrapping CryptoKeys with this
+ *        purpose may be used for AES key (Value: "AES_WRAPPING")
  *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_AsymmetricDecrypt CryptoKeys with
  *        this purpose may be used with AsymmetricDecrypt and GetPublicKey.
  *        (Value: "ASYMMETRIC_DECRYPT")
@@ -3441,6 +3832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Gcm AES-GCM (Galois
  *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes256Kwp AES key wrap
+ *        with zero padding algorithm (RFC 5649). Can only be used by keys with
+ *        purpose AES_WRAPPING. (Value: "AES_256_KWP")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignEd25519 EdDSA on
@@ -3619,6 +4013,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 @property(nonatomic, copy, nullable) NSString *generationFailureReason;
 
 /**
+ *  Output only. Field indicating that the key wrapping key is trusted. This
+ *  field is only valid for key purpose AES_256_WRAPPING, and protection level
+ *  HSM_SINGLE_TENANT.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hsmTrusted;
+
+/**
  *  Output only. The root cause of the most recent import failure. Only present
  *  if state is IMPORT_FAILED.
  */
@@ -3730,6 +4133,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Immutable. Field indicating that the key may be wrapped by a trusted key.
+ *  This field can be set for all key purposes except ENCRYPT_DECRYPT, and is
+ *  only valid for keys with protection level HSM_SINGLE_TENANT. This field can
+ *  only be set at creation or import time via CreateCryptoKeyVersion, or
+ *  ImportCryptoKeyVersion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trustedWrappingEnabled;
+
 @end
 
 
@@ -3761,6 +4175,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Gcm AES-GCM
  *        (Galois Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_Aes256Kwp AES key
+ *        wrap with zero padding algorithm (RFC 5649). Can only be used by keys
+ *        with purpose AES_WRAPPING. (Value: "AES_256_KWP")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignEd25519
@@ -4491,6 +4908,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
+ *  Response message for
+ *  KeyManagementService.ExportTrustedKeyWrappedCryptoKeyVersion.
+ */
+@interface GTLRCloudKMS_ExportTrustedKeyWrappedCryptoKeyVersionResponse : GTLRObject
+
+/**
+ *  The wrapped key material.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *wrappedKey;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  ExportTrustedKeyWrappedCryptoKeyVersionResponse.wrapped_key. An integrity
+ *  check of ExportTrustedKeyWrappedCryptoKeyVersionResponse.wrapped_key can be
+ *  performed by computing the CRC32C checksum of
+ *  ExportTrustedKeyWrappedCryptoKeyVersionResponse.wrapped_key and comparing
+ *  your results to this field. Discard the response in case of non-matching
+ *  checksum values, and perform a limited number of retries. A persistent
+ *  mismatch may indicate an issue in your computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will never
+ *  exceed 2^32-1, and can be safely downconverted to uint32 in languages that
+ *  support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wrappedKeyCrc32c;
+
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -4547,13 +4999,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 @interface GTLRCloudKMS_ExternalProtectionLevelOptions : GTLRObject
 
 /**
- *  The path to the external key material on the EKM when using EkmConnection
- *  e.g., "v0/my/key". Set this field instead of external_key_uri when using an
- *  EkmConnection.
+ *  Optional. The resource name of the backend environment where the key
+ *  material of CryptoKeyVersions is associated with. Setting this field
+ *  overrides the CryptoKeyBackend. This field may be set when CryptoKeyVersions
+ *  is set to EXTERNAL_VPC. Format: `projects/ * /locations/ * /ekmConnections/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *ekmConnectionBackendOverride;
+
+/**
+ *  Optional. The path to the external key material on the EKM when using
+ *  EkmConnection e.g., "v0/my/key". Set this field instead of external_key_uri
+ *  when using an EkmConnection.
  */
 @property(nonatomic, copy, nullable) NSString *ekmConnectionKeyPath;
 
-/** The URI for an external resource that this CryptoKeyVersion represents. */
+/**
+ *  Optional. The URI for an external resource that this CryptoKeyVersion
+ *  represents.
+ */
 @property(nonatomic, copy, nullable) NSString *externalKeyUri;
 
 @end
@@ -4657,6 +5121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Gcm
  *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
  *        "AES_256_GCM")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_Aes256Kwp
+ *        AES key wrap with zero padding algorithm (RFC 5649). Can only be used
+ *        by keys with purpose AES_WRAPPING. (Value: "AES_256_KWP")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignEd25519
@@ -4814,6 +5281,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *rsaAesWrappedKey;
+
+/**
+ *  Optional. Whether trusted wrapping will be enabled on the imported
+ *  [CryptoKeyVersion]. This field is only supported for keys with
+ *  CryptoKeyVersionTemplate.protection_level HSM_SINGLE_TENANT. This field is
+ *  supported for all CryptoKeyPurposes besides ENCRYPT_DECRYPT.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trustedWrappingEnabled;
 
 /**
  *  Optional. The wrapped key material to import. Before wrapping, key material
@@ -5057,6 +5534,198 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        is generated. (Value: "PENDING_GENERATION")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Request message for
+ *  KeyManagementService.ImportTrustedKeyWrappedCryptoKeyVersion.
+ */
+@interface GTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest : GTLRObject
+
+/**
+ *  Required. Required - The algorithm of the key being imported. This does not
+ *  need to match the version_template of the CryptoKey this version imports
+ *  into.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes128Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 128-bit keys. (Value:
+ *        "AES_128_CBC")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes128Ctr
+ *        AES-CTR (Counter Mode) using 128-bit keys. (Value: "AES_128_CTR")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes128Gcm
+ *        AES-GCM (Galois Counter Mode) using 128-bit keys. (Value:
+ *        "AES_128_GCM")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Cbc
+ *        AES-CBC (Cipher Block Chaining Mode) using 256-bit keys. (Value:
+ *        "AES_256_CBC")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Ctr
+ *        AES-CTR (Counter Mode) using 256-bit keys. (Value: "AES_256_CTR")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Gcm
+ *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
+ *        "AES_256_GCM")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_Aes256Kwp
+ *        AES key wrap with zero padding algorithm (RFC 5649). Can only be used
+ *        by keys with purpose AES_WRAPPING. (Value: "AES_256_KWP")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified
+ *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256
+ *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P256_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384
+ *        ECDSA on the NIST P-384 curve with a SHA384 digest. Other hash
+ *        functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. Other hash functions can also be used:
+ *        https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
+ *        (Value: "EC_SIGN_SECP256K1_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_ExternalSymmetricEncryption
+ *        Algorithm representing symmetric encryption by an external key
+ *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption
+ *        Creates symmetric encryption keys. (Value:
+ *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha1
+ *        HMAC-SHA1 signing with a 160 bit key. (Value: "HMAC_SHA1")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha224
+ *        HMAC-SHA224 signing with a 224 bit key. (Value: "HMAC_SHA224")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha256
+ *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha384
+ *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha512
+ *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256
+ *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256
+ *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256
+ *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha512
+ *        RSAES-OAEP 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs12048Sha256
+ *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs13072Sha256
+ *        RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha256
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha512
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss2048Sha256
+ *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss3072Sha256
+ *        RSASSA-PSS 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha256
+ *        RSASSA-PSS 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512
+ *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
+ */
+@property(nonatomic, copy, nullable) NSString *algorithm;
+
+/**
+ *  Optional. The optional name of an existing CryptoKeyVersion to target for an
+ *  import operation. If this field is not present, a new CryptoKeyVersion
+ *  containing the supplied key material is created. If this field is present,
+ *  the supplied key material is imported into the existing CryptoKeyVersion. To
+ *  import into an existing CryptoKeyVersion, the CryptoKeyVersion must be a
+ *  child of ImportTrustedKeyWrappedCryptoKeyVersionRequest.parent, have been
+ *  previously created via ImportTrustedKeyWrappedCryptoKeyVersion, and be in
+ *  DESTROYED or IMPORT_FAILED state. The key material and algorithm must match
+ *  the previous CryptoKeyVersion exactly if the CryptoKeyVersion has ever
+ *  contained key material
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyVersion;
+
+/**
+ *  Required. Required - the CKV of the trusted key used to import. This can be
+ *  the name of a CryptoKeyVersion or a CryptoKey.
+ */
+@property(nonatomic, copy, nullable) NSString *importingKey;
+
+/**
+ *  Required. The target key pre-wrapped on premises.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *wrappedKey;
 
 @end
 
@@ -6093,6 +6762,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        using 256-bit keys. (Value: "AES_256_CTR")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes256Gcm AES-GCM (Galois
  *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_Aes256Kwp AES key wrap with zero
+ *        padding algorithm (RFC 5649). Can only be used by keys with purpose
+ *        AES_WRAPPING. (Value: "AES_256_KWP")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignEd25519 EdDSA on the
@@ -7030,10 +7702,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 @interface GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse : GTLRObject
 
 /**
- *  Name of the key project configured in the resource project's folder
- *  ancestry.
+ *  Name of the key project configured in the ancestry of the project or folder.
  */
 @property(nonatomic, copy, nullable) NSString *keyProject;
+
+/**
+ *  The KeyProjectResolutionMode for the AutokeyConfig.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_DedicatedKeyProject
+ *        Keys are created in a dedicated project specified by `key_project`.
+ *        (Value: "DEDICATED_KEY_PROJECT")
+ *    @arg @c kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_Disabled
+ *        Disables the AutokeyConfig. When this mode is set, any AutokeyConfig
+ *        from higher levels in the resource hierarchy are ignored for this
+ *        resource and its descendants. This setting can be overridden by a more
+ *        specific configuration at a lower level. For example, if Autokey is
+ *        disabled on a folder, it can be re-enabled on a sub-folder or project
+ *        within that folder by setting a different mode (e.g.,
+ *        DEDICATED_KEY_PROJECT or RESOURCE_PROJECT). (Value: "DISABLED")
+ *    @arg @c kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_KeyProjectResolutionModeUnspecified
+ *        Default value. When KeyProjectResolutionMode is set to
+ *        KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED for a folder and that folder
+ *        has a key_project set, the folder acts like its
+ *        KeyProjectResolutionMode is DEDICATED_KEY_PROJECT. (Value:
+ *        "KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ShowEffectiveAutokeyConfigResponse_KeyProjectResolutionMode_ResourceProject
+ *        Keys are created in the same project as the resource requesting the
+ *        key. The `key_project` must not be set when this mode is used. (Value:
+ *        "RESOURCE_PROJECT")
+ */
+@property(nonatomic, copy, nullable) NSString *keyProjectResolutionMode;
+
+/** Source of the effective AutokeyConfig. */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Source *source;
 
 @end
 
@@ -7103,7 +7805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 /**
  *  Optional. Immutable. Indicates whether key portability is enabled for the
  *  SingleTenantHsmInstance. This can only be set at creation time. Key
- *  portability features are disabled by default and not yet available in GA.
+ *  portability features are disabled by default.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7301,6 +8003,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
+/**
+ *  Promotes a key with the AES_WRAPPING purpose to a trusted wrapping key. The
+ *  key must be in the ACTIVE state to perform this operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_UpgradeKeyTrust *upgradeKeyTrust;
+
+@end
+
+
+/**
+ *  Source of the effective AutokeyConfig.
+ */
+@interface GTLRCloudKMS_Source : GTLRObject
+
+/**
+ *  Contains the resource name of the AutokeyConfig that is effective, for
+ *  example, `folders/{FOLDER_NUMBER}` or `projects/{PROJECT_NUMBER}` or
+ *  `organizations/{ORGANIZATION_NUMBER}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -7384,6 +8107,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 /** Required. The id of the child CryptoKeyVersion to use as primary. */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyVersionId;
+
+@end
+
+
+/**
+ *  Promotes a key with the AES_WRAPPING purpose to a trusted wrapping key. The
+ *  key must be in the ACTIVE state to perform this operation.
+ */
+@interface GTLRCloudKMS_UpgradeKeyTrust : GTLRObject
+
+/** Required. The name of the CryptoKeyVersion to promote. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The public key associated with the 2FA key that will sign the
+ *  login nonce for this operation.
+ */
+@property(nonatomic, copy, nullable) NSString *twoFactorPublicKeyPem;
 
 @end
 

@@ -2206,7 +2206,8 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 @implementation GTLRNetworkSecurity_MirroringEndpointGroupAssociation
 @dynamic createTime, labels, locations, locationsDetails,
-         mirroringEndpointGroup, name, network, reconciling, state, updateTime;
+         mirroringEndpointGroup, name, network, networkCookie, reconciling,
+         state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

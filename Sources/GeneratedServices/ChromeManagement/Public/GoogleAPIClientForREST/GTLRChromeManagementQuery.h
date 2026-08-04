@@ -752,7 +752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
 /**
  *  Optional. ID to use for the connector config, which becomes the final
  *  component of the connector config's resource name. If provided, the ID must
- *  be 1-63 characters long, and contain only lowercase letters, digits, and
+ *  be 1-36 characters long, and contain only lowercase letters, digits, and
  *  hyphens. It must start with a letter, and end with a letter or number. If
  *  not provided, the connector config will be assigned a random UUID.
  */
@@ -1196,7 +1196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
 @end
 
 /**
- *  Returns a high-level summary of URL visits for a given customer.
+ *  Returns a high-level summary of URL visits for a given customer. Requires a
+ *  Chrome Enterprise Premium subscription. If the customer does not have this
+ *  subscription, query results will be empty.
  *
  *  Method: chromemanagement.customers.enterprise.securityInsights.queryUrlVisits
  *
@@ -1224,7 +1226,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
  *  Fetches a @c
  *  GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsResponse.
  *
- *  Returns a high-level summary of URL visits for a given customer.
+ *  Returns a high-level summary of URL visits for a given customer. Requires a
+ *  Chrome Enterprise Premium subscription. If the customer does not have this
+ *  subscription, query results will be empty.
  *
  *  @param customer Required. The customer ID in the format
  *    "customers/{customer_id}".
@@ -1237,6 +1241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
 
 /**
  *  Returns summaries of URL visits for a given metric and breakdown dimension.
+ *  Requires a Chrome Enterprise Premium subscription. If the customer does not
+ *  have this subscription, query results will be empty.
  *
  *  Method: chromemanagement.customers.enterprise.securityInsights.queryUrlVisitsBreakdowns
  *
@@ -1342,6 +1348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
  *  GTLRChromeManagement_GoogleChromeManagementVersionsV1QueryUrlVisitsBreakdownsResponse.
  *
  *  Returns summaries of URL visits for a given metric and breakdown dimension.
+ *  Requires a Chrome Enterprise Premium subscription. If the customer does not
+ *  have this subscription, query results will be empty.
  *
  *  @param customer Required. The customer ID in the format
  *    "customers/{customer_id}".

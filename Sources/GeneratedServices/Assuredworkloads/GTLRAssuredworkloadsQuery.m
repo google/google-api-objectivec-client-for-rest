@@ -8,6 +8,18 @@
 
 #import <GoogleAPIClientForREST/GTLRAssuredworkloadsQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewBasic = @"FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC";
+NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewFull = @"FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_FULL";
+NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified = @"FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRAssuredworkloadsQuery
 
 @dynamic fields;
@@ -77,6 +89,90 @@
 
 @end
 
+@implementation GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsAggregate
+
+@dynamic filter, intervalEndTime, intervalStartTime, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"intervalEndTime" : @"interval.endTime",
+    @"intervalStartTime" : @"interval.startTime"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:aggregate";
+  GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsAggregate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse class];
+  query.loggingName = @"assuredworkloads.folders.locations.dbFrameworkComplianceReports.aggregate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbControlComplianceSummaries";
+  GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse class];
+  query.loggingName = @"assuredworkloads.folders.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsFetch
+
+@dynamic endTime, filter, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetch";
+  GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsFetch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse class];
+  query.loggingName = @"assuredworkloads.folders.locations.dbFrameworkComplianceReports.fetch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceSummariesList
+
+@dynamic filter, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbFrameworkComplianceSummaries";
+  GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse class];
+  query.loggingName = @"assuredworkloads.folders.locations.dbFrameworkComplianceSummaries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -91,6 +187,90 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse class];
   query.loggingName = @"assuredworkloads.organizations.locations.dbFindingSummaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsAggregate
+
+@dynamic filter, intervalEndTime, intervalStartTime, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"intervalEndTime" : @"interval.endTime",
+    @"intervalStartTime" : @"interval.startTime"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:aggregate";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsAggregate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.dbFrameworkComplianceReports.aggregate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbControlComplianceSummaries";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsFetch
+
+@dynamic endTime, filter, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetch";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsFetch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.dbFrameworkComplianceReports.fetch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceSummariesList
+
+@dynamic filter, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbFrameworkComplianceSummaries";
+  GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse class];
+  query.loggingName = @"assuredworkloads.organizations.locations.dbFrameworkComplianceSummaries.list";
   return query;
 }
 
@@ -528,6 +708,90 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse class];
   query.loggingName = @"assuredworkloads.projects.locations.dbFindingSummaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsAggregate
+
+@dynamic filter, intervalEndTime, intervalStartTime, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"intervalEndTime" : @"interval.endTime",
+    @"intervalStartTime" : @"interval.startTime"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:aggregate";
+  GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsAggregate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse class];
+  query.loggingName = @"assuredworkloads.projects.locations.dbFrameworkComplianceReports.aggregate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbControlComplianceSummaries";
+  GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse class];
+  query.loggingName = @"assuredworkloads.projects.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsFetch
+
+@dynamic endTime, filter, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetch";
+  GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsFetch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse class];
+  query.loggingName = @"assuredworkloads.projects.locations.dbFrameworkComplianceReports.fetch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceSummariesList
+
+@dynamic filter, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbFrameworkComplianceSummaries";
+  GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse class];
+  query.loggingName = @"assuredworkloads.projects.locations.dbFrameworkComplianceSummaries.list";
   return query;
 }
 

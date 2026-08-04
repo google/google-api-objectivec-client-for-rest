@@ -168,7 +168,6 @@
 @class GTLRDisplayVideo_DoubleVerifyFraudInvalidTraffic;
 @class GTLRDisplayVideo_DoubleVerifyVideoViewability;
 @class GTLRDisplayVideo_EditInventorySourceReadWriteAccessorsRequestAdvertisersUpdate;
-@class GTLRDisplayVideo_EffectiveFrequencyBreakdown;
 @class GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_EnvironmentTargetingOptionDetails;
 @class GTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails;
@@ -264,6 +263,7 @@
 @class GTLRDisplayVideo_PerformanceGoal;
 @class GTLRDisplayVideo_PerformanceGoalBidStrategy;
 @class GTLRDisplayVideo_PlannableLocation;
+@class GTLRDisplayVideo_PlannableProductCoreAttributes;
 @class GTLRDisplayVideo_PlannableTargeting;
 @class GTLRDisplayVideo_PlannableUserInterest;
 @class GTLRDisplayVideo_PlannableUserList;
@@ -654,6 +654,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_Entity
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdAsset.syntheticContentAttestationStatus
+
+/**
+ *  Is synthetic content.
+ *
+ *  Value: "IS_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_IsSynthetic;
+/**
+ *  Not synthetic content.
+ *
+ *  Value: "NOT_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_NotSynthetic;
+/**
+ *  Attestation status is unspecified.
+ *
+ *  Value: "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AdGroup.adGroupFormat
 
 /**
@@ -669,9 +691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper;
 /**
- *  Demand Gen ads. Retrieval and management of Demand Gen resources is
- *  currently rolling out. This field will be available to all partners by *June
- *  24, 2026*.
+ *  Demand Gen ads.
  *
  *  Value: "AD_GROUP_FORMAT_DEMAND_GEN"
  */
@@ -2003,6 +2023,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Ge
  *  Value: "GENDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Genders_GenderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdvancedProductTargeting.network
+
+/**
+ *  Google Video Partners.
+ *
+ *  Value: "PLANNABLE_NETWORK_GOOGLE_VIDEO_PARTNERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkGoogleVideoPartners;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_NETWORK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkUnspecified;
+/**
+ *  YouTube.
+ *
+ *  Value: "PLANNABLE_NETWORK_YOUTUBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkYoutube;
+/**
+ *  YouTube and Google Video Partners.
+ *
+ *  Value: "PLANNABLE_NETWORK_YOUTUBE_AND_GOOGLE_VIDEO_PARTNERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkYoutubeAndGoogleVideoPartners;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Advertiser.containsEuPoliticalAds
@@ -6182,6 +6230,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_Host
  *  Value: "HOSTING_SOURCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_HostingSourceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Creative.syntheticContentAttestationStatus
+
+/**
+ *  Is synthetic content.
+ *
+ *  Value: "IS_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_IsSynthetic;
+/**
+ *  Not synthetic content.
+ *
+ *  Value: "NOT_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_NotSynthetic;
+/**
+ *  Attestation status is unspecified.
+ *
+ *  Value: "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CreativeConfig.creativeType
@@ -10513,7 +10583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienc
 // GTLRDisplayVideo_FirstPartyAndPartnerAudience.audienceType
 
 /**
- *  Audience was created based on campaign activity.
+ *  Deprecated: Audience was created based on campaign activity.
  *
  *  Value: "ACTIVITY_BASED"
  */
@@ -10557,8 +10627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchUserId;
 /**
- *  Audience was created based on excluding the number of impressions they were
- *  served.
+ *  Deprecated: Audience was created based on excluding the number of
+ *  impressions they were served.
  *
  *  Value: "FREQUENCY_CAP"
  */
@@ -13744,9 +13814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_Entit
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault;
 /**
- *  Demand Gen ads. Retrieval and management of Demand Gen resources is
- *  currently rolling out. This field will be available to all partners by *June
- *  24, 2026*.
+ *  Demand Gen ads.
  *
  *  Value: "LINE_ITEM_TYPE_DEMAND_GEN"
  */
@@ -15422,6 +15490,84 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegion
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableLocation_GeoRegionType_GeoRegionTypeWard;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableProductCoreAttributes.buyingMethod
+
+/**
+ *  Auction.
+ *
+ *  Value: "PLANNABLE_BUYING_METHOD_AUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_BuyingMethod_PlannableBuyingMethodAuction;
+/**
+ *  Reservation.
+ *
+ *  Value: "PLANNABLE_BUYING_METHOD_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_BuyingMethod_PlannableBuyingMethodReservation;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_BUYING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_BuyingMethod_PlannableBuyingMethodUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableProductCoreAttributes.costModel
+
+/**
+ *  CPA.
+ *
+ *  Value: "PLANNABLE_COST_MODEL_CPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpa;
+/**
+ *  CPC.
+ *
+ *  Value: "PLANNABLE_COST_MODEL_CPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpc;
+/**
+ *  CPM.
+ *
+ *  Value: "PLANNABLE_COST_MODEL_CPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpm;
+/**
+ *  CPV.
+ *
+ *  Value: "PLANNABLE_COST_MODEL_CPV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpv;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_COST_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PlannableProductCoreAttributes.productCategory
+
+/**
+ *  Open Auction.
+ *
+ *  Value: "OPEN_AUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_ProductCategory_OpenAuction;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_PRODUCT_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_ProductCategory_PlannableProductCategoryUnspecified;
+/**
+ *  YouTube.
+ *
+ *  Value: "YOUTUBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PlannableProductCoreAttributes_ProductCategory_Youtube;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_PlannableTargeting.ageRanges
 
 /**
@@ -16741,6 +16887,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombination
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_AvailableSurfaceTypes_PlannableSurfaceUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_SurfaceTargetingCombinations.defaultSurfaceTypes
+
+/**
+ *  Discover feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_DISCOVER_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceDiscoverFeed;
+/**
+ *  Gmail.
+ *
+ *  Value: "PLANNABLE_SURFACE_GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceGmail;
+/**
+ *  Google Display Network.
+ *
+ *  Value: "PLANNABLE_SURFACE_GOOGLE_DISPLAY_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceGoogleDisplayNetwork;
+/**
+ *  In-feed.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceInFeed;
+/**
+ *  In-stream bumper.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_BUMPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceInStreamBumper;
+/**
+ *  In-stream non-skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceInStreamNonSkippable;
+/**
+ *  In-stream non-skippable (30 seconds).
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_NON_SKIPPABLE_THIRTY_SECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceInStreamNonSkippableThirtySeconds;
+/**
+ *  In-stream skippable.
+ *
+ *  Value: "PLANNABLE_SURFACE_IN_STREAM_SKIPPABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceInStreamSkippable;
+/**
+ *  Shorts.
+ *
+ *  Value: "PLANNABLE_SURFACE_SHORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceShorts;
+/**
+ *  Not specified.
+ *
+ *  Value: "PLANNABLE_SURFACE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SurfaceTargetingCombinations_DefaultSurfaceTypes_PlannableSurfaceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_SurfaceTargetingSettings.surfaces
 
 /**
@@ -17784,6 +17994,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAsse
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeYoutubeVideo;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_UploadAdAssetRequest.syntheticContentAttestationStatus
+
+/**
+ *  Is synthetic content.
+ *
+ *  Value: "IS_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_IsSynthetic;
+/**
+ *  Not synthetic content.
+ *
+ *  Value: "NOT_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_NotSynthetic;
+/**
+ *  Attestation status is unspecified.
+ *
+ *  Value: "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails.userRewardedContent
 
 /**
@@ -18582,6 +18814,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Identifier. The resource name of the ad asset. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. Whether the asset contains synthetic content or was created using
+ *  AI.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_IsSynthetic
+ *        Is synthetic content. (Value: "IS_SYNTHETIC")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_NotSynthetic
+ *        Not synthetic content. (Value: "NOT_SYNTHETIC")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified
+ *        Attestation status is unspecified. (Value:
+ *        "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *syntheticContentAttestationStatus;
+
 /** Youtube video asset data. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeVideoAsset *youtubeVideoAsset;
 
@@ -18602,9 +18849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper Bumper
  *        ads. (Value: "AD_GROUP_FORMAT_BUMPER")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen
- *        Demand Gen ads. Retrieval and management of Demand Gen resources is
- *        currently rolling out. This field will be available to all partners by
- *        *June 24, 2026*. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
+ *        Demand Gen ads. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream
  *        In-stream ads. (Value: "AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead
@@ -18760,41 +19005,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Optional. The DCM tracking ad info. Only valid for Demand Gen ads. To remove
- *  the DCM tracking ad info, please leave this field empty. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This field will
- *  be available to all partners by *June 24, 2026*.
+ *  the DCM tracking ad info, please leave this field empty.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DcmTrackingInfo *dcmTrackingInfo;
 
 /**
  *  Details of a [Demand Gen carousel
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd).
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenCarouselAd *demandGenCarouselAd;
 
 /**
  *  Details of a [Demand Gen image
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd).
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenImageAd *demandGenImageAd;
 
 /**
  *  Details of a [Demand Gen product
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#Product-onlyAd).
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenProductAd *demandGenProductAd;
 
 /**
  *  Details of a [Demand Gen video
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#VideoAd).
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This field will be available to all partners by *June 24, 2026*.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenVideoAd *demandGenVideoAd;
 
@@ -19898,6 +20133,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSArray<NSString *> *genders;
 
 /**
+ *  Optional. The network to target.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkGoogleVideoPartners
+ *        Google Video Partners. (Value:
+ *        "PLANNABLE_NETWORK_GOOGLE_VIDEO_PARTNERS")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkUnspecified
+ *        Not specified. (Value: "PLANNABLE_NETWORK_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkYoutube
+ *        YouTube. (Value: "PLANNABLE_NETWORK_YOUTUBE")
+ *    @arg @c kGTLRDisplayVideo_AdvancedProductTargeting_Network_PlannableNetworkYoutubeAndGoogleVideoPartners
+ *        YouTube and Google Video Partners. (Value:
+ *        "PLANNABLE_NETWORK_YOUTUBE_AND_GOOGLE_VIDEO_PARTNERS")
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
  *  Optional. Plannable location IDs to target.
  *
  *  Uses NSNumber of longLongValue.
@@ -19975,6 +20227,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Settings that control how advertiser data may be accessed. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserDataAccessConfig *dataAccessConfig;
+
+/**
+ *  Optional. The default business name for the advertiser. This is the value
+ *  used by YouTube and Demand Gen ads under this advertiser if a business name
+ *  is not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultBusinessName;
+
+/**
+ *  Optional. The asset ID of the default logo image for the advertiser. This is
+ *  the asset ID that will be used by YouTube and Demand ads under this
+ *  advertiser if a logo asset is not provided. You must use
+ *  advertisers.adAssets.upload to upload this asset using the API.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultLogoAssetId;
 
 /**
  *  Required. The display name of the advertiser. Must be UTF-8 encoded with a
@@ -24133,41 +24402,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_ContactInfo : GTLRObject
 
 /**
- *  Country code of the member. Must also be set with the following fields: *
- *  hashed_first_name * hashed_last_name * zip_codes
+ *  Optional. Country code of the member. Must also be set with the following
+ *  fields: * country_code * hashed_first_name * hashed_last_name * zip_codes
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
 /**
- *  A list of SHA256 hashed email of the member. Before hashing, remove all
- *  whitespace and make sure the string is all lowercase.
+ *  Optional. A list of SHA256 hashed email of the member. Before hashing,
+ *  remove all whitespace and make sure the string is all lowercase.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hashedEmails;
 
 /**
- *  SHA256 hashed first name of the member. Before hashing, remove all
+ *  Optional. SHA256 hashed first name of the member. Before hashing, remove all
  *  whitespace and make sure the string is all lowercase. Must also be set with
  *  the following fields: * country_code * hashed_last_name * zip_codes
  */
 @property(nonatomic, copy, nullable) NSString *hashedFirstName;
 
 /**
- *  SHA256 hashed last name of the member. Before hashing, remove all whitespace
- *  and make sure the string is all lowercase. Must also be set with the
- *  following fields: * country_code * hashed_first_name * zip_codes
+ *  Optional. SHA256 hashed last name of the member. Before hashing, remove all
+ *  whitespace and make sure the string is all lowercase. Must also be set with
+ *  the following fields: * country_code * hashed_first_name * zip_codes
  */
 @property(nonatomic, copy, nullable) NSString *hashedLastName;
 
 /**
- *  A list of SHA256 hashed phone numbers of the member. Before hashing, all
- *  phone numbers must be formatted using the [E.164
- *  format](//en.wikipedia.org/wiki/E.164) and include the country calling code.
+ *  Optional. A list of SHA256 hashed phone numbers of the member. Before
+ *  hashing, all phone numbers must be formatted using the [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164) and include the country calling
+ *  code.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hashedPhoneNumbers;
 
 /**
- *  A list of zip codes of the member. Must also be set with the following
- *  fields: * country_code * hashed_first_name * hashed_last_name
+ *  Optional. A list of zip codes of the member. Must also be set with the
+ *  following fields: * country_code * hashed_first_name * hashed_last_name
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *zipCodes;
 
@@ -24189,9 +24459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Consent *consent;
 
 /**
- *  A list of ContactInfo objects defining Customer Match audience members. The
- *  size of members after splitting the contact_infos mustn't be greater than
- *  500,000.
+ *  Optional. A list of ContactInfo objects defining Customer Match audience
+ *  members. The size of members after splitting the contact_infos mustn't be
+ *  greater than 500,000.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ContactInfo *> *contactInfos;
 
@@ -24723,9 +24993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  attribution model will determine how conversions are counted. The Primary
  *  model can be set by you for a floodlight config or group. More details
  *  [here](https://support.google.com/displayvideo/answer/7409983). Only
- *  applicable to Demand Gen line items. Retrieval and management of Demand Gen
- *  resources is currently rolling out. This field will be available to all
- *  partners by *June 24, 2026*.
+ *  applicable to Demand Gen line items.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -25529,6 +25797,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skippable;
+
+/**
+ *  Optional. Whether the creative contains synthetic content or was created
+ *  using AI.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_IsSynthetic
+ *        Is synthetic content. (Value: "IS_SYNTHETIC")
+ *    @arg @c kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_NotSynthetic
+ *        Not synthetic content. (Value: "NOT_SYNTHETIC")
+ *    @arg @c kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified
+ *        Attestation status is unspecified. (Value:
+ *        "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *syntheticContentAttestationStatus;
 
 /**
  *  Optional. The original third-party tag used for the creative. Required and
@@ -26655,7 +26938,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_DemandGenCarouselAd : GTLRObject
 
-/** Required. The business name shown on the ad. */
+/**
+ *  Optional. The business name shown on the ad. This setting is required unless
+ *  a default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, copy, nullable) NSString *businessName;
 
 /** Required. The list of cards shown on the ad. */
@@ -26686,7 +26973,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Required. The headline of the ad. */
 @property(nonatomic, copy, nullable) NSString *headline;
 
-/** Required. The logo image used by this ad. */
+/**
+ *  Optional. The logo image used by this ad. This setting is required unless a
+ *  default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ImageAsset *logo;
 
 /**
@@ -26718,7 +27009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_DemandGenImageAd : GTLRObject
 
-/** Required. The business name shown on the ad. */
+/**
+ *  Optional. The business name shown on the ad. This setting is required unless
+ *  a default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, copy, nullable) NSString *businessName;
 
 /** Required. The call-to-action button shown on the ad. */
@@ -26751,7 +27046,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Required. The list of headlines shown on the ad. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headlines;
 
-/** The list of logo images shown on the ad. */
+/**
+ *  The list of logo images shown on the ad. This setting is required unless a
+ *  default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ImageAsset *> *logoImages;
 
 /** The list of marketing images shown on the ad. */
@@ -26792,7 +27091,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_DemandGenProductAd : GTLRObject
 
-/** Required. The business name shown on the ad. */
+/**
+ *  Optional. The business name shown on the ad. This setting is required unless
+ *  a default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, copy, nullable) NSString *businessName;
 
 /**
@@ -26873,7 +27176,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Required. The headline of the ad. */
 @property(nonatomic, copy, nullable) NSString *headline;
 
-/** Required. The logo image used by this ad. */
+/**
+ *  Optional. The logo image used by this ad. This setting is required unless a
+ *  default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ImageAsset *logo;
 
 /**
@@ -26935,7 +27242,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_DemandGenVideoAd : GTLRObject
 
-/** Required. The business name shown on the ad. */
+/**
+ *  Optional. The business name shown on the ad. This setting is required unless
+ *  a default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, copy, nullable) NSString *businessName;
 
 /**
@@ -27023,7 +27334,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Required. The list of headlines shown on the ad. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headlines;
 
-/** Required. The logo image used by this ad. */
+/**
+ *  Optional. The logo image used by this ad. This setting is required unless a
+ *  default value is set at the advertiser level. If left unset, the default
+ *  value will be applied.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ImageAsset *logo;
 
 /** Required. The list of long headlines shown on the ad. */
@@ -27623,7 +27938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Request message for
- *  FirstAndThirdPartyAudienceService.EditCustomerMatchMembers.
+ *  FirstPartyAndPartnerAudienceService.EditCustomerMatchMembers.
  */
 @interface GTLRDisplayVideo_EditCustomerMatchMembersRequest : GTLRObject
 
@@ -27660,7 +27975,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The response of FirstAndThirdPartyAudienceService.EditCustomerMatchMembers.
+ *  The response of
+ *  FirstPartyAndPartnerAudienceService.EditCustomerMatchMembers.
  */
 @interface GTLRDisplayVideo_EditCustomerMatchMembersResponse : GTLRObject
 
@@ -27785,59 +28101,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *removedAdvertisers;
-
-@end
-
-
-/**
- *  A breakdown of the number of unique people reached at a given effective
- *  frequency.
- */
-@interface GTLRDisplayVideo_EffectiveFrequencyBreakdown : GTLRObject
-
-/**
- *  The number of unique individuals, including co-viewers, exactly matching the
- *  targeting that were served the ad at least the number of times dictated by
- *  the effective_frequency.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *effectiveCoviewReach;
-
-/**
- *  The set effective frequency.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *effectiveFrequency;
-
-/**
- *  The total number of unique individuals, including co-viewers that were
- *  served the ad at least the number of times dictated by the
- *  effective_frequency. This includes individuals that may fall outside of
- *  targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *onTargetEffectiveCoviewReach;
-
-/**
- *  The number of unique individuals exactly matching the targeting that were
- *  served the ad at least the number of times dictated by the
- *  effective_frequency.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *onTargetReach;
-
-/**
- *  The total number of unique individuals that were served the ad at least the
- *  number of times dictated by the effective_frequency. This includes
- *  individuals that may fall outside of targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalReach;
 
 @end
 
@@ -28860,7 +29123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ActivityBased
- *        Audience was created based on campaign activity. (Value:
+ *        Deprecated: Audience was created based on campaign activity. (Value:
  *        "ACTIVITY_BASED")
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Agency
  *        Audience provided by an agency. (Value: "AGENCY")
@@ -28879,8 +29142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Audience was generated through matching customers to known User IDs.
  *        (Value: "CUSTOMER_MATCH_USER_ID")
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_FrequencyCap
- *        Audience was created based on excluding the number of impressions they
- *        were served. (Value: "FREQUENCY_CAP")
+ *        Deprecated: Audience was created based on excluding the number of
+ *        impressions they were served. (Value: "FREQUENCY_CAP")
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Linear
  *        Audience for Linear TV content. (Value: "LINEAR")
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_TagBased
@@ -29447,24 +29710,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Optional. The highest minimum effective frequency to include in
- *  PlannedProductForecast.effective_frequency_breakdowns. Must be between 1 and
- *  10, inclusive. If not specified,
- *  PlannedProductForecast.effective_frequency_breakdowns will not be populated.
- *  If set, this value will also be used as the minimum effective frequency for
- *  reach metrics reporting. This field cannot be combined with the
- *  min_effective_frequency field.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *effectiveFrequencyBreakdownLimit;
-
-/**
  *  Optional. The minimum effective frequency for the reported reach metrics.
  *  This is the smallest number of times a customer must be exposed to the ad
  *  for it to be considered effective. This setting only impacts reporting. Must
  *  be between 1 and 10, inclusive. If not specified, a default of 1 is applied.
- *  This field cannot be combined with effective_frequency_breakdown_limit.
  *
  *  Uses NSNumber of intValue.
  */
@@ -31973,9 +32222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Optional. Settings specific to Demand Gen line items. Only applicable to
- *  Demand Gen line items. Retrieval and management of Demand Gen resources is
- *  currently rolling out. This field will be available to all partners by *June
- *  24, 2026*.
+ *  Demand Gen line items.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenSettings *demandGenSettings;
 
@@ -32061,9 +32308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        RTB Audio ads sold for a variety of environments. (Value:
  *        "LINE_ITEM_TYPE_AUDIO_DEFAULT")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDemandGen
- *        Demand Gen ads. Retrieval and management of Demand Gen resources is
- *        currently rolling out. This field will be available to all partners by
- *        *June 24, 2026*. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
+ *        Demand Gen ads. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayDefault
  *        Image, HTML5, native, or rich media ads. (Value:
  *        "LINE_ITEM_TYPE_DISPLAY_DEFAULT")
@@ -33659,8 +33904,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Consent *consent;
 
 /**
- *  A list of mobile device IDs defining Customer Match audience members. The
- *  size of mobile_device_ids mustn't be greater than 500,000.
+ *  Optional. A list of mobile device IDs defining Customer Match audience
+ *  members. The size of mobile_device_ids mustn't be greater than 500,000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mobileDeviceIds;
 
@@ -35080,6 +35325,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. The parent plannable location ID, for example the country ID
+ *  for subgeos.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parentPlannableLocationId;
+
+/**
  *  Output only. The plannable location ID.
  *
  *  Uses NSNumber of longLongValue.
@@ -35095,6 +35348,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Core attributes for a plannable product.
+ */
+@interface GTLRDisplayVideo_PlannableProductCoreAttributes : GTLRObject
+
+/**
+ *  Output only. The buying method.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_BuyingMethod_PlannableBuyingMethodAuction
+ *        Auction. (Value: "PLANNABLE_BUYING_METHOD_AUCTION")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_BuyingMethod_PlannableBuyingMethodReservation
+ *        Reservation. (Value: "PLANNABLE_BUYING_METHOD_RESERVATION")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_BuyingMethod_PlannableBuyingMethodUnspecified
+ *        Not specified. (Value: "PLANNABLE_BUYING_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *buyingMethod;
+
+/**
+ *  Output only. The cost model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpa
+ *        CPA. (Value: "PLANNABLE_COST_MODEL_CPA")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpc
+ *        CPC. (Value: "PLANNABLE_COST_MODEL_CPC")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpm
+ *        CPM. (Value: "PLANNABLE_COST_MODEL_CPM")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelCpv
+ *        CPV. (Value: "PLANNABLE_COST_MODEL_CPV")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_CostModel_PlannableCostModelUnspecified
+ *        Not specified. (Value: "PLANNABLE_COST_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *costModel;
+
+/**
+ *  Output only. The product category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_ProductCategory_OpenAuction
+ *        Open Auction. (Value: "OPEN_AUCTION")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_ProductCategory_PlannableProductCategoryUnspecified
+ *        Not specified. (Value: "PLANNABLE_PRODUCT_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_PlannableProductCoreAttributes_ProductCategory_Youtube
+ *        YouTube. (Value: "YOUTUBE")
+ */
+@property(nonatomic, copy, nullable) NSString *productCategory;
+
+@end
+
+
+/**
  *  Targeting capabilities for a given product.
  */
 @interface GTLRDisplayVideo_PlannableTargeting : GTLRObject
@@ -35104,6 +35408,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  is computed by mapping this age range onto standard Google age targeting.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ageRanges;
+
+/**
+ *  Output only. The default YouTube Select Lineup for this product, if
+ *  applicable.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YouTubeSelectLineUp *defaultYoutubeSelectLineup;
 
 /** Output only. Targetable devices for the ad product. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *devices;
@@ -35221,8 +35531,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_PlannedProductForecast : GTLRObject
 
-/** A list of effective frequency breakdowns. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_EffectiveFrequencyBreakdown *> *effectiveFrequencyBreakdowns;
+/**
+ *  Number of on-target impressions including co-viewers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onTargetCoviewImpressions;
+
+/**
+ *  Number of unique people reached that match the on-target definition
+ *  including co-viewers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *onTargetCoviewReach;
 
 /**
  *  Number of on-target impressions.
@@ -35237,6 +35559,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *onTargetReach;
+
+/**
+ *  Total number of impressions including co-viewers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCoviewImpressions;
+
+/**
+ *  Total number of unique people reached including co-viewers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCoviewReach;
 
 /**
  *  Total number of impressions.
@@ -35525,6 +35861,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Output only. The plannable product code (e.g. "YOUTUBE_REACH_MIX"). */
 @property(nonatomic, copy, nullable) NSString *plannableProductCode;
+
+/** Output only. Core attributes for this product. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PlannableProductCoreAttributes *plannableProductCoreAttributes;
 
 /** Output only. The plain-text description of the ad product. */
 @property(nonatomic, copy, nullable) NSString *plannableProductDescription;
@@ -36573,6 +36912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Output only. The surface types available. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableSurfaceTypes;
 
+/** Output only. The default surface types for this product. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *defaultSurfaceTypes;
+
 /**
  *  Output only. Valid combinations of surfaces that can be selected together.
  */
@@ -36798,9 +37140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Optional. Whether to exclude demographic expansion for Optimized Targeting.
- *  This field can only be set for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This field will
- *  be available to all partners by *June 24, 2026*.
+ *  This field can only be set for Demand Gen ad groups.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -37115,7 +37455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Optional. The third-party vendors measuring brand lift. The following
  *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_DYNATA` *
  *  `THIRD_PARTY_VENDOR_KANTAR` * `THIRD_PARTY_VENDOR_INTAGE` *
- *  `THIRD_PARTY_VENDOR_NIELSEN` * `THIRD_PARTY_VENDOR_MACROMILL`
+ *  `THIRD_PARTY_VENDOR_MACROMILL`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *brandLiftVendorConfigs;
 
@@ -37508,6 +37848,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  filename must be UTF-8 encoded with a maximum size of 240 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  Optional. Whether the asset contains synthetic content or was created using
+ *  AI.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_IsSynthetic
+ *        Is synthetic content. (Value: "IS_SYNTHETIC")
+ *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_NotSynthetic
+ *        Not synthetic content. (Value: "NOT_SYNTHETIC")
+ *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified
+ *        Attestation status is unspecified. (Value:
+ *        "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *syntheticContentAttestationStatus;
 
 @end
 

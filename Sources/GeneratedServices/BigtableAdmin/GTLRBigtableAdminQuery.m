@@ -598,6 +598,33 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersUpdateMemoryLayer
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MemoryLayer *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersUpdateMemoryLayer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.updateMemoryLayer";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesCreate
 
 @dynamic parent;
@@ -907,7 +934,7 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate
 
-@dynamic materializedViewId, parent;
+@dynamic ignoreWarnings, materializedViewId, parent;
 
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_MaterializedView *)object
                          parent:(NSString *)parent {

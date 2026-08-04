@@ -4688,6 +4688,106 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_HostsGet
+
+@dynamic association, host, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     association:(NSString *)association
+                            host:(NSString *)host {
+  NSArray *pathParams = @[
+    @"association", @"host", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/{association}/hosts/{host}";
+  GTLRComputeQuery_HostsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.association = association;
+  query.host = host;
+  query.expectedObjectClass = [GTLRCompute_Host class];
+  query.loggingName = @"compute.hosts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_HostsGetVersion
+
+@dynamic association, host, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_HostsGetVersionRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    association:(NSString *)association
+                           host:(NSString *)host {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"association", @"host", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/{association}/hosts/{host}/getVersion";
+  GTLRComputeQuery_HostsGetVersion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.association = association;
+  query.host = host;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.hosts.getVersion";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_HostsList
+
+@dynamic association, filter, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     association:(NSString *)association {
+  NSArray *pathParams = @[
+    @"association", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/{association}/hosts";
+  GTLRComputeQuery_HostsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.association = association;
+  query.expectedObjectClass = [GTLRCompute_HostsListResponse class];
+  query.loggingName = @"compute.hosts.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_HttpHealthChecksDelete
 
 @dynamic httpHealthCheck, project, requestId;
@@ -5673,7 +5773,8 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstanceGroupManagersDelete
 
-@dynamic instanceGroupManager, project, requestId, zoneProperty;
+@dynamic instanceGroupManager, noGracefulShutdown, project, requestId,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -5702,7 +5803,8 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstanceGroupManagersDeleteInstances
 
-@dynamic instanceGroupManager, project, requestId, zoneProperty;
+@dynamic instanceGroupManager, noGracefulShutdown, project, requestId,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6032,7 +6134,8 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstanceGroupManagersRecreateInstances
 
-@dynamic instanceGroupManager, project, requestId, zoneProperty;
+@dynamic instanceGroupManager, noGracefulShutdown, project, requestId,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6248,7 +6351,8 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstanceGroupManagersStopInstances
 
-@dynamic instanceGroupManager, project, requestId, zoneProperty;
+@dynamic instanceGroupManager, noGracefulShutdown, project, requestId,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6891,7 +6995,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstancesDelete
 
-@dynamic instance, project, requestId, zoneProperty;
+@dynamic instance, noGracefulShutdown, project, requestId, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -8167,7 +8271,8 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstancesStop
 
-@dynamic discardLocalSsd, instance, project, requestId, zoneProperty;
+@dynamic discardLocalSsd, instance, noGracefulShutdown, project, requestId,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -17248,7 +17353,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersDelete
 
-@dynamic instanceGroupManager, project, region, requestId;
+@dynamic instanceGroupManager, noGracefulShutdown, project, region, requestId;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -17273,7 +17378,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersDeleteInstances
 
-@dynamic instanceGroupManager, project, region, requestId;
+@dynamic instanceGroupManager, noGracefulShutdown, project, region, requestId;
 
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest *)object
                         project:(NSString *)project
@@ -17563,7 +17668,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances
 
-@dynamic instanceGroupManager, project, region, requestId;
+@dynamic instanceGroupManager, noGracefulShutdown, project, region, requestId;
 
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersRecreateRequest *)object
                         project:(NSString *)project
@@ -17755,7 +17860,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersStopInstances
 
-@dynamic instanceGroupManager, project, region, requestId;
+@dynamic instanceGroupManager, noGracefulShutdown, project, region, requestId;
 
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersStopInstancesRequest *)object
                         project:(NSString *)project
@@ -21080,6 +21185,48 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_ReliabilityRisksGet
+
+@dynamic project, reliabilityRisk;
+
++ (instancetype)queryWithProject:(NSString *)project
+                 reliabilityRisk:(NSString *)reliabilityRisk {
+  NSArray *pathParams = @[
+    @"project", @"reliabilityRisk"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/reliabilityRisks/{reliabilityRisk}";
+  GTLRComputeQuery_ReliabilityRisksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.reliabilityRisk = reliabilityRisk;
+  query.expectedObjectClass = [GTLRCompute_ReliabilityRisk class];
+  query.loggingName = @"compute.reliabilityRisks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReliabilityRisksList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/reliabilityRisks";
+  GTLRComputeQuery_ReliabilityRisksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_ReliabilityRisksListResponse class];
+  query.loggingName = @"compute.reliabilityRisks.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ReservationBlocksGet
 
 @dynamic project, reservation, reservationBlock, view, zoneProperty;
@@ -22622,6 +22769,31 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_RoutersDeleteNamedSet
+
+@dynamic namedSet, project, region, requestId, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/deleteNamedSet";
+  GTLRComputeQuery_RoutersDeleteNamedSet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.routers.deleteNamedSet";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RoutersDeleteRoutePolicy
 
 @dynamic policy, project, region, requestId, router;
@@ -22667,6 +22839,31 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_Router class];
   query.loggingName = @"compute.routers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersGetNamedSet
+
+@dynamic namedSet, project, region, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/getNamedSet";
+  GTLRComputeQuery_RoutersGetNamedSet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_RoutersGetNamedSetResponse class];
+  query.loggingName = @"compute.routers.getNamedSet";
   return query;
 }
 
@@ -22855,6 +23052,32 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_RoutersListNamedSets
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess, router;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router {
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/listNamedSets";
+  GTLRComputeQuery_RoutersListNamedSets *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_RoutersListNamedSets class];
+  query.loggingName = @"compute.routers.listNamedSets";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RoutersListRoutePolicies
 
 @dynamic filter, maxResults, orderBy, pageToken, project, region,
@@ -22909,6 +23132,39 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.routers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersPatchNamedSet
+
+@dynamic project, region, requestId, router;
+
++ (instancetype)queryWithObject:(GTLRCompute_NamedSet *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/patchNamedSet";
+  GTLRComputeQuery_RoutersPatchNamedSet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.routers.patchNamedSet";
   return query;
 }
 
@@ -23008,6 +23264,39 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.router = router;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.routers.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RoutersUpdateNamedSet
+
+@dynamic project, region, requestId, router;
+
++ (instancetype)queryWithObject:(GTLRCompute_NamedSet *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"router"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/updateNamedSet";
+  GTLRComputeQuery_RoutersUpdateNamedSet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.router = router;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.routers.updateNamedSet";
   return query;
 }
 

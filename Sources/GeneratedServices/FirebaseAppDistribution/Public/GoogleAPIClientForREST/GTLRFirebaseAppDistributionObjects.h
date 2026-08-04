@@ -239,6 +239,103 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayIasTermsNotAccepted;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release.androidPackageRegistrationState
+
+/**
+ *  Default value.
+ *
+ *  Value: "ANDROID_PACKAGE_REGISTRATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_AndroidPackageRegistrationStateUnspecified;
+/**
+ *  Package is not registered with any public certificate.
+ *
+ *  Value: "NOT_REGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_NotRegistered;
+/**
+ *  Package is registered with the release binary's certificate fingerprint.
+ *
+ *  Value: "REGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_Registered;
+/**
+ *  Package is registered with another public certificate fingerprint.
+ *
+ *  Value: "REGISTERED_WITH_ANOTHER_CERTIFICATE_FINGERPRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_RegisteredWithAnotherCertificateFingerprint;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release.binaryType
+
+/**
+ *  Android App Bundle
+ *
+ *  Value: "AAB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Aab;
+/**
+ *  Android Application package
+ *
+ *  Value: "APK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Apk;
+/**
+ *  unspecified binary type
+ *
+ *  Value: "BINARY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_BinaryTypeUnspecified;
+/**
+ *  iOS App Store package
+ *
+ *  Value: "IPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Ipa;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release.testState
+
+/**
+ *  Some device executions failed during the most recent test
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Failed;
+/**
+ *  Some device executions were inconclusive, but none failed, during the most
+ *  recent test
+ *
+ *  Value: "INCONCLUSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Inconclusive;
+/**
+ *  One or more device executions are in progress
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_InProgress;
+/**
+ *  No tests have been requested for this release
+ *
+ *  Value: "NO_TESTS_REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_NoTestsRequested;
+/**
+ *  All device executions passed during the most recent test
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Passed;
+/**
+ *  No test state specified
+ *
+ *  Value: "TEST_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_TestStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadReleaseResponse.result
 
 /**
@@ -1261,6 +1358,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release *> *releases;
 
+/**
+ *  The total number of releases.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
 @end
 
 
@@ -1297,10 +1401,51 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 @interface GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release : GTLRObject
 
 /**
+ *  Output only. Number of testers with accepted invitations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acceptedInvitationCount;
+
+/**
+ *  Output only. Registration state of the Android package (BinaryType.APK).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_AndroidPackageRegistrationStateUnspecified
+ *        Default value. (Value:
+ *        "ANDROID_PACKAGE_REGISTRATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_NotRegistered
+ *        Package is not registered with any public certificate. (Value:
+ *        "NOT_REGISTERED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_Registered
+ *        Package is registered with the release binary's certificate
+ *        fingerprint. (Value: "REGISTERED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_RegisteredWithAnotherCertificateFingerprint
+ *        Package is registered with another public certificate fingerprint.
+ *        (Value: "REGISTERED_WITH_ANOTHER_CERTIFICATE_FINGERPRINT")
+ */
+@property(nonatomic, copy, nullable) NSString *androidPackageRegistrationState;
+
+/**
  *  Output only. A signed link (which expires in one hour) to directly download
  *  the app binary (IPA/APK/AAB) file.
  */
 @property(nonatomic, copy, nullable) NSString *binaryDownloadUri;
+
+/**
+ *  Output only. Type of binary.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Aab
+ *        Android App Bundle (Value: "AAB")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Apk
+ *        Android Application package (Value: "APK")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_BinaryTypeUnspecified
+ *        unspecified binary type (Value: "BINARY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Ipa
+ *        iOS App Store package (Value: "IPA")
+ */
+@property(nonatomic, copy, nullable) NSString *binaryType;
 
 /**
  *  Output only. Build version of the release. For an Android release, the build
@@ -1323,9 +1468,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
+ *  Output only. Number of feedback reports left by testers.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *feedbackCount;
+
+/**
  *  Output only. A link to the Firebase console displaying a single release.
  */
 @property(nonatomic, copy, nullable) NSString *firebaseConsoleUri;
+
+/**
+ *  Output only. Number of testers who have downloaded this release.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *installationCount;
 
 /**
  *  The name of the release resource. Format:
@@ -1333,7 +1492,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Notes of the release. */
+/**
+ *  Output only. Number of testers who were invited (incl. expired invitations),
+ *  but did not (yet) accept the invitation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *openInvitationCount;
+
+/** Notes about the release. */
 @property(nonatomic, strong, nullable) GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1ReleaseNotes *releaseNotes;
 
 /**
@@ -1342,6 +1509,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  and install the app onto their devices.
  */
 @property(nonatomic, copy, nullable) NSString *testingUri;
+
+/**
+ *  Output only. The overall state of tests run on this release
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Failed
+ *        Some device executions failed during the most recent test (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Inconclusive
+ *        Some device executions were inconclusive, but none failed, during the
+ *        most recent test (Value: "INCONCLUSIVE")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_InProgress
+ *        One or more device executions are in progress (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_NoTestsRequested
+ *        No tests have been requested for this release (Value:
+ *        "NO_TESTS_REQUESTED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Passed
+ *        All device executions passed during the most recent test (Value:
+ *        "PASSED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_TestStateUnspecified
+ *        No test state specified (Value: "TEST_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *testState;
 
 /** Output only. The time the release was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

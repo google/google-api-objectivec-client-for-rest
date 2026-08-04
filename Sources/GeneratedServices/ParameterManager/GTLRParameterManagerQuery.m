@@ -316,3 +316,244 @@ NSString * const kGTLRParameterManagerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 }
 
 @end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesCreate
+
+@dynamic parent, requestId, templateId;
+
++ (instancetype)queryWithObject:(GTLRParameterManager_Template *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/templates";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRParameterManager_Template class];
+  query.loggingName = @"parametermanager.projects.locations.templates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRParameterManager_Empty class];
+  query.loggingName = @"parametermanager.projects.locations.templates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRParameterManager_Template class];
+  query.loggingName = @"parametermanager.projects.locations.templates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/templates";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRParameterManager_ListTemplatesResponse class];
+  query.loggingName = @"parametermanager.projects.locations.templates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRParameterManager_Template *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRParameterManager_Template class];
+  query.loggingName = @"parametermanager.projects.locations.templates.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsCreate
+
+@dynamic parent, requestId, templateVersionId;
+
++ (instancetype)queryWithObject:(GTLRParameterManager_TemplateVersion *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRParameterManager_TemplateVersion class];
+  query.loggingName = @"parametermanager.projects.locations.templates.versions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRParameterManager_Empty class];
+  query.loggingName = @"parametermanager.projects.locations.templates.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRParameterManager_TemplateVersion class];
+  query.loggingName = @"parametermanager.projects.locations.templates.versions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRParameterManager_ListTemplateVersionsResponse class];
+  query.loggingName = @"parametermanager.projects.locations.templates.versions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRParameterManager_TemplateVersion *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRParameterManager_TemplateVersion class];
+  query.loggingName = @"parametermanager.projects.locations.templates.versions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsRender
+
+@dynamic name, parameterVersion;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:render";
+  GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsRender *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRParameterManager_RenderTemplateVersionResponse class];
+  query.loggingName = @"parametermanager.projects.locations.templates.versions.render";
+  return query;
+}
+
+@end

@@ -56,6 +56,7 @@ NSString * const kGTLRReportsApplicationNameToken              = @"token";
 NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
 NSString * const kGTLRReportsApplicationNameVault              = @"vault";
 NSString * const kGTLRReportsApplicationNameVoice              = @"voice";
+NSString * const kGTLRReportsApplicationNameWorkspaceStudio    = @"workspace_studio";
 
 // entityType
 NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
@@ -72,10 +73,11 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 
 @implementation GTLRReportsQuery_ActivitiesList
 
-@dynamic actorIpAddress, applicationInfoFilter, applicationName, customerId,
-         endTime, eventName, filters, groupIdFilter, includeSensitiveData,
-         maxResults, networkInfoFilter, orgUnitID, pageToken,
-         resourceDetailsFilter, startTime, statusFilter, userKey;
+@dynamic actorIpAddress, agentInfoFilter, applicationInfoFilter,
+         applicationName, customerId, deviceFilter, endTime, eventName, filters,
+         groupIdFilter, includeSensitiveData, maxResults, networkInfoFilter,
+         orgUnitID, pageToken, resourceDetailsFilter, startTime, statusFilter,
+         userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                  applicationName:(NSString *)applicationName {

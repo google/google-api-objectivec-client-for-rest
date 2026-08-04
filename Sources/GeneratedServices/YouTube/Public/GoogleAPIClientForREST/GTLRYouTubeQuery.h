@@ -3551,7 +3551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *
  *  @param object The @c GTLRYouTube_PlaylistImage to include in the query.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    2097152. Accepted MIME types: image/jpeg, image/png,
+ *    52428800. Accepted MIME types: image/jpeg, image/png,
  *    application/octet-stream
  *
  *  @return GTLRYouTubeQuery_PlaylistImagesInsert
@@ -3688,7 +3688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *
  *  @param object The @c GTLRYouTube_PlaylistImage to include in the query.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    2097152. Accepted MIME types: image/jpeg, image/png,
+ *    52428800. Accepted MIME types: image/jpeg, image/png,
  *    application/octet-stream
  *
  *  @return GTLRYouTubeQuery_PlaylistImagesUpdate
@@ -5077,7 +5077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @param videoId Returns the Thumbnail with the given video IDs for Stubby or
  *    Apiary.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    2097152. Accepted MIME types: image/jpeg, image/png,
+ *    52428800. Accepted MIME types: image/jpeg, image/png,
  *    application/octet-stream
  *
  *  @return GTLRYouTubeQuery_ThumbnailsSet

@@ -30,6 +30,16 @@ NSString * const kGTLRSpanner_Backup_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Backup_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRSpanner_CommitResponse.isolationLevel
+NSString * const kGTLRSpanner_CommitResponse_IsolationLevel_IsolationLevelUnspecified = @"ISOLATION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRSpanner_CommitResponse_IsolationLevel_RepeatableRead = @"REPEATABLE_READ";
+NSString * const kGTLRSpanner_CommitResponse_IsolationLevel_Serializable = @"SERIALIZABLE";
+
+// GTLRSpanner_CommitResponse.readLockMode
+NSString * const kGTLRSpanner_CommitResponse_ReadLockMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRSpanner_CommitResponse_ReadLockMode_Pessimistic = @"PESSIMISTIC";
+NSString * const kGTLRSpanner_CommitResponse_ReadLockMode_ReadLockModeUnspecified = @"READ_LOCK_MODE_UNSPECIFIED";
+
 // GTLRSpanner_ContextValue.severity
 NSString * const kGTLRSpanner_ContextValue_Severity_Error      = @"ERROR";
 NSString * const kGTLRSpanner_ContextValue_Severity_Fatal      = @"FATAL";
@@ -686,7 +696,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CommitResponse
-@dynamic commitStats, commitTimestamp, precommitToken, snapshotTimestamp;
+@dynamic commitStats, commitTimestamp, isolationLevel, precommitToken,
+         readLockMode, snapshotTimestamp;
 @end
 
 

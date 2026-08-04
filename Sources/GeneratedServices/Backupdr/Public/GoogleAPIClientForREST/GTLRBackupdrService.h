@@ -20,8 +20,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Backup and DR data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-backupdr"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBackupdrCloudBackupdr;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.

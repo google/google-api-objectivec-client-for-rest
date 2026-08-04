@@ -591,6 +591,11 @@ NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUnspecified = 
 NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityDefault = @"COMPLEXITY_DEFAULT";
 NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityUnspecified = @"COMPLEXITY_UNSPECIFIED";
 
+// GTLRSQLAdmin_PerformanceCaptureConfig.transactionKillType
+NSString * const kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_AllTransactions = @"ALL_TRANSACTIONS";
+NSString * const kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_ReadOnlyTransactions = @"READ_ONLY_TRANSACTIONS";
+NSString * const kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_TransactionKillTypeUnspecified = @"TRANSACTION_KILL_TYPE_UNSPECIFIED";
+
 // GTLRSQLAdmin_PoolNodeConfig.state
 NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Failed     = @"FAILED";
 NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Maintenance = @"MAINTENANCE";
@@ -665,6 +670,18 @@ NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Error = @"ERROR";
 NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Info = @"INFO";
 NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Warning = @"WARNING";
+
+// GTLRSQLAdmin_PscAutoConnectionConfig.instanceAutoDnsStatus
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsFailed = @"AUTO_DNS_FAILED";
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsOk = @"AUTO_DNS_OK";
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsStatusUnspecified = @"AUTO_DNS_STATUS_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsUnknown = @"AUTO_DNS_UNKNOWN";
+
+// GTLRSQLAdmin_PscAutoConnectionConfig.writeEndpointAutoDnsStatus
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsFailed = @"AUTO_DNS_FAILED";
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsOk = @"AUTO_DNS_OK";
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsStatusUnspecified = @"AUTO_DNS_STATUS_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsUnknown = @"AUTO_DNS_UNKNOWN";
 
 // GTLRSQLAdmin_Reschedule.rescheduleType
 NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate = @"IMMEDIATE";
@@ -1146,9 +1163,10 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_ConnectSettings
-@dynamic backendType, customSubjectAlternativeNames, databaseVersion, dnsName,
-         dnsNames, ipAddresses, kind, mdxProtocolSupport, nodeCount, nodes,
-         pscEnabled, region, serverCaCert, serverCaMode;
+@dynamic backendType, connectionName, customSubjectAlternativeNames,
+         databaseVersion, dnsName, dnsNames, ipAddresses, kind,
+         mdxProtocolSupport, nodeCount, nodes, pscEnabled, region, serverCaCert,
+         serverCaMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1209,18 +1227,18 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_DatabaseInstance
 @dynamic availableMaintenanceVersions, backendType, connectionName, createTime,
-         currentDiskSize, databaseInstalledVersion, databaseVersion,
-         diskEncryptionConfiguration, diskEncryptionStatus, dnsName, dnsNames,
-         ETag, failoverReplica, gceZone, geminiConfig,
-         includeReplicasForMajorVersionUpgrade, instanceType, ipAddresses,
-         ipv6Address, kind, maintenanceVersion, masterInstanceName, maxDiskSize,
-         name, nodeCount, nodes, onPremisesConfiguration, outOfDiskReport,
-         primaryDnsName, project, pscServiceAttachmentLink, region,
-         replicaConfiguration, replicaNames, replicationCluster, rootPassword,
-         satisfiesPzi, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
-         selfLink, serverCaCert, serviceAccountEmailAddress, settings,
-         sqlNetworkArchitecture, state, suspensionReason,
-         switchTransactionLogsToCloudStorageEnabled, tags,
+         currentDiskSize, databaseCenterIntegrationEnabled,
+         databaseInstalledVersion, databaseVersion, diskEncryptionConfiguration,
+         diskEncryptionStatus, dnsName, dnsNames, ETag, failoverReplica,
+         gceZone, geminiConfig, includeReplicasForMajorVersionUpgrade,
+         instanceType, ipAddresses, ipv6Address, kind, maintenanceVersion,
+         masterInstanceName, maxDiskSize, name, nodeCount, nodes,
+         onPremisesConfiguration, outOfDiskReport, primaryDnsName, project,
+         pscServiceAttachmentLink, region, replicaConfiguration, replicaNames,
+         replicationCluster, rootPassword, satisfiesPzi, satisfiesPzs,
+         scheduledMaintenance, secondaryGceZone, selfLink, serverCaCert,
+         serviceAccountEmailAddress, settings, sqlNetworkArchitecture, state,
+         suspensionReason, switchTransactionLogsToCloudStorageEnabled, tags,
          upgradableDatabaseVersions, writeEndpoint;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1445,8 +1463,8 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_ExecuteSqlPayload
-@dynamic application, autoIamAuthn, database, partialResultMode, rowLimit,
-         sqlStatement, user;
+@dynamic application, autoIamAuthn, database, partialResultMode,
+         passwordSecretVersion, rowLimit, sqlStatement, user;
 @end
 
 
@@ -2194,8 +2212,9 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_OnPremisesConfiguration
-@dynamic caCertificate, clientCertificate, clientKey, dumpFilePath, hostPort,
-         kind, password, selectedObjects, sourceInstance, sslOption, username;
+@dynamic caCertificate, clientCertificate, clientKey, dmsManaged, dumpFilePath,
+         hostPort, kind, password, selectedObjects, sourceInstance, sslOption,
+         username;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2336,9 +2355,21 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_PerformanceCaptureConfig
-@dynamic enabled, probeThreshold, probingIntervalSeconds,
-         runningThreadsThreshold, secondsBehindSourceThreshold,
-         transactionDurationThreshold;
+@dynamic cpuUtilizationThresholdPercent, enabled,
+         historyListLengthThresholdCount, memoryUsageThresholdPercent,
+         probeThreshold, probingIntervalSeconds, runningThreadsThreshold,
+         secondsBehindSourceThreshold, semaphoreWaitThresholdCount,
+         transactionDurationThreshold, transactionKillExcludedUserHosts,
+         transactionKillThresholdSeconds, transactionKillType,
+         transactionLockWaitThresholdCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transactionKillExcludedUserHosts" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2441,8 +2472,10 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_PscAutoConnectionConfig
-@dynamic consumerNetwork, consumerNetworkStatus, consumerProject, ipAddress,
-         serviceConnectionPolicy, serviceConnectionPolicyCreationResult, status;
+@dynamic consumerNetwork, consumerNetworkStatus, consumerProject,
+         instanceAutoDnsStatus, ipAddress, serviceConnectionPolicy,
+         serviceConnectionPolicyCreationResult, status,
+         writeEndpointAutoDnsStatus;
 @end
 
 
@@ -3194,7 +3227,7 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_User
 @dynamic databaseRoles, dualPasswordType, ETag, host, iamEmail, iamStatus,
-         instance, kind, name, password, passwordPolicy, project,
+         instance, kind, name, password, passwordPolicy, project, serverRoles,
          sqlserverUserDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -3203,7 +3236,8 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"databaseRoles" : [NSString class]
+    @"databaseRoles" : [NSString class],
+    @"serverRoles" : [NSString class]
   };
   return map;
 }

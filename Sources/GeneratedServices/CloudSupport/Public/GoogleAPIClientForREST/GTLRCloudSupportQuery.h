@@ -983,14 +983,26 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a support event subscription for an organization.
+ *  Creates a support event subscription for an organization. EXAMPLES: cURL:
+ *  ```shell parent="organizations/123456789" curl \\ --request POST \\ --header
+ *  "Authorization: Bearer $(gcloud auth print-access-token)" \\ --header
+ *  'Content-Type: application/json' \\ --data '{ "pub_sub_topic":
+ *  "projects/my-project/topics/my-topic" }' \\
+ *  "https://cloudsupport.googleapis.com/v2/$parent/supportEventSubscriptions"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().create(
+ *  parent="organizations/123456789", body={ "pub_sub_topic":
+ *  "projects/my-project/topics/my-topic" }, ) print(request.execute()) ```
  *
- *  Method: cloudsupport.supportEventSubscriptions.create
+ *  Method: cloudsupport.organizations.supportEventSubscriptions.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSupportCloudPlatform
  */
-@interface GTLRCloudSupportQuery_SupportEventSubscriptionsCreate : GTLRCloudSupportQuery
+@interface GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsCreate : GTLRCloudSupportQuery
 
 /**
  *  Required. The parent resource name where the support event subscription will
@@ -1001,14 +1013,26 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
  *
- *  Creates a support event subscription for an organization.
+ *  Creates a support event subscription for an organization. EXAMPLES: cURL:
+ *  ```shell parent="organizations/123456789" curl \\ --request POST \\ --header
+ *  "Authorization: Bearer $(gcloud auth print-access-token)" \\ --header
+ *  'Content-Type: application/json' \\ --data '{ "pub_sub_topic":
+ *  "projects/my-project/topics/my-topic" }' \\
+ *  "https://cloudsupport.googleapis.com/v2/$parent/supportEventSubscriptions"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().create(
+ *  parent="organizations/123456789", body={ "pub_sub_topic":
+ *  "projects/my-project/topics/my-topic" }, ) print(request.execute()) ```
  *
  *  @param object The @c GTLRCloudSupport_SupportEventSubscription to include in
  *    the query.
  *  @param parent Required. The parent resource name where the support event
  *    subscription will be created. Format: organizations/{organization_id}
  *
- *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsCreate
+ *  @return GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudSupport_SupportEventSubscription *)object
                          parent:(NSString *)parent;
@@ -1016,14 +1040,25 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Soft deletes a support event subscription.
+ *  Soft deletes a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request DELETE \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription" ```
+ *  Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService).supportEventSubscriptions().delete(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
  *
- *  Method: cloudsupport.supportEventSubscriptions.delete
+ *  Method: cloudsupport.organizations.supportEventSubscriptions.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSupportCloudPlatform
  */
-@interface GTLRCloudSupportQuery_SupportEventSubscriptionsDelete : GTLRCloudSupportQuery
+@interface GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsDelete : GTLRCloudSupportQuery
 
 /**
  *  Required. The name of the support event subscription to delete. Format:
@@ -1034,27 +1069,104 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
  *
- *  Soft deletes a support event subscription.
+ *  Soft deletes a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request DELETE \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription" ```
+ *  Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService).supportEventSubscriptions().delete(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
  *
  *  @param name Required. The name of the support event subscription to delete.
  *    Format:
  *    organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
  *
- *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsDelete
+ *  @return GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Gets a support event subscription.
+ *  Expunges a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request POST \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription:expunge"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().expunge(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
  *
- *  Method: cloudsupport.supportEventSubscriptions.get
+ *  Method: cloudsupport.organizations.supportEventSubscriptions.expunge
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSupportCloudPlatform
  */
-@interface GTLRCloudSupportQuery_SupportEventSubscriptionsGet : GTLRCloudSupportQuery
+@interface GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsExpunge : GTLRCloudSupportQuery
+
+/**
+ *  Required. The name of the support event subscription to expunge. Format:
+ *  organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudSupport_Empty.
+ *
+ *  Expunges a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request POST \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription:expunge"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().expunge(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
+ *
+ *  @param object The @c GTLRCloudSupport_ExpungeSupportEventSubscriptionRequest
+ *    to include in the query.
+ *  @param name Required. The name of the support event subscription to expunge.
+ *    Format:
+ *    organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
+ *
+ *  @return GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsExpunge
+ */
++ (instancetype)queryWithObject:(GTLRCloudSupport_ExpungeSupportEventSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --header "Authorization: Bearer $(gcloud auth print-access-token)"
+ *  \\ "https://cloudsupport.googleapis.com/v2/$support_event_subscription" ```
+ *  Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().get(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
+ *
+ *  Method: cloudsupport.organizations.supportEventSubscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSupportCloudPlatform
+ */
+@interface GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsGet : GTLRCloudSupportQuery
 
 /**
  *  Required. The name of the support event subscription to retrieve. Format:
@@ -1065,27 +1177,46 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
  *
- *  Gets a support event subscription.
+ *  Gets a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --header "Authorization: Bearer $(gcloud auth print-access-token)"
+ *  \\ "https://cloudsupport.googleapis.com/v2/$support_event_subscription" ```
+ *  Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().get(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
  *
  *  @param name Required. The name of the support event subscription to
  *    retrieve. Format:
  *    organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
  *
- *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsGet
+ *  @return GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Lists support event subscriptions.
+ *  Lists support event subscriptions. EXAMPLES: cURL: ```shell
+ *  parent="organizations/123456789" curl \\ --header "Authorization: Bearer
+ *  $(gcloud auth print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$parent/supportEventSubscriptions"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().list(
+ *  parent="organizations/123456789" ) print(request.execute()) ```
  *
- *  Method: cloudsupport.supportEventSubscriptions.list
+ *  Method: cloudsupport.organizations.supportEventSubscriptions.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSupportCloudPlatform
  */
-@interface GTLRCloudSupportQuery_SupportEventSubscriptionsList : GTLRCloudSupportQuery
+@interface GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsList : GTLRCloudSupportQuery
 
 /**
  *  Optional. Filter expression based on AIP-160. Supported fields: -
@@ -1123,13 +1254,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_ListSupportEventSubscriptionsResponse.
  *
- *  Lists support event subscriptions.
+ *  Lists support event subscriptions. EXAMPLES: cURL: ```shell
+ *  parent="organizations/123456789" curl \\ --header "Authorization: Bearer
+ *  $(gcloud auth print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$parent/supportEventSubscriptions"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().list(
+ *  parent="organizations/123456789" ) print(request.execute()) ```
  *
  *  @param parent Required. The fully qualified name of the Cloud resource to
  *    list support event subscriptions under. Format:
  *    organizations/{organization_id}
  *
- *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsList
+ *  @return GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1140,14 +1280,27 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a support event subscription.
+ *  Updates a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request PATCH \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\ --header "Content-Type: application/json" \\ --data
+ *  '{ "pub_sub_topic": "projects/my-project/topics/new-topic" }' \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription?updateMask=pub_sub_topic"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().patch(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456",
+ *  body={ "pub_sub_topic": "projects/my-project/topics/new-topic" }, )
+ *  print(request.execute()) ```
  *
- *  Method: cloudsupport.supportEventSubscriptions.patch
+ *  Method: cloudsupport.organizations.supportEventSubscriptions.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSupportCloudPlatform
  */
-@interface GTLRCloudSupportQuery_SupportEventSubscriptionsPatch : GTLRCloudSupportQuery
+@interface GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsPatch : GTLRCloudSupportQuery
 
 /** Identifier. The resource name of the support event subscription. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1163,13 +1316,26 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
  *
- *  Updates a support event subscription.
+ *  Updates a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request PATCH \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\ --header "Content-Type: application/json" \\ --data
+ *  '{ "pub_sub_topic": "projects/my-project/topics/new-topic" }' \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription?updateMask=pub_sub_topic"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().patch(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456",
+ *  body={ "pub_sub_topic": "projects/my-project/topics/new-topic" }, )
+ *  print(request.execute()) ```
  *
  *  @param object The @c GTLRCloudSupport_SupportEventSubscription to include in
  *    the query.
  *  @param name Identifier. The resource name of the support event subscription.
  *
- *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsPatch
+ *  @return GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudSupport_SupportEventSubscription *)object
                            name:(NSString *)name;
@@ -1177,14 +1343,25 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Undeletes a support event subscription.
+ *  Undeletes a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request POST \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription:undelete"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().undelete(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
  *
- *  Method: cloudsupport.supportEventSubscriptions.undelete
+ *  Method: cloudsupport.organizations.supportEventSubscriptions.undelete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudSupportCloudPlatform
  */
-@interface GTLRCloudSupportQuery_SupportEventSubscriptionsUndelete : GTLRCloudSupportQuery
+@interface GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsUndelete : GTLRCloudSupportQuery
 
 /**
  *  Required. The name of the support event subscription to undelete. Format:
@@ -1195,7 +1372,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSupport_SupportEventSubscription.
  *
- *  Undeletes a support event subscription.
+ *  Undeletes a support event subscription. EXAMPLES: cURL: ```shell
+ *  support_event_subscription="organizations/123456789/supportEventSubscriptions/abcdef123456"
+ *  curl \\ --request POST \\ --header "Authorization: Bearer $(gcloud auth
+ *  print-access-token)" \\
+ *  "https://cloudsupport.googleapis.com/v2/$support_event_subscription:undelete"
+ *  ``` Python: ```python import googleapiclient.discovery api_version = "v2"
+ *  supportApiService = googleapiclient.discovery.build(
+ *  serviceName="cloudsupport", version=api_version,
+ *  discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}",
+ *  ) request = supportApiService.supportEventSubscriptions().undelete(
+ *  name="organizations/123456789/supportEventSubscriptions/abcdef123456" )
+ *  print(request.execute()) ```
  *
  *  @param object The @c
  *    GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest to include in the
@@ -1204,7 +1392,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    undelete. Format:
  *    organizations/{organization_id}/supportEventSubscriptions/{subscription_id}
  *
- *  @return GTLRCloudSupportQuery_SupportEventSubscriptionsUndelete
+ *  @return GTLRCloudSupportQuery_OrganizationsSupportEventSubscriptionsUndelete
  */
 + (instancetype)queryWithObject:(GTLRCloudSupport_UndeleteSupportEventSubscriptionRequest *)object
                            name:(NSString *)name;

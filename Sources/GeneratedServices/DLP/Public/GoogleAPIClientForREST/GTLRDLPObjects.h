@@ -1685,16 +1685,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudSqlG
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_AllSupportedBuckets;
 /**
- *  Buckets with [Autoclass](https://cloud.google.com/storage/docs/autoclass)
- *  disabled. Only one of AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set.
+ *  Buckets with
+ *  [Autoclass](https://docs.cloud.google.com/storage/docs/autoclass) disabled.
+ *  Only one of AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set.
  *
  *  Value: "AUTOCLASS_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DiscoveryCloudStorageConditions_IncludedBucketAttributes_AutoclassDisabled;
 /**
- *  Buckets with [Autoclass](https://cloud.google.com/storage/docs/autoclass)
- *  enabled. Only one of AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set.
- *  Scanning Autoclass-enabled buckets can affect object storage classes.
+ *  Buckets with
+ *  [Autoclass](https://docs.cloud.google.com/storage/docs/autoclass) enabled.
+ *  Only one of AUTOCLASS_DISABLED or AUTOCLASS_ENABLED should be set. Scanning
+ *  Autoclass-enabled buckets can affect object storage classes.
  *
  *  Value: "AUTOCLASS_ENABLED"
  */
@@ -2165,15 +2167,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Sou
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_TextEmbedding;
 /**
  *  Support for [Cloud SQL vector
- *  embeddings](https://cloud.google.com/sql/docs/mysql/enable-vector-search) is
- *  enabled on the database.
+ *  embeddings](https://docs.cloud.google.com/sql/docs/mysql/enable-vector-search)
+ *  is enabled on the database.
  *
  *  Value: "VECTOR_PLUGIN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_VectorPlugin;
 /**
  *  The [Cloud SQL Vertex
- *  AI](https://cloud.google.com/sql/docs/postgres/integrate-cloud-sql-with-vertex-ai)
+ *  AI](https://docs.cloud.google.com/sql/docs/postgres/integrate-cloud-sql-with-vertex-ai)
  *  plugin is installed on the database.
  *
  *  Value: "VERTEX_PLUGIN"
@@ -3833,8 +3835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A task to execute on the completion of a job. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-actions to
- *  learn more.
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-actions
+ *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Action : GTLRObject
 
@@ -3844,7 +3846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Sends an email when the job completes. The email goes to IAM project owners
  *  and technical [Essential
- *  Contacts](https://cloud.google.com/resource-manager/docs/managing-notification-contacts).
+ *  Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts).
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails *jobNotificationEmails;
 
@@ -3905,7 +3907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A list of image-supported infoTypes—excluding [document
- *  infoTypes](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#documents)—to
+ *  infoTypes](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference#documents)—to
  *  be used as context for the adjustment rule. Sensitive Data Protection
  *  adjusts the likelihood of an image finding if its bounding box has the
  *  specified spatial relationship (defined by `image_containment_type`) with a
@@ -4145,22 +4147,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails : GTLRObject
 
-/** Categorical stats result */
+/** Output only. Categorical stats result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CategoricalStatsResult *categoricalStatsResult;
 
-/** Delta-presence result */
+/** Output only. Delta-presence result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationResult *deltaPresenceEstimationResult;
 
-/** K-anonymity result */
+/** Output only. K-anonymity result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KAnonymityResult *kAnonymityResult;
 
-/** K-map result */
+/** Output only. K-map result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KMapEstimationResult *kMapEstimationResult;
 
-/** L-divesity result */
+/** Output only. L-divesity result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LDiversityResult *lDiversityResult;
 
-/** Numerical stats result */
+/** Output only. Numerical stats result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult *numericalStatsResult;
 
 /** The configuration used for this job. */
@@ -4387,7 +4389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  100 means no limit. Defaults to 0. Only one of rows_limit and
  *  rows_limit_percent can be specified. Cannot be used in conjunction with
  *  TimespanConfig. Caution: A [known
- *  issue](https://cloud.google.com/sensitive-data-protection/docs/known-issues#bq-sampling)
+ *  issue](https://docs.cloud.google.com/sensitive-data-protection/docs/known-issues#bq-sampling)
  *  is causing the `rowsLimitPercent` field to behave unexpectedly. We recommend
  *  using `rowsLimit` instead.
  *
@@ -4561,7 +4563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  differs from the type of data being transformed, we will first attempt
  *  converting the type of the data to be transformed to match the type of the
  *  bound before comparing. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-bucketing
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-bucketing
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BucketingConfig : GTLRObject
@@ -4830,8 +4832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Use IAM authentication to connect. This requires the Cloud SQL IAM feature
  *  to be enabled on the instance, which is not the default for Cloud SQL. See
- *  https://cloud.google.com/sql/docs/postgres/authentication and
- *  https://cloud.google.com/sql/docs/mysql/authentication.
+ *  https://docs.cloud.google.com/sql/docs/postgres/authentication and
+ *  https://docs.cloud.google.com/sql/docs/mysql/authentication.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CloudSqlIamCredential : GTLRObject
 @end
@@ -4940,7 +4942,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  This field can't be set if de-identification is requested. For certain file
  *  types, setting this field has no effect. For more information, see [Limits
  *  on bytes scanned per
- *  file](https://cloud.google.com/sensitive-data-protection/docs/supported-file-types#max-byte-size-per-file).
+ *  file](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types#max-byte-size-per-file).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4954,7 +4956,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  field can't be set if de-identification is requested. For certain file
  *  types, setting this field has no effect. For more information, see [Limits
  *  on bytes scanned per
- *  file](https://cloud.google.com/sensitive-data-protection/docs/supported-file-types#max-byte-size-per-file).
+ *  file](https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types#max-byte-size-per-file).
  *
  *  Uses NSNumber of intValue.
  */
@@ -5206,7 +5208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  If supported, the location where the dataset's data is stored. See
- *  https://cloud.google.com/bigquery/docs/locations for supported BigQuery
+ *  https://docs.cloud.google.com/bigquery/docs/locations for supported BigQuery
  *  locations.
  */
 @property(nonatomic, copy, nullable) NSString *datasetLocation;
@@ -5499,7 +5501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Structured content for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-text#inspecting_a_table
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text#inspecting_a_table
  *  to learn more.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Table *table;
@@ -5950,8 +5952,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  encoded representation of the hashed output (for example,
  *  L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=). Currently, only string and
  *  integer values can be hashed. See
- *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization to
- *  learn more.
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization
+ *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig : GTLRObject
 
@@ -5990,9 +5992,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  will be replaced with the same surrogate. Identifiers must be at least two
  *  characters long. In the case that the identifier is the empty string, it
  *  will be skipped. See
- *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization to
- *  learn more. Note: We recommend using CryptoDeterministicConfig for all use
- *  cases which do not require preserving the input alphabet space and size,
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization
+ *  to learn more. Note: We recommend using CryptoDeterministicConfig for all
+ *  use cases which do not require preserving the input alphabet space and size,
  *  plus warrant referential integrity. FPE incurs significant latency costs.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig : GTLRObject
@@ -6058,7 +6060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  of custom infoType is 'MY_TOKEN_INFO_TYPE' and the surrogate is 'abc', the
  *  full replacement value will be: 'MY_TOKEN_INFO_TYPE(3):abc' This annotation
  *  identifies the surrogate when inspecting content using the custom infoType
- *  [`SurrogateType`](https://cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig#surrogatetype).
+ *  [`SurrogateType`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig#surrogatetype).
  *  This facilitates reversal of the surrogate when it occurs in free text. In
  *  order for inspection to work properly, the name of this infoType must not
  *  occur naturally anywhere in your data; otherwise, inspection may find a
@@ -6269,7 +6271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Publishes generated data profiles to Google Security Operations. For more
  *  information, see [Use Sensitive Data Protection data in context-aware
- *  analytics](https://cloud.google.com/chronicle/docs/detection/usecase-dlp-high-risk-user-download).
+ *  analytics](https://docs.cloud.google.com/chronicle/docs/detection/usecase-dlp-high-risk-user-download).
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToChronicle *publishToChronicle;
 
@@ -6365,7 +6367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The [type of
- *  content](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference)
+ *  content](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference)
  *  that might have been found.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infotype;
@@ -6449,7 +6451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Only one data profile configuration may exist per organization, folder, or
  *  project. The generated data profiles are retained according to the [data
  *  retention policy]
- *  (https://cloud.google.com/sensitive-data-protection/docs/data-profiles#retention).
+ *  (https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles#retention).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DataProfileJobConfig : GTLRObject
 
@@ -6466,7 +6468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  specified, it will be copied to that region and used instead. If no global
  *  or region-specific template is provided for a region with data, that
  *  region's data will not be scanned. For more information, see
- *  https://cloud.google.com/sensitive-data-protection/docs/data-profiles#data-residency.
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles#data-residency.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inspectTemplates;
 
@@ -6643,7 +6645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Shifts dates by random number of days, with option to be consistent for the
  *  same context. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-date-shifting
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-date-shifting
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DateShiftConfig : GTLRObject
@@ -6939,7 +6941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  DeidentifyTemplates contains instructions on how to de-identify content. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-templates
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate : GTLRObject
@@ -7125,9 +7127,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  "jennifer". Dictionary words containing a large number of characters that
  *  are not letters or digits may result in unexpected findings because such
  *  characters are treated as whitespace. The
- *  [limits](https://cloud.google.com/sensitive-data-protection/limits) page
- *  contains details about the size limits of dictionaries. For dictionaries
- *  that do not fit within these constraints, consider using
+ *  [limits](https://docs.cloud.google.com/sensitive-data-protection/limits)
+ *  page contains details about the size limits of dictionaries. For
+ *  dictionaries that do not fit within these constraints, consider using
  *  `LargeCustomDictionaryConfig` in the `StoredInfoType` API.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Dictionary : GTLRObject
@@ -7410,7 +7412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  one discovery configuration may exist per organization, folder, or project.
  *  The generated data profiles are retained according to the [data retention
  *  policy]
- *  (https://cloud.google.com/sensitive-data-protection/docs/data-profiles#retention).
+ *  (https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles#retention).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DiscoveryConfig : GTLRObject
 
@@ -7441,7 +7443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  specified, it will be copied to that region and used instead. If no global
  *  or region-specific template is provided for a region with data, that
  *  region's data will not be scanned. For more information, see
- *  https://cloud.google.com/sensitive-data-protection/docs/data-profiles#data-residency.
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles#data-residency.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inspectTemplates;
 
@@ -7449,8 +7451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRunTime;
 
 /**
- *  Unique resource name for the DiscoveryConfig, assigned by the service when
- *  the DiscoveryConfig is created, for example
+ *  Output only. Unique resource name for the DiscoveryConfig, assigned by the
+ *  service when the DiscoveryConfig is created, for example
  *  `projects/dlp-test-project/locations/global/discoveryConfigs/53234423`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -7894,41 +7896,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DlpJob : GTLRObject
 
-/** Events that should occur after the job has completed. */
+/** Output only. Events that should occur after the job has completed. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ActionDetails *> *actionDetails;
 
-/** Time when the job was created. */
+/** Output only. Time when the job was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Time when the job finished. */
+/** Output only. Time when the job finished. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** A stream of errors encountered running the job. */
+/** Output only. A stream of errors encountered running the job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
 
 /** Results from inspecting a data source. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectDataSourceDetails *inspectDetails;
 
 /**
- *  If created by a job trigger, the resource name of the trigger that
- *  instantiated the job.
+ *  Output only. If created by a job trigger, the resource name of the trigger
+ *  that instantiated the job.
  */
 @property(nonatomic, copy, nullable) NSString *jobTriggerName;
 
-/** Time when the job was last modified by the system. */
+/** Output only. Time when the job was last modified by the system. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModified;
 
-/** The server-assigned name. */
+/** Output only. The server-assigned name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Results from analyzing risk of a data source. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails *riskDetails;
 
-/** Time when the job started. */
+/** Output only. Time when the job started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  State of a job.
+ *  Output only. State of a job.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active The job is
@@ -8123,7 +8125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A list of image-supported infoTypes—excluding [document
- *  infoTypes](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#documents)—to
+ *  infoTypes](https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference#documents)—to
  *  be used as context for the exclusion rule. A finding is excluded if its
  *  bounding box has the specified spatial relationship (defined by
  *  `image_containment_type`) with a finding of an infoType in this list. For
@@ -8235,9 +8237,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  the dataset and table are created, the discovery scan configuration will be
  *  updated with the dataset and table names. * See [Analyze data profiles
  *  stored in
- *  BigQuery](https://cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles).
+ *  BigQuery](https://docs.cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles).
  *  * See [Sample queries for your BigQuery
- *  table](https://cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles#sample_sql_queries).
+ *  table](https://docs.cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles#sample_sql_queries).
  *  * Data is inserted using [streaming
  *  insert](https://cloud.google.com/blog/products/bigquery/life-of-a-bigquery-streaming-insert)
  *  and so data may be in the buffer for a period of time after the profile has
@@ -8246,7 +8248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  the time your topic receives the Pub/Sub notification. * The best practice
  *  is to use the same table for an entire organization so that you can take
  *  advantage of the [provided Data Studio
- *  reports](https://cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles#use_a_premade_report).
+ *  reports](https://docs.cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles#use_a_premade_report).
  *  If you use VPC Service Controls to define security perimeters, then you must
  *  use a separate table for each boundary.
  */
@@ -8507,7 +8509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  pattern. For a resource to match the tag filters, the resource must have all
  *  of the provided tags attached. Tags refer to Resource Manager tags bound to
  *  the resource or its ancestors. For more information, see [Manage
- *  schedules](https://cloud.google.com/sensitive-data-protection/docs/profile-project-cloud-storage#manage-schedules).
+ *  schedules](https://docs.cloud.google.com/sensitive-data-protection/docs/profile-project-cloud-storage#manage-schedules).
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TagFilters *includeTags;
 
@@ -8560,8 +8562,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The location of the file store. * Cloud Storage:
- *  https://cloud.google.com/storage/docs/locations#available-locations * Amazon
- *  S3:
+ *  https://docs.cloud.google.com/storage/docs/locations#available-locations *
+ *  Amazon S3:
  *  https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints
  */
 @property(nonatomic, copy, nullable) NSString *fileStoreLocation;
@@ -8905,7 +8907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Value type differs from the type of data being transformed, we will first
  *  attempt converting the type of the data to be transformed to match the type
  *  of the bound before comparing. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-bucketing
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-bucketing
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig : GTLRObject
@@ -9009,7 +9011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  hotword regex "\\(xxx\\)", where "xxx" is the area code in question. For
  *  tabular data, if you want to modify the likelihood of an entire column of
  *  findngs, see [Hotword example: Set the match likelihood of a table column]
- *  (https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-likelihood#match-column-values).
+ *  (https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-likelihood#match-column-values).
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Proximity *proximity;
 
@@ -9361,7 +9363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Name of the information type. Either a name of your choosing when creating a
  *  CustomInfoType, or one of the names listed at
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  when specifying a built-in type. When sending Cloud DLP results to Data
  *  Catalog, infoType names should conform to the pattern
  *  `[A-Za-z0-9$_-]{1,64}`.
@@ -9570,6 +9572,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** match any of these info types. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoTypes *infoTypes;
+
+/**
+ *  Optional. The minimum total number of findings of all matching info types
+ *  required for this condition to evaluate to true. Defaults to 1 if unset.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minCount;
 
 @end
 
@@ -9795,7 +9805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  CustomInfoTypes provided by the user. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes
  *  to learn more.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2CustomInfoType *> *customInfoTypes;
@@ -9820,7 +9830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Restricts what info_types to look for. The values must correspond to
  *  InfoType values returned by ListInfoTypes or listed at
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference.
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference.
  *  When no InfoTypes or CustomInfoTypes are specified in a request, the system
  *  may automatically choose a default list of detectors to run, which may
  *  change over time. If you need precise control and predictability as to what
@@ -9848,7 +9858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  POSSIBLE. In general, the highest likelihood setting yields the fewest
  *  findings in results and the lowest chance of a false positive. For more
  *  information, see [Match
- *  likelihood](https://cloud.google.com/sensitive-data-protection/docs/likelihood).
+ *  likelihood](https://docs.cloud.google.com/sensitive-data-protection/docs/likelihood).
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified
@@ -9934,7 +9944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The configuration used for this job. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RequestedOptions *requestedOptions;
 
-/** A summary of the outcome of this inspection job. */
+/** Output only. A summary of the outcome of this inspection job. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Result *result;
 
 @end
@@ -10026,7 +10036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  The inspectTemplate contains a configuration (set of types of sensitive data
  *  to be detected) to be used anywhere you otherwise would normally specify
  *  InspectConfig. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-templates
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectTemplate : GTLRObject
@@ -10075,7 +10085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Sends an email when the job completes. The email goes to IAM project owners
  *  and technical [Essential
- *  Contacts](https://cloud.google.com/resource-manager/docs/managing-notification-contacts).
+ *  Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails : GTLRObject
 @end
@@ -10083,7 +10093,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Contains a configuration to make API calls on a repeating basis. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2JobTrigger : GTLRObject
@@ -10116,8 +10126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRunTime;
 
 /**
- *  Unique resource name for the triggeredJob, assigned by the service when the
- *  triggeredJob is created, for example
+ *  Output only. Unique resource name for the triggeredJob, assigned by the
+ *  service when the triggeredJob is created, for example
  *  `projects/dlp-test-project/jobTriggers/53234423`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -10445,7 +10455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  IAM permissions when sending a request to perform a crypto transformation
  *  using a KMS-wrapped crypto key: dlp.kms.encrypt For more information, see
  *  [Creating a wrapped key]
- *  (https://cloud.google.com/sensitive-data-protection/docs/create-wrapped-key).
+ *  (https://docs.cloud.google.com/sensitive-data-protection/docs/create-wrapped-key).
  *  Note: When you use Cloud KMS for cryptographic operations, [charges
  *  apply](https://cloud.google.com/kms/pricing).
  */
@@ -10504,8 +10514,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Configuration for a custom dictionary created from a data source of any size
  *  up to the maximum size defined in the
- *  [limits](https://cloud.google.com/sensitive-data-protection/limits) page.
- *  The artifacts of dictionary creation are stored in the specified Cloud
+ *  [limits](https://docs.cloud.google.com/sensitive-data-protection/limits)
+ *  page. The artifacts of dictionary creation are stored in the specified Cloud
  *  Storage location. Consider using `CustomInfoType.Dictionary` for smaller
  *  dictionaries that satisfy the size requirements.
  */
@@ -11267,7 +11277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Target used to match against for discovery of resources from other clouds.
  *  An [AWS connector in Security Command Center
- *  (Enterprise](https://cloud.google.com/security-command-center/docs/connect-scc-to-aws)
+ *  (Enterprise](https://docs.cloud.google.com/security-command-center/docs/connect-scc-to-aws)
  *  is required to use this feature.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2OtherCloudDiscoveryTarget : GTLRObject
@@ -11738,7 +11748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  you want to modify the likelihood of an entire column of findngs, set this
  *  to 1. For more information, see [Hotword example: Set the match likelihood
  *  of a table column]
- *  (https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-likelihood#match-column-values).
+ *  (https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-likelihood#match-column-values).
  *
  *  Uses NSNumber of intValue.
  */
@@ -11771,7 +11781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Publish findings of a DlpJob to Dataplex Universal Catalog as a
  *  `sensitive-data-protection-job-result` aspect. For more information, see
  *  [Send inspection results to Dataplex Universal Catalog as
- *  aspects](https://cloud.google.com/sensitive-data-protection/docs/add-aspects-inspection-job).
+ *  aspects](https://docs.cloud.google.com/sensitive-data-protection/docs/add-aspects-inspection-job).
  *  Aspects are stored in Dataplex Universal Catalog storage and are governed by
  *  service-specific policies for Dataplex Universal Catalog. For more
  *  information, see [Service Specific
@@ -11807,7 +11817,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Create Dataplex Universal Catalog aspects for profiled resources with the
  *  aspect type Sensitive Data Protection Profile. To learn more about aspects,
- *  see https://cloud.google.com/sensitive-data-protection/docs/add-aspects.
+ *  see
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/add-aspects.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog : GTLRObject
 
@@ -11829,7 +11840,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Publish a message into a given Pub/Sub topic when DlpJob has completed. The
  *  message contains a single field, `DlpJobName`, which is equal to the
  *  finished job's
- *  [`DlpJob.name`](https://cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.dlpJobs#DlpJob).
+ *  [`DlpJob.name`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.dlpJobs#DlpJob).
  *  Compatible with: Inspect, Risk
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToPubSub : GTLRObject
@@ -12366,8 +12377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A list of words to select from for random replacement. The
- *  [limits](https://cloud.google.com/sensitive-data-protection/limits) page
- *  contains details about the size limits of dictionaries.
+ *  [limits](https://docs.cloud.google.com/sensitive-data-protection/limits)
+ *  page contains details about the size limits of dictionaries.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2WordList *wordList;
 
@@ -12427,8 +12438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *jobConfig;
 
 /**
- *  If run with an InspectTemplate, a snapshot of its state at the time of this
- *  run.
+ *  Output only. If run with an InspectTemplate, a snapshot of its state at the
+ *  time of this run.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *snapshotInspectTemplate;
 
@@ -12487,7 +12498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Configuration for a risk analysis job. See
- *  https://cloud.google.com/sensitive-data-protection/docs/concepts-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-risk-analysis
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig : GTLRObject
@@ -12646,7 +12657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  should be included in the discovery config for a security benchmarks scan.
  *  Instead, the built-in list of secrets and credentials infoTypes will be used
  *  (see
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#credentials_and_secrets).
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference#credentials_and_secrets).
  *  Credentials and secrets discovered will be reported as vulnerabilities to
  *  Security Command Center.
  */
@@ -12805,7 +12816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Configuration for stored infoTypes. All fields and subfield are provided by
  *  the user. For more information, see
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes.
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig : GTLRObject
 
@@ -12968,7 +12979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Message for detecting output from deidentification transformations such as
- *  [`CryptoReplaceFfxFpeConfig`](https://cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/organizations.deidentifyTemplates#cryptoreplaceffxfpeconfig).
+ *  [`CryptoReplaceFfxFpeConfig`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/organizations.deidentifyTemplates#cryptoreplaceffxfpeconfig).
  *  These types of transformations are those that perform pseudonymization,
  *  thereby producing a "surrogate" as output. This should be used in
  *  conjunction with a field on the transformation such as
@@ -12982,7 +12993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Structured content to inspect. Up to 50,000 `Value`s per request allowed.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-structured-text#inspecting_a_table
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-structured-text#inspecting_a_table
  *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Table : GTLRObject
@@ -13015,7 +13026,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  If supported, the location where the dataset's data is stored. See
- *  https://cloud.google.com/bigquery/docs/locations for supported locations.
+ *  https://docs.cloud.google.com/bigquery/docs/locations for supported
+ *  locations.
  */
 @property(nonatomic, copy, nullable) NSString *datasetLocation;
 
@@ -13356,10 +13368,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  If set, attaches the [tags]
- *  (https://cloud.google.com/resource-manager/docs/tags/tags-overview) provided
- *  to profiled resources. Tags support [access
- *  control](https://cloud.google.com/iam/docs/tags-access-control). You can
- *  conditionally grant or deny access to a resource based on whether the
+ *  (https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview)
+ *  provided to profiled resources. Tags support [access
+ *  control](https://docs.cloud.google.com/iam/docs/tags-access-control). You
+ *  can conditionally grant or deny access to a resource based on whether the
  *  resource has a specific tag.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TagResources : GTLRObject
@@ -13367,9 +13379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Whether applying a tag to a resource should lower the risk of the profile
  *  for that resource. For example, in conjunction with an [IAM deny
- *  policy](https://cloud.google.com/iam/docs/deny-overview), you can deny all
- *  principals a permission if a tag value is present, mitigating the risk of
- *  the resource. This also lowers the data risk of resources at the lower
+ *  policy](https://docs.cloud.google.com/iam/docs/deny-overview), you can deny
+ *  all principals a permission if a tag value is present, mitigating the risk
+ *  of the resource. This also lowers the data risk of resources at the lower
  *  levels of the resource hierarchy. For example, reducing the data risk of a
  *  table data profile also reduces the data risk of the constituent column data
  *  profiles.
@@ -13463,7 +13475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  the job starts. This is because streaming buffer rows are not read during
  *  inspection and reading up to the current timestamp will result in skipped
  *  rows. See the [known
- *  issue](https://cloud.google.com/sensitive-data-protection/docs/known-issues#recently-streamed-data)
+ *  issue](https://docs.cloud.google.com/sensitive-data-protection/docs/known-issues#recently-streamed-data)
  *  related to this operation.
  *
  *  Uses NSNumber of boolValue.
@@ -13491,7 +13503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  value in the provided BigQuery column are skipped. Valid data types of the
  *  provided BigQuery column are: `INTEGER`, `DATE`, `TIMESTAMP`, and
  *  `DATETIME`. If your BigQuery table is [partitioned at ingestion
- *  time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+ *  time](https://docs.cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
  *  you can use any of the following pseudo-columns as your timestamp field.
  *  When used with Cloud DLP, these pseudo-column names are case sensitive. -
  *  `_PARTITIONTIME` - `_PARTITIONDATE` - `_PARTITION_LOAD_TIME` **For
@@ -13500,7 +13512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  timestamp property or contains empty or invalid values, then it is included.
  *  Valid data types of the provided timestamp property are: `TIMESTAMP`. See
  *  the [known
- *  issue](https://cloud.google.com/sensitive-data-protection/docs/known-issues#bq-timespan)
+ *  issue](https://docs.cloud.google.com/sensitive-data-protection/docs/known-issues#bq-timespan)
  *  related to this operation.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *timestampField;

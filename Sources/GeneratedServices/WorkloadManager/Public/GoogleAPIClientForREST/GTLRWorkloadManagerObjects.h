@@ -2002,7 +2002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 /** Optional. DNS IP address. */
 @property(nonatomic, copy, nullable) NSString *dnsAddress;
 
-/** Optional. Human readable form of a domain such as “google.com”. */
+/** Optional. Human readable form of a domain such as `example.com`. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /** Optional. Domain username. */

@@ -384,8 +384,17 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 @implementation GTLRBigQueryReservation_Reservation
 @dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots, labels,
          maxSlots, multiRegionAuxiliary, name, originalPrimaryLocation,
-         primaryLocation, replicationStatus, reservationGroup, scalingMode,
-         schedulingPolicy, secondaryLocation, slotCapacity, updateTime;
+         primaryLocation, replicationStatus, reservationGroup,
+         reservationGroupPath, scalingMode, schedulingPolicy, secondaryLocation,
+         slotCapacity, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservationGroupPath" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -409,7 +418,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_ReservationGroup
-@dynamic name;
+@dynamic name, parentGroup;
 @end
 
 

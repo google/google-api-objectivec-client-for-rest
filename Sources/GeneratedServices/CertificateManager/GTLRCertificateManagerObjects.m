@@ -110,7 +110,7 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 @implementation GTLRCertificateManager_Certificate
 @dynamic createTime, descriptionProperty, expireTime, labels, managed,
          managedIdentity, name, pemCertificate, sanDnsnames, scope, selfManaged,
-         updateTime, usedBy;
+         tags, updateTime, usedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -133,6 +133,20 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 //
 
 @implementation GTLRCertificateManager_Certificate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_Certificate_Tags
+//
+
+@implementation GTLRCertificateManager_Certificate_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -168,7 +182,7 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 @implementation GTLRCertificateManager_CertificateIssuanceConfig
 @dynamic certificateAuthorityConfig, createTime, descriptionProperty,
-         keyAlgorithm, labels, lifetime, name, rotationWindowPercentage,
+         keyAlgorithm, labels, lifetime, name, rotationWindowPercentage, tags,
          updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -194,11 +208,26 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateManager_CertificateIssuanceConfig_Tags
+//
+
+@implementation GTLRCertificateManager_CertificateIssuanceConfig_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateManager_CertificateMap
 //
 
 @implementation GTLRCertificateManager_CertificateMap
-@dynamic createTime, descriptionProperty, gclbTargets, labels, name, updateTime;
+@dynamic createTime, descriptionProperty, gclbTargets, labels, name, tags,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -220,6 +249,20 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 //
 
 @implementation GTLRCertificateManager_CertificateMap_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_CertificateMap_Tags
+//
+
+@implementation GTLRCertificateManager_CertificateMap_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -290,7 +333,7 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 @implementation GTLRCertificateManager_DnsAuthorization
 @dynamic createTime, descriptionProperty, dnsResourceRecord, domain, labels,
-         name, type, updateTime;
+         name, tags, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -305,6 +348,20 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 //
 
 @implementation GTLRCertificateManager_DnsAuthorization_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_DnsAuthorization_Tags
+//
+
+@implementation GTLRCertificateManager_DnsAuthorization_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -786,7 +843,7 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 @implementation GTLRCertificateManager_TrustConfig
 @dynamic allowlistedCertificates, createTime, descriptionProperty, ETag, labels,
-         name, spiffeTrustStores, trustStores, updateTime;
+         name, spiffeTrustStores, tags, trustStores, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -830,6 +887,20 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 + (Class)classForAdditionalProperties {
   return [GTLRCertificateManager_TrustStore class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_TrustConfig_Tags
+//
+
+@implementation GTLRCertificateManager_TrustConfig_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

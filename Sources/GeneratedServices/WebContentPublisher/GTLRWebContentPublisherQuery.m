@@ -11,11 +11,166 @@
 
 #import <GoogleAPIClientForREST/GTLRWebContentPublisherQuery.h>
 
-#import <GoogleAPIClientForREST/GTLRWebContentPublisherObjects.h>
-
 @implementation GTLRWebContentPublisherQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsCreate
+
+@dynamic parent, publicationId;
+
++ (instancetype)queryWithObject:(GTLRWebContentPublisher_Publication *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/publications";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWebContentPublisher_Publication class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasCreate
+
+@dynamic ctaId, parent;
+
++ (instancetype)queryWithObject:(GTLRWebContentPublisher_Cta *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/ctas";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWebContentPublisher_Cta class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.ctas.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWebContentPublisher_Cta class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.ctas.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/ctas";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWebContentPublisher_ListCtasResponse class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.ctas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWebContentPublisher_Publication class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/publications";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWebContentPublisher_ListPublicationsResponse class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRWebContentPublisher_Publication *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWebContentPublisher_Publication class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.patch";
+  return query;
+}
 
 @end
 

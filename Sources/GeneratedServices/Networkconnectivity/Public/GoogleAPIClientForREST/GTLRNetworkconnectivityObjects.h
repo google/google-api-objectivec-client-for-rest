@@ -76,6 +76,8 @@
 @class GTLRNetworkconnectivity_PolicyBasedRoute;
 @class GTLRNetworkconnectivity_PolicyBasedRoute_Labels;
 @class GTLRNetworkconnectivity_ProducerPscConfig;
+@class GTLRNetworkconnectivity_PscAuthorizationPolicy;
+@class GTLRNetworkconnectivity_PscAuthorizationPolicy_Labels;
 @class GTLRNetworkconnectivity_PscConfig;
 @class GTLRNetworkconnectivity_PscConnection;
 @class GTLRNetworkconnectivity_PscConnection_ProducerInstanceMetadata;
@@ -1062,6 +1064,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_Nex
  *  Value: "OTHER_ROUTES_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_OtherRoutesUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_PscAuthorizationPolicy.authorizationMode
+
+/**
+ *  In this mode, authorization is determined by the permissions on the
+ *  underlying Service Attachment.
+ *
+ *  Value: "AUTHORIZATION_MODE_TRANSITIVE_TO_SERVICE_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscAuthorizationPolicy_AuthorizationMode_AuthorizationModeTransitiveToServiceAttachment;
+/**
+ *  Default value.
+ *
+ *  Value: "AUTHORIZATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_PscAuthorizationPolicy_AuthorizationMode_AuthorizationModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_PscConfig.producerInstanceLocation
@@ -3674,7 +3693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_GoogleRpcErrorInfo_Metadata *metadata;
 
 /**
- *  The reason of the error. This is a constant value that identifies the
+ *  The reason for the error. This is a constant value that identifies the
  *  proximate cause of the error. Error reasons are unique within a particular
  *  domain of errors. This should be at most 63 characters and match a regular
  *  expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
@@ -4809,6 +4828,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  Response for ListPscAuthorizationPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "pscAuthorizationPolicies" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListPscAuthorizationPoliciesResponse : GTLRCollectionObject
+
+/** A token, which can be sent as `page_token` to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of PscAuthorizationPolicies.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_PscAuthorizationPolicy *> *pscAuthorizationPolicies;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response for ListRegionalEndpoints.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5686,6 +5732,82 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *serviceAttachmentUri;
 
+@end
+
+
+/**
+ *  Represents a PSC Authorization Policy.
+ */
+@interface GTLRNetworkconnectivity_PscAuthorizationPolicy : GTLRObject
+
+/**
+ *  Required. The authorization mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_PscAuthorizationPolicy_AuthorizationMode_AuthorizationModeTransitiveToServiceAttachment
+ *        In this mode, authorization is determined by the permissions on the
+ *        underlying Service Attachment. (Value:
+ *        "AUTHORIZATION_MODE_TRANSITIVE_TO_SERVICE_ATTACHMENT")
+ *    @arg @c kGTLRNetworkconnectivity_PscAuthorizationPolicy_AuthorizationMode_AuthorizationModeUnspecified
+ *        Default value. (Value: "AUTHORIZATION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationMode;
+
+/**
+ *  Required. List of authorized consumer resources allowed to connect.
+ *  Supported values are: 1. Project resource name (e.g.,
+ *  `projects/{project_id}`) 2. Wildcard `"*"` (grants global ingress
+ *  authorization to the target).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedClientResources;
+
+/** Output only. The time when the PscAuthorizationPolicy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A description of this resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The etag of the PscAuthorizationPolicy. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_PscAuthorizationPolicy_Labels *labels;
+
+/**
+ *  Identifier. The name of the PscAuthorizationPolicy. Format:
+ *  projects/{project}/locations/{location}/pscAuthorizationPolicies/{psc_authorization_policy}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The full absolute URI of the targeted resource governed by this
+ *  policy. For example, for an AgentRegistry resource, the format is:
+ *  `//agentregistry.googleapis.com/projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *targetResourceUri;
+
+/** Output only. The unique identifier of the PscAuthorizationPolicy. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the PscAuthorizationPolicy was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_PscAuthorizationPolicy_Labels : GTLRObject
 @end
 
 

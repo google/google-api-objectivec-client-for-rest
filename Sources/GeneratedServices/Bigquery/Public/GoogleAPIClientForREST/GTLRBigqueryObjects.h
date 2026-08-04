@@ -24,6 +24,9 @@
 @class GTLRBigquery_ArimaOrder;
 @class GTLRBigquery_ArimaResult;
 @class GTLRBigquery_ArimaSingleModelForecastingMetrics;
+@class GTLRBigquery_ArrowRecordBatch;
+@class GTLRBigquery_ArrowSchema;
+@class GTLRBigquery_ArrowSerializationOptions;
 @class GTLRBigquery_AuditConfig;
 @class GTLRBigquery_AuditLogConfig;
 @class GTLRBigquery_AvroOptions;
@@ -156,6 +159,7 @@
 @class GTLRBigquery_ModelReference;
 @class GTLRBigquery_ModelTraining;
 @class GTLRBigquery_MultiClassClassificationMetrics;
+@class GTLRBigquery_ObjectStorageStats;
 @class GTLRBigquery_ParquetOptions;
 @class GTLRBigquery_PartitionedColumn;
 @class GTLRBigquery_PartitioningDefinition;
@@ -271,6 +275,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBigquery_Argument.argumentKind
 
 /**
+ *  The argument is any table type.
+ *
+ *  Value: "ANY_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_AnyTable;
+/**
  *  The argument is any type, including struct or array, but not a table.
  *
  *  Value: "ANY_TYPE"
@@ -282,6 +292,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_AnyType;
  *  Value: "ARGUMENT_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified;
+/**
+ *  The argument is a table with fully specified column names and types.
+ *
+ *  Value: "FIXED_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_FixedTable;
 /**
  *  The argument is a variable with fully specified type, which can be a struct
  *  or an array, but not a table.
@@ -525,6 +541,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetr
  *  Value: "YEARLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Yearly;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ArrowSerializationOptions.bufferCompression
+
+/**
+ *  If unspecified no compression will be used.
+ *
+ *  Value: "COMPRESSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArrowSerializationOptions_BufferCompression_CompressionUnspecified;
+/**
+ *  LZ4 Frame (https://github.com/lz4/lz4/blob/dev/doc/lz4_Frame_format.md)
+ *
+ *  Value: "LZ4_FRAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArrowSerializationOptions_BufferCompression_Lz4Frame;
+/**
+ *  Zstandard compression.
+ *
+ *  Value: "ZSTD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArrowSerializationOptions_BufferCompression_Zstd;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ArrowSerializationOptions.picosTimestampPrecision
+
+/**
+ *  Unspecified timestamp precision. The default precision is microseconds.
+ *
+ *  Value: "PICOS_TIMESTAMP_PRECISION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_PicosTimestampPrecisionUnspecified;
+/**
+ *  Timestamp values returned in the results will be truncated to microsecond
+ *  level precision. The value will be encoded as Arrow TIMESTAMP type in a 64
+ *  bit integer.
+ *
+ *  Value: "TIMESTAMP_PRECISION_MICROS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionMicros;
+/**
+ *  Timestamp values returned in the results will be truncated to nanosecond
+ *  level precision. The value will be encoded as Arrow TIMESTAMP type in a 64
+ *  bit integer.
+ *
+ *  Value: "TIMESTAMP_PRECISION_NANOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionNanos;
+/**
+ *  Timestamp values returned in the results will contain full precision
+ *  picosecond value. The value will be encoded as a string which conforms to
+ *  ISO 8601 format.
+ *
+ *  Value: "TIMESTAMP_PRECISION_PICOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionPicos;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_AuditLogConfig.logType
@@ -1954,6 +2026,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_TransformOnly;
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Xgboost;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_ObjectStorageStats.cloudProvider
+
+/**
+ *  Amazon Web Services.
+ *
+ *  Value: "AWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_Aws;
+/**
+ *  Microsoft Azure.
+ *
+ *  Value: "AZURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_Azure;
+/**
+ *  Unspecified cloud provider.
+ *
+ *  Value: "CLOUD_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_CloudProviderUnspecified;
+/**
+ *  Google Cloud Platform.
+ *
+ *  Value: "GCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_Gcp;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_ParquetOptions.mapTargetType
 
 /**
@@ -1996,6 +2096,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_Jo
  *  Value: "JOB_CREATION_REQUIRED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationRequired;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_QueryRequest.queryResultsFormat
+
+/**
+ *  Arrow is a standard open source column-based message format. See
+ *  https://arrow.apache.org/ for more details.
+ *
+ *  Value: "ARROW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_QueryResultsFormat_Arrow;
+/**
+ *  If unspecified it will default to struct `QueryResponse.rows`
+ *  (`STRUCT_ENCODING`)
+ *
+ *  Value: "QUERY_RESULTS_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_QueryResultsFormat_QueryResultsFormatUnspecified;
+/**
+ *  Default encoding of results as struct in `QueryResponse.rows`
+ *
+ *  Value: "STRUCT_ENCODING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_QueryRequest_QueryResultsFormat_StructEncoding;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_RemoteModelInfo.remoteServiceType
@@ -4139,10 +4263,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Optional. Defaults to FIXED_TYPE.
  *
  *  Likely values:
+ *    @arg @c kGTLRBigquery_Argument_ArgumentKind_AnyTable The argument is any
+ *        table type. (Value: "ANY_TABLE")
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_AnyType The argument is any
  *        type, including struct or array, but not a table. (Value: "ANY_TYPE")
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified
  *        Default value. (Value: "ARGUMENT_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_Argument_ArgumentKind_FixedTable The argument is a
+ *        table with fully specified column names and types. (Value:
+ *        "FIXED_TABLE")
  *    @arg @c kGTLRBigquery_Argument_ArgumentKind_FixedType The argument is a
  *        variable with fully specified type, which can be a struct or an array,
  *        but not a table. (Value: "FIXED_TYPE")
@@ -4184,6 +4313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  argument.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Set if argument_kind == FIXED_TABLE. */
+@property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlTableType *tableType;
 
 @end
 
@@ -4461,6 +4593,93 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  of time_series_id_columns.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIds;
+
+@end
+
+
+/**
+ *  Arrow RecordBatch. This feature is not yet available.
+ */
+@interface GTLRBigquery_ArrowRecordBatch : GTLRObject
+
+/**
+ *  IPC-serialized Arrow RecordBatch.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *serializedRecordBatch;
+
+@end
+
+
+/**
+ *  Arrow schema as specified in
+ *  https://arrow.apache.org/docs/python/api/datatypes.html and serialized to
+ *  bytes using IPC:
+ *  https://arrow.apache.org/docs/format/Columnar.html#serialization-and-interprocess-communication-ipc
+ *  See code samples on how this message can be deserialized. This feature is
+ *  not yet available.
+ */
+@interface GTLRBigquery_ArrowSchema : GTLRObject
+
+/**
+ *  IPC serialized Arrow schema.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *serializedSchema;
+
+@end
+
+
+/**
+ *  Contains options specific to Arrow Serialization. This feature is not yet
+ *  available.
+ */
+@interface GTLRBigquery_ArrowSerializationOptions : GTLRObject
+
+/**
+ *  The compression codec to use for Arrow buffers in serialized record batches.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ArrowSerializationOptions_BufferCompression_CompressionUnspecified
+ *        If unspecified no compression will be used. (Value:
+ *        "COMPRESSION_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_ArrowSerializationOptions_BufferCompression_Lz4Frame
+ *        LZ4 Frame
+ *        (https://github.com/lz4/lz4/blob/dev/doc/lz4_Frame_format.md) (Value:
+ *        "LZ4_FRAME")
+ *    @arg @c kGTLRBigquery_ArrowSerializationOptions_BufferCompression_Zstd
+ *        Zstandard compression. (Value: "ZSTD")
+ */
+@property(nonatomic, copy, nullable) NSString *bufferCompression;
+
+/**
+ *  Optional. Set timestamp precision option. If not set, the default precision
+ *  is microseconds.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_PicosTimestampPrecisionUnspecified
+ *        Unspecified timestamp precision. The default precision is
+ *        microseconds. (Value: "PICOS_TIMESTAMP_PRECISION_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionMicros
+ *        Timestamp values returned in the results will be truncated to
+ *        microsecond level precision. The value will be encoded as Arrow
+ *        TIMESTAMP type in a 64 bit integer. (Value:
+ *        "TIMESTAMP_PRECISION_MICROS")
+ *    @arg @c kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionNanos
+ *        Timestamp values returned in the results will be truncated to
+ *        nanosecond level precision. The value will be encoded as Arrow
+ *        TIMESTAMP type in a 64 bit integer. (Value:
+ *        "TIMESTAMP_PRECISION_NANOS")
+ *    @arg @c kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionPicos
+ *        Timestamp values returned in the results will contain full precision
+ *        picosecond value. The value will be encoded as a string which conforms
+ *        to ISO 8601 format. (Value: "TIMESTAMP_PRECISION_PICOS")
+ */
+@property(nonatomic, copy, nullable) NSString *picosTimestampPrecision;
 
 @end
 
@@ -7631,7 +7850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *asynchronous;
 
 /**
- *  Optional. The generation expression (e.g. AI.EMBED(...)) used to generated
+ *  Optional. The generation expression (e.g. AI.EMBED(...)) used to generate
  *  the field.
  */
 @property(nonatomic, copy, nullable) NSString *generationExpression;
@@ -8603,7 +8822,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  to execute the job. If reservation is not set, reservation is determined
  *  based on the rules defined by the reservation assignments. The expected
  *  format is
- *  `projects/{project}/locations/{location}/reservations/{reservation}`.
+ *  `projects/{project}/locations/{location}/reservations/{reservation}`. Forces
+ *  the query to use on-demand billing when set to `none`, which requires the
+ *  project or organization to have `reservation_override_mode` set to
+ *  `ALLOW_ANY_OVERRIDE`.
  */
 @property(nonatomic, copy, nullable) NSString *reservation;
 
@@ -9700,6 +9922,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *finalExecutionDurationMs;
 
+/** Output only. Regions where the global query accesses data. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *globalQueryRemoteRegions;
+
 /** Output only. Statistics for a load job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobStatistics3 *load;
 
@@ -9709,6 +9934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numChildJobs;
+
+/** Output only. The global query that created this job. */
+@property(nonatomic, strong, nullable) GTLRBigquery_JobReference *parentGlobalQueryJob;
 
 /**
  *  Output only. If this is a child job, specifies the job ID of the parent.
@@ -9964,6 +10192,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numDmlAffectedRows;
+
+/**
+ *  Output only. Storage and caching statistics per cloud provider for queries
+ *  over object storage.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ObjectStorageStats *> *objectStorageStats;
 
 /** Output only. Performance insights. */
 @property(nonatomic, strong, nullable) GTLRBigquery_PerformanceInsights *performanceInsights;
@@ -10290,6 +10524,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *copiedRows;
+
+/**
+ *  Output only. Destination region for a cross-region copy job. Not set for
+ *  in-region copy jobs.
+ */
+@property(nonatomic, copy, nullable) NSString *remoteDestinationRegion;
 
 @end
 
@@ -11205,6 +11445,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Storage and caching statistics for object storage.
+ */
+@interface GTLRBigquery_ObjectStorageStats : GTLRObject
+
+/**
+ *  Total bytes read from the GCP Lakehouse-internal cache, avoiding an object
+ *  storage read.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheBytesRead;
+
+/**
+ *  The cloud provider for this block of statistics.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_ObjectStorageStats_CloudProvider_Aws Amazon Web
+ *        Services. (Value: "AWS")
+ *    @arg @c kGTLRBigquery_ObjectStorageStats_CloudProvider_Azure Microsoft
+ *        Azure. (Value: "AZURE")
+ *    @arg @c kGTLRBigquery_ObjectStorageStats_CloudProvider_CloudProviderUnspecified
+ *        Unspecified cloud provider. (Value: "CLOUD_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_ObjectStorageStats_CloudProvider_Gcp Google Cloud
+ *        Platform. (Value: "GCP")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProvider;
+
+/**
+ *  Total bytes read directly from the cloud provider's storage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *objectStorageBytesRead;
+
+@end
+
+
+/**
  *  Parquet Options for load and make external tables.
  */
 @interface GTLRBigquery_ParquetOptions : GTLRObject
@@ -11766,6 +12044,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @interface GTLRBigquery_QueryRequest : GTLRObject
 
+/** Optional. Options specific to the Apache Arrow output format. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArrowSerializationOptions *arrowSerializationOptions;
+
 /** Optional. Connection properties which can modify the query behavior. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
@@ -11919,6 +12200,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
+ *  Optional. The query results format. If the value is anything other than
+ *  `STRUCT_ENCODING` or unspecified: * The schema of the results will be
+ *  provided in `QueryResponse.results_schema` field. * The results of the first
+ *  page will be provided in `QueryResponse.results` field. * The
+ *  `QueryResponse.rows` will not be populated. * The `QueryResponse.schema` for
+ *  `QueryResponse.rows` will also not be populated since it is the schema of
+ *  the `QueryResponse.rows`. This feature is not yet available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_QueryRequest_QueryResultsFormat_Arrow Arrow is a
+ *        standard open source column-based message format. See
+ *        https://arrow.apache.org/ for more details. (Value: "ARROW")
+ *    @arg @c kGTLRBigquery_QueryRequest_QueryResultsFormat_QueryResultsFormatUnspecified
+ *        If unspecified it will default to struct `QueryResponse.rows`
+ *        (`STRUCT_ENCODING`) (Value: "QUERY_RESULTS_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_QueryRequest_QueryResultsFormat_StructEncoding
+ *        Default encoding of results as struct in `QueryResponse.rows` (Value:
+ *        "STRUCT_ENCODING")
+ */
+@property(nonatomic, copy, nullable) NSString *queryResultsFormat;
+
+/**
  *  Optional. A unique user provided identifier to ensure idempotent behavior
  *  for queries. Note that this is different from the job_id. It has the
  *  following properties: 1. It is case-sensitive, limited to up to 36 ASCII
@@ -11944,7 +12247,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Optional. The reservation that jobs.query request would use. User can
  *  specify a reservation to execute the job.query. The expected format is
- *  `projects/{project}/locations/{location}/reservations/{reservation}`.
+ *  `projects/{project}/locations/{location}/reservations/{reservation}`. Forces
+ *  the query to use on-demand billing when set to `none`. This requires the
+ *  project or organization to have `reservation_override_mode` set to
+ *  `ALLOW_ANY_OVERRIDE`.
  */
 @property(nonatomic, copy, nullable) NSString *reservation;
 
@@ -12019,6 +12325,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  GTLRBigquery_QueryResponse
  */
 @interface GTLRBigquery_QueryResponse : GTLRObject
+
+/** Output only. Serialized row data in Arrow RecordBatch format. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArrowRecordBatch *arrowRecordBatch;
+
+/** Output only. Arrow schema */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArrowSchema *arrowSchema;
 
 /**
  *  Whether the query result was fetched from the query cache.
@@ -12101,6 +12413,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numDmlAffectedRows;
+
+/**
+ *  Output only. The number of rows out of `total_rows` returned in this
+ *  response. This feature is not yet available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageRowCount;
 
 /**
  *  A token used for paging results. A non-empty token indicates that additional

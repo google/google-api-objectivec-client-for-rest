@@ -28,7 +28,6 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfigRiskAnalysis;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy;
-@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateResourcePolicyRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1UpdateServiceRequest;
@@ -37,7 +36,6 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -48,9 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity.minDeviceRecognitionLevel
 
 /**
- *  Default value. Do not specify this value directly. When this default value
- *  is detected in a configuration, the `NO_INTEGRITY` default level takes
- *  effect.
+ *  Default value. Do not specify this value directly. If this value is detected
+ *  in a configuration, it will have the same effect as the value
+ *  `NO_INTEGRITY`.
  *
  *  Value: "DEVICE_RECOGNITION_LEVEL_UNSPECIFIED"
  */
@@ -115,53 +113,55 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.enforcementMode
 
 /**
- *  The relevant App Check protection is enforced for the service or resource.
- *  The service or resource will reject any traffic not accompanied by an App
- *  Check token that is deemded valid by the relevant protection. There are some
+ *  When a particular protection is set to this mode, that protection is
+ *  enforced for the service or resource. It will reject any traffic not
+ *  accompanied by an App Check token that it deems valid. There are some
  *  exceptions depending on the service; for example, some services will still
  *  allow requests bearing the developer's privileged service account
  *  credentials without an App Check token. App Check metrics continue to be
  *  collected to help you detect issues with your App Check integration and
  *  monitor the composition of your callers. While the service is protected by
- *  App Check, other applicable protections, such as user authorization,
- *  continue to be enforced at the same time. Use caution when choosing to
- *  enforce App Check protections. If your users have not updated to a version
- *  of your app that meets the requirements of the relevant App Check
+ *  App Check, other applicable protections outside of App Check, such as user
+ *  authorization, continue to be applied at the same time. Use caution when
+ *  choosing to enforce App Check protections. If your users have not updated to
+ *  a version of your app that meets the requirements of the relevant App Check
  *  protection, their app may stop working. App Check metrics can help you
- *  decide whether to enforce App Check on your services and resources. If your
- *  app has not launched yet, you should enable enforcement as soon as you
- *  verify that your App Check implementation is correct, since there are no
- *  outdated clients in use. Some services require certain conditions to be met
- *  before they will work with App Check, such as requiring you to upgrade to a
- *  specific service tier. Until those requirements are met for a service, this
- *  `ENFORCED` setting will have no effect and App Check will not work with that
- *  service.
+ *  decide when to enforce that protection on your services and resources. If
+ *  you have not yet published your app, you should enable enforcement as soon
+ *  as you verify that your App Check implementation is correct, since there are
+ *  no outdated clients in use. Some services require certain conditions to be
+ *  met before they will work with App Check, such as requiring you to upgrade
+ *  to a specific service tier. Until those requirements are met for a service,
+ *  this `ENFORCED` setting will have no effect and App Check will not work with
+ *  that service.
  *
  *  Value: "ENFORCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Enforced;
 /**
- *  The relevant App Check protection is not enforced for the service or
- *  resource, nor are App Check metrics collected. Though the relevant App Check
- *  protection is not applied, other applicable protections, such as user
- *  authorization, are still enforced. An unconfigured protection is in this
+ *  When a particular protection is set to this mode, that protection is not
+ *  applied for the service or resource, nor are metrics related to that
+ *  protection collected. Though the relevant App Check protection is not
+ *  applied, other applicable protections outside of App Check, such as user
+ *  authorization, are still applied. An unconfigured EnforcementMode is in this
  *  mode by default.
  *
  *  Value: "OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Off;
 /**
- *  The relevant App Check protection is not enforced for the service or
- *  resource. App Check metrics are collected to help you decide when to turn on
- *  enforcement. These metrics will show the portion of traffic that is deemed
- *  invalid by the relevant App Check protection, but that traffic will not be
- *  rejected until you turn on enforcement. Though the relevant App Check
- *  protection is not enforced, other applicable protections, such as user
- *  authorization, are still enforced. Some services require certain conditions
- *  to be met before they will work with App Check, such as requiring you to
- *  upgrade to a specific service tier. Until those requirements are met for a
- *  service, this `UNENFORCED` setting will have no effect and App Check will
- *  not work with that service.
+ *  When a particular protection is set to this mode, that protection is not
+ *  enforced for the service or resource. Metrics related to that protection are
+ *  collected to help you decide when to turn on enforcement. These metrics will
+ *  show the portion of traffic that is deemed invalid by that protection, but
+ *  that traffic will not be rejected until you turn on enforcement. This
+ *  `UNENFORCED` mode is also known as monitoring-only mode. Though the relevant
+ *  App Check protection is not enforced, other applicable protections outside
+ *  of App Check, such as user authorization, are still applied. Some services
+ *  require certain conditions to be met before they will work with App Check,
+ *  such as requiring you to upgrade to a specific service tier. Until those
+ *  requirements are met for a service, this `UNENFORCED` setting will have no
+ *  effect and App Check will not work with that service.
  *
  *  Value: "UNENFORCED"
  */
@@ -171,53 +171,55 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service.enforcementMode
 
 /**
- *  The relevant App Check protection is enforced for the service or resource.
- *  The service or resource will reject any traffic not accompanied by an App
- *  Check token that is deemded valid by the relevant protection. There are some
+ *  When a particular protection is set to this mode, that protection is
+ *  enforced for the service or resource. It will reject any traffic not
+ *  accompanied by an App Check token that it deems valid. There are some
  *  exceptions depending on the service; for example, some services will still
  *  allow requests bearing the developer's privileged service account
  *  credentials without an App Check token. App Check metrics continue to be
  *  collected to help you detect issues with your App Check integration and
  *  monitor the composition of your callers. While the service is protected by
- *  App Check, other applicable protections, such as user authorization,
- *  continue to be enforced at the same time. Use caution when choosing to
- *  enforce App Check protections. If your users have not updated to a version
- *  of your app that meets the requirements of the relevant App Check
+ *  App Check, other applicable protections outside of App Check, such as user
+ *  authorization, continue to be applied at the same time. Use caution when
+ *  choosing to enforce App Check protections. If your users have not updated to
+ *  a version of your app that meets the requirements of the relevant App Check
  *  protection, their app may stop working. App Check metrics can help you
- *  decide whether to enforce App Check on your services and resources. If your
- *  app has not launched yet, you should enable enforcement as soon as you
- *  verify that your App Check implementation is correct, since there are no
- *  outdated clients in use. Some services require certain conditions to be met
- *  before they will work with App Check, such as requiring you to upgrade to a
- *  specific service tier. Until those requirements are met for a service, this
- *  `ENFORCED` setting will have no effect and App Check will not work with that
- *  service.
+ *  decide when to enforce that protection on your services and resources. If
+ *  you have not yet published your app, you should enable enforcement as soon
+ *  as you verify that your App Check implementation is correct, since there are
+ *  no outdated clients in use. Some services require certain conditions to be
+ *  met before they will work with App Check, such as requiring you to upgrade
+ *  to a specific service tier. Until those requirements are met for a service,
+ *  this `ENFORCED` setting will have no effect and App Check will not work with
+ *  that service.
  *
  *  Value: "ENFORCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Enforced;
 /**
- *  The relevant App Check protection is not enforced for the service or
- *  resource, nor are App Check metrics collected. Though the relevant App Check
- *  protection is not applied, other applicable protections, such as user
- *  authorization, are still enforced. An unconfigured protection is in this
+ *  When a particular protection is set to this mode, that protection is not
+ *  applied for the service or resource, nor are metrics related to that
+ *  protection collected. Though the relevant App Check protection is not
+ *  applied, other applicable protections outside of App Check, such as user
+ *  authorization, are still applied. An unconfigured EnforcementMode is in this
  *  mode by default.
  *
  *  Value: "OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off;
 /**
- *  The relevant App Check protection is not enforced for the service or
- *  resource. App Check metrics are collected to help you decide when to turn on
- *  enforcement. These metrics will show the portion of traffic that is deemed
- *  invalid by the relevant App Check protection, but that traffic will not be
- *  rejected until you turn on enforcement. Though the relevant App Check
- *  protection is not enforced, other applicable protections, such as user
- *  authorization, are still enforced. Some services require certain conditions
- *  to be met before they will work with App Check, such as requiring you to
- *  upgrade to a specific service tier. Until those requirements are met for a
- *  service, this `UNENFORCED` setting will have no effect and App Check will
- *  not work with that service.
+ *  When a particular protection is set to this mode, that protection is not
+ *  enforced for the service or resource. Metrics related to that protection are
+ *  collected to help you decide when to turn on enforcement. These metrics will
+ *  show the portion of traffic that is deemed invalid by that protection, but
+ *  that traffic will not be rejected until you turn on enforcement. This
+ *  `UNENFORCED` mode is also known as monitoring-only mode. Though the relevant
+ *  App Check protection is not enforced, other applicable protections outside
+ *  of App Check, such as user authorization, are still applied. Some services
+ *  require certain conditions to be met before they will work with App Check,
+ *  such as requiring you to upgrade to a specific service tier. Until those
+ *  requirements are met for a service, this `UNENFORCED` setting will have no
+ *  effect and App Check will not work with that service.
  *
  *  Value: "UNENFORCED"
  */
@@ -227,53 +229,55 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service.replayProtection
 
 /**
- *  The relevant App Check protection is enforced for the service or resource.
- *  The service or resource will reject any traffic not accompanied by an App
- *  Check token that is deemded valid by the relevant protection. There are some
+ *  When a particular protection is set to this mode, that protection is
+ *  enforced for the service or resource. It will reject any traffic not
+ *  accompanied by an App Check token that it deems valid. There are some
  *  exceptions depending on the service; for example, some services will still
  *  allow requests bearing the developer's privileged service account
  *  credentials without an App Check token. App Check metrics continue to be
  *  collected to help you detect issues with your App Check integration and
  *  monitor the composition of your callers. While the service is protected by
- *  App Check, other applicable protections, such as user authorization,
- *  continue to be enforced at the same time. Use caution when choosing to
- *  enforce App Check protections. If your users have not updated to a version
- *  of your app that meets the requirements of the relevant App Check
+ *  App Check, other applicable protections outside of App Check, such as user
+ *  authorization, continue to be applied at the same time. Use caution when
+ *  choosing to enforce App Check protections. If your users have not updated to
+ *  a version of your app that meets the requirements of the relevant App Check
  *  protection, their app may stop working. App Check metrics can help you
- *  decide whether to enforce App Check on your services and resources. If your
- *  app has not launched yet, you should enable enforcement as soon as you
- *  verify that your App Check implementation is correct, since there are no
- *  outdated clients in use. Some services require certain conditions to be met
- *  before they will work with App Check, such as requiring you to upgrade to a
- *  specific service tier. Until those requirements are met for a service, this
- *  `ENFORCED` setting will have no effect and App Check will not work with that
- *  service.
+ *  decide when to enforce that protection on your services and resources. If
+ *  you have not yet published your app, you should enable enforcement as soon
+ *  as you verify that your App Check implementation is correct, since there are
+ *  no outdated clients in use. Some services require certain conditions to be
+ *  met before they will work with App Check, such as requiring you to upgrade
+ *  to a specific service tier. Until those requirements are met for a service,
+ *  this `ENFORCED` setting will have no effect and App Check will not work with
+ *  that service.
  *
  *  Value: "ENFORCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Enforced;
 /**
- *  The relevant App Check protection is not enforced for the service or
- *  resource, nor are App Check metrics collected. Though the relevant App Check
- *  protection is not applied, other applicable protections, such as user
- *  authorization, are still enforced. An unconfigured protection is in this
+ *  When a particular protection is set to this mode, that protection is not
+ *  applied for the service or resource, nor are metrics related to that
+ *  protection collected. Though the relevant App Check protection is not
+ *  applied, other applicable protections outside of App Check, such as user
+ *  authorization, are still applied. An unconfigured EnforcementMode is in this
  *  mode by default.
  *
  *  Value: "OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Off;
 /**
- *  The relevant App Check protection is not enforced for the service or
- *  resource. App Check metrics are collected to help you decide when to turn on
- *  enforcement. These metrics will show the portion of traffic that is deemed
- *  invalid by the relevant App Check protection, but that traffic will not be
- *  rejected until you turn on enforcement. Though the relevant App Check
- *  protection is not enforced, other applicable protections, such as user
- *  authorization, are still enforced. Some services require certain conditions
- *  to be met before they will work with App Check, such as requiring you to
- *  upgrade to a specific service tier. Until those requirements are met for a
- *  service, this `UNENFORCED` setting will have no effect and App Check will
- *  not work with that service.
+ *  When a particular protection is set to this mode, that protection is not
+ *  enforced for the service or resource. Metrics related to that protection are
+ *  collected to help you decide when to turn on enforcement. These metrics will
+ *  show the portion of traffic that is deemed invalid by that protection, but
+ *  that traffic will not be rejected until you turn on enforcement. This
+ *  `UNENFORCED` mode is also known as monitoring-only mode. Though the relevant
+ *  App Check protection is not enforced, other applicable protections outside
+ *  of App Check, such as user authorization, are still applied. Some services
+ *  require certain conditions to be met before they will work with App Check,
+ *  such as requiring you to upgrade to a specific service tier. Until those
+ *  requirements are met for a service, this `UNENFORCED` setting will have no
+ *  effect and App Check will not work with that service.
  *
  *  Value: "UNENFORCED"
  */
@@ -390,18 +394,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
- *  Response message for the BatchGetSafetyNetConfigs method.
- */
-GTLR_DEPRECATED
-@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse : GTLRObject
-
-/** SafetyNetConfigs retrieved. */
-@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig *> *configs;
-
-@end
-
-
-/**
  *  Request message for the BatchUpdateResourcePolicies method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesRequest : GTLRObject
@@ -502,7 +494,7 @@ GTLR_DEPRECATED
 /**
  *  Required. Input only. Immutable. The secret token itself. Must be provided
  *  during creation, and must be a UUID4, case insensitive. This field is
- *  immutable once set, and cannot be provided during an UpdateDebugToken
+ *  immutable once set, and cannot be provided during a UpdateDebugToken
  *  request. You can, however, delete this debug token using DeleteDebugToken to
  *  revoke it. For security reasons, this field will never be populated in any
  *  response.
@@ -685,6 +677,24 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customToken;
 
 /**
+ *  Optional. When `limited_use` is set to `true`, this field specifies the
+ *  desired `jti` claim (Section 4.1.7 of RFC 7519) in the returned App Check
+ *  token. *Limited use* App Check tokens with the same `jti` will be counted as
+ *  the same token for the purposes of replay protection. An error is returned
+ *  if this field is specified without setting `limited_use` to `true`. The size
+ *  of this field is limited to 500 bytes. If specified, its length must be at
+ *  least 16 bytes. If this field is omitted or is empty and `limited_use` is
+ *  set to `true`, a randomly generated `jti` claim with length between 16 and
+ *  500 bytes (inclusive) will be used in the returned App Check token. Leaving
+ *  this field empty is only recommended if your custom attestation provider
+ *  itself is not vulnerable to replay attacks. When `limited_use` is set to
+ *  `false`, the presence and the contents of the `jti` claim in the returned
+ *  App Check token are unspecified. To ensure that the returned App Check token
+ *  is eligible for limited-use functionality, set `limited_use` to `true`.
+ */
+@property(nonatomic, copy, nullable) NSString *jti;
+
+/**
  *  Specifies whether this attestation is for use in a *limited use* (`true`) or
  *  *session based* (`false`) context. To enable this attestation to be used
  *  with the *replay protection* feature, set this to `true`. The default value
@@ -816,22 +826,6 @@ GTLR_DEPRECATED
  *  API](https://developers.google.com/recaptcha/docs/v3).
  */
 @property(nonatomic, copy, nullable) NSString *recaptchaV3Token;
-
-@end
-
-
-/**
- *  Request message for the ExchangeSafetyNetToken method.
- */
-GTLR_DEPRECATED
-@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest : GTLRObject
-
-/**
- *  Required. The [SafetyNet attestation
- *  response](https://developer.android.com/training/safetynet/attestation#request-attestation-step)
- *  issued to your app.
- */
-@property(nonatomic, copy, nullable) NSString *safetyNetToken;
 
 @end
 
@@ -1141,9 +1135,9 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_DeviceRecognitionLevelUnspecified
- *        Default value. Do not specify this value directly. When this default
- *        value is detected in a configuration, the `NO_INTEGRITY` default level
- *        takes effect. (Value: "DEVICE_RECOGNITION_LEVEL_UNSPECIFIED")
+ *        Default value. Do not specify this value directly. If this value is
+ *        detected in a configuration, it will have the same effect as the value
+ *        `NO_INTEGRITY`. (Value: "DEVICE_RECOGNITION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsBasicIntegrity
  *        This level corresponds to the `MEETS_BASIC_INTEGRITY` [optional device
  *        recognition
@@ -1381,48 +1375,51 @@ GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy : GTLRObject
 
 /**
- *  Required. The App Check enforcement mode for this resource. This will
- *  override the App Check overall EnforcementMode setting on the service.
+ *  Required. The baseline protection EnforcementMode for this resource. This
+ *  will override the service-level baseline protection EnforcementMode.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Enforced
- *        The relevant App Check protection is enforced for the service or
- *        resource. The service or resource will reject any traffic not
- *        accompanied by an App Check token that is deemded valid by the
- *        relevant protection. There are some exceptions depending on the
- *        service; for example, some services will still allow requests bearing
- *        the developer's privileged service account credentials without an App
- *        Check token. App Check metrics continue to be collected to help you
- *        detect issues with your App Check integration and monitor the
- *        composition of your callers. While the service is protected by App
- *        Check, other applicable protections, such as user authorization,
- *        continue to be enforced at the same time. Use caution when choosing to
- *        enforce App Check protections. If your users have not updated to a
- *        version of your app that meets the requirements of the relevant App
- *        Check protection, their app may stop working. App Check metrics can
- *        help you decide whether to enforce App Check on your services and
- *        resources. If your app has not launched yet, you should enable
- *        enforcement as soon as you verify that your App Check implementation
- *        is correct, since there are no outdated clients in use. Some services
- *        require certain conditions to be met before they will work with App
- *        Check, such as requiring you to upgrade to a specific service tier.
- *        Until those requirements are met for a service, this `ENFORCED`
- *        setting will have no effect and App Check will not work with that
- *        service. (Value: "ENFORCED")
+ *        When a particular protection is set to this mode, that protection is
+ *        enforced for the service or resource. It will reject any traffic not
+ *        accompanied by an App Check token that it deems valid. There are some
+ *        exceptions depending on the service; for example, some services will
+ *        still allow requests bearing the developer's privileged service
+ *        account credentials without an App Check token. App Check metrics
+ *        continue to be collected to help you detect issues with your App Check
+ *        integration and monitor the composition of your callers. While the
+ *        service is protected by App Check, other applicable protections
+ *        outside of App Check, such as user authorization, continue to be
+ *        applied at the same time. Use caution when choosing to enforce App
+ *        Check protections. If your users have not updated to a version of your
+ *        app that meets the requirements of the relevant App Check protection,
+ *        their app may stop working. App Check metrics can help you decide when
+ *        to enforce that protection on your services and resources. If you have
+ *        not yet published your app, you should enable enforcement as soon as
+ *        you verify that your App Check implementation is correct, since there
+ *        are no outdated clients in use. Some services require certain
+ *        conditions to be met before they will work with App Check, such as
+ *        requiring you to upgrade to a specific service tier. Until those
+ *        requirements are met for a service, this `ENFORCED` setting will have
+ *        no effect and App Check will not work with that service. (Value:
+ *        "ENFORCED")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Off
- *        The relevant App Check protection is not enforced for the service or
- *        resource, nor are App Check metrics collected. Though the relevant App
- *        Check protection is not applied, other applicable protections, such as
- *        user authorization, are still enforced. An unconfigured protection is
- *        in this mode by default. (Value: "OFF")
+ *        When a particular protection is set to this mode, that protection is
+ *        not applied for the service or resource, nor are metrics related to
+ *        that protection collected. Though the relevant App Check protection is
+ *        not applied, other applicable protections outside of App Check, such
+ *        as user authorization, are still applied. An unconfigured
+ *        EnforcementMode is in this mode by default. (Value: "OFF")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Unenforced
- *        The relevant App Check protection is not enforced for the service or
- *        resource. App Check metrics are collected to help you decide when to
- *        turn on enforcement. These metrics will show the portion of traffic
- *        that is deemed invalid by the relevant App Check protection, but that
- *        traffic will not be rejected until you turn on enforcement. Though the
- *        relevant App Check protection is not enforced, other applicable
- *        protections, such as user authorization, are still enforced. Some
+ *        When a particular protection is set to this mode, that protection is
+ *        not enforced for the service or resource. Metrics related to that
+ *        protection are collected to help you decide when to turn on
+ *        enforcement. These metrics will show the portion of traffic that is
+ *        deemed invalid by that protection, but that traffic will not be
+ *        rejected until you turn on enforcement. This `UNENFORCED` mode is also
+ *        known as monitoring-only mode. Though the relevant App Check
+ *        protection is not enforced, other applicable protections outside of
+ *        App Check, such as user authorization, are still applied. Some
  *        services require certain conditions to be met before they will work
  *        with App Check, such as requiring you to upgrade to a specific service
  *        tier. Until those requirements are met for a service, this
@@ -1472,80 +1469,55 @@ GTLR_DEPRECATED
 
 
 /**
- *  An app's SafetyNet configuration object. This configuration controls certain
- *  properties of the `AppCheckToken` returned by ExchangeSafetyNetToken, such
- *  as its ttl. Note that your registered SHA-256 certificate fingerprints are
- *  used to validate tokens issued by SafetyNet; please register them via the
- *  Firebase Console or programmatically via the [Firebase Management
- *  Service](https://firebase.google.com/docs/projects/api/reference/rest/v11/projects.androidApps.sha/create).
- */
-GTLR_DEPRECATED
-@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig : GTLRObject
-
-/**
- *  Required. The relative resource name of the SafetyNet configuration object,
- *  in the format: ``` projects/{project_number}/apps/{app_id}/safetyNetConfig
- *  ```
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Specifies the duration for which App Check tokens exchanged from SafetyNet
- *  tokens will be valid. If unset, a default value of 1 hour is assumed. Must
- *  be between 30 minutes and 7 days, inclusive.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
-
-@end
-
-
-/**
  *  The enforcement configuration for a Firebase service supported by App Check.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service : GTLRObject
 
 /**
- *  Required. The App Check enforcement mode for this service.
+ *  Required. The baseline protection EnforcementMode for this service.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Enforced
- *        The relevant App Check protection is enforced for the service or
- *        resource. The service or resource will reject any traffic not
- *        accompanied by an App Check token that is deemded valid by the
- *        relevant protection. There are some exceptions depending on the
- *        service; for example, some services will still allow requests bearing
- *        the developer's privileged service account credentials without an App
- *        Check token. App Check metrics continue to be collected to help you
- *        detect issues with your App Check integration and monitor the
- *        composition of your callers. While the service is protected by App
- *        Check, other applicable protections, such as user authorization,
- *        continue to be enforced at the same time. Use caution when choosing to
- *        enforce App Check protections. If your users have not updated to a
- *        version of your app that meets the requirements of the relevant App
- *        Check protection, their app may stop working. App Check metrics can
- *        help you decide whether to enforce App Check on your services and
- *        resources. If your app has not launched yet, you should enable
- *        enforcement as soon as you verify that your App Check implementation
- *        is correct, since there are no outdated clients in use. Some services
- *        require certain conditions to be met before they will work with App
- *        Check, such as requiring you to upgrade to a specific service tier.
- *        Until those requirements are met for a service, this `ENFORCED`
- *        setting will have no effect and App Check will not work with that
- *        service. (Value: "ENFORCED")
+ *        When a particular protection is set to this mode, that protection is
+ *        enforced for the service or resource. It will reject any traffic not
+ *        accompanied by an App Check token that it deems valid. There are some
+ *        exceptions depending on the service; for example, some services will
+ *        still allow requests bearing the developer's privileged service
+ *        account credentials without an App Check token. App Check metrics
+ *        continue to be collected to help you detect issues with your App Check
+ *        integration and monitor the composition of your callers. While the
+ *        service is protected by App Check, other applicable protections
+ *        outside of App Check, such as user authorization, continue to be
+ *        applied at the same time. Use caution when choosing to enforce App
+ *        Check protections. If your users have not updated to a version of your
+ *        app that meets the requirements of the relevant App Check protection,
+ *        their app may stop working. App Check metrics can help you decide when
+ *        to enforce that protection on your services and resources. If you have
+ *        not yet published your app, you should enable enforcement as soon as
+ *        you verify that your App Check implementation is correct, since there
+ *        are no outdated clients in use. Some services require certain
+ *        conditions to be met before they will work with App Check, such as
+ *        requiring you to upgrade to a specific service tier. Until those
+ *        requirements are met for a service, this `ENFORCED` setting will have
+ *        no effect and App Check will not work with that service. (Value:
+ *        "ENFORCED")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off
- *        The relevant App Check protection is not enforced for the service or
- *        resource, nor are App Check metrics collected. Though the relevant App
- *        Check protection is not applied, other applicable protections, such as
- *        user authorization, are still enforced. An unconfigured protection is
- *        in this mode by default. (Value: "OFF")
+ *        When a particular protection is set to this mode, that protection is
+ *        not applied for the service or resource, nor are metrics related to
+ *        that protection collected. Though the relevant App Check protection is
+ *        not applied, other applicable protections outside of App Check, such
+ *        as user authorization, are still applied. An unconfigured
+ *        EnforcementMode is in this mode by default. (Value: "OFF")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Unenforced
- *        The relevant App Check protection is not enforced for the service or
- *        resource. App Check metrics are collected to help you decide when to
- *        turn on enforcement. These metrics will show the portion of traffic
- *        that is deemed invalid by the relevant App Check protection, but that
- *        traffic will not be rejected until you turn on enforcement. Though the
- *        relevant App Check protection is not enforced, other applicable
- *        protections, such as user authorization, are still enforced. Some
+ *        When a particular protection is set to this mode, that protection is
+ *        not enforced for the service or resource. Metrics related to that
+ *        protection are collected to help you decide when to turn on
+ *        enforcement. These metrics will show the portion of traffic that is
+ *        deemed invalid by that protection, but that traffic will not be
+ *        rejected until you turn on enforcement. This `UNENFORCED` mode is also
+ *        known as monitoring-only mode. Though the relevant App Check
+ *        protection is not enforced, other applicable protections outside of
+ *        App Check, such as user authorization, are still applied. Some
  *        services require certain conditions to be met before they will work
  *        with App Check, such as requiring you to upgrade to a specific service
  *        tier. Until those requirements are met for a service, this
@@ -1566,64 +1538,79 @@ GTLR_DEPRECATED
  *  Required. The relative resource name of the service configuration object, in
  *  the format: ``` projects/{project_number}/services/{service_id} ``` Note
  *  that the `service_id` element must be a supported service ID. Currently, the
- *  following service IDs are supported: * `firebasestorage.googleapis.com`
- *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
- *  `oauth2.googleapis.com` (Google Identity for iOS)
+ *  following service IDs are supported. Firebase and Google Cloud services: *
+ *  `identitytoolkit.googleapis.com` (Firebase Authentication) *
+ *  `firebasedataconnect.googleapis.com` (Firebase SQL Connect) *
+ *  `firestore.googleapis.com` (Cloud Firestore) *
+ *  `firebasedatabase.googleapis.com` (Firebase Realtime Database) *
+ *  `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
+ *  `firebaseml.googleapis.com` (Firebase AI Logic) Google Maps Platform
+ *  services: * `maps-backend.googleapis.com` (Maps JavaScript API) *
+ *  `places.googleapis.com` (Places API (New)) Other supported Google services:
+ *  * `oauth2.googleapis.com` (Google Identity for iOS) Note: While all the
+ *  supported `service_id`s may appear to be subdomains of `googleapis.com`, the
+ *  `service_id` has no semantic meaning beyond identifying the service to App
+ *  Check. It is not intended to represent the actual domain to which your apps
+ *  send traffic, nor is it necessarily the API that should be enabled to use
+ *  the service. For information on using these Google services, consult their
+ *  documentation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The replay protection enforcement mode for this service. Note that
- *  this field cannot be set to a level higher than the overall App Check
- *  enforcement mode. For example, if the overall App Check enforcement mode is
- *  set to `UNENFORCED`, this field cannot be set to `ENFORCED`. In order to
- *  enforce replay protection, you must first enforce App Check. An HTTP 400
- *  error will be returned in this case. By default, this field is set to `OFF`.
- *  Setting this field to `UNENFORCED` or `ENFORCED` is considered opting into
- *  replay protection. Once opted in, requests to your protected services may
- *  experience higher latency. To opt out of replay protection after opting in,
- *  set this field to `OFF`.
+ *  Optional. The replay protection EnforcementMode for this service. Note that
+ *  this field cannot be set to a level higher than that of baseline protection.
+ *  For example, if the enforcement mode for baseline protection is set to
+ *  `UNENFORCED`, this field cannot be set to `ENFORCED`. In order to enforce
+ *  replay protection, you must first enforce App Check's baseline protection.
+ *  An HTTP 400 error will be returned in this case. By default, this field is
+ *  set to `OFF`. Setting this field to `UNENFORCED` or `ENFORCED` is considered
+ *  opting into replay protection. Opting in can impact your requests by adding
+ *  some latency and sometimes cost (depending on your attestation provider). To
+ *  opt out of replay protection after opting in, set this field to `OFF`.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Enforced
- *        The relevant App Check protection is enforced for the service or
- *        resource. The service or resource will reject any traffic not
- *        accompanied by an App Check token that is deemded valid by the
- *        relevant protection. There are some exceptions depending on the
- *        service; for example, some services will still allow requests bearing
- *        the developer's privileged service account credentials without an App
- *        Check token. App Check metrics continue to be collected to help you
- *        detect issues with your App Check integration and monitor the
- *        composition of your callers. While the service is protected by App
- *        Check, other applicable protections, such as user authorization,
- *        continue to be enforced at the same time. Use caution when choosing to
- *        enforce App Check protections. If your users have not updated to a
- *        version of your app that meets the requirements of the relevant App
- *        Check protection, their app may stop working. App Check metrics can
- *        help you decide whether to enforce App Check on your services and
- *        resources. If your app has not launched yet, you should enable
- *        enforcement as soon as you verify that your App Check implementation
- *        is correct, since there are no outdated clients in use. Some services
- *        require certain conditions to be met before they will work with App
- *        Check, such as requiring you to upgrade to a specific service tier.
- *        Until those requirements are met for a service, this `ENFORCED`
- *        setting will have no effect and App Check will not work with that
- *        service. (Value: "ENFORCED")
+ *        When a particular protection is set to this mode, that protection is
+ *        enforced for the service or resource. It will reject any traffic not
+ *        accompanied by an App Check token that it deems valid. There are some
+ *        exceptions depending on the service; for example, some services will
+ *        still allow requests bearing the developer's privileged service
+ *        account credentials without an App Check token. App Check metrics
+ *        continue to be collected to help you detect issues with your App Check
+ *        integration and monitor the composition of your callers. While the
+ *        service is protected by App Check, other applicable protections
+ *        outside of App Check, such as user authorization, continue to be
+ *        applied at the same time. Use caution when choosing to enforce App
+ *        Check protections. If your users have not updated to a version of your
+ *        app that meets the requirements of the relevant App Check protection,
+ *        their app may stop working. App Check metrics can help you decide when
+ *        to enforce that protection on your services and resources. If you have
+ *        not yet published your app, you should enable enforcement as soon as
+ *        you verify that your App Check implementation is correct, since there
+ *        are no outdated clients in use. Some services require certain
+ *        conditions to be met before they will work with App Check, such as
+ *        requiring you to upgrade to a specific service tier. Until those
+ *        requirements are met for a service, this `ENFORCED` setting will have
+ *        no effect and App Check will not work with that service. (Value:
+ *        "ENFORCED")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Off
- *        The relevant App Check protection is not enforced for the service or
- *        resource, nor are App Check metrics collected. Though the relevant App
- *        Check protection is not applied, other applicable protections, such as
- *        user authorization, are still enforced. An unconfigured protection is
- *        in this mode by default. (Value: "OFF")
+ *        When a particular protection is set to this mode, that protection is
+ *        not applied for the service or resource, nor are metrics related to
+ *        that protection collected. Though the relevant App Check protection is
+ *        not applied, other applicable protections outside of App Check, such
+ *        as user authorization, are still applied. An unconfigured
+ *        EnforcementMode is in this mode by default. (Value: "OFF")
  *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Unenforced
- *        The relevant App Check protection is not enforced for the service or
- *        resource. App Check metrics are collected to help you decide when to
- *        turn on enforcement. These metrics will show the portion of traffic
- *        that is deemed invalid by the relevant App Check protection, but that
- *        traffic will not be rejected until you turn on enforcement. Though the
- *        relevant App Check protection is not enforced, other applicable
- *        protections, such as user authorization, are still enforced. Some
+ *        When a particular protection is set to this mode, that protection is
+ *        not enforced for the service or resource. Metrics related to that
+ *        protection are collected to help you decide when to turn on
+ *        enforcement. These metrics will show the portion of traffic that is
+ *        deemed invalid by that protection, but that traffic will not be
+ *        rejected until you turn on enforcement. This `UNENFORCED` mode is also
+ *        known as monitoring-only mode. Though the relevant App Check
+ *        protection is not enforced, other applicable protections outside of
+ *        App Check, such as user authorization, are still applied. Some
  *        services require certain conditions to be met before they will work
  *        with App Check, such as requiring you to upgrade to a specific service
  *        tier. Until those requirements are met for a service, this
@@ -1652,8 +1639,7 @@ GTLR_DEPRECATED
  *  used to identify the ResourcePolicy to be updated, in the format: ```
  *  projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
  *  ``` Note that the `service_id` element must be a supported service ID.
- *  Currently, the following service IDs are supported: *
- *  `oauth2.googleapis.com` (Google Identity for iOS)
+ *  Consult the ResourcePolicy.name field for a list of supported service IDs.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *resourcePolicy;
 
@@ -1678,11 +1664,8 @@ GTLR_DEPRECATED
  *  Required. The Service to update. The Service's `name` field is used to
  *  identify the Service to be updated, in the format: ```
  *  projects/{project_number}/services/{service_id} ``` Note that the
- *  `service_id` element must be a supported service ID. Currently, the
- *  following service IDs are supported: * `firebasestorage.googleapis.com`
- *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
- *  `oauth2.googleapis.com` (Google Identity for iOS)
+ *  `service_id` element must be a supported service ID. Consult the
+ *  Service.name field for a list of supported service IDs.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service *service;
 

@@ -139,6 +139,33 @@
 
 @end
 
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsEnableManagedRotation
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_EnableManagedRotationRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:enableManagedRotation";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsEnableManagedRotation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.enableManagedRotation";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsGet
 
 @dynamic name;
@@ -222,6 +249,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecretManager_Secret class];
   query.loggingName = @"secretmanager.projects.locations.secrets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsRotateSecret
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_RotateSecretRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:rotateSecret";
+  GTLRSecretManagerQuery_ProjectsLocationsSecretsRotateSecret *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.locations.secrets.rotateSecret";
   return query;
 }
 
@@ -496,6 +550,33 @@
 
 @end
 
+@implementation GTLRSecretManagerQuery_ProjectsSecretsEnableManagedRotation
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_EnableManagedRotationRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:enableManagedRotation";
+  GTLRSecretManagerQuery_ProjectsSecretsEnableManagedRotation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.secrets.enableManagedRotation";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecretManagerQuery_ProjectsSecretsGet
 
 @dynamic name;
@@ -579,6 +660,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecretManager_Secret class];
   query.loggingName = @"secretmanager.projects.secrets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsSecretsRotateSecret
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecretManager_RotateSecretRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:rotateSecret";
+  GTLRSecretManagerQuery_ProjectsSecretsRotateSecret *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecretManager_SecretVersion class];
+  query.loggingName = @"secretmanager.projects.secrets.rotateSecret";
   return query;
 }
 

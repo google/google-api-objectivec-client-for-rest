@@ -86,6 +86,31 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRDrive_Approval.fileContentChangeBehavior
+
+/**
+ *  The behavior is unspecified.
+ *
+ *  Value: "FILE_CONTENT_CHANGE_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_FileContentChangeBehavior_FileContentChangeBehaviorUnspecified;
+/**
+ *  No action is taken when the file content changes.
+ *
+ *  Value: "NO_APPROVAL_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_FileContentChangeBehavior_NoApprovalAction;
+/**
+ *  Any ReviewerResponse with a Response of APPROVED will be reset to
+ *  NO_DECISION when the file content changes while the approval has a Status of
+ *  IN_PROGRESS. When the approval has a Status of APPROVED and RESET_APPROVAL
+ *  is selected, the file is locked.
+ *
+ *  Value: "RESET_APPROVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_FileContentChangeBehavior_ResetApproval;
+
+// ----------------------------------------------------------------------------
 // GTLRDrive_Approval.status
 
 /**
@@ -169,6 +194,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_NoRespon
  *  Value: "RESPONSE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDrive_StartApprovalRequest.fileContentChangeBehavior
+
+/**
+ *  The behavior is unspecified.
+ *
+ *  Value: "FILE_CONTENT_CHANGE_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_FileContentChangeBehaviorUnspecified;
+/**
+ *  No action is taken when the file content changes.
+ *
+ *  Value: "NO_APPROVAL_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_NoApprovalAction;
+/**
+ *  Any ReviewerResponse with a Response of APPROVED will be reset to
+ *  NO_DECISION when the file content changes while the approval has a Status of
+ *  IN_PROGRESS. When the approval has a Status of APPROVED and RESET_APPROVAL
+ *  is selected, the file is locked.
+ *
+ *  Value: "RESET_APPROVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_ResetApproval;
 
 /**
  *  Information about the user, the user's Drive, and system capabilities.
@@ -648,6 +698,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 /** The time that the approval is due. */
 @property(nonatomic, strong, nullable) GTLRDateTime *dueTime;
+
+/**
+ *  Output only. The behavior of the approval when the file content changes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDrive_Approval_FileContentChangeBehavior_FileContentChangeBehaviorUnspecified
+ *        The behavior is unspecified. (Value:
+ *        "FILE_CONTENT_CHANGE_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRDrive_Approval_FileContentChangeBehavior_NoApprovalAction No
+ *        action is taken when the file content changes. (Value:
+ *        "NO_APPROVAL_ACTION")
+ *    @arg @c kGTLRDrive_Approval_FileContentChangeBehavior_ResetApproval Any
+ *        ReviewerResponse with a Response of APPROVED will be reset to
+ *        NO_DECISION when the file content changes while the approval has a
+ *        Status of IN_PROGRESS. When the approval has a Status of APPROVED and
+ *        RESET_APPROVAL is selected, the file is locked. (Value:
+ *        "RESET_APPROVAL")
+ */
+@property(nonatomic, copy, nullable) NSString *fileContentChangeBehavior;
 
 /** The user that requested the approval. */
 @property(nonatomic, strong, nullable) GTLRDrive_User *initiator;
@@ -2141,7 +2210,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, strong, nullable) NSNumber *canAcceptOwnership;
 
 /**
- *  Whether the current user can access this file via Gen AI features.
+ *  Whether the current user can access this file via Gen AI features. For more
+ *  information, see [Drive MCP file
+ *  eligibility](https://developers.google.com/workspace/drive/api/guides/drive-mcp-server-file-eligibility).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3842,6 +3913,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 /** Optional. The time that the approval is due. */
 @property(nonatomic, strong, nullable) GTLRDateTime *dueTime;
+
+/**
+ *  Optional. The behavior of the approval when the file content changes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_FileContentChangeBehaviorUnspecified
+ *        The behavior is unspecified. (Value:
+ *        "FILE_CONTENT_CHANGE_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_NoApprovalAction
+ *        No action is taken when the file content changes. (Value:
+ *        "NO_APPROVAL_ACTION")
+ *    @arg @c kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_ResetApproval
+ *        Any ReviewerResponse with a Response of APPROVED will be reset to
+ *        NO_DECISION when the file content changes while the approval has a
+ *        Status of IN_PROGRESS. When the approval has a Status of APPROVED and
+ *        RESET_APPROVAL is selected, the file is locked. (Value:
+ *        "RESET_APPROVAL")
+ */
+@property(nonatomic, copy, nullable) NSString *fileContentChangeBehavior;
 
 /**
  *  Optional. Whether to lock the file when starting the approval.

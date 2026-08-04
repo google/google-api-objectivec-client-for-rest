@@ -28,6 +28,27 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// chainValidation
+
+/**
+ *  Enable all certificate chain validation and certificate revocation checks.
+ *  Recommended for normal use.
+ *
+ *  Value: "all"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGmailChainValidationAll;
+/**
+ *  Disable all certificate chain validation and certificate revocation checks.
+ *  This may be useful when deliberately creating key pairs with invalid,
+ *  out-of-use certificate chains to be used only for decryption of historical
+ *  S/MIME messages. Key pairs created with invalid or revoked certificates
+ *  cannot be used in a CseIdentity object.
+ *
+ *  Value: "none"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGmailChainValidationNone;
+
+// ----------------------------------------------------------------------------
 // format
 
 /**
@@ -1840,6 +1861,27 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsCseKeypairsCreate : GTLRGmailQuery
+
+/**
+ *  The type of certificate chain validation to perform at creation. The request
+ *  will be rejected if the uploaded chain fails to satisfy the requested
+ *  validation checks. When unspecified, this parameter defaults to `all`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGmailChainValidationAll Enable all certificate chain
+ *        validation and certificate revocation checks. Recommended for normal
+ *        use. (Value: "all")
+ *    @arg @c kGTLRGmailChainValidationNone Disable all certificate chain
+ *        validation and certificate revocation checks. This may be useful when
+ *        deliberately creating key pairs with invalid, out-of-use certificate
+ *        chains to be used only for decryption of historical S/MIME messages.
+ *        Key pairs created with invalid or revoked certificates cannot be used
+ *        in a CseIdentity object. (Value: "none")
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRGmailChainValidationAll.
+ */
+@property(nonatomic, copy, nullable) NSString *chainValidation;
 
 /**
  *  The requester's primary email address. To indicate the authenticated user,

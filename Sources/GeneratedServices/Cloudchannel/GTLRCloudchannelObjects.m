@@ -307,6 +307,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Plan_PaymentType_Postpay 
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Plan_PaymentType_Prepay = @"PREPAY";
 
 // GTLRCloudchannel_GoogleCloudChannelV1PriceByResource.resourceType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_AiCredits = @"AI_CREDITS";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Gb = @"GB";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_IaasUsage = @"IAAS_USAGE";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_LicensedUser = @"LICENSED_USER";

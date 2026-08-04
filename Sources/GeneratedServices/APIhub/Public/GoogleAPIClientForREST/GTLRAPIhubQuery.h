@@ -4709,6 +4709,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 
 @end
 
+/**
+ *  Configures and deploys a given server config for given target. Currently
+ *  this API supports only deploying MCP server in Apigee X. For mcp server
+ *  deployment in apigee X, if there is already a mcp proxy deployed, then this
+ *  method will try to overwrite it by creating new revision i.e. all existing
+ *  tools will be removed and new set of tools will be deployed.
+ *
+ *  Method: apihub.projects.locations.servers.configureAndDeployServer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ *    @c kGTLRAuthScopeAPIhubReadwrite
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsServersConfigureAndDeployServer : GTLRAPIhubQuery
+
+/** Required. Format: `projects/{project}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleLongrunningOperation.
+ *
+ *  Configures and deploys a given server config for given target. Currently
+ *  this API supports only deploying MCP server in Apigee X. For mcp server
+ *  deployment in apigee X, if there is already a mcp proxy deployed, then this
+ *  method will try to overwrite it by creating new revision i.e. all existing
+ *  tools will be removed and new set of tools will be deployed.
+ *
+ *  @param object The @c
+ *    GTLRAPIhub_GoogleCloudApihubV1ConfigureAndDeployServerRequest to include
+ *    in the query.
+ *  @param parent Required. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsServersConfigureAndDeployServer
+ */
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ConfigureAndDeployServerRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

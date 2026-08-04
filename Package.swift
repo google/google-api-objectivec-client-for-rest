@@ -62,6 +62,14 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Advisorynotifications"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AgentIdentity",
+            targets: ["GoogleAPIClientForREST_AgentIdentity"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_AgentIdentityCredentials",
+            targets: ["GoogleAPIClientForREST_AgentIdentityCredentials"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AgentRegistry",
             targets: ["GoogleAPIClientForREST_AgentRegistry"]
         ),
@@ -648,6 +656,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_FirebaseCloudMessaging",
             targets: ["GoogleAPIClientForREST_FirebaseCloudMessaging"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_FirebaseCrashlytics",
+            targets: ["GoogleAPIClientForREST_FirebaseCrashlytics"]
         ),
         .library(
             name: "GoogleAPIClientForREST_FirebaseDataConnect",
@@ -1339,6 +1351,18 @@ let package = Package(
             name: "GoogleAPIClientForREST_Advisorynotifications",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Advisorynotifications",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AgentIdentity",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AgentIdentity",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AgentIdentityCredentials",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AgentIdentityCredentials",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2221,6 +2245,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_FirebaseCloudMessaging",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/FirebaseCloudMessaging",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_FirebaseCrashlytics",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/FirebaseCrashlytics",
             publicHeadersPath: "Public"
         ),
         .target(

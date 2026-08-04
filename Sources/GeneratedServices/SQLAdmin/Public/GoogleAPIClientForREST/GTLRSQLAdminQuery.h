@@ -557,14 +557,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *  Retrieves connect settings about a Cloud SQL instance using the instance DNS
  *  name.
  *
+ *  @param location Required. The region of the instance.
  *  @param dnsName Required. Cloud SQL instance ID. This does not include the
  *    project ID.
- *  @param location Required. The region of the instance.
  *
  *  @return GTLRSQLAdminQuery_ConnectResolve
  */
-+ (instancetype)queryWithDnsName:(NSString *)dnsName
-                        location:(NSString *)location;
++ (instancetype)queryWithLocation:(NSString *)location
+                          dnsName:(NSString *)dnsName;
 
 @end
 
@@ -1592,6 +1592,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Optional. Set PSC config to the same value as the existing config to
+ *  reconcile the PSC networking.
+ */
+@property(nonatomic, assign) BOOL reconcilePscNetworking;
+
+/**
+ *  Optional. Set PSC config to the same value as the existing config and force
+ *  reconcile the PSC networking.
+ */
+@property(nonatomic, assign) BOOL reconcilePscNetworkingForce;
+
+/**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
  *  Partially updates settings of a Cloud SQL instance by merging the request
@@ -2226,6 +2238,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  */
 @interface GTLRSQLAdminQuery_OperationsCancel : GTLRSQLAdminQuery
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Instance operation ID. */
 @property(nonatomic, copy, nullable) NSString *operation;
 
@@ -2257,6 +2272,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_OperationsGet : GTLRSQLAdminQuery
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. Instance operation ID. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -2294,6 +2312,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Maximum number of operations per response. */
 @property(nonatomic, assign) NSUInteger maxResults;
@@ -2974,6 +2995,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *  specified in `database_roles` are added to the user's existing roles.
  */
 @property(nonatomic, assign) BOOL revokeExistingRoles;
+
+/**
+ *  Optional. Specifies whether to revoke existing roles that are not present in
+ *  the `server_roles` field. If `false` or unset, the server roles specified in
+ *  `server_roles` are added to the user's existing server roles.
+ */
+@property(nonatomic, assign) BOOL revokeExistingServerRoles;
+
+/**
+ *  Optional. The server roles to grant to the SQL Server login. Existing server
+ *  roles will not be revoked if revoke_existing_roles is false.
+ *  body.server_roles will be ignored for update request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serverRoles;
 
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.

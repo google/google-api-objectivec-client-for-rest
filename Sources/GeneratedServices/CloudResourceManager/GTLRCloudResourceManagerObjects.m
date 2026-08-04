@@ -294,6 +294,30 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_FetchResourceSemanticsResponse
+//
+
+@implementation GTLRCloudResourceManager_FetchResourceSemanticsResponse
+@dynamic fullResourceName, semantics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_FetchResourceSemanticsResponse_Semantics
+//
+
+@implementation GTLRCloudResourceManager_FetchResourceSemanticsResponse_Semantics
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Folder
 //
 

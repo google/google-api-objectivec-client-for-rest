@@ -913,6 +913,24 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Thursda
 NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Tuesday = @"TUESDAY";
 NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesday = @"WEDNESDAY";
 
+// GTLROracleDatabase_SourceConfig.cloneType
+NSString * const kGTLROracleDatabase_SourceConfig_CloneType_CloneTypeUnspecified = @"CLONE_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_SourceConfig_CloneType_Full = @"FULL";
+NSString * const kGTLROracleDatabase_SourceConfig_CloneType_Metadata = @"METADATA";
+
+// GTLROracleDatabase_SourceConfig.refreshableMode
+NSString * const kGTLROracleDatabase_SourceConfig_RefreshableMode_Automatic = @"AUTOMATIC";
+NSString * const kGTLROracleDatabase_SourceConfig_RefreshableMode_Manual = @"MANUAL";
+NSString * const kGTLROracleDatabase_SourceConfig_RefreshableMode_RefreshableModeUnspecified = @"REFRESHABLE_MODE_UNSPECIFIED";
+
+// GTLROracleDatabase_SourceConfig.sourceType
+NSString * const kGTLROracleDatabase_SourceConfig_SourceType_BackupFromId = @"BACKUP_FROM_ID";
+NSString * const kGTLROracleDatabase_SourceConfig_SourceType_BackupFromTimestamp = @"BACKUP_FROM_TIMESTAMP";
+NSString * const kGTLROracleDatabase_SourceConfig_SourceType_CloneDatabase = @"CLONE_DATABASE";
+NSString * const kGTLROracleDatabase_SourceConfig_SourceType_CloneToRefreshable = @"CLONE_TO_REFRESHABLE";
+NSString * const kGTLROracleDatabase_SourceConfig_SourceType_CrossRegionDisasterRecovery = @"CROSS_REGION_DISASTER_RECOVERY";
+NSString * const kGTLROracleDatabase_SourceConfig_SourceType_SourceTypeUnspecified = @"SOURCE_TYPE_UNSPECIFIED";
+
 // GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest.type
 NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_Default = @"DEFAULT";
 NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentRequest_Type_TestTypeUnspecified = @"TEST_TYPE_UNSPECIFIED";
@@ -1092,10 +1110,11 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
          memoryPerOracleComputeUnitGbs, memoryTableGbs, mtlsConnectionRequired,
          nCharacterSet, nextLongTermBackupTime, ocid, ociUrl, openMode,
          operationsInsightsState, peerDbIds, permissionLevel, privateEndpoint,
-         privateEndpointIp, privateEndpointLabel, refreshableMode,
-         refreshableState, role, scheduledOperationDetails, secretId,
-         serviceAgentEmail, sqlWebDeveloperUrl, state, supportedCloneRegions,
-         totalAutoBackupStorageSizeGbs, usedDataStorageSizeTbs, vaultId;
+         privateEndpointIp, privateEndpointLabel, refreshableClone,
+         refreshableMode, refreshableState, role, scheduledOperationDetails,
+         secretId, serviceAgentEmail, sqlWebDeveloperUrl, state,
+         supportedCloneRegions, totalAutoBackupStorageSizeGbs,
+         usedDataStorageSizeTbs, vaultId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1106,6 +1125,34 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
     @"peerDbIds" : [NSString class],
     @"scheduledOperationDetails" : [GTLROracleDatabase_ScheduledOperationDetails class],
     @"supportedCloneRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_AutonomousDatabaseRefreshableClone
+//
+
+@implementation GTLROracleDatabase_AutonomousDatabaseRefreshableClone
+@dynamic name, region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_AutonomousDatabaseRefreshableClones
+//
+
+@implementation GTLROracleDatabase_AutonomousDatabaseRefreshableClones
+@dynamic autonomousDatabaseRefreshableClones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autonomousDatabaseRefreshableClones" : [GTLROracleDatabase_AutonomousDatabaseRefreshableClone class]
   };
   return map;
 }
@@ -1560,10 +1607,11 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 //
 
 @implementation GTLROracleDatabase_DbSystemShape
-@dynamic availableCoreCountPerNode, availableDataStorageTb,
-         availableMemoryPerNodeGb, maxNodeCount, maxStorageCount,
-         minCoreCountPerNode, minDbNodeStoragePerNodeGb, minMemoryPerNodeGb,
-         minNodeCount, minStorageCount, name, shape;
+@dynamic availableCoreCount, availableCoreCountPerNode, availableDataStorageTb,
+         availableMemoryPerNodeGb, coreCountIncrement, maxNodeCount,
+         maxStorageCount, minCoreCountPerNode, minDbNodeStoragePerNodeGb,
+         minimumCoreCount, minMemoryPerNodeGb, minNodeCount, minStorageCount,
+         name, shape;
 @end
 
 
@@ -1674,7 +1722,7 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 @implementation GTLROracleDatabase_ExadbVmCluster
 @dynamic backupOdbSubnet, createTime, displayName, entitlementId, gcpOracleZone,
-         labels, name, odbNetwork, odbSubnet, properties;
+         identityConnector, labels, name, odbNetwork, odbSubnet, properties;
 @end
 
 
@@ -3606,6 +3654,16 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_RefreshAutonomousDatabaseRequest
+//
+
+@implementation GTLROracleDatabase_RefreshAutonomousDatabaseRequest
+@dynamic refreshCutoffTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest
 //
 
@@ -3667,7 +3725,10 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 //
 
 @implementation GTLROracleDatabase_SourceConfig
-@dynamic automaticBackupsReplicationEnabled, autonomousDatabase;
+@dynamic automaticBackupsReplicationEnabled, autonomousDatabase,
+         autonomousDatabaseBackup, autoRefreshFrequencySeconds,
+         autoRefreshPointLagSeconds, autoRefreshStartTime, backupTime,
+         cloneType, refreshableMode, sourceType, useLatestAvailableBackup;
 @end
 
 

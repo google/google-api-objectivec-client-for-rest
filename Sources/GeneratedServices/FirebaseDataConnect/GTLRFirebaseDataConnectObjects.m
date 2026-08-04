@@ -17,6 +17,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRFirebaseDataConnect_CloudSqlInstance.edition
+NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionDeveloper = @"EDITION_DEVELOPER";
+NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionEnterprise = @"EDITION_ENTERPRISE";
+NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionEnterprisePlus = @"EDITION_ENTERPRISE_PLUS";
+NSString * const kGTLRFirebaseDataConnect_CloudSqlInstance_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+
 // GTLRFirebaseDataConnect_GenerationStatus.state
 NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_AnalyzingCode = @"ANALYZING_CODE";
 NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_Completed = @"COMPLETED";
@@ -84,7 +90,7 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_CloudSqlInstance
-@dynamic instance;
+@dynamic edition, instance;
 @end
 
 
@@ -818,11 +824,19 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_Service
-@dynamic annotations, createTime, displayName, ETag, labels, name, reconciling,
-         uid, updateTime;
+@dynamic annotations, connectors, createTime, displayName, ETag, labels, name,
+         reconciling, schemas, source, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectors" : [GTLRFirebaseDataConnect_Connector class],
+    @"schemas" : [GTLRFirebaseDataConnect_Schema class]
+  };
+  return map;
 }
 
 @end

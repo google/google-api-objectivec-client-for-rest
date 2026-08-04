@@ -21,6 +21,36 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Includes basic compliance metadata, but omits trend data.
+ *
+ *  Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewBasic;
+/**
+ *  Includes all information, including finding_count and
+ *  controls_passing_trend. Trend data is provided for the last 30 days.
+ *
+ *  Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewFull;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Assuredworkloads query classes.
  */
@@ -142,6 +172,216 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the aggregated compliance report over time for a given scope.
+ *
+ *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceReports.aggregate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsAggregate : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
+
+/**
+ *  Required. The name of the aggregated compliance report over time to
+ *  retrieve. Format:
+ *  `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse.
+ *
+ *  Gets the aggregated compliance report over time for a given scope.
+ *
+ *  @param name Required. The name of the aggregated compliance report over time
+ *    to retrieve. Format:
+ *    `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *
+ *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsAggregate
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the control compliance summary for a given scope.
+ *
+ *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the default page size is 50. The maximum value is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework overview page. Format:
+ *  organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse.
+ *
+ *  Lists the control compliance summary for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework overview page.
+ *    Format:
+ *    organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *    folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *    projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *
+ *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Fetches the framework compliance report for a given scope.
+ *
+ *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceReports.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsFetch : GTLRAssuredworkloadsQuery
+
+/** Optional. The end time of the report. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The name of the framework compliance report to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.
+ *
+ *  Fetches the framework compliance report for a given scope.
+ *
+ *  @param name Required. The name of the framework compliance report to
+ *    retrieve.
+ *
+ *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceReportsFetch
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the framework compliance summary for a given scope.
+ *
+ *  Method: assuredworkloads.folders.locations.dbFrameworkComplianceSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the default page size is 50. The maximum value is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return. Pass the next_page_token value from a previous result.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework compliance summary. Format:
+ *  organizations/{organization}/locations/{location}
+ *  folders/{folder}/locations/{location}
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Specifies the level of detail to return in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified
+ *        The default / unset value. The API will default to the BASIC view.
+ *        (Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewBasic
+ *        Includes basic compliance metadata, but omits trend data. (Value:
+ *        "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC")
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewFull
+ *        Includes all information, including finding_count and
+ *        controls_passing_trend. Trend data is provided for the last 30 days.
+ *        (Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse.
+ *
+ *  Lists the framework compliance summary for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework compliance
+ *    summary. Format: organizations/{organization}/locations/{location}
+ *    folders/{folder}/locations/{location}
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRAssuredworkloadsQuery_FoldersLocationsDbFrameworkComplianceSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists the finding summary by category for a given scope.
  *
  *  Method: assuredworkloads.organizations.locations.dbFindingSummaries.list
@@ -186,6 +426,216 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/{organization}/locations/{location}
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFindingSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the aggregated compliance report over time for a given scope.
+ *
+ *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceReports.aggregate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsAggregate : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
+
+/**
+ *  Required. The name of the aggregated compliance report over time to
+ *  retrieve. Format:
+ *  `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse.
+ *
+ *  Gets the aggregated compliance report over time for a given scope.
+ *
+ *  @param name Required. The name of the aggregated compliance report over time
+ *    to retrieve. Format:
+ *    `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsAggregate
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the control compliance summary for a given scope.
+ *
+ *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the default page size is 50. The maximum value is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework overview page. Format:
+ *  organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse.
+ *
+ *  Lists the control compliance summary for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework overview page.
+ *    Format:
+ *    organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *    folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *    projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Fetches the framework compliance report for a given scope.
+ *
+ *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceReports.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsFetch : GTLRAssuredworkloadsQuery
+
+/** Optional. The end time of the report. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The name of the framework compliance report to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.
+ *
+ *  Fetches the framework compliance report for a given scope.
+ *
+ *  @param name Required. The name of the framework compliance report to
+ *    retrieve.
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceReportsFetch
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the framework compliance summary for a given scope.
+ *
+ *  Method: assuredworkloads.organizations.locations.dbFrameworkComplianceSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the default page size is 50. The maximum value is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return. Pass the next_page_token value from a previous result.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework compliance summary. Format:
+ *  organizations/{organization}/locations/{location}
+ *  folders/{folder}/locations/{location}
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Specifies the level of detail to return in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified
+ *        The default / unset value. The API will default to the BASIC view.
+ *        (Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewBasic
+ *        Includes basic compliance metadata, but omits trend data. (Value:
+ *        "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC")
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewFull
+ *        Includes all information, including finding_count and
+ *        controls_passing_trend. Trend data is provided for the last 30 days.
+ *        (Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse.
+ *
+ *  Lists the framework compliance summary for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework compliance
+ *    summary. Format: organizations/{organization}/locations/{location}
+ *    folders/{folder}/locations/{location}
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsDbFrameworkComplianceSummariesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1040,6 +1490,216 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/{organization}/locations/{location}
  *
  *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFindingSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the aggregated compliance report over time for a given scope.
+ *
+ *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceReports.aggregate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsAggregate : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalEndTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
+
+/**
+ *  Required. The name of the aggregated compliance report over time to
+ *  retrieve. Format:
+ *  `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse.
+ *
+ *  Gets the aggregated compliance report over time for a given scope.
+ *
+ *  @param name Required. The name of the aggregated compliance report over time
+ *    to retrieve. Format:
+ *    `organizations/{organization_id}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}`
+ *
+ *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsAggregate
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the control compliance summary for a given scope.
+ *
+ *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceReports.dbControlComplianceSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the default page size is 50. The maximum value is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework overview page. Format:
+ *  organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *  projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse.
+ *
+ *  Lists the control compliance summary for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework overview page.
+ *    Format:
+ *    organizations/{organization}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *    folders/{folder}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *    projects/{project}/locations/{location}/dbFrameworkComplianceReports/{db_framework_compliance_report}
+ *
+ *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsDbControlComplianceSummariesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Fetches the framework compliance report for a given scope.
+ *
+ *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceReports.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsFetch : GTLRAssuredworkloadsQuery
+
+/** Optional. The end time of the report. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The name of the framework compliance report to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.
+ *
+ *  Fetches the framework compliance report for a given scope.
+ *
+ *  @param name Required. The name of the framework compliance report to
+ *    retrieve.
+ *
+ *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceReportsFetch
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the framework compliance summary for a given scope.
+ *
+ *  Method: assuredworkloads.projects.locations.dbFrameworkComplianceSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceSummariesList : GTLRAssuredworkloadsQuery
+
+/** Optional. The filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The requested page size. The server might return fewer items than
+ *  requested. If unspecified, the default page size is 50. The maximum value is
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token that identifies the page of results that the server should
+ *  return. Pass the next_page_token value from a previous result.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent scope for the framework compliance summary. Format:
+ *  organizations/{organization}/locations/{location}
+ *  folders/{folder}/locations/{location}
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Specifies the level of detail to return in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified
+ *        The default / unset value. The API will default to the BASIC view.
+ *        (Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewBasic
+ *        Includes basic compliance metadata, but omits trend data. (Value:
+ *        "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC")
+ *    @arg @c kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewFull
+ *        Includes all information, including finding_count and
+ *        controls_passing_trend. Trend data is provided for the last 30 days.
+ *        (Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse.
+ *
+ *  Lists the framework compliance summary for a given scope.
+ *
+ *  @param parent Required. The parent scope for the framework compliance
+ *    summary. Format: organizations/{organization}/locations/{location}
+ *    folders/{folder}/locations/{location}
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRAssuredworkloadsQuery_ProjectsLocationsDbFrameworkComplianceSummariesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

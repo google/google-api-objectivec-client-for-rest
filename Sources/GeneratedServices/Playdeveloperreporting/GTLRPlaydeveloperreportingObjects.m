@@ -11,6 +11,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibility.visibilityEnforcementStrategy
+NSString * const kGTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibility_VisibilityEnforcementStrategy_Combine = @"COMBINE";
+NSString * const kGTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibility_VisibilityEnforcementStrategy_Override = @"OVERRIDE";
+NSString * const kGTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibility_VisibilityEnforcementStrategy_VisibilityEnforcementStrategyUnspecified = @"VISIBILITY_ENFORCEMENT_STRATEGY_UNSPECIFIED";
+
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue.type
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_ApplicationNotResponding = @"APPLICATION_NOT_RESPONDING";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1ErrorIssue_Type_Crash = @"CRASH";
@@ -82,6 +87,34 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_Daily = @"DAILY";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_FullRange = @"FULL_RANGE";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_Hourly = @"HOURLY";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibility
+//
+
+@implementation GTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibility
+@dynamic fieldVisibility, visibilityEnforcementStrategy, visibilityRestriction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldVisibility" : [GTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibilityFieldVisibility class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibilityFieldVisibility
+//
+
+@implementation GTLRPlaydeveloperreporting_ApiservingMcpMcpToolVisibilityFieldVisibility
+@dynamic restriction, selector;
+@end
+
 
 // ----------------------------------------------------------------------------
 //

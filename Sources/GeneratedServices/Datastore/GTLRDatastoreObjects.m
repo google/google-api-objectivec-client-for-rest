@@ -253,7 +253,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_AllocateIdsRequest
-@dynamic databaseId, keys;
+@dynamic databaseId, keys, requestOptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -317,7 +317,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_BeginTransactionRequest
-@dynamic databaseId, transactionOptions;
+@dynamic databaseId, requestOptions, transactionOptions;
 @end
 
 
@@ -337,7 +337,8 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_CommitRequest
-@dynamic databaseId, mode, mutations, singleUseTransaction, transaction;
+@dynamic databaseId, mode, mutations, requestOptions, singleUseTransaction,
+         transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -980,7 +981,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_LookupRequest
-@dynamic databaseId, keys, propertyMask, readOptions;
+@dynamic databaseId, keys, propertyMask, readOptions, requestOptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1259,11 +1260,29 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_RequestOptions
+//
+
+@implementation GTLRDatastore_RequestOptions
+@dynamic requestTags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_ReserveIdsRequest
 //
 
 @implementation GTLRDatastore_ReserveIdsRequest
-@dynamic databaseId, keys;
+@dynamic databaseId, keys, requestOptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1290,7 +1309,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_RollbackRequest
-@dynamic databaseId, transaction;
+@dynamic databaseId, requestOptions, transaction;
 @end
 
 
@@ -1310,7 +1329,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRDatastore_RunAggregationQueryRequest
 @dynamic aggregationQuery, databaseId, explainOptions, gqlQuery, partitionId,
-         readOptions;
+         readOptions, requestOptions;
 @end
 
 
@@ -1331,7 +1350,7 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRDatastore_RunQueryRequest
 @dynamic databaseId, explainOptions, gqlQuery, partitionId, propertyMask, query,
-         readOptions;
+         readOptions, requestOptions;
 @end
 
 

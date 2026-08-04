@@ -1105,6 +1105,25 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ExternalId
+//
+
+@implementation GTLRDirectory_ExternalId
+@dynamic identifier, namespaceProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"namespaceProperty" : @"namespace"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_FailureInfo
 //
 
@@ -1186,7 +1205,7 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 @implementation GTLRDirectory_Group
 @dynamic adminCreated, aliases, descriptionProperty, directMembersCount, email,
-         ETag, identifier, kind, name, nonEditableAliases;
+         ETag, externalIds, identifier, kind, name, nonEditableAliases;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1200,6 +1219,7 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"aliases" : [NSString class],
+    @"externalIds" : [GTLRDirectory_ExternalId class],
     @"nonEditableAliases" : [NSString class]
   };
   return map;

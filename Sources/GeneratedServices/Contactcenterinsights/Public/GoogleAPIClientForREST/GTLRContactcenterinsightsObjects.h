@@ -188,6 +188,9 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule;
@@ -1510,6 +1513,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage.role
+
+/**
+ *  The model role.
+ *
+ *  Value: "MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_Model;
+/**
+ *  Default value for unspecified.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_RoleUnspecified;
+/**
+ *  The user role.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_User;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession.state
+
+/**
+ *  Waiting for user input.
+ *
+ *  Value: "IDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Idle;
+/**
+ *  Agent is working.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Processing;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.labelKeyType
@@ -9689,6 +9736,86 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 
 /**
+ *  A chunk of data in an assistant message.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk : GTLRObject
+
+/** Optional. Text data. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A message in an assistant session.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage : GTLRObject
+
+/** Required. Content of the message. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk *> *chunks;
+
+/** Required. Timestamp when the message was sent or received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Required. Role within the conversation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_Model
+ *        The model role. (Value: "MODEL")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_RoleUnspecified
+ *        Default value for unspecified. (Value: "ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_User
+ *        The user role. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Represents a conversation session with the Assistant Agent.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession : GTLRObject
+
+/** Output only. The time the session was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The display name of the session. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. History of messages in the session. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage *> *messages;
+
+/**
+ *  Identifier. Resource name of the session. Format:
+ *  projects/{project}/locations/{location}/assistantSessions/{assistant_session}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The user who initiated the session. */
+@property(nonatomic, copy, nullable) NSString *requester;
+
+/**
+ *  Output only. The status of the session.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Idle
+ *        Waiting for user input. (Value: "IDLE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Processing
+ *        Agent is working. (Value: "PROCESSING")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time the session was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  An AuthorizedView represents a view of accessible Insights resources (for
  *  example, Conversation and Scorecard). Who have read access to the
  *  AuthorizedView resource will have access to these Insight resources as well.
@@ -14030,6 +14157,30 @@ GTLR_DEPRECATED
  *  A token, which can be sent as `page_token` to retrieve the next page. If
  *  this field is omitted, there are no subsequent pages.
  */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response to list assistant sessions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assistantSessions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssistantSessionsResponse : GTLRCollectionObject
+
+/**
+ *  The assistant sessions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession *> *assistantSessions;
+
+/** A token, which can be sent as `page_token` to retrieve the next page. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -22030,6 +22181,37 @@ GTLR_DEPRECATED
  *  `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
  */
 @property(nonatomic, copy, nullable) NSString *speechRecognizer;
+
+@end
+
+
+/**
+ *  Request to stream chat.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatRequest : GTLRObject
+
+/** Required. The message to send to the assistant. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Response from streaming chat.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatResponse : GTLRObject
+
+/** A chunk of the assistant response message. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk *chunk;
+
+/** The unique ID of the event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** The time when the event occurred. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/** A status message. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
 
 @end
 

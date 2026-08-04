@@ -253,6 +253,98 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsCreate
+
+@dynamic assistantSessionId, parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/assistantSessions";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession class];
+  query.loggingName = @"contactcenterinsights.projects.locations.assistantSessions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession class];
+  query.loggingName = @"contactcenterinsights.projects.locations.assistantSessions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/assistantSessions";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssistantSessionsResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.assistantSessions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsStreamChat
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:streamChat";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAssistantSessionsStreamChat *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.assistantSessions.streamChat";
+  return query;
+}
+
+@end
+
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsAppeal
 
 @dynamic name;

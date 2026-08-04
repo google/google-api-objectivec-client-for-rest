@@ -23,6 +23,36 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// checkExistingUsage
+
+/**
+ *  If set, existing usage is checked when updating the key. If the key has
+ *  usage in the last 7 days, the request returns a FAILED_PRECONDITION error.
+ *
+ *  Value: "CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageCheck;
+/**
+ *  When unset, the default behavior is used, which is SKIP.
+ *
+ *  Value: "CHECK_EXISTING_USAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageCheckExistingUsageUnspecified;
+/**
+ *  If set, skip checking existing usage when updating a key.
+ *
+ *  Value: "SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Api Keys Service query classes.
  */
@@ -299,6 +329,23 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysPatch : GTLRApiKeysServiceQuery
+
+/**
+ *  Optional. Defines the behavior for checking existing usage when updating a
+ *  key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApiKeysServiceCheckExistingUsageCheckExistingUsageUnspecified
+ *        When unset, the default behavior is used, which is SKIP. (Value:
+ *        "CHECK_EXISTING_USAGE_UNSPECIFIED")
+ *    @arg @c kGTLRApiKeysServiceCheckExistingUsageSkip If set, skip checking
+ *        existing usage when updating a key. (Value: "SKIP")
+ *    @arg @c kGTLRApiKeysServiceCheckExistingUsageCheck If set, existing usage
+ *        is checked when updating the key. If the key has usage in the last 7
+ *        days, the request returns a FAILED_PRECONDITION error. (Value:
+ *        "CHECK")
+ */
+@property(nonatomic, copy, nullable) NSString *checkExistingUsage;
 
 /**
  *  Identifier. The resource name of the key. The `name` has the form:

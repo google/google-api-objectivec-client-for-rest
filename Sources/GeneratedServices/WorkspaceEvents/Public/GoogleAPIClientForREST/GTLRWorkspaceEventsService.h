@@ -26,6 +26,38 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see all
+ *  members in Google Chat spaces and conversations throughout your Workspace
+ *  organization, even when the Chat app isn't a member
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.all.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllMembershipsReadonly;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see all
+ *  messages and reactions throughout your Workspace organization, even when the
+ *  Chat app isn't a member of a space or conversation
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.all.messages.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllMessagesReadonly;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see
+ *  metadata about all spaces and conversations in Google Chat throughout your
+ *  Workspace organization, even when the Chat app isn't a member
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.all.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllSpacesReadonly;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see the
+ *  last read time for all users in all spaces and conversations throughout your
+ *  Workspace organization, even when the Chat app isn't a member.
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.all.users.readstate.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllUsersReadstateReadonly;
+/**
  *  Authorization scope: On their own behalf, apps in Google Chat can see, add,
  *  update, and remove members from conversations and spaces
  *

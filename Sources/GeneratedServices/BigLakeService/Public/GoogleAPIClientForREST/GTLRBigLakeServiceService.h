@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigLake API (biglake/v1)
+//   Lakehouse API (biglake/v1)
 // Description:
 //   The Lakehouse API (formerly BigLake API) provides access to a serverless,
 //   fully managed, and highly available metastore that provides a single source
@@ -53,7 +53,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigLakeServiceCloudPlatform;
 //
 
 /**
- *  Service for executing BigLake API queries.
+ *  Service for executing Lakehouse API queries.
  *
  *  The Lakehouse API (formerly BigLake API) provides access to a serverless,
  *  fully managed, and highly available metastore that provides a single source

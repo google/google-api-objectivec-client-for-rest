@@ -1101,6 +1101,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Private
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported;
 /**
+ *  Packet is dropped due to its source IP address being in the excluded range
+ *  of the Spoke.
+ *
+ *  Value: "PRIVATE_NAT_SOURCE_IP_IN_EXCLUDED_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatSourceIpInExcludedRange;
+/**
+ *  Packet is dropped due to its source IP address being a link-local IP address
+ *  in GKE.
+ *
+ *  Value: "PRIVATE_NAT_SOURCE_IP_IS_A_LINK_LOCAL_IP_IN_GKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatSourceIpIsALinkLocalIpInGke;
+/**
  *  Sending packets processed by the Private NAT Gateways to the Private Service
  *  Connect endpoints is not supported.
  *
@@ -1884,6 +1898,47 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Tar
  *  Value: "VPN_GATEWAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_ForwardingRuleInfo.envoyHealthCheckFirewallsConfigState
+
+/**
+ *  Firewall rules (policies) allow health check traffic to the load balancer
+ *  frontend.
+ *
+ *  Value: "FIREWALLS_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsConfigured;
+/**
+ *  Firewall rules (policies) deny health check traffic to the load balancer
+ *  frontend.
+ *
+ *  Value: "FIREWALLS_NOT_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsNotConfigured;
+/**
+ *  Firewall rules (policies) allow health check traffic to the load balancer
+ *  frontend only from a part of the required IP ranges.
+ *
+ *  Value: "FIREWALLS_PARTIALLY_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsPartiallyConfigured;
+/**
+ *  Connectivity Tests doesn't support evaluating some of the firewall rules in
+ *  the network, so it's not able to verify health check configuration status.
+ *
+ *  Value: "FIREWALLS_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsUnsupported;
+/**
+ *  Configuration state unspecified. It usually means that there are no relevant
+ *  health checks for this load balancer frontend, or there was an unexpected
+ *  configuration error preventing Connectivity Tests from verifying health
+ *  check configuration.
+ *
+ *  Value: "HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_HealthCheckFirewallsConfigStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_GkeNetworkPolicySkippedInfo.reason
@@ -4529,6 +4584,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        VPN tunnel to another network, but Private Google Access needs to be
  *        enabled in the source endpoint network. (Value:
  *        "PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateNatSourceIpInExcludedRange
+ *        Packet is dropped due to its source IP address being in the excluded
+ *        range of the Spoke. (Value: "PRIVATE_NAT_SOURCE_IP_IN_EXCLUDED_RANGE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateNatSourceIpIsALinkLocalIpInGke
+ *        Packet is dropped due to its source IP address being a link-local IP
+ *        address in GKE. (Value:
+ *        "PRIVATE_NAT_SOURCE_IP_IS_A_LINK_LOCAL_IP_IN_GKE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateNatToPscEndpointUnsupported
  *        Sending packets processed by the Private NAT Gateways to the Private
  *        Service Connect endpoints is not supported. (Value:
@@ -5418,6 +5480,37 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** Name of the forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. State of the firewalls allowing health check traffic to the
+ *  load balancer frontend (Envoy proxies). This is the result of the firewall
+ *  configuration analysis verifying that health check traffic from required IP
+ *  ranges to the the Envoy-based load balancer frontend is allowed by firewall
+ *  rules with the load balancer target.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsConfigured
+ *        Firewall rules (policies) allow health check traffic to the load
+ *        balancer frontend. (Value: "FIREWALLS_CONFIGURED")
+ *    @arg @c kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsNotConfigured
+ *        Firewall rules (policies) deny health check traffic to the load
+ *        balancer frontend. (Value: "FIREWALLS_NOT_CONFIGURED")
+ *    @arg @c kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsPartiallyConfigured
+ *        Firewall rules (policies) allow health check traffic to the load
+ *        balancer frontend only from a part of the required IP ranges. (Value:
+ *        "FIREWALLS_PARTIALLY_CONFIGURED")
+ *    @arg @c kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsUnsupported
+ *        Connectivity Tests doesn't support evaluating some of the firewall
+ *        rules in the network, so it's not able to verify health check
+ *        configuration status. (Value: "FIREWALLS_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_HealthCheckFirewallsConfigStateUnspecified
+ *        Configuration state unspecified. It usually means that there are no
+ *        relevant health checks for this load balancer frontend, or there was
+ *        an unexpected configuration error preventing Connectivity Tests from
+ *        verifying health check configuration. (Value:
+ *        "HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *envoyHealthCheckFirewallsConfigState;
 
 /**
  *  Name of the load balancer the forwarding rule belongs to. Empty for
@@ -6702,6 +6795,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *  `projects/{project_id}/regions/{region}/routers/{router_id}`
  */
 @property(nonatomic, copy, nullable) NSString *routerUri;
+
+/**
+ *  The number of the NAT rule that was matched.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ruleNumber;
 
 /**
  *  Type of NAT.

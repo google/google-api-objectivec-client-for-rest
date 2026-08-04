@@ -20,6 +20,19 @@ NSString * const kGTLRSecretManager_AuditLogConfig_LogType_DataRead = @"DATA_REA
 NSString * const kGTLRSecretManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSecretManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRSecretManager_ManagedRotationStatus.state
+NSString * const kGTLRSecretManager_ManagedRotationStatus_State_Active = @"ACTIVE";
+NSString * const kGTLRSecretManager_ManagedRotationStatus_State_Inactive = @"INACTIVE";
+NSString * const kGTLRSecretManager_ManagedRotationStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSecretManager_Secret.secretType
+NSString * const kGTLRSecretManager_Secret_SecretType_AccessKey = @"ACCESS_KEY";
+NSString * const kGTLRSecretManager_Secret_SecretType_Certificate = @"CERTIFICATE";
+NSString * const kGTLRSecretManager_Secret_SecretType_CloudSqlDbCredentials = @"CLOUD_SQL_DB_CREDENTIALS";
+NSString * const kGTLRSecretManager_Secret_SecretType_Other    = @"OTHER";
+NSString * const kGTLRSecretManager_Secret_SecretType_OtherDbCredentials = @"OTHER_DB_CREDENTIALS";
+NSString * const kGTLRSecretManager_Secret_SecretType_SecretTypeUnspecified = @"SECRET_TYPE_UNSPECIFIED";
+
 // GTLRSecretManager_SecretVersion.state
 NSString * const kGTLRSecretManager_SecretVersion_State_Destroyed = @"DESTROYED";
 NSString * const kGTLRSecretManager_SecretVersion_State_Disabled = @"DISABLED";
@@ -122,6 +135,16 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecretManager_CloudSQLSingleUserCredentials
+//
+
+@implementation GTLRSecretManager_CloudSQLSingleUserCredentials
+@dynamic instanceId, password, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecretManager_CustomerManagedEncryption
 //
 
@@ -176,6 +199,16 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_EnableManagedRotationRequest
+//
+
+@implementation GTLRSecretManager_EnableManagedRotationRequest
+@dynamic cloudSqlSingleUserCredentials;
 @end
 
 
@@ -315,6 +348,16 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecretManager_ManagedRotationStatus
+//
+
+@implementation GTLRSecretManager_ManagedRotationStatus
+@dynamic error, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecretManager_Operation
 //
 
@@ -437,11 +480,30 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecretManager_ResourcePolicyMember
+//
+
+@implementation GTLRSecretManager_ResourcePolicyMember
+@dynamic iamPolicyNamePrincipal, iamPolicyUidPrincipal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_RotateSecretRequest
+//
+
+@implementation GTLRSecretManager_RotateSecretRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecretManager_Rotation
 //
 
 @implementation GTLRSecretManager_Rotation
-@dynamic nextRotationTime, rotationPeriod;
+@dynamic managedRotationStatus, nextRotationTime, rotationPeriod;
 @end
 
 
@@ -452,8 +514,8 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 @implementation GTLRSecretManager_Secret
 @dynamic annotations, createTime, customerManagedEncryption, ETag, expireTime,
-         labels, name, replication, rotation, tags, topics, ttl, versionAliases,
-         versionDestroyTtl;
+         labels, name, policyMember, replication, rotation, secretType, tags,
+         topics, ttl, versionAliases, versionDestroyTtl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

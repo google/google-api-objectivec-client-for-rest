@@ -498,6 +498,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get the policy for a key.
+ *
+ *  Method: recaptchaenterprise.projects.keys.getPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysGetPolicy : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the policy to get, in the format
+ *  `projects/{project}/keys/{key}/policy`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy.
+ *
+ *  Get the policy for a key.
+ *
+ *  @param name Required. The name of the policy to get, in the format
+ *    `projects/{project}/keys/{key}/policy`.
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysGetPolicy
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns the list of all keys that belong to a project.
  *
  *  Method: recaptchaenterprise.projects.keys.list
@@ -748,6 +778,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysRetrieveLegacySecretKey
  */
 + (instancetype)queryWithKey:(NSString *)key;
+
+@end
+
+/**
+ *  Updates the policy for a key.
+ *
+ *  Method: recaptchaenterprise.projects.keys.updatePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysUpdatePolicy : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Identifier. Resource name for this policy. Format:
+ *  "projects/{project}/keys/{key}/policy" for a policy under a key.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The mask to control which fields of the policy get updated. If the
+ *  mask is not present, all fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy.
+ *
+ *  Updates the policy for a key.
+ *
+ *  @param object The @c
+ *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy to include
+ *    in the query.
+ *  @param name Identifier. Resource name for this policy. Format:
+ *    "projects/{project}/keys/{key}/policy" for a policy under a key.
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysUpdatePolicy
+ */
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy *)object
+                           name:(NSString *)name;
 
 @end
 

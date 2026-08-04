@@ -49,7 +49,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Atomically updates the ResourceRecordSet collection.
+ *  Atomically updates the ResourceRecordSet collection. Note: While
+ *  `dns.changes.create` is the baseline permission required to invoke this
+ *  method, additional permissions are checked depending on the specific
+ *  additions or deletions contained in the payload.
  *
  *  Method: dns.changes.create
  *
@@ -78,7 +81,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Change.
  *
- *  Atomically updates the ResourceRecordSet collection.
+ *  Atomically updates the ResourceRecordSet collection. Note: While
+ *  `dns.changes.create` is the baseline permission required to invoke this
+ *  method, additional permissions are checked depending on the specific
+ *  additions or deletions contained in the payload.
  *
  *  @param object The @c GTLRDns_Change to include in the query.
  *  @param project Identifies the project addressed by this request.
@@ -445,7 +451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Creates a new ManagedZone.
+ *  Creates a new ManagedZone. Note: While `dns.managedZones.create` is the
+ *  baseline permission required to invoke this method, additional permissions
+ *  are required if the managed zone configuration references other resources.
  *
  *  Method: dns.managedZones.create
  *
@@ -468,7 +476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_ManagedZone.
  *
- *  Creates a new ManagedZone.
+ *  Creates a new ManagedZone. Note: While `dns.managedZones.create` is the
+ *  baseline permission required to invoke this method, additional permissions
+ *  are required if the managed zone configuration references other resources.
  *
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.

@@ -12,8 +12,9 @@
 #import <GoogleAPIClientForREST/GTLRCloudAsset.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeCloudAsset              = @"https://www.googleapis.com/auth/cloudasset";
 NSString * const kGTLRAuthScopeCloudAssetCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

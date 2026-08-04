@@ -3074,11 +3074,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_PretargetingConfig : GTLRObject
 
 /**
- *  Targeting modes included by this config. A bid request must allow all the
- *  specified targeting modes. An unset value allows all bid requests to be
- *  sent, regardless of which targeting modes they allow.
+ *  Deprecated: The value of this field no longer has any effect. Targeting
+ *  modes included by this config. A bid request must allow all the specified
+ *  targeting modes. An unset value allows all bid requests to be sent,
+ *  regardless of which targeting modes they allow.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedUserTargetingModes;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedUserTargetingModes GTLR_DEPRECATED;
 
 /**
  *  Targeting on a subset of app inventory. If APP is listed in

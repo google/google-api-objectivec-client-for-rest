@@ -51,6 +51,7 @@ NSString * const kGTLRAuthScopeDataPortabilityNestCameraVideo  = @"https://www.g
 NSString * const kGTLRAuthScopeDataPortabilityNestStore        = @"https://www.googleapis.com/auth/dataportability.nest.store";
 NSString * const kGTLRAuthScopeDataPortabilityNestUser         = @"https://www.googleapis.com/auth/dataportability.nest.user";
 NSString * const kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations = @"https://www.googleapis.com/auth/dataportability.order_reserve.purchases_reservations";
+NSString * const kGTLRAuthScopeDataPortabilityPixelDeviceData  = @"https://www.googleapis.com/auth/dataportability.pixel.device_data";
 NSString * const kGTLRAuthScopeDataPortabilityPlayDevices      = @"https://www.googleapis.com/auth/dataportability.play.devices";
 NSString * const kGTLRAuthScopeDataPortabilityPlayGrouping     = @"https://www.googleapis.com/auth/dataportability.play.grouping";
 NSString * const kGTLRAuthScopeDataPortabilityPlayInstalls     = @"https://www.googleapis.com/auth/dataportability.play.installs";

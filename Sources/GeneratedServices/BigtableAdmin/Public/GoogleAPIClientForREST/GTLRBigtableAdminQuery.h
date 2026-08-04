@@ -1294,6 +1294,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Updates the memory layer of a cluster. To enable the memory layer, set the
+ *  memory_config. To disable the memory layer, unset the memory_config.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.updateMemoryLayer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersUpdateMemoryLayer : GTLRBigtableAdminQuery
+
+/**
+ *  Identifier. Name of the memory layer. This is always:
+ *  "projects/{project}/instances/{instance}/clusters/{cluster}/memoryLayer".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates the memory layer of a cluster. To enable the memory layer, set the
+ *  memory_config. To disable the memory layer, unset the memory_config.
+ *
+ *  @param object The @c GTLRBigtableAdmin_MemoryLayer to include in the query.
+ *  @param name Identifier. Name of the memory layer. This is always:
+ *    "projects/{project}/instances/{instance}/clusters/{cluster}/memoryLayer".
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersUpdateMemoryLayer
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MemoryLayer *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create an instance within a project. Note that exactly one of
  *  Cluster.serve_nodes and Cluster.cluster_config.cluster_autoscaling_config
  *  can be set. If serve_nodes is set to non-zero, then the cluster is manually
@@ -1858,6 +1904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. If true, ignore optional safety checks when creating the
+ *  materialized view.
+ */
+@property(nonatomic, assign) BOOL ignoreWarnings;
 
 /**
  *  Required. The ID to use for the materialized view, which will become the
@@ -3181,8 +3233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  the following fields: * `change_stream_config` *
  *  `change_stream_config.retention_period` * `deletion_protection` *
  *  `automated_backup_policy` * `automated_backup_policy.retention_period` *
- *  `automated_backup_policy.frequency` * `row_key_schema` If `column_families`
- *  is set in `update_mask`, it will return an UNIMPLEMENTED error.
+ *  `automated_backup_policy.frequency` * `automated_backup_policy.locations` *
+ *  `row_key_schema` If `column_families` is set in `update_mask`, it will
+ *  return an UNIMPLEMENTED error.
  *
  *  String format is a comma-separated list of fields.
  */

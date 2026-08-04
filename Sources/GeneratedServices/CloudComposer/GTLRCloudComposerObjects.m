@@ -96,6 +96,11 @@ NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Netw
 NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Private = @"PRIVATE";
 NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Public = @"PUBLIC";
 
+// GTLRCloudComposer_SoftwareConfig.auditLogsReplicationMode
+NSString * const kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationDisabled = @"AUDIT_LOGS_REPLICATION_DISABLED";
+NSString * const kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationEnabled = @"AUDIT_LOGS_REPLICATION_ENABLED";
+NSString * const kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationModeUnspecified = @"AUDIT_LOGS_REPLICATION_MODE_UNSPECIFIED";
+
 // GTLRCloudComposer_SoftwareConfig.webServerPluginsMode
 NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsDisabled = @"PLUGINS_DISABLED";
 NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsEnabled = @"PLUGINS_ENABLED";
@@ -812,9 +817,9 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_SoftwareConfig
-@dynamic airflowConfigOverrides, cloudDataLineageIntegration, envVariables,
-         imageVersion, pypiPackages, pythonVersion, schedulerCount,
-         webServerPluginsMode;
+@dynamic airflowConfigOverrides, auditLogsReplicationMode,
+         cloudDataLineageIntegration, envVariables, imageVersion, pypiPackages,
+         pythonVersion, schedulerCount, webServerPluginsMode;
 @end
 
 

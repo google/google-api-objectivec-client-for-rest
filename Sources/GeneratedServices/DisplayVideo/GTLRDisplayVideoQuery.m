@@ -190,6 +190,37 @@ NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified = 
 
 @end
 
+@implementation GTLRDisplayVideoQuery_AdvertisersAdAssetsPatch
+
+@dynamic adAssetId, advertiserId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_AdAsset *)object
+                   advertiserId:(long long)advertiserId
+                      adAssetId:(long long)adAssetId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"adAssetId", @"advertiserId"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adAssets/{+adAssetId}";
+  GTLRDisplayVideoQuery_AdvertisersAdAssetsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.adAssetId = adAssetId;
+  query.expectedObjectClass = [GTLRDisplayVideo_AdAsset class];
+  query.loggingName = @"displayvideo.advertisers.adAssets.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_AdvertisersAdAssetsUpload
 
 @dynamic advertiserId;

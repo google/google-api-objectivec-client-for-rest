@@ -46,9 +46,11 @@
 @class GTLRCustomerEngagementSuite_Changelog_NewResource;
 @class GTLRCustomerEngagementSuite_Changelog_OriginalResource;
 @class GTLRCustomerEngagementSuite_ChannelProfile;
+@class GTLRCustomerEngagementSuite_ChannelProfileInstagramConfig;
 @class GTLRCustomerEngagementSuite_ChannelProfilePersonaProperty;
 @class GTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig;
 @class GTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfigSecuritySettings;
+@class GTLRCustomerEngagementSuite_ChannelProfileWhatsAppConfig;
 @class GTLRCustomerEngagementSuite_Chunk;
 @class GTLRCustomerEngagementSuite_Chunk_DefaultVariables;
 @class GTLRCustomerEngagementSuite_Chunk_Payload;
@@ -79,6 +81,7 @@
 @class GTLRCustomerEngagementSuite_DataStoreToolGroundingConfig;
 @class GTLRCustomerEngagementSuite_DataStoreToolModalityConfig;
 @class GTLRCustomerEngagementSuite_DataStoreToolRewriterConfig;
+@class GTLRCustomerEngagementSuite_DataStoreToolSnippetsConfig;
 @class GTLRCustomerEngagementSuite_DataStoreToolSummarizationConfig;
 @class GTLRCustomerEngagementSuite_Deployment;
 @class GTLRCustomerEngagementSuite_EndpointControlPolicy;
@@ -122,16 +125,46 @@
 @class GTLRCustomerEngagementSuite_Image;
 @class GTLRCustomerEngagementSuite_ImportAppRequestImportOptions;
 @class GTLRCustomerEngagementSuite_InputAudioConfig;
+@class GTLRCustomerEngagementSuite_InstagramCredentials;
 @class GTLRCustomerEngagementSuite_LanguageSettings;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentCapabilities;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentCard_SecuritySchemes;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature_Header;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentExtension;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentExtension_Params;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentInterface;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentProvider;
+@class GTLRCustomerEngagementSuite_LfA2aV1AgentSkill;
+@class GTLRCustomerEngagementSuite_LfA2aV1APIKeySecurityScheme;
 @class GTLRCustomerEngagementSuite_LfA2aV1Artifact;
 @class GTLRCustomerEngagementSuite_LfA2aV1Artifact_Metadata;
 @class GTLRCustomerEngagementSuite_LfA2aV1AuthenticationInfo;
+@class GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow;
+@class GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow_Scopes;
+@class GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow;
+@class GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow_Scopes;
+@class GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow;
+@class GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow_Scopes;
+@class GTLRCustomerEngagementSuite_LfA2aV1HTTPAuthSecurityScheme;
+@class GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow;
+@class GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow_Scopes;
 @class GTLRCustomerEngagementSuite_LfA2aV1Message;
 @class GTLRCustomerEngagementSuite_LfA2aV1Message_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1MutualTlsSecurityScheme;
+@class GTLRCustomerEngagementSuite_LfA2aV1OAuth2SecurityScheme;
+@class GTLRCustomerEngagementSuite_LfA2aV1OAuthFlows;
+@class GTLRCustomerEngagementSuite_LfA2aV1OpenIdConnectSecurityScheme;
 @class GTLRCustomerEngagementSuite_LfA2aV1Part;
 @class GTLRCustomerEngagementSuite_LfA2aV1Part_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow;
+@class GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow_Scopes;
+@class GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement;
+@class GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement_Schemes;
+@class GTLRCustomerEngagementSuite_LfA2aV1SecurityScheme;
 @class GTLRCustomerEngagementSuite_LfA2aV1SendMessageConfiguration;
 @class GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1StringList;
 @class GTLRCustomerEngagementSuite_LfA2aV1Task;
 @class GTLRCustomerEngagementSuite_LfA2aV1Task_Metadata;
 @class GTLRCustomerEngagementSuite_LfA2aV1TaskPushNotificationConfig;
@@ -178,6 +211,7 @@
 @class GTLRCustomerEngagementSuite_SessionInput;
 @class GTLRCustomerEngagementSuite_SessionInput_Variables;
 @class GTLRCustomerEngagementSuite_SessionOutput;
+@class GTLRCustomerEngagementSuite_SessionOutput_Context_Item;
 @class GTLRCustomerEngagementSuite_SessionOutput_Payload;
 @class GTLRCustomerEngagementSuite_SessionOutputDiagnosticInfo;
 @class GTLRCustomerEngagementSuite_Span;
@@ -209,6 +243,7 @@
 @class GTLRCustomerEngagementSuite_TriggerActionTransferAgent;
 @class GTLRCustomerEngagementSuite_VpcScSettings;
 @class GTLRCustomerEngagementSuite_WebSearchQuery;
+@class GTLRCustomerEngagementSuite_WhatsAppCredentials;
 @class GTLRCustomerEngagementSuite_WidgetTool;
 @class GTLRCustomerEngagementSuite_WidgetTool_UiConfig;
 @class GTLRCustomerEngagementSuite_WidgetToolDataMapping;
@@ -359,6 +394,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAService;
 /**
+ *  Contact Center as a Service (CCaaS Chat) channel.
+ *
+ *  Value: "CONTACT_CENTER_AS_A_SERVICE_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAServiceChat;
+/**
  *  Third party contact center integration channel.
  *
  *  Value: "CONTACT_CENTER_INTEGRATION"
@@ -377,6 +418,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_GoogleTelephonyPlatform;
 /**
+ *  Instagram channel.
+ *
+ *  Value: "INSTAGRAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Instagram;
+/**
  *  Twilio channel.
  *
  *  Value: "TWILIO"
@@ -394,6 +441,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_C
  *  Value: "WEB_UI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_WebUi;
+/**
+ *  WhatsApp channel.
+ *
+ *  Value: "WHATSAPP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Whatsapp;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_ChannelProfilePersonaProperty.persona
@@ -763,6 +816,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_DataStoreToolMod
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_ModalityType_Text;
 
 // ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_Deployment.modality
+
+/**
+ *  Text modality.
+ *
+ *  Value: "MODALITY_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityText;
+/**
+ *  Unknown modality.
+ *
+ *  Value: "MODALITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityUnspecified;
+/**
+ *  Video modality.
+ *
+ *  Value: "MODALITY_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityVideo;
+/**
+ *  Voice modality.
+ *
+ *  Value: "MODALITY_VOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityVoice;
+
+// ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_EndpointControlPolicy.enforcementScope
 
 /**
@@ -928,19 +1009,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetric
 // GTLRCustomerEngagementSuite_ExperimentConfigVersionRelease.state
 
 /**
- *  Done state. Experiment is done and no longer valid.
+ *  Deprecated: This state is no longer used.
  *
  *  Value: "DONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Done;
 /**
- *  Expired state. Experiment is expired and no longer valid.
+ *  Deprecated: This state is no longer used.
  *
  *  Value: "EXPIRED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Expired;
 /**
- *  Pending state. Experiment is pending and not valid.
+ *  Deprecated: This state is no longer used.
  *
  *  Value: "PENDING"
  */
@@ -2080,13 +2161,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Required. The name of the agent tool. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Optional. Deprecated: Use `agent` instead. The resource name of the root
- *  agent that is the entry point of the tool. Format:
- *  `projects/{project}/locations/{location}/agents/{agent}`
- */
-@property(nonatomic, copy, nullable) NSString *rootAgent GTLR_DEPRECATED;
-
 @end
 
 
@@ -2584,10 +2658,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, strong, nullable) NSNumber *bargeInAwareness;
 
 /**
- *  Optional. Disables user barge-in while the agent is speaking. If true, user
- *  input during agent response playback will be ignored. Deprecated:
- *  `disable_barge_in` is deprecated in favor of `disable_barge_in_control` in
- *  ChannelProfile.
+ *  Optional. Deprecated: `disable_barge_in` is deprecated in favor of
+ *  `disable_barge_in_control` in ChannelProfile. Disables user barge-in while
+ *  the agent is speaking. If true, user input during agent response playback
+ *  will be ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2822,6 +2896,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAService
  *        Contact Center as a Service (CCaaS) channel. (Value:
  *        "CONTACT_CENTER_AS_A_SERVICE")
+ *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAServiceChat
+ *        Contact Center as a Service (CCaaS Chat) channel. (Value:
+ *        "CONTACT_CENTER_AS_A_SERVICE_CHAT")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterIntegration
  *        Third party contact center integration channel. (Value:
  *        "CONTACT_CENTER_INTEGRATION")
@@ -2830,12 +2907,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_GoogleTelephonyPlatform
  *        Google Telephony Platform channel. (Value:
  *        "GOOGLE_TELEPHONY_PLATFORM")
+ *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Instagram
+ *        Instagram channel. (Value: "INSTAGRAM")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Twilio
  *        Twilio channel. (Value: "TWILIO")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Unknown
  *        Unknown channel type. (Value: "UNKNOWN")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_WebUi Web
  *        UI channel. (Value: "WEB_UI")
+ *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Whatsapp
+ *        WhatsApp channel. (Value: "WHATSAPP")
  */
 @property(nonatomic, copy, nullable) NSString *channelType;
 
@@ -2856,6 +2937,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) NSNumber *disableDtmf;
 
+/** Optional. Configuration specific to Instagram deployments. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ChannelProfileInstagramConfig *instagramConfig;
+
 /**
  *  Optional. The noise suppression level of the channel profile. Available
  *  values are "low", "moderate", "high", "very_high".
@@ -2870,6 +2954,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** Optional. The configuration for the web widget. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig *webWidgetConfig;
+
+/** Optional. Configuration specific to WhatsApp deployments. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ChannelProfileWhatsAppConfig *whatsappConfig;
+
+@end
+
+
+/**
+ *  Configuration specific to Instagram deployments.
+ */
+@interface GTLRCustomerEngagementSuite_ChannelProfileInstagramConfig : GTLRObject
+
+/**
+ *  Output only. The description of the Meta business page or profile.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The fetched Meta business page name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Required. The Instagram Account ID. */
+@property(nonatomic, copy, nullable) NSString *instagramAccountId;
+
+/** Output only. The fetched Meta business profile thumbnail URL. */
+@property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
 @end
 
@@ -2986,6 +3097,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Configuration specific to WhatsApp deployments.
+ */
+@interface GTLRCustomerEngagementSuite_ChannelProfileWhatsAppConfig : GTLRObject
+
+/**
+ *  Output only. The description of the Meta business page or profile.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The fetched Meta business page name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. The phone number in E.164 format. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/** Required. The Meta phone number ID. */
+@property(nonatomic, copy, nullable) NSString *phoneNumberId;
+
+/** Output only. The fetched Meta business profile thumbnail URL. */
+@property(nonatomic, copy, nullable) NSString *thumbnailUrl;
+
+/** Required. The WhatsApp Business Account ID. */
+@property(nonatomic, copy, nullable) NSString *wabaId;
+
+@end
+
+
+/**
  *  A chunk of content within a message.
  */
 @interface GTLRCustomerEngagementSuite_Chunk : GTLRObject
@@ -3082,6 +3223,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  Piece of cited information.
  */
 @interface GTLRCustomerEngagementSuite_CitationsCitedChunk : GTLRObject
+
+/**
+ *  Whether this citation requires attribution to be shown to the end users.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requiresAttribution;
 
 /** Text used for citation. */
 @property(nonatomic, copy, nullable) NSString *text;
@@ -3394,6 +3542,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** Optional. The root span of the action processing. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Span *rootSpan;
+
+/**
+ *  Optional. The intended ground-truth text from the Simulated Caller
+ *  (Polysynth). Only populated when word error rate metrics are enabled.
+ */
+@property(nonatomic, copy, nullable) NSString *userIntendedText;
 
 @end
 
@@ -3817,6 +3971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Optional. The rewriter config. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_DataStoreToolRewriterConfig *rewriterConfig;
 
+/** Optional. The snippets configuration. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_DataStoreToolSnippetsConfig *snippetsConfig;
+
 /** Optional. The summarization config. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_DataStoreToolSummarizationConfig *summarizationConfig;
 
@@ -3842,6 +3999,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  Optional. The prompt definition. If not set, default prompt will be used.
  */
 @property(nonatomic, copy, nullable) NSString *prompt;
+
+@end
+
+
+/**
+ *  Snippets configuration.
+ */
+@interface GTLRCustomerEngagementSuite_DataStoreToolSnippetsConfig : GTLRObject
+
+/**
+ *  Optional. Whether snippets are enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSnippets;
 
 @end
 
@@ -3903,6 +4075,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExperimentConfig *experimentConfig;
 
 /**
+ *  Optional. Input only. Ephemeral Instagram credentials required when
+ *  configuring a Instagram channel profile.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_InstagramCredentials *instagramCredentials;
+
+/**
+ *  Optional. The modality of the deployment. Note: Deployment-level modality
+ *  override is gated behind an allowlist. Contact the CXAS team to enable this
+ *  field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityText Text
+ *        modality. (Value: "MODALITY_TEXT")
+ *    @arg @c kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityUnspecified
+ *        Unknown modality. (Value: "MODALITY_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityVideo
+ *        Video modality. (Value: "MODALITY_VIDEO")
+ *    @arg @c kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityVoice
+ *        Voice modality. (Value: "MODALITY_VOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *modality;
+
+/**
+ *  Optional. Model settings for the deployment. Overrides model settings
+ *  configured at the app/agent levels. Note: Deployment-level model settings
+ *  override is gated behind an allowlist. Contact the CXAS team to enable this
+ *  field.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ModelSettings *modelSettings;
+
+/**
  *  Identifier. The resource name of the deployment. Format:
  *  `projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}`
  */
@@ -3910,6 +4113,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** Output only. Timestamp when this deployment was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Input only. Ephemeral WhatsApp credentials required when
+ *  configuring a WhatsApp channel profile.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_WhatsAppCredentials *whatsappCredentials;
 
 @end
 
@@ -4444,6 +4653,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @interface GTLRCustomerEngagementSuite_ExecuteToolResponse : GTLRObject
 
+/** Citations that provide the source information for the tool's execution. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Citations *citations;
+
+/**
+ *  The suggestions returned from Google Search as a result of invoking the
+ *  Google Search Tool during the tool execution.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_GoogleSearchSuggestions *googleSearchSuggestions;
+
 /**
  *  The tool execution result in JSON object format. Use "output" key to specify
  *  tool response and "error" key to specify error details (if any). If "output"
@@ -4515,12 +4733,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *
  *  Likely values:
  *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Done
- *        Done state. Experiment is done and no longer valid. (Value: "DONE")
+ *        Deprecated: This state is no longer used. (Value: "DONE")
  *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Expired
- *        Expired state. Experiment is expired and no longer valid. (Value:
- *        "EXPIRED")
+ *        Deprecated: This state is no longer used. (Value: "EXPIRED")
  *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Pending
- *        Pending state. Experiment is pending and not valid. (Value: "PENDING")
+ *        Deprecated: This state is no longer used. (Value: "PENDING")
  *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Running
  *        Running state. Experiment is running and valid. (Value: "RUNNING")
  *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_StateUnspecified
@@ -5246,6 +5463,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, copy, nullable) NSString *conflictResolutionStrategy;
 
+/**
+ *  Optional. Flag for dry-running the import process. If set to true, the
+ *  import process will only perform validations and will not make any changes
+ *  to the existing app or create a new one.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
 @end
 
 
@@ -5307,6 +5533,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Ephemeral Meta credentials for Instagram native integration.
+ */
+@interface GTLRCustomerEngagementSuite_InstagramCredentials : GTLRObject
+
+/** Required. The Meta auth code provided by the embedded signup flow. */
+@property(nonatomic, copy, nullable) NSString *authCode;
+
+/** Optional. The Conversation Profile ID to use for the deployment. */
+@property(nonatomic, copy, nullable) NSString *conversationProfileId;
+
+@end
+
+
+/**
  *  Language settings of the app.
  */
 @interface GTLRCustomerEngagementSuite_LanguageSettings : GTLRObject
@@ -5339,6 +5579,329 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  `default_language_code`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedLanguageCodes;
+
+@end
+
+
+/**
+ *  Defines optional capabilities supported by an agent.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentCapabilities : GTLRObject
+
+/**
+ *  Indicates if the agent supports providing an extended agent card when
+ *  authenticated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extendedAgentCard;
+
+/** A list of protocol extensions supported by the agent. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1AgentExtension *> *extensions;
+
+/**
+ *  Indicates if the agent supports sending push notifications for asynchronous
+ *  task updates.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pushNotifications;
+
+/**
+ *  Indicates if the agent supports streaming responses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *streaming;
+
+@end
+
+
+/**
+ *  A self-describing manifest for an agent. It provides essential metadata
+ *  including the agent's identity, capabilities, skills, supported
+ *  communication methods, and security requirements. Next ID: 20
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentCard : GTLRObject
+
+/** Required. A2A Capability set supported by the agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AgentCapabilities *capabilities;
+
+/**
+ *  Required. protolint:enable REPEATED_FIELD_NAMES_PLURALIZED The set of
+ *  interaction modes that the agent supports across all skills. This can be
+ *  overridden per skill. Defined as media types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *defaultInputModes;
+
+/** Required. The media types supported as outputs from this agent. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *defaultOutputModes;
+
+/**
+ *  Required. A human-readable description of the agent, assisting users and
+ *  other agents in understanding its purpose. Example: "Agent that helps users
+ *  with recipes and cooking."
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A URL providing additional documentation about the agent. */
+@property(nonatomic, copy, nullable) NSString *documentationUrl;
+
+/** Optional. A URL to an icon for the agent. */
+@property(nonatomic, copy, nullable) NSString *iconUrl;
+
+/** Required. A human readable name for the agent. Example: "Recipe Agent" */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The service provider of the agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AgentProvider *provider;
+
+/** Security requirements for contacting the agent. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement *> *securityRequirements;
+
+/** The security scheme details used for authenticating with this agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AgentCard_SecuritySchemes *securitySchemes;
+
+/** JSON Web Signatures computed for this `AgentCard`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature *> *signatures;
+
+/**
+ *  Required. Skills represent the abilities of an agent. It is largely a
+ *  descriptive concept but represents a more focused set of behaviors that the
+ *  agent is likely to succeed at.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1AgentSkill *> *skills;
+
+/**
+ *  Required. Ordered list of supported interfaces. The first entry is
+ *  preferred.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1AgentInterface *> *supportedInterfaces;
+
+/** Required. The version of the agent. Example: "1.0.0" */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  The security scheme details used for authenticating with this agent.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCustomerEngagementSuite_LfA2aV1SecurityScheme. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentCard_SecuritySchemes : GTLRObject
+@end
+
+
+/**
+ *  AgentCardSignature represents a JWS signature of an AgentCard. This follows
+ *  the JSON format of an RFC 7515 JSON Web Signature (JWS).
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature : GTLRObject
+
+/** The unprotected JWS header values. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature_Header *header;
+
+/**
+ *  Required. Required. The protected JWS header for the signature. This is
+ *  always a base64url-encoded JSON object.
+ *
+ *  Remapped to 'protectedProperty' to avoid language reserved word 'protected'.
+ */
+@property(nonatomic, copy, nullable) NSString *protectedProperty;
+
+/** Required. The computed signature, base64url-encoded. */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+@end
+
+
+/**
+ *  The unprotected JWS header values.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature_Header : GTLRObject
+@end
+
+
+/**
+ *  A declaration of a protocol extension supported by an Agent.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentExtension : GTLRObject
+
+/**
+ *  A human-readable description of how this agent uses the extension.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Extension-specific configuration parameters. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AgentExtension_Params *params;
+
+/**
+ *  If true, the client must understand and comply with the extension's
+ *  requirements.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
+
+/** The unique URI identifying the extension. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Optional. Extension-specific configuration parameters.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentExtension_Params : GTLRObject
+@end
+
+
+/**
+ *  Declares a combination of a target URL, transport and protocol version for
+ *  interacting with the agent. This allows agents to expose the same
+ *  functionality over multiple protocol binding mechanisms.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentInterface : GTLRObject
+
+/**
+ *  Required. The protocol binding supported at this URL. This is an open form
+ *  string, to be easily extended for other protocol bindings. The core ones
+ *  officially supported are `JSONRPC`, `GRPC` and `HTTP+JSON`.
+ */
+@property(nonatomic, copy, nullable) NSString *protocolBinding;
+
+/**
+ *  Required. The version of the A2A protocol this interface exposes. Use the
+ *  latest supported minor version per major version. Examples: "0.3", "1.0"
+ */
+@property(nonatomic, copy, nullable) NSString *protocolVersion;
+
+/**
+ *  Optional. An opaque string used for routing requests to a specific agent or
+ *  tenant when multiple agents are served behind a single A2A endpoint. When
+ *  set, clients MUST include this value in the `tenant` field of all request
+ *  messages sent to this interface. The server is responsible for interpreting
+ *  the value and routing requests accordingly; the protocol does not define its
+ *  format or semantics.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Required. The URL where this interface is available. Must be a valid
+ *  absolute HTTPS URL in production. Example: "https://api.example.com/a2a/v1",
+ *  "https://grpc.example.com/a2a"
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Represents the service provider of an agent.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentProvider : GTLRObject
+
+/**
+ *  Required. The name of the agent provider's organization. Example: "Google"
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Required. A URL for the agent provider's website or relevant documentation.
+ *  Example: "https://ai.google.dev"
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Represents a distinct capability or function that an agent can perform.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AgentSkill : GTLRObject
+
+/**
+ *  Required. A detailed description of the skill.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Example prompts or scenarios that this skill can handle. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *examples;
+
+/**
+ *  Required. A unique identifier for the agent's skill.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The set of supported input media types for this skill, overriding the
+ *  agent's defaults.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inputModes;
+
+/** Required. A human-readable name for the skill. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The set of supported output media types for this skill, overriding the
+ *  agent's defaults.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outputModes;
+
+/** Security schemes necessary for this skill. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement *> *securityRequirements;
+
+/** Required. A set of keywords describing the skill's capabilities. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  Defines a security scheme using an API key.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1APIKeySecurityScheme : GTLRObject
+
+/**
+ *  An optional description for the security scheme.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The location of the API key. Valid values are "query", "header",
+ *  or "cookie".
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Required. The name of the header, query, or cookie parameter to be used.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5413,6 +5976,176 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Defines configuration details for the OAuth 2.0 Authorization Code flow.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow : GTLRObject
+
+/** Required. The authorization URL to be used for this flow. */
+@property(nonatomic, copy, nullable) NSString *authorizationUrl;
+
+/**
+ *  Indicates if PKCE (RFC 7636) is required for this flow. PKCE should always
+ *  be used for public clients and is recommended for all clients.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pkceRequired;
+
+/** The URL to be used for obtaining refresh tokens. */
+@property(nonatomic, copy, nullable) NSString *refreshUrl;
+
+/** Required. The available scopes for the OAuth2 security scheme. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow_Scopes *scopes;
+
+/** Required. The token URL to be used for this flow. */
+@property(nonatomic, copy, nullable) NSString *tokenUrl;
+
+@end
+
+
+/**
+ *  Required. The available scopes for the OAuth2 security scheme.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow_Scopes : GTLRObject
+@end
+
+
+/**
+ *  Defines configuration details for the OAuth 2.0 Client Credentials flow.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow : GTLRObject
+
+/** The URL to be used for obtaining refresh tokens. */
+@property(nonatomic, copy, nullable) NSString *refreshUrl;
+
+/** Required. The available scopes for the OAuth2 security scheme. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow_Scopes *scopes;
+
+/** Required. The token URL to be used for this flow. */
+@property(nonatomic, copy, nullable) NSString *tokenUrl;
+
+@end
+
+
+/**
+ *  Required. The available scopes for the OAuth2 security scheme.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow_Scopes : GTLRObject
+@end
+
+
+/**
+ *  Defines configuration details for the OAuth 2.0 Device Code flow (RFC 8628).
+ *  This flow is designed for input-constrained devices such as IoT devices, and
+ *  CLI tools where the user authenticates on a separate device.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow : GTLRObject
+
+/** Required. The device authorization endpoint URL. */
+@property(nonatomic, copy, nullable) NSString *deviceAuthorizationUrl;
+
+/** The URL to be used for obtaining refresh tokens. */
+@property(nonatomic, copy, nullable) NSString *refreshUrl;
+
+/** Required. The available scopes for the OAuth2 security scheme. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow_Scopes *scopes;
+
+/** Required. The token URL to be used for this flow. */
+@property(nonatomic, copy, nullable) NSString *tokenUrl;
+
+@end
+
+
+/**
+ *  Required. The available scopes for the OAuth2 security scheme.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow_Scopes : GTLRObject
+@end
+
+
+/**
+ *  Defines a security scheme using HTTP authentication.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1HTTPAuthSecurityScheme : GTLRObject
+
+/**
+ *  A hint to the client to identify how the bearer token is formatted (e.g.,
+ *  "JWT"). Primarily for documentation purposes.
+ */
+@property(nonatomic, copy, nullable) NSString *bearerFormat;
+
+/**
+ *  An optional description for the security scheme.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The name of the HTTP Authentication scheme to be used in the
+ *  Authorization header, as defined in RFC7235 (e.g., "Bearer"). This value
+ *  should be registered in the IANA Authentication Scheme registry.
+ */
+@property(nonatomic, copy, nullable) NSString *scheme;
+
+@end
+
+
+/**
+ *  Deprecated: Use Authorization Code + PKCE instead.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow : GTLRObject
+
+/**
+ *  The authorization URL to be used for this flow. This MUST be in the form of
+ *  a URL. The OAuth2 standard requires the use of TLS
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationUrl;
+
+/**
+ *  The URL to be used for obtaining refresh tokens. This MUST be in the form of
+ *  a URL. The OAuth2 standard requires the use of TLS.
+ */
+@property(nonatomic, copy, nullable) NSString *refreshUrl;
+
+/**
+ *  The available scopes for the OAuth2 security scheme. A map between the scope
+ *  name and a short description for it. The map MAY be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow_Scopes *scopes;
+
+@end
+
+
+/**
+ *  The available scopes for the OAuth2 security scheme. A map between the scope
+ *  name and a short description for it. The map MAY be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow_Scopes : GTLRObject
+@end
+
+
+/**
  *  `Message` is one unit of communication between client and server. It can be
  *  associated with a context and/or a task. For server messages, `context_id`
  *  must be provided, and `task_id` only if a task was created. For client
@@ -5482,6 +6215,93 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Defines a security scheme using mTLS authentication.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1MutualTlsSecurityScheme : GTLRObject
+
+/**
+ *  An optional description for the security scheme.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  Defines a security scheme using OAuth 2.0.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1OAuth2SecurityScheme : GTLRObject
+
+/**
+ *  An optional description for the security scheme.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. An object containing configuration information for the supported
+ *  OAuth 2.0 flows.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1OAuthFlows *flows;
+
+/**
+ *  URL to the OAuth2 authorization server metadata [RFC
+ *  8414](https://datatracker.ietf.org/doc/html/rfc8414). TLS is required.
+ */
+@property(nonatomic, copy, nullable) NSString *oauth2MetadataUrl;
+
+@end
+
+
+/**
+ *  Defines the configuration for the supported OAuth 2.0 flows.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1OAuthFlows : GTLRObject
+
+/** Configuration for the OAuth Authorization Code flow. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow *authorizationCode;
+
+/** Configuration for the OAuth Client Credentials flow. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow *clientCredentials;
+
+/** Configuration for the OAuth Device Code flow. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow *deviceCode;
+
+/** Deprecated: Use Authorization Code + PKCE instead. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow *implicit GTLR_DEPRECATED;
+
+/** Deprecated: Use Authorization Code + PKCE or Device Code. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow *password GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  Defines a security scheme using OpenID Connect.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1OpenIdConnectSecurityScheme : GTLRObject
+
+/**
+ *  An optional description for the security scheme.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The [OpenID Connect Discovery
+ *  URL](https://openid.net/specs/openid-connect-discovery-1_0.html) for the
+ *  OIDC provider's metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *openIdConnectUrl;
+
+@end
+
+
+/**
  *  `Part` represents a container for a section of communication content. Parts
  *  can be purely textual, some sort of file (image, video, etc) or a structured
  *  data blob (i.e. JSON).
@@ -5536,6 +6356,95 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCustomerEngagementSuite_LfA2aV1Part_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Deprecated: Use Authorization Code + PKCE or Device Code.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow : GTLRObject
+
+/**
+ *  The URL to be used for obtaining refresh tokens. This MUST be in the form of
+ *  a URL. The OAuth2 standard requires the use of TLS.
+ */
+@property(nonatomic, copy, nullable) NSString *refreshUrl;
+
+/**
+ *  The available scopes for the OAuth2 security scheme. A map between the scope
+ *  name and a short description for it. The map MAY be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow_Scopes *scopes;
+
+/**
+ *  The token URL to be used for this flow. This MUST be in the form of a URL.
+ *  The OAuth2 standard requires the use of TLS.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenUrl;
+
+@end
+
+
+/**
+ *  The available scopes for the OAuth2 security scheme. A map between the scope
+ *  name and a short description for it. The map MAY be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow_Scopes : GTLRObject
+@end
+
+
+/**
+ *  Defines the security requirements for an agent.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement : GTLRObject
+
+/** A map of security schemes to the required scopes. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement_Schemes *schemes;
+
+@end
+
+
+/**
+ *  A map of security schemes to the required scopes.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCustomerEngagementSuite_LfA2aV1StringList. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement_Schemes : GTLRObject
+@end
+
+
+/**
+ *  Defines a security scheme that can be used to secure an agent's endpoints.
+ *  This is a discriminated union type based on the OpenAPI 3.2 Security Scheme
+ *  Object. See:
+ *  https://spec.openapis.org/oas/v3.2.0.html#security-scheme-object
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1SecurityScheme : GTLRObject
+
+/** API key-based authentication. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1APIKeySecurityScheme *apiKeySecurityScheme;
+
+/** HTTP authentication (Basic, Bearer, etc.). */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1HTTPAuthSecurityScheme *httpAuthSecurityScheme;
+
+/** Mutual TLS authentication. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1MutualTlsSecurityScheme *mtlsSecurityScheme;
+
+/** OAuth 2.0 authentication. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1OAuth2SecurityScheme *oauth2SecurityScheme;
+
+/** OpenID Connect authentication. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1OpenIdConnectSecurityScheme *openIdConnectSecurityScheme;
+
 @end
 
 
@@ -5626,6 +6535,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  protolint:disable REPEATED_FIELD_NAMES_PLURALIZED A list of strings.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1StringList : GTLRObject
+
+/** The individual string values. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *list;
+
+@end
+
+
+/**
  *  `Task` is the core unit of action for A2A. It has a current status and when
  *  results are created for the task they are stored in the artifact. If there
  *  are multiple turns for a task, these are stored in history.
@@ -5702,7 +6622,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** The ID of the task this configuration is associated with. */
 @property(nonatomic, copy, nullable) NSString *taskId;
 
-/** Optional. Tenant ID. */
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
 @property(nonatomic, copy, nullable) NSString *tenant;
 
 /** A token unique for this task or session. */
@@ -6207,6 +7130,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  typically for auditing or monitoring purposes.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AudioRecordingConfig *unredactedAudioRecordingConfig;
+
+/**
+ *  Optional. Configures the BigQuery export behaviors for the app. The
+ *  unredacted conversation data will be exported to BigQuery tables if it is
+ *  enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_BigQueryExportSettings *unredactedBigqueryExportSettings;
 
 @end
 
@@ -7347,6 +8277,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, copy, nullable) NSString *entryAgent;
 
 /**
+ *  Optional. Whether to exclude diagnostic info from the session output.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeDiagnosticInfo;
+
+/**
  *  Optional. The historical context of the session, including user inputs,
  *  agent responses, and other messages. Typically, CES agent would manage
  *  session automatically so client doesn't need to explicitly populate this
@@ -7545,6 +8482,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Citations *citations;
 
+/** Context messages for external supervision guardrails. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_SessionOutput_Context_Item *> *context;
+
 /**
  *  Optional. Diagnostic information contains execution details during the
  *  processing of the input. Only populated in the last SessionOutput (with
@@ -7586,6 +8526,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) NSNumber *turnIndex;
 
+@end
+
+
+/**
+ *  GTLRCustomerEngagementSuite_SessionOutput_Context_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_SessionOutput_Context_Item : GTLRObject
 @end
 
 
@@ -7708,6 +8660,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @interface GTLRCustomerEngagementSuite_SynthesizeSpeechConfig : GTLRObject
 
 /**
+ *  Optional. Deprecated: Use `custom_voice_samples` in AudioProcessingConfig
+ *  instead. The Cloud Storage URI to the consent audio for voice cloning.
+ */
+@property(nonatomic, copy, nullable) NSString *consentAudioGcsUri GTLR_DEPRECATED;
+
+/**
+ *  Optional. The instruction used to synthesize speech when using a generative
+ *  model.
+ */
+@property(nonatomic, copy, nullable) NSString *instruction;
+
+/**
+ *  Optional. The model used to synthesize audio. Currently supported values: -
+ *  "gemini-3.1-flash-tts-preview" If empty, Chirp3-HD is used.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
  *  Optional. The speaking rate/speed in the range [0.25, 2.0]. 1.0 is the
  *  normal native speed supported by the specific voice. 2.0 is twice as fast,
  *  and 0.5 is half as fast. Values outside of the range [0.25, 2.0] will return
@@ -7725,6 +8695,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  Text-to-Speech.
  */
 @property(nonatomic, copy, nullable) NSString *voice;
+
+/**
+ *  Optional. Deprecated: Use `custom_voice_samples` in AudioProcessingConfig
+ *  instead. The Cloud Storage URI to the audio sample for voice cloning. The
+ *  audio sample should be a mono-channel, 24kHz WAV file. Note: Please make
+ *  sure the CES service agent `service-\@gcp-sa-ces.iam.gserviceaccount.com`
+ *  has `storage.objects.get` permission to the Cloud Storage object.
+ */
+@property(nonatomic, copy, nullable) NSString *voiceSampleGcsUri GTLR_DEPRECATED;
 
 @end
 
@@ -8124,6 +9103,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OpenApiToolset *openApiToolset;
 
+/**
+ *  Optional. The timeout for the toolset execution. If not set, the default
+ *  timeout is 30 seconds for `SYNCHRONOUS` toolsets and 60 seconds for
+ *  `ASYNCHRONOUS` toolsets.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
 /** Optional. Configuration for tools behavior in fake mode. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ToolFakeConfig *toolFakeConfig;
 
@@ -8330,6 +9316,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** The URI to the Google Search results page for the query. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Ephemeral Meta credentials for WhatsApp native integration.
+ */
+@interface GTLRCustomerEngagementSuite_WhatsAppCredentials : GTLRObject
+
+/** Required. The Meta auth code provided by the embedded signup flow. */
+@property(nonatomic, copy, nullable) NSString *authCode;
+
+/** Required. The Business Account ID to use for the phone number. */
+@property(nonatomic, copy, nullable) NSString *businessAccountId;
+
+/** Optional. The Conversation Profile ID to use for the deployment. */
+@property(nonatomic, copy, nullable) NSString *conversationProfileId;
+
+/** Required. The phone number to register with WhatsApp. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  Required. The 6-digit PIN created by the user for two-step verification.
+ */
+@property(nonatomic, copy, nullable) NSString *pin;
+
+/** Required. The WhatsApp Business Account ID. */
+@property(nonatomic, copy, nullable) NSString *wabaId;
 
 @end
 

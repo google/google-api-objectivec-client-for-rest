@@ -2417,10 +2417,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, copy, nullable) NSString *primaryContact;
 
 /**
- *  Optional. Will be deprecated. Email or URL of the primary point of contact
- *  of the QueryTemplate. Max Length: 1000 bytes.
+ *  Optional. Deprecated: Use `primary_contact` instead. Email or URL of the
+ *  primary point of contact of the QueryTemplate. Max Length: 1000 bytes.
  */
-@property(nonatomic, copy, nullable) NSString *proposer;
+@property(nonatomic, copy, nullable) NSString *proposer GTLR_DEPRECATED;
 
 /** Optional. The routine associated with the QueryTemplate. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_Routine *routine;

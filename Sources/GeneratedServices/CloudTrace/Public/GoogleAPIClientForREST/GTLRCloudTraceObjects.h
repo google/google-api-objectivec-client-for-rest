@@ -146,14 +146,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_Annotation : GTLRObject
 
 /**
- *  A set of attributes on the annotation. You can have up to 4 attributes per
- *  Annotation.
+ *  Optional. A set of attributes on the annotation. You can have up to 4
+ *  attributes per Annotation.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Attributes *attributes;
 
 /**
- *  A user-supplied message describing the event. The maximum length for the
- *  description is 256 bytes.
+ *  Optional. A user-supplied message describing the event. The maximum length
+ *  for the description is 256 bytes.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -168,18 +168,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_Attributes : GTLRObject
 
 /**
- *  A set of attributes. Each attribute's key can be up to 128 bytes long. The
- *  value can be a string up to 256 bytes, a signed 64-bit integer, or the
- *  boolean values `true` or `false`. For example: "/instance_id": {
+ *  Optional. A set of attributes. Each attribute's key can be up to 128 bytes
+ *  long. The value can be a string up to 256 bytes, a signed 64-bit integer, or
+ *  the boolean values `true` or `false`. For example: "/instance_id": {
  *  "string_value": { "value": "my-instance" } } "/http/request_bytes": {
  *  "int_value": 300 } "example.com/myattribute": { "bool_value": false }
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Attributes_AttributeMap *attributeMap;
 
 /**
- *  The number of attributes that were discarded. Attributes can be discarded
- *  because their keys are too long or because there are too many attributes. If
- *  this value is 0 then all attributes are valid.
+ *  Optional. The number of attributes that were discarded. Attributes can be
+ *  discarded because their keys are too long or because there are too many
+ *  attributes. If this value is 0 then all attributes are valid.
  *
  *  Uses NSNumber of intValue.
  */
@@ -189,9 +189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 
 
 /**
- *  A set of attributes. Each attribute's key can be up to 128 bytes long. The
- *  value can be a string up to 256 bytes, a signed 64-bit integer, or the
- *  boolean values `true` or `false`. For example: "/instance_id": {
+ *  Optional. A set of attributes. Each attribute's key can be up to 128 bytes
+ *  long. The value can be a string up to 256 bytes, a signed 64-bit integer, or
+ *  the boolean values `true` or `false`. For example: "/instance_id": {
  *  "string_value": { "value": "my-instance" } } "/http/request_bytes": {
  *  "int_value": 300 } "example.com/myattribute": { "bool_value": false }
  *
@@ -210,20 +210,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_AttributeValue : GTLRObject
 
 /**
- *  A Boolean value represented by `true` or `false`.
+ *  Optional. A Boolean value represented by `true` or `false`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *boolValue;
 
 /**
- *  A 64-bit signed integer.
+ *  Optional. A 64-bit signed integer.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *intValue;
 
-/** A string up to 256 bytes long. */
+/** Optional. A string up to 256 bytes long. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *stringValue;
 
 @end
@@ -262,19 +262,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_Link : GTLRObject
 
 /**
- *  A set of attributes on the link. Up to 32 attributes can be specified per
- *  link.
+ *  Optional. A set of attributes on the link. Up to 32 attributes can be
+ *  specified per link.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Attributes *attributes;
 
-/** The `[SPAN_ID]` for a span within a trace. */
+/** Optional. The `[SPAN_ID]` for a span within a trace. */
 @property(nonatomic, copy, nullable) NSString *spanId;
 
-/** The `[TRACE_ID]` for a trace within a project. */
+/** Optional. The `[TRACE_ID]` for a trace within a project. */
 @property(nonatomic, copy, nullable) NSString *traceId;
 
 /**
- *  The relationship of the current span relative to the linked span.
+ *  Optional. The relationship of the current span relative to the linked span.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTrace_Link_Type_ChildLinkedSpan The linked span is a
@@ -296,14 +296,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_Links : GTLRObject
 
 /**
- *  The number of dropped links after the maximum size was enforced. If this
- *  value is 0, then no links were dropped.
+ *  Optional. The number of dropped links after the maximum size was enforced.
+ *  If this value is 0, then no links were dropped.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *droppedLinksCount;
 
-/** A collection of links. */
+/** Optional. A collection of links. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_Link *> *link;
 
 @end
@@ -315,16 +315,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_MessageEvent : GTLRObject
 
 /**
- *  The number of compressed bytes sent or received. If missing, the compressed
- *  size is assumed to be the same size as the uncompressed size.
+ *  Optional. The number of compressed bytes sent or received. If missing, the
+ *  compressed size is assumed to be the same size as the uncompressed size.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *compressedSizeBytes;
 
 /**
- *  An identifier for the MessageEvent's message that can be used to match
- *  `SENT` and `RECEIVED` MessageEvents.
+ *  Optional. An identifier for the MessageEvent's message that can be used to
+ *  match `SENT` and `RECEIVED` MessageEvents.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -333,7 +333,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  Type of MessageEvent. Indicates whether the message was sent or received.
+ *  Optional. Type of MessageEvent. Indicates whether the message was sent or
+ *  received.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTrace_MessageEvent_Type_Received Indicates a received
@@ -346,7 +347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  The number of uncompressed bytes sent or received.
+ *  Optional. The number of uncompressed bytes sent or received.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -361,14 +362,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_Module : GTLRObject
 
 /**
- *  A unique identifier for the module, usually a hash of its contents (up to
- *  128 bytes).
+ *  Optional. A unique identifier for the module, usually a hash of its contents
+ *  (up to 128 bytes).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *buildId;
 
 /**
- *  For example: main binary, kernel modules, and dynamic libraries such as
- *  libc.so, sharedlib.so (up to 256 bytes).
+ *  Optional. For example: main binary, kernel modules, and dynamic libraries
+ *  such as libc.so, sharedlib.so (up to 256 bytes).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *module;
 
@@ -385,7 +386,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_Span : GTLRObject
 
 /**
- *  A set of attributes on the span. You can have up to 32 attributes per span.
+ *  Optional. A set of attributes on the span. You can have up to 32 attributes
+ *  per span.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Attributes *attributes;
 
@@ -414,11 +416,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Links associated with the span. You can have up to 128 links per Span. */
+/**
+ *  Optional. Links associated with the span. You can have up to 128 links per
+ *  Span.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Links *links;
 
 /**
- *  Required. The resource name of the span in the following format: *
+ *  Identifier. The resource name of the span in the following format: *
  *  `projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]` `[TRACE_ID]` is a
  *  unique identifier for a trace within a project; it is a 32-character
  *  hexadecimal encoding of a 16-byte array. It should not be zero. `[SPAN_ID]`
@@ -428,8 +433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The `[SPAN_ID]` of this span's parent span. If this is a root span, then
- *  this field must be empty.
+ *  Optional. The `[SPAN_ID]` of this span's parent span. If this is a root
+ *  span, then this field must be empty.
  */
 @property(nonatomic, copy, nullable) NSString *parentSpanId;
 
@@ -475,7 +480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *spanKind;
 
-/** Stack trace captured at the start of the span. */
+/** Optional. Stack trace captured at the start of the span. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_StackTrace *stackTrace;
 
 /**
@@ -489,8 +494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Status *status;
 
 /**
- *  A set of time events. You can have up to 32 annotations and 128 message
- *  events per span.
+ *  Optional. A set of time events. You can have up to 32 annotations and 128
+ *  message events per span.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TimeEvents *timeEvents;
 
@@ -503,44 +508,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_StackFrame : GTLRObject
 
 /**
- *  The column number where the function call appears, if available. This is
- *  important in JavaScript because of its anonymous functions.
+ *  Optional. The column number where the function call appears, if available.
+ *  This is important in JavaScript because of its anonymous functions.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *columnNumber;
 
 /**
- *  The name of the source file where the function call appears (up to 256
- *  bytes).
+ *  Optional. The name of the source file where the function call appears (up to
+ *  256 bytes).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *fileName;
 
 /**
- *  The fully-qualified name that uniquely identifies the function or method
- *  that is active in this frame (up to 1024 bytes).
+ *  Optional. The fully-qualified name that uniquely identifies the function or
+ *  method that is active in this frame (up to 1024 bytes).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *functionName;
 
 /**
- *  The line number in `file_name` where the function call appears.
+ *  Optional. The line number in `file_name` where the function call appears.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lineNumber;
 
-/** The binary module from where the code was loaded. */
+/** Optional. The binary module from where the code was loaded. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Module *loadModule;
 
 /**
- *  An un-mangled function name, if `function_name` is mangled. To get
+ *  Optional. An un-mangled function name, if `function_name` is mangled. To get
  *  information about name mangling, run [this
  *  search](https://www.google.com/search?q=cxx+name+mangling). The name can be
  *  fully-qualified (up to 1024 bytes).
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *originalFunctionName;
 
-/** The version of the deployed source code (up to 128 bytes). */
+/** Optional. The version of the deployed source code (up to 128 bytes). */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *sourceVersion;
 
 @end
@@ -552,14 +557,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_StackFrames : GTLRObject
 
 /**
- *  The number of stack frames that were dropped because there were too many
- *  stack frames. If this value is 0, then no stack frames were dropped.
+ *  Optional. The number of stack frames that were dropped because there were
+ *  too many stack frames. If this value is 0, then no stack frames were
+ *  dropped.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *droppedFramesCount;
 
-/** Stack frames in this call stack. */
+/** Optional. Stack frames in this call stack. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_StackFrame *> *frame;
 
 @end
@@ -570,13 +576,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
  */
 @interface GTLRCloudTrace_StackTrace : GTLRObject
 
-/** Stack frames in this stack trace. A maximum of 128 frames are allowed. */
+/**
+ *  Optional. Stack frames in this stack trace. A maximum of 128 frames are
+ *  allowed.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_StackFrames *stackFrames;
 
 /**
- *  The hash ID is used to conserve network bandwidth for duplicate stack traces
- *  within a single trace. Often multiple spans will have identical stack
- *  traces. The first occurrence of a stack trace should contain both the
+ *  Optional. The hash ID is used to conserve network bandwidth for duplicate
+ *  stack traces within a single trace. Often multiple spans will have identical
+ *  stack traces. The first occurrence of a stack trace should contain both the
  *  `stackFrame` content and a value in `stackTraceHashId`. Subsequent spans
  *  within the same request can refer to that stack trace by only setting
  *  `stackTraceHashId`.
@@ -644,7 +653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 /** An event describing a message sent/received between Spans. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_MessageEvent *messageEvent;
 
-/** The timestamp indicating the time the event occurred. */
+/** Optional. The timestamp indicating the time the event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
 
 @end
@@ -658,22 +667,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_TimeEvents : GTLRObject
 
 /**
- *  The number of dropped annotations in all the included time events. If the
- *  value is 0, then no annotations were dropped.
+ *  Optional. The number of dropped annotations in all the included time events.
+ *  If the value is 0, then no annotations were dropped.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *droppedAnnotationsCount;
 
 /**
- *  The number of dropped message events in all the included time events. If the
- *  value is 0, then no message events were dropped.
+ *  Optional. The number of dropped message events in all the included time
+ *  events. If the value is 0, then no message events were dropped.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *droppedMessageEventsCount;
 
-/** A collection of `TimeEvent`s. */
+/** Optional. A collection of `TimeEvent`s. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_TimeEvent *> *timeEvent;
 
 @end
@@ -685,19 +694,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @interface GTLRCloudTrace_TruncatableString : GTLRObject
 
 /**
- *  The number of bytes removed from the original string. If this value is 0,
- *  then the string was not shortened.
+ *  Optional. The number of bytes removed from the original string. If this
+ *  value is 0, then the string was not shortened.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *truncatedByteCount;
 
 /**
- *  The shortened string. For example, if the original string is 500 bytes long
- *  and the limit of the string is 128 bytes, then `value` contains the first
- *  128 bytes of the 500-byte string. Truncation always happens on a UTF8
- *  character boundary. If there are multi-byte characters in the string, then
- *  the length of the shortened string might be less than the size limit.
+ *  Optional. The shortened string. For example, if the original string is 500
+ *  bytes long and the limit of the string is 128 bytes, then `value` contains
+ *  the first 128 bytes of the 500-byte string. Truncation always happens on a
+ *  UTF8 character boundary. If there are multi-byte characters in the string,
+ *  then the length of the shortened string might be less than the size limit.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 

@@ -23,8 +23,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Security Command Center data and see the email address for your Google
+ *  Account
+ *
+ *  Value "https://www.googleapis.com/auth/securitycenter"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSecurityCommandCenter;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.

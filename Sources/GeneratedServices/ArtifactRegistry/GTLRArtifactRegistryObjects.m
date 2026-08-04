@@ -1222,6 +1222,15 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_NoCacheFetching
+//
+
+@implementation GTLRArtifactRegistry_NoCacheFetching
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_NpmPackage
 //
 
@@ -1438,7 +1447,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_RemoteRepositoryConfig
 @dynamic aptRepository, commonRepository, descriptionProperty,
-         disableUpstreamValidation, dockerRepository, mavenRepository,
+         disableUpstreamValidation, dockerRepository, mavenRepository, noCache,
          npmRepository, pythonRepository, upstreamCredentials, yumRepository;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

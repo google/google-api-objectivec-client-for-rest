@@ -155,6 +155,7 @@ NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplica
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateTransactionId = @"PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError = @"PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld = @"PROCESSING_ERROR_REASON_EVENT_TOO_OLD";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExternalAttributionDataMissing = @"PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientMatchedTransactions = @"PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientTransactions = @"PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError = @"PROCESSING_ERROR_REASON_INTERNAL_ERROR";
@@ -195,6 +196,23 @@ NSString * const kGTLRDataManager_Event_EventSource_Message    = @"MESSAGE";
 NSString * const kGTLRDataManager_Event_EventSource_Other      = @"OTHER";
 NSString * const kGTLRDataManager_Event_EventSource_Phone      = @"PHONE";
 NSString * const kGTLRDataManager_Event_EventSource_Web        = @"WEB";
+
+// GTLRDataManager_FieldWarning.reason
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing = @"WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemUnitPriceMissing = @"WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataNotSupportedWithGbraidOrWbraid = @"WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotEnabled = @"WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined = @"WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric = @"WARNING_REASON_GENERIC";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidClientId = @"WARNING_REASON_INVALID_CLIENT_ID";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidContinentCode = @"WARNING_REASON_INVALID_CONTINENT_CODE";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceCategory = @"WARNING_REASON_INVALID_DEVICE_CATEGORY";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution = @"WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId = @"WARNING_REASON_INVALID_MERCHANT_ID";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode = @"WARNING_REASON_INVALID_REGION_CODE";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode = @"WARNING_REASON_INVALID_SUBCONTINENT_CODE";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode = @"WARNING_REASON_INVALID_SUBDIVISION_CODE";
+NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified = @"WARNING_REASON_UNSPECIFIED";
 
 // GTLRDataManager_GcpWrappedKeyInfo.keyType
 NSString * const kGTLRDataManager_GcpWrappedKeyInfo_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
@@ -456,7 +474,8 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_AddressInfo
-@dynamic familyName, givenName, postalCode, regionCode;
+@dynamic addressLine, administrativeArea, city, familyName, givenName,
+         postalCode, regionCode;
 @end
 
 
@@ -502,8 +521,9 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_AudienceMember
-@dynamic compositeData, consent, destinationReferences, mobileData, pairData,
-         ppidData, userData, userIdData;
+@dynamic compositeData, consent, destinationReferences, googleUserIdData,
+         mobileData, pairData, partnerProvidedIdData, ppidData, userData,
+         userIdData;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -774,11 +794,44 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_FieldWarning
+//
+
+@implementation GTLRDataManager_FieldWarning
+@dynamic descriptionProperty, field, reason;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_GcpWrappedKeyInfo
 //
 
 @implementation GTLRDataManager_GcpWrappedKeyInfo
 @dynamic encryptedDek, kekUri, keyType, wipProvider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_GoogleUserIdData
+//
+
+@implementation GTLRDataManager_GoogleUserIdData
+@dynamic googleUserIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"googleUserIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -835,7 +888,15 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_IngestAudienceMembersResponse
-@dynamic requestId;
+@dynamic fieldWarnings, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldWarnings" : [GTLRDataManager_FieldWarning class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -845,8 +906,9 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_IngestAudienceMembersStatus
-@dynamic compositeDataIngestionStatus, mobileDataIngestionStatus,
-         pairDataIngestionStatus, ppidDataIngestionStatus,
+@dynamic compositeDataIngestionStatus, googleUserIdDataIngestionStatus,
+         mobileDataIngestionStatus, pairDataIngestionStatus,
+         partnerProvidedIdDataIngestionStatus, ppidDataIngestionStatus,
          userDataIngestionStatus, userIdDataIngestionStatus;
 @end
 
@@ -913,7 +975,15 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_IngestEventsResponse
-@dynamic requestId;
+@dynamic fieldWarnings, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldWarnings" : [GTLRDataManager_FieldWarning class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -924,6 +994,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_IngestEventsStatus
 @dynamic recordCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IngestGoogleUserIdDataStatus
+//
+
+@implementation GTLRDataManager_IngestGoogleUserIdDataStatus
+@dynamic googleUserIdCount, recordCount;
 @end
 
 
@@ -944,6 +1024,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_IngestPairDataStatus
 @dynamic pairIdCount, recordCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IngestPartnerProvidedIdDataStatus
+//
+
+@implementation GTLRDataManager_IngestPartnerProvidedIdDataStatus
+@dynamic partnerProvidedIdCount, recordCount;
 @end
 
 
@@ -1278,6 +1368,24 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_PartnerProvidedIdData
+//
+
+@implementation GTLRDataManager_PartnerProvidedIdData
+@dynamic partnerProvidedIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partnerProvidedIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_PpidData
 //
 
@@ -1316,6 +1424,43 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_RemoveAllAudienceMembersRequest
+//
+
+@implementation GTLRDataManager_RemoveAllAudienceMembersRequest
+@dynamic destinations, removeAsOfTime, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinations" : [GTLRDataManager_Destination class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RemoveAllAudienceMembersResponse
+//
+
+@implementation GTLRDataManager_RemoveAllAudienceMembersResponse
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RemoveAllAudienceMembersStatus
+//
+
+@implementation GTLRDataManager_RemoveAllAudienceMembersStatus
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_RemoveAudienceMembersRequest
 //
 
@@ -1349,9 +1494,10 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_RemoveAudienceMembersStatus
-@dynamic compositeDataRemovalStatus, mobileDataRemovalStatus,
-         pairDataRemovalStatus, ppidDataRemovalStatus, userDataRemovalStatus,
-         userIdDataRemovalStatus;
+@dynamic compositeDataRemovalStatus, googleUserIdDataRemovalStatus,
+         mobileDataRemovalStatus, pairDataRemovalStatus,
+         partnerProvidedIdDataRemovalStatus, ppidDataRemovalStatus,
+         userDataRemovalStatus, userIdDataRemovalStatus;
 @end
 
 
@@ -1375,6 +1521,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_RemoveGoogleUserIdDataStatus
+//
+
+@implementation GTLRDataManager_RemoveGoogleUserIdDataStatus
+@dynamic googleUserIdCount, recordCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_RemoveMobileDataStatus
 //
 
@@ -1390,6 +1546,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_RemovePairDataStatus
 @dynamic pairIdCount, recordCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RemovePartnerProvidedIdDataStatus
+//
+
+@implementation GTLRDataManager_RemovePartnerProvidedIdDataStatus
+@dynamic partnerProvidedIdCount, recordCount;
 @end
 
 
@@ -1430,8 +1596,8 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_RequestStatusPerDestination
 @dynamic audienceMembersIngestionStatus, audienceMembersRemovalStatus,
-         destination, errorInfo, eventsIngestionStatus, requestStatus,
-         warningInfo;
+         destination, errorInfo, eventsIngestionStatus,
+         removeAllAudienceMembersStatus, requestStatus, warningInfo;
 @end
 
 

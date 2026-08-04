@@ -468,6 +468,10 @@ NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoRes
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified = @"UNSPECIFIED";
 
+// GTLRContainer_RollbackSafeUpgradeStatus.mode
+NSString * const kGTLRContainer_RollbackSafeUpgradeStatus_Mode_KcpMinorUpgradeRollbackSafeMode = @"KCP_MINOR_UPGRADE_ROLLBACK_SAFE_MODE";
+NSString * const kGTLRContainer_RollbackSafeUpgradeStatus_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
 // GTLRContainer_SandboxConfig.type
 NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor      = @"GVISOR";
 NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified = @"UNSPECIFIED";
@@ -1043,14 +1047,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          authenticatorGroupsConfig, autopilot, autoscaling, binaryAuthorization,
          clusterIpv4Cidr, compliancePostureConfig, conditions,
          confidentialNodes, controlPlaneEgress, controlPlaneEndpointsConfig,
-         costManagementConfig, createTime, currentMasterVersion,
-         currentNodeCount, currentNodeVersion, databaseEncryption,
-         defaultMaxPodsConstraint, descriptionProperty, enableK8sBetaApis,
-         enableKubernetesAlpha, enableTpu, endpoint, enterpriseConfig, ETag,
-         expireTime, fleet, gkeAutoUpgradeConfig, identifier,
-         identityServiceConfig, initialClusterVersion, initialNodeCount,
-         instanceGroupUrls, ipAllocationPolicy, labelFingerprint, legacyAbac,
-         location, locations, loggingConfig, loggingService, maintenancePolicy,
+         costManagementConfig, createTime, currentEmulatedVersion,
+         currentMasterVersion, currentNodeCount, currentNodeVersion,
+         databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
+         enableK8sBetaApis, enableKubernetesAlpha, enableTpu, endpoint,
+         enterpriseConfig, ETag, expireTime, fleet, gkeAutoUpgradeConfig,
+         identifier, identityServiceConfig, initialClusterVersion,
+         initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
+         labelFingerprint, legacyAbac, location, locations, loggingConfig,
+         loggingService, maintenancePolicy,
          managedMachineLearningDiagnosticsConfig, managedOpentelemetryConfig,
          masterAuth, masterAuthorizedNetworksConfig, meshCertificates,
          monitoringConfig, monitoringService, name, network, networkConfig,
@@ -1058,10 +1063,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          nodePoolAutoConfig, nodePoolDefaults, nodePools, notificationConfig,
          parentProductConfig, podAutoscaling, privateClusterConfig,
          rbacBindingConfig, releaseChannel, resourceLabels,
-         resourceUsageExportConfig, satisfiesPzi, satisfiesPzs,
-         scheduleUpgradeConfig, secretManagerConfig, secretSyncConfig,
-         securityPostureConfig, selfLink, servicesIpv4Cidr, shieldedNodes,
-         status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         resourceUsageExportConfig, rollbackSafeUpgrade, satisfiesPzi,
+         satisfiesPzs, scheduleUpgradeConfig, secretManagerConfig,
+         secretSyncConfig, securityPostureConfig, selfLink, servicesIpv4Cidr,
+         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
          userManagedKeysConfig, verticalPodAutoscaling, workloadIdentityConfig,
          zoneProperty;
 
@@ -1162,7 +1167,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredDatabaseEncryption, desiredDatapathProvider,
          desiredDefaultEnablePrivateNodes, desiredDefaultSnatStatus,
          desiredDisableL4LbFirewallReconciliation, desiredDnsConfig,
-         desiredEnableCiliumClusterwideNetworkPolicy,
+         desiredEmulatedVersion, desiredEnableCiliumClusterwideNetworkPolicy,
          desiredEnableFqdnNetworkPolicy, desiredEnableMultiNetworking,
          desiredEnablePrivateEndpoint, desiredEnterpriseConfig, desiredFleet,
          desiredGatewayApiConfig, desiredGcfsConfig,
@@ -1186,10 +1191,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredPodAutoscaling, desiredPrivateClusterConfig,
          desiredPrivateIpv6GoogleAccess, desiredPrivilegedAdmissionConfig,
          desiredRbacBindingConfig, desiredReleaseChannel,
-         desiredResourceUsageExportConfig, desiredSecretManagerConfig,
-         desiredSecretSyncConfig, desiredSecurityPostureConfig,
-         desiredServiceExternalIpsConfig, desiredShieldedNodes,
-         desiredStackType, desiredUserManagedKeysConfig,
+         desiredResourceUsageExportConfig, desiredRollbackSafeUpgrade,
+         desiredSecretManagerConfig, desiredSecretSyncConfig,
+         desiredSecurityPostureConfig, desiredServiceExternalIpsConfig,
+         desiredShieldedNodes, desiredStackType, desiredUserManagedKeysConfig,
          desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig,
          enableK8sBetaApis, ETag, gkeAutoUpgradeConfig,
          removedAdditionalPodRangesConfig, userManagedKeysConfig;
@@ -1216,7 +1221,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_ClusterUpgradeInfo
 @dynamic autoUpgradeStatus, endOfExtendedSupportTimestamp,
          endOfStandardSupportTimestamp, minorTargetVersion, patchTargetVersion,
-         pausedReason, upgradeDetails;
+         pausedReason, rollbackSafeUpgradeStatus, upgradeDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1227,6 +1232,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_CompleteControlPlaneUpgradeRequest
+//
+
+@implementation GTLRContainer_CompleteControlPlaneUpgradeRequest
+@dynamic version;
 @end
 
 
@@ -1534,6 +1549,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_DesiredEnterpriseConfig
 @dynamic desiredTier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_DiskIoScheduler
+//
+
+@implementation GTLRContainer_DiskIoScheduler
+@dynamic nodeAttachedDiskIoScheduler, nodeSystemIoScheduler;
 @end
 
 
@@ -2077,6 +2102,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_KubeletCertInfo
+//
+
+@implementation GTLRContainer_KubeletCertInfo
+@dynamic nonTpmBootstrapCertExpireTime, tpmBootstrapCertExpireTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_KubernetesDashboard
 //
 
@@ -2101,9 +2136,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_LinuxNodeConfig
-@dynamic accurateTimeConfig, cgroupMode, customNodeInit, hugepages,
-         nodeKernelModuleLoading, swapConfig, sysctls,
-         transparentHugepageDefrag, transparentHugepageEnabled;
+@dynamic accurateTimeConfig, cgroupMode, customNodeInit, diskIoScheduler,
+         hugepages, nodeKernelModuleLoading, nodeVfioConfig, swapConfig,
+         sysctls, transparentHugepageDefrag, transparentHugepageEnabled;
 @end
 
 
@@ -2734,10 +2769,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodePool
 @dynamic autopilotConfig, autoscaling, bestEffortProvisioning, conditions,
-         config, ETag, initialNodeCount, instanceGroupUrls, locations,
-         maintenancePolicy, management, maxPodsConstraint, name, networkConfig,
-         nodeDrainConfig, placementPolicy, podIpv4CidrSize, queuedProvisioning,
-         selfLink, status, statusMessage, updateInfo, upgradeSettings, version;
+         config, ETag, initialNodeCount, instanceGroupUrls, kubeletCertInfo,
+         locations, maintenancePolicy, management, maxPodsConstraint, name,
+         networkConfig, nodeDrainConfig, placementPolicy, podIpv4CidrSize,
+         queuedProvisioning, selfLink, status, statusMessage, updateInfo,
+         upgradeSettings, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -2863,6 +2899,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeVfioConfig
+//
+
+@implementation GTLRContainer_NodeVfioConfig
+@dynamic dmaEntryLimit;
 @end
 
 
@@ -3220,10 +3266,12 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ReleaseChannelConfig
-@dynamic channel, defaultVersion, upgradeTargetVersion, validVersions;
+@dynamic channel, customVersions, defaultVersion, upgradeTargetVersion,
+         validVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"customVersions" : [NSString class],
     @"validVersions" : [NSString class]
   };
   return map;
@@ -3331,6 +3379,26 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_RollbackSafeUpgrade
+//
+
+@implementation GTLRContainer_RollbackSafeUpgrade
+@dynamic controlPlaneSoakDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_RollbackSafeUpgradeStatus
+//
+
+@implementation GTLRContainer_RollbackSafeUpgradeStatus
+@dynamic controlPlaneUpgradeRollbackEndTime, mode, previousVersion;
 @end
 
 
@@ -3958,7 +4026,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpgradeDetails
-@dynamic endTime, initialVersion, startTime, startType, state, targetVersion;
+@dynamic endTime, initialEmulatedVersion, initialVersion, startTime, startType,
+         state, targetEmulatedVersion, targetVersion;
 @end
 
 
@@ -3968,8 +4037,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpgradeEvent
-@dynamic currentVersion, operation, operationStartTime, resource, resourceType,
-         targetVersion;
+@dynamic currentEmulatedVersion, currentVersion, operation, operationStartTime,
+         resource, resourceType, targetEmulatedVersion, targetVersion;
 @end
 
 
@@ -3979,9 +4048,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpgradeInfoEvent
-@dynamic currentVersion, descriptionProperty, disruptionEvent, endTime,
-         eventType, extendedSupportEndTime, operation, resource, resourceType,
-         standardSupportEndTime, startTime, state, targetVersion;
+@dynamic currentEmulatedVersion, currentVersion, descriptionProperty,
+         disruptionEvent, endTime, eventType, extendedSupportEndTime, operation,
+         resource, resourceType, standardSupportEndTime, startTime, state,
+         targetEmulatedVersion, targetVersion;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -201,6 +201,56 @@
 
 @end
 
+@implementation GTLRGoogleHealthAPIQuery_ShlMGetShlManifest
+
+@dynamic externalShlId;
+
++ (instancetype)queryWithObject:(GTLRGoogleHealthAPI_ManifestParams *)object
+                  externalShlId:(NSString *)externalShlId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"externalShlId" ];
+  NSString *pathURITemplate = @"v4/shl/m/{externalShlId}";
+  GTLRGoogleHealthAPIQuery_ShlMGetShlManifest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.externalShlId = externalShlId;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_HttpBody class];
+  query.loggingName = @"health.shl.m.getShlManifest";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleHealthAPIQuery_ShlRGet
+
+@dynamic externalShlId, resourceToken;
+
++ (instancetype)queryWithExternalShlId:(NSString *)externalShlId
+                         resourceToken:(NSString *)resourceToken {
+  NSArray *pathParams = @[
+    @"externalShlId", @"resourceToken"
+  ];
+  NSString *pathURITemplate = @"v4/shl/r/{externalShlId}/{resourceToken}";
+  GTLRGoogleHealthAPIQuery_ShlRGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.externalShlId = externalShlId;
+  query.resourceToken = resourceToken;
+  query.expectedObjectClass = [GTLRGoogleHealthAPI_HttpBody class];
+  query.loggingName = @"health.shl.r.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsBatchDelete
 
 @dynamic parent;

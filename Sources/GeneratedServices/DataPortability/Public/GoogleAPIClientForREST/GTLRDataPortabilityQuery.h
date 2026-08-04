@@ -77,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityNestStore
  *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPixelDeviceData
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
  *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
@@ -172,6 +173,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityNestStore
  *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPixelDeviceData
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
  *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
@@ -280,6 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityNestStore
  *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPixelDeviceData
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
  *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
@@ -385,6 +388,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityNestStore
  *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPixelDeviceData
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
  *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
@@ -495,6 +499,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityNestStore
  *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPixelDeviceData
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
  *    @c kGTLRAuthScopeDataPortabilityPlayInstalls
@@ -594,6 +599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityNestStore
  *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
+ *    @c kGTLRAuthScopeDataPortabilityPixelDeviceData
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
  *    @c kGTLRAuthScopeDataPortabilityPlayInstalls

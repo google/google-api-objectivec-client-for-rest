@@ -141,6 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReleasesCreate : GTLRSaaSServiceManagementQuery
 
@@ -194,6 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReleasesDelete : GTLRSaaSServiceManagementQuery
 
@@ -251,6 +253,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReleasesGet : GTLRSaaSServiceManagementQuery
 
@@ -277,6 +281,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReleasesList : GTLRSaaSServiceManagementQuery
 
@@ -322,6 +328,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReleasesPatch : GTLRSaaSServiceManagementQuery
 
@@ -389,6 +396,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutKindsCreate : GTLRSaaSServiceManagementQuery
 
@@ -442,6 +450,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutKindsDelete : GTLRSaaSServiceManagementQuery
 
@@ -500,6 +509,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutKindsGet : GTLRSaaSServiceManagementQuery
 
@@ -526,6 +537,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutKindsList : GTLRSaaSServiceManagementQuery
 
@@ -571,6 +584,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutKindsPatch : GTLRSaaSServiceManagementQuery
 
@@ -638,6 +652,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutsCreate : GTLRSaaSServiceManagementQuery
 
@@ -691,6 +706,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutsDelete : GTLRSaaSServiceManagementQuery
 
@@ -748,6 +764,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutsGet : GTLRSaaSServiceManagementQuery
 
@@ -774,6 +792,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutsList : GTLRSaaSServiceManagementQuery
 
@@ -819,6 +839,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutsPatch : GTLRSaaSServiceManagementQuery
 
@@ -886,6 +907,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsSaasCreate : GTLRSaaSServiceManagementQuery
 
@@ -938,6 +960,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsSaasDelete : GTLRSaaSServiceManagementQuery
 
@@ -995,6 +1018,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsSaasGet : GTLRSaaSServiceManagementQuery
 
@@ -1021,6 +1046,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsSaasList : GTLRSaaSServiceManagementQuery
 
@@ -1066,6 +1093,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsSaasPatch : GTLRSaaSServiceManagementQuery
 
@@ -1132,6 +1160,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsTenantsCreate : GTLRSaaSServiceManagementQuery
 
@@ -1185,6 +1214,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsTenantsDelete : GTLRSaaSServiceManagementQuery
 
@@ -1242,6 +1272,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsTenantsGet : GTLRSaaSServiceManagementQuery
 
@@ -1268,6 +1300,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsTenantsList : GTLRSaaSServiceManagementQuery
 
@@ -1313,6 +1347,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsTenantsPatch : GTLRSaaSServiceManagementQuery
 
@@ -1380,6 +1415,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitKindsCreate : GTLRSaaSServiceManagementQuery
 
@@ -1433,6 +1469,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitKindsDelete : GTLRSaaSServiceManagementQuery
 
@@ -1490,6 +1527,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitKindsGet : GTLRSaaSServiceManagementQuery
 
@@ -1516,6 +1555,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitKindsList : GTLRSaaSServiceManagementQuery
 
@@ -1561,6 +1602,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitKindsPatch : GTLRSaaSServiceManagementQuery
 
@@ -1628,6 +1670,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitOperationsCreate : GTLRSaaSServiceManagementQuery
 
@@ -1681,6 +1724,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitOperationsDelete : GTLRSaaSServiceManagementQuery
 
@@ -1739,6 +1783,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitOperationsGet : GTLRSaaSServiceManagementQuery
 
@@ -1765,6 +1811,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitOperationsList : GTLRSaaSServiceManagementQuery
 
@@ -1810,6 +1858,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitOperationsPatch : GTLRSaaSServiceManagementQuery
 
@@ -1877,6 +1926,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitsCreate : GTLRSaaSServiceManagementQuery
 
@@ -1929,6 +1979,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitsDelete : GTLRSaaSServiceManagementQuery
 
@@ -1986,6 +2037,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitsGet : GTLRSaaSServiceManagementQuery
 
@@ -2012,6 +2065,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadonly
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitsList : GTLRSaaSServiceManagementQuery
 
@@ -2057,6 +2112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ *    @c kGTLRAuthScopeSaaSServiceManagementReadWrite
  */
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsUnitsPatch : GTLRSaaSServiceManagementQuery
 

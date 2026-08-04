@@ -237,6 +237,80 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_CommitResponse.isolationLevel
+
+/**
+ *  Default value. If the value is not specified, the `SERIALIZABLE` isolation
+ *  level is used.
+ *
+ *  Value: "ISOLATION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CommitResponse_IsolationLevel_IsolationLevelUnspecified;
+/**
+ *  All reads performed during the transaction observe a consistent snapshot of
+ *  the database, and the transaction is only successfully committed in the
+ *  absence of conflicts between its updates and any concurrent updates that
+ *  have occurred since that snapshot. Consequently, in contrast to
+ *  `SERIALIZABLE` transactions, only write-write conflicts are detected in
+ *  snapshot transactions. This isolation level does not support read-only and
+ *  partitioned DML transactions. When `REPEATABLE_READ` is specified on a
+ *  read-write transaction, the locking semantics default to `OPTIMISTIC`.
+ *
+ *  Value: "REPEATABLE_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CommitResponse_IsolationLevel_RepeatableRead;
+/**
+ *  All transactions appear as if they executed in a serial order, even if some
+ *  of the reads, writes, and other operations of distinct transactions actually
+ *  occurred in parallel. Spanner assigns commit timestamps that reflect the
+ *  order of committed transactions to implement this property. Spanner offers a
+ *  stronger guarantee than serializability called external consistency. For
+ *  more information, see [TrueTime and external
+ *  consistency](https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability).
+ *
+ *  Value: "SERIALIZABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CommitResponse_IsolationLevel_Serializable;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_CommitResponse.readLockMode
+
+/**
+ *  Optimistic lock mode. Lock acquisition behavior depends on the isolation
+ *  level in use. In both SERIALIZABLE and REPEATABLE_READ isolation, reads and
+ *  writes do not acquire locks during transaction statement execution. See
+ *  [Concurrency
+ *  control](https://cloud.google.com/spanner/docs/concurrency-control) for
+ *  details on how the guarantees of each isolation level are provided at commit
+ *  time.
+ *
+ *  Value: "OPTIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CommitResponse_ReadLockMode_Optimistic;
+/**
+ *  Pessimistic lock mode. Lock acquisition behavior depends on the isolation
+ *  level in use. In SERIALIZABLE isolation, reads and writes acquire necessary
+ *  locks during transaction statement execution. In REPEATABLE_READ isolation,
+ *  reads that explicitly request to be locked and writes acquire locks. See
+ *  [Concurrency
+ *  control](https://cloud.google.com/spanner/docs/concurrency-control) for
+ *  details on the types of locks acquired at each transaction step.
+ *
+ *  Value: "PESSIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CommitResponse_ReadLockMode_Pessimistic;
+/**
+ *  Default value. * If isolation level is SERIALIZABLE, locking semantics
+ *  default to `PESSIMISTIC`. * If isolation level is REPEATABLE_READ, locking
+ *  semantics default to `OPTIMISTIC`. * See [Concurrency
+ *  control](https://cloud.google.com/spanner/docs/concurrency-control) for more
+ *  details.
+ *
+ *  Value: "READ_LOCK_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CommitResponse_ReadLockMode_ReadLockModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_ContextValue.severity
 
 /**
@@ -2542,10 +2616,70 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTimestamp;
 
 /**
+ *  The isolation level used for the read-write transaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_CommitResponse_IsolationLevel_IsolationLevelUnspecified
+ *        Default value. If the value is not specified, the `SERIALIZABLE`
+ *        isolation level is used. (Value: "ISOLATION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_CommitResponse_IsolationLevel_RepeatableRead All
+ *        reads performed during the transaction observe a consistent snapshot
+ *        of the database, and the transaction is only successfully committed in
+ *        the absence of conflicts between its updates and any concurrent
+ *        updates that have occurred since that snapshot. Consequently, in
+ *        contrast to `SERIALIZABLE` transactions, only write-write conflicts
+ *        are detected in snapshot transactions. This isolation level does not
+ *        support read-only and partitioned DML transactions. When
+ *        `REPEATABLE_READ` is specified on a read-write transaction, the
+ *        locking semantics default to `OPTIMISTIC`. (Value: "REPEATABLE_READ")
+ *    @arg @c kGTLRSpanner_CommitResponse_IsolationLevel_Serializable All
+ *        transactions appear as if they executed in a serial order, even if
+ *        some of the reads, writes, and other operations of distinct
+ *        transactions actually occurred in parallel. Spanner assigns commit
+ *        timestamps that reflect the order of committed transactions to
+ *        implement this property. Spanner offers a stronger guarantee than
+ *        serializability called external consistency. For more information, see
+ *        [TrueTime and external
+ *        consistency](https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability).
+ *        (Value: "SERIALIZABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *isolationLevel;
+
+/**
  *  If specified, transaction has not committed yet. You must retry the commit
  *  with the new precommit token.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_MultiplexedSessionPrecommitToken *precommitToken;
+
+/**
+ *  The read lock mode used for the read-write transaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_CommitResponse_ReadLockMode_Optimistic Optimistic
+ *        lock mode. Lock acquisition behavior depends on the isolation level in
+ *        use. In both SERIALIZABLE and REPEATABLE_READ isolation, reads and
+ *        writes do not acquire locks during transaction statement execution.
+ *        See [Concurrency
+ *        control](https://cloud.google.com/spanner/docs/concurrency-control)
+ *        for details on how the guarantees of each isolation level are provided
+ *        at commit time. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRSpanner_CommitResponse_ReadLockMode_Pessimistic Pessimistic
+ *        lock mode. Lock acquisition behavior depends on the isolation level in
+ *        use. In SERIALIZABLE isolation, reads and writes acquire necessary
+ *        locks during transaction statement execution. In REPEATABLE_READ
+ *        isolation, reads that explicitly request to be locked and writes
+ *        acquire locks. See [Concurrency
+ *        control](https://cloud.google.com/spanner/docs/concurrency-control)
+ *        for details on the types of locks acquired at each transaction step.
+ *        (Value: "PESSIMISTIC")
+ *    @arg @c kGTLRSpanner_CommitResponse_ReadLockMode_ReadLockModeUnspecified
+ *        Default value. * If isolation level is SERIALIZABLE, locking semantics
+ *        default to `PESSIMISTIC`. * If isolation level is REPEATABLE_READ,
+ *        locking semantics default to `OPTIMISTIC`. * See [Concurrency
+ *        control](https://cloud.google.com/spanner/docs/concurrency-control)
+ *        for more details. (Value: "READ_LOCK_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *readLockMode;
 
 /**
  *  If `TransactionOptions.isolation_level` is set to
@@ -4811,6 +4945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  The number of nodes allocated to this instance partition. Users can set the
  *  `node_count` field to specify the target number of nodes allocated to the
+ *  instance partition. If autoscaling is enabled, node_count is treated as an
+ *  OUTPUT_ONLY field and reflects the current number of nodes allocated to the
  *  instance partition. This may be zero in API responses for instance
  *  partitions that are not yet in state `READY`.
  *
@@ -4821,8 +4957,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  The number of processing units allocated to this instance partition. Users
  *  can set the `processing_units` field to specify the target number of
- *  processing units allocated to the instance partition. This might be zero in
- *  API responses for instance partitions that are not yet in the `READY` state.
+ *  processing units allocated to the instance partition. If autoscaling is
+ *  enabled, processing_units is treated as an OUTPUT_ONLY field and reflects
+ *  the current number of processing units allocated to the instance partition.
+ *  This might be zero in API responses for instance partitions that are not yet
+ *  in the `READY` state.
  *
  *  Uses NSNumber of intValue.
  */

@@ -16,17 +16,21 @@
 @class GTLRCertificateManager_AuthorizationAttemptInfo;
 @class GTLRCertificateManager_Certificate;
 @class GTLRCertificateManager_Certificate_Labels;
+@class GTLRCertificateManager_Certificate_Tags;
 @class GTLRCertificateManager_CertificateAuthorityConfig;
 @class GTLRCertificateManager_CertificateAuthorityServiceConfig;
 @class GTLRCertificateManager_CertificateIssuanceConfig;
 @class GTLRCertificateManager_CertificateIssuanceConfig_Labels;
+@class GTLRCertificateManager_CertificateIssuanceConfig_Tags;
 @class GTLRCertificateManager_CertificateMap;
 @class GTLRCertificateManager_CertificateMap_Labels;
+@class GTLRCertificateManager_CertificateMap_Tags;
 @class GTLRCertificateManager_CertificateMapEntry;
 @class GTLRCertificateManager_CertificateMapEntry_Labels;
 @class GTLRCertificateManager_CNAME;
 @class GTLRCertificateManager_DnsAuthorization;
 @class GTLRCertificateManager_DnsAuthorization_Labels;
+@class GTLRCertificateManager_DnsAuthorization_Tags;
 @class GTLRCertificateManager_DnsResourceRecord;
 @class GTLRCertificateManager_GclbTarget;
 @class GTLRCertificateManager_IntermediateCA;
@@ -49,6 +53,7 @@
 @class GTLRCertificateManager_TrustConfig;
 @class GTLRCertificateManager_TrustConfig_Labels;
 @class GTLRCertificateManager_TrustConfig_SpiffeTrustStores;
+@class GTLRCertificateManager_TrustConfig_Tags;
 @class GTLRCertificateManager_TrustStore;
 @class GTLRCertificateManager_UsedBy;
 
@@ -537,6 +542,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
 /** If set, defines data of a self-managed certificate. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_SelfManagedCertificate *selfManaged;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_Certificate_Tags *tags;
+
 /** Output only. The last update timestamp of a Certificate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -555,6 +567,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  *        fetch them all at once.
  */
 @interface GTLRCertificateManager_Certificate_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateManager_Certificate_Tags : GTLRObject
 @end
 
 
@@ -642,6 +668,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  */
 @property(nonatomic, strong, nullable) NSNumber *rotationWindowPercentage;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateIssuanceConfig_Tags *tags;
+
 /** Output only. The last update timestamp of a CertificateIssuanceConfig. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -657,6 +690,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  *        fetch them all at once.
  */
 @interface GTLRCertificateManager_CertificateIssuanceConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateManager_CertificateIssuanceConfig_Tags : GTLRObject
 @end
 
 
@@ -691,6 +738,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_CertificateMap_Tags *tags;
+
 /** Output only. The update timestamp of a Certificate Map. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -706,6 +760,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  *        fetch them all at once.
  */
 @interface GTLRCertificateManager_CertificateMap_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateManager_CertificateMap_Tags : GTLRObject
 @end
 
 
@@ -862,6 +930,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_DnsAuthorization_Tags *tags;
+
+/**
  *  Optional. Immutable. Type of DnsAuthorization. If unset during resource
  *  creation the following default will be used: - in location `global`:
  *  FIXED_RECORD, - in other locations: PER_PROJECT_RECORD.
@@ -894,6 +969,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  *        fetch them all at once.
  */
 @interface GTLRCertificateManager_DnsAuthorization_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateManager_DnsAuthorization_Tags : GTLRObject
 @end
 
 
@@ -1721,6 +1810,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
 @property(nonatomic, strong, nullable) GTLRCertificateManager_TrustConfig_SpiffeTrustStores *spiffeTrustStores;
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_TrustConfig_Tags *tags;
+
+/**
  *  Optional. Set of trust stores to perform validation against. This field is
  *  supported when TrustConfig is configured with Load Balancers, currently not
  *  supported for SPIFFE certificate validation. Only one TrustStore specified
@@ -1756,6 +1852,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCertificateManager_TrustConfig_SpiffeTrustStores : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateManager_TrustConfig_Tags : GTLRObject
 @end
 
 

@@ -806,6 +806,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
+ *  Gets the extended agent card for the authenticated agent.
+ *
+ *  Method: ces.projects.locations.apps.deployments.getExtendedAgentCard
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsGetExtendedAgentCard : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1AgentCard.
+ *
+ *  Gets the extended agent card for the authenticated agent.
+ *
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsGetExtendedAgentCard
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant;
+
+@end
+
+/**
  *  Lists deployments in the given app.
  *
  *  Method: ces.projects.locations.apps.deployments.list
@@ -859,6 +891,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sends a message to an agent.
+ *
+ *  Method: ces.projects.locations.apps.deployments.message.send
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageSend : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse.
+ *
+ *  Sends a message to an agent.
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest
+ *    to include in the query.
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageSend
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
 
 @end
 
@@ -1192,6 +1259,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
+ *  Gets the extended agent card for the authenticated agent.
+ *
+ *  Method: ces.projects.locations.apps.getExtendedAgentCard
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGetExtendedAgentCard : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1AgentCard.
+ *
+ *  Gets the extended agent card for the authenticated agent.
+ *
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGetExtendedAgentCard
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant;
+
+@end
+
+/**
  *  Creates a new guardrail in the given app.
  *
  *  Method: ces.projects.locations.apps.guardrails.create
@@ -1497,7 +1596,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  */
 @interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageSend : GTLRCustomerEngagementSuiteQuery
 
-/** Optional. Tenant ID, provided as a path parameter. */
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
 @property(nonatomic, copy, nullable) NSString *tenant;
 
 /**
@@ -1507,7 +1609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *
  *  @param object The @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest
  *    to include in the query.
- *  @param tenant Optional. Tenant ID, provided as a path parameter.
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
  *
  *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageSend
  */
@@ -2263,6 +2367,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
+ *  Gets the extended agent card for the authenticated agent.
+ *
+ *  Method: ces.projects.locations.apps.versions.getExtendedAgentCard
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsGetExtendedAgentCard : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1AgentCard.
+ *
+ *  Gets the extended agent card for the authenticated agent.
+ *
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsGetExtendedAgentCard
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant;
+
+@end
+
+/**
  *  Lists all app versions in the given app.
  *
  *  Method: ces.projects.locations.apps.versions.list
@@ -2315,6 +2451,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sends a message to an agent.
+ *
+ *  Method: ces.projects.locations.apps.versions.message.send
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageSend : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse.
+ *
+ *  Sends a message to an agent.
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest
+ *    to include in the query.
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageSend
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
 
 @end
 

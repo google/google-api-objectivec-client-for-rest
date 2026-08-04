@@ -529,6 +529,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_Sta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Failed;
 /**
+ *  The migration execution has been rolled back. This occurs when
+ *  CancelMigration is invoked after the migration has completed and the
+ *  metastore service is in the PROXY state, returning the service to the ACTIVE
+ *  state. This enables rollback support when the customer wants to resume using
+ *  DPMS after a successful migration.
+ *
+ *  Value: "ROLLED_BACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_RolledBack;
+/**
  *  The migration execution is running.
  *
  *  Value: "RUNNING"
@@ -758,6 +768,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Error;
  *  Value: "MIGRATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Migrating;
+/**
+ *  The metastore service has completed managed migration and is now proxying
+ *  requests to the Lakehouse runtime catalog.
+ *
+ *  Value: "PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_State_Proxy;
 /**
  *  The state of the metastore service is unknown.
  *
@@ -2495,6 +2512,12 @@ GTLR_DEPRECATED
  *        migration execution is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Failed The
  *        migration execution has failed. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_RolledBack The
+ *        migration execution has been rolled back. This occurs when
+ *        CancelMigration is invoked after the migration has completed and the
+ *        metastore service is in the PROXY state, returning the service to the
+ *        ACTIVE state. This enables rollback support when the customer wants to
+ *        resume using DPMS after a successful migration. (Value: "ROLLED_BACK")
  *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Running The
  *        migration execution is running. (Value: "RUNNING")
  *    @arg @c kGTLRDataprocMetastore_MigrationExecution_State_Starting The
@@ -3174,6 +3197,9 @@ GTLR_DEPRECATED
  *        should be deleted. (Value: "ERROR")
  *    @arg @c kGTLRDataprocMetastore_Service_State_Migrating The metastore
  *        service is processing a managed migration. (Value: "MIGRATING")
+ *    @arg @c kGTLRDataprocMetastore_Service_State_Proxy The metastore service
+ *        has completed managed migration and is now proxying requests to the
+ *        Lakehouse runtime catalog. (Value: "PROXY")
  *    @arg @c kGTLRDataprocMetastore_Service_State_StateUnspecified The state of
  *        the metastore service is unknown. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRDataprocMetastore_Service_State_Suspended The metastore

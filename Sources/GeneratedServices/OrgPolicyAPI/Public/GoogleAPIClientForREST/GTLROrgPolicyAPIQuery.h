@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_FoldersConstraintsList : GTLROrgPolicyAPIQuery
 
@@ -59,8 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The Google Cloud resource that parents the constraint. Must be in
  *  one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -72,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The Google Cloud resource that parents the
  *    constraint. Must be in one of the following forms: *
  *    `projects/{project_number}` * `projects/{project_id}` *
- *    `folders/{folder_id}` * `organizations/{organization_id}`
+ *    `folders/{folder_number}` * `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersConstraintsList
  *
@@ -94,14 +96,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesCreate : GTLROrgPolicyAPIQuery
 
 /**
  *  Required. The Google Cloud resource that will parent the new policy. Must be
  *  in one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -118,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The Google Cloud resource that will parent the new
  *    policy. Must be in one of the following forms: *
  *    `projects/{project_number}` * `projects/{project_id}` *
- *    `folders/{folder_id}` * `organizations/{organization_id}`
+ *    `folders/{folder_number}` * `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersPoliciesCreate
  */
@@ -136,6 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesDelete : GTLROrgPolicyAPIQuery
 
@@ -177,6 +181,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesGet : GTLROrgPolicyAPIQuery
 
@@ -212,6 +218,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
 
@@ -246,6 +254,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesList : GTLROrgPolicyAPIQuery
 
@@ -265,8 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The target Google Cloud resource that parents the set of
  *  constraints and policies that will be returned from this call. Must be in
  *  one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -278,8 +288,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The target Google Cloud resource that parents the
  *    set of constraints and policies that will be returned from this call. Must
  *    be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *    `projects/{project_id}` * `folders/{folder_number}` *
+ *    `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_FoldersPoliciesList
  *
@@ -302,6 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesPatch : GTLROrgPolicyAPIQuery
 
@@ -309,9 +320,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Immutable. The resource name of the policy. Must be one of the following
  *  forms, where `constraint_name` is the name of the constraint that this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
- *  * `folders/{folder_id}/policies/{constraint_name}` *
- *  `organizations/{organization_id}/policies/{constraint_name}` For example,
- *  `projects/123/policies/compute.disableSerialPortAccess`. Note:
+ *  * `folders/{folder_number}/policies/{constraint_name}` *
+ *  `organizations/{organization_number}/policies/{constraint_name}` For
+ *  example, `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *  `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *  name for API requests, but responses will return the name using the
  *  equivalent project number.
@@ -342,9 +353,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    following forms, where `constraint_name` is the name of the constraint
  *    that this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
- *    `folders/{folder_id}/policies/{constraint_name}` *
- *    `organizations/{organization_id}/policies/{constraint_name}` For example,
- *    `projects/123/policies/compute.disableSerialPortAccess`. Note:
+ *    `folders/{folder_number}/policies/{constraint_name}` *
+ *    `organizations/{organization_number}/policies/{constraint_name}` For
+ *    example, `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *    `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *    name for API requests, but responses will return the name using the
  *    equivalent project number.
@@ -363,6 +374,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsConstraintsList : GTLROrgPolicyAPIQuery
 
@@ -381,8 +394,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The Google Cloud resource that parents the constraint. Must be in
  *  one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -394,7 +407,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The Google Cloud resource that parents the
  *    constraint. Must be in one of the following forms: *
  *    `projects/{project_number}` * `projects/{project_id}` *
- *    `folders/{folder_id}` * `organizations/{organization_id}`
+ *    `folders/{folder_number}` * `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsConstraintsList
  *
@@ -416,6 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsCreate : GTLROrgPolicyAPIQuery
 
@@ -452,6 +466,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsDelete : GTLROrgPolicyAPIQuery
 
@@ -485,6 +500,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsGet : GTLROrgPolicyAPIQuery
 
@@ -518,6 +535,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsList : GTLROrgPolicyAPIQuery
 
@@ -570,6 +589,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsPatch : GTLROrgPolicyAPIQuery
 
@@ -618,14 +638,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesCreate : GTLROrgPolicyAPIQuery
 
 /**
  *  Required. The Google Cloud resource that will parent the new policy. Must be
  *  in one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -642,7 +663,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The Google Cloud resource that will parent the new
  *    policy. Must be in one of the following forms: *
  *    `projects/{project_number}` * `projects/{project_id}` *
- *    `folders/{folder_id}` * `organizations/{organization_id}`
+ *    `folders/{folder_number}` * `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsPoliciesCreate
  */
@@ -660,6 +681,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesDelete : GTLROrgPolicyAPIQuery
 
@@ -701,6 +723,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesGet : GTLROrgPolicyAPIQuery
 
@@ -736,6 +760,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
 
@@ -770,6 +796,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesList : GTLROrgPolicyAPIQuery
 
@@ -789,8 +817,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The target Google Cloud resource that parents the set of
  *  constraints and policies that will be returned from this call. Must be in
  *  one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -802,8 +830,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The target Google Cloud resource that parents the
  *    set of constraints and policies that will be returned from this call. Must
  *    be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *    `projects/{project_id}` * `folders/{folder_number}` *
+ *    `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_OrganizationsPoliciesList
  *
@@ -826,6 +854,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesPatch : GTLROrgPolicyAPIQuery
 
@@ -833,9 +862,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Immutable. The resource name of the policy. Must be one of the following
  *  forms, where `constraint_name` is the name of the constraint that this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
- *  * `folders/{folder_id}/policies/{constraint_name}` *
- *  `organizations/{organization_id}/policies/{constraint_name}` For example,
- *  `projects/123/policies/compute.disableSerialPortAccess`. Note:
+ *  * `folders/{folder_number}/policies/{constraint_name}` *
+ *  `organizations/{organization_number}/policies/{constraint_name}` For
+ *  example, `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *  `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *  name for API requests, but responses will return the name using the
  *  equivalent project number.
@@ -866,9 +895,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    following forms, where `constraint_name` is the name of the constraint
  *    that this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
- *    `folders/{folder_id}/policies/{constraint_name}` *
- *    `organizations/{organization_id}/policies/{constraint_name}` For example,
- *    `projects/123/policies/compute.disableSerialPortAccess`. Note:
+ *    `folders/{folder_number}/policies/{constraint_name}` *
+ *    `organizations/{organization_number}/policies/{constraint_name}` For
+ *    example, `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *    `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *    name for API requests, but responses will return the name using the
  *    equivalent project number.
@@ -887,6 +916,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsConstraintsList : GTLROrgPolicyAPIQuery
 
@@ -905,8 +936,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The Google Cloud resource that parents the constraint. Must be in
  *  one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -918,7 +949,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The Google Cloud resource that parents the
  *    constraint. Must be in one of the following forms: *
  *    `projects/{project_number}` * `projects/{project_id}` *
- *    `folders/{folder_id}` * `organizations/{organization_id}`
+ *    `folders/{folder_number}` * `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsConstraintsList
  *
@@ -940,14 +971,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesCreate : GTLROrgPolicyAPIQuery
 
 /**
  *  Required. The Google Cloud resource that will parent the new policy. Must be
  *  in one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -964,7 +996,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The Google Cloud resource that will parent the new
  *    policy. Must be in one of the following forms: *
  *    `projects/{project_number}` * `projects/{project_id}` *
- *    `folders/{folder_id}` * `organizations/{organization_id}`
+ *    `folders/{folder_number}` * `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsPoliciesCreate
  */
@@ -982,6 +1014,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesDelete : GTLROrgPolicyAPIQuery
 
@@ -1023,6 +1056,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesGet : GTLROrgPolicyAPIQuery
 
@@ -1058,6 +1093,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
 
@@ -1092,6 +1129,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesList : GTLROrgPolicyAPIQuery
 
@@ -1111,8 +1150,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The target Google Cloud resource that parents the set of
  *  constraints and policies that will be returned from this call. Must be in
  *  one of the following forms: * `projects/{project_number}` *
- *  `projects/{project_id}` * `folders/{folder_id}` *
- *  `organizations/{organization_id}`
+ *  `projects/{project_id}` * `folders/{folder_number}` *
+ *  `organizations/{organization_number}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1124,8 +1163,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The target Google Cloud resource that parents the
  *    set of constraints and policies that will be returned from this call. Must
  *    be in one of the following forms: * `projects/{project_number}` *
- *    `projects/{project_id}` * `folders/{folder_id}` *
- *    `organizations/{organization_id}`
+ *    `projects/{project_id}` * `folders/{folder_number}` *
+ *    `organizations/{organization_number}`
  *
  *  @return GTLROrgPolicyAPIQuery_ProjectsPoliciesList
  *
@@ -1148,6 +1187,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
+ *    @c kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesPatch : GTLROrgPolicyAPIQuery
 
@@ -1155,9 +1195,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Immutable. The resource name of the policy. Must be one of the following
  *  forms, where `constraint_name` is the name of the constraint that this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
- *  * `folders/{folder_id}/policies/{constraint_name}` *
- *  `organizations/{organization_id}/policies/{constraint_name}` For example,
- *  `projects/123/policies/compute.disableSerialPortAccess`. Note:
+ *  * `folders/{folder_number}/policies/{constraint_name}` *
+ *  `organizations/{organization_number}/policies/{constraint_name}` For
+ *  example, `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *  `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *  name for API requests, but responses will return the name using the
  *  equivalent project number.
@@ -1188,9 +1228,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    following forms, where `constraint_name` is the name of the constraint
  *    that this policy configures: *
  *    `projects/{project_number}/policies/{constraint_name}` *
- *    `folders/{folder_id}/policies/{constraint_name}` *
- *    `organizations/{organization_id}/policies/{constraint_name}` For example,
- *    `projects/123/policies/compute.disableSerialPortAccess`. Note:
+ *    `folders/{folder_number}/policies/{constraint_name}` *
+ *    `organizations/{organization_number}/policies/{constraint_name}` For
+ *    example, `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *    `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *    name for API requests, but responses will return the name using the
  *    equivalent project number.

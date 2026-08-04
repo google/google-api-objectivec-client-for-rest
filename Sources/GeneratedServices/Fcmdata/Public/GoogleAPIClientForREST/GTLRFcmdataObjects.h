@@ -125,9 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The percentage of accepted messages that were delayed due to message
  *  throttling, such as [collapsible message
- *  throttling](https://firebase.google.com/docs/cloud-messaging/concept-options#collapsible_throttling)
- *  or [maximum message rate
- *  throttling](https://firebase.google.com/docs/cloud-messaging/concept-options#device_throttling).
+ *  throttling](https://firebase.google.com/docs/cloud-messaging/concept-options#collapsible_throttling).
  *
  *  Uses NSNumber of floatValue.
  */

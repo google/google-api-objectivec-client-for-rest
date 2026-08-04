@@ -115,6 +115,16 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Advisorynotifications/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Advisorynotifications/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'AgentIdentity' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AgentIdentity/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AgentIdentity/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'AgentIdentityCredentials' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AgentIdentityCredentials/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AgentIdentityCredentials/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'AgentRegistry' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AgentRegistry/**/*.{h,m}'
@@ -849,6 +859,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/FirebaseCloudMessaging/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/FirebaseCloudMessaging/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'FirebaseCrashlytics' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/FirebaseCrashlytics/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/FirebaseCrashlytics/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'FirebaseDataConnect' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

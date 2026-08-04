@@ -139,55 +139,6 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoUrl = @"videoUrl";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoVisible = @"videoVisible";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VisitorRegion = @"visitorRegion";
 
-// GTLRTagManager_CompilerErrorLite.errorType
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_ConflictingDestinationRouting = @"conflictingDestinationRouting";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_CustomTriggerMissingEventFilter = @"customTriggerMissingEventFilter";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateAutoEventName = @"duplicateAutoEventName";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateConditionId = @"duplicateConditionId";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateDefaultMacro = @"duplicateDefaultMacro";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateExperimentId = @"duplicateExperimentId";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateTagName = @"duplicateTagName";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_DuplicateTriggerId = @"duplicateTriggerId";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_GaExperimentMacroIsDeprecated = @"gaExperimentMacroIsDeprecated";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InternalCompilerError = @"internalCompilerError";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidBlockingTrigger = @"invalidBlockingTrigger";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidCustomTemplateRuntimeCode = @"invalidCustomTemplateRuntimeCode";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidDestinationTag = @"invalidDestinationTag";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidHtmlCssJs = @"invalidHtmlCssJs";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroFormat = @"invalidMacroFormat";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroKey = @"invalidMacroKey";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroNameReference = @"invalidMacroNameReference";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidMacroParameter = @"invalidMacroParameter";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidManualEscaping = @"invalidManualEscaping";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidNumberPredicateArgs = @"invalidNumberPredicateArgs";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidRegex = @"invalidRegex";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTagParameter = @"invalidTagParameter";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTagReference = @"invalidTagReference";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTriggerParameter = @"invalidTriggerParameter";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidTypeInSelect = @"invalidTypeInSelect";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_InvalidUsageContext = @"invalidUsageContext";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_JavascriptTooLong = @"javascriptTooLong";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_JsCompilerError = @"jsCompilerError";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_JsonError = @"jsonError";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_LineTooLong = @"lineTooLong";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MacroCycle = @"macroCycle";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MacroInCommentsError = @"macroInCommentsError";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MacroNotServerSideResolvable = @"macroNotServerSideResolvable";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_MissingRequiredActivity = @"missingRequiredActivity";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_ParameterReferenceNotFound = @"parameterReferenceNotFound";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_PixieCompilerError = @"pixieCompilerError";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_TosRequiredForThirdPartyTags = @"tosRequiredForThirdPartyTags";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownConditionId = @"unknownConditionId";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownErrorType = @"unknownErrorType";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownMacroInstance = @"unknownMacroInstance";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownTagInstance = @"unknownTagInstance";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnknownTriggerId = @"unknownTriggerId";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnresolvableDestinationTag = @"unresolvableDestinationTag";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeCssContent = @"unsafeCssContent";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeHtmlAttributeValue = @"unsafeHtmlAttributeValue";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsafeHtmlContent = @"unsafeHtmlContent";
-NSString * const kGTLRTagManager_CompilerErrorLite_ErrorType_UnsupportedTriggerType = @"unsupportedTriggerType";
-
 // GTLRTagManager_Condition.type
 NSString * const kGTLRTagManager_Condition_Type_ConditionTypeUnspecified = @"conditionTypeUnspecified";
 NSString * const kGTLRTagManager_Condition_Type_Contains       = @"contains";
@@ -297,6 +248,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_None = @
 NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercase = @"uppercase";
 
 // GTLRTagManager_VariableFormatValue.convertToNumber
+NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Automatic = @"automatic";
 NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Comma = @"comma";
 NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_DecimalSeparatorTypeUnspecified = @"decimalSeparatorTypeUnspecified";
 NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period = @"period";
@@ -375,16 +327,6 @@ NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period = @"
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTagManager_CompilerErrorLite
-//
-
-@implementation GTLRTagManager_CompilerErrorLite
-@dynamic errorMessage, errorType;
 @end
 
 
@@ -535,16 +477,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period = @"
 //
 
 @implementation GTLRTagManager_CreateContainerVersionResponse
-@dynamic compilerError, compilerErrors, containerVersion, newWorkspacePath,
-         syncStatus;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"compilerErrors" : [GTLRTagManager_CompilerErrorLite class]
-  };
-  return map;
-}
-
+@dynamic compilerError, containerVersion, newWorkspacePath, syncStatus;
 @end
 
 
@@ -1128,15 +1061,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period = @"
 //
 
 @implementation GTLRTagManager_PublishContainerVersionResponse
-@dynamic compilerError, compilerErrors, containerVersion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"compilerErrors" : [GTLRTagManager_CompilerErrorLite class]
-  };
-  return map;
-}
-
+@dynamic compilerError, containerVersion;
 @end
 
 
@@ -1146,15 +1071,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period = @"
 //
 
 @implementation GTLRTagManager_QuickPreviewResponse
-@dynamic compilerError, compilerErrors, containerVersion, syncStatus;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"compilerErrors" : [GTLRTagManager_CompilerErrorLite class]
-  };
-  return map;
-}
-
+@dynamic compilerError, containerVersion, syncStatus;
 @end
 
 

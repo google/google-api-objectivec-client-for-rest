@@ -9,8 +9,9 @@
 #import <GoogleAPIClientForREST/GTLRBackupdr.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeBackupdrCloudBackupdr = @"https://www.googleapis.com/auth/cloud-backupdr";
 NSString * const kGTLRAuthScopeBackupdrCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

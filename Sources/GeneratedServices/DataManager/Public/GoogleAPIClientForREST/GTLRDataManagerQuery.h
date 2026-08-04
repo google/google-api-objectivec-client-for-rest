@@ -195,14 +195,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  camel case and snake case. Supported operations: - `AND` - `=` - `!=`
  *  Supported fields: - `partner_link_id` - `owning_account.account_type` -
  *  `owning_account.account_id` - `partner_account.account_type` -
- *  `partner_account.account_id` Example: `owning_account.account_type =
- *  "GOOGLE_ADS" AND partner_account.account_id = 987654321`
+ *  `partner_account.account_id` - `feature_set` For partner links with the
+ *  FEATURE_SET_AD_EVENT_MANAGEMENT feature set, the following fields are also
+ *  supported: - `partner_customer_account.account_id` Example:
+ *  `owning_account.account_type = "GOOGLE_ADS" AND partner_account.account_id =
+ *  987654321`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of partner links to return. The service may return fewer
- *  than this value. If unspecified, at most 10 partner links will be returned.
+ *  than this value. If unspecified, at most 50 partner links will be returned.
  *  The maximum value is 100; values above 100 will be coerced to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -329,8 +332,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  [camel case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
  *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
  *  camel case and snake case. **Supported Operations:** - `AND` - `=` - `!=` -
- *  `>` - `>=` - `<` - `<=` **Unsupported Fields:** - `name` (use get method
- *  instead) - `historical_pricings` and all its subfields -
+ *  `>` - `>=` - `<` - `<=` **Supported Functions:** - `IN(field, value1,
+ *  value2, ...)`: returns true if the field matches any of the values. Example:
+ *  `IN(user_list_id, 123, 456)` **Unsupported Fields:** - `name` (use get
+ *  method instead) - `historical_pricings` and all its subfields -
  *  `pricing.start_time` - `pricing.end_time`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -496,8 +501,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  [camel case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
  *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
  *  camel case and snake case. **Supported Operations:** - `AND` - `=` - `!=` -
- *  `>` - `>=` - `<` - `<=` **Unsupported Fields:** - `name` (use get method
- *  instead) - `historical_pricings` and all its subfields -
+ *  `>` - `>=` - `<` - `<=` **Supported Functions:** - `IN(field, value1,
+ *  value2, ...)`: returns true if the field matches any of the values. Example:
+ *  `IN(user_list_id, 123, 456)` **Unsupported Fields:** - `name` (use get
+ *  method instead) - `historical_pricings` and all its subfields -
  *  `pricing.start_time` - `pricing.end_time`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -599,8 +606,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  [camel case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
  *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
  *  camel case and snake case. **Supported Operations:** - `AND` - `=` - `!=` -
- *  `>` - `>=` - `<` - `<=` **Unsupported Fields:** - `name` (use get method
- *  instead) - `historical_pricings` and all its subfields -
+ *  `>` - `>=` - `<` - `<=` **Supported Functions:** - `IN(field, value1,
+ *  value2, ...)`: returns true if the field matches any of the values. Example:
+ *  `IN(user_list_id, 123, 456)` **Unsupported Fields:** - `name` (use get
+ *  method instead) - `historical_pricings` and all its subfields -
  *  `pricing.start_time` - `pricing.end_time`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -824,9 +833,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
  *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
  *  camel case and snake case. Supported operations: - `AND` - `=` - `!=` - `>`
- *  - `>=` - `<` - `<=` - `:` (has) Supported fields: - `id` - `display_name` -
- *  `description` - `membership_status` - `integration_code` - `access_reason` -
- *  `ingested_user_list_info.upload_key_types`
+ *  - `>=` - `<` - `<=` - `:` (has) **Supported Functions:** - `IN(field,
+ *  value1, value2, ...)`: returns true if the field matches any of the values.
+ *  Example: `IN(display_name, "name1", "name2")` Supported fields: - `id` -
+ *  `display_name` - `description` - `membership_status` - `integration_code` -
+ *  `access_reason` - `ingested_user_list_info.upload_key_types`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1007,6 +1018,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDataManagerQuery_AudienceMembersRemove
  */
 + (instancetype)queryWithObject:(GTLRDataManager_RemoveAudienceMembersRequest *)object;
+
+@end
+
+/**
+ *  Removes all audience members from the provided destinations.
+ *
+ *  Method: datamanager.audienceMembers.removeAll
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AudienceMembersRemoveAll : GTLRDataManagerQuery
+
+/**
+ *  Fetches a @c GTLRDataManager_RemoveAllAudienceMembersResponse.
+ *
+ *  Removes all audience members from the provided destinations.
+ *
+ *  @param object The @c GTLRDataManager_RemoveAllAudienceMembersRequest to
+ *    include in the query.
+ *
+ *  @return GTLRDataManagerQuery_AudienceMembersRemoveAll
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_RemoveAllAudienceMembersRequest *)object;
 
 @end
 

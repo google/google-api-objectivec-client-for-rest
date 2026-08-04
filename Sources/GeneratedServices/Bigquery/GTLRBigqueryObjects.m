@@ -14,8 +14,10 @@
 // Constants
 
 // GTLRBigquery_Argument.argumentKind
+NSString * const kGTLRBigquery_Argument_ArgumentKind_AnyTable  = @"ANY_TABLE";
 NSString * const kGTLRBigquery_Argument_ArgumentKind_AnyType   = @"ANY_TYPE";
 NSString * const kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified = @"ARGUMENT_KIND_UNSPECIFIED";
+NSString * const kGTLRBigquery_Argument_ArgumentKind_FixedTable = @"FIXED_TABLE";
 NSString * const kGTLRBigquery_Argument_ArgumentKind_FixedType = @"FIXED_TYPE";
 
 // GTLRBigquery_Argument.mode
@@ -63,6 +65,17 @@ NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriod
 NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified = @"SEASONAL_PERIOD_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Weekly = @"WEEKLY";
 NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Yearly = @"YEARLY";
+
+// GTLRBigquery_ArrowSerializationOptions.bufferCompression
+NSString * const kGTLRBigquery_ArrowSerializationOptions_BufferCompression_CompressionUnspecified = @"COMPRESSION_UNSPECIFIED";
+NSString * const kGTLRBigquery_ArrowSerializationOptions_BufferCompression_Lz4Frame = @"LZ4_FRAME";
+NSString * const kGTLRBigquery_ArrowSerializationOptions_BufferCompression_Zstd = @"ZSTD";
+
+// GTLRBigquery_ArrowSerializationOptions.picosTimestampPrecision
+NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_PicosTimestampPrecisionUnspecified = @"PICOS_TIMESTAMP_PRECISION_UNSPECIFIED";
+NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionMicros = @"TIMESTAMP_PRECISION_MICROS";
+NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionNanos = @"TIMESTAMP_PRECISION_NANOS";
+NSString * const kGTLRBigquery_ArrowSerializationOptions_PicosTimestampPrecision_TimestampPrecisionPicos = @"TIMESTAMP_PRECISION_PICOS";
 
 // GTLRBigquery_AuditLogConfig.logType
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -340,6 +353,12 @@ NSString * const kGTLRBigquery_Model_ModelType_TensorflowLite  = @"TENSORFLOW_LI
 NSString * const kGTLRBigquery_Model_ModelType_TransformOnly   = @"TRANSFORM_ONLY";
 NSString * const kGTLRBigquery_Model_ModelType_Xgboost         = @"XGBOOST";
 
+// GTLRBigquery_ObjectStorageStats.cloudProvider
+NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_Aws = @"AWS";
+NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_Azure = @"AZURE";
+NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRBigquery_ObjectStorageStats_CloudProvider_Gcp = @"GCP";
+
 // GTLRBigquery_ParquetOptions.mapTargetType
 NSString * const kGTLRBigquery_ParquetOptions_MapTargetType_ArrayOfStruct = @"ARRAY_OF_STRUCT";
 NSString * const kGTLRBigquery_ParquetOptions_MapTargetType_MapTargetTypeUnspecified = @"MAP_TARGET_TYPE_UNSPECIFIED";
@@ -348,6 +367,11 @@ NSString * const kGTLRBigquery_ParquetOptions_MapTargetType_MapTargetTypeUnspeci
 NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationModeUnspecified = @"JOB_CREATION_MODE_UNSPECIFIED";
 NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationOptional = @"JOB_CREATION_OPTIONAL";
 NSString * const kGTLRBigquery_QueryRequest_JobCreationMode_JobCreationRequired = @"JOB_CREATION_REQUIRED";
+
+// GTLRBigquery_QueryRequest.queryResultsFormat
+NSString * const kGTLRBigquery_QueryRequest_QueryResultsFormat_Arrow = @"ARROW";
+NSString * const kGTLRBigquery_QueryRequest_QueryResultsFormat_QueryResultsFormatUnspecified = @"QUERY_RESULTS_FORMAT_UNSPECIFIED";
+NSString * const kGTLRBigquery_QueryRequest_QueryResultsFormat_StructEncoding = @"STRUCT_ENCODING";
 
 // GTLRBigquery_RemoteModelInfo.remoteServiceType
 NSString * const kGTLRBigquery_RemoteModelInfo_RemoteServiceType_CloudAiNaturalLanguageV1 = @"CLOUD_AI_NATURAL_LANGUAGE_V1";
@@ -766,7 +790,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_Argument
-@dynamic argumentKind, dataType, isAggregate, mode, name;
+@dynamic argumentKind, dataType, isAggregate, mode, name, tableType;
 @end
 
 
@@ -892,6 +916,36 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ArrowRecordBatch
+//
+
+@implementation GTLRBigquery_ArrowRecordBatch
+@dynamic serializedRecordBatch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ArrowSchema
+//
+
+@implementation GTLRBigquery_ArrowSchema
+@dynamic serializedSchema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ArrowSerializationOptions
+//
+
+@implementation GTLRBigquery_ArrowSerializationOptions
+@dynamic bufferCompression, picosTimestampPrecision;
 @end
 
 
@@ -2534,8 +2588,9 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, copyProperty, creationTime, dataMaskingStatistics,
-         edition, endTime, extract, finalExecutionDurationMs, load,
-         numChildJobs, parentJobId, query, quotaDeferments, reservationId,
+         edition, endTime, extract, finalExecutionDurationMs,
+         globalQueryRemoteRegions, load, numChildJobs, parentGlobalQueryJob,
+         parentJobId, query, quotaDeferments, reservationId,
          reservationGroupPath, reservationUsage, rowLevelSecurityStatistics,
          scriptStatistics, sessionInfo, startTime, totalBytesProcessed,
          totalSlotMs, transactionInfo;
@@ -2550,6 +2605,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"globalQueryRemoteRegions" : [NSString class],
     @"quotaDeferments" : [NSString class],
     @"reservationGroupPath" : [NSString class],
     @"reservationUsage" : [GTLRBigquery_JobStatistics_ReservationUsage_Item class]
@@ -2585,16 +2641,18 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          materializedViewStatistics, metadataCacheStatistics, mlStatistics,
          modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows,
-         performanceInsights, queryInfo, queryPlan, referencedPropertyGraphs,
-         referencedRoutines, referencedTables, reservationUsage, schema,
-         searchStatistics, sparkStatistics, statementType, timeline,
-         totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
-         totalPartitionsProcessed, totalServicesSkuSlotMs, totalSlotMs,
-         transferredBytes, undeclaredQueryParameters, vectorSearchStatistics;
+         objectStorageStats, performanceInsights, queryInfo, queryPlan,
+         referencedPropertyGraphs, referencedRoutines, referencedTables,
+         reservationUsage, schema, searchStatistics, sparkStatistics,
+         statementType, timeline, totalBytesBilled, totalBytesProcessed,
+         totalBytesProcessedAccuracy, totalPartitionsProcessed,
+         totalServicesSkuSlotMs, totalSlotMs, transferredBytes,
+         undeclaredQueryParameters, vectorSearchStatistics;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"externalServiceCosts" : [GTLRBigquery_ExternalServiceCost class],
+    @"objectStorageStats" : [GTLRBigquery_ObjectStorageStats class],
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
     @"referencedPropertyGraphs" : [GTLRBigquery_PropertyGraphReference class],
     @"referencedRoutines" : [GTLRBigquery_RoutineReference class],
@@ -2663,7 +2721,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_JobStatistics5
-@dynamic copiedLogicalBytes, copiedRows;
+@dynamic copiedLogicalBytes, copiedRows, remoteDestinationRegion;
 @end
 
 
@@ -3065,6 +3123,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ObjectStorageStats
+//
+
+@implementation GTLRBigquery_ObjectStorageStats
+@dynamic cacheBytesRead, cloudProvider, objectStorageBytesRead;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ParquetOptions
 //
 
@@ -3386,12 +3454,13 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_QueryRequest
-@dynamic connectionProperties, continuous, createSession, defaultDataset,
-         destinationEncryptionConfiguration, dryRun, formatOptions,
-         jobCreationMode, jobTimeoutMs, kind, labels, location,
-         maximumBytesBilled, maxResults, maxSlots, parameterMode, preserveNulls,
-         query, queryParameters, requestId, reservation, timeoutMs,
-         useLegacySql, useQueryCache, writeIncrementalResults;
+@dynamic arrowSerializationOptions, connectionProperties, continuous,
+         createSession, defaultDataset, destinationEncryptionConfiguration,
+         dryRun, formatOptions, jobCreationMode, jobTimeoutMs, kind, labels,
+         location, maximumBytesBilled, maxResults, maxSlots, parameterMode,
+         preserveNulls, query, queryParameters, queryResultsFormat, requestId,
+         reservation, timeoutMs, useLegacySql, useQueryCache,
+         writeIncrementalResults;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3424,10 +3493,11 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_QueryResponse
-@dynamic cacheHit, creationTime, dmlStats, endTime, errors, jobComplete,
-         jobCreationReason, jobReference, kind, location, numDmlAffectedRows,
-         pageToken, queryId, rows, schema, sessionInfo, startTime,
-         totalBytesBilled, totalBytesProcessed, totalRows, totalSlotMs;
+@dynamic arrowRecordBatch, arrowSchema, cacheHit, creationTime, dmlStats,
+         endTime, errors, jobComplete, jobCreationReason, jobReference, kind,
+         location, numDmlAffectedRows, pageRowCount, pageToken, queryId, rows,
+         schema, sessionInfo, startTime, totalBytesBilled, totalBytesProcessed,
+         totalRows, totalSlotMs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

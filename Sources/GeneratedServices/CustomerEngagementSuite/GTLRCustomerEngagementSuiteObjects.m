@@ -38,12 +38,15 @@ NSString * const kGTLRCustomerEngagementSuite_App_ToolExecutionMode_ToolExecutio
 // GTLRCustomerEngagementSuite_ChannelProfile.channelType
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Api = @"API";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAService = @"CONTACT_CENTER_AS_A_SERVICE";
+NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAServiceChat = @"CONTACT_CENTER_AS_A_SERVICE_CHAT";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterIntegration = @"CONTACT_CENTER_INTEGRATION";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Five9 = @"FIVE9";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_GoogleTelephonyPlatform = @"GOOGLE_TELEPHONY_PLATFORM";
+NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Instagram = @"INSTAGRAM";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Twilio = @"TWILIO";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Unknown = @"UNKNOWN";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_WebUi = @"WEB_UI";
+NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Whatsapp = @"WHATSAPP";
 
 // GTLRCustomerEngagementSuite_ChannelProfilePersonaProperty.persona
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfilePersonaProperty_Persona_Chatty = @"CHATTY";
@@ -120,6 +123,12 @@ NSString * const kGTLRCustomerEngagementSuite_DataStoreToolBoostSpecConditionBoo
 NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_ModalityType_Audio = @"AUDIO";
 NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_ModalityType_ModalityTypeUnspecified = @"MODALITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_ModalityType_Text = @"TEXT";
+
+// GTLRCustomerEngagementSuite_Deployment.modality
+NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityText = @"MODALITY_TEXT";
+NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityUnspecified = @"MODALITY_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityVideo = @"MODALITY_VIDEO";
+NSString * const kGTLRCustomerEngagementSuite_Deployment_Modality_ModalityVoice = @"MODALITY_VOICE";
 
 // GTLRCustomerEngagementSuite_EndpointControlPolicy.enforcementScope
 NSString * const kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_Always = @"ALWAYS";
@@ -506,7 +515,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_AgentTool
-@dynamic agent, descriptionProperty, name, rootAgent;
+@dynamic agent, descriptionProperty, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -852,8 +861,24 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ChannelProfile
-@dynamic channelType, disableBargeInControl, disableDtmf, noiseSuppressionLevel,
-         personaProperty, profileId, webWidgetConfig;
+@dynamic channelType, disableBargeInControl, disableDtmf, instagramConfig,
+         noiseSuppressionLevel, personaProperty, profileId, webWidgetConfig,
+         whatsappConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_ChannelProfileInstagramConfig
+//
+
+@implementation GTLRCustomerEngagementSuite_ChannelProfileInstagramConfig
+@dynamic descriptionProperty, displayName, instagramAccountId, thumbnailUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -890,6 +915,22 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
     @"allowedOrigins" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_ChannelProfileWhatsAppConfig
+//
+
+@implementation GTLRCustomerEngagementSuite_ChannelProfileWhatsAppConfig
+@dynamic descriptionProperty, displayName, phoneNumber, phoneNumberId,
+         thumbnailUrl, wabaId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -972,7 +1013,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_CitationsCitedChunk
-@dynamic text, title, uri;
+@dynamic requiresAttribution, text, title, uri;
 @end
 
 
@@ -1091,7 +1132,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ConversationTurn
-@dynamic messages, rootSpan;
+@dynamic messages, rootSpan, userIntendedText;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1295,7 +1336,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_DataStoreToolModalityConfig
-@dynamic groundingConfig, modalityType, rewriterConfig, summarizationConfig;
+@dynamic groundingConfig, modalityType, rewriterConfig, snippetsConfig,
+         summarizationConfig;
 @end
 
 
@@ -1306,6 +1348,16 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_DataStoreToolRewriterConfig
 @dynamic disabled, modelSettings, prompt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_DataStoreToolSnippetsConfig
+//
+
+@implementation GTLRCustomerEngagementSuite_DataStoreToolSnippetsConfig
+@dynamic enableSnippets;
 @end
 
 
@@ -1326,7 +1378,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_Deployment
 @dynamic appVersion, channelProfile, createTime, displayName, ETag,
-         experimentConfig, name, updateTime;
+         experimentConfig, instagramCredentials, modality, modelSettings, name,
+         updateTime, whatsappCredentials;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1608,7 +1661,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ExecuteToolResponse
-@dynamic response, tool, toolsetTool, variables;
+@dynamic citations, googleSearchSuggestions, response, tool, toolsetTool,
+         variables;
 @end
 
 
@@ -1940,7 +1994,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ImportAppRequestImportOptions
-@dynamic conflictResolutionStrategy;
+@dynamic conflictResolutionStrategy, validateOnly;
 @end
 
 
@@ -1974,6 +2028,16 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_InstagramCredentials
+//
+
+@implementation GTLRCustomerEngagementSuite_InstagramCredentials
+@dynamic authCode, conversationProfileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_LanguageSettings
 //
 
@@ -1986,6 +2050,192 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
     @"supportedLanguageCodes" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentCapabilities
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentCapabilities
+@dynamic extendedAgentCard, extensions, pushNotifications, streaming;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRCustomerEngagementSuite_LfA2aV1AgentExtension class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentCard
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentCard
+@dynamic capabilities, defaultInputModes, defaultOutputModes,
+         descriptionProperty, documentationUrl, iconUrl, name, provider,
+         securityRequirements, securitySchemes, signatures, skills,
+         supportedInterfaces, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"defaultInputModes" : [NSString class],
+    @"defaultOutputModes" : [NSString class],
+    @"securityRequirements" : [GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement class],
+    @"signatures" : [GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature class],
+    @"skills" : [GTLRCustomerEngagementSuite_LfA2aV1AgentSkill class],
+    @"supportedInterfaces" : [GTLRCustomerEngagementSuite_LfA2aV1AgentInterface class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentCard_SecuritySchemes
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentCard_SecuritySchemes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCustomerEngagementSuite_LfA2aV1SecurityScheme class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature
+@dynamic header, protectedProperty, signature;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"protectedProperty" : @"protected" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature_Header
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentCardSignature_Header
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentExtension
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentExtension
+@dynamic descriptionProperty, params, required, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentExtension_Params
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentExtension_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentInterface
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentInterface
+@dynamic protocolBinding, protocolVersion, tenant, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentProvider
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentProvider
+@dynamic organization, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AgentSkill
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AgentSkill
+@dynamic descriptionProperty, examples, identifier, inputModes, name,
+         outputModes, securityRequirements, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"examples" : [NSString class],
+    @"inputModes" : [NSString class],
+    @"outputModes" : [NSString class],
+    @"securityRequirements" : [GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1APIKeySecurityScheme
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1APIKeySecurityScheme
+@dynamic descriptionProperty, location, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -2040,6 +2290,117 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow
+@dynamic authorizationUrl, pkceRequired, refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow_Scopes
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1AuthorizationCodeOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow
+@dynamic refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow_Scopes
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1ClientCredentialsOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow
+@dynamic deviceAuthorizationUrl, refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow_Scopes
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1DeviceCodeOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1HTTPAuthSecurityScheme
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1HTTPAuthSecurityScheme
+@dynamic bearerFormat, descriptionProperty, scheme;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow
+@dynamic authorizationUrl, refreshUrl, scopes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow_Scopes
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1ImplicitOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_LfA2aV1Message
 //
 
@@ -2075,6 +2436,61 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_LfA2aV1MutualTlsSecurityScheme
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1MutualTlsSecurityScheme
+@dynamic descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1OAuth2SecurityScheme
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1OAuth2SecurityScheme
+@dynamic descriptionProperty, flows, oauth2MetadataUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1OAuthFlows
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1OAuthFlows
+@dynamic authorizationCode, clientCredentials, deviceCode, implicit, password;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1OpenIdConnectSecurityScheme
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1OpenIdConnectSecurityScheme
+@dynamic descriptionProperty, openIdConnectUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_LfA2aV1Part
 //
 
@@ -2094,6 +2510,65 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow
+@dynamic refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow_Scopes
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1PasswordOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement
+@dynamic schemes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement_Schemes
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1SecurityRequirement_Schemes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCustomerEngagementSuite_LfA2aV1StringList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1SecurityScheme
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1SecurityScheme
+@dynamic apiKeySecurityScheme, httpAuthSecurityScheme, mtlsSecurityScheme,
+         oauth2SecurityScheme, openIdConnectSecurityScheme;
 @end
 
 
@@ -2147,6 +2622,24 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse
 @dynamic message, task;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1StringList
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1StringList
+@dynamic list;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"list" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2525,7 +3018,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 @dynamic audioRecordingConfig, bigqueryExportSettings, cloudLoggingSettings,
          conversationLoggingSettings, evaluationAudioRecordingConfig,
          metricAnalysisSettings, redactionConfig,
-         unredactedAudioRecordingConfig;
+         unredactedAudioRecordingConfig, unredactedBigqueryExportSettings;
 @end
 
 
@@ -3086,9 +3579,9 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_SessionConfig
-@dynamic deployment, enableTextStreaming, entryAgent, historicalContexts,
-         inputAudioConfig, outputAudioConfig, remoteDialogflowQueryParameters,
-         timeZone, useToolFakes;
+@dynamic deployment, enableTextStreaming, entryAgent, excludeDiagnosticInfo,
+         historicalContexts, inputAudioConfig, outputAudioConfig,
+         remoteDialogflowQueryParameters, timeZone, useToolFakes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3183,8 +3676,31 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_SessionOutput
-@dynamic audio, citations, diagnosticInfo, endSession, googleSearchSuggestions,
-         payload, text, toolCalls, turnCompleted, turnIndex;
+@dynamic audio, citations, context, diagnosticInfo, endSession,
+         googleSearchSuggestions, payload, text, toolCalls, turnCompleted,
+         turnIndex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"context" : [GTLRCustomerEngagementSuite_SessionOutput_Context_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_SessionOutput_Context_Item
+//
+
+@implementation GTLRCustomerEngagementSuite_SessionOutput_Context_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -3290,7 +3806,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_SynthesizeSpeechConfig
-@dynamic speakingRate, voice;
+@dynamic consentAudioGcsUri, instruction, model, speakingRate, voice,
+         voiceSampleGcsUri;
 @end
 
 
@@ -3477,8 +3994,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_Toolset
 @dynamic connectorToolset, createTime, descriptionProperty, displayName, ETag,
-         executionType, mcpToolset, name, openApiToolset, toolFakeConfig,
-         updateTime;
+         executionType, mcpToolset, name, openApiToolset, timeout,
+         toolFakeConfig, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3614,6 +4131,17 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_WebSearchQuery
 @dynamic query, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_WhatsAppCredentials
+//
+
+@implementation GTLRCustomerEngagementSuite_WhatsAppCredentials
+@dynamic authCode, businessAccountId, conversationProfileId, phoneNumber, pin,
+         wabaId;
 @end
 
 

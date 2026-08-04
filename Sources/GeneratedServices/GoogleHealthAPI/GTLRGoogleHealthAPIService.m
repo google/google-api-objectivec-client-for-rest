@@ -23,9 +23,12 @@ NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasur
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly = @"https://www.googleapis.com/auth/googlehealth.irn.readonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly = @"https://www.googleapis.com/auth/googlehealth.location.readonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly = @"https://www.googleapis.com/auth/googlehealth.location.writeonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly = @"https://www.googleapis.com/auth/googlehealth.logged_symptoms.writeonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly = @"https://www.googleapis.com/auth/googlehealth.mindfulness.writeonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly = @"https://www.googleapis.com/auth/googlehealth.nutrition.writeonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly = @"https://www.googleapis.com/auth/googlehealth.profile.readonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileWriteonly = @"https://www.googleapis.com/auth/googlehealth.profile.writeonly";
+NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly = @"https://www.googleapis.com/auth/googlehealth.reproductive_health.writeonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly = @"https://www.googleapis.com/auth/googlehealth.settings.readonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsWriteonly = @"https://www.googleapis.com/auth/googlehealth.settings.writeonly";
 NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly = @"https://www.googleapis.com/auth/googlehealth.sleep.readonly";

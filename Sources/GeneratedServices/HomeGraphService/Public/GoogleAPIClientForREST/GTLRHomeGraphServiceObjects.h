@@ -39,6 +39,8 @@
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice_Notifications;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice_States;
+@class GTLRHomeGraphService_ReportStateAndNotificationResponse_DeviceResults;
+@class GTLRHomeGraphService_Result;
 @class GTLRHomeGraphService_StateAndNotificationPayload;
 @class GTLRHomeGraphService_SyncResponsePayload;
 @class GTLRHomeGraphService_TraitData;
@@ -715,9 +717,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
  */
 @interface GTLRHomeGraphService_ReportStateAndNotificationResponse : GTLRObject
 
+/**
+ *  Map from agent device ID to the result of reporting state and notifications.
+ *  This is only populated for UDDM updates for now.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_ReportStateAndNotificationResponse_DeviceResults *deviceResults;
+
 /** Request ID copied from ReportStateAndNotificationRequest. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
+@end
+
+
+/**
+ *  Map from agent device ID to the result of reporting state and notifications.
+ *  This is only populated for UDDM updates for now.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRHomeGraphService_Result. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_ReportStateAndNotificationResponse_DeviceResults : GTLRObject
 @end
 
 
@@ -750,6 +771,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
  *  with more details upon failure.
  */
 @interface GTLRHomeGraphService_RequestSyncDevicesResponse : GTLRObject
+@end
+
+
+/**
+ *  Result of reporting state and notifications for a single device.
+ */
+@interface GTLRHomeGraphService_Result : GTLRObject
+
+/** The trait commit timestamp of the state update in Home Graph. */
+@property(nonatomic, strong, nullable) GTLRDateTime *homeTraitCommitTime;
+
 @end
 
 
@@ -828,6 +860,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
  *  the server.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
+
+/**
+ *  Optional in write requests (e.g. ReportStateAndNotification). If set,
+ *  represents the provider version timestamp of the existing trait in the
+ *  database. The server will perform optimistic locking validation if this
+ *  field is present and the experiment is enabled. It will not be persisted to
+ *  the database.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *providerVersionTime;
 
 /** The Provider Home API trait payload. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_TraitData_Trait *trait;

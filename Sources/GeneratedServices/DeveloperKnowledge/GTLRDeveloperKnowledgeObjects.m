@@ -22,6 +22,73 @@ NSString * const kGTLRDeveloperKnowledge_Document_View_DocumentViewUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperKnowledge_Answer
+//
+
+@implementation GTLRDeveloperKnowledge_Answer
+@dynamic answerText, citations, references;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citations" : [GTLRDeveloperKnowledge_AnswerCitation class],
+    @"references" : [GTLRDeveloperKnowledge_AnswerReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperKnowledge_AnswerCitation
+//
+
+@implementation GTLRDeveloperKnowledge_AnswerCitation
+@dynamic endIndex, sources, startIndex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [GTLRDeveloperKnowledge_CitationSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperKnowledge_AnswerQueryRequest
+//
+
+@implementation GTLRDeveloperKnowledge_AnswerQueryRequest
+@dynamic query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperKnowledge_AnswerQueryResponse
+//
+
+@implementation GTLRDeveloperKnowledge_AnswerQueryResponse
+@dynamic answer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperKnowledge_AnswerReference
+//
+
+@implementation GTLRDeveloperKnowledge_AnswerReference
+@dynamic documentReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperKnowledge_BatchGetDocumentsResponse
 //
 
@@ -40,12 +107,22 @@ NSString * const kGTLRDeveloperKnowledge_Document_View_DocumentViewUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperKnowledge_CitationSource
+//
+
+@implementation GTLRDeveloperKnowledge_CitationSource
+@dynamic referenceIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperKnowledge_Document
 //
 
 @implementation GTLRDeveloperKnowledge_Document
-@dynamic content, dataSource, descriptionProperty, name, title, updateTime, uri,
-         view;
+@dynamic content, contentLengthBytes, dataSource, descriptionProperty, name,
+         title, updateTime, uri, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -66,6 +143,16 @@ NSString * const kGTLRDeveloperKnowledge_Document_View_DocumentViewUnspecified =
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperKnowledge_DocumentReference
+//
+
+@implementation GTLRDeveloperKnowledge_DocumentReference
+@dynamic documentChunk;
 @end
 
 

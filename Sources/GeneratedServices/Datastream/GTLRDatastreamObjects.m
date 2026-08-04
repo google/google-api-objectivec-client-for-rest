@@ -299,7 +299,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
          privateConnectivity, salesforceMarketingCloudProfile,
          salesforceProfile, satisfiesPzi, satisfiesPzs, serviceNowProfile,
          spannerProfile, sqlServerProfile, staticServiceIpConnectivity,
-         updateTime;
+         updateTime, workdayProfile;
 @end
 
 
@@ -1204,6 +1204,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_OauthRefreshTokenCredentials
+//
+
+@implementation GTLRDatastream_OauthRefreshTokenCredentials
+@dynamic oauthClientCredentials, refreshToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_ObjectFilter
 //
 
@@ -1933,7 +1943,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
          oracleSourceConfig, postgresqlSourceConfig,
          salesforceMarketingCloudSourceConfig, salesforceSourceConfig,
          serviceNowSourceConfig, sourceConnectionProfile, spannerSourceConfig,
-         sqlServerSourceConfig;
+         sqlServerSourceConfig, workdaySourceConfig;
 @end
 
 
@@ -2512,6 +2522,26 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_VpcPeeringConfig
 @dynamic subnet, vpc;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_WorkdayProfile
+//
+
+@implementation GTLRDatastream_WorkdayProfile
+@dynamic host, oauthRefreshTokenCredentials, tenant;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_WorkdaySourceConfig
+//
+
+@implementation GTLRDatastream_WorkdaySourceConfig
+@dynamic excludeObjects, includeObjects, pollingInterval;
 @end
 
 #pragma clang diagnostic pop

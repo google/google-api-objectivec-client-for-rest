@@ -104,11 +104,6 @@ NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free = @"free";
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense = @"groupLicense";
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase = @"userPurchase";
 
-// GTLRAndroidEnterprise_GoogleAuthenticationSettings.dedicatedDevicesAllowed
-NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Allowed = @"allowed";
-NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_DedicatedDevicesAllowedUnspecified = @"dedicatedDevicesAllowedUnspecified";
-NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Disallowed = @"disallowed";
-
 // GTLRAndroidEnterprise_GoogleAuthenticationSettings.googleAuthenticationRequired
 NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified = @"googleAuthenticationRequiredUnspecified";
 NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired = @"notRequired";
@@ -775,7 +770,7 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_GoogleAuthenticationSettings
-@dynamic dedicatedDevicesAllowed, googleAuthenticationRequired;
+@dynamic googleAuthenticationRequired;
 @end
 
 

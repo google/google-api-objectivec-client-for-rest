@@ -582,6 +582,326 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @end
 
 /**
+ *  Creates an app store hosted app. This must be called before any other RPCs
+ *  for this hosted app.
+ *
+ *  Method: androidpublisher.appstoreappsreview.createappstorehostedapp
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstoreappsreviewCreateappstorehostedapp : GTLRAndroidPublisherQuery
+
+/** Required. Package name of the third-party app store. */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_CreateAppStoreHostedAppResponse.
+ *
+ *  Creates an app store hosted app. This must be called before any other RPCs
+ *  for this hosted app.
+ *
+ *  @param object The @c GTLRAndroidPublisher_CreateAppStoreHostedAppRequest to
+ *    include in the query.
+ *  @param appStorePackageName Required. Package name of the third-party app
+ *    store.
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstoreappsreviewCreateappstorehostedapp
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CreateAppStoreHostedAppRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName;
+
+@end
+
+/**
+ *  Updates details for an app hosted on an app store. Use this to provide
+ *  details for a new app, or to update details for an existing app. The update
+ *  will be sent for review immediately after creation.
+ *
+ *  Method: androidpublisher.appstoreappsreview.updateappstorehostedapp
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapp : GTLRAndroidPublisherQuery
+
+/** Required. Package name of the third-party app store. */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_UpdateAppStoreHostedAppResponse.
+ *
+ *  Updates details for an app hosted on an app store. Use this to provide
+ *  details for a new app, or to update details for an existing app. The update
+ *  will be sent for review immediately after creation.
+ *
+ *  @param object The @c GTLRAndroidPublisher_UpdateAppStoreHostedAppRequest to
+ *    include in the query.
+ *  @param appStorePackageName Required. Package name of the third-party app
+ *    store.
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapp
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UpdateAppStoreHostedAppRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName;
+
+@end
+
+/**
+ *  Updates the publish status of an app store hosted app. The default state
+ *  after calling UpdateAppStoreHostedApp is PUBLISHED. It is not necessary to
+ *  call this RPC explicitly to set an app to PUBLISHED.
+ *
+ *  Method: androidpublisher.appstoreappsreview.updateappstorehostedapppublishstatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapppublishstatus : GTLRAndroidPublisherQuery
+
+/** Required. Package name of the third-party app store. */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c
+ *  GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusResponse.
+ *
+ *  Updates the publish status of an app store hosted app. The default state
+ *  after calling UpdateAppStoreHostedApp is PUBLISHED. It is not necessary to
+ *  call this RPC explicitly to set an app to PUBLISHED.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest to
+ *    include in the query.
+ *  @param appStorePackageName Required. Package name of the third-party app
+ *    store.
+ *  @param packageName Required. Package name of the app.
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapppublishstatus
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Upload an APK file for the hosted app. Returns an ID to track this APK.
+ *
+ *  Method: androidpublisher.appstoreappsreview.uploadapk
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstoreappsreviewUploadapk : GTLRAndroidPublisherQuery
+
+/** Required. Package name of the third-party app store. */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_UploadApkResponse.
+ *
+ *  Upload an APK file for the hosted app. Returns an ID to track this APK.
+ *
+ *  @param object The @c GTLRAndroidPublisher_UploadApkRequest to include in the
+ *    query.
+ *  @param appStorePackageName Required. Package name of the third-party app
+ *    store.
+ *  @param packageName Required. Package name of the app.
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    10737418240. Accepted MIME types: application/octet-stream,
+ *    application/vnd.android.package-archive
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstoreappsreviewUploadapk
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UploadApkRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Upload a policy declaration file for the hosted app. Returns an ID to track
+ *  the file.
+ *
+ *  Method: androidpublisher.appstoreappsreview.uploadappstoreapppolicydeclarationfile
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstoreappsreviewUploadappstoreapppolicydeclarationfile : GTLRAndroidPublisherQuery
+
+/** Required. Package name of the third-party app store. */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c
+ *  GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileResponse.
+ *
+ *  Upload a policy declaration file for the hosted app. Returns an ID to track
+ *  the file.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest to
+ *    include in the query.
+ *  @param appStorePackageName Required. Package name of the third-party app
+ *    store.
+ *  @param packageName Required. Package name of the app.
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    10485760. Accepted MIME types: application/pdf, image/jpeg, image/png
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstoreappsreviewUploadappstoreapppolicydeclarationfile
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Upload a screenshot or app icon for the hosted app. Returns an ID to track
+ *  the image.
+ *
+ *  Method: androidpublisher.appstoreappsreview.uploadimage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstoreappsreviewUploadimage : GTLRAndroidPublisherQuery
+
+/** Required. Package name of the third-party app store. */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_UploadImageResponse.
+ *
+ *  Upload a screenshot or app icon for the hosted app. Returns an ID to track
+ *  the image.
+ *
+ *  @param object The @c GTLRAndroidPublisher_UploadImageRequest to include in
+ *    the query.
+ *  @param appStorePackageName Required. Package name of the third-party app
+ *    store.
+ *  @param packageName Required. Package name of the app.
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    15728640. Accepted MIME type: image/ *
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstoreappsreviewUploadimage
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UploadImageRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Returns metadata about a recently updated app.
+ *
+ *  Method: androidpublisher.appstorecatalog.recentappviews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstorecatalogRecentappviewsGet : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The package name of the app store on behalf of which the request
+ *  is made.
+ */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/** Required. The package name of the requested Play app. */
+@property(nonatomic, copy, nullable) NSString *playAppPackageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_RecentAppView.
+ *
+ *  Returns metadata about a recently updated app.
+ *
+ *  @param appStorePackageName Required. The package name of the app store on
+ *    behalf of which the request is made.
+ *  @param playAppPackageName Required. The package name of the requested Play
+ *    app.
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstorecatalogRecentappviewsGet
+ */
++ (instancetype)queryWithAppStorePackageName:(NSString *)appStorePackageName
+                          playAppPackageName:(NSString *)playAppPackageName;
+
+@end
+
+/**
+ *  Lists update events for eligible apps in the given time range.
+ *
+ *  Method: androidpublisher.appstorecatalog.recentupdateevents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppstorecatalogRecentupdateeventsList : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The package name of the app store on behalf of which the request
+ *  is made.
+ */
+@property(nonatomic, copy, nullable) NSString *appStorePackageName;
+
+/** Required. The end time of the range (exclusive). */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. The maximum number of update events to return. The service may
+ *  return fewer than this value. If unspecified, at most 100 update events will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListRecentUpdateEvents`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListRecentUpdateEvents` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The start time of the range (inclusive). */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListRecentUpdateEventsResponse.
+ *
+ *  Lists update events for eligible apps in the given time range.
+ *
+ *  @param appStorePackageName Required. The package name of the app store on
+ *    behalf of which the request is made.
+ *
+ *  @return GTLRAndroidPublisherQuery_AppstorecatalogRecentupdateeventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAppStorePackageName:(NSString *)appStorePackageName;
+
+@end
+
+/**
  *  Creates a new APK without uploading the APK itself to Google Play, instead
  *  hosting the APK at a specified URL. This function is only available to
  *  organizations using Managed Play whose application is configured to restrict
@@ -5495,6 +5815,50 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Provide refund preference and purchase usage for a chargeback request
+ *
+ *  Method: androidpublisher.orders.reviewrefund
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_OrdersReviewrefund : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The order ID provided to the user when the subscription or in-app
+ *  order was purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Required. The package name of the application for which this subscription or
+ *  in-app item was purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Provide refund preference and purchase usage for a chargeback request
+ *
+ *  @param object The @c GTLRAndroidPublisher_OrdersReviewRefundRequest to
+ *    include in the query.
+ *  @param packageName Required. The package name of the application for which
+ *    this subscription or in-app item was purchased (for example,
+ *    'com.some.thing').
+ *  @param orderId Required. The order ID provided to the user when the
+ *    subscription or in-app order was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_OrdersReviewrefund
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_OrdersReviewRefundRequest *)object
+                    packageName:(NSString *)packageName
+                        orderId:(NSString *)orderId;
+
+@end
+
+/**
  *  Acknowledges a purchase of an inapp item.
  *
  *  Method: androidpublisher.purchases.products.acknowledge
@@ -5831,153 +6195,6 @@ GTLR_DEPRECATED
                     packageName:(NSString *)packageName
                  subscriptionId:(NSString *)subscriptionId
                           token:(NSString *)token;
-
-@end
-
-/**
- *  Deprecated: Use purchases.subscriptionsv2.get instead. Checks whether a
- *  user's subscription purchase is valid and returns its expiry time.
- *
- *  Method: androidpublisher.purchases.subscriptions.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidPublisher
- */
-GTLR_DEPRECATED
-@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet : GTLRAndroidPublisherQuery
-
-/**
- *  The package name of the application for which this subscription was
- *  purchased (for example, 'com.some.thing').
- */
-@property(nonatomic, copy, nullable) NSString *packageName;
-
-/** The purchased subscription ID (for example, 'monthly001'). */
-@property(nonatomic, copy, nullable) NSString *subscriptionId;
-
-/**
- *  The token provided to the user's device when the subscription was purchased.
- */
-@property(nonatomic, copy, nullable) NSString *token;
-
-/**
- *  Fetches a @c GTLRAndroidPublisher_SubscriptionPurchase.
- *
- *  Deprecated: Use purchases.subscriptionsv2.get instead. Checks whether a
- *  user's subscription purchase is valid and returns its expiry time.
- *
- *  @param packageName The package name of the application for which this
- *    subscription was purchased (for example, 'com.some.thing').
- *  @param subscriptionId The purchased subscription ID (for example,
- *    'monthly001').
- *  @param token The token provided to the user's device when the subscription
- *    was purchased.
- *
- *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet
- */
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                      subscriptionId:(NSString *)subscriptionId
-                               token:(NSString *)token;
-
-@end
-
-/**
- *  Deprecated: Use orders.refund instead. Refunds a user's subscription
- *  purchase, but the subscription remains valid until its expiration time and
- *  it will continue to recur.
- *
- *  Method: androidpublisher.purchases.subscriptions.refund
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidPublisher
- */
-GTLR_DEPRECATED
-@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund : GTLRAndroidPublisherQuery
-
-/**
- *  The package name of the application for which this subscription was
- *  purchased (for example, 'com.some.thing').
- */
-@property(nonatomic, copy, nullable) NSString *packageName;
-
-/** "The purchased subscription ID (for example, 'monthly001'). */
-@property(nonatomic, copy, nullable) NSString *subscriptionId;
-
-/**
- *  The token provided to the user's device when the subscription was purchased.
- */
-@property(nonatomic, copy, nullable) NSString *token;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deprecated: Use orders.refund instead. Refunds a user's subscription
- *  purchase, but the subscription remains valid until its expiration time and
- *  it will continue to recur.
- *
- *  @param packageName The package name of the application for which this
- *    subscription was purchased (for example, 'com.some.thing').
- *  @param subscriptionId "The purchased subscription ID (for example,
- *    'monthly001').
- *  @param token The token provided to the user's device when the subscription
- *    was purchased.
- *
- *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund
- */
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                      subscriptionId:(NSString *)subscriptionId
-                               token:(NSString *)token;
-
-@end
-
-/**
- *  Deprecated: Use purchases.subscriptionsv2.revoke instead. Refunds and
- *  immediately revokes a user's subscription purchase. Access to the
- *  subscription will be terminated immediately and it will stop recurring.
- *
- *  Method: androidpublisher.purchases.subscriptions.revoke
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidPublisher
- */
-GTLR_DEPRECATED
-@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke : GTLRAndroidPublisherQuery
-
-/**
- *  The package name of the application for which this subscription was
- *  purchased (for example, 'com.some.thing').
- */
-@property(nonatomic, copy, nullable) NSString *packageName;
-
-/** The purchased subscription ID (for example, 'monthly001'). */
-@property(nonatomic, copy, nullable) NSString *subscriptionId;
-
-/**
- *  The token provided to the user's device when the subscription was purchased.
- */
-@property(nonatomic, copy, nullable) NSString *token;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deprecated: Use purchases.subscriptionsv2.revoke instead. Refunds and
- *  immediately revokes a user's subscription purchase. Access to the
- *  subscription will be terminated immediately and it will stop recurring.
- *
- *  @param packageName The package name of the application for which this
- *    subscription was purchased (for example, 'com.some.thing').
- *  @param subscriptionId The purchased subscription ID (for example,
- *    'monthly001').
- *  @param token The token provided to the user's device when the subscription
- *    was purchased.
- *
- *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke
- */
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                      subscriptionId:(NSString *)subscriptionId
-                               token:(NSString *)token;
 
 @end
 

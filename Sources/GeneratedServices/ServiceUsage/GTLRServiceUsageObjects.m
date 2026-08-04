@@ -17,7 +17,6 @@
 
 // GTLRServiceUsage_Analysis.analysisType
 NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
-NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceExistence = @"ANALYSIS_TYPE_RESOURCE_EXISTENCE";
 NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
 NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified = @"ANALYSIS_TYPE_UNSPECIFIED";
 
@@ -108,6 +107,17 @@ NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled = @"ENABLED";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis.analysisType
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis_AnalysisType_AnalysisTypeResourceExistence = @"ANALYSIS_TYPE_RESOURCE_EXISTENCE";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis_AnalysisType_AnalysisTypeUnspecified = @"ANALYSIS_TYPE_UNSPECIFIED";
+
+// GTLRServiceUsage_GoogleApiServiceusageV2alphaImpact.impactType
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2alphaImpact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2alphaImpact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2alphaImpact_ImpactType_ResourceExistenceProject = @"RESOURCE_EXISTENCE_PROJECT";
+
 // GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis.analysisType
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
@@ -120,7 +130,6 @@ NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_
 // GTLRServiceUsage_Impact.impactType
 NSString * const kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
 NSString * const kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
-NSString * const kGTLRServiceUsage_Impact_ImpactType_ResourceExistenceProject = @"RESOURCE_EXISTENCE_PROJECT";
 
 // GTLRServiceUsage_LabelDescriptor.valueType
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Bool = @"BOOL";
@@ -194,6 +203,11 @@ NSString * const kGTLRServiceUsage_Publishing_Organization_Photos = @"PHOTOS";
 NSString * const kGTLRServiceUsage_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceUsage_Publishing_Organization_StreetView = @"STREET_VIEW";
 
+// GTLRServiceUsage_QuotaLimit.trafficSource
+NSString * const kGTLRServiceUsage_QuotaLimit_TrafficSource_TrafficSourceAgentic = @"TRAFFIC_SOURCE_AGENTIC";
+NSString * const kGTLRServiceUsage_QuotaLimit_TrafficSource_TrafficSourceNonagentic = @"TRAFFIC_SOURCE_NONAGENTIC";
+NSString * const kGTLRServiceUsage_QuotaLimit_TrafficSource_TrafficSourceUnspecified = @"TRAFFIC_SOURCE_UNSPECIFIED";
+
 // GTLRServiceUsage_Type.syntax
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
@@ -256,7 +270,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Analysis
-@dynamic analysis, analysisType, displayName, service;
+@dynamic analysisResult, analysisType, displayName, service;
 @end
 
 
@@ -715,7 +729,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_ConsumerPolicy
-@dynamic annotations, enableRules, ETag, name, updateTime;
+@dynamic createTime, enableRules, ETag, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -726,20 +740,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
     @"enableRules" : [GTLRServiceUsage_EnableRule class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_ConsumerPolicy_Annotations
-//
-
-@implementation GTLRServiceUsage_ConsumerPolicy_Annotations
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
 }
 
 @end
@@ -1046,11 +1046,10 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_EnableRule
-@dynamic enableType, groups, services, values;
+@dynamic enableType, services, values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"groups" : [NSString class],
     @"services" : [NSString class],
     @"values" : [NSString class]
   };
@@ -1304,6 +1303,62 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis
+@dynamic analysisResult, analysisType, displayName, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysisResult
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysisResult
+@dynamic blockers, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockers" : [GTLRServiceUsage_GoogleApiServiceusageV2alphaImpact class],
+    @"warnings" : [GTLRServiceUsage_GoogleApiServiceusageV2alphaImpact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalyzeConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalyzeConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalyzeConsumerPolicyResponse
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalyzeConsumerPolicyResponse
+@dynamic analysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysis" : [GTLRServiceUsage_GoogleApiServiceusageV2alphaAnalysis class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy
 //
 
@@ -1353,6 +1408,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2alphaImpact
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaImpact
+@dynamic detail, impactType, parent;
 @end
 
 
@@ -1610,7 +1675,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Impact
-@dynamic detail, impactType, parent;
+@dynamic detail, impactType, missingDependency;
 @end
 
 
@@ -1962,7 +2027,21 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_MetricRule
-@dynamic metricCosts, selector;
+@dynamic agenticMetricCosts, metricCosts, nonagenticMetricCosts, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_MetricRule_AgenticMetricCosts
+//
+
+@implementation GTLRServiceUsage_MetricRule_AgenticMetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -1972,6 +2051,20 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_MetricRule_MetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_MetricRule_NonagenticMetricCosts
+//
+
+@implementation GTLRServiceUsage_MetricRule_NonagenticMetricCosts
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
@@ -2236,7 +2329,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 @implementation GTLRServiceUsage_QuotaLimit
 @dynamic defaultLimit, descriptionProperty, displayName, duration, freeTier,
-         maxLimit, metric, name, unit, values;
+         maxLimit, metric, name, trafficSource, unit, values;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

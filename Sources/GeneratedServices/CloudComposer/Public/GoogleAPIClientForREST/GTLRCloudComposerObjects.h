@@ -480,6 +480,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_N
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Public;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudComposer_SoftwareConfig.auditLogsReplicationMode
+
+/**
+ *  The user opted out of audit logs replication.
+ *
+ *  Value: "AUDIT_LOGS_REPLICATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationDisabled;
+/**
+ *  The user opted in to audit logs replication.
+ *
+ *  Value: "AUDIT_LOGS_REPLICATION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationEnabled;
+/**
+ *  The user's choice of logs replication mode is unspecified.
+ *
+ *  Value: "AUDIT_LOGS_REPLICATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudComposer_SoftwareConfig.webServerPluginsMode
 
 /**
@@ -2354,6 +2376,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  overridden.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig_AirflowConfigOverrides *airflowConfigOverrides;
+
+/**
+ *  Optional. The selected mode of audit logs replication. This field is
+ *  supported for Cloud Composer environments in versions
+ *  composer-3-airflow-*.*.*-build.* and newer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationDisabled
+ *        The user opted out of audit logs replication. (Value:
+ *        "AUDIT_LOGS_REPLICATION_DISABLED")
+ *    @arg @c kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationEnabled
+ *        The user opted in to audit logs replication. (Value:
+ *        "AUDIT_LOGS_REPLICATION_ENABLED")
+ *    @arg @c kGTLRCloudComposer_SoftwareConfig_AuditLogsReplicationMode_AuditLogsReplicationModeUnspecified
+ *        The user's choice of logs replication mode is unspecified. (Value:
+ *        "AUDIT_LOGS_REPLICATION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *auditLogsReplicationMode;
 
 /** Optional. The configuration for Cloud Data Lineage integration. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_CloudDataLineageIntegration *cloudDataLineageIntegration;

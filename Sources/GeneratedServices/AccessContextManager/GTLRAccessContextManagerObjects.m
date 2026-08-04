@@ -110,6 +110,10 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_LaunchS
 NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRAccessContextManager_VpcAccessibleServices.servicePatternsEnforcementScopes
+NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatternsEnforcementScopes_GoogleApisViaPrivatePath = @"GOOGLE_APIS_VIA_PRIVATE_PATH";
+NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatternsEnforcementScopes_ServicePatternsEnforcementScopeUnspecified = @"SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAccessContextManager_AccessLevel
@@ -172,6 +176,16 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_AddRequestHeader
+//
+
+@implementation GTLRAccessContextManager_AddRequestHeader
+@dynamic key, value;
 @end
 
 
@@ -435,7 +449,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_EgressSource
-@dynamic accessLevel, resource;
+@dynamic accessLevel, pscEndpoint, resource;
 @end
 
 
@@ -490,7 +504,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_GcpUserAccessBinding
-@dynamic accessLevels, dryRunAccessLevels, groupKey, name,
+@dynamic accessLevels, dryRunAccessLevels, groupKey, name, principal,
          restrictedClientApplications, scopedAccessSettings, sessionSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -570,7 +584,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_IngressSource
-@dynamic accessLevel, resource;
+@dynamic accessLevel, pscEndpoint, resource;
 @end
 
 
@@ -779,6 +793,16 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_Modifier
+//
+
+@implementation GTLRAccessContextManager_Modifier
+@dynamic addRequestHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_Operation
 //
 
@@ -854,6 +878,26 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_Principal
+//
+
+@implementation GTLRAccessContextManager_Principal
+@dynamic serviceAccount, serviceAccountProjectNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_PrivateServiceConnectEndpoint
+//
+
+@implementation GTLRAccessContextManager_PrivateServiceConnectEndpoint
+@dynamic forwardingRule;
 @end
 
 
@@ -944,6 +988,24 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 @implementation GTLRAccessContextManager_ScopedAccessSettings
 @dynamic activeSettings, dryRunSettings, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ServicePattern
+//
+
+@implementation GTLRAccessContextManager_ServicePattern
+@dynamic modifiers, pattern, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modifiers" : [GTLRAccessContextManager_Modifier class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1104,11 +1166,14 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_VpcAccessibleServices
-@dynamic allowedServices, enableRestriction;
+@dynamic allowedServicePatterns, allowedServices, enableRestriction,
+         servicePatternsEnforcementScopes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"allowedServices" : [NSString class]
+    @"allowedServicePatterns" : [GTLRAccessContextManager_ServicePattern class],
+    @"allowedServices" : [NSString class],
+    @"servicePatternsEnforcementScopes" : [NSString class]
   };
   return map;
 }

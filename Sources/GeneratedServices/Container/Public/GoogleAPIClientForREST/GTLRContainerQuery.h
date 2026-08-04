@@ -128,6 +128,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  CompleteControlPlaneUpgrade completes the rollback-safe upgrade by
+ *  performing the step two upgrade for a specific cluster.
+ *
+ *  Method: container.projects.locations.clusters.completeControlPlaneUpgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersCompleteControlPlaneUpgrade : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster) of the cluster to complete
+ *  upgrade. Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainer_Operation.
+ *
+ *  CompleteControlPlaneUpgrade completes the rollback-safe upgrade by
+ *  performing the step two upgrade for a specific cluster.
+ *
+ *  @param object The @c GTLRContainer_CompleteControlPlaneUpgradeRequest to
+ *    include in the query.
+ *  @param name Required. The name (project, location, cluster) of the cluster
+ *    to complete upgrade. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersCompleteControlPlaneUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRContainer_CompleteControlPlaneUpgradeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Completes master IP rotation.
  *
  *  Method: container.projects.locations.clusters.completeIpRotation
@@ -1629,6 +1666,43 @@ GTLR_DEPRECATED
                       projectId:(NSString *)projectId
                    zoneProperty:(NSString *)zoneProperty
                       clusterId:(NSString *)clusterId;
+
+@end
+
+/**
+ *  CompleteControlPlaneUpgrade completes the rollback-safe upgrade by
+ *  performing the step two upgrade for a specific cluster.
+ *
+ *  Method: container.projects.zones.clusters.completeControlPlaneUpgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainer
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersCompleteControlPlaneUpgrade : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster) of the cluster to complete
+ *  upgrade. Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainer_Operation.
+ *
+ *  CompleteControlPlaneUpgrade completes the rollback-safe upgrade by
+ *  performing the step two upgrade for a specific cluster.
+ *
+ *  @param object The @c GTLRContainer_CompleteControlPlaneUpgradeRequest to
+ *    include in the query.
+ *  @param name Required. The name (project, location, cluster) of the cluster
+ *    to complete upgrade. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsZonesClustersCompleteControlPlaneUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRContainer_CompleteControlPlaneUpgradeRequest *)object
+                           name:(NSString *)name;
 
 @end
 

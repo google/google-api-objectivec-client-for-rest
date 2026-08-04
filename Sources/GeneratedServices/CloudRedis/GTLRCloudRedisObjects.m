@@ -19,6 +19,12 @@ NSString * const kGTLRCloudRedis_AclPolicy_State_Deleting      = @"DELETING";
 NSString * const kGTLRCloudRedis_AclPolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_AclPolicy_State_Updating      = @"UPDATING";
 
+// GTLRCloudRedis_AclPolicyRevisionStatus.state
+NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_Applied = @"APPLIED";
+NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_Applying = @"APPLYING";
+NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_Failed = @"FAILED";
+NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudRedis_AOFConfig.appendFsync
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_Always  = @"ALWAYS";
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_AppendFsyncUnspecified = @"APPEND_FSYNC_UNSPECIFIED";
@@ -220,6 +226,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_Sig
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -411,6 +418,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_Signal
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -761,7 +769,8 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_AclPolicy
-@dynamic ETag, name, rules, state, version;
+@dynamic clusterAclPolicyAttachments, createTime, ETag, name, rules, state,
+         updateTime, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -769,11 +778,59 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"clusterAclPolicyAttachments" : [GTLRCloudRedis_ClusterAclPolicyAttachment class],
     @"rules" : [GTLRCloudRedis_AclRule class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_AclPolicyInfo
+//
+
+@implementation GTLRCloudRedis_AclPolicyInfo
+@dynamic aclPolicyRevisionStatuses, appliedAclPolicy, appliedAclPolicyRevision,
+         appliedAclPolicyRevisionNumber;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aclPolicyRevisionStatuses" : [GTLRCloudRedis_AclPolicyRevisionStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_AclPolicyRevision
+//
+
+@implementation GTLRCloudRedis_AclPolicyRevision
+@dynamic attachedClusters, createTime, name, revisionNumber, snapshot;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachedClusters" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_AclPolicyRevisionStatus
+//
+
+@implementation GTLRCloudRedis_AclPolicyRevisionStatus
+@dynamic aclPolicyRevision, aclPolicyRevisionNumber, errorMessage, state;
 @end
 
 
@@ -976,7 +1033,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_Cluster
-@dynamic aclPolicy, aclPolicyInSync, allowFewerZonesDeployment,
+@dynamic aclPolicy, aclPolicyInfo, aclPolicyInSync, allowFewerZonesDeployment,
          asyncClusterEndpointsDeletionEnabled, authorizationMode,
          automatedBackupConfig, availableMaintenanceVersions, backupCollection,
          clusterEndpoints, createTime, crossClusterReplicationConfig,
@@ -1028,6 +1085,24 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ClusterAclPolicyAttachment
+//
+
+@implementation GTLRCloudRedis_ClusterAclPolicyAttachment
+@dynamic aclPolicyRevisionStatuses, cluster;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aclPolicyRevisionStatuses" : [GTLRCloudRedis_AclPolicyRevisionStatus class]
+  };
+  return map;
 }
 
 @end
@@ -1664,6 +1739,29 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 + (NSString *)collectionItemsKey {
   return @"aclPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ListAclPolicyRevisionsResponse
+//
+
+@implementation GTLRCloudRedis_ListAclPolicyRevisionsResponse
+@dynamic aclPolicyRevisions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aclPolicyRevisions" : [GTLRCloudRedis_AclPolicyRevision class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"aclPolicyRevisions";
 }
 
 @end

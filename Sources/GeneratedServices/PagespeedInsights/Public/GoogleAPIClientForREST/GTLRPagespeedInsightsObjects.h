@@ -50,6 +50,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRPagespeedInsights_LighthouseCategoryV5.categoryScoreDisplayMode
+
+/**
+ *  Default UNDEFINED category.
+ *
+ *  Value: "CATEGORY_SCORE_DISPLAY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_CategoryScoreDisplayModeUnspecified;
+/**
+ *  Display the score as a fraction, e.g. "3/5"
+ *
+ *  Value: "FRACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_Fraction;
+/**
+ *  Display the score as a standard circular gauge (default)
+ *
+ *  Value: "GAUGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_Gauge;
+
 /**
  *  A light reference to an audit by id, used to group and weight audits in a
  *  given category.
@@ -385,6 +410,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** An array of references to all the audit members of this category. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPagespeedInsights_AuditRefs *> *auditRefs;
+
+/**
+ *  Optional. How the category score should be displayed (e.g. as a fraction).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_CategoryScoreDisplayModeUnspecified
+ *        Default UNDEFINED category. (Value:
+ *        "CATEGORY_SCORE_DISPLAY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_Fraction
+ *        Display the score as a fraction, e.g. "3/5" (Value: "FRACTION")
+ *    @arg @c kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_Gauge
+ *        Display the score as a standard circular gauge (default) (Value:
+ *        "GAUGE")
+ */
+@property(nonatomic, copy, nullable) NSString *categoryScoreDisplayMode;
 
 /**
  *  A more detailed description of the category and its importance.

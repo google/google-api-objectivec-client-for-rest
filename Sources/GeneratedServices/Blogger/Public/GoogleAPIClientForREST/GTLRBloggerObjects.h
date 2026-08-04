@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   blogger API (blogger/v3)
+//   Blogger API (blogger/v3)
 // Description:
 //   The Blogger API provides access to posts, comments and pages of a Blogger
 //   blog.

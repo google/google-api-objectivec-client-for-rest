@@ -21,6 +21,7 @@
 @class GTLRCloudResourceManager_EffectiveTag;
 @class GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags;
 @class GTLRCloudResourceManager_Expr;
+@class GTLRCloudResourceManager_FetchResourceSemanticsResponse_Semantics;
 @class GTLRCloudResourceManager_Folder;
 @class GTLRCloudResourceManager_Folder_Tags;
 @class GTLRCloudResourceManager_GetPolicyOptions;
@@ -752,6 +753,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
+@end
+
+
+/**
+ *  Response message for FetchResourceSemantics.
+ */
+@interface GTLRCloudResourceManager_FetchResourceSemanticsResponse : GTLRObject
+
+/**
+ *  The full resource name for which semantics are returned. Examples:
+ *  "//compute.googleapis.com/projects/123/zones/us-central1-a/instances/my-instance"
+ *  "//storage.googleapis.com/projects/_/buckets/my_bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/** Map of resource semantics (e.g., `"ENVIRONMENT": "PRODUCTION"`). */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_FetchResourceSemanticsResponse_Semantics *semantics;
+
+@end
+
+
+/**
+ *  Map of resource semantics (e.g., `"ENVIRONMENT": "PRODUCTION"`).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_FetchResourceSemanticsResponse_Semantics : GTLRObject
 @end
 
 

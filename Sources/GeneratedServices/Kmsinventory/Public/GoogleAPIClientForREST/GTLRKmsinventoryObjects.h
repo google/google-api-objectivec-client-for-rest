@@ -76,6 +76,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Wa
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKey.purpose
 
 /**
+ *  CryptoKeys with this purpose may be used for AES key
+ *
+ *  Value: "AES_WRAPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AesWrapping;
+/**
  *  CryptoKeys with this purpose may be used with AsymmetricDecrypt and
  *  GetPublicKey.
  *
@@ -161,6 +167,13 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "AES_256_GCM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Gcm;
+/**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Kwp;
 /**
  *  Not specified.
  *
@@ -593,6 +606,13 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "AES_256_GCM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Gcm;
+/**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Kwp;
 /**
  *  Not specified.
  *
@@ -1358,6 +1378,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  Immutable. The immutable purpose of this CryptoKey.
  *
  *  Likely values:
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AesWrapping
+ *        CryptoKeys with this purpose may be used for AES key (Value:
+ *        "AES_WRAPPING")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AsymmetricDecrypt
  *        CryptoKeys with this purpose may be used with AsymmetricDecrypt and
  *        GetPublicKey. (Value: "ASYMMETRIC_DECRYPT")
@@ -1445,6 +1468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Gcm
  *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
  *        "AES_256_GCM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Kwp
+ *        AES key wrap with zero padding algorithm (RFC 5649). Can only be used
+ *        by keys with purpose AES_WRAPPING. (Value: "AES_256_KWP")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignEd25519
@@ -1623,6 +1649,15 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 @property(nonatomic, copy, nullable) NSString *generationFailureReason;
 
 /**
+ *  Output only. Field indicating that the key wrapping key is trusted. This
+ *  field is only valid for key purpose AES_256_WRAPPING, and protection level
+ *  HSM_SINGLE_TENANT.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hsmTrusted;
+
+/**
  *  Output only. The root cause of the most recent import failure. Only present
  *  if state is IMPORT_FAILED.
  */
@@ -1739,6 +1774,17 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Immutable. Field indicating that the key may be wrapped by a trusted key.
+ *  This field can be set for all key purposes except ENCRYPT_DECRYPT, and is
+ *  only valid for keys with protection level HSM_SINGLE_TENANT. This field can
+ *  only be set at creation or import time via CreateCryptoKeyVersion, or
+ *  ImportCryptoKeyVersion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trustedWrappingEnabled;
+
 @end
 
 
@@ -1772,6 +1818,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Gcm
  *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
  *        "AES_256_GCM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Kwp
+ *        AES key wrap with zero padding algorithm (RFC 5649). Can only be used
+ *        by keys with purpose AES_WRAPPING. (Value: "AES_256_KWP")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignEd25519
@@ -1937,13 +1986,25 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 @interface GTLRKmsinventory_GoogleCloudKmsV1ExternalProtectionLevelOptions : GTLRObject
 
 /**
- *  The path to the external key material on the EKM when using EkmConnection
- *  e.g., "v0/my/key". Set this field instead of external_key_uri when using an
- *  EkmConnection.
+ *  Optional. The resource name of the backend environment where the key
+ *  material of CryptoKeyVersions is associated with. Setting this field
+ *  overrides the CryptoKeyBackend. This field may be set when CryptoKeyVersions
+ *  is set to EXTERNAL_VPC. Format: `projects/ * /locations/ * /ekmConnections/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *ekmConnectionBackendOverride;
+
+/**
+ *  Optional. The path to the external key material on the EKM when using
+ *  EkmConnection e.g., "v0/my/key". Set this field instead of external_key_uri
+ *  when using an EkmConnection.
  */
 @property(nonatomic, copy, nullable) NSString *ekmConnectionKeyPath;
 
-/** The URI for an external resource that this CryptoKeyVersion represents. */
+/**
+ *  Optional. The URI for an external resource that this CryptoKeyVersion
+ *  represents.
+ */
 @property(nonatomic, copy, nullable) NSString *externalKeyUri;
 
 @end

@@ -40,8 +40,8 @@
 //
 
 @implementation GTLRReports_Activity
-@dynamic actor, ETag, events, identifier, ipAddress, kind, networkInfo,
-         ownerDomain, resourceDetails;
+@dynamic actor, ETag, events, identifier, ipAddress, isAgenticAction, kind,
+         networkInfo, ownerDomain, resourceDetails, userDeviceInfo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -68,7 +68,8 @@
 //
 
 @implementation GTLRReports_Activity_Actor
-@dynamic applicationInfo, callerType, email, key, profileId;
+@dynamic agentAttributionInfo, applicationInfo, callerType, email, key,
+         profileId;
 @end
 
 
@@ -251,6 +252,36 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_ActivityUserDeviceInfo
+//
+
+@implementation GTLRReports_ActivityUserDeviceInfo
+@dynamic deviceId, deviceOsVersion, deviceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_AgentAttributionInfo
+//
+
+@implementation GTLRReports_AgentAttributionInfo
+@dynamic agentId, agentName, agentOwner, agentType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_AgentAttributionInfoAgentOwner
+//
+
+@implementation GTLRReports_AgentAttributionInfoAgentOwner
+@dynamic email;
 @end
 
 

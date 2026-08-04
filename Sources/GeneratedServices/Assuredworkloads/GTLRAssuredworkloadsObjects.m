@@ -29,6 +29,30 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowl
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_ExistingChildResourceViolations = @"EXISTING_CHILD_RESOURCE_VIOLATIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_SingleViolation = @"SINGLE_VIOLATION";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails.evaluationState
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails_EvaluationState_EvaluationStateFailed = @"EVALUATION_STATE_FAILED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails_EvaluationState_EvaluationStateNotAssessed = @"EVALUATION_STATE_NOT_ASSESSED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails_EvaluationState_EvaluationStatePassed = @"EVALUATION_STATE_PASSED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails_EvaluationState_EvaluationStateUnspecified = @"EVALUATION_STATE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport.cloudControlType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_CloudControlType_BuiltIn = @"BUILT_IN";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_CloudControlType_Custom = @"CUSTOM";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_CloudControlType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport.enforcementMode
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_EnforcementMode_Audit = @"AUDIT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_EnforcementMode_Detective = @"DETECTIVE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_EnforcementMode_EnforcementModeUnspecified = @"ENFORCEMENT_MODE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_EnforcementMode_Preventive = @"PREVENTIVE";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport.findingSeverity
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_FindingSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_FindingSeverity_High = @"HIGH";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_FindingSeverity_Low = @"LOW";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_FindingSeverity_Medium = @"MEDIUM";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport_FindingSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners = @"ASSURED_WORKLOADS_FOR_PARTNERS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport = @"AU_REGIONS_AND_US_SUPPORT";
@@ -77,6 +101,18 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorklo
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary.controlResponsibilityType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_ControlResponsibilityType_Customer = @"CUSTOMER";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_ControlResponsibilityType_Google = @"GOOGLE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_ControlResponsibilityType_RegulatoryControlResponsibilityTypeUnspecified = @"REGULATORY_CONTROL_RESPONSIBILITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_ControlResponsibilityType_Shared = @"SHARED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary.overallEvaluationState
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_OverallEvaluationState_EvaluationStateFailed = @"EVALUATION_STATE_FAILED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_OverallEvaluationState_EvaluationStateNotAssessed = @"EVALUATION_STATE_NOT_ASSESSED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_OverallEvaluationState_EvaluationStatePassed = @"EVALUATION_STATE_PASSED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary_OverallEvaluationState_EvaluationStateUnspecified = @"EVALUATION_STATE_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary.findingClass
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_Chokepoint = @"CHOKEPOINT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
@@ -96,11 +132,55 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSum
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_Medium = @"MEDIUM";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary.frameworkCategories
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkCategories_AssuredWorkloads = @"ASSURED_WORKLOADS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkCategories_CustomFramework = @"CUSTOM_FRAMEWORK";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkCategories_DataSecurity = @"DATA_SECURITY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkCategories_FrameworkCategoryUnspecified = @"FRAMEWORK_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkCategories_GoogleBestPractices = @"GOOGLE_BEST_PRACTICES";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkCategories_IndustryDefinedStandard = @"INDUSTRY_DEFINED_STANDARD";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary.frameworkType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkType_BuiltIn = @"BUILT_IN";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkType_Custom = @"CUSTOM";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_FrameworkType_FrameworkTypeUnspecified = @"FRAMEWORK_TYPE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary.supportedCloudProviders
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_SupportedCloudProviders_Aws = @"AWS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_SupportedCloudProviders_Azure = @"AZURE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_SupportedCloudProviders_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary_SupportedCloudProviders_Gcp = @"GCP";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.frameworkCategories
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkCategories_AssuredWorkloads = @"ASSURED_WORKLOADS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkCategories_CustomFramework = @"CUSTOM_FRAMEWORK";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkCategories_DataSecurity = @"DATA_SECURITY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkCategories_FrameworkCategoryUnspecified = @"FRAMEWORK_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkCategories_GoogleBestPractices = @"GOOGLE_BEST_PRACTICES";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkCategories_IndustryDefinedStandard = @"INDUSTRY_DEFINED_STANDARD";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.frameworkType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkType_BuiltIn = @"BUILT_IN";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkType_Custom = @"CUSTOM";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_FrameworkType_FrameworkTypeUnspecified = @"FRAMEWORK_TYPE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse.supportedCloudProviders
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_SupportedCloudProviders_Aws = @"AWS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_SupportedCloudProviders_Azure = @"AZURE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_SupportedCloudProviders_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse_SupportedCloudProviders_Gcp = @"GCP";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowAllGcpResources = @"ALLOW_ALL_GCP_RESOURCES";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AllowCompliantResources = @"ALLOW_COMPLIANT_RESOURCES";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_AppendCompliantResources = @"APPEND_COMPLIANT_RESOURCES";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest_RestrictionType_RestrictionTypeUnspecified = @"RESTRICTION_TYPE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule.ruleActionTypes
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule_RuleActionTypes_RuleActionTypeAudit = @"RULE_ACTION_TYPE_AUDIT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule_RuleActionTypes_RuleActionTypeDetective = @"RULE_ACTION_TYPE_DETECTIVE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule_RuleActionTypes_RuleActionTypePreventive = @"RULE_ACTION_TYPE_PREVENTIVE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule_RuleActionTypes_RuleActionTypeUnspecified = @"RULE_ACTION_TYPE_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation.state
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation_State_Exception = @"EXCEPTION";
@@ -266,6 +346,34 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregateDbFrameworkComplianceReportResponse
+@dynamic aggregatedComplianceReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aggregatedComplianceReports" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregatedComplianceReport class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregatedComplianceReport
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AggregatedComplianceReport
+@dynamic controlAssessmentDetails, reportTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AnalyzeWorkloadMoveResponse
 //
 
@@ -385,11 +493,111 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CELExpression
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CELExpression
+@dynamic expression, resourceTypesValues;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails
+@dynamic evaluationState, findingsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport
+@dynamic categories, cloudControl, cloudControlAssessmentDetails,
+         cloudControlDeployment, cloudControlType, descriptionProperty,
+         displayName, enforcementMode, findingCategory, findingSeverity,
+         frameworkMajorRevisionIds, majorRevisionId,
+         manualCloudControlAssessmentDetails, minorRevisionId, rules,
+         similarControls;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [NSString class],
+    @"frameworkMajorRevisionIds" : [NSNumber class],
+    @"rules" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule class],
+    @"similarControls" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1SimilarControls class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ControlAssessmentDetails
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ControlAssessmentDetails
+@dynamic assessedPassingControlIds, assessedPassingControls, failingControlIds,
+         failingControls, notAssessedControlIds, notAssessedControls,
+         passingControlIds, passingControls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assessedPassingControlIds" : [NSString class],
+    @"failingControlIds" : [NSString class],
+    @"notAssessedControlIds" : [NSString class],
+    @"passingControlIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata
 @dynamic complianceRegime, createTime, displayName, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary
+@dynamic cloudControlReports, complianceFrameworks, control,
+         controlResponsibilityType, descriptionProperty, displayName,
+         isFakeControl, name, overallEvaluationState, similarControls,
+         totalFindingsCount;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cloudControlReports" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlReport class],
+    @"complianceFrameworks" : [NSString class],
+    @"similarControls" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1SimilarControls class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -405,6 +613,29 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"relatedFrameworks" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary
+@dynamic controlAssessmentDetails, controlsPassingTrend, findingCount,
+         framework, frameworkCategories, frameworkDisplayName, frameworkType,
+         majorRevisionId, minorRevisionId, name, supportedCloudProviders,
+         targetResourceDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"frameworkCategories" : [NSString class],
+    @"supportedCloudProviders" : [NSString class],
+    @"targetResourceDetails" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1TargetResourceDetails class]
   };
   return map;
 }
@@ -432,6 +663,51 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1FetchDbFrameworkComplianceReportResponse
+@dynamic controlAssessmentDetails, framework, frameworkCategories,
+         frameworkDescription, frameworkDisplayName, frameworkType,
+         majorRevisionId, minorRevisionId, name, supportedCloudProviders,
+         targetResourceDetails, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"frameworkCategories" : [NSString class],
+    @"supportedCloudProviders" : [NSString class],
+    @"targetResourceDetails" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1TargetResourceDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbControlComplianceSummariesResponse
+@dynamic dbControlComplianceSummaries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dbControlComplianceSummaries" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dbControlComplianceSummaries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFindingSummariesResponse
 //
 
@@ -447,6 +723,28 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 + (NSString *)collectionItemsKey {
   return @"dbFindingSummaries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListDbFrameworkComplianceSummariesResponse
+@dynamic dbFrameworkComplianceSummaries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dbFrameworkComplianceSummaries" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFrameworkComplianceSummary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dbFrameworkComplianceSummaries";
 }
 
 @end
@@ -513,6 +811,24 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 + (NSString *)collectionItemsKey {
   return @"workloadUpdates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ManualCloudControlAssessmentDetails
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ManualCloudControlAssessmentDetails
+@dynamic manualCloudControlGuide;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"manualCloudControlGuide" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -658,6 +974,77 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsResponse
 @dynamic movedEventsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Rule
+@dynamic celExpression, descriptionProperty, ruleActionTypes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ruleActionTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1SimilarControls
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1SimilarControls
+@dynamic controlId, framework;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1StringList
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1StringList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1TargetResourceDetails
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1TargetResourceDetails
+@dynamic createTime, frameworkDeployment, majorRevisionId, minorRevisionId,
+         targetResource, targetResourceDisplayName, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Trend
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Trend
+@dynamic duration, valuePercent;
 @end
 
 

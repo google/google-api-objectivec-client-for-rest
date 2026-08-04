@@ -3316,9 +3316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @interface GTLRBackupdr_BackupVault : GTLRObject
 
 /**
- *  Optional. Note: This field is added for future use case and will not be
- *  supported in the current release. Access restriction for the backup vault.
- *  Default value is WITHIN_ORGANIZATION if not provided during creation.
+ *  Optional. Restricts access to certain sources and destinations for data
+ *  being sent into, or restored from, the backup vault. Defaults to
+ *  WITHIN_ORGANIZATION if not provided during creation.
  *
  *  Likely values:
  *    @arg @c kGTLRBackupdr_BackupVault_AccessRestriction_AccessRestrictionUnspecified
@@ -7237,7 +7237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  is required for `recurrence_type`, `HOURLY` and is not applicable otherwise.
  *  A validation error will occur if a value is supplied and `recurrence_type`
  *  is not `HOURLY`. The supported values for each resource type are as follows:
- *  * `compute.googleapis.com/Instance`: 4-23 * `compute.googleapis.com/Disk`:
+ *  * `compute.googleapis.com/Instance`: 1-23 * `compute.googleapis.com/Disk`:
  *  1-23 * `sqladmin.googleapis.com/Instance`: 6-23 *
  *  `alloydb.googleapis.com/Cluster`: 1-23 * `file.googleapis.com/Instance`:
  *  1-23 Refer to link

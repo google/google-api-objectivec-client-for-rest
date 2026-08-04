@@ -1437,6 +1437,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, strong, nullable) NSNumber *logicalDataBytes;
 
+/**
+ *  Output only. The logical data bytes of the column family stored on HDD.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logicalDataHddBytes;
+
+/**
+ *  Output only. The logical data bytes of the column family stored on SSD.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logicalDataSsdBytes;
+
 @end
 
 
@@ -1799,6 +1813,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Request message for BigtableInstanceAdmin.CreateMaterializedView.
  */
 @interface GTLRBigtableAdmin_CreateMaterializedViewRequest : GTLRObject
+
+/**
+ *  Optional. If true, ignore optional safety checks when creating the
+ *  materialized view.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreWarnings;
 
 /** Required. The materialized view to create. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_MaterializedView *materializedView;
@@ -2843,6 +2865,12 @@ GTLR_DEPRECATED
  *        "ENTERPRISE_PLUS")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
+
+/**
+ *  Output only. The region where Knowledge Catalog data is synced to and
+ *  stored, including user-created aspects.
+ */
+@property(nonatomic, copy, nullable) NSString *knowledgeCatalogRegion;
 
 /**
  *  Labels are a flexible and lightweight mechanism for organizing cloud

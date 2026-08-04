@@ -320,6 +320,25 @@
 
 @end
 
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysGetPolicy
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecaptchaEnterpriseQuery_ProjectsKeysGetPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy class];
+  query.loggingName = @"recaptchaenterprise.projects.keys.getPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysList
 
 @dynamic pageSize, pageToken, parent;
@@ -453,6 +472,33 @@
   query.key = key;
   query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse class];
   query.loggingName = @"recaptchaenterprise.projects.keys.retrieveLegacySecretKey";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsKeysUpdatePolicy
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecaptchaEnterpriseQuery_ProjectsKeysUpdatePolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy class];
+  query.loggingName = @"recaptchaenterprise.projects.keys.updatePolicy";
   return query;
 }
 

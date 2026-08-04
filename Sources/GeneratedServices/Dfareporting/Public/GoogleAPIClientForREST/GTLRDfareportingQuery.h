@@ -440,7 +440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeBr;
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeCl;
 /** Value: "IBOPE_CO" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeCo;
-/** Value: "INTAGE_JP" */
+/**
+ *  Allows populating multiple tvCampaignId filters and tvCampaignEndDate filter
+ *  on the report.
+ *
+ *  Value: "INTAGE_JP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIntageJp;
 /** Value: "INVALID_TV_DATA_PROVIDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderInvalidTvDataProvider;
@@ -8317,6 +8322,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Executes an ad-hoc query and returns structured JSON payload data.
+ *
+ *  Method: dfareporting.reportData.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareporting
+ */
+@interface GTLRDfareportingQuery_ReportDataQuery : GTLRDfareportingQuery
+
+/** Required. The Campaign Manager 360 user profile ID. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_ReportDataResponse.
+ *
+ *  Executes an ad-hoc query and returns structured JSON payload data.
+ *
+ *  @param object The @c GTLRDfareporting_ReportDataQueryRequest to include in
+ *    the query.
+ *  @param profileId Required. The Campaign Manager 360 user profile ID.
+ *
+ *  @return GTLRDfareportingQuery_ReportDataQuery
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_ReportDataQueryRequest *)object
+                      profileId:(long long)profileId;
+
+@end
+
+/**
  *  Returns the fields that are compatible to be selected in the respective
  *  sections of a report criteria, given the fields already selected in the
  *  input report and user permissions.
@@ -9776,7 +9810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Likely values:
  *    @arg @c kGTLRDfareportingTvDataProviderInvalidTvDataProvider Value
  *        "INVALID_TV_DATA_PROVIDER"
- *    @arg @c kGTLRDfareportingTvDataProviderIntageJp Value "INTAGE_JP"
+ *    @arg @c kGTLRDfareportingTvDataProviderIntageJp Allows populating multiple
+ *        tvCampaignId filters and tvCampaignEndDate filter on the report.
+ *        (Value: "INTAGE_JP")
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeAr Value "IBOPE_AR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeBr Value "IBOPE_BR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeCl Value "IBOPE_CL"
@@ -9836,7 +9872,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Likely values:
  *    @arg @c kGTLRDfareportingTvDataProviderInvalidTvDataProvider Value
  *        "INVALID_TV_DATA_PROVIDER"
- *    @arg @c kGTLRDfareportingTvDataProviderIntageJp Value "INTAGE_JP"
+ *    @arg @c kGTLRDfareportingTvDataProviderIntageJp Allows populating multiple
+ *        tvCampaignId filters and tvCampaignEndDate filter on the report.
+ *        (Value: "INTAGE_JP")
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeAr Value "IBOPE_AR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeBr Value "IBOPE_BR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeCl Value "IBOPE_CL"

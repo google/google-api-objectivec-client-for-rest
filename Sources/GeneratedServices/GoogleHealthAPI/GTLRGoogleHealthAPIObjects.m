@@ -406,6 +406,71 @@ NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Moderate =
 NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Peak = @"PEAK";
 NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Vigorous = @"VIGOROUS";
 
+// GTLRGoogleHealthAPI_Moods.moods
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Accomplished = @"ACCOMPLISHED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Afraid       = @"AFRAID";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Amazed       = @"AMAZED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Amused       = @"AMUSED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Angry        = @"ANGRY";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Annoyed      = @"ANNOYED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Anxious      = @"ANXIOUS";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Ashamed      = @"ASHAMED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Awestruck    = @"AWESTRUCK";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Bitter       = @"BITTER";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Bored        = @"BORED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Brave        = @"BRAVE";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Calm         = @"CALM";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Compassionate = @"COMPASSIONATE";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Confident    = @"CONFIDENT";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Confused     = @"CONFUSED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Content      = @"CONTENT";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Curious      = @"CURIOUS";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Disappointed = @"DISAPPOINTED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Discouraged  = @"DISCOURAGED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Disgusted    = @"DISGUSTED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Drained      = @"DRAINED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Embarrassed  = @"EMBARRASSED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Energized    = @"ENERGIZED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Envious      = @"ENVIOUS";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Excited      = @"EXCITED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Fatigued     = @"FATIGUED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Frustrated   = @"FRUSTRATED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Grateful     = @"GRATEFUL";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Guilty       = @"GUILTY";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Happy        = @"HAPPY";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Hopeful      = @"HOPEFUL";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Hopeless     = @"HOPELESS";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Hurting      = @"HURTING";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Indifferent  = @"INDIFFERENT";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Inspired     = @"INSPIRED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Irritated    = @"IRRITATED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Jealous      = @"JEALOUS";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Joyful       = @"JOYFUL";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Lonely       = @"LONELY";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Longing      = @"LONGING";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Loving       = @"LOVING";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_MoodUnspecified = @"MOOD_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Neutral      = @"NEUTRAL";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Overwhelmed  = @"OVERWHELMED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Passionate   = @"PASSIONATE";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Peaceful     = @"PEACEFUL";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Proud        = @"PROUD";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Relieved     = @"RELIEVED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Sad          = @"SAD";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Satisfied    = @"SATISFIED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Scared       = @"SCARED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Stressed     = @"STRESSED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Surprised    = @"SURPRISED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_VeryCalm     = @"VERY_CALM";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_VeryStressed = @"VERY_STRESSED";
+NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Worried      = @"WORRIED";
+
+// GTLRGoogleHealthAPI_Moods.valences
+NSString * const kGTLRGoogleHealthAPI_Moods_Valences_Baseline  = @"BASELINE";
+NSString * const kGTLRGoogleHealthAPI_Moods_Valences_Pleasant  = @"PLEASANT";
+NSString * const kGTLRGoogleHealthAPI_Moods_Valences_Unpleasant = @"UNPLEASANT";
+NSString * const kGTLRGoogleHealthAPI_Moods_Valences_ValenceUnspecified = @"VALENCE_UNSPECIFIED";
+
 // GTLRGoogleHealthAPI_NutrientQuantity.nutrient
 NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Biotin = @"BIOTIN";
 NSString * const kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Caffeine = @"CAFFEINE";
@@ -501,6 +566,14 @@ NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Dinner = @"DINNER";
 NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Lunch = @"LUNCH";
 NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_MealTypeUnspecified = @"MEAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Snack = @"SNACK";
+
+// GTLRGoogleHealthAPI_OvulationTest.result
+NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_EstrogenSurge = @"ESTROGEN_SURGE";
+NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_Indeterminate = @"INDETERMINATE";
+NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_LuteinizingHormoneSurge = @"LUTEINIZING_HORMONE_SURGE";
+NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_Negative = @"NEGATIVE";
+NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_OvulationTestResultUnspecified = @"OVULATION_TEST_RESULT_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_Positive = @"POSITIVE";
 
 // GTLRGoogleHealthAPI_PairedDevice.deviceType
 NSString * const kGTLRGoogleHealthAPI_PairedDevice_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
@@ -615,6 +688,38 @@ NSString * const kGTLRGoogleHealthAPI_SwimLengthsData_SwimStrokeType_Breaststrok
 NSString * const kGTLRGoogleHealthAPI_SwimLengthsData_SwimStrokeType_Butterfly = @"BUTTERFLY";
 NSString * const kGTLRGoogleHealthAPI_SwimLengthsData_SwimStrokeType_Freestyle = @"FREESTYLE";
 NSString * const kGTLRGoogleHealthAPI_SwimLengthsData_SwimStrokeType_SwimStrokeTypeUnspecified = @"SWIM_STROKE_TYPE_UNSPECIFIED";
+
+// GTLRGoogleHealthAPI_Symptoms.symptoms
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Acne   = @"ACNE";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Anxiety = @"ANXIETY";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BackPain = @"BACK_PAIN";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Bloated = @"BLOATED";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BlurredVision = @"BLURRED_VISION";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_ChestPain = @"CHEST_PAIN";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Confusion = @"CONFUSION";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Cough  = @"COUGH";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Cramps = @"CRAMPS";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_DifficultyBreathing = @"DIFFICULTY_BREATHING";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Dizziness = @"DIZZINESS";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fainting = @"FAINTING";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fatigue = @"FATIGUE";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fever  = @"FEVER";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_FrequentUrination = @"FREQUENT_URINATION";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Headache = @"HEADACHE";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_HeartPalpitations = @"HEART_PALPITATIONS";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_HotFlashes = @"HOT_FLASHES";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Hunger = @"HUNGER";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Other  = @"OTHER";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Pms    = @"PMS";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SexDriveHigh = @"SEX_DRIVE_HIGH";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SexDriveLow = @"SEX_DRIVE_LOW";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SexDriveMedium = @"SEX_DRIVE_MEDIUM";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Shakiness = @"SHAKINESS";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Sick   = @"SICK";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Sweating = @"SWEATING";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SymptomValueUnspecified = @"SYMPTOM_VALUE_UNSPECIFIED";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_TenderBreasts = @"TENDER_BREASTS";
+NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Thirst = @"THIRST";
 
 // GTLRGoogleHealthAPI_TimeInHeartRateZone.heartRateZoneType
 NSString * const kGTLRGoogleHealthAPI_TimeInHeartRateZone_HeartRateZoneType_HeartRateZoneTypeUnspecified = @"HEART_RATE_ZONE_TYPE_UNSPECIFIED";
@@ -1197,9 +1302,10 @@ NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_
          dailySleepTemperatureDerivations, dailyVo2Max, dataSource, distance,
          electrocardiogram, exercise, floors, food, foodMeasurementUnit,
          heartRate, heartRateVariability, height, hydrationLog,
-         irregularRhythmNotification, name, nutritionLog, oxygenSaturation,
+         irregularRhythmNotification, menstrualPeriod, moods, name,
+         nutritionLog, ovulationTest, oxygenSaturation,
          respiratoryRateSleepSummary, runVo2Max, sedentaryPeriod, sleep, steps,
-         swimLengthsData, timeInHeartRateZone, vo2Max, weight;
+         swimLengthsData, symptoms, timeInHeartRateZone, vo2Max, weight;
 @end
 
 
@@ -1554,6 +1660,38 @@ NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_HttpBody
+//
+
+@implementation GTLRGoogleHealthAPI_HttpBody
+@dynamic contentType, data, extensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRGoogleHealthAPI_HttpBody_Extensions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_HttpBody_Extensions_Item
+//
+
+@implementation GTLRGoogleHealthAPI_HttpBody_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_HttpHeader
 //
 
@@ -1738,12 +1876,32 @@ NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleHealthAPI_ManifestParams
+//
+
+@implementation GTLRGoogleHealthAPI_ManifestParams
+@dynamic embeddedLengthMax, passcode, recipient;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleHealthAPI_MedicalDeviceInfo
 //
 
 @implementation GTLRGoogleHealthAPI_MedicalDeviceInfo
 @dynamic algorithmVersion, deviceModel, featureVersion, firmwareVersion,
          serviceVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_MenstrualPeriod
+//
+
+@implementation GTLRGoogleHealthAPI_MenstrualPeriod
+@dynamic interval, notes;
 @end
 
 
@@ -1770,6 +1928,25 @@ NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_
 @dynamic avgCadenceStepsPerMinute, avgGroundContactTimeDuration,
          avgStrideLengthMillimeters, avgVerticalOscillationMillimeters,
          avgVerticalRatio;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_Moods
+//
+
+@implementation GTLRGoogleHealthAPI_Moods
+@dynamic moods, sampleTime, valences;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"moods" : [NSString class],
+    @"valences" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1896,6 +2073,16 @@ NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_
 
 @implementation GTLRGoogleHealthAPI_OutOfBedSegment
 @dynamic endTime, endUtcOffset, startTime, startUtcOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_OvulationTest
+//
+
+@implementation GTLRGoogleHealthAPI_OvulationTest
+@dynamic result, sampleTime;
 @end
 
 
@@ -2157,7 +2344,7 @@ NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_
 //
 
 @implementation GTLRGoogleHealthAPI_SleepMetadata
-@dynamic externalId, manuallyEdited, nap, processed, stagesStatus;
+@dynamic externalId, mainSleep, manuallyEdited, nap, processed, stagesStatus;
 @end
 
 
@@ -2336,6 +2523,24 @@ NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_UserProvidedUnitLast_
 
 @implementation GTLRGoogleHealthAPI_SwimLengthsDataRollupValue
 @dynamic strokeCountSum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleHealthAPI_Symptoms
+//
+
+@implementation GTLRGoogleHealthAPI_Symptoms
+@dynamic sampleTime, symptoms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"symptoms" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -166,6 +166,7 @@ NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Co
 NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_Inactive = @"INACTIVE";
 
 // GTLROnDemandScanning_Finding.scanner
+NSString * const kGTLROnDemandScanning_Finding_Scanner_GoogleAntivirus = @"GOOGLE_ANTIVIRUS";
 NSString * const kGTLROnDemandScanning_Finding_Scanner_Llm     = @"LLM";
 NSString * const kGTLROnDemandScanning_Finding_Scanner_ScannerUnspecified = @"SCANNER_UNSPECIFIED";
 NSString * const kGTLROnDemandScanning_Finding_Scanner_Static  = @"STATIC";

@@ -27,6 +27,7 @@
 @class GTLRAccessContextManager_AccessPolicy;
 @class GTLRAccessContextManager_AccessScope;
 @class GTLRAccessContextManager_AccessSettings;
+@class GTLRAccessContextManager_AddRequestHeader;
 @class GTLRAccessContextManager_ApiOperation;
 @class GTLRAccessContextManager_Application;
 @class GTLRAccessContextManager_AuditConfig;
@@ -50,12 +51,16 @@
 @class GTLRAccessContextManager_IngressSource;
 @class GTLRAccessContextManager_IngressTo;
 @class GTLRAccessContextManager_MethodSelector;
+@class GTLRAccessContextManager_Modifier;
 @class GTLRAccessContextManager_Operation;
 @class GTLRAccessContextManager_Operation_Metadata;
 @class GTLRAccessContextManager_Operation_Response;
 @class GTLRAccessContextManager_OsConstraint;
 @class GTLRAccessContextManager_Policy;
+@class GTLRAccessContextManager_Principal;
+@class GTLRAccessContextManager_PrivateServiceConnectEndpoint;
 @class GTLRAccessContextManager_ScopedAccessSettings;
+@class GTLRAccessContextManager_ServicePattern;
 @class GTLRAccessContextManager_ServicePerimeter;
 @class GTLRAccessContextManager_ServicePerimeterConfig;
 @class GTLRAccessContextManager_SessionSettings;
@@ -518,6 +523,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimplemented;
 
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_VpcAccessibleServices.servicePatternsEnforcementScopes
+
+/**
+ *  Enables VPC Accessible Services enforcement for all APIs (including
+ *  unsupported APIs) for Private Google Access configured with Private VIP and
+ *  Private Service Connect Endpoint for Global Google APIs that uses 'all-apis'
+ *  bundle.
+ *
+ *  Value: "GOOGLE_APIS_VIA_PRIVATE_PATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatternsEnforcementScopes_GoogleApisViaPrivatePath;
+/**
+ *  Default value. This can not be used.
+ *
+ *  Value: "SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatternsEnforcementScopes_ServicePatternsEnforcementScopeUnspecified;
+
 /**
  *  An `AccessLevel` is a label that can be applied to requests to Google Cloud
  *  services, along with a list of requirements necessary for the label to be
@@ -633,6 +657,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  Optional. Session settings applied to user access on a given AccessScope.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_SessionSettings *sessionSettings;
+
+@end
+
+
+/**
+ *  Adds a request header to the API.
+ */
+@interface GTLRAccessContextManager_AddRequestHeader : GTLRObject
+
+/** HTTP header key. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** HTTP header value. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1241,6 +1279,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
 /**
+ *  A PrivateServiceConnectEndpoint that is allowed to access data outside the
+ *  perimeter. The Private Service Connect endpoint may be in any organization,
+ *  not just the organization that the perimeter is defined in.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_PrivateServiceConnectEndpoint *pscEndpoint;
+
+/**
  *  A Google Cloud resource from the service perimeter that you want to allow to
  *  access data outside the perimeter. This field supports only projects. The
  *  project format is `projects/{project_number}`. You can't use `*` in this
@@ -1401,11 +1446,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A list of applications that are subject to this binding's
- *  restrictions. If the list is empty, the binding restrictions will
- *  universally apply to all applications.
+ *  Optional. Immutable. The principal that is subject to the access policies in
+ *  this policy binding.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Application *> *restrictedClientApplications;
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_Principal *principal;
+
+/**
+ *  Optional. Deprecated: use scoped_access_settings instead. A list of
+ *  applications that are subject to this binding's restrictions. If the list is
+ *  empty, the binding restrictions will universally apply to all applications.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Application *> *restrictedClientApplications GTLR_DEPRECATED;
 
 /**
  *  Optional. A list of scoped access settings that set this binding's
@@ -1564,6 +1615,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  specified for `access_level`, then all IngressSources will be allowed.
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
+
+/**
+ *  A PrivateServiceConnectEndpoint that is allowed to access the perimeter. The
+ *  Private Service Connect endpoint may be in any organization, not just the
+ *  organization that the perimeter is defined in.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_PrivateServiceConnectEndpoint *pscEndpoint;
 
 /**
  *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
@@ -1842,6 +1900,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
+ *  Modifier to apply to the API requests.
+ */
+@interface GTLRAccessContextManager_Modifier : GTLRObject
+
+/** Adds additional HTTP request headers. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_AddRequestHeader *addRequestHeader;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -2067,6 +2136,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
+ *  The comprehensive identity container supporting identities including groups,
+ *  service accounts and federated identities. Only one of them can be set to
+ *  create an access binding.
+ */
+@interface GTLRAccessContextManager_Principal : GTLRObject
+
+/**
+ *  Immutable. Service account email used to assign policies to a specific
+ *  service account. If a service account is subject to multiple policies (e.g.,
+ *  if there is a policy for all service accounts in a project and a policy for
+ *  the service account), the closest (i.e. the most specific) dry-run policy
+ *  will be used for the dry-run functionality and the closest policy will be
+ *  used for the enforcement.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Immutable. Cloud project number used to assign policies to all service
+ *  accounts owned by the project.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountProjectNumber;
+
+@end
+
+
+/**
+ *  Specifies the Private Service Connect endpoint that an API call refers to.
+ */
+@interface GTLRAccessContextManager_PrivateServiceConnectEndpoint : GTLRObject
+
+/**
+ *  The full resource name of the global forwarding rule that identifies a
+ *  Private Service Connect endpoint. Forwarding rule format:
+ *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/forwardingRules/{FORWARDING_RULE_ID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+@end
+
+
+/**
  *  A request to replace all existing Access Levels in an Access Policy with the
  *  Access Levels provided. This is done atomically.
  */
@@ -2163,6 +2273,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  unique and non-empty.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessScope *scope;
+
+@end
+
+
+/**
+ *  Service patterns used to allow access.
+ */
+@interface GTLRAccessContextManager_ServicePattern : GTLRObject
+
+/** Modifiers to apply to the requests that match the URL pattern. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Modifier *> *modifiers;
+
+/**
+ *  URL pattern to allow. Only patterns of ".googleapis.com/ *",
+ *  "www.googleapis.com// *" and "*.appspot.com/ * forms are supported, where
+ *  should be alphanumerical name.
+ */
+@property(nonatomic, copy, nullable) NSString *pattern;
+
+/** Supported service to allow. */
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -2587,6 +2718,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @interface GTLRAccessContextManager_VpcAccessibleServices : GTLRObject
 
 /**
+ *  Specifies which Google services are allowed to be accessed from VPC networks
+ *  in the service perimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePattern *> *allowedServicePatterns;
+
+/**
  *  The list of APIs usable within the Service Perimeter. Must be empty unless
  *  'enable_restriction' is True. You can specify a list of individual services,
  *  as well as include the 'RESTRICTED-SERVICES' value, which automatically
@@ -2601,6 +2738,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableRestriction;
+
+/** Defines the enforcement scopes of service patterns. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servicePatternsEnforcementScopes;
 
 @end
 

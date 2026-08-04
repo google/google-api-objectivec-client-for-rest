@@ -3309,6 +3309,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Comple
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_PerformanceCaptureConfig.transactionKillType
+
+/**
+ *  All transactions are eligible for termination, including those with write
+ *  operations (such as INSERT, UPDATE, DELETE, or DDL).
+ *
+ *  Value: "ALL_TRANSACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_AllTransactions;
+/**
+ *  Only read-only transactions are eligible for termination.
+ *
+ *  Value: "READ_ONLY_TRANSACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_ReadOnlyTransactions;
+/**
+ *  Unspecified.
+ *
+ *  Value: "TRANSACTION_KILL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_TransactionKillTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_PoolNodeConfig.state
 
 /**
@@ -3735,6 +3758,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Me
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_PscAutoConnectionConfig.instanceAutoDnsStatus
+
+/**
+ *  DNS provisioning failed.
+ *
+ *  Value: "AUTO_DNS_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsFailed;
+/**
+ *  DNS provisioning is OK.
+ *
+ *  Value: "AUTO_DNS_OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsOk;
+/**
+ *  Unspecified status. This means status is missing from dependency service.
+ *
+ *  Value: "AUTO_DNS_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsStatusUnspecified;
+/**
+ *  DNS provisioning status is not recognized by Cloud SQL.
+ *
+ *  Value: "AUTO_DNS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_PscAutoConnectionConfig.writeEndpointAutoDnsStatus
+
+/**
+ *  DNS provisioning failed.
+ *
+ *  Value: "AUTO_DNS_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsFailed;
+/**
+ *  DNS provisioning is OK.
+ *
+ *  Value: "AUTO_DNS_OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsOk;
+/**
+ *  Unspecified status. This means status is missing from dependency service.
+ *
+ *  Value: "AUTO_DNS_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsStatusUnspecified;
+/**
+ *  DNS provisioning status is not recognized by Cloud SQL.
+ *
+ *  Value: "AUTO_DNS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Reschedule.rescheduleType
@@ -5181,11 +5260,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, strong, nullable) NSNumber *pointInTimeRecoveryEnabled;
 
 /**
- *  Reserved for future use.
+ *  Optional. Deprecated: replication_log_archiving_enabled is deprecated and
+ *  will be removed from a future version of the API. Use
+ *  point_in_time_recovery_enabled instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *replicationLogArchivingEnabled;
+@property(nonatomic, strong, nullable) NSNumber *replicationLogArchivingEnabled GTLR_DEPRECATED;
 
 /**
  *  Start time for the daily backup configuration in UTC timezone in the 24 hour
@@ -5856,6 +5937,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  */
 @property(nonatomic, copy, nullable) NSString *backendType;
 
+/**
+ *  Optional. Output only. Connection name of the Cloud SQL instance used in
+ *  connection strings, in the format project:region:instance.
+ */
+@property(nonatomic, copy, nullable) NSString *connectionName;
+
 /** Custom subject alternative names for the server certificate. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customSubjectAlternativeNames;
 
@@ -6206,6 +6293,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *currentDiskSize GTLR_DEPRECATED;
+
+/**
+ *  Optional. If true, instance metadata is sent to the Database Center. If
+ *  false, instance metadata is not sent to the Database Center.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *databaseCenterIntegrationEnabled;
 
 /**
  *  Output only. Stores the current database version running on the instance
@@ -7004,6 +7099,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        (Value: "PARTIAL_RESULT_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *partialResultMode;
+
+/**
+ *  Optional. The resource name of the Secret Manager secret holding the
+ *  password for the user to log into the database. The secret should be created
+ *  using the regional endpoint (for API) or from the Regional Secrets page (for
+ *  UI), and stored in the same region as the Cloud SQL instance. The expected
+ *  resource name format is
+ *  `projects/{project}/locations/{location}/secrets/{secret}/versions/{secret_version}`.
+ *  Used together with the `user` field. The secret resource name will not be
+ *  stored.
+ */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
 
 /**
  *  Optional. The maximum number of rows returned per SQL statement.
@@ -8703,6 +8810,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
+/**
+ *  Output only. Indicates whether the resource is managed by Database Migration
+ *  Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dmsManaged;
+
 /** The dump file to create the Cloud SQL replica. */
 @property(nonatomic, copy, nullable) NSString *dumpFilePath;
 
@@ -9190,11 +9305,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @interface GTLRSQLAdmin_PerformanceCaptureConfig : GTLRObject
 
 /**
+ *  Optional. Specifies the minimum percentage of CPU utilization to trigger the
+ *  performance capture. Valid integers range from `10` to `99`. Enter `0` to
+ *  disable the check.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuUtilizationThresholdPercent;
+
+/**
  *  Optional. Enables or disables the performance capture feature.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. Specifies the minimum number of undo log entries in the history
+ *  list length to trigger the performance capture. Valid integers range from
+ *  `10000` to `10000000`. Enter `0` to disable the check.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *historyListLengthThresholdCount;
+
+/**
+ *  Optional. Specifies the minimum percentage of memory usage to trigger the
+ *  performance capture. Valid integers range from `10` to `99`. Enter `0` to
+ *  disable the check.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryUsageThresholdPercent;
 
 /**
  *  Optional. Specifies the minimum number of consecutive probe threshold that
@@ -9229,12 +9371,71 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, strong, nullable) NSNumber *secondsBehindSourceThreshold;
 
 /**
+ *  Optional. Specifies the minimum allowed number of semaphore waits to trigger
+ *  the performance capture. Valid integers range from `10` to `10000`. Enter
+ *  `0` to disable the check.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *semaphoreWaitThresholdCount;
+
+/**
  *  Optional. Specifies the amount of time in seconds that a transaction needs
  *  to have been open before the watcher starts recording it.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *transactionDurationThreshold;
+
+/**
+ *  Optional. Specifies a customer-defined list of users to exclude from
+ *  transaction termination. Entries can be in the format 'user\@host' or just
+ *  'user'. A standalone 'user' implies 'user\@%', excluding the user from any
+ *  host. Wildcard '%' is allowed in the host part of the 'user\@host' format.
+ *  Example: `["app_user", "db_admin\@10.1.2.3", "report_user\@%"]`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *transactionKillExcludedUserHosts;
+
+/**
+ *  Optional. Specifies the amount of time in seconds that a transaction needs
+ *  to have been open before the watcher starts terminating it. Valid integers
+ *  range from `60` to `604800` (7 days). Enter `0` to disable. If enabled
+ *  (i.e., > 0), this value must be greater than or equal to
+ *  `transaction_duration_threshold`. Configurations where `0 <
+ *  transaction_kill_threshold_seconds < transaction_duration_threshold` will be
+ *  rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transactionKillThresholdSeconds;
+
+/**
+ *  Optional. Determines which transactions are allowed to be terminated when
+ *  they exceed `transaction_kill_threshold_seconds`. This allows protecting
+ *  write-heavy transactions from auto-termination if desired. Defaults to
+ *  `READ_ONLY_TRANSACTIONS` if unspecified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_AllTransactions
+ *        All transactions are eligible for termination, including those with
+ *        write operations (such as INSERT, UPDATE, DELETE, or DDL). (Value:
+ *        "ALL_TRANSACTIONS")
+ *    @arg @c kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_ReadOnlyTransactions
+ *        Only read-only transactions are eligible for termination. (Value:
+ *        "READ_ONLY_TRANSACTIONS")
+ *    @arg @c kGTLRSQLAdmin_PerformanceCaptureConfig_TransactionKillType_TransactionKillTypeUnspecified
+ *        Unspecified. (Value: "TRANSACTION_KILL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transactionKillType;
+
+/**
+ *  Optional. Specifies the minimum allowed number of transactions in lock wait
+ *  state to trigger the performance capture. Valid integers range from `10` to
+ *  `10000`. Enter `0` to disable the check.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transactionLockWaitThresholdCount;
 
 @end
 
@@ -9623,6 +9824,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  */
 @property(nonatomic, copy, nullable) NSString *consumerProject;
 
+/**
+ *  Output only. The status of automated DNS provisioning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsFailed
+ *        DNS provisioning failed. (Value: "AUTO_DNS_FAILED")
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsOk
+ *        DNS provisioning is OK. (Value: "AUTO_DNS_OK")
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsStatusUnspecified
+ *        Unspecified status. This means status is missing from dependency
+ *        service. (Value: "AUTO_DNS_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_InstanceAutoDnsStatus_AutoDnsUnknown
+ *        DNS provisioning status is not recognized by Cloud SQL. (Value:
+ *        "AUTO_DNS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *instanceAutoDnsStatus;
+
 /** The IP address of the consumer endpoint. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
@@ -9640,6 +9858,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /** The connection status of the consumer endpoint. */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Output only. The status of automated DNS provisioning for the write
+ *  endpoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsFailed
+ *        DNS provisioning failed. (Value: "AUTO_DNS_FAILED")
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsOk
+ *        DNS provisioning is OK. (Value: "AUTO_DNS_OK")
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsStatusUnspecified
+ *        Unspecified status. This means status is missing from dependency
+ *        service. (Value: "AUTO_DNS_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_PscAutoConnectionConfig_WriteEndpointAutoDnsStatus_AutoDnsUnknown
+ *        DNS provisioning status is not recognized by Cloud SQL. (Value:
+ *        "AUTO_DNS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *writeEndpointAutoDnsStatus;
 
 @end
 
@@ -11508,6 +11744,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  it is already specified on the URL.
  */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/** Optional. The server roles for the SQL Server login. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serverRoles;
 
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlServerUserDetails *sqlserverUserDetails;
 

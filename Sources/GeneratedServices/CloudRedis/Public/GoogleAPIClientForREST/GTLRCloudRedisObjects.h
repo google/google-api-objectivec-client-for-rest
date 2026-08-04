@@ -15,6 +15,9 @@
 #endif
 
 @class GTLRCloudRedis_AclPolicy;
+@class GTLRCloudRedis_AclPolicyInfo;
+@class GTLRCloudRedis_AclPolicyRevision;
+@class GTLRCloudRedis_AclPolicyRevisionStatus;
 @class GTLRCloudRedis_AclRule;
 @class GTLRCloudRedis_AOFConfig;
 @class GTLRCloudRedis_AuthToken;
@@ -31,6 +34,7 @@
 @class GTLRCloudRedis_Cluster;
 @class GTLRCloudRedis_Cluster_Labels;
 @class GTLRCloudRedis_Cluster_RedisConfigs;
+@class GTLRCloudRedis_ClusterAclPolicyAttachment;
 @class GTLRCloudRedis_ClusterEndpoint;
 @class GTLRCloudRedis_ClusterMaintenancePolicy;
 @class GTLRCloudRedis_ClusterMaintenanceSchedule;
@@ -154,6 +158,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicy_State_StateUnspecif
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicy_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_AclPolicyRevisionStatus.state
+
+/**
+ *  The cluster has successfully applied this revision.
+ *
+ *  Value: "APPLIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_Applied;
+/**
+ *  The cluster is attempting to apply this revision.
+ *
+ *  Value: "APPLYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_Applying;
+/**
+ *  The cluster failed to apply this revision.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_Failed;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_AclPolicyRevisionStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_AOFConfig.appendFsync
@@ -1236,6 +1268,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMinimalErrorLogging;
+/**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMissingEnhancedProtection;
 /**
  *  Represents if a resource has an automated backup policy.
  *
@@ -2345,6 +2383,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMinimalErrorLogging;
+/**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMissingEnhancedProtection;
 /**
  *  Represents if a resource has an automated backup policy.
  *
@@ -4159,6 +4203,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @interface GTLRCloudRedis_AclPolicy : GTLRObject
 
+/**
+ *  Output only. The ACL policy attachment status for each attached cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ClusterAclPolicyAttachment *> *clusterAclPolicyAttachments;
+
+/** Output only. The timestamp that the ACL policy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /** Output only. Etag for the ACL policy. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -4184,12 +4236,129 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Output only. The timestamp that the ACL policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 /**
  *  Output only. Deprecated: Used in drift resolution.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  Details of the applied ACL policy.
+ */
+@interface GTLRCloudRedis_AclPolicyInfo : GTLRObject
+
+/**
+ *  Output only. A list of status for various revisions of this ACL policy on
+ *  the cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_AclPolicyRevisionStatus *> *aclPolicyRevisionStatuses;
+
+/**
+ *  Output only. The resource name of the applied ACL policy. Format:
+ *  "projects/{project}/locations/{location}/aclPolicies/{acl_policy}"
+ */
+@property(nonatomic, copy, nullable) NSString *appliedAclPolicy;
+
+/**
+ *  Output only. The resource name of the applied ACL policy revision. Format:
+ *  "projects/{project}/locations/{location}/aclPolicies/{acl_policy}/revisions/{revision}"
+ */
+@property(nonatomic, copy, nullable) NSString *appliedAclPolicyRevision;
+
+/**
+ *  Output only. The revision number of the applied ACL policy revision.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *appliedAclPolicyRevisionNumber;
+
+@end
+
+
+/**
+ *  The ACL policy revision resource.
+ */
+@interface GTLRCloudRedis_AclPolicyRevision : GTLRObject
+
+/**
+ *  Output only. A list of clusters that are attached to this ACL policy
+ *  revision.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attachedClusters;
+
+/** Output only. The timestamp that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The name of the ACL policy revision. Format:
+ *  "projects/{project}/locations/{location}/aclPolicies/{acl_policy}/revisions/{revision}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The revision number of the ACL policy revision.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revisionNumber;
+
+/**
+ *  Output only. The snapshot of the ACL policy at the time of revision
+ *  creation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_AclPolicy *snapshot;
+
+@end
+
+
+/**
+ *  AclPolicyRevisionStatus stores the per-revision status for an attached
+ *  cluster.
+ */
+@interface GTLRCloudRedis_AclPolicyRevisionStatus : GTLRObject
+
+/**
+ *  Output only. The resource name of the ACL policy revision this status refers
+ *  to. Format:
+ *  "projects/{project}/locations/{location}/aclPolicies/{acl_policy}/revisions/{revision}"
+ */
+@property(nonatomic, copy, nullable) NSString *aclPolicyRevision;
+
+/**
+ *  Output only. The revision number of the ACL policy revision this status
+ *  refers to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aclPolicyRevisionNumber;
+
+/**
+ *  Output only. Human-readable error message providing more details for FAILED
+ *  states.
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Output only. AclPolicyRevision state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_AclPolicyRevisionStatus_State_Applied The cluster
+ *        has successfully applied this revision. (Value: "APPLIED")
+ *    @arg @c kGTLRCloudRedis_AclPolicyRevisionStatus_State_Applying The cluster
+ *        is attempting to apply this revision. (Value: "APPLYING")
+ *    @arg @c kGTLRCloudRedis_AclPolicyRevisionStatus_State_Failed The cluster
+ *        failed to apply this revision. (Value: "FAILED")
+ *    @arg @c kGTLRCloudRedis_AclPolicyRevisionStatus_State_StateUnspecified Not
+ *        set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -4743,6 +4912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 /** Optional. The ACL policy to be applied to the cluster. */
 @property(nonatomic, copy, nullable) NSString *aclPolicy;
 
+/** Output only. Details of the applied ACL policy. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_AclPolicyInfo *aclPolicyInfo;
+
 /**
  *  Optional. Output only. Deprecated: Indicates whether the ACL rules applied
  *  to the cluster are in sync.
@@ -5085,6 +5257,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        fetch them all at once.
  */
 @interface GTLRCloudRedis_Cluster_RedisConfigs : GTLRObject
+@end
+
+
+/**
+ *  ClusterAclPolicyAttachment stores the ACL policy status for an attached
+ *  cluster for the revisions successfully applied, under application or failed.
+ */
+@interface GTLRCloudRedis_ClusterAclPolicyAttachment : GTLRObject
+
+/**
+ *  Output only. A list of status for various revisions of this ACL policy on
+ *  the cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_AclPolicyRevisionStatus *> *aclPolicyRevisionStatuses;
+
+/**
+ *  Output only. The resource name of the attached Cluster. Format:
+ *  "projects/{project}/locations/{location}/clusters/{cluster}"
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
 @end
 
 
@@ -5790,6 +5983,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -6060,7 +6256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  start alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
  *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
  *  compute.googleapis.com/Instance firestore.googleapis.com/Database,
- *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
+ *  memorystore.googleapis.com/Instance, redis.googleapis.com/Instance,
+ *  redis.googleapis.com/Cluster,
  *  oracledatabase.googleapis.com/CloudExadataInfrastructure
  *  oracledatabase.googleapis.com/CloudVmCluster
  *  oracledatabase.googleapis.com/AutonomousDatabase
@@ -6596,6 +6793,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -7755,6 +7955,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_AclPolicy *> *aclPolicies;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for `ListAclPolicyRevisions`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "aclPolicyRevisions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudRedis_ListAclPolicyRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  A list of ACL policy revisions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_AclPolicyRevision *> *aclPolicyRevisions;
 
 /**
  *  Token to retrieve the next page of results, or empty if there are no more

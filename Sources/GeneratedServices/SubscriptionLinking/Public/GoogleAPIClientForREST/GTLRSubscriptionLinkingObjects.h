@@ -44,8 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *detail;
 
 /**
- *  Required. Expiration time of the entitlement. Entitlements that have expired
- *  over 30 days will be purged. The max expire_time is 398 days from now().
+ *  Optional. Expiration time of the entitlement. If unset, the entitlement does
+ *  not expire (indefinite entitlement). We need to support indefinite
+ *  entitlements for platform publishers. dd: go/rrm-sl-notedotcom Entitlements
+ *  that have expired over 30 days will be purged.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 

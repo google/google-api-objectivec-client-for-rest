@@ -27,6 +27,7 @@
 @class GTLROracleDatabase_AutonomousDatabaseConnectionStrings;
 @class GTLROracleDatabase_AutonomousDatabaseConnectionUrls;
 @class GTLROracleDatabase_AutonomousDatabaseProperties;
+@class GTLROracleDatabase_AutonomousDatabaseRefreshableClone;
 @class GTLROracleDatabase_AutonomousDatabaseStandbySummary;
 @class GTLROracleDatabase_AutonomousDbVersion;
 @class GTLROracleDatabase_AzureDataLakeStorageIcebergStorage;
@@ -2048,11 +2049,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_Comput
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ecpu;
 /**
- *  The compute model is physical.
+ *  Deprecated: This option is not supported. Please use ECPU instead. The
+ *  compute model is physical.
  *
  *  Value: "OCPU"
  */
-FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ocpu;
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ocpu GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_DbSystemProperties.databaseEdition
@@ -4652,6 +4654,95 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_SourceConfig.cloneType
+
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "CLONE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_CloneType_CloneTypeUnspecified;
+/**
+ *  Creates a new database with the source database's data and metadata.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_CloneType_Full;
+/**
+ *  Creates a new database that includes all the source database schema
+ *  metadata, but none of the source database data.
+ *
+ *  Value: "METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_CloneType_Metadata;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_SourceConfig.refreshableMode
+
+/**
+ *  Automatic refresh.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_RefreshableMode_Automatic;
+/**
+ *  Manual refresh.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_RefreshableMode_Manual;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "REFRESHABLE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_RefreshableMode_RefreshableModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_SourceConfig.sourceType
+
+/**
+ *  Create clone from the backup resource.
+ *
+ *  Value: "BACKUP_FROM_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_SourceType_BackupFromId;
+/**
+ *  Create clone from backup specified by backup_time field, or use latest
+ *  available backup if use_latest_available_backup is true. The
+ *  autonomous_database field must specify the source database to clone from.
+ *
+ *  Value: "BACKUP_FROM_TIMESTAMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_SourceType_BackupFromTimestamp;
+/**
+ *  Clone database from an existing database specified in autonomous_database
+ *  field.
+ *
+ *  Value: "CLONE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_SourceType_CloneDatabase;
+/**
+ *  Create a refreshable clone from an existing database specified in
+ *  autonomous_database field.
+ *
+ *  Value: "CLONE_TO_REFRESHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_SourceType_CloneToRefreshable;
+/**
+ *  Create a cross-region disaster recovery peer adb from an existing adb.
+ *
+ *  Value: "CROSS_REGION_DISASTER_RECOVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_SourceType_CrossRegionDisasterRecovery;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_SourceConfig_SourceType_SourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_TestGoldengateConnectionAssignmentRequest.type
 
 /**
@@ -5658,6 +5749,15 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *privateEndpointLabel;
 
 /**
+ *  Optional. Indicates if the Autonomous Database is a refreshable clone. This
+ *  field is used in update flow to connect / disconnect a refreshable clone
+ *  from its source database.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *refreshableClone;
+
+/**
  *  Output only. The refresh mode of the cloned Autonomous Database.
  *
  *  Likely values:
@@ -5820,6 +5920,33 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 /** Optional. Immutable. The ID of the Oracle Cloud Infrastructure vault. */
 @property(nonatomic, copy, nullable) NSString *vaultId;
+
+@end
+
+
+/**
+ *  An Autonomous Database refreshable clone
+ */
+@interface GTLROracleDatabase_AutonomousDatabaseRefreshableClone : GTLRObject
+
+/** Output only. The GCP resource name of the Autonomous Database. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The Google Cloud region where the refreshable clone exists.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  Response message for getting the Autonomous Database refreshable clones.
+ */
+@interface GTLROracleDatabase_AutonomousDatabaseRefreshableClones : GTLRObject
+
+/** The list of Autonomous Database refreshable clones. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_AutonomousDatabaseRefreshableClone *> *autonomousDatabaseRefreshableClones;
 
 @end
 
@@ -6164,7 +6291,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 /** Optional. The list of customer contacts. */
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_CustomerContact *> *customerContacts;
 
-/** Output only. The database server type of the Exadata Infrastructure. */
+/** Optional. The database server type of the Exadata Infrastructure. */
 @property(nonatomic, copy, nullable) NSString *databaseServerType;
 
 /**
@@ -6299,7 +6426,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, strong, nullable) NSNumber *storageCount;
 
-/** Output only. The storage server type of the Exadata Infrastructure. */
+/** Optional. The storage server type of the Exadata Infrastructure. */
 @property(nonatomic, copy, nullable) NSString *storageServerType;
 
 /**
@@ -7678,7 +7805,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *        The compute model is unspecified. (Value: "COMPUTE_MODEL_UNSPECIFIED")
  *    @arg @c kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ecpu The
  *        compute model is virtual. (Value: "ECPU")
- *    @arg @c kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ocpu The
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ocpu
+ *        Deprecated: This option is not supported. Please use ECPU instead. The
  *        compute model is physical. (Value: "OCPU")
  */
 @property(nonatomic, copy, nullable) NSString *computeModel;
@@ -7705,7 +7833,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 /**
  *  Optional. The data storage size in GB that is currently available to
- *  DbSystems.
+ *  DbSystems. The value is same as initial_data_storage_size_gb. This can be
+ *  modified from OCI console.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7784,14 +7913,17 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *lifecycleState;
 
 /**
- *  Optional. The memory size in GB.
+ *  Optional. The memory size in GB. This value can not be set and is
+ *  automatically calculated based on the number of ECPUs allocated to the
+ *  DbSystem.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *memorySizeGb;
 
 /**
- *  Optional. The number of nodes in the DbSystem.
+ *  Optional. The number of nodes to launch for a virtual machine DbSystem. By
+ *  default this will be set to 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7804,7 +7936,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, copy, nullable) NSString *privateIp;
 
 /**
- *  Optional. The reco/redo storage size in GB.
+ *  Optional. The reco/redo storage size in GB. The value for recovery storage
+ *  size is based on the available data storage size.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7829,6 +7962,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @interface GTLROracleDatabase_DbSystemShape : GTLRObject
 
 /**
+ *  Optional. Available core count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableCoreCount;
+
+/**
  *  Optional. Number of cores per node.
  *
  *  Uses NSNumber of intValue.
@@ -7848,6 +7988,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *availableMemoryPerNodeGb;
+
+/**
+ *  Optional. Core count increment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coreCountIncrement;
 
 /**
  *  Optional. Maximum number of database servers.
@@ -7876,6 +8023,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minDbNodeStoragePerNodeGb;
+
+/**
+ *  Optional. Minimum core count per node.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumCoreCount;
 
 /**
  *  Optional. Minimum memory per node in gigabytes.
@@ -8171,6 +8325,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  zone assigned to the ExascaleDbStorageVault.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/**
+ *  Output only. The identity connector details which will allow OCI to securely
+ *  access the resources in the customer project.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_IdentityConnector *identityConnector;
 
 /** Optional. The labels or tags associated with the ExadbVmCluster. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_ExadbVmCluster_Labels *labels;
@@ -13567,6 +13727,21 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 
 
 /**
+ *  Request message for RefreshAutonomousDatabase method.
+ */
+@interface GTLROracleDatabase_RefreshAutonomousDatabaseRequest : GTLRObject
+
+/**
+ *  Required. The timestamp to which the Autonomous Database refreshable clone
+ *  will be refreshed. Changes made in the primary database after this timestamp
+ *  are not part of the data refresh.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *refreshCutoffTime;
+
+@end
+
+
+/**
  *  The request for `ExadbVmCluster.RemoveVirtualMachine`.
  */
 @interface GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest : GTLRObject
@@ -13682,6 +13857,106 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  a Peer Autonomous Database from a source.
  */
 @property(nonatomic, copy, nullable) NSString *autonomousDatabase;
+
+/**
+ *  Optional. The name of the Autonomous Database Backup resource with the
+ *  format:
+ *  projects/{project}/locations/{region}/autonomousDatabaseBackups/{autonomous_database_backup}
+ *  Required when source_type is BACKUP_FROM_ID.
+ */
+@property(nonatomic, copy, nullable) NSString *autonomousDatabaseBackup;
+
+/**
+ *  Optional. The frequency in seconds a refreshable clone is refreshed after
+ *  auto-refresh is enabled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoRefreshFrequencySeconds;
+
+/**
+ *  Optional. The time, in seconds, the data of the automatic refreshable clone
+ *  lags the primary database at the point of refresh.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoRefreshPointLagSeconds;
+
+/**
+ *  Optional. The date and time that auto-refreshing will begin for an
+ *  Autonomous Database refreshable clone. This value controls only the start
+ *  time for the first refresh operation.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *autoRefreshStartTime;
+
+/**
+ *  Optional. The timestamp specified for the point-in-time clone of the source
+ *  Autonomous Database. This field is only applicable in case of
+ *  BACKUP_FROM_TIMESTAMP source type and when use_latest_available_backup is
+ *  false.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *backupTime;
+
+/**
+ *  Optional. The clone type of the Autonomous Database. This field is only
+ *  applicable in case of cloning
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_SourceConfig_CloneType_CloneTypeUnspecified
+ *        Default unspecified value. (Value: "CLONE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_CloneType_Full Creates a new
+ *        database with the source database's data and metadata. (Value: "FULL")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_CloneType_Metadata Creates a new
+ *        database that includes all the source database schema metadata, but
+ *        none of the source database data. (Value: "METADATA")
+ */
+@property(nonatomic, copy, nullable) NSString *cloneType;
+
+/**
+ *  Optional. The refresh mode of the clone.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_SourceConfig_RefreshableMode_Automatic
+ *        Automatic refresh. (Value: "AUTOMATIC")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_RefreshableMode_Manual Manual
+ *        refresh. (Value: "MANUAL")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_RefreshableMode_RefreshableModeUnspecified
+ *        Default unspecified value. (Value: "REFRESHABLE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *refreshableMode;
+
+/**
+ *  Optional. The source type of the Autonomous Database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_SourceConfig_SourceType_BackupFromId Create
+ *        clone from the backup resource. (Value: "BACKUP_FROM_ID")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_SourceType_BackupFromTimestamp
+ *        Create clone from backup specified by backup_time field, or use latest
+ *        available backup if use_latest_available_backup is true. The
+ *        autonomous_database field must specify the source database to clone
+ *        from. (Value: "BACKUP_FROM_TIMESTAMP")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_SourceType_CloneDatabase Clone
+ *        database from an existing database specified in autonomous_database
+ *        field. (Value: "CLONE_DATABASE")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_SourceType_CloneToRefreshable
+ *        Create a refreshable clone from an existing database specified in
+ *        autonomous_database field. (Value: "CLONE_TO_REFRESHABLE")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_SourceType_CrossRegionDisasterRecovery
+ *        Create a cross-region disaster recovery peer adb from an existing adb.
+ *        (Value: "CROSS_REGION_DISASTER_RECOVERY")
+ *    @arg @c kGTLROracleDatabase_SourceConfig_SourceType_SourceTypeUnspecified
+ *        Default unspecified value. (Value: "SOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+/**
+ *  Optional. Clone from latest available backup timestamp. This field is only
+ *  applicable in case of BACKUP_FROM_TIMESTAMP source type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useLatestAvailableBackup;
 
 @end
 

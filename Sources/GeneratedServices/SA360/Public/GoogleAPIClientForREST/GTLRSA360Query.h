@@ -5319,6 +5319,47 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360TypeUnspecified;
 @end
 
 /**
+ *  Updates Search Ads 360 campaigns. Operation statuses are returned. List of
+ *  thrown errors: [AuthenticationError]() [AuthorizationError]()
+ *  [HeaderError]() [InternalError]() [MutateError]() [QuotaError]()
+ *  [RequestError]()
+ *
+ *  Method: searchads360.customers.searchAds360Campaigns.mutate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSA360Doubleclicksearch
+ */
+@interface GTLRSA360Query_CustomersSearchAds360CampaignsMutate : GTLRSA360Query
+
+/**
+ *  Required. The ID of the customer whose Search Ads 360 campaigns are being
+ *  modified.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c
+ *  GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsResponse.
+ *
+ *  Updates Search Ads 360 campaigns. Operation statuses are returned. List of
+ *  thrown errors: [AuthenticationError]() [AuthorizationError]()
+ *  [HeaderError]() [InternalError]() [MutateError]() [QuotaError]()
+ *  [RequestError]()
+ *
+ *  @param object The @c
+ *    GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest
+ *    to include in the query.
+ *  @param customerId Required. The ID of the customer whose Search Ads 360
+ *    campaigns are being modified.
+ *
+ *  @return GTLRSA360Query_CustomersSearchAds360CampaignsMutate
+ */
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest *)object
+                     customerId:(NSString *)customerId;
+
+@end
+
+/**
  *  This method is essentially a wrapper around a series of mutate methods. The
  *  only features it offers over calling those methods directly are: - Atomic
  *  transactions - Temp resource names (described below) - Somewhat reduced
@@ -5872,6 +5913,113 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360TypeUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesRegenerateShareableLinkIdRequest *)object
                    resourceName:(NSString *)resourceName;
+
+@end
+
+/**
+ *  Processes the given call conversions. List of thrown errors:
+ *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
+ *  [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+ *
+ *  Method: searchads360.customers.uploadCallConversions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSA360Doubleclicksearch
+ */
+@interface GTLRSA360Query_CustomersUploadCallConversions : GTLRSA360Query
+
+/** Required. The ID of the customer performing the upload. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c
+ *  GTLRSA360_GoogleAdsSearchads360V23ServicesUploadCallConversionsResponse.
+ *
+ *  Processes the given call conversions. List of thrown errors:
+ *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
+ *  [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+ *
+ *  @param object The @c
+ *    GTLRSA360_GoogleAdsSearchads360V23ServicesUploadCallConversionsRequest to
+ *    include in the query.
+ *  @param customerId Required. The ID of the customer performing the upload.
+ *
+ *  @return GTLRSA360Query_CustomersUploadCallConversions
+ */
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesUploadCallConversionsRequest *)object
+                     customerId:(NSString *)customerId;
+
+@end
+
+/**
+ *  Processes the given click conversions. List of thrown errors:
+ *  [AuthenticationError]() [AuthorizationError]() [ConversionUploadError]()
+ *  [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]()
+ *  [RequestError]()
+ *
+ *  Method: searchads360.customers.uploadClickConversions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSA360Doubleclicksearch
+ */
+@interface GTLRSA360Query_CustomersUploadClickConversions : GTLRSA360Query
+
+/** Required. The ID of the customer performing the upload. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c
+ *  GTLRSA360_GoogleAdsSearchads360V23ServicesUploadClickConversionsResponse.
+ *
+ *  Processes the given click conversions. List of thrown errors:
+ *  [AuthenticationError]() [AuthorizationError]() [ConversionUploadError]()
+ *  [HeaderError]() [InternalError]() [PartialFailureError]() [QuotaError]()
+ *  [RequestError]()
+ *
+ *  @param object The @c
+ *    GTLRSA360_GoogleAdsSearchads360V23ServicesUploadClickConversionsRequest to
+ *    include in the query.
+ *  @param customerId Required. The ID of the customer performing the upload.
+ *
+ *  @return GTLRSA360Query_CustomersUploadClickConversions
+ */
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesUploadClickConversionsRequest *)object
+                     customerId:(NSString *)customerId;
+
+@end
+
+/**
+ *  Processes the given conversion adjustments. List of thrown errors:
+ *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
+ *  [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+ *
+ *  Method: searchads360.customers.uploadConversionAdjustments
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSA360Doubleclicksearch
+ */
+@interface GTLRSA360Query_CustomersUploadConversionAdjustments : GTLRSA360Query
+
+/** Required. The ID of the customer performing the upload. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c
+ *  GTLRSA360_GoogleAdsSearchads360V23ServicesUploadConversionAdjustmentsResponse.
+ *
+ *  Processes the given conversion adjustments. List of thrown errors:
+ *  [AuthenticationError]() [AuthorizationError]() [HeaderError]()
+ *  [InternalError]() [PartialFailureError]() [QuotaError]() [RequestError]()
+ *
+ *  @param object The @c
+ *    GTLRSA360_GoogleAdsSearchads360V23ServicesUploadConversionAdjustmentsRequest
+ *    to include in the query.
+ *  @param customerId Required. The ID of the customer performing the upload.
+ *
+ *  @return GTLRSA360Query_CustomersUploadConversionAdjustments
+ */
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesUploadConversionAdjustmentsRequest *)object
+                     customerId:(NSString *)customerId;
 
 @end
 

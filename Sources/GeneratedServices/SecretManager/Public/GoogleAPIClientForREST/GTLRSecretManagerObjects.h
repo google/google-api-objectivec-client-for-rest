@@ -20,12 +20,14 @@
 @class GTLRSecretManager_Automatic;
 @class GTLRSecretManager_AutomaticStatus;
 @class GTLRSecretManager_Binding;
+@class GTLRSecretManager_CloudSQLSingleUserCredentials;
 @class GTLRSecretManager_CustomerManagedEncryption;
 @class GTLRSecretManager_CustomerManagedEncryptionStatus;
 @class GTLRSecretManager_Expr;
 @class GTLRSecretManager_Location;
 @class GTLRSecretManager_Location_Labels;
 @class GTLRSecretManager_Location_Metadata;
+@class GTLRSecretManager_ManagedRotationStatus;
 @class GTLRSecretManager_Operation_Metadata;
 @class GTLRSecretManager_Operation_Response;
 @class GTLRSecretManager_Policy;
@@ -34,6 +36,7 @@
 @class GTLRSecretManager_ReplicaStatus;
 @class GTLRSecretManager_Replication;
 @class GTLRSecretManager_ReplicationStatus;
+@class GTLRSecretManager_ResourcePolicyMember;
 @class GTLRSecretManager_Rotation;
 @class GTLRSecretManager_Secret;
 @class GTLRSecretManager_Secret_Annotations;
@@ -85,6 +88,71 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_Dat
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecretManager_ManagedRotationStatus.state
+
+/**
+ *  Indicates that the Managed rotation is ACTIVE.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_ManagedRotationStatus_State_Active;
+/**
+ *  Indicates that the Managed rotation is INACTIVE.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_ManagedRotationStatus_State_Inactive;
+/**
+ *  Not specified. This value is unused and invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_ManagedRotationStatus_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecretManager_Secret.secretType
+
+/**
+ *  Applicable to secrets where the payload contains an access key.
+ *
+ *  Value: "ACCESS_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_Secret_SecretType_AccessKey;
+/**
+ *  Applicable to secrets where the payload contains a certificate.
+ *
+ *  Value: "CERTIFICATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_Secret_SecretType_Certificate;
+/**
+ *  Applicable to secrets which are used for the managed rotation feature for
+ *  Cloud SQL Single User.
+ *
+ *  Value: "CLOUD_SQL_DB_CREDENTIALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_Secret_SecretType_CloudSqlDbCredentials;
+/**
+ *  Applicable to secrets whose type doesn't belong to any of the above defined
+ *  types.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_Secret_SecretType_Other;
+/**
+ *  Applicable to secrets where the payload contains database credentials.
+ *
+ *  Value: "OTHER_DB_CREDENTIALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_Secret_SecretType_OtherDbCredentials;
+/**
+ *  Applicable to all secrets which do not have any restriction on the
+ *  SecretVersions.
+ *
+ *  Value: "SECRET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_Secret_SecretType_SecretTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecretManager_SecretVersion.state
@@ -330,6 +398,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 
 /**
+ *  These are the credentials required for Cloud SQL DB for Single user Managed
+ *  Rotation.
+ */
+@interface GTLRSecretManager_CloudSQLSingleUserCredentials : GTLRObject
+
+/** Required. Instance ID of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/**
+ *  Optional. Password of the Cloud SQL instance. If this is not provided, a
+ *  random password will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/** Required. Username of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
  *  Configuration for encrypting secret payloads using customer-managed
  *  encryption keys (CMEK).
  */
@@ -400,6 +489,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRSecretManager_Empty : GTLRObject
+@end
+
+
+/**
+ *  Request message for SecretManagerService.EnableManagedRotation.
+ */
+@interface GTLRSecretManager_EnableManagedRotationRequest : GTLRObject
+
+/** Credentials required for Cloud SQL DB for Single user Managed Rotation. */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CloudSQLSingleUserCredentials *cloudSqlSingleUserCredentials;
+
 @end
 
 
@@ -619,6 +719,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSecretManager_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents the status of a managed rotation. This is applicable only to
+ *  Typed Secrets. It indicates whether the rotation is active and any errors
+ *  that may have occurred during the asynchronous managed rotation.
+ */
+@interface GTLRSecretManager_ManagedRotationStatus : GTLRObject
+
+/**
+ *  Output only. Displays customer-facing issues that occurred during an
+ *  asynchronous managed rotation. For example, if there are some permission
+ *  errors.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Status *error;
+
+/**
+ *  Output only. Indicates whether the Managed Rotation is active or not.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecretManager_ManagedRotationStatus_State_Active Indicates
+ *        that the Managed rotation is ACTIVE. (Value: "ACTIVE")
+ *    @arg @c kGTLRSecretManager_ManagedRotationStatus_State_Inactive Indicates
+ *        that the Managed rotation is INACTIVE. (Value: "INACTIVE")
+ *    @arg @c kGTLRSecretManager_ManagedRotationStatus_State_StateUnspecified
+ *        Not specified. This value is unused and invalid. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -949,11 +1080,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 
 /**
+ *  Output-only policy member strings of a Google Cloud resource's built-in
+ *  identity.
+ */
+@interface GTLRSecretManager_ResourcePolicyMember : GTLRObject
+
+/**
+ *  Output only. IAM policy binding member referring to a Google Cloud resource
+ *  by user-assigned name (https://google.aip.dev/122). If a resource is deleted
+ *  and recreated with the same name, the binding will be applicable to the new
+ *  resource. Example:
+ *  `principal://parametermanager.googleapis.com/projects/12345/name/locations/us-central1-a/parameters/my-parameter`
+ */
+@property(nonatomic, copy, nullable) NSString *iamPolicyNamePrincipal;
+
+/**
+ *  Output only. IAM policy binding member referring to a Google Cloud resource
+ *  by system-assigned unique identifier (https://google.aip.dev/148#uid). If a
+ *  resource is deleted and recreated with the same name, the binding will not
+ *  be applicable to the new resource Example:
+ *  `principal://parametermanager.googleapis.com/projects/12345/uid/locations/us-central1-a/parameters/a918fed5`
+ */
+@property(nonatomic, copy, nullable) NSString *iamPolicyUidPrincipal;
+
+@end
+
+
+/**
+ *  Request message for SecretManagerService.RotateSecret.
+ */
+@interface GTLRSecretManager_RotateSecretRequest : GTLRObject
+@end
+
+
+/**
  *  The rotation time and period for a Secret. At next_rotation_time, Secret
  *  Manager will send a Pub/Sub notification to the topics configured on the
  *  Secret. Secret.topics must be set to configure rotation.
  */
 @interface GTLRSecretManager_Rotation : GTLRObject
+
+/**
+ *  Output only. The current status of the managed rotation. This field is only
+ *  applicable to Typed Secrets. This field is set by the service and cannot be
+ *  set by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_ManagedRotationStatus *managedRotationStatus;
 
 /**
  *  Optional. Timestamp in UTC at which the Secret is scheduled to rotate.
@@ -1033,6 +1205,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Defines the policy member for the secret. This will be used to
+ *  check if the caller has the permission to perform certain operations on the
+ *  typed secret.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_ResourcePolicyMember *policyMember;
+
+/**
  *  Optional. Immutable. The replication policy of the secret data attached to
  *  the Secret. The replication policy cannot be changed after the Secret has
  *  been created.
@@ -1044,6 +1223,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  is no rotation policy.
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Rotation *rotation;
+
+/**
+ *  Optional. Immutable. This defines the type of the secret. Enforces certain
+ *  structural requirements on the SecretVersions. For secret of type
+ *  UNSPECIFIED, the SecretVersions can be of any type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecretManager_Secret_SecretType_AccessKey Applicable to
+ *        secrets where the payload contains an access key. (Value:
+ *        "ACCESS_KEY")
+ *    @arg @c kGTLRSecretManager_Secret_SecretType_Certificate Applicable to
+ *        secrets where the payload contains a certificate. (Value:
+ *        "CERTIFICATE")
+ *    @arg @c kGTLRSecretManager_Secret_SecretType_CloudSqlDbCredentials
+ *        Applicable to secrets which are used for the managed rotation feature
+ *        for Cloud SQL Single User. (Value: "CLOUD_SQL_DB_CREDENTIALS")
+ *    @arg @c kGTLRSecretManager_Secret_SecretType_Other Applicable to secrets
+ *        whose type doesn't belong to any of the above defined types. (Value:
+ *        "OTHER")
+ *    @arg @c kGTLRSecretManager_Secret_SecretType_OtherDbCredentials Applicable
+ *        to secrets where the payload contains database credentials. (Value:
+ *        "OTHER_DB_CREDENTIALS")
+ *    @arg @c kGTLRSecretManager_Secret_SecretType_SecretTypeUnspecified
+ *        Applicable to all secrets which do not have any restriction on the
+ *        SecretVersions. (Value: "SECRET_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *secretType;
 
 /**
  *  Optional. Input only. Immutable. Mapping of Tag keys/values directly bound

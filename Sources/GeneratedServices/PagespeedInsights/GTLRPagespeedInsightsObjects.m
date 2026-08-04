@@ -14,6 +14,14 @@
 #import <GoogleAPIClientForREST/GTLRPagespeedInsightsObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRPagespeedInsights_LighthouseCategoryV5.categoryScoreDisplayMode
+NSString * const kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_CategoryScoreDisplayModeUnspecified = @"CATEGORY_SCORE_DISPLAY_MODE_UNSPECIFIED";
+NSString * const kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_Fraction = @"FRACTION";
+NSString * const kGTLRPagespeedInsights_LighthouseCategoryV5_CategoryScoreDisplayMode_Gauge = @"GAUGE";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRPagespeedInsights_AuditRefs
 //
@@ -182,8 +190,8 @@
 //
 
 @implementation GTLRPagespeedInsights_LighthouseCategoryV5
-@dynamic auditRefs, descriptionProperty, identifier, manualDescription, score,
-         title;
+@dynamic auditRefs, categoryScoreDisplayMode, descriptionProperty, identifier,
+         manualDescription, score, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -1289,6 +1289,25 @@
 
 @end
 
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesGetSplitStatus
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getSplitStatus";
+  GTLRNetAppFilesQuery_ProjectsLocationsVolumesGetSplitStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_SplitStatus class];
+  query.loggingName = @"netapp.projects.locations.volumes.getSplitStatus";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -1852,6 +1871,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
   query.loggingName = @"netapp.projects.locations.volumes.snapshots.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsVolumesStartSplit
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_StartSplitRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:startSplit";
+  GTLRNetAppFilesQuery_ProjectsLocationsVolumesStartSplit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.volumes.startSplit";
   return query;
 }
 

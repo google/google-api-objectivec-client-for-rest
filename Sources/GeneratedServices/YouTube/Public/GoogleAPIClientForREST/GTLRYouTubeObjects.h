@@ -31,6 +31,7 @@
 @class GTLRYouTube_ActivityContentDetailsSubscription;
 @class GTLRYouTube_ActivityContentDetailsUpload;
 @class GTLRYouTube_ActivitySnippet;
+@class GTLRYouTube_BrandPartner;
 @class GTLRYouTube_Caption;
 @class GTLRYouTube_CaptionSnippet;
 @class GTLRYouTube_CdnSettings;
@@ -3885,9 +3886,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Memb
 /** Value: "membershipGiftingEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MembershipGiftingEvent;
 /** Value: "messageDeletedEvent" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent GTLR_DEPRECATED;
 /** Value: "messageRetractedEvent" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent GTLR_DEPRECATED;
 /** Value: "newSponsorEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent;
 /** Value: "pollEvent" */
@@ -5248,6 +5249,21 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  "youtube#batchGetStatsResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Details about the brand partner linked to the video for Creator Initiated
+ *  Linking (CIL). Next ID: 6
+ */
+@interface GTLRYouTube_BrandPartner : GTLRObject
+
+/** Required. Channel handle, must begin with "\@" */
+@property(nonatomic, copy, nullable) NSString *channelHandle;
+
+/** Required. External Channel ID, must begin with "UC" */
+@property(nonatomic, copy, nullable) NSString *channelId;
 
 @end
 
@@ -9570,6 +9586,7 @@ GTLR_DEPRECATED
 /**
  *  GTLRYouTube_LiveChatMessageDeletedDetails
  */
+GTLR_DEPRECATED
 @interface GTLRYouTube_LiveChatMessageDeletedDetails : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *deletedMessageId;
@@ -9636,6 +9653,7 @@ GTLR_DEPRECATED
 /**
  *  GTLRYouTube_LiveChatMessageRetractedDetails
  */
+GTLR_DEPRECATED
 @interface GTLRYouTube_LiveChatMessageRetractedDetails : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *retractedMessageId;
@@ -9655,8 +9673,8 @@ GTLR_DEPRECATED
  *  became a sponsor memberMilestoneChatEvent - the member that sent the message
  *  membershipGiftingEvent - the user that made the purchase
  *  giftMembershipReceivedEvent - the user that received the gift membership
- *  messageDeletedEvent - the moderator that took the action
- *  messageRetractedEvent - the author that retracted their message
+ *  messageDeletedEvent - the moderator that took the action. Unused.
+ *  messageRetractedEvent - the author that retracted their message. Unused.
  *  userBannedEvent - the moderator that took the action superChatEvent - the
  *  user that made the purchase superStickerEvent - the user that made the
  *  purchase pollEvent - the user that created the poll
@@ -9708,8 +9726,8 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMembershipGiftingDetails *membershipGiftingDetails;
 
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails GTLR_DEPRECATED;
 
 /**
  *  Details about the New Member Announcement event, this is only set if the
@@ -12142,6 +12160,8 @@ GTLR_DEPRECATED
  *  by the video owner.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoAgeGating *ageGating;
+
+@property(nonatomic, strong, nullable) GTLRYouTube_BrandPartner *brandPartner;
 
 /**
  *  The contentDetails object contains information about the video content,

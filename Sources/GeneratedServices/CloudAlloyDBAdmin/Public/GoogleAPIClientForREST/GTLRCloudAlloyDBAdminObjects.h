@@ -602,6 +602,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_UpgradeStatus_Success;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_ConnectionPoolConfig.authproxyPoolerScalingType
+
+/**
+ *  The number of poolers is automatically determined by the service based on
+ *  the VM size.
+ *
+ *  Value: "POOLER_MACHINE_SIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerMachineSized;
+/**
+ *  The number of poolers is kept unchanged no matter the machine size.
+ *
+ *  Value: "POOLER_MANUAL_OVERRIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerManualOverride;
+/**
+ *  No pooler is enabled.
+ *
+ *  Value: "POOLER_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerNone;
+/**
+ *  The scaling type is not specified.
+ *
+ *  Value: "POOLER_SCALING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerScalingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_ConnectionPoolConfig.poolerScalingType
+
+/**
+ *  The number of poolers is automatically determined by the service based on
+ *  the VM size.
+ *
+ *  Value: "POOLER_MACHINE_SIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerMachineSized;
+/**
+ *  The number of poolers is kept unchanged no matter the machine size.
+ *
+ *  Value: "POOLER_MANUAL_OVERRIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerManualOverride;
+/**
+ *  No pooler is enabled.
+ *
+ *  Value: "POOLER_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerNone;
+/**
+ *  The scaling type is not specified.
+ *
+ *  Value: "POOLER_SCALING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerScalingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_ContinuousBackupInfo.schedule
 
 /**
@@ -1298,27 +1356,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StageStatus_State_Succ
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration.availabilityType
 
 /**
- *  For rest of the other category
+ *  Disable validation warnings
  *
  *  Value: "AVAILABILITY_TYPE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_AvailabilityTypeOther;
-/** Value: "AVAILABILITY_TYPE_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "AVAILABILITY_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_AvailabilityTypeUnspecified;
 /**
- *  Multi regional instance
+ *  Disable validation warnings
  *
  *  Value: "MULTI_REGIONAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_MultiRegional;
 /**
- *  Regional available instance.
+ *  Disable validation warnings
  *
  *  Value: "REGIONAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_Regional;
 /**
- *  Zonal available instance.
+ *  Disable validation warnings
  *
  *  Value: "ZONAL"
  */
@@ -1328,15 +1390,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun.status
 
 /**
- *  The backup was unsuccessful.
+ *  Disable validation warnings
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun_Status_Failed;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun_Status_StatusUnspecified;
 /**
- *  The backup was successful.
+ *  Disable validation warnings
  *
  *  Value: "SUCCESSFUL"
  */
@@ -1346,69 +1412,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData.signalType
 
 /**
- *  Represents database auditing is disabled.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeDatabaseAuditingDisabled;
 /**
- *  Represents if a resource is exposed to public access.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess;
 /**
- *  Represents if a resource version is in extended support.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExtendedSupport;
 /**
- *  Represents if the last backup of a resource is older than 24 hours.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeLastBackupOld;
 /**
- *  Represents if a resource has no automated backup policy.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
 /**
- *  Represents if a database has a password configured for the root account or
- *  not.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoRootPassword;
 /**
- *  Represents if a resource is not protected by automatic failover.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
 /**
- *  Outdated Minor Version
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeOutdatedMinorVersion;
 /**
- *  Represents if a resources requires all incoming connections to use SSL or
- *  not.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeUnencryptedConnections;
 /**
- *  Unspecified signal type.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeUnspecified;
 /**
- *  Represents if a resource version is nearing end of life.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE"
  */
@@ -1418,45 +1482,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed.feedType
 
 /**
- *  Database resource metadata from BackupDR
+ *  Disable validation warnings
  *
  *  Value: "BACKUPDR_METADATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata;
 /**
- *  Database config based signal data
+ *  Disable validation warnings
  *
  *  Value: "CONFIG_BASED_SIGNAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData;
 /**
- *  Database resource signal data
+ *  Disable validation warnings
  *
  *  Value: "DATABASE_RESOURCE_SIGNAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData;
-/** Value: "FEEDTYPE_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "FEEDTYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_FeedtypeUnspecified;
 /**
- *  Database resource monitoring data
+ *  Disable validation warnings
  *
  *  Value: "OBSERVABILITY_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ObservabilityData;
 /**
- *  Database resource recommendation signal data
+ *  Disable validation warnings
  *
  *  Value: "RECOMMENDATION_SIGNAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_RecommendationSignalData;
 /**
- *  Database resource metadata feed from control plane
+ *  Disable validation warnings
  *
  *  Value: "RESOURCE_METADATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ResourceMetadata;
 /**
- *  Database resource security health signal data
+ *  Disable validation warnings
  *
  *  Value: "SECURITY_FINDING_DATA"
  */
@@ -1466,44 +1534,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData.provider
 
 /**
- *  Amazon web service
+ *  Disable validation warnings
  *
  *  Value: "AWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Aws;
 /**
- *  Azure web service
+ *  Disable validation warnings
  *
  *  Value: "AZURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Azure;
 /**
- *  Google cloud platform provider
+ *  Disable validation warnings
  *
  *  Value: "GCP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Gcp;
 /**
- *  On-prem database resources.
+ *  Disable validation warnings
  *
  *  Value: "ONPREM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Onprem;
 /**
- *  For the rest of the other categories. Other refers to the rest of other
- *  database service providers, this could be smaller cloud provider. This needs
- *  to be provided when the provider is known, but it is not present in the
- *  existing set of enum values.
+ *  Disable validation warnings
  *
  *  Value: "PROVIDER_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_ProviderOther;
-/** Value: "PROVIDER_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_ProviderUnspecified;
 /**
- *  Self-managed database provider. These are resources on a cloud platform,
- *  e.g., database resource installed in a GCE VM, but not a managed database
- *  service.
+ *  Disable validation warnings
  *
  *  Value: "SELFMANAGED"
  */
@@ -1513,39 +1580,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData.signalClass
 
 /**
- *  Unspecified signal class.
+ *  Disable validation warnings
  *
  *  Value: "CLASS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_ClassUnspecified;
 /**
- *  Describes an error that prevents some SCC functionality.
+ *  Disable validation warnings
  *
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Error;
 /**
- *  Describes a potential weakness in cloud resource/asset configuration that
- *  increases risk.
+ *  Disable validation warnings
  *
  *  Value: "MISCONFIGURATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Misconfiguration;
 /**
- *  Describes a security observation that is for informational purposes.
+ *  Disable validation warnings
  *
  *  Value: "OBSERVATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Observation;
 /**
- *  Describes unwanted or malicious activity.
+ *  Disable validation warnings
  *
  *  Value: "THREAT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Threat;
 /**
- *  Describes a potential weakness in software that increases risk to
- *  Confidentiality & Integrity & Availability.
+ *  Disable validation warnings
  *
  *  Value: "VULNERABILITY"
  */
@@ -1555,37 +1620,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData.signalSeverity
 
 /**
- *  A critical vulnerability is easily discoverable by an external actor,
- *  exploitable.
+ *  Disable validation warnings
  *
  *  Value: "CRITICAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_Critical;
 /**
- *  A high risk vulnerability can be easily discovered and exploited in
- *  combination with other vulnerabilities.
+ *  Disable validation warnings
  *
  *  Value: "HIGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_High;
 /**
- *  A low risk vulnerability hampers a security organization's ability to detect
- *  vulnerabilities or active threats in their deployment.
+ *  Disable validation warnings
  *
  *  Value: "LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_Low;
 /**
- *  A medium risk vulnerability could be used by an actor to gain access to
- *  resources or privileges that enable them to eventually gain access and the
- *  ability to execute arbitrary code or exfiltrate data.
+ *  Disable validation warnings
  *
  *  Value: "MEDIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_Medium;
 /**
- *  This value is used for findings when a source doesn't write a severity
- *  value.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_SEVERITY_UNSPECIFIED"
  */
@@ -1750,6 +1809,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes;
 /**
+ *  Indicates a high risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk;
+/**
  *  Represents high number of concurrently opened tables.
  *
  *  Value: "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES"
@@ -1858,6 +1923,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  Indicates both a low cache hit rate and a risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
+/**
  *  High number of idle connections.
  *
  *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
@@ -1883,6 +1954,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMinimalErrorLogging;
+/**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMissingEnhancedProtection;
 /**
  *  Represents if a resource has an automated backup policy.
  *
@@ -2282,26 +2359,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData.state
 
 /**
- *  The signal requires attention and has not been addressed yet.
+ *  Disable validation warnings
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_State_Active;
 /**
- *  The signal has been muted.
+ *  Disable validation warnings
  *
  *  Value: "MUTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_State_Muted;
 /**
- *  The signal has been fixed, triaged as a non-issue or otherwise addressed and
- *  is no longer active.
+ *  Disable validation warnings
  *
  *  Value: "RESOLVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_State_Resolved;
 /**
- *  Unspecified state.
+ *  Disable validation warnings
  *
  *  Value: "STATE_UNSPECIFIED"
  */
@@ -2311,44 +2387,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId.provider
 
 /**
- *  Amazon web service
+ *  Disable validation warnings
  *
  *  Value: "AWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Aws;
 /**
- *  Azure web service
+ *  Disable validation warnings
  *
  *  Value: "AZURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Azure;
 /**
- *  Google cloud platform provider
+ *  Disable validation warnings
  *
  *  Value: "GCP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Gcp;
 /**
- *  On-prem database resources.
+ *  Disable validation warnings
  *
  *  Value: "ONPREM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Onprem;
 /**
- *  For the rest of the other categories. Other refers to the rest of other
- *  database service providers, this could be smaller cloud provider. This needs
- *  to be provided when the provider is known, but it is not present in the
- *  existing set of enum values.
+ *  Disable validation warnings
  *
  *  Value: "PROVIDER_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_ProviderOther;
-/** Value: "PROVIDER_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_ProviderUnspecified;
 /**
- *  Self-managed database provider. These are resources on a cloud platform,
- *  e.g., database resource installed in a GCE VM, but not a managed database
- *  service.
+ *  Disable validation warnings
  *
  *  Value: "SELFMANAGED"
  */
@@ -2358,39 +2433,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.currentState
 
 /**
- *  Instance is deleted.
+ *  Disable validation warnings
  *
  *  Value: "DELETED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Deleted;
 /**
- *  The instance is running.
+ *  Disable validation warnings
  *
  *  Value: "HEALTHY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Healthy;
 /**
- *  For rest of the other category
+ *  Disable validation warnings
  *
  *  Value: "STATE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateOther;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateUnspecified;
 /**
- *  Instance is in STOPPED state.
+ *  Disable validation warnings
  *
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Stopped;
 /**
- *  When instance is suspended
+ *  Disable validation warnings
  *
  *  Value: "SUSPENDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Suspended;
 /**
- *  Instance being created, updated, deleted or under maintenance
+ *  Disable validation warnings
  *
  *  Value: "UNHEALTHY"
  */
@@ -2400,25 +2479,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.edition
 
 /**
- *  Represents the enterprise edition.
+ *  Disable validation warnings
  *
  *  Value: "EDITION_ENTERPRISE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprise;
 /**
- *  Represents the enterprise plus edition.
+ *  Disable validation warnings
  *
  *  Value: "EDITION_ENTERPRISE_PLUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprisePlus;
 /**
- *  Represents the standard edition.
+ *  Disable validation warnings
  *
  *  Value: "EDITION_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionStandard;
 /**
- *  Default, to make it consistent with instance edition enum.
+ *  Disable validation warnings
  *
  *  Value: "EDITION_UNSPECIFIED"
  */
@@ -2428,39 +2507,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.expectedState
 
 /**
- *  Instance is deleted.
+ *  Disable validation warnings
  *
  *  Value: "DELETED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Deleted;
 /**
- *  The instance is running.
+ *  Disable validation warnings
  *
  *  Value: "HEALTHY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Healthy;
 /**
- *  For rest of the other category
+ *  Disable validation warnings
  *
  *  Value: "STATE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateOther;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateUnspecified;
 /**
- *  Instance is in STOPPED state.
+ *  Disable validation warnings
  *
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Stopped;
 /**
- *  When instance is suspended
+ *  Disable validation warnings
  *
  *  Value: "SUSPENDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Suspended;
 /**
- *  Instance being created, updated, deleted or under maintenance
+ *  Disable validation warnings
  *
  *  Value: "UNHEALTHY"
  */
@@ -2558,25 +2641,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.modes
 
 /**
- *  Datastore mode.
+ *  Disable validation warnings
+ *
+ *  Value: "MODE_CLUSTER_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeClusterDisabled;
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "MODE_CLUSTER_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeClusterEnabled;
+/**
+ *  Disable validation warnings
  *
  *  Value: "MODE_DATASTORE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeDatastore;
 /**
- *  MongoDB compatible mode.
+ *  Disable validation warnings
  *
  *  Value: "MODE_MONGODB_COMPATIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeMongodbCompatible;
 /**
- *  Native mode.
+ *  Disable validation warnings
  *
  *  Value: "MODE_NATIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeNative;
 /**
- *  Default mode.
+ *  Disable validation warnings
  *
  *  Value: "MODE_UNSPECIFIED"
  */
@@ -2632,44 +2727,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData.recommendationState
 
 /**
- *  Recommendation is active and can be applied. ACTIVE recommendations can be
- *  marked as CLAIMED, SUCCEEDED, or FAILED.
+ *  Disable validation warnings
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Active;
 /**
- *  Recommendation is in claimed state. Recommendations content is immutable and
- *  cannot be updated by Google. CLAIMED recommendations can be marked as
- *  CLAIMED, SUCCEEDED, or FAILED.
+ *  Disable validation warnings
  *
  *  Value: "CLAIMED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Claimed;
 /**
- *  Recommendation is in dismissed state. Recommendation content can be updated
- *  by Google. DISMISSED recommendations can be marked as ACTIVE.
+ *  Disable validation warnings
  *
  *  Value: "DISMISSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Dismissed;
 /**
- *  Recommendation is in failed state. Recommendations content is immutable and
- *  cannot be updated by Google. FAILED recommendations can be marked as
- *  SUCCEEDED, or FAILED.
+ *  Disable validation warnings
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Failed;
 /**
- *  Recommendation is in succeeded state. Recommendations content is immutable
- *  and cannot be updated by Google. SUCCEEDED recommendations can be marked as
- *  SUCCEEDED, or FAILED.
+ *  Disable validation warnings
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Succeeded;
-/** Value: "UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Unspecified;
 
 // ----------------------------------------------------------------------------
@@ -2831,6 +2922,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes;
 /**
+ *  Indicates a high risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk;
+/**
  *  Represents high number of concurrently opened tables.
  *
  *  Value: "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES"
@@ -2939,6 +3036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLogsNotOptimizedForTroubleshooting;
 /**
+ *  Indicates both a low cache hit rate and a risk of maintenance downtime.
+ *
+ *  Value: "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime;
+/**
  *  High number of idle connections.
  *
  *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
@@ -2964,6 +3067,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMinimalErrorLogging;
+/**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMissingEnhancedProtection;
 /**
  *  Represents if a resource has an automated backup policy.
  *
@@ -3363,25 +3472,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData.signalState
 
 /**
- *  Signal is active and requires attention.
+ *  Disable validation warnings
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Active;
 /**
- *  Signal is dismissed by the user and should not be shown to the user again.
+ *  Disable validation warnings
  *
  *  Value: "DISMISSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Dismissed;
 /**
- *  Signal is inactive and does not require attention.
+ *  Disable validation warnings
  *
  *  Value: "INACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Inactive;
 /**
- *  Unspecified signal state.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_STATE_UNSPECIFIED"
  */
@@ -3391,69 +3500,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData.signalType
 
 /**
- *  Represents database auditing is disabled.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled;
 /**
- *  Represents if a resource is exposed to public access.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess;
 /**
- *  Represents if a resource version is in extended support.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport;
 /**
- *  Represents if the last backup of a resource is older than 24 hours.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeLastBackupOld;
 /**
- *  Represents if a resource has no automated backup policy.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
 /**
- *  Represents if a database has a password configured for the root account or
- *  not.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword;
 /**
- *  Represents if a resource is not protected by automatic failover.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
 /**
- *  Outdated Minor Version
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion;
 /**
- *  Represents if a resources requires all incoming connections to use SSL or
- *  not.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections;
 /**
- *  Unspecified signal type.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnspecified;
 /**
- *  Represents if a resource version is nearing end of life.
+ *  Disable validation warnings
  *
  *  Value: "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE"
  */
@@ -3463,17 +3570,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement.entitlementState
 
 /**
- *  User is entitled to a feature/benefit, but whether it has been successfully
- *  provisioned is decided by provisioning state.
+ *  Disable validation warnings
  *
  *  Value: "ENTITLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_EntitlementState_Entitled;
-/** Value: "ENTITLEMENT_STATE_UNSPECIFIED" */
+/**
+ *  Disable validation warnings
+ *
+ *  Value: "ENTITLEMENT_STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_EntitlementState_EntitlementStateUnspecified;
 /**
- *  User is entitled to a feature/benefit, but it was requested to be revoked.
- *  Whether the revoke has been successful is decided by provisioning state.
+ *  Disable validation warnings
  *
  *  Value: "REVOKED"
  */
@@ -3483,27 +3592,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement.type
 
 /**
- *  The entitlement type is unspecified.
+ *  Disable validation warnings
  *
  *  Value: "ENTITLEMENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_EntitlementTypeUnspecified;
 /**
- *  The entitlement representing GCA-Standard Tier.
+ *  Disable validation warnings
  *
  *  Value: "GCA_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_GcaStandard;
 /**
- *  The root entitlement representing Gemini package ownership.This will no
- *  longer be supported in the future.
+ *  Disable validation warnings
  *
  *  Value: "GEMINI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini GTLR_DEPRECATED;
 /**
- *  The entitlement representing Native Tier, This will be the default
- *  Entitlement going forward with GCA Enablement.
+ *  Disable validation warnings
  *
  *  Value: "NATIVE"
  */
@@ -3657,43 +3764,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo.maintenanceState
 
 /**
- *  Database resource is being created.
+ *  Disable validation warnings
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Creating;
 /**
- *  Database resource is being deleted.
+ *  Disable validation warnings
  *
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Deleting;
 /**
- *  Database resource encountered an error and is in indeterministic state.
+ *  Disable validation warnings
  *
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Error;
 /**
- *  Unspecified state.
+ *  Disable validation warnings
  *
  *  Value: "MAINTENANCE_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified;
 /**
- *  Database resource has been created and is ready to use.
+ *  Disable validation warnings
  *
  *  Value: "READY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Ready;
 /**
- *  Database resource is unheathy and under repair.
+ *  Disable validation warnings
  *
  *  Value: "REPAIRING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Repairing;
 /**
- *  Database resource is being updated.
+ *  Disable validation warnings
  *
  *  Value: "UPDATING"
  */
@@ -3755,31 +3862,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule.phase
 
 /**
- *  Any phase.
+ *  Disable validation warnings
  *
  *  Value: "ANY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Any;
 /**
- *  Phase is unspecified.
+ *  Disable validation warnings
  *
  *  Value: "PHASE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_PhaseUnspecified;
 /**
- *  Week 1.
+ *  Disable validation warnings
  *
  *  Value: "WEEK1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week1;
 /**
- *  Week 2.
+ *  Disable validation warnings
  *
  *  Value: "WEEK2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week2;
 /**
- *  Week 5.
+ *  Disable validation warnings
  *
  *  Value: "WEEK5"
  */
@@ -3789,33 +3896,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings.retentionUnit
 
 /**
- *  Retention will be by count, eg. "retain the most recent 7 backups".
+ *  Disable validation warnings
  *
  *  Value: "COUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Count;
 /**
- *  Retention will be by duration, eg. "retain the backups for 172800 seconds (2
- *  days)".
+ *  Disable validation warnings
  *
  *  Value: "DURATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Duration;
 /**
- *  For rest of the other category
+ *  Disable validation warnings
  *
  *  Value: "RETENTION_UNIT_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_RetentionUnitOther;
 /**
- *  Backup retention unit is unspecified, will be treated as COUNT.
+ *  Disable validation warnings
  *
  *  Value: "RETENTION_UNIT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_RetentionUnitUnspecified;
 /**
- *  Retention will be by Time, eg. "retain backups till a specific time" i.e.
- *  till 2024-05-01T00:00:00Z.
+ *  Disable validation warnings
  *
  *  Value: "TIME"
  */
@@ -3867,12 +3972,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithNativeMode;
 /**
- *  Memorystore with Valkey dialect.
- *
- *  Value: "ENGINE_MEMORSTORE_FOR_VALKEY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorstoreForValkey;
-/**
  *  Memorystore with Redis dialect.
  *
  *  Value: "ENGINE_MEMORYSTORE_FOR_REDIS"
@@ -3884,6 +3983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForRedisCluster;
+/**
+ *  Memorystore with Valkey.
+ *
+ *  Value: "ENGINE_MEMORYSTORE_FOR_VALKEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForValkey;
 /**
  *  MySQL binary running as an engine in the database instance.
  *
@@ -5155,6 +5260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *network GTLR_DEPRECATED;
 
+/** Optional. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_NetworkConfig *networkConfig;
 
 /**
@@ -5430,6 +5536,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) NSNumber *authproxyPoolerCount;
 
 /**
+ *  Optional. The scaling type of the AuthProxy pooler.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerMachineSized
+ *        The number of poolers is automatically determined by the service based
+ *        on the VM size. (Value: "POOLER_MACHINE_SIZED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerManualOverride
+ *        The number of poolers is kept unchanged no matter the machine size.
+ *        (Value: "POOLER_MANUAL_OVERRIDE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerNone
+ *        No pooler is enabled. (Value: "POOLER_NONE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_AuthproxyPoolerScalingType_PoolerScalingTypeUnspecified
+ *        The scaling type is not specified. (Value:
+ *        "POOLER_SCALING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *authproxyPoolerScalingType;
+
+/**
  *  Optional. Whether to enable Managed Connection Pool (MCP).
  *
  *  Uses NSNumber of boolValue.
@@ -5445,6 +5569,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *poolerCount;
+
+/**
+ *  Optional. The scaling type of the regular pooler.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerMachineSized
+ *        The number of poolers is automatically determined by the service based
+ *        on the VM size. (Value: "POOLER_MACHINE_SIZED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerManualOverride
+ *        The number of poolers is kept unchanged no matter the machine size.
+ *        (Value: "POOLER_MANUAL_OVERRIDE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerNone
+ *        No pooler is enabled. (Value: "POOLER_NONE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ConnectionPoolConfig_PoolerScalingType_PoolerScalingTypeUnspecified
+ *        The scaling type is not specified. (Value:
+ *        "POOLER_SCALING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *poolerScalingType;
 
 @end
 
@@ -7788,56 +7930,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Configuration for availability of database instance
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration : GTLRObject
 
 /**
- *  Checks for existence of (multi-cluster) routing configuration that allows
- *  automatic failover to a different zone/region in case of an outage.
- *  Applicable to Bigtable resources.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *automaticFailoverRoutingConfigured;
 
 /**
- *  Availability type. Potential values: * `ZONAL`: The instance serves data
- *  from only one zone. Outages in that zone affect data accessibility. *
- *  `REGIONAL`: The instance can serve data from more than one zone in a region
- *  (it is highly available).
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_AvailabilityTypeOther
- *        For rest of the other category (Value: "AVAILABILITY_TYPE_OTHER")
+ *        Disable validation warnings (Value: "AVAILABILITY_TYPE_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_AvailabilityTypeUnspecified
- *        Value "AVAILABILITY_TYPE_UNSPECIFIED"
+ *        Disable validation warnings (Value: "AVAILABILITY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_MultiRegional
- *        Multi regional instance (Value: "MULTI_REGIONAL")
+ *        Disable validation warnings (Value: "MULTI_REGIONAL")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_Regional
- *        Regional available instance. (Value: "REGIONAL")
+ *        Disable validation warnings (Value: "REGIONAL")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration_AvailabilityType_Zonal
- *        Zonal available instance. (Value: "ZONAL")
+ *        Disable validation warnings (Value: "ZONAL")
  */
 @property(nonatomic, copy, nullable) NSString *availabilityType;
 
 /**
- *  Checks for resources that are configured to have redundancy, and ongoing
- *  replication across regions
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *crossRegionReplicaConfigured;
 
 /**
- *  externalReplicaConfigured
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *externalReplicaConfigured;
 
 /**
- *  promotableReplicaConfigured
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7847,24 +7983,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Configuration for automatic backups
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration : GTLRObject
 
 /**
- *  Whether customer visible automated backups are enabled on the instance.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *automatedBackupEnabled;
 
-/** Backup retention settings. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings *backupRetentionSettings;
 
 /**
- *  Whether point-in-time recovery is enabled. This is optional field, if the
- *  database service does not have this feature or metadata is not available in
- *  control plane, this can be omitted.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7874,13 +8008,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  BackupDRConfiguration to capture the backup and disaster recovery details of
- *  database resource.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRConfiguration : GTLRObject
 
 /**
- *  Indicates if the resource is managed by BackupDR.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7890,59 +8023,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  BackupDRMetadata contains information about the backup and disaster recovery
- *  metadata of a database resource.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata : GTLRObject
 
-/** Backup configuration for this instance. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration *backupConfiguration;
 
-/** BackupDR configuration for this instance. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRConfiguration *backupdrConfiguration;
 
-/** Latest backup run information for this instance. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun *backupRun;
 
-/** Required. Full resource name of this instance. */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
-/** Required. Last time backup configuration was refreshed. */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
-/** Required. Database resource id. */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
 
 @end
 
 
 /**
- *  A backup run.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun : GTLRObject
 
-/** The time the backup operation completed. REQUIRED */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/**
- *  Information about why the backup operation failed. This is only present if
- *  the run has the FAILED status. OPTIONAL
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError *error;
 
-/** The time the backup operation started. REQUIRED */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The status of this run. REQUIRED
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun_Status_Failed
- *        The backup was unsuccessful. (Value: "FAILED")
+ *        Disable validation warnings (Value: "FAILED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun_Status_StatusUnspecified
- *        Value "STATUS_UNSPECIFIED"
+ *        Disable validation warnings (Value: "STATUS_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun_Status_Successful
- *        The backup was successful. (Value: "SUCCESSFUL")
+ *        Disable validation warnings (Value: "SUCCESSFUL")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -7950,80 +8079,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Contains compliance information about a security standard indicating unmet
- *  recommendations.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance : GTLRObject
 
-/**
- *  Industry-wide compliance standards or benchmarks, such as CIS, PCI, and
- *  OWASP.
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *standard;
 
-/** Version of the standard or benchmark, for example, 1.1 */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
 
 /**
- *  Config based signal data. This is used to send signals to Condor which are
- *  based on the DB level configurations. These will be used to send signals for
- *  self managed databases.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData : GTLRObject
 
-/** Required. Full Resource name of the source resource. */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
-/** Required. Last time signal was refreshed */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
-/** Database resource id. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
 
 /**
- *  Signal data for boolean signals.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *signalBoolValue;
 
 /**
- *  Required. Signal type of the signal
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeDatabaseAuditingDisabled
- *        Represents database auditing is disabled. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess
- *        Represents if a resource is exposed to public access. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExtendedSupport
- *        Represents if a resource version is in extended support. (Value:
- *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeLastBackupOld
- *        Represents if the last backup of a resource is older than 24 hours.
- *        (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
- *        Represents if a resource has no automated backup policy. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoRootPassword
- *        Represents if a database has a password configured for the root
- *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover
- *        Represents if a resource is not protected by automatic failover.
- *        (Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
+ *        Disable validation warnings (Value:
+ *        "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeOutdatedMinorVersion
- *        Outdated Minor Version (Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *        Disable validation warnings (Value:
+ *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeUnencryptedConnections
- *        Represents if a resources requires all incoming connections to use SSL
- *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
+ *        Disable validation warnings (Value:
+ *        "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeUnspecified
- *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeVersionNearingEndOfLife
- *        Represents if a resource version is nearing end of life. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE")
  */
 @property(nonatomic, copy, nullable) NSString *signalType;
@@ -8032,89 +8153,73 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Any custom metadata associated with the resource. e.g. A spanner instance
- *  can have multiple databases with its own unique metadata. Information for
- *  these individual databases can be captured in custom metadata data
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData : GTLRObject
 
-/**
- *  Metadata for individual internal resources in an instance. e.g. spanner
- *  instance can have multiple databases with unique configuration.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainInternalResourceMetadata *> *internalResourceMetadata;
 
 @end
 
 
 /**
- *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform. Next ID: 13
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed : GTLRObject
 
-/** BackupDR metadata is used to ingest metadata from BackupDR. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata *backupdrMetadata;
 
-/**
- *  Config based signal data is used to ingest signals that are generated based
- *  on the configuration of the database resource.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData *configBasedSignalData;
 
-/**
- *  Database resource signal data is used to ingest signals from database
- *  resource signal feeds.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData *databaseResourceSignalData;
 
-/** Required. Timestamp when feed is generated. */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *feedTimestamp;
 
 /**
- *  Required. Type feed to be ingested into condor
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata
- *        Database resource metadata from BackupDR (Value: "BACKUPDR_METADATA")
+ *        Disable validation warnings (Value: "BACKUPDR_METADATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData
- *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
+ *        Disable validation warnings (Value: "CONFIG_BASED_SIGNAL_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData
- *        Database resource signal data (Value: "DATABASE_RESOURCE_SIGNAL_DATA")
+ *        Disable validation warnings (Value: "DATABASE_RESOURCE_SIGNAL_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_FeedtypeUnspecified
- *        Value "FEEDTYPE_UNSPECIFIED"
+ *        Disable validation warnings (Value: "FEEDTYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ObservabilityData
- *        Database resource monitoring data (Value: "OBSERVABILITY_DATA")
+ *        Disable validation warnings (Value: "OBSERVABILITY_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_RecommendationSignalData
- *        Database resource recommendation signal data (Value:
- *        "RECOMMENDATION_SIGNAL_DATA")
+ *        Disable validation warnings (Value: "RECOMMENDATION_SIGNAL_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ResourceMetadata
- *        Database resource metadata feed from control plane (Value:
- *        "RESOURCE_METADATA")
+ *        Disable validation warnings (Value: "RESOURCE_METADATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_SecurityFindingData
- *        Database resource security health signal data (Value:
- *        "SECURITY_FINDING_DATA")
+ *        Disable validation warnings (Value: "SECURITY_FINDING_DATA")
  */
 @property(nonatomic, copy, nullable) NSString *feedType;
 
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData *observabilityMetricData;
+
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData *recommendationSignalData;
+
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData *resourceHealthSignalData;
 
-/**
- *  Primary key associated with the Resource. resource_id is available in
- *  individual feed level as well.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId GTLR_DEPRECATED;
 
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata *resourceMetadata;
 
 /**
- *  Optional. If true, the feed won't be ingested by DB Center. This indicates
- *  that the feed is intentionally skipped. For example, BackupDR feeds are only
- *  needed for resources integrated with DB Center (e.g., CloudSQL, AlloyDB).
- *  Feeds for non-integrated resources (e.g., Compute Engine, Persistent Disk)
- *  can be skipped.
+ *  Optional. Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8124,154 +8229,103 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource health signal data.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData : GTLRObject
 
-/** Any other additional metadata */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_AdditionalMetadata *additionalMetadata;
 
-/**
- *  Industry standards associated with this signal; if this signal is an issue,
- *  that could be a violation of the associated industry standard(s). For
- *  example, AUTO_BACKUP_DISABLED signal is associated with CIS GCP 1.1, CIS GCP
- *  1.2, CIS GCP 1.3, NIST 800-53 and ISO-27001 compliance standards. If a
- *  database resource does not have automated backup enable, it will violate
- *  these following industry standards.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance *> *compliance;
 
 /**
- *  Description associated with signal
+ *  Disable validation warnings
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  Required. The last time at which the event described by this signal took
- *  place
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
-/**
- *  The external-uri of the signal, using which more information about this
- *  signal can be obtained. In GCP, this will take user to SCC page to get more
- *  details about signals.
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *externalUri;
 
-/**
- *  This is used to identify the location of the resource. Example:
- *  "us-central1"
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/**
- *  Required. The name of the signal, ex: PUBLIC_SQL_INSTANCE,
- *  SQL_LOG_ERROR_VERBOSITY etc.
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Aws
- *        Amazon web service (Value: "AWS")
+ *        Disable validation warnings (Value: "AWS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Azure
- *        Azure web service (Value: "AZURE")
+ *        Disable validation warnings (Value: "AZURE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Gcp
- *        Google cloud platform provider (Value: "GCP")
+ *        Disable validation warnings (Value: "GCP")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Onprem
- *        On-prem database resources. (Value: "ONPREM")
+ *        Disable validation warnings (Value: "ONPREM")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_ProviderOther
- *        For the rest of the other categories. Other refers to the rest of
- *        other database service providers, this could be smaller cloud
- *        provider. This needs to be provided when the provider is known, but it
- *        is not present in the existing set of enum values. (Value:
- *        "PROVIDER_OTHER")
+ *        Disable validation warnings (Value: "PROVIDER_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_ProviderUnspecified
- *        Value "PROVIDER_UNSPECIFIED"
+ *        Disable validation warnings (Value: "PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_Provider_Selfmanaged
- *        Self-managed database provider. These are resources on a cloud
- *        platform, e.g., database resource installed in a GCE VM, but not a
- *        managed database service. (Value: "SELFMANAGED")
+ *        Disable validation warnings (Value: "SELFMANAGED")
  */
 @property(nonatomic, copy, nullable) NSString *provider;
 
-/**
- *  Closest parent container of this resource. In GCP, 'container' refers to a
- *  Cloud Resource Manager project. It must be resource name of a Cloud Resource
- *  Manager project with the format of "provider//", such as "projects/123". For
- *  GCP provided resources, number should be project number.
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
-/**
- *  Required. Database resource name associated with the signal. Resource name
- *  to follow CAIS resource_name format as noted here go/condor-common-datamodel
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  Required. The class of the signal, such as if it's a THREAT or
- *  VULNERABILITY.
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_ClassUnspecified
- *        Unspecified signal class. (Value: "CLASS_UNSPECIFIED")
+ *        Disable validation warnings (Value: "CLASS_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Error
- *        Describes an error that prevents some SCC functionality. (Value:
- *        "ERROR")
+ *        Disable validation warnings (Value: "ERROR")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Misconfiguration
- *        Describes a potential weakness in cloud resource/asset configuration
- *        that increases risk. (Value: "MISCONFIGURATION")
+ *        Disable validation warnings (Value: "MISCONFIGURATION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Observation
- *        Describes a security observation that is for informational purposes.
- *        (Value: "OBSERVATION")
+ *        Disable validation warnings (Value: "OBSERVATION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Threat
- *        Describes unwanted or malicious activity. (Value: "THREAT")
+ *        Disable validation warnings (Value: "THREAT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalClass_Vulnerability
- *        Describes a potential weakness in software that increases risk to
- *        Confidentiality & Integrity & Availability. (Value: "VULNERABILITY")
+ *        Disable validation warnings (Value: "VULNERABILITY")
  */
 @property(nonatomic, copy, nullable) NSString *signalClass;
 
-/**
- *  Required. Unique identifier for the signal. This is an unique id which would
- *  be mainatined by partner to identify a signal.
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *signalId;
 
 /**
- *  The severity of the signal, such as if it's a HIGH or LOW severity.
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_Critical
- *        A critical vulnerability is easily discoverable by an external actor,
- *        exploitable. (Value: "CRITICAL")
+ *        Disable validation warnings (Value: "CRITICAL")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_High
- *        A high risk vulnerability can be easily discovered and exploited in
- *        combination with other vulnerabilities. (Value: "HIGH")
+ *        Disable validation warnings (Value: "HIGH")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_Low
- *        A low risk vulnerability hampers a security organization's ability to
- *        detect vulnerabilities or active threats in their deployment. (Value:
- *        "LOW")
+ *        Disable validation warnings (Value: "LOW")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_Medium
- *        A medium risk vulnerability could be used by an actor to gain access
- *        to resources or privileges that enable them to eventually gain access
- *        and the ability to execute arbitrary code or exfiltrate data. (Value:
- *        "MEDIUM")
+ *        Disable validation warnings (Value: "MEDIUM")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalSeverity_SignalSeverityUnspecified
- *        This value is used for findings when a source doesn't write a severity
- *        value. (Value: "SIGNAL_SEVERITY_UNSPECIFIED")
+ *        Disable validation warnings (Value: "SIGNAL_SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *signalSeverity;
 
 /**
- *  Required. Type of signal, for example, `AVAILABLE_IN_MULTIPLE_ZONES`,
- *  `LOGGING_MOST_ERRORS`, etc.
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeConnectionAttemptsNotLogged
@@ -8359,6 +8413,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes
  *        Performance impact of high joins without indexes (Value:
  *        "SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk
+ *        Indicates a high risk of maintenance downtime. (Value:
+ *        "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeHighNumberOfOpenTables
  *        Represents high number of concurrently opened tables. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES")
@@ -8415,6 +8472,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime
+ *        Indicates both a low cache hit rate and a risk of maintenance
+ *        downtime. (Value:
+ *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections
  *        High number of idle connections. (Value:
  *        "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
@@ -8428,6 +8489,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -8627,19 +8691,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *signalType;
 
 /**
- *  state
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_State_Active
- *        The signal requires attention and has not been addressed yet. (Value:
- *        "ACTIVE")
+ *        Disable validation warnings (Value: "ACTIVE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_State_Muted
- *        The signal has been muted. (Value: "MUTED")
+ *        Disable validation warnings (Value: "MUTED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_State_Resolved
- *        The signal has been fixed, triaged as a non-issue or otherwise
- *        addressed and is no longer active. (Value: "RESOLVED")
+ *        Disable validation warnings (Value: "RESOLVED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_State_StateUnspecified
- *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ *        Disable validation warnings (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -8647,7 +8709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Any other additional metadata
+ *  Disable validation warnings
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8659,176 +8721,141 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  DatabaseResourceId will serve as primary key for any resource ingestion
- *  event.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId : GTLRObject
 
 /**
- *  Required. Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Aws
- *        Amazon web service (Value: "AWS")
+ *        Disable validation warnings (Value: "AWS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Azure
- *        Azure web service (Value: "AZURE")
+ *        Disable validation warnings (Value: "AZURE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Gcp
- *        Google cloud platform provider (Value: "GCP")
+ *        Disable validation warnings (Value: "GCP")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Onprem
- *        On-prem database resources. (Value: "ONPREM")
+ *        Disable validation warnings (Value: "ONPREM")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_ProviderOther
- *        For the rest of the other categories. Other refers to the rest of
- *        other database service providers, this could be smaller cloud
- *        provider. This needs to be provided when the provider is known, but it
- *        is not present in the existing set of enum values. (Value:
- *        "PROVIDER_OTHER")
+ *        Disable validation warnings (Value: "PROVIDER_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_ProviderUnspecified
- *        Value "PROVIDER_UNSPECIFIED"
+ *        Disable validation warnings (Value: "PROVIDER_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId_Provider_Selfmanaged
- *        Self-managed database provider. These are resources on a cloud
- *        platform, e.g., database resource installed in a GCE VM, but not a
- *        managed database service. (Value: "SELFMANAGED")
+ *        Disable validation warnings (Value: "SELFMANAGED")
  */
 @property(nonatomic, copy, nullable) NSString *provider;
 
-/** Optional. Needs to be used only when the provider is PROVIDER_OTHER. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *providerDescription;
 
-/**
- *  Required. The type of resource this ID is identifying. Ex go/keep-sorted
- *  start alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
- *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
- *  compute.googleapis.com/Instance firestore.googleapis.com/Database,
- *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
- *  oracledatabase.googleapis.com/CloudExadataInfrastructure
- *  oracledatabase.googleapis.com/CloudVmCluster
- *  oracledatabase.googleapis.com/AutonomousDatabase
- *  spanner.googleapis.com/Instance, spanner.googleapis.com/Database,
- *  sqladmin.googleapis.com/Instance, go/keep-sorted end REQUIRED Please refer
- *  go/condor-common-datamodel
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
-/**
- *  Required. A service-local token that distinguishes this resource from other
- *  resources within the same service.
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *uniqueId;
 
 @end
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 35
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
-/**
- *  Field to ingest additional metadata whichd does not support proto format.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_AdditionalMetadata *additionalMetadata;
 
-/** Availability configuration for this instance */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration *availabilityConfiguration;
 
-/** Backup configuration for this instance */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration *backupConfiguration;
 
-/** Optional. BackupDR Configuration for the resource. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRConfiguration *backupdrConfiguration;
 
-/** Latest backup run information for this instance */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun *backupRun;
 
-/**
- *  The creation time of the resource, i.e. the time when resource is created
- *  and recorded in partner service.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Current state of the instance.
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Deleted
- *        Instance is deleted. (Value: "DELETED")
+ *        Disable validation warnings (Value: "DELETED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Healthy
- *        The instance is running. (Value: "HEALTHY")
+ *        Disable validation warnings (Value: "HEALTHY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateOther
- *        For rest of the other category (Value: "STATE_OTHER")
+ *        Disable validation warnings (Value: "STATE_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateUnspecified
- *        Value "STATE_UNSPECIFIED"
+ *        Disable validation warnings (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Stopped
- *        Instance is in STOPPED state. (Value: "STOPPED")
+ *        Disable validation warnings (Value: "STOPPED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Suspended
- *        When instance is suspended (Value: "SUSPENDED")
+ *        Disable validation warnings (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Unhealthy
- *        Instance being created, updated, deleted or under maintenance (Value:
- *        "UNHEALTHY")
+ *        Disable validation warnings (Value: "UNHEALTHY")
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
-/** Any custom metadata associated with the resource */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData *customMetadata;
 
 /**
- *  Optional. Edition represents whether the instance is ENTERPRISE or
- *  ENTERPRISE_PLUS. This information is core to Cloud SQL only and is used to
- *  identify the edition of the instance.
+ *  Optional. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprise
- *        Represents the enterprise edition. (Value: "EDITION_ENTERPRISE")
+ *        Disable validation warnings (Value: "EDITION_ENTERPRISE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprisePlus
- *        Represents the enterprise plus edition. (Value:
- *        "EDITION_ENTERPRISE_PLUS")
+ *        Disable validation warnings (Value: "EDITION_ENTERPRISE_PLUS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionStandard
- *        Represents the standard edition. (Value: "EDITION_STANDARD")
+ *        Disable validation warnings (Value: "EDITION_STANDARD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionUnspecified
- *        Default, to make it consistent with instance edition enum. (Value:
- *        "EDITION_UNSPECIFIED")
+ *        Disable validation warnings (Value: "EDITION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
 
-/** Entitlements associated with the resource */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement *> *entitlements;
 
 /**
- *  The state that the instance is expected to be in. For example, an instance
- *  state can transition to UNHEALTHY due to wrong patch update, while the
- *  expected state will remain at the HEALTHY.
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Deleted
- *        Instance is deleted. (Value: "DELETED")
+ *        Disable validation warnings (Value: "DELETED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Healthy
- *        The instance is running. (Value: "HEALTHY")
+ *        Disable validation warnings (Value: "HEALTHY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateOther
- *        For rest of the other category (Value: "STATE_OTHER")
+ *        Disable validation warnings (Value: "STATE_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateUnspecified
- *        Value "STATE_UNSPECIFIED"
+ *        Disable validation warnings (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Stopped
- *        Instance is in STOPPED state. (Value: "STOPPED")
+ *        Disable validation warnings (Value: "STOPPED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Suspended
- *        When instance is suspended (Value: "SUSPENDED")
+ *        Disable validation warnings (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Unhealthy
- *        Instance being created, updated, deleted or under maintenance (Value:
- *        "UNHEALTHY")
+ *        Disable validation warnings (Value: "UNHEALTHY")
  */
 @property(nonatomic, copy, nullable) NSString *expectedState;
 
-/** GCBDR configuration for the resource. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration *gcbdrConfiguration GTLR_DEPRECATED;
 
 /**
- *  Required. Unique identifier for a Database resource
+ *  Required. Disable validation warnings
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *identifier;
 
 /**
- *  The type of the instance. Specified at creation time.
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_InstanceTypeUnspecified
@@ -8869,70 +8896,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
 
-/** Field to ingest additional metadata which support proto format. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InternalAdditionalMetadata *internalAdditionalMetadata;
 
-/** Optional. Private and public IP address of the resource. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainIpAddress *ipAddress;
 
 /**
- *  Optional. Whether deletion protection is enabled for this resource.
+ *  Optional. Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isDeletionProtectionEnabled;
 
-/** The resource location. REQUIRED */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Machine configuration for this resource. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration *machineConfiguration;
 
-/** Optional. Maintenance info for the resource. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo *maintenanceInfo;
 
-/** Optional. The modes of the database resource. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *modes;
 
-/**
- *  Identifier for this resource's immediate parent/primary resource if the
- *  current resource is a replica or derived form of another Database resource.
- *  Else it would be NULL. REQUIRED if the immediate parent exists when first
- *  time resource is getting ingested, otherwise optional.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *primaryResourceId;
 
-/**
- *  Primary resource location. REQUIRED if the immediate parent exists when
- *  first time resource is getting ingested, otherwise optional.
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *primaryResourceLocation;
 
-/** The product this resource represents. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct *product;
 
-/**
- *  Closest parent Cloud Resource Manager container of this resource. It must be
- *  resource name of a Cloud Resource Manager project with the format of "/",
- *  such as "projects/123". For GCP provided resources, number should be project
- *  number.
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
 
-/** Optional. List of resource flags for the database resource. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags *> *resourceFlags;
 
-/**
- *  Required. Different from DatabaseResourceId.unique_id, a resource name can
- *  be reused over time. That is, after a resource named "ABC" is deleted, the
- *  name "ABC" can be used to to create a new resource within the same source.
- *  Resource name to follow CAIS resource_name format as noted here
- *  go/condor-common-datamodel
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  Optional. Suspension reason for the resource.
+ *  Optional. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_SuspensionReason_AbuserDetected
@@ -8954,20 +8962,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *suspensionReason;
 
-/** Optional. Tags associated with this resources. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags *tagsSet;
 
-/**
- *  The time at which the resource was updated and recorded at partner service.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *updationTime;
 
-/** User-provided labels associated with the resource */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels *userLabelSet;
 
 /**
- *  The resource zone. This is only applicable for zonal resources and will be
- *  empty for regional and multi-regional resources.
+ *  Disable validation warnings
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -8977,7 +8982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Field to ingest additional metadata whichd does not support proto format.
+ *  Disable validation warnings
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8989,7 +8994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Field to ingest additional metadata which support proto format.
+ *  Disable validation warnings
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -9001,77 +9006,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource recommendation signal data.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData : GTLRObject
 
-/** Optional. Any other additional metadata specific to recommendation */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_AdditionalMetadata *additionalMetadata;
 
-/** Required. last time recommendationw as refreshed */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
 /**
- *  Required. Recommendation state
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Active
- *        Recommendation is active and can be applied. ACTIVE recommendations
- *        can be marked as CLAIMED, SUCCEEDED, or FAILED. (Value: "ACTIVE")
+ *        Disable validation warnings (Value: "ACTIVE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Claimed
- *        Recommendation is in claimed state. Recommendations content is
- *        immutable and cannot be updated by Google. CLAIMED recommendations can
- *        be marked as CLAIMED, SUCCEEDED, or FAILED. (Value: "CLAIMED")
+ *        Disable validation warnings (Value: "CLAIMED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Dismissed
- *        Recommendation is in dismissed state. Recommendation content can be
- *        updated by Google. DISMISSED recommendations can be marked as ACTIVE.
- *        (Value: "DISMISSED")
+ *        Disable validation warnings (Value: "DISMISSED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Failed
- *        Recommendation is in failed state. Recommendations content is
- *        immutable and cannot be updated by Google. FAILED recommendations can
- *        be marked as SUCCEEDED, or FAILED. (Value: "FAILED")
+ *        Disable validation warnings (Value: "FAILED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Succeeded
- *        Recommendation is in succeeded state. Recommendations content is
- *        immutable and cannot be updated by Google. SUCCEEDED recommendations
- *        can be marked as SUCCEEDED, or FAILED. (Value: "SUCCEEDED")
+ *        Disable validation warnings (Value: "SUCCEEDED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_RecommendationState_Unspecified
- *        Value "UNSPECIFIED"
+ *        Disable validation warnings (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *recommendationState;
 
-/**
- *  Required. Name of recommendation. Examples:
- *  organizations/1234/locations/us-central1/recommenders/google.cloudsql.instance.PerformanceRecommender/recommendations/9876
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *recommender;
 
-/**
- *  Required. ID of recommender. Examples:
- *  "google.cloudsql.instance.PerformanceRecommender"
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *recommenderId;
 
-/**
- *  Required. Contains an identifier for a subtype of recommendations produced
- *  for the same recommender. Subtype is a function of content and impact,
- *  meaning a new subtype might be added when significant changes to `content`
- *  or `primary_impact.category` are introduced. See the Recommenders section to
- *  see a list of subtypes for a given Recommender. Examples: For recommender =
- *  "google.cloudsql.instance.PerformanceRecommender", recommender_subtype can
- *  be
- *  "MYSQL_HIGH_NUMBER_OF_OPEN_TABLES_BEST_PRACTICE"/"POSTGRES_HIGH_TRANSACTION_ID_UTILIZATION_BEST_PRACTICE"
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *recommenderSubtype;
 
-/**
- *  Required. Database resource name associated with the signal. Resource name
- *  to follow CAIS resource_name format as noted here go/condor-common-datamodel
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  Required. Type of signal, for example, `SIGNAL_TYPE_IDLE`,
- *  `SIGNAL_TYPE_HIGH_NUMBER_OF_TABLES`, etc.
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeConnectionAttemptsNotLogged
@@ -9159,6 +9136,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighJoinsWithoutIndexes
  *        Performance impact of high joins without indexes (Value:
  *        "SIGNAL_TYPE_HIGH_JOINS_WITHOUT_INDEXES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighMaintenanceDowntimeRisk
+ *        Indicates a high risk of maintenance downtime. (Value:
+ *        "SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeHighNumberOfOpenTables
  *        Represents high number of concurrently opened tables. (Value:
  *        "SIGNAL_TYPE_HIGH_NUMBER_OF_OPEN_TABLES")
@@ -9215,6 +9195,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if log_checkpoints database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_LOGS_NOT_OPTIMIZED_FOR_TROUBLESHOOTING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeLowCacheHitAndMaintenanceDowntime
+ *        Indicates both a low cache hit rate and a risk of maintenance
+ *        downtime. (Value:
+ *        "SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections
  *        High number of idle connections. (Value:
  *        "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS")
@@ -9228,6 +9212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -9430,7 +9417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Optional. Any other additional metadata specific to recommendation
+ *  Optional. Disable validation warnings
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -9442,90 +9429,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Database resource signal data. This is used to send signals to Condor which
- *  are based on the DB/Instance/Fleet level configurations. These will be used
- *  to send signals for all inventory types. Next ID: 10
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData : GTLRObject
 
-/** Deprecated: Use signal_metadata_list instead. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun *backupRun GTLR_DEPRECATED;
 
-/** Required. Full Resource name of the source resource. */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
-/** Required. Last time signal was refreshed */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
-/** Required. Resource location. */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Database resource id. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
 
 /**
- *  Deprecated: Use signal_metadata_list instead.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *signalBoolValue GTLR_DEPRECATED;
 
-/**
- *  This will support array of OneOf signal metadata information for a given
- *  signal type.
- */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainSignalMetadata *> *signalMetadataList;
 
 /**
- *  Required. Output only. Signal state of the signal
+ *  Required. Output only. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Active
- *        Signal is active and requires attention. (Value: "ACTIVE")
+ *        Disable validation warnings (Value: "ACTIVE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Dismissed
- *        Signal is dismissed by the user and should not be shown to the user
- *        again. (Value: "DISMISSED")
+ *        Disable validation warnings (Value: "DISMISSED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Inactive
- *        Signal is inactive and does not require attention. (Value: "INACTIVE")
+ *        Disable validation warnings (Value: "INACTIVE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_SignalStateUnspecified
- *        Unspecified signal state. (Value: "SIGNAL_STATE_UNSPECIFIED")
+ *        Disable validation warnings (Value: "SIGNAL_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *signalState;
 
 /**
- *  Required. Signal type of the signal
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled
- *        Represents database auditing is disabled. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess
- *        Represents if a resource is exposed to public access. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport
- *        Represents if a resource version is in extended support. (Value:
- *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeLastBackupOld
- *        Represents if the last backup of a resource is older than 24 hours.
- *        (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
- *        Represents if a resource has no automated backup policy. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
- *        Represents if a database has a password configured for the root
- *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover
- *        Represents if a resource is not protected by automatic failover.
- *        (Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
+ *        Disable validation warnings (Value:
+ *        "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion
- *        Outdated Minor Version (Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *        Disable validation warnings (Value:
+ *        "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections
- *        Represents if a resources requires all incoming connections to use SSL
- *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
+ *        Disable validation warnings (Value:
+ *        "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnspecified
- *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *        Disable validation warnings (Value: "SIGNAL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeVersionNearingEndOfLife
- *        Represents if a resource version is nearing end of life. (Value:
+ *        Disable validation warnings (Value:
  *        "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE")
  */
 @property(nonatomic, copy, nullable) NSString *signalType;
@@ -9534,44 +9513,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Proto representing the access that a user has to a specific feature/service.
- *  NextId: 3.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement : GTLRObject
 
 /**
- *  The current state of user's accessibility to a feature/benefit.
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_EntitlementState_Entitled
- *        User is entitled to a feature/benefit, but whether it has been
- *        successfully provisioned is decided by provisioning state. (Value:
- *        "ENTITLED")
+ *        Disable validation warnings (Value: "ENTITLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_EntitlementState_EntitlementStateUnspecified
- *        Value "ENTITLEMENT_STATE_UNSPECIFIED"
+ *        Disable validation warnings (Value: "ENTITLEMENT_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_EntitlementState_Revoked
- *        User is entitled to a feature/benefit, but it was requested to be
- *        revoked. Whether the revoke has been successful is decided by
- *        provisioning state. (Value: "REVOKED")
+ *        Disable validation warnings (Value: "REVOKED")
  */
 @property(nonatomic, copy, nullable) NSString *entitlementState;
 
 /**
- *  An enum that represents the type of this entitlement.
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_EntitlementTypeUnspecified
- *        The entitlement type is unspecified. (Value:
- *        "ENTITLEMENT_TYPE_UNSPECIFIED")
+ *        Disable validation warnings (Value: "ENTITLEMENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_GcaStandard
- *        The entitlement representing GCA-Standard Tier. (Value:
- *        "GCA_STANDARD")
+ *        Disable validation warnings (Value: "GCA_STANDARD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Gemini
- *        The root entitlement representing Gemini package ownership.This will
- *        no longer be supported in the future. (Value: "GEMINI")
+ *        Disable validation warnings (Value: "GEMINI")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement_Type_Native
- *        The entitlement representing Native Tier, This will be the default
- *        Entitlement going forward with GCA Enablement. (Value: "NATIVE")
+ *        Disable validation warnings (Value: "NATIVE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -9579,12 +9549,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  GCBDR Configuration for the resource.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration : GTLRObject
 
 /**
- *  Whether the resource is managed by GCBDR.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9594,106 +9564,91 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Metadata for individual internal resources in an instance. e.g. spanner
- *  instance can have multiple databases with unique configuration settings.
- *  Similarly bigtable can have multiple clusters within same bigtable instance.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainInternalResourceMetadata : GTLRObject
 
-/** Backup configuration for this database */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupConfiguration *backupConfiguration;
 
-/** Information about the last backup attempt for this database */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun *backupRun;
 
 /**
- *  Whether deletion protection is enabled for this internal resource.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isDeletionProtectionEnabled;
 
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct *product;
+
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
 
-/**
- *  Required. internal resource name for spanner this will be database name
- *  e.g."spanner.googleapis.com/projects/123/abc/instances/inst1/databases/db1"
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
 
 /**
- *  Used to send IP address information for a database resource.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainIpAddress : GTLRObject
 
-/**
- *  The private IP address assigned to the resource within a Virtual Private
- *  Cloud (VPC). This IP is only reachable from within the same VPC network.
- *  Stored in standard string format (e.g., "10.0.0.2").
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *privateIp;
 
-/**
- *  The public IP address assigned to the resource. This IP is reachable from
- *  the internet. Stored in standard string format (e.g., "34.72.1.1").
- */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *publicIp;
 
 @end
 
 
 /**
- *  MachineConfiguration describes the configuration of a machine specific to
- *  Database Resource.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration : GTLRObject
 
 /**
- *  Optional. Baseline slots for BigQuery Reservations. Baseline slots are in
- *  increments of 50.
+ *  Optional. Disable validation warnings
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *baselineSlots;
 
 /**
- *  The number of CPUs. Deprecated. Use vcpu_count instead. TODO(b/342344482)
- *  add proto validations again after bug fix.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuCount GTLR_DEPRECATED;
 
 /**
- *  Optional. Max slots for BigQuery Reservations. Max slots are in increments
- *  of 50.
+ *  Optional. Disable validation warnings
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxReservationSlots;
 
 /**
- *  Memory size in bytes. TODO(b/342344482) add proto validations again after
- *  bug fix.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *memorySizeInBytes;
 
 /**
- *  Optional. Number of shards (if applicable).
+ *  Optional. Disable validation warnings
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shardCount;
 
 /**
- *  Optional. The number of vCPUs. TODO(b/342344482) add proto validations again
- *  after bug fix.
+ *  Optional. Disable validation warnings
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9703,12 +9658,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData : GTLRObject
 
 /**
- *  Required. Type of aggregation performed on the metric.
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_AggregationType_AggregationTypeUnspecified
@@ -9725,7 +9680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *aggregationType;
 
 /**
- *  Required. Type of metric like CPU, Memory, etc.
+ *  Required. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData_MetricType_CpuUtilization
@@ -9759,31 +9714,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *metricType;
 
-/** Required. The time the metric value was observed. */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *observationTime;
 
-/**
- *  Required. Database resource name associated with the signal. Resource name
- *  to follow CAIS resource_name format as noted here go/condor-common-datamodel
- */
+/** Required. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
-/** Required. Value of the metric type. */
+/** Required. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonTypedValue *value;
 
 @end
 
 
 /**
- *  An error that occurred during a backup creation operation.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError : GTLRObject
 
-/** Identifies the specific error that occurred. REQUIRED */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
- *  errorType
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_CancellationError
@@ -9806,122 +9758,104 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *errorType;
 
-/** Additional information about the error encountered. REQUIRED */
+/** Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
 
 /**
- *  Message type for storing resource flags.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags : GTLRObject
 
-/** Optional. Key of the resource flag. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/** Optional. Value of the resource flag. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  Deny maintenance period for the database resource. It specifies the time
- *  range during which the maintenance cannot start. This is configured by the
- *  customer.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule : GTLRObject
 
-/** Optional. Deny period end date. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *endDate;
 
-/** Optional. The start date of the deny maintenance period. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *startDate;
 
-/**
- *  Optional. Time in UTC when the deny period starts on start_date and ends on
- *  end_date.
- */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay *time;
 
 @end
 
 
 /**
- *  MaintenanceInfo to capture the maintenance details of database resource.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo : GTLRObject
 
-/** Optional. The date when the current maintenance version was released. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *currentVersionReleaseDate;
 
-/** Optional. List of Deny maintenance period for the database resource. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule *> *denyMaintenanceSchedules;
 
 /**
- *  Optional. Whether the instance is in stopped state. This information is
- *  temporarily being captured in maintenanceInfo, till STOPPED state is
- *  supported by DB Center.
+ *  Optional. Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isInstanceStopped;
 
-/** Optional. Maintenance window for the database resource. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule *maintenanceSchedule;
 
 /**
- *  Output only. Current state of maintenance on the database resource.
+ *  Output only. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Creating
- *        Database resource is being created. (Value: "CREATING")
+ *        Disable validation warnings (Value: "CREATING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Deleting
- *        Database resource is being deleted. (Value: "DELETING")
+ *        Disable validation warnings (Value: "DELETING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Error
- *        Database resource encountered an error and is in indeterministic
- *        state. (Value: "ERROR")
+ *        Disable validation warnings (Value: "ERROR")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified
- *        Unspecified state. (Value: "MAINTENANCE_STATE_UNSPECIFIED")
+ *        Disable validation warnings (Value: "MAINTENANCE_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Ready
- *        Database resource has been created and is ready to use. (Value:
- *        "READY")
+ *        Disable validation warnings (Value: "READY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Repairing
- *        Database resource is unheathy and under repair. (Value: "REPAIRING")
+ *        Disable validation warnings (Value: "REPAIRING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Updating
- *        Database resource is being updated. (Value: "UPDATING")
+ *        Disable validation warnings (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *maintenanceState;
 
-/**
- *  Optional. Current Maintenance version of the database resource. Example:
- *  "MYSQL_8_0_41.R20250531.01_15"
- */
+/** Optional. Disable validation warnings */
 @property(nonatomic, copy, nullable) NSString *maintenanceVersion;
 
-/** Optional. List of next available maintenance versions. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nextAvailableMaintenanceVersions;
 
-/**
- *  Optional. Upcoming maintenance for the database resource. This field is
- *  populated once SLM generates and publishes upcoming maintenance window.
- */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance *upcomingMaintenance;
 
 @end
 
 
 /**
- *  Maintenance window for the database resource. It specifies preferred time
- *  and day of the week and phase in some cases, when the maintenance can start.
- *  This is configured by the customer.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule : GTLRObject
 
 /**
- *  Optional. Preferred day of the week for maintenance, e.g. MONDAY, TUESDAY,
- *  etc.
+ *  Optional. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_DayOfWeekUnspecified
@@ -9944,92 +9878,79 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *day;
 
 /**
- *  Optional. Phase of the maintenance window. This is to capture order of
- *  maintenance. For example, for Cloud SQL resources, this can be used to
- *  capture if the maintenance window is in Week1, Week2, Week5, etc. Non
- *  production resources are usually part of early phase. For more details,
- *  refer to Cloud SQL resources -
- *  https://cloud.google.com/sql/docs/mysql/maintenance
+ *  Optional. Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Any
- *        Any phase. (Value: "ANY")
+ *        Disable validation warnings (Value: "ANY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_PhaseUnspecified
- *        Phase is unspecified. (Value: "PHASE_UNSPECIFIED")
+ *        Disable validation warnings (Value: "PHASE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week1
- *        Week 1. (Value: "WEEK1")
+ *        Disable validation warnings (Value: "WEEK1")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week2
- *        Week 2. (Value: "WEEK2")
+ *        Disable validation warnings (Value: "WEEK2")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week5
- *        Week 5. (Value: "WEEK5")
+ *        Disable validation warnings (Value: "WEEK5")
  */
 @property(nonatomic, copy, nullable) NSString *phase;
 
-/**
- *  Optional. Preferred time to start the maintenance operation on the specified
- *  day.
- */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay *time;
 
 @end
 
 
 /**
- *  GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings : GTLRObject
 
-/** Duration based retention period i.e. 172800 seconds (2 days) */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDuration *durationBasedRetention;
 
 /**
- *  quantityBasedRetention
+ *  Disable validation warnings
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantityBasedRetention;
 
 /**
- *  The unit that 'retained_backups' represents.
+ *  Disable validation warnings
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Count
- *        Retention will be by count, eg. "retain the most recent 7 backups".
- *        (Value: "COUNT")
+ *        Disable validation warnings (Value: "COUNT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Duration
- *        Retention will be by duration, eg. "retain the backups for 172800
- *        seconds (2 days)". (Value: "DURATION")
+ *        Disable validation warnings (Value: "DURATION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_RetentionUnitOther
- *        For rest of the other category (Value: "RETENTION_UNIT_OTHER")
+ *        Disable validation warnings (Value: "RETENTION_UNIT_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_RetentionUnitUnspecified
- *        Backup retention unit is unspecified, will be treated as COUNT.
- *        (Value: "RETENTION_UNIT_UNSPECIFIED")
+ *        Disable validation warnings (Value: "RETENTION_UNIT_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings_RetentionUnit_Time
- *        Retention will be by Time, eg. "retain backups till a specific time"
- *        i.e. till 2024-05-01T00:00:00Z. (Value: "TIME")
+ *        Disable validation warnings (Value: "TIME")
  */
 @property(nonatomic, copy, nullable) NSString *retentionUnit GTLR_DEPRECATED;
 
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDuration *timeBasedRetention GTLR_DEPRECATED;
 
-/** Timestamp based retention period i.e. 2024-05-01T00:00:00Z */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampBasedRetentionTime;
 
 @end
 
 
 /**
- *  SignalMetadata contains one of the signal metadata proto messages associated
- *  with a SignalType. This proto will be mapped to SignalMetadata message in
- *  storage.proto. Next ID: 3
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainSignalMetadata : GTLRObject
 
-/** Signal data for backup runs. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun *backupRun;
 
 /**
- *  Signal data for boolean signals.
+ *  Disable validation warnings
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10039,20 +9960,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Message type for storing tags. Tags provide a way to create annotations for
- *  resources, and in some cases conditionally allow or deny policies based on
- *  whether a resource has a specific tag.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags : GTLRObject
 
-/** The Tag key/value mappings. */
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags *tags;
 
 @end
 
 
 /**
- *  The Tag key/value mappings.
+ *  Disable validation warnings
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -10064,34 +9983,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Upcoming maintenance for the database resource. This is generated by SLM
- *  once the upcoming maintenance schedule is published.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance : GTLRObject
 
-/** Optional. The end time of the upcoming maintenance. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Optional. The start time of the upcoming maintenance. */
+/** Optional. Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
 
 /**
- *  Message type for storing user labels. User labels are used to tag App Engine
- *  resources, allowing users to search for resources matching a set of labels
- *  and to aggregate usage data by labels.
+ *  Disable validation warnings
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels : GTLRObject
 
+/** Disable validation warnings */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels_Labels *labels;
 
 @end
 
 
 /**
- *  GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels_Labels
+ *  Disable validation warnings
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -10131,15 +10048,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineFirestoreWithNativeMode
  *        Firestore with native mode. (Value:
  *        "ENGINE_FIRESTORE_WITH_NATIVE_MODE")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorstoreForValkey
- *        Memorystore with Valkey dialect. (Value:
- *        "ENGINE_MEMORSTORE_FOR_VALKEY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForRedis
  *        Memorystore with Redis dialect. (Value:
  *        "ENGINE_MEMORYSTORE_FOR_REDIS")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForRedisCluster
  *        Memorystore with Redis cluster dialect. (Value:
  *        "ENGINE_MEMORYSTORE_FOR_REDIS_CLUSTER")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMemorystoreForValkey
+ *        Memorystore with Valkey. (Value: "ENGINE_MEMORYSTORE_FOR_VALKEY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Engine_EngineMysql
  *        MySQL binary running as an engine in the database instance. (Value:
  *        "ENGINE_MYSQL")
@@ -10273,6 +10189,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  a unbounded number of allowed values.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
+
+/**
+ *  Output only. Whether the allowed values are case agnostic.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *caseAgnostic;
 
 @end
 

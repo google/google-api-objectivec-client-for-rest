@@ -49,6 +49,7 @@
 @class GTLRAndroidManagement_ConnectEvent;
 @class GTLRAndroidManagement_ContactInfo;
 @class GTLRAndroidManagement_ContentProviderEndpoint;
+@class GTLRAndroidManagement_CrossDevicePolicies;
 @class GTLRAndroidManagement_CrossProfilePolicies;
 @class GTLRAndroidManagement_CryptoSelfTestCompletedEvent;
 @class GTLRAndroidManagement_CustomAppConfig;
@@ -1794,6 +1795,68 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo
  *  Value: "POLICY_SIGNATURE_VERIFICATION_SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossDevicePolicies.nearbyAppStreaming
+
+/**
+ *  Disables app streaming to nearby devices.
+ *
+ *  Value: "NEARBY_APP_STREAMING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingDisabled;
+/**
+ *  Unspecified. Defaults to
+ *  NEARBY_APP_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT.
+ *
+ *  Value: "NEARBY_APP_STREAMING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUnspecified;
+/**
+ *  The user is allowed to choose whether to stream apps to nearby devices.
+ *
+ *  Value: "NEARBY_APP_STREAMING_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUserChoice;
+/**
+ *  The user is allowed to choose whether to stream apps to other nearby devices
+ *  which are signed in with the same authenticated managed account.
+ *
+ *  Value: "NEARBY_APP_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUserChoiceSameManagedAccount;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossDevicePolicies.nearbyNotificationStreaming
+
+/**
+ *  Disables notification streaming to nearby devices.
+ *
+ *  Value: "NEARBY_NOTIFICATION_STREAMING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingDisabled;
+/**
+ *  Unspecified. Defaults to
+ *  NEARBY_NOTIFICATION_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT.
+ *
+ *  Value: "NEARBY_NOTIFICATION_STREAMING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUnspecified;
+/**
+ *  The user is allowed to choose whether to stream notifications to nearby
+ *  devices.
+ *
+ *  Value: "NEARBY_NOTIFICATION_STREAMING_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoice;
+/**
+ *  The user is allowed to choose whether to stream notifications to other
+ *  nearby devices which are signed in with the same authenticated managed
+ *  account.
+ *
+ *  Value: "NEARBY_NOTIFICATION_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoiceSameManagedAccount;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileAppFunctions
@@ -6043,7 +6106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ConfigMo
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_LogTypeUnspecified;
 /**
- *  Enable logging of on-device network events, like DNS lookups and TCP
+ *  Enable logging of on-device network events, such as DNS lookups and TCP
  *  connections. See UsageLogEvent for a complete description of the logged
  *  network events. Supported for fully managed devices on Android 8 and above.
  *  Supported for company-owned devices with a work profile on Android 12 and
@@ -6054,13 +6117,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTypes_NetworkActivityLogs;
 /**
- *  Enable logging of on-device security events, like when the device password
- *  is incorrectly entered or removable storage is mounted. See UsageLogEvent
- *  for a complete description of the logged security events. Supported for
- *  fully managed devices on Android 7 and above. Supported for company-owned
- *  devices with a work profile on Android 12 and above, on which only security
- *  events from the work profile are logged. Can be overridden by the
- *  application delegated scope SECURITY_LOGS
+ *  Enable logging of on-device security events, such as when the device
+ *  password is incorrectly entered or removable storage is mounted. See
+ *  UsageLogEvent for a complete description of the logged security events.
+ *  Supported for fully managed devices on Android 7 and above. Supported for
+ *  company-owned devices with a work profile on Android 12 and above, on which
+ *  only security events from the work profile are logged. Can be overridden by
+ *  the application delegated scope SECURITY_LOGS
  *
  *  Value: "SECURITY_LOGS"
  */
@@ -6076,7 +6139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_EnabledLogTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_LogTypeUnspecified;
 /**
- *  Enable logging of on-device network events, like DNS lookups and TCP
+ *  Enable logging of on-device network events, such as DNS lookups and TCP
  *  connections. See UsageLogEvent for a complete description of the logged
  *  network events. Supported for fully managed devices on Android 8 and above.
  *  Supported for company-owned devices with a work profile on Android 12 and
@@ -6087,13 +6150,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellu
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLog_UploadOnCellularAllowed_NetworkActivityLogs;
 /**
- *  Enable logging of on-device security events, like when the device password
- *  is incorrectly entered or removable storage is mounted. See UsageLogEvent
- *  for a complete description of the logged security events. Supported for
- *  fully managed devices on Android 7 and above. Supported for company-owned
- *  devices with a work profile on Android 12 and above, on which only security
- *  events from the work profile are logged. Can be overridden by the
- *  application delegated scope SECURITY_LOGS
+ *  Enable logging of on-device security events, such as when the device
+ *  password is incorrectly entered or removable storage is mounted. See
+ *  UsageLogEvent for a complete description of the logged security events.
+ *  Supported for fully managed devices on Android 7 and above. Supported for
+ *  company-owned devices with a work profile on Android 12 and above, on which
+ *  only security events from the work profile are logged. Can be overridden by
+ *  the application delegated scope SECURITY_LOGS
  *
  *  Value: "SECURITY_LOGS"
  */
@@ -8593,6 +8656,62 @@ GTLR_DEPRECATED
 
 /** This feature is not generally available. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Policies controlling cross-device communication.
+ */
+@interface GTLRAndroidManagement_CrossDevicePolicies : GTLRObject
+
+/**
+ *  Optional. Manages video streaming of apps on the device for fully managed
+ *  devices or in the work profile for devices with work profiles to nearby
+ *  devices. This is supported on Android 13 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingDisabled
+ *        Disables app streaming to nearby devices. (Value:
+ *        "NEARBY_APP_STREAMING_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUnspecified
+ *        Unspecified. Defaults to
+ *        NEARBY_APP_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT. (Value:
+ *        "NEARBY_APP_STREAMING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUserChoice
+ *        The user is allowed to choose whether to stream apps to nearby
+ *        devices. (Value: "NEARBY_APP_STREAMING_USER_CHOICE")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUserChoiceSameManagedAccount
+ *        The user is allowed to choose whether to stream apps to other nearby
+ *        devices which are signed in with the same authenticated managed
+ *        account. (Value:
+ *        "NEARBY_APP_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *nearbyAppStreaming;
+
+/**
+ *  Optional. Manages streaming of notifications from apps on the device for
+ *  fully managed devices or in the work profile for devices with work profiles
+ *  to nearby devices. This is supported on Android 13 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingDisabled
+ *        Disables notification streaming to nearby devices. (Value:
+ *        "NEARBY_NOTIFICATION_STREAMING_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUnspecified
+ *        Unspecified. Defaults to
+ *        NEARBY_NOTIFICATION_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT.
+ *        (Value: "NEARBY_NOTIFICATION_STREAMING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoice
+ *        The user is allowed to choose whether to stream notifications to
+ *        nearby devices. (Value: "NEARBY_NOTIFICATION_STREAMING_USER_CHOICE")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoiceSameManagedAccount
+ *        The user is allowed to choose whether to stream notifications to other
+ *        nearby devices which are signed in with the same authenticated managed
+ *        account. (Value:
+ *        "NEARBY_NOTIFICATION_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *nearbyNotificationStreaming;
 
 @end
 
@@ -11531,7 +11650,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables *configurationVariables;
 
-/** The ID of the managed configurations template. */
+/**
+ *  The ID of the managed configurations template. This value must be a numeric
+ *  string containing exactly one or more digits (for example, "123456").
+ */
 @property(nonatomic, copy, nullable) NSString *templateId;
 
 @end
@@ -13123,6 +13245,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *credentialsConfigDisabled;
 
+/** Optional. Policies controlling cross-device communication. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_CrossDevicePolicies *crossDevicePolicies;
+
 /** Cross-profile policies applied on the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_CrossProfilePolicies *crossProfilePolicies;
 
@@ -13145,7 +13270,10 @@ GTLR_DEPRECATED
  *  default application is successfully set for at least one app type on a
  *  profile, users are prevented from changing any default applications on that
  *  profile.Only one DefaultApplicationSetting is allowed for each
- *  DefaultApplicationType.See Default application settings
+ *  DefaultApplicationType.Warning: Do not configure this and
+ *  persistent_preferred_activities for the same intent domain, such as web
+ *  browsing. Setting both for the same intent domain can lead to unpredictable
+ *  behavior.See Default application settings
  *  (https://developers.google.com/android/management/default-application-settings)
  *  guide for more details.
  */
@@ -13518,7 +13646,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PackageNameList *permittedInputMethods;
 
-/** Default intent handler activities. */
+/**
+ *  Default intent handler activities.Warning: Do not configure this and
+ *  default_application_settings for the same intent domain, such as web
+ *  browsing. Setting both for the same intent domain can lead to unpredictable
+ *  behavior.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PersistentPreferredActivity *> *persistentPreferredActivities;
 
 /** Policies managing personal usage on a company-owned device. */

@@ -207,6 +207,24 @@ NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureNever = @"SECURE_NEVE
 NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureOptional = @"SECURE_OPTIONAL";
 NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureUnspecified = @"SECURE_UNSPECIFIED";
 
+// GTLRAppengine_Version.appEngineBundledServices
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeAppIdentityService = @"BUNDLED_SERVICE_TYPE_APP_IDENTITY_SERVICE";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeBlobstore = @"BUNDLED_SERVICE_TYPE_BLOBSTORE";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeCapabilityService = @"BUNDLED_SERVICE_TYPE_CAPABILITY_SERVICE";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeDatastoreV3 = @"BUNDLED_SERVICE_TYPE_DATASTORE_V3";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeDeferred = @"BUNDLED_SERVICE_TYPE_DEFERRED";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeImages = @"BUNDLED_SERVICE_TYPE_IMAGES";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeMail = @"BUNDLED_SERVICE_TYPE_MAIL";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeMemcache = @"BUNDLED_SERVICE_TYPE_MEMCACHE";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeModules = @"BUNDLED_SERVICE_TYPE_MODULES";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeNamespaces = @"BUNDLED_SERVICE_TYPE_NAMESPACES";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeNdb = @"BUNDLED_SERVICE_TYPE_NDB";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeSearch = @"BUNDLED_SERVICE_TYPE_SEARCH";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeTaskqueues = @"BUNDLED_SERVICE_TYPE_TASKQUEUES";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeUnspecified = @"BUNDLED_SERVICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeUrlfetch = @"BUNDLED_SERVICE_TYPE_URLFETCH";
+NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeUsers = @"BUNDLED_SERVICE_TYPE_USERS";
+
 // GTLRAppengine_Version.inboundServices
 NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceChannelPresence = @"INBOUND_SERVICE_CHANNEL_PRESENCE";
 NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceMail = @"INBOUND_SERVICE_MAIL";
@@ -1461,10 +1479,10 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 //
 
 @implementation GTLRAppengine_Version
-@dynamic apiConfig, appEngineApis, automaticScaling, basicScaling, betaSettings,
-         buildEnvVariables, createdBy, createTime, defaultExpiration,
-         deployment, diskUsageBytes, endpointsApiService, entrypoint, env,
-         envVariables, errorHandlers, flexibleRuntimeSettings,
+@dynamic apiConfig, appEngineApis, appEngineBundledServices, automaticScaling,
+         basicScaling, betaSettings, buildEnvVariables, createdBy, createTime,
+         defaultExpiration, deployment, diskUsageBytes, endpointsApiService,
+         entrypoint, env, envVariables, errorHandlers, flexibleRuntimeSettings,
          generatedCustomerMetadata, handlers, healthCheck, identifier,
          inboundServices, instanceClass, libraries, livenessCheck,
          manualScaling, name, network, nobuildFilesRegex, readinessCheck,
@@ -1478,6 +1496,7 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"appEngineBundledServices" : [NSString class],
     @"errorHandlers" : [GTLRAppengine_ErrorHandler class],
     @"handlers" : [GTLRAppengine_UrlMap class],
     @"inboundServices" : [NSString class],

@@ -1410,3 +1410,20 @@
 }
 
 @end
+
+@implementation GTLRCloudResourceManagerQuery_V3FetchResourceSemantics
+
+@dynamic fullResourceName;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3:fetchResourceSemantics";
+  GTLRCloudResourceManagerQuery_V3FetchResourceSemantics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_FetchResourceSemanticsResponse class];
+  query.loggingName = @"cloudresourcemanager.fetchResourceSemantics";
+  return query;
+}
+
+@end

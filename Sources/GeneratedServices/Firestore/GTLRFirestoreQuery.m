@@ -618,7 +618,7 @@
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsList
 
 @dynamic collectionId, maskFieldPaths, orderBy, pageSize, pageToken, parent,
-         readTime, showMissing, transaction;
+         readTime, recursive, showMissing, transaction;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"maskFieldPaths" : @"mask.fieldPaths" };
@@ -680,7 +680,7 @@
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsListDocuments
 
 @dynamic collectionId, maskFieldPaths, orderBy, pageSize, pageToken, parent,
-         readTime, showMissing, transaction;
+         readTime, recursive, showMissing, transaction;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"maskFieldPaths" : @"mask.fieldPaths" };

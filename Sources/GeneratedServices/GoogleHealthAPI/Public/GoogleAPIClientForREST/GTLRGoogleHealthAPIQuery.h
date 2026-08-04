@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource where this subscriber will be created. Format:
- *  projects/{project} Example: projects/my-project-123
+ *  projects/{project_number} Example: projects/1234567890
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGoogleHealthAPI_CreateSubscriberPayload to include
  *    in the query.
  *  @param parent Required. The parent resource where this subscriber will be
- *    created. Format: projects/{project} Example: projects/my-project-123
+ *    created. Format: projects/{project_number} Example: projects/1234567890
  *
  *  @return GTLRGoogleHealthAPIQuery_ProjectsSubscribersCreate
  */
@@ -495,6 +495,71 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Forward a manifest request for a given SHL
+ *
+ *  Method: health.shl.m.getShlManifest
+ */
+@interface GTLRGoogleHealthAPIQuery_ShlMGetShlManifest : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Required. External ID mapping to a ShlSharedLinkCapabilityToken object See
+ *  https://docs.google.com/document/d/1Pch20pxJHRbsaMxp0EYgs3ZU0Gu7QTUznk8LhvbQvfY/edit?tab=t.0#heading=h.17wg41voij6q
+ */
+@property(nonatomic, copy, nullable) NSString *externalShlId;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_HttpBody.
+ *
+ *  Forward a manifest request for a given SHL
+ *
+ *  @param object The @c GTLRGoogleHealthAPI_ManifestParams to include in the
+ *    query.
+ *  @param externalShlId Required. External ID mapping to a
+ *    ShlSharedLinkCapabilityToken object See
+ *    https://docs.google.com/document/d/1Pch20pxJHRbsaMxp0EYgs3ZU0Gu7QTUznk8LhvbQvfY/edit?tab=t.0#heading=h.17wg41voij6q
+ *
+ *  @return GTLRGoogleHealthAPIQuery_ShlMGetShlManifest
+ */
++ (instancetype)queryWithObject:(GTLRGoogleHealthAPI_ManifestParams *)object
+                  externalShlId:(NSString *)externalShlId;
+
+@end
+
+/**
+ *  Forward a resource request for a given SHL
+ *
+ *  Method: health.shl.r.get
+ */
+@interface GTLRGoogleHealthAPIQuery_ShlRGet : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Required. External ID mapping to a ShlSharedLinkCapabilityToken object See
+ *  https://docs.google.com/document/d/1Pch20pxJHRbsaMxp0EYgs3ZU0Gu7QTUznk8LhvbQvfY/edit?tab=t.0#heading=h.17wg41voij6q
+ */
+@property(nonatomic, copy, nullable) NSString *externalShlId;
+
+/** Required. Encoded, encrypted message containing resource access details */
+@property(nonatomic, copy, nullable) NSString *resourceToken;
+
+/**
+ *  Fetches a @c GTLRGoogleHealthAPI_HttpBody.
+ *
+ *  Forward a resource request for a given SHL
+ *
+ *  @param externalShlId Required. External ID mapping to a
+ *    ShlSharedLinkCapabilityToken object See
+ *    https://docs.google.com/document/d/1Pch20pxJHRbsaMxp0EYgs3ZU0Gu7QTUznk8LhvbQvfY/edit?tab=t.0#heading=h.17wg41voij6q
+ *  @param resourceToken Required. Encoded, encrypted message containing
+ *    resource access details
+ *
+ *  @return GTLRGoogleHealthAPIQuery_ShlRGet
+ */
++ (instancetype)queryWithExternalShlId:(NSString *)externalShlId
+                         resourceToken:(NSString *)resourceToken;
+
+@end
+
+/**
  *  Delete a batch of identifyable data points.
  *
  *  Method: health.users.dataTypes.dataPoints.batchDelete
@@ -503,7 +568,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsBatchDelete : GTLRGoogleHealthAPIQuery
@@ -549,7 +617,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsCreate : GTLRGoogleHealthAPIQuery
@@ -863,7 +934,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsPatch : GTLRGoogleHealthAPIQuery

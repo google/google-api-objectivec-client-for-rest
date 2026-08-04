@@ -355,10 +355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfil
  *  certificate is not supported. Requests with multiple common names in the
  *  client certificate will be rejected if CLIENT_CERT_COMMON_NAME is set as the
  *  principal selector. A match happens when there is an exact common name value
- *  match. This is only applicable for Application Load Balancers except for
- *  global external Application Load Balancer and classic Application Load
- *  Balancer. CLIENT_CERT_COMMON_NAME is not supported for INTERNAL_SELF_MANAGED
- *  load balancing scheme.
+ *  match. This is only applicable for Application Load Balancers and not for
+ *  Classic Application Load Balancer. CLIENT_CERT_COMMON_NAME is not supported
+ *  for INTERNAL_SELF_MANAGED load balancing scheme.
  *
  *  Value: "CLIENT_CERT_COMMON_NAME"
  */
@@ -2107,8 +2106,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  rule. Limited to 50 principals per Authorization Policy for regional
  *  internal Application Load Balancers, regional external Application Load
  *  Balancers, cross-region internal Application Load Balancers, and Cloud
- *  Service Mesh. This field is not supported for global external Application
- *  Load Balancers.
+ *  Service Mesh while 25 principals per Authorization Policy for global
+ *  external Application Load Balancers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal *> *principals;
 
@@ -2179,10 +2178,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *        the client certificate will be rejected if CLIENT_CERT_COMMON_NAME is
  *        set as the principal selector. A match happens when there is an exact
  *        common name value match. This is only applicable for Application Load
- *        Balancers except for global external Application Load Balancer and
- *        classic Application Load Balancer. CLIENT_CERT_COMMON_NAME is not
- *        supported for INTERNAL_SELF_MANAGED load balancing scheme. (Value:
- *        "CLIENT_CERT_COMMON_NAME")
+ *        Balancers and not for Classic Application Load Balancer.
+ *        CLIENT_CERT_COMMON_NAME is not supported for INTERNAL_SELF_MANAGED
+ *        load balancing scheme. (Value: "CLIENT_CERT_COMMON_NAME")
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan
  *        The principal rule is matched against a list of DNS Name SANs in the
  *        validated client's certificate. A match happens when there is any
@@ -5636,6 +5634,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
+ *  Output only. Identifier used by the data-path. See the NSI GENEVE format for
+ *  more details:
+ *  https://docs.cloud.google.com/network-security-integration/docs/understand-geneve#network_id
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *networkCookie;
+
+/**
  *  Output only. The current state of the resource does not match the user's
  *  intended state, and the system is working to reconcile them. This part of
  *  the normal operation (e.g. adding a new location to the target deployment
@@ -6306,8 +6313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @property(nonatomic, copy, nullable) NSString *customMirroringProfile;
 
 /**
- *  Output only. Identifier used by the data-path. Unique within {container,
- *  location}.
+ *  Output only. Identifier used by the data-path. Unique within `{container,
+ *  location}`.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */

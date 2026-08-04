@@ -444,28 +444,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Gro
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase;
 
 // ----------------------------------------------------------------------------
-// GTLRAndroidEnterprise_GoogleAuthenticationSettings.dedicatedDevicesAllowed
-
-/**
- *  Dedicated devices are allowed.
- *
- *  Value: "allowed"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Allowed;
-/**
- *  This value is unused.
- *
- *  Value: "dedicatedDevicesAllowedUnspecified"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_DedicatedDevicesAllowedUnspecified;
-/**
- *  Dedicated devices are not allowed.
- *
- *  Value: "disallowed"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Disallowed;
-
-// ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_GoogleAuthenticationSettings.googleAuthenticationRequired
 
 /**
@@ -1767,7 +1745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  minute to
  *  [`Durations.MAX_VALUE`](https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/util/Durations.html#MAX_VALUE),
  *  approximately 10,000 years. If not specified, the default duration is 1
- *  hour.
+ *  hour. In the JSON REST API, this is represented as a string (e.g., `3600s`).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -2041,19 +2019,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Contains settings for Google-provided user authentication.
  */
 @interface GTLRAndroidEnterprise_GoogleAuthenticationSettings : GTLRObject
-
-/**
- *  Whether dedicated devices are allowed.
- *
- *  Likely values:
- *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Allowed
- *        Dedicated devices are allowed. (Value: "allowed")
- *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_DedicatedDevicesAllowedUnspecified
- *        This value is unused. (Value: "dedicatedDevicesAllowedUnspecified")
- *    @arg @c kGTLRAndroidEnterprise_GoogleAuthenticationSettings_DedicatedDevicesAllowed_Disallowed
- *        Dedicated devices are not allowed. (Value: "disallowed")
- */
-@property(nonatomic, copy, nullable) NSString *dedicatedDevicesAllowed;
 
 /**
  *  Whether Google authentication is required.

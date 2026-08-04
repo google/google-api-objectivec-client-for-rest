@@ -331,9 +331,9 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 /**
  *  Immutable. The resource name of the constraint. Must be in one of the
  *  following forms: * `projects/{project_number}/constraints/{constraint_name}`
- *  * `folders/{folder_id}/constraints/{constraint_name}` *
- *  `organizations/{organization_id}/constraints/{constraint_name}` For example,
- *  "/projects/123/constraints/compute.disableSerialPortAccess".
+ *  * `folders/{folder_number}/constraints/{constraint_name}` *
+ *  `organizations/{organization_number}/constraints/{constraint_name}` For
+ *  example, "/projects/123/constraints/compute.disableSerialPortAccess".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -715,9 +715,9 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *  Immutable. The resource name of the policy. Must be one of the following
  *  forms, where `constraint_name` is the name of the constraint that this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
- *  * `folders/{folder_id}/policies/{constraint_name}` *
- *  `organizations/{organization_id}/policies/{constraint_name}` For example,
- *  `projects/123/policies/compute.disableSerialPortAccess`. Note:
+ *  * `folders/{folder_number}/policies/{constraint_name}` *
+ *  `organizations/{organization_number}/policies/{constraint_name}` For
+ *  example, `projects/123/policies/compute.disableSerialPortAccess`. Note:
  *  `projects/{project_id}/policies/{constraint_name}` is also an acceptable
  *  name for API requests, but responses will return the name using the
  *  equivalent project number.

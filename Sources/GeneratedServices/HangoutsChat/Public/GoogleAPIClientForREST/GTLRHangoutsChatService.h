@@ -62,6 +62,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpaces;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpacesReadonly;
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see all
+ *  members in Google Chat spaces and conversations throughout your Workspace
+ *  organization, even when the Chat app isn't a member
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.all.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppAllMembershipsReadonly;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see all
+ *  messages and reactions throughout your Workspace organization, even when the
+ *  Chat app isn't a member of a space or conversation
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.all.messages.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppAllMessagesReadonly;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see
+ *  metadata about all spaces and conversations in Google Chat throughout your
+ *  Workspace organization, even when the Chat app isn't a member
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.all.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppAllSpacesReadonly;
+/**
  *  Authorization scope: On their own behalf, apps in Google Chat can delete
  *  conversations and spaces and remove access to associated files
  *

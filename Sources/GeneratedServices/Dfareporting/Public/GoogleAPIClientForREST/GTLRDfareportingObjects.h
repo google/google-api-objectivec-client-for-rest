@@ -41,6 +41,7 @@
 @class GTLRDfareporting_ClickTag;
 @class GTLRDfareporting_ClickThroughUrl;
 @class GTLRDfareporting_ClickThroughUrlSuffixProperties;
+@class GTLRDfareporting_ColumnHeader;
 @class GTLRDfareporting_CompanionClickThroughOverride;
 @class GTLRDfareporting_CompanionSetting;
 @class GTLRDfareporting_ConnectionType;
@@ -169,6 +170,7 @@
 @class GTLRDfareporting_Report_ReachCriteria;
 @class GTLRDfareporting_Report_Schedule;
 @class GTLRDfareporting_ReportCompatibleFields;
+@class GTLRDfareporting_ReportDataRow;
 @class GTLRDfareporting_ReportsConfiguration;
 @class GTLRDfareporting_RequestValue;
 @class GTLRDfareporting_RichMediaExitOverride;
@@ -182,6 +184,7 @@
 @class GTLRDfareporting_SiteVideoSettings;
 @class GTLRDfareporting_Size;
 @class GTLRDfareporting_SkippableSetting;
+@class GTLRDfareporting_SortBy;
 @class GTLRDfareporting_SortedDimension;
 @class GTLRDfareporting_StudioCreativeAsset;
 @class GTLRDfareporting_StudioCreativeDimension;
@@ -541,6 +544,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Campaign_EuPoliticalAdsDecl
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Campaign_EuPoliticalAdsDeclaration_DoesNotContainEuPoliticalAds;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_ColumnHeader.type
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "COLUMN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ColumnHeader_Type_ColumnTypeUnspecified;
+/**
+ *  Dimension.
+ *
+ *  Value: "DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ColumnHeader_Type_Dimension;
+/**
+ *  Metric.
+ *
+ *  Value: "METRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ColumnHeader_Type_Metric;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_ContentSource.resourceType
 
 /**
@@ -605,7 +630,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_Ibo
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCl;
 /** Value: "IBOPE_CO" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCo;
-/** Value: "INTAGE_JP" */
+/**
+ *  Allows populating multiple tvCampaignId filters and tvCampaignEndDate filter
+ *  on the report.
+ *
+ *  Value: "INTAGE_JP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IntageJp;
 /** Value: "INVALID_TV_DATA_PROVIDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_InvalidTvDataProvider;
@@ -883,6 +913,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_Disp
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_Creative.syntheticContentAttestationStatus
+
+/**
+ *  Attested as created or edited using AI.
+ *
+ *  Value: "IS_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_IsSynthetic;
+/**
+ *  Attested as not created or edited using AI.
+ *
+ *  Value: "NOT_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_NotSynthetic;
+/**
+ *  No attestation has been provided.
+ *
+ *  Value: "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.type
@@ -4240,6 +4292,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientati
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_SortBy.sortOrder
+
+/**
+ *  Ascending order.
+ *
+ *  Value: "ASCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SortBy_SortOrder_Ascending;
+/**
+ *  Descending order.
+ *
+ *  Value: "DESCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SortBy_SortOrder_Descending;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_SortedDimension.sortOrder
 
 /** Value: "ASCENDING" */
@@ -7427,6 +7495,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
+ *  A column header in the report.
+ */
+@interface GTLRDfareporting_ColumnHeader : GTLRObject
+
+/** Output only. The column name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The column type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_ColumnHeader_Type_ColumnTypeUnspecified Default
+ *        value. This value is unused. (Value: "COLUMN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDfareporting_ColumnHeader_Type_Dimension Dimension. (Value:
+ *        "DIMENSION")
+ *    @arg @c kGTLRDfareporting_ColumnHeader_Type_Metric Metric. (Value:
+ *        "METRIC")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Companion Click-through override.
  */
 @interface GTLRDfareporting_CompanionClickThroughOverride : GTLRObject
@@ -8630,6 +8722,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *subaccountId;
+
+/**
+ *  Optional. Whether to add a label to the creative as created or edited using
+ *  AI when served in regions with local AI labeling regulations. [Learn more
+ *  about labeling requirements in AI
+ *  regulations.](https://support.google.com/campaignmanager/answer/17232030)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_IsSynthetic
+ *        Attested as created or edited using AI. (Value: "IS_SYNTHETIC")
+ *    @arg @c kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_NotSynthetic
+ *        Attested as not created or edited using AI. (Value: "NOT_SYNTHETIC")
+ *    @arg @c kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified
+ *        No attestation has been provided. (Value:
+ *        "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *syntheticContentAttestationStatus;
 
 /**
  *  Third-party URL used to record backup image impressions. Applicable to the
@@ -16518,6 +16627,89 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
+ *  The request body containing ad-hoc query parameters.
+ */
+@interface GTLRDfareporting_ReportDataQueryRequest : GTLRObject
+
+/** Optional. The requested date range covering the report duration. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
+
+/**
+ *  Optional. The list of dimension values on which report lines are filtered.
+ *  Utilizes the existing legacy filter message `DimensionValue`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *dimensionFilters;
+
+/** Optional. The list of dimension names to group by. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensionNames;
+
+/**
+ *  Optional. Maximum number of result rows to return per page. The default
+ *  value is 100. The maximum allowed value is 1000. Values above 1000 will be
+ *  coerced (clamped) down to 1000. Negative values will be rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxResults;
+
+/** Required. The list of metric names to include. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
+
+/** Optional. Continuation token for paginating results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Optional. Sort options across either requested dimensions or metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortBy *> *sortBys;
+
+@end
+
+
+/**
+ *  Represents a response to report data request.
+ */
+@interface GTLRDfareporting_ReportDataResponse : GTLRObject
+
+/** Output only. Ordered descriptors of the requested column fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_ColumnHeader *> *columnHeaders;
+
+/**
+ *  Output only. Token to retrieve the next page of rows, or empty if end of
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Output only. The resulting set of matching data rows. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_ReportDataRow *> *rows;
+
+/**
+ *  Output only. Singular aggregate total row for the entire query matching the
+ *  criteria. Column headers apply in the exact same order as data rows. In the
+ *  total_row: - All dimension columns contain an empty string (""), as
+ *  aggregation does not apply. - Non-summable metric columns (e.g. Reach
+ *  metrics) contain an empty string (""), as grand total aggregation cannot be
+ *  mathematically/logically computed for them.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_ReportDataRow *totalRow;
+
+@end
+
+
+/**
+ *  A row of report data.
+ */
+@interface GTLRDfareporting_ReportDataRow : GTLRObject
+
+/**
+ *  Output only. A single sequential list of all cell values matching
+ *  column_headers indices exactly. - Metric cells that are suppressed due to
+ *  Minimum Reporting Standard (MRS) privacy protection constraints return "-".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
  *  Represents the list of reports.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -17167,6 +17359,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skippable;
+
+@end
+
+
+/**
+ *  Specifies the sort configuration for a specific field in the report.
+ */
+@interface GTLRDfareporting_SortBy : GTLRObject
+
+/** Required. The dimension or metric field name to sort on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The sort order of this column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_SortBy_SortOrder_Ascending Ascending order.
+ *        (Value: "ASCENDING")
+ *    @arg @c kGTLRDfareporting_SortBy_SortOrder_Descending Descending order.
+ *        (Value: "DESCENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *sortOrder;
 
 @end
 

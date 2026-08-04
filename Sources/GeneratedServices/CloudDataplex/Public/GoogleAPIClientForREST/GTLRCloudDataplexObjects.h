@@ -287,6 +287,7 @@
 @class GTLRCloudDataplex_GoogleIamV1AuditLogConfig;
 @class GTLRCloudDataplex_GoogleIamV1Binding;
 @class GTLRCloudDataplex_GoogleIamV1Policy;
+@class GTLRCloudDataplex_GoogleIamV1ResourcePolicyMember;
 @class GTLRCloudDataplex_GoogleLongrunningOperation;
 @class GTLRCloudDataplex_GoogleLongrunningOperation_Metadata;
 @class GTLRCloudDataplex_GoogleLongrunningOperation_Response;
@@ -5321,6 +5322,9 @@ GTLR_DEPRECATED
  *  This field is immutable after creation.
  */
 @property(nonatomic, copy, nullable) NSString *parentDataDomain;
+
+/** Output only. Output-only policy member strings of this resource. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleIamV1ResourcePolicyMember *policyMember;
 
 /** Output only. System-generated globally unique ID for the DataDomain. */
 @property(nonatomic, copy, nullable) NSString *uid;
@@ -10850,12 +10854,6 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest : GTLRObject
 
 /**
- *  Optional. The text representing contextual information for which metadata
- *  context is being requested.
- */
-@property(nonatomic, copy, nullable) NSString *context;
-
-/**
  *  Optional. Allows to configure the context.Supported options: format - The
  *  format of the context (one of yaml, xml, json, default is yaml).
  *  context_budget - If provided, the output will be intelligently truncated on
@@ -13604,6 +13602,33 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Output-only policy member strings of a Google Cloud resource's built-in
+ *  identity.
+ */
+@interface GTLRCloudDataplex_GoogleIamV1ResourcePolicyMember : GTLRObject
+
+/**
+ *  Output only. IAM policy binding member referring to a Google Cloud resource
+ *  by user-assigned name (https://google.aip.dev/122). If a resource is deleted
+ *  and recreated with the same name, the binding will be applicable to the new
+ *  resource.Example:
+ *  principal://parametermanager.googleapis.com/projects/12345/name/locations/us-central1-a/parameters/my-parameter
+ */
+@property(nonatomic, copy, nullable) NSString *iamPolicyNamePrincipal;
+
+/**
+ *  Output only. IAM policy binding member referring to a Google Cloud resource
+ *  by system-assigned unique identifier (https://google.aip.dev/148#uid). If a
+ *  resource is deleted and recreated with the same name, the binding will not
+ *  be applicable to the new resourceExample:
+ *  principal://parametermanager.googleapis.com/projects/12345/uid/locations/us-central1-a/parameters/a918fed5
+ */
+@property(nonatomic, copy, nullable) NSString *iamPolicyUidPrincipal;
 
 @end
 

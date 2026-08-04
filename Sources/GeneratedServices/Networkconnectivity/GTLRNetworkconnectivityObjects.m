@@ -195,6 +195,10 @@ NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_Tran
 NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_DefaultRouting = @"DEFAULT_ROUTING";
 NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_OtherRoutesUnspecified = @"OTHER_ROUTES_UNSPECIFIED";
 
+// GTLRNetworkconnectivity_PscAuthorizationPolicy.authorizationMode
+NSString * const kGTLRNetworkconnectivity_PscAuthorizationPolicy_AuthorizationMode_AuthorizationModeTransitiveToServiceAttachment = @"AUTHORIZATION_MODE_TRANSITIVE_TO_SERVICE_ATTACHMENT";
+NSString * const kGTLRNetworkconnectivity_PscAuthorizationPolicy_AuthorizationMode_AuthorizationModeUnspecified = @"AUTHORIZATION_MODE_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_PscConfig.producerInstanceLocation
 NSString * const kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_CustomResourceHierarchyLevels = @"CUSTOM_RESOURCE_HIERARCHY_LEVELS";
 NSString * const kGTLRNetworkconnectivity_PscConfig_ProducerInstanceLocation_ProducerInstanceLocationUnspecified = @"PRODUCER_INSTANCE_LOCATION_UNSPECIFIED";
@@ -1473,6 +1477,29 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_ListPscAuthorizationPoliciesResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListPscAuthorizationPoliciesResponse
+@dynamic nextPageToken, pscAuthorizationPolicies, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pscAuthorizationPolicies" : [GTLRNetworkconnectivity_PscAuthorizationPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"pscAuthorizationPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_ListRegionalEndpointsResponse
 //
 
@@ -1968,6 +1995,48 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_ProducerPscConfig
 @dynamic automatedDnsCreationSpec, serviceAttachmentUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_PscAuthorizationPolicy
+//
+
+@implementation GTLRNetworkconnectivity_PscAuthorizationPolicy
+@dynamic authorizationMode, authorizedClientResources, createTime,
+         descriptionProperty, ETag, labels, name, targetResourceUri, uid,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authorizedClientResources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_PscAuthorizationPolicy_Labels
+//
+
+@implementation GTLRNetworkconnectivity_PscAuthorizationPolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

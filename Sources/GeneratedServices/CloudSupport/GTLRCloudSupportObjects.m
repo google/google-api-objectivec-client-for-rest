@@ -260,6 +260,15 @@ NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Working = @"WO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSupport_Empty
+//
+
+@implementation GTLRCloudSupport_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSupport_EscalateCaseRequest
 //
 
@@ -275,6 +284,15 @@ NSString * const kGTLRCloudSupport_SupportEventSubscription_State_Working = @"WO
 
 @implementation GTLRCloudSupport_Escalation
 @dynamic justification, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSupport_ExpungeSupportEventSubscriptionRequest
+//
+
+@implementation GTLRCloudSupport_ExpungeSupportEventSubscriptionRequest
 @end
 
 
