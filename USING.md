@@ -40,6 +40,10 @@ obtained from the [Developer Console](https://console.developers.google.com/).
 
 #### Integration via CocoaPods
 
+**NOTE***: CocoaPods is spinning down in 2026,
+[announcement](https://blog.cocoapods.org/CocoaPods-Specs-Repo/), so it is in
+your interest to move to Swift Package Manager (SwiftPM) before then.
+
 If you are building from CocoaPods, just use the pod provided, `GoogleAPIClientForREST`. 
 
 The `Core` subspec includes the common parts of the library. There is also a
