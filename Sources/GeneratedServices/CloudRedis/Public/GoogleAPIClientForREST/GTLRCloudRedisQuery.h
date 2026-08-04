@@ -276,6 +276,85 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a specific ACL policy revision.
+ *
+ *  Method: redis.projects.locations.aclPolicies.revisions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsGet : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis ACL policy revision resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}/revisions/{revision_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_AclPolicyRevision.
+ *
+ *  Gets details of a specific ACL policy revision.
+ *
+ *  @param name Required. Redis ACL policy revision resource name using the
+ *    form:
+ *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}/revisions/{revision_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ACL policy revisions in a given ACL policy.
+ *
+ *  Method: redis.projects.locations.aclPolicies.revisions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsList : GTLRCloudRedisQuery
+
+/** Optional. The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The `next_page_token` value returned from a previous
+ *  `ListAclPolicyRevisions` request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the ACL policy to list revisions for. Format:
+ *  "projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_ListAclPolicyRevisionsResponse.
+ *
+ *  Lists all ACL policy revisions in a given ACL policy.
+ *
+ *  @param parent Required. The name of the ACL policy to list revisions for.
+ *    Format:
+ *    "projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}"
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes a specific backup.
  *
  *  Method: redis.projects.locations.backupCollections.backups.delete

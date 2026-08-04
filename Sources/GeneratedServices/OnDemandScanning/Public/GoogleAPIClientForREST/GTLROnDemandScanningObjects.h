@@ -891,6 +891,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_Con
 // GTLROnDemandScanning_Finding.scanner
 
 /**
+ *  Google AntiVirus Service scanner.
+ *
+ *  Value: "GOOGLE_ANTIVIRUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Finding_Scanner_GoogleAntivirus;
+/**
  *  LLM scanner.
  *
  *  Value: "LLM"
@@ -2879,6 +2885,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  Scanner determines which engine (e.g. static, llm) emitted the finding.
  *
  *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_Finding_Scanner_GoogleAntivirus Google
+ *        AntiVirus Service scanner. (Value: "GOOGLE_ANTIVIRUS")
  *    @arg @c kGTLROnDemandScanning_Finding_Scanner_Llm LLM scanner. (Value:
  *        "LLM")
  *    @arg @c kGTLROnDemandScanning_Finding_Scanner_ScannerUnspecified

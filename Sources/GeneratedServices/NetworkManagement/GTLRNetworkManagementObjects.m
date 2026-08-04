@@ -168,6 +168,8 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoValidRouteFromGoogleMan
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateConnectionNoRunningInstance = @"PRIVATE_CONNECTION_NO_RUNNING_INSTANCE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported = @"PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatSourceIpInExcludedRange = @"PRIVATE_NAT_SOURCE_IP_IN_EXCLUDED_RANGE";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatSourceIpIsALinkLocalIpInGke = @"PRIVATE_NAT_SOURCE_IP_IS_A_LINK_LOCAL_IP_IN_GKE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatToPscEndpointUnsupported = @"PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet = @"PRIVATE_TRAFFIC_TO_INTERNET";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PscConnectionNotAccepted = @"PSC_CONNECTION_NOT_ACCEPTED";
@@ -302,6 +304,13 @@ NSString * const kGTLRNetworkManagement_ForwardInfo_Target_RouterAppliance = @"R
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_SecureWebProxyGateway = @"SECURE_WEB_PROXY_GATEWAY";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway = @"VPN_GATEWAY";
+
+// GTLRNetworkManagement_ForwardingRuleInfo.envoyHealthCheckFirewallsConfigState
+NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsConfigured = @"FIREWALLS_CONFIGURED";
+NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsNotConfigured = @"FIREWALLS_NOT_CONFIGURED";
+NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsPartiallyConfigured = @"FIREWALLS_PARTIALLY_CONFIGURED";
+NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_FirewallsUnsupported = @"FIREWALLS_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_ForwardingRuleInfo_EnvoyHealthCheckFirewallsConfigState_HealthCheckFirewallsConfigStateUnspecified = @"HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED";
 
 // GTLRNetworkManagement_GkeNetworkPolicySkippedInfo.reason
 NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_EgressFromNodeNetworkNamespacePod = @"EGRESS_FROM_NODE_NETWORK_NAMESPACE_POD";
@@ -950,9 +959,9 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_ForwardingRuleInfo
-@dynamic displayName, loadBalancerName, matchedPortRange, matchedProtocol,
-         networkUri, pscGoogleApiTarget, pscServiceAttachmentUri, region,
-         target, uri, vip;
+@dynamic displayName, envoyHealthCheckFirewallsConfigState, loadBalancerName,
+         matchedPortRange, matchedProtocol, networkUri, pscGoogleApiTarget,
+         pscServiceAttachmentUri, region, target, uri, vip;
 @end
 
 
@@ -1479,7 +1488,7 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 @dynamic cloudNatGatewayType, natGatewayName, networkUri, newDestinationIp,
          newDestinationPort, newSourceIp, newSourcePort, oldDestinationIp,
          oldDestinationPort, oldSourceIp, oldSourcePort, protocol, routerUri,
-         type;
+         ruleNumber, type;
 @end
 
 

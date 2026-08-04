@@ -87,6 +87,12 @@ NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_Peered = @"PEERED";
 NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingClusterPeering = @"PENDING_CLUSTER_PEERING";
 NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingSvmPeering = @"PENDING_SVM_PEERING";
 
+// GTLRNetAppFiles_CloneDetails.splitState
+NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateFailed = @"SPLIT_STATE_FAILED";
+NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateInProgress = @"SPLIT_STATE_IN_PROGRESS";
+NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateNotSplitting = @"SPLIT_STATE_NOT_SPLITTING";
+NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateUnspecified = @"SPLIT_STATE_UNSPECIFIED";
+
 // GTLRNetAppFiles_HostGroup.osType
 NSString * const kGTLRNetAppFiles_HostGroup_OsType_Esxi        = @"ESXI";
 NSString * const kGTLRNetAppFiles_HostGroup_OsType_Linux       = @"LINUX";
@@ -131,6 +137,10 @@ NSString * const kGTLRNetAppFiles_KmsConfig_State_Migrating    = @"MIGRATING";
 NSString * const kGTLRNetAppFiles_KmsConfig_State_Ready        = @"READY";
 NSString * const kGTLRNetAppFiles_KmsConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_KmsConfig_State_Updating     = @"UPDATING";
+
+// GTLRNetAppFiles_LocationMetadata.flexPerformanceTier
+NSString * const kGTLRNetAppFiles_LocationMetadata_FlexPerformanceTier_FlexPerformanceTierUnspecified = @"FLEX_PERFORMANCE_TIER_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_LocationMetadata_FlexPerformanceTier_Limited = @"LIMITED";
 
 // GTLRNetAppFiles_LocationMetadata.supportedFlexPerformance
 NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedFlexPerformance_FlexPerformanceCustom = @"FLEX_PERFORMANCE_CUSTOM";
@@ -228,6 +238,12 @@ NSString * const kGTLRNetAppFiles_Snapshot_State_Error         = @"ERROR";
 NSString * const kGTLRNetAppFiles_Snapshot_State_Ready         = @"READY";
 NSString * const kGTLRNetAppFiles_Snapshot_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_Snapshot_State_Updating      = @"UPDATING";
+
+// GTLRNetAppFiles_SplitStatus.splitState
+NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateFailed = @"SPLIT_STATE_FAILED";
+NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateInProgress = @"SPLIT_STATE_IN_PROGRESS";
+NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateNotSplitting = @"SPLIT_STATE_NOT_SPLITTING";
+NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateUnspecified = @"SPLIT_STATE_UNSPECIFIED";
 
 // GTLRNetAppFiles_StoragePool.encryptionType
 NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_CloudKms = @"CLOUD_KMS";
@@ -603,7 +619,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_CloneDetails
-@dynamic sharedSpaceGib, sourceSnapshot, sourceVolume;
+@dynamic sharedSpaceGib, sourceSnapshot, sourceVolume, splitState;
 @end
 
 
@@ -1349,7 +1365,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_LocationMetadata
-@dynamic hasOntapProxy, hasVcp, supportedFlexPerformance,
+@dynamic flexPerformanceTier, hasOntapProxy, hasVcp, supportedFlexPerformance,
          supportedServiceLevels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1636,6 +1652,25 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @implementation GTLRNetAppFiles_SnapshotPolicy
 @dynamic dailySchedule, enabled, hourlySchedule, monthlySchedule,
          weeklySchedule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_SplitStatus
+//
+
+@implementation GTLRNetAppFiles_SplitStatus
+@dynamic progressPercent, splitState, stateDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_StartSplitRequest
+//
+
+@implementation GTLRNetAppFiles_StartSplitRequest
 @end
 
 

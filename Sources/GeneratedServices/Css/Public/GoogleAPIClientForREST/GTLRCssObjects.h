@@ -1138,7 +1138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 /**
  *  Output only. The current quota usage, meaning the number of calls already
  *  made on a given day to the methods in the group. The daily quota limits
- *  reset at at 12:00 PM midday UTC.
+ *  reset at 12:00 PM midday UTC.
  *
  *  Uses NSNumber of longLongValue.
  */

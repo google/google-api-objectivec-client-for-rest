@@ -10,6 +10,18 @@
 
 #import <GoogleAPIClientForREST/GTLRApiKeysServiceQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// checkExistingUsage
+NSString * const kGTLRApiKeysServiceCheckExistingUsageCheck    = @"CHECK";
+NSString * const kGTLRApiKeysServiceCheckExistingUsageCheckExistingUsageUnspecified = @"CHECK_EXISTING_USAGE_UNSPECIFIED";
+NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip     = @"SKIP";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRApiKeysServiceQuery
 
 @dynamic fields;
@@ -161,7 +173,7 @@
 
 @implementation GTLRApiKeysServiceQuery_ProjectsLocationsKeysPatch
 
-@dynamic name, updateMask;
+@dynamic checkExistingUsage, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRApiKeysService_V2Key *)object
                            name:(NSString *)name {

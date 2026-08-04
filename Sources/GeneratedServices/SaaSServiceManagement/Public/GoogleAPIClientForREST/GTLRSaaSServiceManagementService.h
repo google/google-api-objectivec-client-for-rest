@@ -22,7 +22,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -31,6 +31,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSaaSServiceManagementCloudPlatform;
+/**
+ *  Authorization scope: See your Google Cloud App Lifecycle Management data and
+ *  the email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/saasservicemgmt.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSaaSServiceManagementReadonly;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud App
+ *  Lifecycle Management data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/saasservicemgmt.read-write"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSaaSServiceManagementReadWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRSaaSServiceManagementService

@@ -1582,7 +1582,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDomain
 @dynamic contacts, createTime, descriptionProperty, displayName, labels, name,
-         parentDataDomain, uid, updateTime;
+         parentDataDomain, policyMember, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -4186,7 +4186,7 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest
-@dynamic context, options, resources;
+@dynamic options, resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5300,6 +5300,16 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleIamV1ResourcePolicyMember
+//
+
+@implementation GTLRCloudDataplex_GoogleIamV1ResourcePolicyMember
+@dynamic iamPolicyNamePrincipal, iamPolicyUidPrincipal;
 @end
 
 

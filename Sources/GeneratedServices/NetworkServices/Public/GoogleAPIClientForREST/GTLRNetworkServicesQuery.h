@@ -63,6 +63,210 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @end
 
 /**
+ *  Creates a new AgentConnectivityTemplate in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.agentConnectivityTemplates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Short name of the AgentConnectivityTemplate resource to be
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *agentConnectivityTemplateId;
+
+/**
+ *  Required. The parent resource of the AgentConnectivityTemplate. Must be in
+ *  the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new AgentConnectivityTemplate in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_AgentConnectivityTemplate to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the
+ *    AgentConnectivityTemplate. Must be in the format `projects/ * /locations/
+ *    *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_AgentConnectivityTemplate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AgentConnectivityTemplate.
+ *
+ *  Method: networkservices.projects.locations.agentConnectivityTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesDelete : GTLRNetworkServicesQuery
+
+/** Optional. The etag of the AgentConnectivityTemplate to delete. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the AgentConnectivityTemplate to delete. Must be in the
+ *  format `projects/ * /locations/ * /agentConnectivityTemplates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single AgentConnectivityTemplate.
+ *
+ *  @param name Required. A name of the AgentConnectivityTemplate to delete.
+ *    Must be in the format `projects/ * /locations/ *
+ *    /agentConnectivityTemplates/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AgentConnectivityTemplate.
+ *
+ *  Method: networkservices.projects.locations.agentConnectivityTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the AgentConnectivityTemplate to get. Must be in the
+ *  format `projects/ * /locations/ * /agentConnectivityTemplates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_AgentConnectivityTemplate.
+ *
+ *  Gets details of a single AgentConnectivityTemplate.
+ *
+ *  @param name Required. A name of the AgentConnectivityTemplate to get. Must
+ *    be in the format `projects/ * /locations/ * /agentConnectivityTemplates/
+ *    *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists AgentConnectivityTemplates in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.agentConnectivityTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesList : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. Maximum number of AgentConnectivityTemplates to return per call.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last
+ *  `ListAgentConnectivityTemplatesResponse` Indicates that this is a
+ *  continuation of a prior `ListAgentConnectivityTemplates` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the AgentConnectivityTemplates
+ *  should be listed, specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests. Otherwise if one of the locations is down or unreachable, the
+ *  Aggregated List request will fail.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListAgentConnectivityTemplatesResponse.
+ *
+ *  Lists AgentConnectivityTemplates in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    AgentConnectivityTemplates should be listed, specified in the format
+ *    `projects/ * /locations/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AgentConnectivityTemplate.
+ *
+ *  Method: networkservices.projects.locations.agentConnectivityTemplates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Identifier. Name of the AgentConnectivityTemplate resource. It matches
+ *  pattern `projects/ * /locations/ * /agentConnectivityTemplates/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  AgentConnectivityTemplate resource by the update. The fields specified in
+ *  the update_mask are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single AgentConnectivityTemplate.
+ *
+ *  @param object The @c GTLRNetworkServices_AgentConnectivityTemplate to
+ *    include in the query.
+ *  @param name Identifier. Name of the AgentConnectivityTemplate resource. It
+ *    matches pattern `projects/ * /locations/ * /agentConnectivityTemplates/`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_AgentConnectivityTemplate *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new AgentGateway in a given project and location.
  *
  *  Method: networkservices.projects.locations.agentGateways.create

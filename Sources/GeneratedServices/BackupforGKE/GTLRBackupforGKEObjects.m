@@ -347,7 +347,7 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_BackupRuleDetail
 @dynamic backupWindow, backupWindowTimezone, recurrence, recurrenceSchedule,
-         retentionDays, ruleName;
+         retentionDays, ruleName, storageTier;
 @end
 
 
@@ -385,7 +385,7 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
          errorMessage, errorType, incrementalBackupSizeGib, jobCategory, jobId,
          jobStatus, recoveryPointTime, resourceType, restoreResourceLocation,
          restoreResourceName, sourceResourceId, sourceResourceLocation,
-         sourceResourceName, startTime, targetResourceType;
+         sourceResourceName, startTime, storageTier, targetResourceType;
 @end
 
 

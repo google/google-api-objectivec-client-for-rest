@@ -38,13 +38,17 @@
 @class GTLRDataManager_EventLocation;
 @class GTLRDataManager_EventParameter;
 @class GTLRDataManager_ExperimentalField;
+@class GTLRDataManager_FieldWarning;
 @class GTLRDataManager_GcpWrappedKeyInfo;
+@class GTLRDataManager_GoogleUserIdData;
 @class GTLRDataManager_IngestAudienceMembersStatus;
 @class GTLRDataManager_IngestCompositeDataStatus;
 @class GTLRDataManager_IngestedUserListInfo;
 @class GTLRDataManager_IngestEventsStatus;
+@class GTLRDataManager_IngestGoogleUserIdDataStatus;
 @class GTLRDataManager_IngestMobileDataStatus;
 @class GTLRDataManager_IngestPairDataStatus;
+@class GTLRDataManager_IngestPartnerProvidedIdDataStatus;
 @class GTLRDataManager_IngestPpidDataStatus;
 @class GTLRDataManager_IngestUserDataStatus;
 @class GTLRDataManager_IngestUserIdDataStatus;
@@ -63,13 +67,17 @@
 @class GTLRDataManager_PartnerCustomerAccount;
 @class GTLRDataManager_PartnerLink;
 @class GTLRDataManager_PartnerLinkMetadata;
+@class GTLRDataManager_PartnerProvidedIdData;
 @class GTLRDataManager_PpidData;
 @class GTLRDataManager_ProductAccount;
 @class GTLRDataManager_PseudonymousIdInfo;
+@class GTLRDataManager_RemoveAllAudienceMembersStatus;
 @class GTLRDataManager_RemoveAudienceMembersStatus;
 @class GTLRDataManager_RemoveCompositeDataStatus;
+@class GTLRDataManager_RemoveGoogleUserIdDataStatus;
 @class GTLRDataManager_RemoveMobileDataStatus;
 @class GTLRDataManager_RemovePairDataStatus;
+@class GTLRDataManager_RemovePartnerProvidedIdDataStatus;
 @class GTLRDataManager_RemovePpidDataStatus;
 @class GTLRDataManager_RemoveUserDataStatus;
 @class GTLRDataManager_RemoveUserIdDataStatus;
@@ -824,6 +832,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld;
 /**
+ *  External attribution data is missing. Sending events to a destination for an
+ *  external attribution conversion action isn't supported.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExternalAttributionDataMissing;
+/**
  *  The matched transactions are less than the minimum threshold.
  *
  *  Value: "PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS"
@@ -1062,6 +1077,103 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Phone;
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Web;
 
 // ----------------------------------------------------------------------------
+// GTLRDataManager_FieldWarning.reason
+
+/**
+ *  The `merchant_product_id` is missing in the cart item.
+ *
+ *  Value: "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing;
+/**
+ *  The `unit_price` is missing in the cart item.
+ *
+ *  Value: "WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemUnitPriceMissing;
+/**
+ *  The `cart_data` is not supported with `gbraid` or `wbraid`.
+ *
+ *  Value: "WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataNotSupportedWithGbraidOrWbraid;
+/**
+ *  A custom variable in `custom_variables` is not enabled in the account.
+ *
+ *  Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotEnabled;
+/**
+ *  A custom variable value in `custom_variables` is not among the predefined
+ *  allowed values configured for the custom variable on the destination
+ *  account.
+ *
+ *  Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined;
+/**
+ *  Generic warning reason for issues that do not fit into other specific
+ *  categories.
+ *
+ *  Value: "WARNING_REASON_GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric;
+/**
+ *  The `client_id` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_CLIENT_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidClientId;
+/**
+ *  The `continent_code` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_CONTINENT_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidContinentCode;
+/**
+ *  The device `category` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_DEVICE_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceCategory;
+/**
+ *  The device `screen_height` or `screen_width` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution;
+/**
+ *  The `merchant_id` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_MERCHANT_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId;
+/**
+ *  The `region_code` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_REGION_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode;
+/**
+ *  The `subcontinent_code` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_SUBCONTINENT_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode;
+/**
+ *  The `subdivision_code` is invalid.
+ *
+ *  Value: "WARNING_REASON_INVALID_SUBDIVISION_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode;
+/**
+ *  Unspecified warning reason.
+ *
+ *  Value: "WARNING_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataManager_GcpWrappedKeyInfo.keyType
 
 /**
@@ -1193,7 +1305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestedUserListInfo_UploadK
 /**
  *  Data Management Platform IDs: - Google User ID - Partner Provided ID -
  *  Publisher Provided ID - iOS IDFA - Android advertising ID - Roku ID - Amazon
- *  Fire TV ID - Xbox or Microsoft ID
+ *  Fire TV ID - Xbox or Microsoft ID - Generic Device ID
  *
  *  Value: "PSEUDONYMOUS_ID"
  */
@@ -2301,6 +2413,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @interface GTLRDataManager_AddressInfo : GTLRObject
 
 /**
+ *  Optional. The street and number of the user's address. Used only for Google
+ *  Analytics. This field is hashed and possibly encrypted. Normalize the value
+ *  before hashing: - Remove symbol characters - Convert to lowercase - Remove
+ *  leading and trailing whitespace
+ */
+@property(nonatomic, copy, nullable) NSString *addressLine;
+
+/**
+ *  Optional. The administrative area (state/province) of the user's address.
+ *  Used only for Google Analytics. The value should be normalized as such: -
+ *  Remove symbol characters - Convert to lowercase - Remove leading and
+ *  trailing whitespace
+ */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/**
+ *  Optional. The city of the user's address. Used only for Google Analytics.
+ *  The value should be normalized as such: - Remove symbol characters - Convert
+ *  to lowercase - Remove leading and trailing whitespace
+ */
+@property(nonatomic, copy, nullable) NSString *city;
+
+/**
  *  Required. Family (last) name of the user, all lowercase, with no
  *  punctuation, no leading or trailing whitespace, and hashed as SHA-256.
  */
@@ -2482,7 +2617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, copy, nullable) NSString *campaignName;
 
 /**
- *  Optional. Information gathered about the device being used when the ad event
+ *  Required. Information gathered about the device being used when the ad event
  *  happened.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *deviceInfo;
@@ -2582,7 +2717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 /** String value for platform type. */
 @property(nonatomic, copy, nullable) NSString *platformTypeString;
 
-/** Required. The ISO 3166-2 country plus subdivision. */
+/** Optional. The ISO 3166-2 country plus subdivision. */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
@@ -2703,6 +2838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 /** Optional. Defines which Destination to send the audience member to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinationReferences;
 
+/** Encrypted Google User IDs. */
+@property(nonatomic, strong, nullable) GTLRDataManager_GoogleUserIdData *googleUserIdData;
+
 /** Data identifying the user's mobile devices. */
 @property(nonatomic, strong, nullable) GTLRDataManager_MobileData *mobileData;
 
@@ -2712,6 +2850,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  available to data partners.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_PairData *pairData;
+
+/** Partner-provided identifiers. */
+@property(nonatomic, strong, nullable) GTLRDataManager_PartnerProvidedIdData *partnerProvidedIdData;
 
 /**
  *  Data related to publisher provided identifiers. This feature is only
@@ -3059,14 +3200,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, copy, nullable) NSString *category;
 
 /**
- *  Optional. The IP address of the device for the given context. **Note:**
- *  Google Ads does not support IP address matching for end users in the
- *  European Economic Area (EEA), United Kingdom (UK), or Switzerland (CH). Add
- *  logic to conditionally exclude sharing IP addresses from users from these
- *  regions and ensure that you provide users with clear and comprehensive
- *  information about the data you collect on your sites, apps, and other
- *  properties and get consent where required by law or any applicable Google
- *  policies. See the [About offline conversion
+ *  Optional. The IP address of the device for the given context. Required when
+ *  used in an AdEvent. **Note:** Google Ads does not support IP address
+ *  matching for end users in the European Economic Area (EEA), United Kingdom
+ *  (UK), or Switzerland (CH). Add logic to conditionally exclude sharing IP
+ *  addresses from users from these regions and ensure that you provide users
+ *  with clear and comprehensive information about the data you collect on your
+ *  sites, apps, and other properties and get consent where required by law or
+ *  any applicable Google policies. See the [About offline conversion
  *  imports](https://support.google.com/google-ads/answer/2998031) page for more
  *  details.
  */
@@ -3245,6 +3386,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld
  *        The conversion is older than max supported age. (Value:
  *        "PROCESSING_ERROR_REASON_EVENT_TOO_OLD")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExternalAttributionDataMissing
+ *        External attribution data is missing. Sending events to a destination
+ *        for an external attribution conversion action isn't supported. (Value:
+ *        "PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientMatchedTransactions
  *        The matched transactions are less than the minimum threshold. (Value:
  *        "PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS")
@@ -3588,6 +3733,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  Detailed row-level warning with field paths.
+ */
+@interface GTLRDataManager_FieldWarning : GTLRObject
+
+/**
+ *  The detailed warning message describing the issue.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The field path that triggered the warning. Uses the same format as
+ *  google.rpc.BadRequest.FieldViolation.field.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  The warning reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing
+ *        The `merchant_product_id` is missing in the cart item. (Value:
+ *        "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemUnitPriceMissing
+ *        The `unit_price` is missing in the cart item. (Value:
+ *        "WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataNotSupportedWithGbraidOrWbraid
+ *        The `cart_data` is not supported with `gbraid` or `wbraid`. (Value:
+ *        "WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotEnabled
+ *        A custom variable in `custom_variables` is not enabled in the account.
+ *        (Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined
+ *        A custom variable value in `custom_variables` is not among the
+ *        predefined allowed values configured for the custom variable on the
+ *        destination account. (Value:
+ *        "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric Generic
+ *        warning reason for issues that do not fit into other specific
+ *        categories. (Value: "WARNING_REASON_GENERIC")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidClientId
+ *        The `client_id` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_CLIENT_ID")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidContinentCode
+ *        The `continent_code` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_CONTINENT_CODE")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceCategory
+ *        The device `category` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_DEVICE_CATEGORY")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution
+ *        The device `screen_height` or `screen_width` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId
+ *        The `merchant_id` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_MERCHANT_ID")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode
+ *        The `region_code` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_REGION_CODE")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode
+ *        The `subcontinent_code` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_SUBCONTINENT_CODE")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode
+ *        The `subdivision_code` is invalid. (Value:
+ *        "WARNING_REASON_INVALID_SUBDIVISION_CODE")
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified
+ *        Unspecified warning reason. (Value: "WARNING_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
  *  Information about the Google Cloud Platform wrapped key.
  */
 @interface GTLRDataManager_GcpWrappedKeyInfo : GTLRObject
@@ -3628,6 +3847,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  Google user id data holding encrypted google user IDs. At least one google
+ *  user ID is required.
+ */
+@interface GTLRDataManager_GoogleUserIdData : GTLRObject
+
+/** Required. The list of encrypted google user IDs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *googleUserIds;
+
+@end
+
+
+/**
  *  Request to upload ad events.
  */
 @interface GTLRDataManager_IngestAdEventsRequest : GTLRObject
@@ -3636,7 +3867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_AdEvent *> *adEvents;
 
 /**
- *  Optional. Information about encryption keys which are used to encrypt the
+ *  Required. Information about encryption keys which are used to encrypt the
  *  data.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
@@ -3646,7 +3877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+@property(nonatomic, strong, nullable) NSNumber *validateOnly GTLR_DEPRECATED;
 
 @end
 
@@ -3726,6 +3957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_IngestAudienceMembersResponse : GTLRObject
 
+/** Detailed row-level warnings with field paths. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_FieldWarning *> *fieldWarnings;
+
 /** The auto-generated ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3740,11 +3974,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 /** The status of the composite data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestCompositeDataStatus *compositeDataIngestionStatus;
 
+/** The status of the google user id data ingestion to the destination. */
+@property(nonatomic, strong, nullable) GTLRDataManager_IngestGoogleUserIdDataStatus *googleUserIdDataIngestionStatus;
+
 /** The status of the mobile data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestMobileDataStatus *mobileDataIngestionStatus;
 
 /** The status of the pair data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestPairDataStatus *pairDataIngestionStatus;
+
+/**
+ *  The status of the partner provided id data ingestion to the destination.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_IngestPartnerProvidedIdDataStatus *partnerProvidedIdDataIngestionStatus;
 
 /** The status of the ppid data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestPpidDataStatus *ppidDataIngestionStatus;
@@ -3934,6 +4176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_IngestEventsResponse : GTLRObject
 
+/** Detailed row-level warnings with field paths. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_FieldWarning *> *fieldWarnings;
+
 /** The auto-generated ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3948,6 +4193,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 /**
  *  The total count of events sent in the upload request. Includes all events in
  *  the request, regardless of whether they were successfully ingested or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordCount;
+
+@end
+
+
+/**
+ *  The status of the google user id data ingestion to the destination
+ *  containing stats related to the ingestion.
+ */
+@interface GTLRDataManager_IngestGoogleUserIdDataStatus : GTLRObject
+
+/**
+ *  The total count of google user ids sent in the upload request for the
+ *  destination. Includes all google user ids in the request, regardless of
+ *  whether they were successfully ingested or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleUserIdCount;
+
+/**
+ *  The total count of audience members sent in the upload request for the
+ *  destination. Includes all audience members in the request, regardless of
+ *  whether they were successfully ingested or not.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3997,6 +4269,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pairIdCount;
+
+/**
+ *  The total count of audience members sent in the upload request for the
+ *  destination. Includes all audience members in the request, regardless of
+ *  whether they were successfully ingested or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordCount;
+
+@end
+
+
+/**
+ *  The status of the partner provided id data ingestion to the destination
+ *  containing stats related to the ingestion.
+ */
+@interface GTLRDataManager_IngestPartnerProvidedIdDataStatus : GTLRObject
+
+/**
+ *  The total count of partner provided ids sent in the upload request for the
+ *  destination. Includes all partner provided ids in the request, regardless of
+ *  whether they were successfully ingested or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerProvidedIdCount;
 
 /**
  *  The total count of audience members sent in the upload request for the
@@ -4490,8 +4789,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @interface GTLRDataManager_MobileData : GTLRObject
 
 /**
- *  Required. The list of mobile device IDs (advertising ID/IDFA). At most 10
- *  `mobileIds` can be provided in a single AudienceMember.
+ *  Required. The list of mobile device IDs (Android advertising ID, iOS IDFA
+ *  for Customer Match user lists and Android advertising ID, iOS IDFA, Xbox or
+ *  Microsoft ID, Amazon Fire TV ID, Roku ID, Generic Device ID for basic user
+ *  lists). At most 10 `mobileIds` can be provided in a single AudienceMember.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mobileIds;
 
@@ -4735,6 +5036,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  Partner-provided data holding the partner-provided identifiers. At least one
+ *  partner-provided identifier is required.
+ */
+@interface GTLRDataManager_PartnerProvidedIdData : GTLRObject
+
+/** Required. The list of partner-provided identifiers. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *partnerProvidedIds;
+
+@end
+
+
+/**
  *  Publisher provided identifiers data holding the ppids. At least one ppid is
  *  required. This feature is only available to data partners.
  */
@@ -4841,6 +5154,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  Request to remove all users from an audience in the provided destinations.
+ *  Returns a RemoveAllAudienceMembersResponse.
+ */
+@interface GTLRDataManager_RemoveAllAudienceMembersRequest : GTLRObject
+
+/** Required. The list of destinations to remove the users from. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Destination *> *destinations;
+
+/**
+ *  Optional. The remove as of time. If set, only audience members last added
+ *  before this time will be removed. If not set, it defaults to current time.
+ *  The remove as of time must not be in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *removeAsOfTime;
+
+/**
+ *  Optional. For testing purposes. If `true`, the request is validated but not
+ *  executed. Only errors are returned, not results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response from the RemoveAllAudienceMembersRequest.
+ */
+@interface GTLRDataManager_RemoveAllAudienceMembersResponse : GTLRObject
+
+/** The auto-generated ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  The status of the remove all audience members request.
+ */
+@interface GTLRDataManager_RemoveAllAudienceMembersStatus : GTLRObject
+@end
+
+
+/**
  *  Request to remove users from an audience in the provided destinations.
  *  Returns a RemoveAudienceMembersResponse.
  */
@@ -4905,11 +5263,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 /** The status of the composite data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveCompositeDataStatus *compositeDataRemovalStatus;
 
+/** The status of the google user id data removal from the destination. */
+@property(nonatomic, strong, nullable) GTLRDataManager_RemoveGoogleUserIdDataStatus *googleUserIdDataRemovalStatus;
+
 /** The status of the mobile data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveMobileDataStatus *mobileDataRemovalStatus;
 
 /** The status of the pair data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemovePairDataStatus *pairDataRemovalStatus;
+
+/**
+ *  The status of the partner provided id data removal from the destination.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_RemovePartnerProvidedIdDataStatus *partnerProvidedIdDataRemovalStatus;
 
 /** The status of the ppid data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemovePpidDataStatus *ppidDataRemovalStatus;
@@ -4934,6 +5300,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  they were successfully removed or not.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_DataTypeCount *> *dataTypeCounts;
+
+/**
+ *  The total count of audience members sent in the removal request. Includes
+ *  all audience members in the request, regardless of whether they were
+ *  successfully removed or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordCount;
+
+@end
+
+
+/**
+ *  The status of the google user id data removal from the destination.
+ */
+@interface GTLRDataManager_RemoveGoogleUserIdDataStatus : GTLRObject
+
+/**
+ *  The total count of google user ids sent in the removal request. Includes all
+ *  google user ids in the request, regardless of whether they were successfully
+ *  removed or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleUserIdCount;
 
 /**
  *  The total count of audience members sent in the removal request. Includes
@@ -4986,6 +5378,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pairIdCount;
+
+/**
+ *  The total count of audience members sent in the removal request. Includes
+ *  all audience members in the request, regardless of whether they were
+ *  successfully removed or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordCount;
+
+@end
+
+
+/**
+ *  The status of the partner provided id data removal from the destination.
+ */
+@interface GTLRDataManager_RemovePartnerProvidedIdDataStatus : GTLRObject
+
+/**
+ *  The total count of partner provided ids sent in the removal request.
+ *  Includes all partner provided ids in the request, regardless of whether they
+ *  were successfully removed or not.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerProvidedIdCount;
 
 /**
  *  The total count of audience members sent in the removal request. Includes
@@ -5100,6 +5518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 /** The status of the ingest events request. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestEventsStatus *eventsIngestionStatus;
+
+/** The status of the remove all audience members request. */
+@property(nonatomic, strong, nullable) GTLRDataManager_RemoveAllAudienceMembersStatus *removeAllAudienceMembersStatus;
 
 /**
  *  The request status of the destination.

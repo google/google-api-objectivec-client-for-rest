@@ -14,6 +14,10 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllMembershipsReadonly = @"https://www.googleapis.com/auth/chat.app.all.memberships.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllMessagesReadonly = @"https://www.googleapis.com/auth/chat.app.all.messages.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllSpacesReadonly = @"https://www.googleapis.com/auth/chat.app.all.spaces.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppAllUsersReadstateReadonly = @"https://www.googleapis.com/auth/chat.app.all.users.readstate.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMemberships = @"https://www.googleapis.com/auth/chat.app.memberships";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMembershipsReadonly = @"https://www.googleapis.com/auth/chat.app.memberships.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly = @"https://www.googleapis.com/auth/chat.app.messages.readonly";

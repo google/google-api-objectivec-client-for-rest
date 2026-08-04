@@ -77,6 +77,21 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_PriceLevel_PriceLevelMo
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_PriceLevel_PriceLevelUnspecified = @"PRICE_LEVEL_UNSPECIFIED";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_PriceLevel_PriceLevelVeryExpensive = @"PRICE_LEVEL_VERY_EXPENSIVE";
 
+// GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance.tags
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance_Tags_Preferred = @"PREFERRED";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance_Tags_TagUnspecified = @"TAG_UNSPECIFIED";
+
+// GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint.travelModes
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_TravelModes_Drive = @"DRIVE";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_TravelModes_TravelModeUnspecified = @"TRAVEL_MODE_UNSPECIFIED";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_TravelModes_Walk = @"WALK";
+
+// GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint.usages
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_Dropoff = @"DROPOFF";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_Parking = @"PARKING";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_Pickup = @"PICKUP";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint_Usages_UsageUnspecified = @"USAGE_UNSPECIFIED";
+
 // GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours.secondaryHoursType
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHoursType_Access = @"ACCESS";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHoursType_Breakfast = @"BREAKFAST";
@@ -567,22 +582,23 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Vehic
          adrFormatAddress, allowsDogs, attributions, businessStatus,
          consumerAlert, containingPlaces, curbsidePickup, currentOpeningHours,
          currentSecondaryOpeningHours, delivery, dineIn, displayName,
-         editorialSummary, evChargeAmenitySummary, evChargeOptions,
+         editorialSummary, entrances, evChargeAmenitySummary, evChargeOptions,
          formattedAddress, fuelOptions, generativeSummary, goodForChildren,
          goodForGroups, goodForWatchingSports, googleMapsLinks,
          googleMapsTypeLabel, googleMapsUri, iconBackgroundColor,
          iconMaskBaseUri, identifier, internationalPhoneNumber, liveMusic,
          location, menuForChildren, movedPlace, movedPlaceId, name,
-         nationalPhoneNumber, neighborhoodSummary, openingDate, outdoorSeating,
-         parkingOptions, paymentOptions, photos, plusCode, postalAddress,
-         priceLevel, priceRange, primaryType, primaryTypeDisplayName,
-         pureServiceAreaBusiness, rating, regularOpeningHours,
-         regularSecondaryOpeningHours, reservable, restroom, reviews,
-         reviewSummary, servesBeer, servesBreakfast, servesBrunch,
-         servesCocktails, servesCoffee, servesDessert, servesDinner,
-         servesLunch, servesVegetarianFood, servesWine, shortFormattedAddress,
-         subDestinations, takeout, timeZone, transitStation, types,
-         userRatingCount, utcOffsetMinutes, viewport, websiteUri;
+         nationalPhoneNumber, navigationPoints, neighborhoodSummary,
+         openingDate, outdoorSeating, parkingOptions, paymentOptions, photos,
+         plusCode, postalAddress, priceLevel, priceRange, primaryType,
+         primaryTypeDisplayName, pureServiceAreaBusiness, rating,
+         regularOpeningHours, regularSecondaryOpeningHours, reservable,
+         restroom, reviews, reviewSummary, servesBeer, servesBreakfast,
+         servesBrunch, servesCocktails, servesCoffee, servesDessert,
+         servesDinner, servesLunch, servesVegetarianFood, servesWine,
+         shortFormattedAddress, subDestinations, takeout, timeZone,
+         transitStation, types, userRatingCount, utcOffsetMinutes, viewport,
+         websiteUri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -594,6 +610,8 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Vehic
     @"attributions" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution class],
     @"containingPlaces" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace class],
     @"currentSecondaryOpeningHours" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours class],
+    @"entrances" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance class],
+    @"navigationPoints" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint class],
     @"photos" : [GTLRMapsPlaces_GoogleMapsPlacesV1Photo class],
     @"regularSecondaryOpeningHours" : [GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours class],
     @"reviews" : [GTLRMapsPlaces_GoogleMapsPlacesV1Review class],
@@ -697,6 +715,24 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Vehic
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEntrance
+@dynamic location, tags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary
 //
 
@@ -722,6 +758,25 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1TransitLine_VehicleType_Vehic
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks
 @dynamic directionsUri, photosUri, placeUri, reviewsUri, writeAReviewUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNavigationPoint
+@dynamic displayName, location, navigationPointToken, travelModes, usages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"travelModes" : [NSString class],
+    @"usages" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

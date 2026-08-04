@@ -33,6 +33,12 @@ NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskExtreme = @"
 NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskMl = @"HYPERDISK_ML";
 NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskThroughput = @"HYPERDISK_THROUGHPUT";
 
+// GTLRDataproc_AttachmentOperationMetadata.operationType
+NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_AttachmentOperationTypeUnspecified = @"ATTACHMENT_OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_Create = @"CREATE";
+NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_Update = @"UPDATE";
+
 // GTLRDataproc_AuthenticationConfig.userWorkloadAuthenticationType
 NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_EndUserCredentials = @"END_USER_CREDENTIALS";
@@ -370,6 +376,26 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse
+@dynamic executionData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse
+//
+
+@implementation GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse
+@dynamic executionData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_AccessSessionSparkApplicationResponse
 //
 
@@ -435,6 +461,26 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_AccessSparkApplicationJobResponse
 @dynamic jobData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse
+@dynamic buildInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse
+//
+
+@implementation GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse
+@dynamic executionData;
 @end
 
 
@@ -682,6 +728,43 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_AttachedDiskConfig
 @dynamic diskSizeGb, diskType, provisionedIops, provisionedThroughput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AttachmentOperationMetadata
+//
+
+@implementation GTLRDataproc_AttachmentOperationMetadata
+@dynamic attachment, attachmentUuid, createTime, descriptionProperty, doneTime,
+         labels, operationType, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AttachmentOperationMetadata_Labels
+//
+
+@implementation GTLRDataproc_AttachmentOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1113,6 +1196,30 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_CohortInfo
 @dynamic cohort, cohortSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ComputeTuningConfigResponse
+//
+
+@implementation GTLRDataproc_ComputeTuningConfigResponse
+@dynamic recommendedProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ComputeTuningConfigResponse_RecommendedProperties
+//
+
+@implementation GTLRDataproc_ComputeTuningConfigResponse_RecommendedProperties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1776,7 +1883,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_IdentityConfig
-@dynamic userServiceAccountMapping;
+@dynamic enableSsh, userServiceAccountMapping;
 @end
 
 
@@ -1907,7 +2014,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_InstanceSelection
-@dynamic machineTypes, rank;
+@dynamic diskConfig, machineTypes, rank;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3466,6 +3573,28 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse
+//
+
+@implementation GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse
+@dynamic nextPageToken, sparkApplicationNativeSqlQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationNativeSqlQueries" : [GTLRDataproc_NativeSqlExecutionUiData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationNativeSqlQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SearchSessionSparkApplicationSqlQueriesResponse
 //
 
@@ -3635,6 +3764,28 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (NSString *)collectionItemsKey {
   return @"sparkApplicationJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse
+//
+
+@implementation GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse
+@dynamic nextPageToken, sparkApplicationNativeSqlQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sparkApplicationNativeSqlQueries" : [GTLRDataproc_NativeSqlExecutionUiData class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sparkApplicationNativeSqlQueries";
 }
 
 @end

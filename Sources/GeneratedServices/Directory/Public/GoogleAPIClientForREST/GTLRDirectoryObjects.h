@@ -49,6 +49,7 @@
 @class GTLRDirectory_CustomerPostalAddress;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
+@class GTLRDirectory_ExternalId;
 @class GTLRDirectory_FailureInfo;
 @class GTLRDirectory_FanInfo;
 @class GTLRDirectory_Feature;
@@ -3131,6 +3132,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  External identifier used to link and identify this group across external
+ *  directory systems.
+ */
+@interface GTLRDirectory_ExternalId : GTLRObject
+
+/**
+ *  The unique identifier string assigned by the external provider.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The system or identity provider managing this ID.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
  *  Info about failures
  */
 @interface GTLRDirectory_FailureInfo : GTLRObject
@@ -3403,6 +3427,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The list of external IDs for the group, such as an immutable
+ *  identifier from an external identity provider or directory sync client. Each
+ *  entry contains a namespace and an ID value.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ExternalId *> *externalIds;
 
 /**
  *  Read-only. The unique ID of a group. A group `id` can be used as a group

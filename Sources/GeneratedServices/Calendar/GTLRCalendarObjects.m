@@ -68,8 +68,8 @@
 
 @implementation GTLRCalendar_Calendar
 @dynamic autoAcceptInvitations, conferenceProperties, dataOwner,
-         descriptionProperty, ETag, identifier, kind, location, summary,
-         timeZone;
+         descriptionProperty, ETag, identifier, kind, labelProperties, location,
+         summary, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -380,13 +380,14 @@
 @implementation GTLRCalendar_Event
 @dynamic anyoneCanAddSelf, attachments, attendees, attendeesOmitted,
          birthdayProperties, colorId, conferenceData, created, creator,
-         descriptionProperty, end, endTimeUnspecified, ETag, eventType,
-         extendedProperties, focusTimeProperties, gadget, guestsCanInviteOthers,
-         guestsCanModify, guestsCanSeeOtherGuests, hangoutLink, htmlLink,
-         iCalUID, identifier, kind, location, locked, organizer,
-         originalStartTime, outOfOfficeProperties, privateCopy, recurrence,
-         recurringEventId, reminders, sequence, source, start, status, summary,
-         transparency, updated, visibility, workingLocationProperties;
+         descriptionProperty, end, endTimeUnspecified, ETag, eventLabelId,
+         eventType, extendedProperties, focusTimeProperties, gadget,
+         guestsCanInviteOthers, guestsCanModify, guestsCanSeeOtherGuests,
+         hangoutLink, htmlLink, iCalUID, identifier, kind, location, locked,
+         organizer, originalStartTime, outOfOfficeProperties, privateCopy,
+         recurrence, recurringEventId, reminders, sequence, source, start,
+         status, summary, transparency, updated, visibility,
+         workingLocationProperties;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -609,6 +610,12 @@
 //
 
 @implementation GTLRCalendar_EventLabel
+@dynamic backgroundColor, identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -806,6 +813,15 @@
 //
 
 @implementation GTLRCalendar_LabelProperties
+@dynamic eventLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventLabels" : [GTLRCalendar_EventLabel class]
+  };
+  return map;
+}
+
 @end
 
 

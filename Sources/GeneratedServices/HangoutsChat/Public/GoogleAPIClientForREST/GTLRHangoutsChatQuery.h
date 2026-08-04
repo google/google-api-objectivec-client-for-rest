@@ -62,6 +62,34 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatCreateMessageNotificationOpt
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeSilent;
 
 // ----------------------------------------------------------------------------
+// markupSyntax
+
+/**
+ *  Uses Google Chat's markup syntax. See
+ *  https://developers.google.com/workspace/chat/format-messages#format-texts
+ *  for more information.
+ *
+ *  Value: "MARKUP_SYNTAX_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxChat;
+/**
+ *  Uses Markdown syntax. This syntax is based on the
+ *  [CommonMark](https://commonmark.org/help/) specification, with additional
+ *  extensions. See
+ *  https://developers.google.com/workspace/chat/format-messages#format-texts
+ *  for more information.
+ *
+ *  Value: "MARKUP_SYNTAX_MARKDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxMarkdown;
+/**
+ *  Represents the unspecified value.
+ *
+ *  Value: "MARKUP_SYNTAX_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxUnspecified;
+
+// ----------------------------------------------------------------------------
 // messageReplyOption
 
 /**
@@ -1934,6 +1962,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @interface GTLRHangoutsChatQuery_SpacesMessagesGet : GTLRHangoutsChatQuery
 
 /**
+ *  Optional. Specifies the desired output syntax for the Chat message
+ *  `formatted_text` field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxUnspecified Represents
+ *        the unspecified value. (Value: "MARKUP_SYNTAX_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxChat Uses Google Chat's
+ *        markup syntax. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_CHAT")
+ *    @arg @c kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxMarkdown Uses Markdown
+ *        syntax. This syntax is based on the
+ *        [CommonMark](https://commonmark.org/help/) specification, with
+ *        additional extensions. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_MARKDOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *markupSyntax;
+
+/**
  *  Required. Resource name of the message. Format:
  *  `spaces/{space}/messages/{message}` If you've set a custom ID for your
  *  message, you can use the value from the `clientAssignedMessageId` field for
@@ -2032,6 +2080,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  rejected by the server with an `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the desired output syntax for the Chat message
+ *  `formatted_text` field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxUnspecified Represents
+ *        the unspecified value. (Value: "MARKUP_SYNTAX_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxChat Uses Google Chat's
+ *        markup syntax. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_CHAT")
+ *    @arg @c kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxMarkdown Uses Markdown
+ *        syntax. This syntax is based on the
+ *        [CommonMark](https://commonmark.org/help/) specification, with
+ *        additional extensions. See
+ *        https://developers.google.com/workspace/chat/format-messages#format-texts
+ *        for more information. (Value: "MARKUP_SYNTAX_MARKDOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *markupSyntax;
 
 /**
  *  Optional. How the list of messages is ordered. Specify a value to order by
@@ -2411,6 +2479,78 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @end
 
 /**
+ *  Searches for messages in Google Chat that the calling user has access to.
+ *  Returns a list of messages matching the search criteria. To search across
+ *  all spaces the user has access to, set `parent` to `spaces/-`. Using any
+ *  other value for `parent` results in an `INVALID_ARGUMENT` error. The
+ *  returned messages have their `name` field populated with the full resource
+ *  name, which includes the specific `space` in which the message resides. This
+ *  API doesn't return all message types. The types of messages listed below
+ *  aren't included in the response. Use ListMessages to list all messages. -
+ *  Private Messages that are visible to the authenticated user. - Messages
+ *  posted by Chat apps in spaces or group chats. - Messages in a Chat app DM. -
+ *  Messages from blocked users. - Messages in spaces that the caller has muted.
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.messages.readonly` -
+ *  `https://www.googleapis.com/auth/chat.messages`
+ *
+ *  Method: chat.spaces.messages.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMessages
+ *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
+ */
+@interface GTLRHangoutsChatQuery_SpacesMessagesSearch : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the space to search within. To search across
+ *  all spaces the user has access to, set this field to `spaces/-`. Using any
+ *  other value for `parent` results in an `INVALID_ARGUMENT` error. To limit
+ *  the search to one or more spaces, use `space.name` or `space.display_name`
+ *  in the `filter`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_SearchMessagesResponse.
+ *
+ *  Searches for messages in Google Chat that the calling user has access to.
+ *  Returns a list of messages matching the search criteria. To search across
+ *  all spaces the user has access to, set `parent` to `spaces/-`. Using any
+ *  other value for `parent` results in an `INVALID_ARGUMENT` error. The
+ *  returned messages have their `name` field populated with the full resource
+ *  name, which includes the specific `space` in which the message resides. This
+ *  API doesn't return all message types. The types of messages listed below
+ *  aren't included in the response. Use ListMessages to list all messages. -
+ *  Private Messages that are visible to the authenticated user. - Messages
+ *  posted by Chat apps in spaces or group chats. - Messages in a Chat app DM. -
+ *  Messages from blocked users. - Messages in spaces that the caller has muted.
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.messages.readonly` -
+ *  `https://www.googleapis.com/auth/chat.messages`
+ *
+ *  @param object The @c GTLRHangoutsChat_SearchMessagesRequest to include in
+ *    the query.
+ *  @param parent Required. The resource name of the space to search within. To
+ *    search across all spaces the user has access to, set this field to
+ *    `spaces/-`. Using any other value for `parent` results in an
+ *    `INVALID_ARGUMENT` error. To limit the search to one or more spaces, use
+ *    `space.name` or `space.display_name` in the `filter`.
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesSearch
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SearchMessagesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates a message. There's a difference between the `patch` and `update`
  *  methods. The `patch` method uses a `patch` request while the `update` method
  *  uses a `put` request. We recommend using the `patch` method. For an example,
@@ -2594,6 +2734,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  learn more, see [Make a space discoverable to specific
  *  users](https://developers.google.com/workspace/chat/space-target-audience).
  *  `access_settings.audience` is not supported with `useAdminAccess`.
+ *  `access_settings.access_permission_settings`: Updates the [access permission
+ *  settings](https://support.google.com/chat/answer/11971020) of who can
+ *  discover and join the space where `spaceType` field is `SPACE`. Principals
+ *  allowed to join the space must also be allowed to discover it. To update
+ *  access permission settings for a space, the authenticating user must be a
+ *  space manager or assistant manager and omit all other field masks in the
+ *  request. You can't update this field if the space is in [import
+ *  mode](https://developers.google.com/workspace/chat/import-data-overview). To
+ *  learn more, see [Make a space discoverable to specific
+ *  users](https://developers.google.com/workspace/chat/space-target-audience).
+ *  `access_settings.access_permission_settings` is not supported with
+ *  `useAdminAccess`. The supported field masks include: -
+ *  `access_settings.access_permission_settings.discoverSpaceSetting` -
+ *  `access_settings.access_permission_settings.joinSpaceSetting`
  *  `permission_settings`: Supports changing the [permission
  *  settings](https://support.google.com/chat/answer/13340792) of a space. When
  *  updating permission settings, you can only specify `permissionSettings`
@@ -2671,8 +2825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  spaces](https://developers.google.com/workspace/chat/search-manage-admin).
  *  When `use_admin_access` is set to `false`, the results are limited to spaces
  *  where the calling user is a joined member. To search with administrator
- *  privileges, set `use_admin_access` to `true`. Setting `use_admin_access` to
- *  `false` is available under Developer Preview. Supports the following types
+ *  privileges, set `use_admin_access` to `true`. Supports the following types
  *  of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [User
@@ -2737,8 +2890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  when `useAdminAccess` is set to `true`: - `create_time` - `customer` -
  *  `display_name` - `external_user_allowed` - `last_active_time` -
  *  `space_history_state` - `space_type` When `useAdminAccess` is set to
- *  `false`: - `display_name` - `external_user_allowed` `create_time` and
- *  `last_active_time` accept a timestamp in
+ *  `false`: - `display_name` - `external_user_allowed` - `space_type`
+ *  `create_time` and `last_active_time` accept a timestamp in
  *  [RFC-3339](https://www.rfc-editor.org/rfc/rfc3339) format and the supported
  *  comparison operators are: `=`, `<`, `>`, `<=`, `>=`. `customer` is required
  *  when `useAdminAccess` is set to `true`, and is used to indicate which
@@ -2753,12 +2906,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  `external_user_allowed` accepts either `true` or `false`.
  *  `space_history_state` only accepts values from the [`historyState`]
  *  (https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces#Space.HistoryState)
- *  field of a `space` resource. `space_type` is required when `useAdminAccess`
- *  is set to `true`, and the only valid value is `SPACE`. Across different
- *  fields, only `AND` operators are supported. A valid example is `space_type =
- *  "SPACE" AND display_name:"Hello"` and an invalid example is `space_type =
- *  "SPACE" OR display_name:"Hello"`. Among the same field, `space_type` doesn't
- *  support `AND` or `OR` operators. `display_name`, 'space_history_state', and
+ *  field of a `space` resource. `space_type` is required and the only valid
+ *  value is `SPACE`. Across different fields, only `AND` operators are
+ *  supported. A valid example is `space_type = "SPACE" AND
+ *  display_name:"Hello"` and an invalid example is `space_type = "SPACE" OR
+ *  display_name:"Hello"`. Among the same field, `space_type` doesn't support
+ *  `AND` or `OR` operators. `display_name`, 'space_history_state', and
  *  'external_user_allowed' only support `OR` operators. `last_active_time` and
  *  `create_time` support both `AND` and `OR` operators. `AND` can only be used
  *  to represent an interval, such as `last_active_time <
@@ -2777,10 +2930,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  create_time < "2020-01-01T00:00:00+00:00") AND (external_user_allowed =
  *  "true") AND (space_history_state = "HISTORY_ON" OR space_history_state =
  *  "HISTORY_OFF") ``` The following example queries are valid when
- *  `useAdminAccess` is set to `false`: ``` display_name:"Hello World"
- *  (display_name:"Hello" OR display_name:"Fun") (external_user_allowed =
- *  "true") // Returns an empty response. (external_user_allowed = "true" AND
- *  display_name:"Hello") ```
+ *  `useAdminAccess` is set to `false`: ``` display_name:"Hello World" AND
+ *  space_type = "SPACE" (display_name:"Hello" OR display_name:"Fun") AND
+ *  space_type = "SPACE" (external_user_allowed = "true" AND space_type =
+ *  "SPACE") // Returns an empty response. (external_user_allowed = "true" AND
+ *  display_name:"Hello" AND space_type = "SPACE") ```
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -2791,8 +2945,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  privilege](https://support.google.com/a/answer/13369245). Requires either
  *  the `chat.admin.spaces.readonly` or `chat.admin.spaces` [OAuth 2.0
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes).
- *  Setting `use_admin_access` to `false` is available under Developer Preview.
- *  [Developer Preview](https://developers.google.com/workspace/preview).
  */
 @property(nonatomic, assign) BOOL useAdminAccess;
 
@@ -2804,8 +2956,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  spaces](https://developers.google.com/workspace/chat/search-manage-admin).
  *  When `use_admin_access` is set to `false`, the results are limited to spaces
  *  where the calling user is a joined member. To search with administrator
- *  privileges, set `use_admin_access` to `true`. Setting `use_admin_access` to
- *  `false` is available under Developer Preview. Supports the following types
+ *  privileges, set `use_admin_access` to `true`. Supports the following types
  *  of
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [User
@@ -2821,10 +2972,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  `https://www.googleapis.com/auth/chat.admin.spaces`
  *
  *  @return GTLRHangoutsChatQuery_SpacesSearch
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)query;
 
@@ -2977,6 +3124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  Method: chat.spaces.spaceEvents.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppAllMembershipsReadonly
+ *    @c kGTLRAuthScopeHangoutsChatAppAllMessagesReadonly
+ *    @c kGTLRAuthScopeHangoutsChatAppAllSpacesReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppMemberships
  *    @c kGTLRAuthScopeHangoutsChatAppMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
@@ -3082,6 +3232,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  Method: chat.spaces.spaceEvents.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppAllMembershipsReadonly
+ *    @c kGTLRAuthScopeHangoutsChatAppAllMessagesReadonly
+ *    @c kGTLRAuthScopeHangoutsChatAppAllSpacesReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppMemberships
  *    @c kGTLRAuthScopeHangoutsChatAppMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
@@ -3214,14 +3367,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  - `https://www.googleapis.com/auth/chat.users.availability.readonly` -
  *  `https://www.googleapis.com/auth/chat.users.availability`
  *
- *  Method: chat.users.availability.getAvailability
+ *  Method: chat.users.availability.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
  *    @c kGTLRAuthScopeHangoutsChatUsersAvailabilityReadonly
- *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
  */
-@interface GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability : GTLRHangoutsChatQuery
+@interface GTLRHangoutsChatQuery_UsersAvailabilityGet : GTLRHangoutsChatQuery
 
 /**
  *  Required. The resource name of the availability to retrieve. Format:
@@ -3251,7 +3403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *    user's email address or `me` can also be used as an alias to refer to the
  *    caller. For example, `users/user\@example.com` or `users/me`.
  *
- *  @return GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability
+ *  @return GTLRHangoutsChatQuery_UsersAvailabilityGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -3273,7 +3425,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
- *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
  */
 @interface GTLRHangoutsChatQuery_UsersAvailabilityMarkAsActive : GTLRHangoutsChatQuery
 
@@ -3329,7 +3480,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
- *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
  */
 @interface GTLRHangoutsChatQuery_UsersAvailabilityMarkAsAway : GTLRHangoutsChatQuery
 
@@ -3369,7 +3519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @end
 
 /**
- *  Marks user as`DO_NOT_DISTURB` in Google Chat. Sets a user's availability
+ *  Marks user as `DO_NOT_DISTURB` in Google Chat. Sets a user's availability
  *  state to `DO_NOT_DISTURB` until a specified expiration time. When in
  *  `DO_NOT_DISTURB`, users typically won't receive notifications. This method
  *  only updates the authenticated user's availability. Requires [user
@@ -3382,7 +3532,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
- *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
  */
 @interface GTLRHangoutsChatQuery_UsersAvailabilityMarkAsDoNotDisturb : GTLRHangoutsChatQuery
 
@@ -3398,7 +3547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 /**
  *  Fetches a @c GTLRHangoutsChat_Availability.
  *
- *  Marks user as`DO_NOT_DISTURB` in Google Chat. Sets a user's availability
+ *  Marks user as `DO_NOT_DISTURB` in Google Chat. Sets a user's availability
  *  state to `DO_NOT_DISTURB` until a specified expiration time. When in
  *  `DO_NOT_DISTURB`, users typically won't receive notifications. This method
  *  only updates the authenticated user's availability. Requires [user
@@ -3432,13 +3581,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
  *  - `https://www.googleapis.com/auth/chat.users.availability`
  *
- *  Method: chat.users.availability.updateAvailability
+ *  Method: chat.users.availability.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatUsersAvailability
- *    @c kGTLRAuthScopeHangoutsChatUsersReadstate
  */
-@interface GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability : GTLRHangoutsChatQuery
+@interface GTLRHangoutsChatQuery_UsersAvailabilityPatch : GTLRHangoutsChatQuery
 
 /**
  *  Identifier. Resource name of the user's availability. Format:
@@ -3475,7 +3623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *    user's email address or `me` can also be used as an alias to refer to the
  *    caller. For example, `users/user\@example.com` or `users/me`.
  *
- *  @return GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability
+ *  @return GTLRHangoutsChatQuery_UsersAvailabilityPatch
  */
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Availability *)object
                            name:(NSString *)name;

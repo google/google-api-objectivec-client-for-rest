@@ -2135,6 +2135,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the current state, progress, and details of a split operation for
+ *  a volume. This method is relevant when the volume is a clone. For volumes
+ *  that are not clones, this method will return an error.
+ *
+ *  Method: netapp.projects.locations.volumes.getSplitStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesGetSplitStatus : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The full name of the volume. Format:
+ *  projects/{project_number}/locations/{location}/volumes/{volume_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_SplitStatus.
+ *
+ *  Retrieves the current state, progress, and details of a split operation for
+ *  a volume. This method is relevant when the volume is a clone. For volumes
+ *  that are not clones, this method will return an error.
+ *
+ *  @param name Required. The full name of the volume. Format:
+ *    projects/{project_number}/locations/{location}/volumes/{volume_id}
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesGetSplitStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists Volumes in a given project.
  *
  *  Method: netapp.projects.locations.volumes.list
@@ -3014,6 +3048,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesSnapshotsPatch
  */
 + (instancetype)queryWithObject:(GTLRNetAppFiles_Snapshot *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Splits a clone volume from its source volume. This operation will only work
+ *  for volumes which have clone_details set(clones). For volumes that are not
+ *  clones, this operation will return an error.
+ *
+ *  Method: netapp.projects.locations.volumes.startSplit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesStartSplit : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The full name of the clone volume to be split from its source.
+ *  Format: projects/{project_number}/locations/{location}/volumes/{volume_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Splits a clone volume from its source volume. This operation will only work
+ *  for volumes which have clone_details set(clones). For volumes that are not
+ *  clones, this operation will return an error.
+ *
+ *  @param object The @c GTLRNetAppFiles_StartSplitRequest to include in the
+ *    query.
+ *  @param name Required. The full name of the clone volume to be split from its
+ *    source. Format:
+ *    projects/{project_number}/locations/{location}/volumes/{volume_id}
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesStartSplit
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_StartSplitRequest *)object
                            name:(NSString *)name;
 
 @end

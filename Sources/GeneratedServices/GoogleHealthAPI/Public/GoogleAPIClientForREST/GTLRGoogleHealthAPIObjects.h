@@ -76,6 +76,7 @@
 @class GTLRGoogleHealthAPI_HeartRateVariabilityPersonalRangeRollupValue;
 @class GTLRGoogleHealthAPI_HeartRateZone;
 @class GTLRGoogleHealthAPI_Height;
+@class GTLRGoogleHealthAPI_HttpBody_Extensions_Item;
 @class GTLRGoogleHealthAPI_HttpHeader;
 @class GTLRGoogleHealthAPI_HttpResponse;
 @class GTLRGoogleHealthAPI_HydrationLog;
@@ -83,8 +84,10 @@
 @class GTLRGoogleHealthAPI_Interval;
 @class GTLRGoogleHealthAPI_IrregularRhythmNotification;
 @class GTLRGoogleHealthAPI_MedicalDeviceInfo;
+@class GTLRGoogleHealthAPI_MenstrualPeriod;
 @class GTLRGoogleHealthAPI_MetricsSummary;
 @class GTLRGoogleHealthAPI_MobilityMetrics;
+@class GTLRGoogleHealthAPI_Moods;
 @class GTLRGoogleHealthAPI_NutrientQuantity;
 @class GTLRGoogleHealthAPI_NutrientQuantityRollup;
 @class GTLRGoogleHealthAPI_NutritionLog;
@@ -94,6 +97,7 @@
 @class GTLRGoogleHealthAPI_Operation_Metadata;
 @class GTLRGoogleHealthAPI_Operation_Response;
 @class GTLRGoogleHealthAPI_OutOfBedSegment;
+@class GTLRGoogleHealthAPI_OvulationTest;
 @class GTLRGoogleHealthAPI_OxygenSaturation;
 @class GTLRGoogleHealthAPI_PairedDevice;
 @class GTLRGoogleHealthAPI_ReconciledDataPoint;
@@ -122,6 +126,7 @@
 @class GTLRGoogleHealthAPI_Subscription;
 @class GTLRGoogleHealthAPI_SwimLengthsData;
 @class GTLRGoogleHealthAPI_SwimLengthsDataRollupValue;
+@class GTLRGoogleHealthAPI_Symptoms;
 @class GTLRGoogleHealthAPI_TimeInHeartRateZone;
 @class GTLRGoogleHealthAPI_TimeInHeartRateZoneRollupValue;
 @class GTLRGoogleHealthAPI_TimeInHeartRateZones;
@@ -2297,6 +2302,380 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZ
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_HeartRateZone_HeartRateZoneType_Vigorous;
 
 // ----------------------------------------------------------------------------
+// GTLRGoogleHealthAPI_Moods.moods
+
+/**
+ *  Accomplished.
+ *
+ *  Value: "ACCOMPLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Accomplished;
+/**
+ *  Afraid.
+ *
+ *  Value: "AFRAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Afraid;
+/**
+ *  Amazed.
+ *
+ *  Value: "AMAZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Amazed;
+/**
+ *  Amused.
+ *
+ *  Value: "AMUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Amused;
+/**
+ *  Angry.
+ *
+ *  Value: "ANGRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Angry;
+/**
+ *  Annoyed.
+ *
+ *  Value: "ANNOYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Annoyed;
+/**
+ *  Anxious.
+ *
+ *  Value: "ANXIOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Anxious;
+/**
+ *  Ashamed.
+ *
+ *  Value: "ASHAMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Ashamed;
+/**
+ *  Awestruck.
+ *
+ *  Value: "AWESTRUCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Awestruck;
+/**
+ *  Bitter.
+ *
+ *  Value: "BITTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Bitter;
+/**
+ *  Bored.
+ *
+ *  Value: "BORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Bored;
+/**
+ *  Brave.
+ *
+ *  Value: "BRAVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Brave;
+/**
+ *  Calm.
+ *
+ *  Value: "CALM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Calm;
+/**
+ *  Compassionate.
+ *
+ *  Value: "COMPASSIONATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Compassionate;
+/**
+ *  Confident.
+ *
+ *  Value: "CONFIDENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Confident;
+/**
+ *  Confused.
+ *
+ *  Value: "CONFUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Confused;
+/**
+ *  Content.
+ *
+ *  Value: "CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Content;
+/**
+ *  Curious.
+ *
+ *  Value: "CURIOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Curious;
+/**
+ *  Disappointed.
+ *
+ *  Value: "DISAPPOINTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Disappointed;
+/**
+ *  Discouraged.
+ *
+ *  Value: "DISCOURAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Discouraged;
+/**
+ *  Disgusted.
+ *
+ *  Value: "DISGUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Disgusted;
+/**
+ *  Drained.
+ *
+ *  Value: "DRAINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Drained;
+/**
+ *  Embarrassed.
+ *
+ *  Value: "EMBARRASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Embarrassed;
+/**
+ *  Energized.
+ *
+ *  Value: "ENERGIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Energized;
+/**
+ *  Envious.
+ *
+ *  Value: "ENVIOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Envious;
+/**
+ *  Excited.
+ *
+ *  Value: "EXCITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Excited;
+/**
+ *  Fatigued.
+ *
+ *  Value: "FATIGUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Fatigued;
+/**
+ *  Frustrated.
+ *
+ *  Value: "FRUSTRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Frustrated;
+/**
+ *  Grateful.
+ *
+ *  Value: "GRATEFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Grateful;
+/**
+ *  Guilty.
+ *
+ *  Value: "GUILTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Guilty;
+/**
+ *  Happy.
+ *
+ *  Value: "HAPPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Happy;
+/**
+ *  Hopeful.
+ *
+ *  Value: "HOPEFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Hopeful;
+/**
+ *  Hopeless.
+ *
+ *  Value: "HOPELESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Hopeless;
+/**
+ *  Hurting.
+ *
+ *  Value: "HURTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Hurting;
+/**
+ *  Indifferent.
+ *
+ *  Value: "INDIFFERENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Indifferent;
+/**
+ *  Inspired.
+ *
+ *  Value: "INSPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Inspired;
+/**
+ *  Irritated.
+ *
+ *  Value: "IRRITATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Irritated;
+/**
+ *  Jealous.
+ *
+ *  Value: "JEALOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Jealous;
+/**
+ *  Joyful.
+ *
+ *  Value: "JOYFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Joyful;
+/**
+ *  Lonely.
+ *
+ *  Value: "LONELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Lonely;
+/**
+ *  Longing.
+ *
+ *  Value: "LONGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Longing;
+/**
+ *  Loving.
+ *
+ *  Value: "LOVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Loving;
+/**
+ *  Unspecified mood.
+ *
+ *  Value: "MOOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_MoodUnspecified;
+/**
+ *  Neutral.
+ *
+ *  Value: "NEUTRAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Neutral;
+/**
+ *  Overwhelmed.
+ *
+ *  Value: "OVERWHELMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Overwhelmed;
+/**
+ *  Passionate.
+ *
+ *  Value: "PASSIONATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Passionate;
+/**
+ *  Peaceful.
+ *
+ *  Value: "PEACEFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Peaceful;
+/**
+ *  Proud.
+ *
+ *  Value: "PROUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Proud;
+/**
+ *  Relieved.
+ *
+ *  Value: "RELIEVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Relieved;
+/**
+ *  Sad.
+ *
+ *  Value: "SAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Sad;
+/**
+ *  Satisfied.
+ *
+ *  Value: "SATISFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Satisfied;
+/**
+ *  Scared.
+ *
+ *  Value: "SCARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Scared;
+/**
+ *  Stressed.
+ *
+ *  Value: "STRESSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Stressed;
+/**
+ *  Surprised.
+ *
+ *  Value: "SURPRISED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Surprised;
+/**
+ *  Very calm.
+ *
+ *  Value: "VERY_CALM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_VeryCalm;
+/**
+ *  Very stressed.
+ *
+ *  Value: "VERY_STRESSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_VeryStressed;
+/**
+ *  Worried.
+ *
+ *  Value: "WORRIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Worried;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleHealthAPI_Moods.valences
+
+/**
+ *  Baseline.
+ *
+ *  Value: "BASELINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Valences_Baseline;
+/**
+ *  Pleasant.
+ *
+ *  Value: "PLEASANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Valences_Pleasant;
+/**
+ *  Unpleasant.
+ *
+ *  Value: "UNPLEASANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Valences_Unpleasant;
+/**
+ *  Unspecified valence.
+ *
+ *  Value: "VALENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Valences_ValenceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRGoogleHealthAPI_NutrientQuantity.nutrient
 
 /**
@@ -2847,6 +3226,46 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Me
  *  Value: "SNACK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_NutritionLog_MealType_Snack;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleHealthAPI_OvulationTest.result
+
+/**
+ *  Estrogen surge.
+ *
+ *  Value: "ESTROGEN_SURGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_EstrogenSurge;
+/**
+ *  Indeterminate result.
+ *
+ *  Value: "INDETERMINATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_Indeterminate;
+/**
+ *  Luteinizing hormone surge.
+ *
+ *  Value: "LUTEINIZING_HORMONE_SURGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_LuteinizingHormoneSurge;
+/**
+ *  Negative result.
+ *
+ *  Value: "NEGATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_Negative;
+/**
+ *  Unspecified result.
+ *
+ *  Value: "OVULATION_TEST_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_OvulationTestResultUnspecified;
+/**
+ *  Positive result.
+ *
+ *  Value: "POSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_OvulationTest_Result_Positive;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleHealthAPI_PairedDevice.deviceType
@@ -3404,6 +3823,190 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_SwimLengthsData_SwimStro
  *  Value: "SWIM_STROKE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_SwimLengthsData_SwimStrokeType_SwimStrokeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleHealthAPI_Symptoms.symptoms
+
+/**
+ *  Acne.
+ *
+ *  Value: "ACNE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Acne;
+/**
+ *  Anxiety or nervousness.
+ *
+ *  Value: "ANXIETY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Anxiety;
+/**
+ *  Back pain.
+ *
+ *  Value: "BACK_PAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BackPain;
+/**
+ *  Bloating or abdominal swelling.
+ *
+ *  Value: "BLOATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Bloated;
+/**
+ *  Blurred vision.
+ *
+ *  Value: "BLURRED_VISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BlurredVision;
+/**
+ *  Chest pain or discomfort.
+ *
+ *  Value: "CHEST_PAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_ChestPain;
+/**
+ *  Confusion or mental fogginess.
+ *
+ *  Value: "CONFUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Confusion;
+/**
+ *  Coughing.
+ *
+ *  Value: "COUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Cough;
+/**
+ *  Abdominal cramps.
+ *
+ *  Value: "CRAMPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Cramps;
+/**
+ *  Difficulty breathing or shortness of breath.
+ *
+ *  Value: "DIFFICULTY_BREATHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_DifficultyBreathing;
+/**
+ *  Dizziness or lightheadedness.
+ *
+ *  Value: "DIZZINESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Dizziness;
+/**
+ *  Fainting or loss of consciousness.
+ *
+ *  Value: "FAINTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fainting;
+/**
+ *  Fatigue or extreme tiredness.
+ *
+ *  Value: "FATIGUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fatigue;
+/**
+ *  Fever or elevated body temperature.
+ *
+ *  Value: "FEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fever;
+/**
+ *  Frequent urination.
+ *
+ *  Value: "FREQUENT_URINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_FrequentUrination;
+/**
+ *  Headache.
+ *
+ *  Value: "HEADACHE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Headache;
+/**
+ *  Heart palpitations or racing heart.
+ *
+ *  Value: "HEART_PALPITATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_HeartPalpitations;
+/**
+ *  Hot flashes.
+ *
+ *  Value: "HOT_FLASHES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_HotFlashes;
+/**
+ *  Excessive hunger.
+ *
+ *  Value: "HUNGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Hunger;
+/**
+ *  Other symptoms.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Other;
+/**
+ *  Premenstrual syndrome symptoms.
+ *
+ *  Value: "PMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Pms;
+/**
+ *  High sex drive.
+ *
+ *  Value: "SEX_DRIVE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SexDriveHigh;
+/**
+ *  Low sex drive.
+ *
+ *  Value: "SEX_DRIVE_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SexDriveLow;
+/**
+ *  Medium sex drive.
+ *
+ *  Value: "SEX_DRIVE_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SexDriveMedium;
+/**
+ *  Shakiness or tremors.
+ *
+ *  Value: "SHAKINESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Shakiness;
+/**
+ *  Feeling sick or unwell.
+ *
+ *  Value: "SICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Sick;
+/**
+ *  Excessive sweating.
+ *
+ *  Value: "SWEATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Sweating;
+/**
+ *  Unspecified symptom value.
+ *
+ *  Value: "SYMPTOM_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_SymptomValueUnspecified;
+/**
+ *  Tender breasts.
+ *
+ *  Value: "TENDER_BREASTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_TenderBreasts;
+/**
+ *  Excessive thirst.
+ *
+ *  Value: "THIRST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Thirst;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleHealthAPI_TimeInHeartRateZone.heartRateZoneType
@@ -5244,6 +5847,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_IrregularRhythmNotification *irregularRhythmNotification;
 
 /**
+ *  Optional. Data for points in the `menstrual-period` interval data type
+ *  collection.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_MenstrualPeriod *menstrualPeriod;
+
+/** Optional. Data for points in the `moods` sample data type collection. */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_Moods *moods;
+
+/**
  *  Identifier. Data point name, only supported for the subset of identifiable
  *  data types. For the majority of the data types, individual data points do
  *  not need to be identified and this field would be empty. Format:
@@ -5263,6 +5875,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  collection.
  */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_NutritionLog *nutritionLog;
+
+/**
+ *  Optional. Data for points in the `ovulation-test` sample data type
+ *  collection.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_OvulationTest *ovulationTest;
 
 /**
  *  Optional. Data for points in the `oxygen-saturation` sample data type
@@ -5298,6 +5916,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  collection.
  */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_SwimLengthsData *swimLengthsData;
+
+/**
+ *  Optional. Data for points in the `symptoms` sample data type collection.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_Symptoms *symptoms;
 
 /**
  *  Optional. Data for points in the `time-in-heart-rate-zone` interval data
@@ -5696,10 +6319,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 /**
  *  Authorization mechanism for a subscriber endpoint. For all requests sent by
  *  the Webhooks service, the JSON payload is cryptographically signed. The
- *  signature is delivered in the `X-HEALTHAPI-SIGNATURE` HTTP header. This is
- *  an ECDSA (NIST P256) signature of the JSON payload. Clients must verify this
- *  signature using Google Health API's public key to confirm the payload was
- *  sent by the Health API.
+ *  signature is delivered in the `GOOGLE-HEALTH-API-SIGNATURE` HTTP header.
+ *  This is an ECDSA (NIST P256) signature of the JSON payload. Clients must
+ *  verify this signature using Google Health API's public key to confirm the
+ *  payload was sent by the Health API.
  */
 @interface GTLRGoogleHealthAPI_EndpointAuthorization : GTLRObject
 
@@ -5730,7 +6353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_EnergyQuantity : GTLRObject
 
 /**
- *  Required. Value representing the energy in kilocalories.
+ *  Required. The energy value in kilocalories.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5803,7 +6426,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 /** Output only. Represents the timestamp of the creation of the exercise. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Required. Exercise display name. */
+/**
+ *  Required. The localized, human-readable name of the exercise. For all
+ *  exercise types other than `OTHER`, the system ignores client input and
+ *  overrides this field with a generated name based on `exercise_type` (e.g.,
+ *  "Walking" for `WALKING`). If `exercise_type` is `OTHER`, this field can
+ *  contain the user's custom, free-form display name.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -6789,6 +7418,61 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 
 /**
+ *  Message that represents an arbitrary HTTP body. It should only be used for
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
+ */
+@interface GTLRGoogleHealthAPI_HttpBody : GTLRObject
+
+/**
+ *  The HTTP Content-Type header value specifying the content type of the body.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  The HTTP request/response body as raw binary.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Application specific response metadata. Must be set in the first response
+ *  for streaming APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleHealthAPI_HttpBody_Extensions_Item *> *extensions;
+
+@end
+
+
+/**
+ *  GTLRGoogleHealthAPI_HttpBody_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGoogleHealthAPI_HttpBody_Extensions_Item : GTLRObject
+@end
+
+
+/**
  *  Represents an HTTP header.
  */
 @interface GTLRGoogleHealthAPI_HttpHeader : GTLRObject
@@ -7099,6 +7783,32 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 
 /**
+ *  Represents the POST body contained in a GetShlManifestRequest This message
+ *  is nested to represent that See
+ *  https://build.fhir.org/ig/HL7/smart-health-cards-and-links/links-specification.html#smart-health-link-manifest-request
+ */
+@interface GTLRGoogleHealthAPI_ManifestParams : GTLRObject
+
+/**
+ *  Optional. Integer upper bound on the length of embedded payloads
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *embeddedLengthMax;
+
+/** Optional. */
+@property(nonatomic, copy, nullable) NSString *passcode;
+
+/**
+ *  Required. A string describing the recipient (e.g.,the name of an
+ *  organization or person) suitable for display to the Receiving User
+ */
+@property(nonatomic, copy, nullable) NSString *recipient;
+
+@end
+
+
+/**
  *  Software as Medical Device (SaMD) metadata. Used to construct the Unique
  *  Device Identifier (UDI).
  */
@@ -7124,6 +7834,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /** Output only. The service version used by the feature. */
 @property(nonatomic, copy, nullable) NSString *serviceVersion;
+
+@end
+
+
+/**
+ *  Menstrual period record.
+ */
+@interface GTLRGoogleHealthAPI_MenstrualPeriod : GTLRObject
+
+/** Required. Observed interval. */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationTimeInterval *interval;
+
+/** Optional. Standard free-form notes captured at manual logging. */
+@property(nonatomic, copy, nullable) NSString *notes;
 
 @end
 
@@ -7264,12 +7988,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 
 /**
+ *  Moods record.
+ */
+@interface GTLRGoogleHealthAPI_Moods : GTLRObject
+
+/** Required. The moods logged. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *moods;
+
+/** Required. The time at which moods were measured. */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationSampleTime *sampleTime;
+
+/** Optional. The valences. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *valences;
+
+@end
+
+
+/**
  *  Represents the quantity of a nutrient.
  */
 @interface GTLRGoogleHealthAPI_NutrientQuantity : GTLRObject
 
 /**
- *  Required. Value representing the nutrient.
+ *  Required. The nutrient type.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleHealthAPI_NutrientQuantity_Nutrient_Biotin Value
@@ -7359,7 +8100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  */
 @property(nonatomic, copy, nullable) NSString *nutrient;
 
-/** Required. Value representing the quantity of the nutrient. */
+/** Required. The quantity of the nutrient, measured in grams. */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_WeightQuantity *quantity;
 
 @end
@@ -7468,49 +8209,45 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 
 /**
- *  Holds information about a user logged food. There are two ways of creating a
- *  nutrition log based on the food type: 1. Identified food: Using the food
- *  field, which is a reference to a Food resource. In this case fields
+ *  Holds information about food logged by a user. There are two ways of
+ *  creating a nutrition log based on the food type: 1. Identified food: Using
+ *  the food field, which is a reference to a Food resource. In this case fields
  *  `nutrients`, `energy`, `energy_from_fat`, `total_carbohydrate`, `total_fat`,
  *  `food_display_name` will be populated based on the referenced food. 2.
  *  Anonymous food: Using the `food_display_name` field and setting the
  *  `nutrients`, `energy`, `energy_from_fat`, `total_carbohydrate`, `total_fat`
  *  fields manually. The identified food is preferred over the anonymous food.
- *  Nutrition logs created from anonymous food are not be editable.
+ *  Nutrition logs created from anonymous food are not editable.
  */
 @interface GTLRGoogleHealthAPI_NutritionLog : GTLRObject
 
 /**
- *  Optional. Value representing the energy of the nutrition log. For nutrition
- *  logs created from an identified food, this field will be populated based on
- *  the referenced food. For anonymous food, this field will be populated
- *  manually.
+ *  Optional. The total energy of the food, measured in kilocalories (`kcal`).
  */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_EnergyQuantity *energy;
 
-/**
- *  Optional. Value representing the energy from fat of the nutrition log. For
- *  nutrition logs created from an identified food, this field will be populated
- *  based on the referenced food. For anonymous food, this field will be
- *  populated manually.
- */
+/** Optional. The energy from fat, measured in kilocalories (`kcal`). */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_EnergyQuantity *energyFromFat;
 
-/** Required. Represents the food ID. */
+/**
+ *  Optional. The resource name of the Food item. Required when creating a
+ *  nutrition log from an identified food. For anonymous food logs, use the
+ *  `food_display_name` field instead.
+ */
 @property(nonatomic, copy, nullable) NSString *food;
 
 /**
- *  Value representing the display name of the food. For nutrition logs created
- *  from an identified food, this field will be populated based on the
- *  referenced food. For anonymous food, this field will be populated manually.
+ *  The display name of the food. For identified food logs, this is populated
+ *  automatically from the referenced food.
  */
 @property(nonatomic, copy, nullable) NSString *foodDisplayName;
 
-/** Required. Observed interval. */
+/** Required. The time window when the food was logged. */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_SessionTimeInterval *interval;
 
 /**
- *  Optional. Value representing the meal type of the nutrition log.
+ *  Optional. The meal category. One of `BREAKFAST`, `LUNCH`, `DINNER`, or
+ *  `SNACK`.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleHealthAPI_NutritionLog_MealType_AfterDinner Value
@@ -7537,26 +8274,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  */
 @property(nonatomic, copy, nullable) NSString *mealType;
 
-/** Optional. Value representing the nutrients of the nutrition log. */
+/** Optional. An array of individual nutrient values for the nutrition log. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleHealthAPI_NutrientQuantity *> *nutrients;
 
-/** Optional. Value representing the nutrition log serving. */
+/** Optional. The serving information for the logged food. */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_Serving *serving;
 
-/**
- *  Optional. Value representing the total carbohydrate of the nutrition log.
- *  For nutrition logs created from an identified food, this field will be
- *  populated based on the referenced food. For anonymous food, this field will
- *  be populated manually.
- */
+/** Optional. The total carbohydrate content, measured in grams. */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_WeightQuantity *totalCarbohydrate;
 
-/**
- *  Optional. Value representing the total fat of the nutrition log. For
- *  nutrition logs created from an identified food, this field will be populated
- *  based on the referenced food. For anonymous food, this field will be
- *  populated manually.
- */
+/** Optional. The total fat content, measured in grams. */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_WeightQuantity *totalFat;
 
 @end
@@ -7748,6 +8475,36 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  relative to the Coordinated Universal Time (UTC).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *startUtcOffset;
+
+@end
+
+
+/**
+ *  Ovulation test record.
+ */
+@interface GTLRGoogleHealthAPI_OvulationTest : GTLRObject
+
+/**
+ *  Required. The result of the ovulation test.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleHealthAPI_OvulationTest_Result_EstrogenSurge Estrogen
+ *        surge. (Value: "ESTROGEN_SURGE")
+ *    @arg @c kGTLRGoogleHealthAPI_OvulationTest_Result_Indeterminate
+ *        Indeterminate result. (Value: "INDETERMINATE")
+ *    @arg @c kGTLRGoogleHealthAPI_OvulationTest_Result_LuteinizingHormoneSurge
+ *        Luteinizing hormone surge. (Value: "LUTEINIZING_HORMONE_SURGE")
+ *    @arg @c kGTLRGoogleHealthAPI_OvulationTest_Result_Negative Negative
+ *        result. (Value: "NEGATIVE")
+ *    @arg @c kGTLRGoogleHealthAPI_OvulationTest_Result_OvulationTestResultUnspecified
+ *        Unspecified result. (Value: "OVULATION_TEST_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleHealthAPI_OvulationTest_Result_Positive Positive
+ *        result. (Value: "POSITIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
+
+/** Required. The time at which ovulation test was measured. */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationSampleTime *sampleTime;
 
 @end
 
@@ -8525,7 +9282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_Serving : GTLRObject
 
 /**
- *  Optional. Amount of food consumed, fractional values are supported.
+ *  Optional. The number of servings.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8785,7 +9542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_SessionTimeInterval *interval;
 
 /**
- *  Optional. Sleep metadata: processing, main, manually edited, stages status.
+ *  Optional. Sleep metadata: `processed`, `main_sleep`, `manually_edited`, and
+ *  `stages_status`.
  */
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_SleepMetadata *metadata;
 
@@ -8829,6 +9587,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /** Optional. Sleep identifier relevant in the context of the data source. */
 @property(nonatomic, copy, nullable) NSString *externalId;
+
+/**
+ *  Output only. `main_sleep`: the longest sleep session with stages within one
+ *  day. If no sleep session has stages, then the longest sleep is the
+ *  `main_sleep`. If there are multiple days of sleep in the response, there is
+ *  one `main_sleep` per day.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mainSleep;
 
 /**
  *  Output only. Some sleeps autodetected by algorithms can be manually edited
@@ -9359,6 +10127,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 
 /**
+ *  Symptoms logged by the user.
+ */
+@interface GTLRGoogleHealthAPI_Symptoms : GTLRObject
+
+/** Required. Time when the symptoms were logged. */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationSampleTime *sampleTime;
+
+/** Required. List of symptoms experienced. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *symptoms;
+
+@end
+
+
+/**
  *  Time in heart rate zone record. It's an interval spent in specific heart
  *  rate zone.
  */
@@ -9513,7 +10295,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 
 /**
- *  Represents the result of the rollup of the user's total calories.
+ *  Represents the result of the rollup of the user's total calories. Note:
+ *  Queries for the `total-calories` data type must include a time interval
+ *  filter (such as `total_calories.interval.start_time` or
+ *  `total_calories.interval.civil_start_time`). The maximum range is 14 days.
+ *  Example filter query: `total_calories.interval.start_time >=
+ *  "2026-04-20T00:00:00Z" AND total_calories.interval.start_time <
+ *  "2026-04-21T00:00:00Z"`
  */
 @interface GTLRGoogleHealthAPI_TotalCaloriesRollupValue : GTLRObject
 
@@ -9698,7 +10486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_WeightQuantity : GTLRObject
 
 /**
- *  Required. Value representing the weight in grams.
+ *  Required. The weight value in grams.
  *
  *  Uses NSNumber of doubleValue.
  */

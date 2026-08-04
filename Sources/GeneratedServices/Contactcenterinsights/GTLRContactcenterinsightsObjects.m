@@ -196,6 +196,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1As
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_Published = @"PUBLISHED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage.role
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_Model = @"MODEL";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage_Role_User = @"USER";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession.state
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Idle = @"IDLE";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_Processing = @"PROCESSING";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.labelKeyType
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule_LabelKeyType_LabelKeyTypeCustom = @"LABEL_KEY_TYPE_CUSTOM";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule_LabelKeyType_LabelKeyTypeUnspecified = @"LABEL_KEY_TYPE_UNSPECIFIED";
@@ -3415,6 +3425,52 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage
+@dynamic chunks, eventTime, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chunks" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantChunk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession
+@dynamic createTime, displayName, messages, name, requester, state, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView
 //
 
@@ -5612,6 +5668,28 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 + (NSString *)collectionItemsKey {
   return @"assessments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssistantSessionsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAssistantSessionsResponse
+@dynamic assistantSessions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assistantSessions" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssistantSession class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assistantSessions";
 }
 
 @end
@@ -9288,6 +9366,26 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig
 @dynamic disableWordTimeOffsets, speechRecognizer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatRequest
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatRequest
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1StreamChatResponse
+@dynamic chunk, eventId, eventTime, statusMessage;
 @end
 
 

@@ -46,6 +46,7 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Gcm 
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Cbc = @"AES_256_CBC";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Ctr = @"AES_256_CTR";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm = @"AES_256_GCM";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Kwp = @"AES_256_KWP";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519 = @"EC_SIGN_ED25519";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";

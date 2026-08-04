@@ -26,6 +26,121 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @end
 
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesCreate
+
+@dynamic agentConnectivityTemplateId, parent;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_AgentConnectivityTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/agentConnectivityTemplates";
+  GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.agentConnectivityTemplates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.agentConnectivityTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_AgentConnectivityTemplate class];
+  query.loggingName = @"networkservices.projects.locations.agentConnectivityTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesList
+
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/agentConnectivityTemplates";
+  GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListAgentConnectivityTemplatesResponse class];
+  query.loggingName = @"networkservices.projects.locations.agentConnectivityTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_AgentConnectivityTemplate *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsAgentConnectivityTemplatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.agentConnectivityTemplates.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysCreate
 
 @dynamic agentGatewayId, parent;

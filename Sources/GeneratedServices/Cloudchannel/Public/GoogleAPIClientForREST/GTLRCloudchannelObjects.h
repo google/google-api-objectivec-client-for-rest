@@ -1596,6 +1596,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Plan_Pa
 // GTLRCloudchannel_GoogleCloudChannelV1PriceByResource.resourceType
 
 /**
+ *  As of June 2026, this field is mapped to WS Credits on commerce side.
+ *
+ *  Value: "AI_CREDITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_AiCredits;
+/**
  *  GB (used for storage SKUs).
  *
  *  Value: "GB"
@@ -4937,6 +4943,9 @@ GTLR_DEPRECATED
  *  Resource Type. Example: SEAT
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_AiCredits
+ *        As of June 2026, this field is mapped to WS Credits on commerce side.
+ *        (Value: "AI_CREDITS")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_Gb
  *        GB (used for storage SKUs). (Value: "GB")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1PriceByResource_ResourceType_IaasUsage

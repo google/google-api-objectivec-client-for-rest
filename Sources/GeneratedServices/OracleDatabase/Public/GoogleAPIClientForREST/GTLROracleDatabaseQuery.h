@@ -340,6 +340,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the refreshable clones for a given Autonomous Database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.getRefreshableClones
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesGetRefreshableClones : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The Autonomous Database resource whose refreshable clones are to
+ *  be listed. Format:
+ *  projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_AutonomousDatabaseRefreshableClones.
+ *
+ *  Gets the refreshable clones for a given Autonomous Database.
+ *
+ *  @param name Required. The Autonomous Database resource whose refreshable
+ *    clones are to be listed. Format:
+ *    projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesGetRefreshableClones
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the Autonomous Databases in a given project and location.
  *
  *  Method: oracledatabase.projects.locations.autonomousDatabases.list
@@ -444,6 +476,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesPatch
  */
 + (instancetype)queryWithObject:(GTLROracleDatabase_AutonomousDatabase *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Refreshes the refreshable clone of an Autonomous Database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.refresh
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRefresh : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the AutonomousDatabase resource. Format:
+ *  projects/{project}/location/{location}/autonomousDatabases/{autonomous_database}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Refreshes the refreshable clone of an Autonomous Database.
+ *
+ *  @param object The @c GTLROracleDatabase_RefreshAutonomousDatabaseRequest to
+ *    include in the query.
+ *  @param name Required. The name of the AutonomousDatabase resource. Format:
+ *    projects/{project}/location/{location}/autonomousDatabases/{autonomous_database}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRefresh
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_RefreshAutonomousDatabaseRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1492,9 +1557,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemShapesList : GTLROracleDatabaseQuery
 
 /**
- *  Optional. An expression for filtering the results of the request. Only the
- *  gcp_oracle_zone_id field is supported in this format:
- *  `gcp_oracle_zone_id="{gcp_oracle_zone_id}"`.
+ *  Optional. An expression for filtering the results of the request. The
+ *  `gcp_oracle_zone_id`, `shape_family`, and `database_edition` fields are
+ *  supported in the following format:
+ *  `gcp_oracle_zone_id="{gcp_oracle_zone_id}" AND shape_family="{shape_family}"
+ *  AND database_edition="{database_edition}"`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2233,8 +2300,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. An expression for filtering the results of the request. Only the
- *  shape, gcp_oracle_zone and gi_version fields are supported in this format:
- *  `shape="{shape}"`.
+ *  `shape` and `gcp_oracle_zone_id` fields are supported in the following
+ *  format: `shape="{shape}" AND gcp_oracle_zone_id="{gcp_oracle_zone_id}"`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2287,9 +2354,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROracleDatabaseQuery_ProjectsLocationsGiVersionsMinorVersionsList : GTLROracleDatabaseQuery
 
 /**
- *  Optional. An expression for filtering the results of the request. Only
- *  shapeFamily and gcp_oracle_zone_id are supported in this format:
- *  `shape_family="{shapeFamily}" AND
+ *  Optional. An expression for filtering the results of the request. Only the
+ *  `shape_family` and `gcp_oracle_zone_id` fields are supported in the
+ *  following format: `shape_family="{shape_family}" AND
  *  gcp_oracle_zone_id="{gcp_oracle_zone_id}"`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;

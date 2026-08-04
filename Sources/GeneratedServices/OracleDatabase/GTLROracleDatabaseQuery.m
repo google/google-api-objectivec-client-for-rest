@@ -174,6 +174,25 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesGetRefreshableClones
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getRefreshableClones";
+  GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesGetRefreshableClones *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_AutonomousDatabaseRefreshableClones class];
+  query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.getRefreshableClones";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -215,6 +234,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLROracleDatabase_Operation class];
   query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRefresh
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROracleDatabase_RefreshAutonomousDatabaseRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:refresh";
+  GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesRefresh *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROracleDatabase_Operation class];
+  query.loggingName = @"oracledatabase.projects.locations.autonomousDatabases.refresh";
   return query;
 }
 

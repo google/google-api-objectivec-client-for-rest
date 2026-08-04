@@ -213,13 +213,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified;
 /**
- *  Flex commitments have committed period of 1 minute after becoming ACTIVE.
- *  After that, they are not in a committed period anymore and can be removed
- *  any time.
+ *  Deprecated: Flex commitments are deprecated. Please use Edition-based
+ *  capacity commitments. Flex commitments have committed period of 1 minute
+ *  after becoming ACTIVE. After that, they are not in a committed period
+ *  anymore and can be removed any time.
  *
  *  Value: "FLEX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex GTLR_DEPRECATED;
 /**
  *  Same as FLEX, should only be used if flat-rate commitments are still
  *  available.
@@ -297,13 +298,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified;
 /**
- *  Flex commitments have committed period of 1 minute after becoming ACTIVE.
- *  After that, they are not in a committed period anymore and can be removed
- *  any time.
+ *  Deprecated: Flex commitments are deprecated. Please use Edition-based
+ *  capacity commitments. Flex commitments have committed period of 1 minute
+ *  after becoming ACTIVE. After that, they are not in a committed period
+ *  anymore and can be removed any time.
  *
  *  Value: "FLEX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex GTLR_DEPRECATED;
 /**
  *  Same as FLEX, should only be used if flat-rate commitments are still
  *  available.
@@ -911,10 +913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *        Invalid plan value. Requests with this value will be rejected with
  *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
  *        "COMMITMENT_PLAN_UNSPECIFIED")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex Flex
- *        commitments have committed period of 1 minute after becoming ACTIVE.
- *        After that, they are not in a committed period anymore and can be
- *        removed any time. (Value: "FLEX")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex Deprecated:
+ *        Flex commitments are deprecated. Please use Edition-based capacity
+ *        commitments. Flex commitments have committed period of 1 minute after
+ *        becoming ACTIVE. After that, they are not in a committed period
+ *        anymore and can be removed any time. (Value: "FLEX")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_FlexFlatRate Same
  *        as FLEX, should only be used if flat-rate commitments are still
  *        available. (Value: "FLEX_FLAT_RATE")
@@ -963,10 +966,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *        Invalid plan value. Requests with this value will be rejected with
  *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
  *        "COMMITMENT_PLAN_UNSPECIFIED")
- *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex Flex
- *        commitments have committed period of 1 minute after becoming ACTIVE.
- *        After that, they are not in a committed period anymore and can be
- *        removed any time. (Value: "FLEX")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex
+ *        Deprecated: Flex commitments are deprecated. Please use Edition-based
+ *        capacity commitments. Flex commitments have committed period of 1
+ *        minute after becoming ACTIVE. After that, they are not in a committed
+ *        period anymore and can be removed any time. (Value: "FLEX")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_FlexFlatRate
  *        Same as FLEX, should only be used if flat-rate commitments are still
  *        available. (Value: "FLEX_FLAT_RATE")
@@ -1547,6 +1551,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, copy, nullable) NSString *reservationGroup;
 
 /**
+ *  Output only. The reservation group path of the reservation from root to
+ *  leaf. The order of elements matters: the first element is the top level
+ *  group and the last element is the direct parent reservation group. For
+ *  example, if a reservation is under group-1 -> group-2 -> group-3, then the
+ *  reservation group path is ["group-1", "group-2", "group-3"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reservationGroupPath;
+
+/**
  *  Optional. The scaling mode for the reservation. If the field is present but
  *  max_slots is not present, requests will be rejected with error code
  *  `google.rpc.Code.INVALID_ARGUMENT`.
@@ -1666,6 +1679,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The parent reservation group of the reservation group. Format:
+ *  `projects/ * /locations/ * /reservationGroups/team1-prod` for non-root
+ *  reservation groups, or `projects/ * /locations/ *` for root reservation
+ *  groups.
+ */
+@property(nonatomic, copy, nullable) NSString *parentGroup;
 
 @end
 

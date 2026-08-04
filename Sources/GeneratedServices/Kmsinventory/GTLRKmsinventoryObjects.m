@@ -18,6 +18,7 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_
 NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_WarningCodeUnspecified = @"WARNING_CODE_UNSPECIFIED";
 
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKey.purpose
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AesWrapping = @"AES_WRAPPING";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AsymmetricDecrypt = @"ASYMMETRIC_DECRYPT";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AsymmetricSign = @"ASYMMETRIC_SIGN";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_CryptoKeyPurposeUnspecified = @"CRYPTO_KEY_PURPOSE_UNSPECIFIED";
@@ -33,6 +34,7 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Ae
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Cbc = @"AES_256_CBC";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Ctr = @"AES_256_CTR";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Gcm = @"AES_256_GCM";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Aes256Kwp = @"AES_256_KWP";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignEd25519 = @"EC_SIGN_ED25519";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
@@ -103,6 +105,7 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algo
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Cbc = @"AES_256_CBC";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Ctr = @"AES_256_CTR";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Gcm = @"AES_256_GCM";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_Aes256Kwp = @"AES_256_KWP";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignEd25519 = @"EC_SIGN_ED25519";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
@@ -354,8 +357,9 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
 @implementation GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion
 @dynamic algorithm, attestation, createTime, destroyEventTime, destroyTime,
          externalDestructionFailureReason, externalProtectionLevelOptions,
-         generateTime, generationFailureReason, importFailureReason, importJob,
-         importTime, name, protectionLevel, reimportEligible, state;
+         generateTime, generationFailureReason, hsmTrusted, importFailureReason,
+         importJob, importTime, name, protectionLevel, reimportEligible, state,
+         trustedWrappingEnabled;
 @end
 
 
@@ -375,7 +379,7 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
 //
 
 @implementation GTLRKmsinventory_GoogleCloudKmsV1ExternalProtectionLevelOptions
-@dynamic ekmConnectionKeyPath, externalKeyUri;
+@dynamic ekmConnectionBackendOverride, ekmConnectionKeyPath, externalKeyUri;
 @end
 
 

@@ -14,6 +14,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// chainValidation
+NSString * const kGTLRGmailChainValidationAll  = @"all";
+NSString * const kGTLRGmailChainValidationNone = @"none";
+
 // format
 NSString * const kGTLRGmailFormatFull     = @"full";
 NSString * const kGTLRGmailFormatMetadata = @"metadata";
@@ -888,7 +892,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @implementation GTLRGmailQuery_UsersSettingsCseKeypairsCreate
 
-@dynamic userId;
+@dynamic chainValidation, userId;
 
 + (instancetype)queryWithObject:(GTLRGmail_CseKeyPair *)object
                          userId:(NSString *)userId {

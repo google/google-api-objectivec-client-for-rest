@@ -682,6 +682,524 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
 
 @end
 
+/**
+ *  Creates a new Template in a given project and location.
+ *
+ *  Method: parametermanager.projects.locations.templates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesCreate : GTLRParameterManagerQuery
+
+/** Required. Value for parent in the format `projects/ * /locations/ *`. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. Id of the Template resource */
+@property(nonatomic, copy, nullable) NSString *templateId;
+
+/**
+ *  Fetches a @c GTLRParameterManager_Template.
+ *
+ *  Creates a new Template in a given project and location.
+ *
+ *  @param object The @c GTLRParameterManager_Template to include in the query.
+ *  @param parent Required. Value for parent in the format `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRParameterManager_Template *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Template.
+ *
+ *  Method: parametermanager.projects.locations.templates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesDelete : GTLRParameterManagerQuery
+
+/**
+ *  Required. Name of the resource in the format `projects/ * /locations/ *
+ *  /templates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRParameterManager_Empty.
+ *
+ *  Deletes a single Template.
+ *
+ *  @param name Required. Name of the resource in the format `projects/ *
+ *    /locations/ * /templates/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Template.
+ *
+ *  Method: parametermanager.projects.locations.templates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesGet : GTLRParameterManagerQuery
+
+/**
+ *  Required. Name of the resource in the format `projects/ * /locations/ *
+ *  /templates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRParameterManager_Template.
+ *
+ *  Gets details of a single Template.
+ *
+ *  @param name Required. Name of the resource in the format `projects/ *
+ *    /locations/ * /templates/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Templates in a given project and location.
+ *
+ *  Method: parametermanager.projects.locations.templates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesList : GTLRParameterManagerQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListTemplates` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListTemplates` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListTemplatesRequest in the format `projects/ *
+ *  /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRParameterManager_ListTemplatesResponse.
+ *
+ *  Lists Templates in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListTemplatesRequest in the format
+ *    `projects/ * /locations/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a single Template.
+ *
+ *  Method: parametermanager.projects.locations.templates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesPatch : GTLRParameterManagerQuery
+
+/**
+ *  Identifier. The resource name of the Template in the format `projects/ *
+ *  /locations/ * /templates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Template resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A mutable field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all mutable fields present in the request will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRParameterManager_Template.
+ *
+ *  Updates a single Template.
+ *
+ *  @param object The @c GTLRParameterManager_Template to include in the query.
+ *  @param name Identifier. The resource name of the Template in the format
+ *    `projects/ * /locations/ * /templates/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRParameterManager_Template *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new TemplateVersion in a given project, location, and template.
+ *
+ *  Method: parametermanager.projects.locations.templates.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsCreate : GTLRParameterManagerQuery
+
+/**
+ *  Required. Value for parent in the format `projects/ * /locations/ *
+ *  /templates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. Id of the TemplateVersion resource */
+@property(nonatomic, copy, nullable) NSString *templateVersionId;
+
+/**
+ *  Fetches a @c GTLRParameterManager_TemplateVersion.
+ *
+ *  Creates a new TemplateVersion in a given project, location, and template.
+ *
+ *  @param object The @c GTLRParameterManager_TemplateVersion to include in the
+ *    query.
+ *  @param parent Required. Value for parent in the format `projects/ *
+ *    /locations/ * /templates/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRParameterManager_TemplateVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single TemplateVersion.
+ *
+ *  Method: parametermanager.projects.locations.templates.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsDelete : GTLRParameterManagerQuery
+
+/**
+ *  Required. Name of the resource in the format `projects/ * /locations/ *
+ *  /templates/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRParameterManager_Empty.
+ *
+ *  Deletes a single TemplateVersion.
+ *
+ *  @param name Required. Name of the resource in the format `projects/ *
+ *    /locations/ * /templates/ * /versions/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single TemplateVersion.
+ *
+ *  Method: parametermanager.projects.locations.templates.versions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsGet : GTLRParameterManagerQuery
+
+/**
+ *  Required. Name of the resource in the format `projects/ * /locations/ *
+ *  /templates/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies the view of the TemplateVersion to return. In the
+ *  default FULL view, all metadata & payload associated with the
+ *  TemplateVersion will be returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParameterManagerViewViewUnspecified The default / unset
+ *        value. The API will default to the FULL view. (Value:
+ *        "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRParameterManagerViewBasic Include only the metadata for the
+ *        resource. (Value: "BASIC")
+ *    @arg @c kGTLRParameterManagerViewFull Include metadata & other relevant
+ *        payload data as well. This is the default view. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRParameterManager_TemplateVersion.
+ *
+ *  Gets details of a single TemplateVersion.
+ *
+ *  @param name Required. Name of the resource in the format `projects/ *
+ *    /locations/ * /templates/ * /versions/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TemplateVersions in a given project, location, and template.
+ *
+ *  Method: parametermanager.projects.locations.templates.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsList : GTLRParameterManagerQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListTemplateVersions`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListTemplateVersions` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListTemplateVersionsRequest in the format
+ *  `projects/ * /locations/ * /templates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRParameterManager_ListTemplateVersionsResponse.
+ *
+ *  Lists TemplateVersions in a given project, location, and template.
+ *
+ *  @param parent Required. Parent value for ListTemplateVersionsRequest in the
+ *    format `projects/ * /locations/ * /templates/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a single TemplateVersion.
+ *
+ *  Method: parametermanager.projects.locations.templates.versions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsPatch : GTLRParameterManagerQuery
+
+/**
+ *  Identifier. The resource name of the TemplateVersion in the format
+ *  `projects/ * /locations/ * /templates/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  TemplateVersion resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A mutable
+ *  field will be overwritten if it is in the mask. If the user does not provide
+ *  a mask then all mutable fields present in the request will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRParameterManager_TemplateVersion.
+ *
+ *  Updates a single TemplateVersion.
+ *
+ *  @param object The @c GTLRParameterManager_TemplateVersion to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the TemplateVersion in the
+ *    format `projects/ * /locations/ * /templates/ * /versions/ *`.
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRParameterManager_TemplateVersion *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets rendered version of a TemplateVersion.
+ *
+ *  Method: parametermanager.projects.locations.templates.versions.render
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeParameterManagerCloudPlatform
+ */
+@interface GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsRender : GTLRParameterManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parameter version used to render the template version. */
+@property(nonatomic, copy, nullable) NSString *parameterVersion;
+
+/**
+ *  Fetches a @c GTLRParameterManager_RenderTemplateVersionResponse.
+ *
+ *  Gets rendered version of a TemplateVersion.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRParameterManagerQuery_ProjectsLocationsTemplatesVersionsRender
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

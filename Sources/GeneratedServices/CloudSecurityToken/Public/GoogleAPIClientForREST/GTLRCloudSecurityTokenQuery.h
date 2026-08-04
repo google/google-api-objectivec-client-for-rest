@@ -38,7 +38,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches the signing keys for an agentic or managed workload identity pool
  *  and returns them in JWKs format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
- *  pools are supported.
+ *  pools are supported. **Preview** This feature is subject to the "Pre-GA
+ *  Offerings Terms" in the General Service Terms section of the [Service
+ *  Specific Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA
+ *  features are available "as is" and might have limited support. For more
+ *  information, see the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  Method: sts.organizations.locations.workloadIdentityPools.openid.getJwks
  */
@@ -60,7 +65,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches the signing keys for an agentic or managed workload identity pool
  *  and returns them in JWKs format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
- *  pools are supported.
+ *  pools are supported. **Preview** This feature is subject to the "Pre-GA
+ *  Offerings Terms" in the General Service Terms section of the [Service
+ *  Specific Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA
+ *  features are available "as is" and might have limited support. For more
+ *  information, see the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  @param name Required. The name of the pool whose JWKS needs to be retrieved.
  *    Format:
@@ -80,7 +90,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the OIDC provider configuration for an agentic or managed workload
  *  identity pool following [the OIDC 1.0 discovery
  *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
- *  For now, only agentic system pools are supported.
+ *  For now, only agentic system pools are supported. **Preview** This feature
+ *  is subject to the "Pre-GA Offerings Terms" in the General Service Terms
+ *  section of the [Service Specific
+ *  Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA features are
+ *  available "as is" and might have limited support. For more information, see
+ *  the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  Method: sts.organizations.locations.workloadIdentityPools.well-known.getOpenid-configuration
  */
@@ -103,7 +119,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the OIDC provider configuration for an agentic or managed workload
  *  identity pool following [the OIDC 1.0 discovery
  *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
- *  For now, only agentic system pools are supported.
+ *  For now, only agentic system pools are supported. **Preview** This feature
+ *  is subject to the "Pre-GA Offerings Terms" in the General Service Terms
+ *  section of the [Service Specific
+ *  Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA features are
+ *  available "as is" and might have limited support. For more information, see
+ *  the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  @param name Required. The name of the pool whose OpenID provider
  *    configuration to retrieve. Format:
@@ -123,7 +145,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches the signing keys for an agentic or managed workload identity pool
  *  and returns them in JWKs format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
- *  pools are supported.
+ *  pools are supported. **Preview** This feature is subject to the "Pre-GA
+ *  Offerings Terms" in the General Service Terms section of the [Service
+ *  Specific Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA
+ *  features are available "as is" and might have limited support. For more
+ *  information, see the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  Method: sts.projects.locations.workloadIdentityPools.openid.getJwks
  */
@@ -145,7 +172,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches the signing keys for an agentic or managed workload identity pool
  *  and returns them in JWKs format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
- *  pools are supported.
+ *  pools are supported. **Preview** This feature is subject to the "Pre-GA
+ *  Offerings Terms" in the General Service Terms section of the [Service
+ *  Specific Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA
+ *  features are available "as is" and might have limited support. For more
+ *  information, see the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  @param name Required. The name of the pool whose JWKS needs to be retrieved.
  *    Format:
@@ -165,7 +197,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the OIDC provider configuration for an agentic or managed workload
  *  identity pool following [the OIDC 1.0 discovery
  *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
- *  For now, only agentic system pools are supported.
+ *  For now, only agentic system pools are supported. **Preview** This feature
+ *  is subject to the "Pre-GA Offerings Terms" in the General Service Terms
+ *  section of the [Service Specific
+ *  Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA features are
+ *  available "as is" and might have limited support. For more information, see
+ *  the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  Method: sts.projects.locations.workloadIdentityPools.well-known.getOpenid-configuration
  */
@@ -188,7 +226,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the OIDC provider configuration for an agentic or managed workload
  *  identity pool following [the OIDC 1.0 discovery
  *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse).
- *  For now, only agentic system pools are supported.
+ *  For now, only agentic system pools are supported. **Preview** This feature
+ *  is subject to the "Pre-GA Offerings Terms" in the General Service Terms
+ *  section of the [Service Specific
+ *  Terms](https://cloud.google.com/terms/service-terms#1). Pre-GA features are
+ *  available "as is" and might have limited support. For more information, see
+ *  the [launch stage
+ *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
  *  @param name Required. The name of the pool whose OpenID provider
  *    configuration to retrieve. Format:

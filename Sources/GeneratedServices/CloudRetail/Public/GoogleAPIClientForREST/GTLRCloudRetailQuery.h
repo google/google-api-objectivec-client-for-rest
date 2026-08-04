@@ -2824,9 +2824,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Writes a single user event from the browser. For larger user event payload
  *  over 16 KB, the POST method should be used instead, otherwise a 400 Bad
- *  Request error is returned. This method is used only by the Retail API
- *  JavaScript pixel and Google Tag Manager. Users should not call this method
- *  directly.
+ *  Request error is returned. This method is used only by the AI Commerce
+ *  Search API JavaScript pixel and Google Tag Manager. Users should not call
+ *  this method directly.
  *
  *  Method: retail.projects.locations.catalogs.userEvents.collect
  *
@@ -2846,9 +2846,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Writes a single user event from the browser. For larger user event payload
  *  over 16 KB, the POST method should be used instead, otherwise a 400 Bad
- *  Request error is returned. This method is used only by the Retail API
- *  JavaScript pixel and Google Tag Manager. Users should not call this method
- *  directly.
+ *  Request error is returned. This method is used only by the AI Commerce
+ *  Search API JavaScript pixel and Google Tag Manager. Users should not call
+ *  this method directly.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest to include in

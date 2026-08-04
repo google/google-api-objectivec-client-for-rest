@@ -181,6 +181,25 @@
 
 @end
 
+@implementation GTLRThreatIntelligenceServiceQuery_ProjectsAlertsGetPassword
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}:getPassword";
+  GTLRThreatIntelligenceServiceQuery_ProjectsAlertsGetPassword *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRThreatIntelligenceService_Alert class];
+  query.loggingName = @"threatintelligence.projects.alerts.getPassword";
+  return query;
+}
+
+@end
+
 @implementation GTLRThreatIntelligenceServiceQuery_ProjectsAlertsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;

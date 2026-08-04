@@ -23,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -32,6 +32,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeOrgPolicyAPICloudPlatform;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Organization Policy data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/organizationpolicy"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy;
+/**
+ *  Authorization scope: See your Google Cloud Organization Policy data and the
+ *  email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/organizationpolicy.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLROrgPolicyAPIService

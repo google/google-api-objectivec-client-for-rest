@@ -23,8 +23,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/subscribewithgoogle.publications.entitlements.manage
+ *
+ *  Value "https://www.googleapis.com/auth/subscribewithgoogle.publications.entitlements.manage"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage;
 /**
  *  Authorization scope: See and review your subscription information
  *

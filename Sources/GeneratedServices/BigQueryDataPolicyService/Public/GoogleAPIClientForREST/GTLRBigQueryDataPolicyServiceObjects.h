@@ -389,8 +389,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Ver
 
 
 /**
- *  Data Governance tag This is a namespaced name specifying the key and the
- *  value. For example: `project-id/pii/sensitive`.
+ *  This is a namespaced name specifying the key and the value. For example:
+ *  `project-id/pii/sensitive`.
  */
 @interface GTLRBigQueryDataPolicyService_DataGovernanceTag : GTLRObject
 

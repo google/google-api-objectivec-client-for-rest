@@ -26,6 +26,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1ApigeeEdgeConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1ApigeeOPDKConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1ApigeeXHybridConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1ApigeeXTargetDetails;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance_Labels;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiHubResource;
@@ -75,6 +76,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1HostingService;
 @class GTLRAPIhub_GoogleCloudApihubV1HostProjectRegistration;
 @class GTLRAPIhub_GoogleCloudApihubV1HttpOperation;
+@class GTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails;
 @class GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails_QueryParams;
 @class GTLRAPIhub_GoogleCloudApihubV1HttpRequest;
@@ -86,12 +88,16 @@
 @class GTLRAPIhub_GoogleCloudApihubV1LastExecution;
 @class GTLRAPIhub_GoogleCloudApihubV1LintResponse;
 @class GTLRAPIhub_GoogleCloudApihubV1MatchResult;
+@class GTLRAPIhub_GoogleCloudApihubV1McpServerConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1McpTool;
+@class GTLRAPIhub_GoogleCloudApihubV1McpToolConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1MetaData;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiIntValues;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiSelectValues;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiStringValues;
 @class GTLRAPIhub_GoogleCloudApihubV1Oauth2ClientCredentialsConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails;
+@class GTLRAPIhub_GoogleCloudApihubV1OperationConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1OperationDetails;
 @class GTLRAPIhub_GoogleCloudApihubV1OperationSchema;
 @class GTLRAPIhub_GoogleCloudApihubV1OperationSchema_JsonSchema;
@@ -957,6 +963,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperation_
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperation_Method_Trace;
 
 // ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig.method
+
+/**
+ *  Delete Operation type.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Delete;
+/**
+ *  Get Operation type.
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Get;
+/**
+ *  Head Operation type.
+ *
+ *  Value: "HEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Head;
+/**
+ *  Method unspecified.
+ *
+ *  Value: "METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_MethodUnspecified;
+/**
+ *  Options Operation type.
+ *
+ *  Value: "OPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Options;
+/**
+ *  Patch Operation type.
+ *
+ *  Value: "PATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Patch;
+/**
+ *  Post Operation type.
+ *
+ *  Value: "POST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Post;
+/**
+ *  Put Operation type.
+ *
+ *  Value: "PUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Put;
+/**
+ *  Trace Operation type.
+ *
+ *  Value: "TRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Trace;
+
+// ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1Issue.severity
 
 /**
@@ -1207,6 +1271,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_Gateway
  *  Value: "APIGEE_X_AND_HYBRID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeXAndHybrid;
+/**
+ *  The gateway type is AWS API Gateway.
+ *
+ *  Value: "AWS_API_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AwsApiGateway;
 /**
  *  The gateway type is Cloud API Gateway.
  *
@@ -2058,6 +2128,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  The target configuration for Apigee X. Note: If this API is called while an
+ *  earlier deployment is still in progress, the earlier deployment will be
+ *  aborted and a new deployment will be triggered.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ApigeeXTargetDetails : GTLRObject
+
+/** Output only. The revision number of the Apigee proxy that was deployed. */
+@property(nonatomic, copy, nullable) NSString *deployedRevision;
+
+/**
+ *  Required. The specific Apigee environment where the server will be deployed.
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/** Optional. Metadata for the proxy configuration in Apigee X. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1MetaData *metadata;
+
+/**
+ *  Required. This name identifies the proxy resource in Apigee. It typically
+ *  follows a standard alphanumeric format (e.g., "mcp-discovery-server").
+ */
+@property(nonatomic, copy, nullable) NSString *proxy;
+
+/**
+ *  Required. The runtime project that hosts the Apigee X organization. This
+ *  must be one of the runtime projects attached to the API Hub host project.
+ */
+@property(nonatomic, copy, nullable) NSString *targetProject;
+
+@end
+
+
+/**
  *  An ApiHubInstance represents the instance resources of the API Hub.
  *  Currently, only one ApiHub instance is allowed for each project.
  */
@@ -2708,6 +2811,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /** Optional. The authentication template for the plugin. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AuthConfigTemplate *authConfigTemplate;
+
+@end
+
+
+/**
+ *  Request message for ApiHub.ConfigureAndDeployServer.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ConfigureAndDeployServerRequest : GTLRObject
+
+/** MCP (Model Context Protocol) server configuration. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1McpServerConfig *mcpServerConfig;
 
 @end
 
@@ -3988,6 +4102,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  Identifies a single API Hub operation by spec resource name + HTTP path +
+ *  HTTP method.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig : GTLRObject
+
+/**
+ *  Required. HTTP method of the operation within the referenced spec. (GET /
+ *  PUT / POST / DELETE / OPTIONS / HEAD / PATCH / TRACE).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Delete
+ *        Delete Operation type. (Value: "DELETE")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Get Get
+ *        Operation type. (Value: "GET")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Head
+ *        Head Operation type. (Value: "HEAD")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_MethodUnspecified
+ *        Method unspecified. (Value: "METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Options
+ *        Options Operation type. (Value: "OPTIONS")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Patch
+ *        Patch Operation type. (Value: "PATCH")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Post
+ *        Post Operation type. (Value: "POST")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Put Put
+ *        Operation type. (Value: "PUT")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Trace
+ *        Trace Operation type. (Value: "TRACE")
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  Required. HTTP path of the operation within the referenced spec. Match is
+ *  exact (no template substitution): the path here must appear verbatim on an
+ *  APIOperationRevision belonging to the spec.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Required. Spec resource name:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}`
+ */
+@property(nonatomic, copy, nullable) NSString *spec;
+
+@end
+
+
+/**
  *  An HTTP-based API Operation, sometimes called a "REST" Operation.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1HttpOperationDetails : GTLRObject
@@ -4765,6 +4927,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  MCP-specific server configuration.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1McpServerConfig : GTLRObject
+
+/** Optional. The target Apigee X configuration. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ApigeeXTargetDetails *apigeeXTargetDetails;
+
+/** Required. The tools to expose on the MCP server. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1McpToolConfig *> *tools;
+
+@end
+
+
+/**
  *  Details describing an MCP Tool.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1McpTool : GTLRObject
@@ -4798,6 +4974,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /** Optional. Optional title for the tool. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A tool exposed by the MCP server. Each tool wraps exactly one API Hub
+ *  operation under a caller-supplied identifier.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1McpToolConfig : GTLRObject
+
+/**
+ *  Required. Description of what the tool does and how it is used. Description
+ *  serves as key reference for the agent to know about the tool capabilities.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The API Hub operation this tool exposes. Each tool wraps exactly
+ *  one operation; callers that want to expose multiple operations should
+ *  declare multiple tools.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1OperationConfig *operation;
+
+/**
+ *  Required. Caller-supplied identifier for the tool; each tool must have a
+ *  unique identifier. This will be by used by agents to invoke the tool. Tool
+ *  ID must be unique across all tools in the given MCP server configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *toolId;
+
+@end
+
+
+/**
+ *  Metadata for the server configuration in Apigee X.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1MetaData : GTLRObject
+
+/**
+ *  Optional. Description for the server. For apigee target, this will be used
+ *  as revision description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Display name for the server. For apigee target, this will be used
+ *  as revision display name.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 @end
 
@@ -4890,6 +5119,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  spec.
  */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  API hub Operation config.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1OperationConfig : GTLRObject
+
+/** The HTTP operation config. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig *httpOperation;
+
+/**
+ *  Full API Hub operation resource name:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/operations/{operation}`
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
 
 @end
 
@@ -5119,6 +5365,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeXAndHybrid
  *        The gateway type is Apigee X and Hybrid. (Value:
  *        "APIGEE_X_AND_HYBRID")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AwsApiGateway
+ *        The gateway type is AWS API Gateway. (Value: "AWS_API_GATEWAY")
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudApiGateway
  *        The gateway type is Cloud API Gateway. (Value: "CLOUD_API_GATEWAY")
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudEndpoints

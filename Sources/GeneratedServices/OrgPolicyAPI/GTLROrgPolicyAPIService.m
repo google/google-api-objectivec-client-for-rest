@@ -12,9 +12,11 @@
 #import <GoogleAPIClientForREST/GTLROrgPolicyAPI.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeOrgPolicyAPICloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeOrgPolicyAPICloudPlatform       = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeOrgPolicyAPIOrganizationpolicy  = @"https://www.googleapis.com/auth/organizationpolicy";
+NSString * const kGTLRAuthScopeOrgPolicyAPIOrganizationpolicyReadonly = @"https://www.googleapis.com/auth/organizationpolicy.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLROrgPolicyAPIService

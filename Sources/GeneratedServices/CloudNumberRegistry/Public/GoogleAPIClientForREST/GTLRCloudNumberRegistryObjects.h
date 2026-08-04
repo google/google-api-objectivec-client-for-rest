@@ -1239,7 +1239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesReq
 @property(nonatomic, strong, nullable) GTLRCloudNumberRegistry_Realm_Labels *labels;
 
 /**
- *  Required. Management type of the Realm.
+ *  Optional. Management type of the Realm.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudNumberRegistry_Realm_ManagementType_Cnr Managed by Cloud

@@ -4792,6 +4792,33 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
+@implementation GTLRDfareportingQuery_ReportDataQuery
+
+@dynamic profileId;
+
++ (instancetype)queryWithObject:(GTLRDfareporting_ReportDataQueryRequest *)object
+                      profileId:(long long)profileId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"profileId" ];
+  NSString *pathURITemplate = @"userprofiles/{profileId}/reportdata/query";
+  GTLRDfareportingQuery_ReportDataQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.profileId = profileId;
+  query.expectedObjectClass = [GTLRDfareporting_ReportDataResponse class];
+  query.loggingName = @"dfareporting.reportData.query";
+  return query;
+}
+
+@end
+
 @implementation GTLRDfareportingQuery_ReportsCompatibleFieldsQuery
 
 @dynamic profileId;

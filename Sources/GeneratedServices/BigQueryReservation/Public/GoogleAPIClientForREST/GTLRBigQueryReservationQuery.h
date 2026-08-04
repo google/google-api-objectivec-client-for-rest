@@ -512,6 +512,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates an existing reservation group resource.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsPatch : GTLRBigQueryReservationQuery
+
+/**
+ *  Identifier. The resource name of the reservation group, e.g., `projects/ *
+ *  /locations/ * /reservationGroups/team1-prod`. The reservation_group_id must
+ *  only contain lower case alphanumeric characters or dashes. It must start
+ *  with a letter and must not end with a dash. Its maximum length is 64
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Standard field mask for the set of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_ReservationGroup.
+ *
+ *  Updates an existing reservation group resource.
+ *
+ *  @param object The @c GTLRBigQueryReservation_ReservationGroup to include in
+ *    the query.
+ *  @param name Identifier. The resource name of the reservation group, e.g.,
+ *    `projects/ * /locations/ * /reservationGroups/team1-prod`. The
+ *    reservation_group_id must only contain lower case alphanumeric characters
+ *    or dashes. It must start with a letter and must not end with a dash. Its
+ *    maximum length is 64 characters.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_ReservationGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an assignment object which allows the given project to submit jobs
  *  of a certain type using slots from the specified reservation. Currently a
  *  resource (project, folder, organization) can only have one assignment per

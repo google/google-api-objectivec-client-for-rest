@@ -2157,3 +2157,30 @@ NSString * const kGTLRAPIhubViewMcpTool                = @"MCP_TOOL";
 }
 
 @end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsServersConfigureAndDeployServer
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ConfigureAndDeployServerRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/servers:configureAndDeployServer";
+  GTLRAPIhubQuery_ProjectsLocationsServersConfigureAndDeployServer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleLongrunningOperation class];
+  query.loggingName = @"apihub.projects.locations.servers.configureAndDeployServer";
+  return query;
+}
+
+@end

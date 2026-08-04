@@ -134,6 +134,11 @@ NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c = @"P2C";
 NSString * const kGTLRDfareporting_Campaign_EuPoliticalAdsDeclaration_ContainsEuPoliticalAds = @"CONTAINS_EU_POLITICAL_ADS";
 NSString * const kGTLRDfareporting_Campaign_EuPoliticalAdsDeclaration_DoesNotContainEuPoliticalAds = @"DOES_NOT_CONTAIN_EU_POLITICAL_ADS";
 
+// GTLRDfareporting_ColumnHeader.type
+NSString * const kGTLRDfareporting_ColumnHeader_Type_ColumnTypeUnspecified = @"COLUMN_TYPE_UNSPECIFIED";
+NSString * const kGTLRDfareporting_ColumnHeader_Type_Dimension = @"DIMENSION";
+NSString * const kGTLRDfareporting_ColumnHeader_Type_Metric    = @"METRIC";
+
 // GTLRDfareporting_ContentSource.resourceType
 NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeGoogleSpreadsheet = @"RESOURCE_TYPE_GOOGLE_SPREADSHEET";
 NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeRemoteFile = @"RESOURCE_TYPE_REMOTE_FILE";
@@ -259,6 +264,11 @@ NSString * const kGTLRDfareporting_Creative_Compatibility_Display = @"DISPLAY";
 NSString * const kGTLRDfareporting_Creative_Compatibility_DisplayInterstitial = @"DISPLAY_INTERSTITIAL";
 NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamAudio = @"IN_STREAM_AUDIO";
 NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamVideo = @"IN_STREAM_VIDEO";
+
+// GTLRDfareporting_Creative.syntheticContentAttestationStatus
+NSString * const kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_IsSynthetic = @"IS_SYNTHETIC";
+NSString * const kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_NotSynthetic = @"NOT_SYNTHETIC";
+NSString * const kGTLRDfareporting_Creative_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified = @"SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED";
 
 // GTLRDfareporting_Creative.type
 NSString * const kGTLRDfareporting_Creative_Type_BrandSafeDefaultInstreamVideo = @"BRAND_SAFE_DEFAULT_INSTREAM_VIDEO";
@@ -1343,6 +1353,10 @@ NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Html5
 NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Any = @"ANY";
 NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Landscape = @"LANDSCAPE";
 NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait = @"PORTRAIT";
+
+// GTLRDfareporting_SortBy.sortOrder
+NSString * const kGTLRDfareporting_SortBy_SortOrder_Ascending  = @"ASCENDING";
+NSString * const kGTLRDfareporting_SortBy_SortOrder_Descending = @"DESCENDING";
 
 // GTLRDfareporting_SortedDimension.sortOrder
 NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Ascending = @"ASCENDING";
@@ -2617,6 +2631,16 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_ColumnHeader
+//
+
+@implementation GTLRDfareporting_ColumnHeader
+@dynamic name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_CompanionClickThroughOverride
 //
 
@@ -3058,9 +3082,9 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
          requiredFlashVersion, size, skipOffset, skippable, sslCompliant,
          sslOverride, studioAdvertiserId, studioCreativeId,
          studioTraffickedCreativeId, subaccountId,
-         thirdPartyBackupImageImpressionsUrl, thirdPartyRichMediaImpressionsUrl,
-         thirdPartyUrls, timerCustomEvents, totalFileSize, type, universalAdId,
-         version;
+         syntheticContentAttestationStatus, thirdPartyBackupImageImpressionsUrl,
+         thirdPartyRichMediaImpressionsUrl, thirdPartyUrls, timerCustomEvents,
+         totalFileSize, type, universalAdId, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -6004,6 +6028,65 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_ReportDataQueryRequest
+//
+
+@implementation GTLRDfareporting_ReportDataQueryRequest
+@dynamic dateRange, dimensionFilters, dimensionNames, maxResults, metricNames,
+         pageToken, sortBys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionFilters" : [GTLRDfareporting_DimensionValue class],
+    @"dimensionNames" : [NSString class],
+    @"metricNames" : [NSString class],
+    @"sortBys" : [GTLRDfareporting_SortBy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_ReportDataResponse
+//
+
+@implementation GTLRDfareporting_ReportDataResponse
+@dynamic columnHeaders, nextPageToken, rows, totalRow;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnHeaders" : [GTLRDfareporting_ColumnHeader class],
+    @"rows" : [GTLRDfareporting_ReportDataRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_ReportDataRow
+//
+
+@implementation GTLRDfareporting_ReportDataRow
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_ReportList
 //
 
@@ -6315,6 +6398,16 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_SortBy
+//
+
+@implementation GTLRDfareporting_SortBy
+@dynamic name, sortOrder;
 @end
 
 

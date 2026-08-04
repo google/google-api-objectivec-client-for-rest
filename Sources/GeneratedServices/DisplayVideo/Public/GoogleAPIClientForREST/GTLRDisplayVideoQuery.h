@@ -621,6 +621,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
+ *  Updates an ad asset. Returns the updated ad asset if successful. Supports
+ *  updating assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO` and
+ *  `AD_ASSET_TYPE_IMAGE`. Only the `synthetic_content_attestation_status` field
+ *  is mutable.
+ *
+ *  Method: displayvideo.advertisers.adAssets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdAssetsPatch : GTLRDisplayVideoQuery
+
+/**
+ *  Output only. The ID of the ad asset. Referred to as the asset ID when
+ *  assigned to an ad.
+ */
+@property(nonatomic, assign) long long adAssetId;
+
+/** Required. The ID of the advertiser this ad asset belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The list of fields to update. Only
+ *  AdAsset.synthetic_content_attestation_status is mutable.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AdAsset.
+ *
+ *  Updates an ad asset. Returns the updated ad asset if successful. Supports
+ *  updating assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO` and
+ *  `AD_ASSET_TYPE_IMAGE`. Only the `synthetic_content_attestation_status` field
+ *  is mutable.
+ *
+ *  @param object The @c GTLRDisplayVideo_AdAsset to include in the query.
+ *  @param advertiserId Required. The ID of the advertiser this ad asset belongs
+ *    to.
+ *  @param adAssetId Output only. The ID of the ad asset. Referred to as the
+ *    asset ID when assigned to an ad.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdAssetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_AdAsset *)object
+                   advertiserId:(long long)advertiserId
+                      adAssetId:(long long)adAssetId;
+
+@end
+
+/**
  *  Uploads and creates an ad asset. Returns the ID of the newly-created ad
  *  asset if successful. Only supports the uploading of assets with the
  *  AdAssetType `AD_ASSET_TYPE_IMAGE`.
@@ -659,8 +711,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Creates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This method will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroupAds.create
  *
@@ -676,8 +726,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroupAd.
  *
  *  Creates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This method will be available to all partners by *June 24, 2026*.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroupAd to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -692,8 +740,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Deletes an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This method will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroupAds.delete
  *
@@ -714,8 +760,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
  *  Deletes an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This method will be available to all partners by *June 24, 2026*.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad belongs to.
  *  @param adGroupAdId Required. The ID of the ad to delete. Only Demand Gen ads
@@ -832,8 +876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Updates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This method will be available to all partners by *June 24, 2026*.
  *
  *  Method: displayvideo.advertisers.adGroupAds.patch
  *
@@ -859,8 +901,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroupAd.
  *
  *  Updates an ad group ad. This method is only supported for Demand Gen ads.
- *  Retrieval and management of Demand Gen resources is currently rolling out.
- *  This method will be available to all partners by *June 24, 2026*.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroupAd to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -883,9 +923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests
  *  from each ad group, and then create the assigned targeting options provided
  *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This
- *  method is only supported for Demand Gen ad groups. Retrieval and management
- *  of Demand Gen resources is currently rolling out. This method will be
- *  available to all partners by *June 24, 2026*.
+ *  method is only supported for Demand Gen ad groups.
  *
  *  Method: displayvideo.advertisers.adGroups.bulkEditAssignedTargetingOptions
  *
@@ -907,9 +945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests
  *  from each ad group, and then create the assigned targeting options provided
  *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This
- *  method is only supported for Demand Gen ad groups. Retrieval and management
- *  of Demand Gen resources is currently rolling out. This method will be
- *  available to all partners by *June 24, 2026*.
+ *  method is only supported for Demand Gen ad groups.
  *
  *  @param object The @c
  *    GTLRDisplayVideo_BulkEditAdGroupAssignedTargetingOptionsRequest to include
@@ -1007,9 +1043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Creates a new ad group. Returns the newly created ad group if successful.
- *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This method
- *  will be available to all partners by *June 24, 2026*.
+ *  This method is only supported for Demand Gen ad groups.
  *
  *  Method: displayvideo.advertisers.adGroups.create
  *
@@ -1025,9 +1059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroup.
  *
  *  Creates a new ad group. Returns the newly created ad group if successful.
- *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This method
- *  will be available to all partners by *June 24, 2026*.
+ *  This method is only supported for Demand Gen ad groups.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroup to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -1042,9 +1074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not
- *  exist. This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This method
- *  will be available to all partners by *June 24, 2026*.
+ *  exist. This method is only supported for Demand Gen ad groups.
  *
  *  Method: displayvideo.advertisers.adGroups.delete
  *
@@ -1063,9 +1093,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
  *  Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not
- *  exist. This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This method
- *  will be available to all partners by *June 24, 2026*.
+ *  exist. This method is only supported for Demand Gen ad groups.
  *
  *  @param advertiserId Required. The ID of the advertiser this ad group belongs
  *    to.
@@ -1185,9 +1213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Updates an existing ad group. Returns the updated ad group if successful.
- *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This method
- *  will be available to all partners by *June 24, 2026*.
+ *  This method is only supported for Demand Gen ad groups.
  *
  *  Method: displayvideo.advertisers.adGroups.patch
  *
@@ -1213,9 +1239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroup.
  *
  *  Updates an existing ad group. Returns the updated ad group if successful.
- *  This method is only supported for Demand Gen ad groups. Retrieval and
- *  management of Demand Gen resources is currently rolling out. This method
- *  will be available to all partners by *June 24, 2026*.
+ *  This method is only supported for Demand Gen ad groups.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroup to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -1234,9 +1258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Assigns a targeting option to an ad group. Returns the assigned targeting
  *  option if successful. This method is only supported for Demand Gen ad
- *  groups. Retrieval and management of Demand Gen resources is currently
- *  rolling out. This method will be available to all partners by *June 24,
- *  2026*.
+ *  groups.
  *
  *  Method: displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.create
  *
@@ -1438,9 +1460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *
  *  Assigns a targeting option to an ad group. Returns the assigned targeting
  *  option if successful. This method is only supported for Demand Gen ad
- *  groups. Retrieval and management of Demand Gen resources is currently
- *  rolling out. This method will be available to all partners by *June 24,
- *  2026*.
+ *  groups.
  *
  *  @param object The @c GTLRDisplayVideo_AssignedTargetingOption to include in
  *    the query.
@@ -1637,9 +1657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Deletes an assigned targeting option from an ad group. This method is only
  *  supported for Demand Gen ad groups with the AdGroupFormat
- *  `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen
- *  resources is currently rolling out. This method will be available to all
- *  partners by *June 24, 2026*.
+ *  `AD_GROUP_FORMAT_DEMAND_GEN`.
  *
  *  Method: displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.delete
  *
@@ -1844,9 +1862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *
  *  Deletes an assigned targeting option from an ad group. This method is only
  *  supported for Demand Gen ad groups with the AdGroupFormat
- *  `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen
- *  resources is currently rolling out. This method will be available to all
- *  partners by *June 24, 2026*.
+ *  `AD_GROUP_FORMAT_DEMAND_GEN`.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad group belongs
  *    to.
@@ -8320,12 +8336,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Optional. Allows filtering by plannable user list properties. Supported
  *  syntax: * Filter expressions are made up of one or more restrictions. *
  *  Restrictions can be combined by `AND` or `OR` logical operators. * A
- *  restriction has the form of `{field} {operator} {value}`. * The `updateTime`
- *  field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO
- *  (<=)` operators. * All other fields must use the `EQUALS (=)` operator.
- *  Supported fields: * `plannableStatus` Examples: * All plannable user lists:
- *  `plannableStatus="PLANNABLE"` The length of this field should be no more
- *  than 500 characters. Reference our [filter `LIST`
+ *  restriction has the form of `{field} {operator} {value}`. * The
+ *  `displayName` field must use the `HAS (:)` operator. * All other fields must
+ *  use the `EQUALS (=)` operator. Supported fields: * `plannableStatus` *
+ *  `displayName` * `userListType` * `name` Examples: * All plannable user
+ *  lists: `plannableStatus="PLANNABLE"` * Plannable user lists with display
+ *  name containing "Shopping": `plannableStatus="PLANNABLE" AND
+ *  displayName:"Shopping"` * First party user lists:
+ *  `userListType="FIRST_PARTY"` The length of this field should be no more than
+ *  500 characters. Reference our [filter `LIST`
  *  requests](/display-video/api/guides/how-tos/filters) guide for more
  *  information.
  */

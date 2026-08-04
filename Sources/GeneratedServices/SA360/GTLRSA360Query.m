@@ -3403,6 +3403,33 @@ NSString * const kGTLRSA360TypeUnspecified = @"UNSPECIFIED";
 
 @end
 
+@implementation GTLRSA360Query_CustomersSearchAds360CampaignsMutate
+
+@dynamic customerId;
+
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest *)object
+                     customerId:(NSString *)customerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"v23/customers/{+customerId}/searchAds360Campaigns:mutate";
+  GTLRSA360Query_CustomersSearchAds360CampaignsMutate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.expectedObjectClass = [GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsResponse class];
+  query.loggingName = @"searchads360.customers.searchAds360Campaigns.mutate";
+  return query;
+}
+
+@end
+
 @implementation GTLRSA360Query_CustomersSearchAds360Mutate
 
 @dynamic customerId;
@@ -3741,6 +3768,87 @@ NSString * const kGTLRSA360TypeUnspecified = @"UNSPECIFIED";
   query.resourceName = resourceName;
   query.expectedObjectClass = [GTLRSA360_GoogleAdsSearchads360V23ServicesRegenerateShareableLinkIdResponse class];
   query.loggingName = @"searchads360.customers.thirdPartyAppAnalyticsLinks.regenerateShareableLinkId";
+  return query;
+}
+
+@end
+
+@implementation GTLRSA360Query_CustomersUploadCallConversions
+
+@dynamic customerId;
+
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesUploadCallConversionsRequest *)object
+                     customerId:(NSString *)customerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"v23/customers/{+customerId}:uploadCallConversions";
+  GTLRSA360Query_CustomersUploadCallConversions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.expectedObjectClass = [GTLRSA360_GoogleAdsSearchads360V23ServicesUploadCallConversionsResponse class];
+  query.loggingName = @"searchads360.customers.uploadCallConversions";
+  return query;
+}
+
+@end
+
+@implementation GTLRSA360Query_CustomersUploadClickConversions
+
+@dynamic customerId;
+
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesUploadClickConversionsRequest *)object
+                     customerId:(NSString *)customerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"v23/customers/{+customerId}:uploadClickConversions";
+  GTLRSA360Query_CustomersUploadClickConversions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.expectedObjectClass = [GTLRSA360_GoogleAdsSearchads360V23ServicesUploadClickConversionsResponse class];
+  query.loggingName = @"searchads360.customers.uploadClickConversions";
+  return query;
+}
+
+@end
+
+@implementation GTLRSA360Query_CustomersUploadConversionAdjustments
+
+@dynamic customerId;
+
++ (instancetype)queryWithObject:(GTLRSA360_GoogleAdsSearchads360V23ServicesUploadConversionAdjustmentsRequest *)object
+                     customerId:(NSString *)customerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"v23/customers/{+customerId}:uploadConversionAdjustments";
+  GTLRSA360Query_CustomersUploadConversionAdjustments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.expectedObjectClass = [GTLRSA360_GoogleAdsSearchads360V23ServicesUploadConversionAdjustmentsResponse class];
+  query.loggingName = @"searchads360.customers.uploadConversionAdjustments";
   return query;
 }
 

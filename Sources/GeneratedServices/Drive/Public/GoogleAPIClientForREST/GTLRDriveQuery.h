@@ -769,7 +769,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeTeamDriveItems GTLR_DEPRECATED;
 
 /**
- *  The maximum number of changes to return per page.
+ *  The maximum number of changes to return. The service may return fewer than
+ *  this value. If unspecified, at most 100 changes will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -910,7 +912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeTeamDriveItems GTLR_DEPRECATED;
 
 /**
- *  The maximum number of changes to return per page.
+ *  The maximum number of changes to return. The service may return fewer than
+ *  this value. If unspecified, at most 100 changes will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -1164,7 +1168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeDeleted;
 
 /**
- *  The maximum number of comments to return per page.
+ *  The maximum number of comments to return. The service may return fewer than
+ *  this value. If unspecified, at most 20 comments will be returned. The
+ *  maximum value is 100; values above 100 will be coerced to 100.
  *
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
@@ -1424,7 +1430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_DrivesList : GTLRDriveQuery
 
 /**
- *  Maximum number of shared drives to return per page.
+ *  The maximum number of shared drives to return. The service may return fewer
+ *  than this value. If unspecified, at most 10 shared drives will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
  *
  *  @note If not set, the documented server-side default will be 10 (from the
  *        range 1..100).
@@ -2261,11 +2269,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of files to return per page. Pages may be partial or
- *  empty even before reaching the end of the file list. If unspecified, at most
- *  100 files are returned for shared drives, and the entire list of files for
- *  non-shared drives. The maximum value is 100; values above 100 are changed to
- *  100.
+ *  The maximum number of files to return. The service may return fewer than
+ *  this value. If unspecified, at most 100 files will be returned for shared
+ *  drives, and the entire list of files for non-shared drives. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -2926,9 +2933,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
- *  The maximum number of permissions to return per page. When not set for files
- *  in a shared drive, at most 100 results will be returned. When not set for
- *  files that are not in a shared drive, the entire list will be returned.
+ *  The maximum number of permissions to return. The service may return fewer
+ *  than this value. If unspecified, at most 100 permissions will be returned
+ *  for shared drives, and the entire list of permissions for non-shared drives.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
  *
  *  @note The documented range is 1..100.
  */
@@ -3233,7 +3241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeDeleted;
 
 /**
- *  The maximum number of replies to return per page.
+ *  The maximum number of replies to return. The service may return fewer than
+ *  this value. If unspecified, at most 20 replies will be returned. The maximum
+ *  value is 100; values above 100 will be coerced to 100.
  *
  *  @note If not set, the documented server-side default will be 20 (from the
  *        range 1..100).
@@ -3446,7 +3456,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  The maximum number of revisions to return per page.
+ *  The maximum number of revisions to return. The service may return fewer than
+ *  this value. If unspecified, at most 200 revisions will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
  *
  *  @note If not set, the documented server-side default will be 200 (from the
  *        range 1..1000).

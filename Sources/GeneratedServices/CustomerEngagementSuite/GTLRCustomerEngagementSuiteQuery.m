@@ -398,6 +398,25 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
 
 @end
 
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsGetExtendedAgentCard
+
+@dynamic tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant {
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/extendedAgentCard";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsGetExtendedAgentCard *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1AgentCard class];
+  query.loggingName = @"ces.projects.locations.apps.deployments.getExtendedAgentCard";
+  return query;
+}
+
+@end
+
 @implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsList
 
 @dynamic orderBy, pageSize, pageToken, parent;
@@ -412,6 +431,33 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
   query.parent = parent;
   query.expectedObjectClass = [GTLRCustomerEngagementSuite_ListDeploymentsResponse class];
   query.loggingName = @"ces.projects.locations.apps.deployments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageSend
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/message:send";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageSend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse class];
+  query.loggingName = @"ces.projects.locations.apps.deployments.message.send";
   return query;
 }
 
@@ -627,6 +673,25 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
   query.name = name;
   query.expectedObjectClass = [GTLRCustomerEngagementSuite_App class];
   query.loggingName = @"ces.projects.locations.apps.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGetExtendedAgentCard
+
+@dynamic tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant {
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/extendedAgentCard";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGetExtendedAgentCard *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1AgentCard class];
+  query.loggingName = @"ces.projects.locations.apps.getExtendedAgentCard";
   return query;
 }
 
@@ -1281,6 +1346,25 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
 
 @end
 
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsGetExtendedAgentCard
+
+@dynamic tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant {
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/extendedAgentCard";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsGetExtendedAgentCard *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1AgentCard class];
+  query.loggingName = @"ces.projects.locations.apps.versions.getExtendedAgentCard";
+  return query;
+}
+
+@end
+
 @implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -1295,6 +1379,33 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
   query.parent = parent;
   query.expectedObjectClass = [GTLRCustomerEngagementSuite_ListAppVersionsResponse class];
   query.loggingName = @"ces.projects.locations.apps.versions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageSend
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/message:send";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageSend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse class];
+  query.loggingName = @"ces.projects.locations.apps.versions.message.send";
   return query;
 }
 

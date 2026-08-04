@@ -107,6 +107,7 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionType
 // GTLRAlertCenter_RuleViolationInfo.agentType
 NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_AgentTypeUnspecified = @"AGENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_Studio = @"STUDIO";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_AgentType_WorkAgent = @"WORK_AGENT";
 
 // GTLRAlertCenter_RuleViolationInfo.dataSource
 NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Chat = @"CHAT";
@@ -158,6 +159,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleDe
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_AgentExecution = @"AGENT_EXECUTION";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatAttachmentUploaded = @"CHAT_ATTACHMENT_UPLOADED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent = @"CHAT_MESSAGE_SENT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeDataCopied = @"CHROME_DATA_COPIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload = @"CHROME_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload = @"CHROME_FILE_UPLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeosFileTransfer = @"CHROMEOS_FILE_TRANSFER";

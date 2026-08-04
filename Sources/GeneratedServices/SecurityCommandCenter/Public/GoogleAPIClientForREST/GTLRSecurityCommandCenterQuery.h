@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: securitycenter.folders.assets.group
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -67,6 +68,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.assets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -114,6 +116,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.assets.updateSecurityMarks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersAssetsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
@@ -149,6 +152,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.bigQueryExports.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsCreate : GTLRSecurityCommandCenterQuery
@@ -179,6 +183,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.bigQueryExports.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsDelete : GTLRSecurityCommandCenterQuery
@@ -202,6 +207,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.bigQueryExports.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsGet : GTLRSecurityCommandCenterQuery
@@ -226,6 +232,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.bigQueryExports.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsList : GTLRSecurityCommandCenterQuery
@@ -257,6 +264,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.bigQueryExports.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsPatch : GTLRSecurityCommandCenterQuery
@@ -292,6 +300,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
@@ -319,6 +328,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
@@ -342,6 +352,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -365,6 +376,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -397,6 +409,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.listDescendant
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
@@ -429,6 +442,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.customModules.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
@@ -463,6 +477,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.effectiveCustomModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -487,6 +502,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.effectiveCustomModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -519,6 +535,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.eventThreatDetectionSettings.validateCustomModule
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsValidateCustomModule : GTLRSecurityCommandCenterQuery
@@ -547,6 +564,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.findings.bulkMute
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersFindingsBulkMute : GTLRSecurityCommandCenterQuery
@@ -573,6 +591,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.locations.muteConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -596,6 +615,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.locations.muteConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsGet : GTLRSecurityCommandCenterQuery
@@ -620,6 +640,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.locations.muteConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -655,6 +676,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.muteConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersMuteConfigsCreate : GTLRSecurityCommandCenterQuery
@@ -685,6 +707,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.muteConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersMuteConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -708,6 +731,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.muteConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersMuteConfigsGet : GTLRSecurityCommandCenterQuery
@@ -732,6 +756,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.muteConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersMuteConfigsList : GTLRSecurityCommandCenterQuery
@@ -763,6 +788,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.muteConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersMuteConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -798,6 +824,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.notificationConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsCreate : GTLRSecurityCommandCenterQuery
@@ -826,6 +853,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.notificationConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -849,6 +877,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.notificationConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsGet : GTLRSecurityCommandCenterQuery
@@ -872,6 +901,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.notificationConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsList : GTLRSecurityCommandCenterQuery
@@ -903,6 +933,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.notificationConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -936,6 +967,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
@@ -964,6 +996,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
@@ -987,6 +1020,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -1011,6 +1045,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -1043,6 +1078,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.listDescendant
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
@@ -1075,6 +1111,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
@@ -1110,6 +1147,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.customModules.simulate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesSimulate : GTLRSecurityCommandCenterQuery
@@ -1138,6 +1176,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -1162,6 +1201,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.securityHealthAnalyticsSettings.effectiveCustomModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -1194,6 +1234,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.findings.externalSystems.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsExternalSystemsPatch : GTLRSecurityCommandCenterQuery
@@ -1229,6 +1270,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.findings.group
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsGroup : GTLRSecurityCommandCenterQuery
@@ -1255,6 +1297,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.findings.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsList : GTLRSecurityCommandCenterQuery
@@ -1301,6 +1344,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.findings.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
@@ -1334,6 +1378,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.findings.setMute
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetMute : GTLRSecurityCommandCenterQuery
@@ -1360,6 +1405,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.findings.setState
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
@@ -1386,6 +1432,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.findings.updateSecurityMarks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
@@ -1421,6 +1468,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.folders.sources.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesList : GTLRSecurityCommandCenterQuery
@@ -1452,6 +1500,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.assets.group
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -1479,6 +1528,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.assets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -1526,6 +1576,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.assets.runDiscovery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -1553,6 +1604,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.assets.updateSecurityMarks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
@@ -1588,6 +1640,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.attackPaths.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAttackPathsList : GTLRSecurityCommandCenterQuery
@@ -1621,6 +1674,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.bigQueryExports.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsCreate : GTLRSecurityCommandCenterQuery
@@ -1651,6 +1705,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.bigQueryExports.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsDelete : GTLRSecurityCommandCenterQuery
@@ -1674,6 +1729,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.bigQueryExports.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsGet : GTLRSecurityCommandCenterQuery
@@ -1698,6 +1754,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.bigQueryExports.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsList : GTLRSecurityCommandCenterQuery
@@ -1729,6 +1786,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.bigQueryExports.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsPatch : GTLRSecurityCommandCenterQuery
@@ -1764,6 +1822,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
@@ -1791,6 +1850,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
@@ -1814,6 +1874,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -1837,6 +1898,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -1869,6 +1931,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.listDescendant
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
@@ -1901,6 +1964,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.customModules.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
@@ -1935,6 +1999,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.effectiveCustomModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -1959,6 +2024,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.effectiveCustomModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -1991,6 +2057,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.eventThreatDetectionSettings.validateCustomModule
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsValidateCustomModule : GTLRSecurityCommandCenterQuery
@@ -2019,6 +2086,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.findings.bulkMute
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsFindingsBulkMute : GTLRSecurityCommandCenterQuery
@@ -2045,6 +2113,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.getOrganizationSettings
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsGetOrganizationSettings : GTLRSecurityCommandCenterQuery
@@ -2068,6 +2137,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.locations.muteConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -2091,6 +2161,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.locations.muteConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsGet : GTLRSecurityCommandCenterQuery
@@ -2115,6 +2186,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.locations.muteConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -2150,6 +2222,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.muteConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsCreate : GTLRSecurityCommandCenterQuery
@@ -2180,6 +2253,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.muteConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -2203,6 +2277,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.muteConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsGet : GTLRSecurityCommandCenterQuery
@@ -2227,6 +2302,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.muteConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsList : GTLRSecurityCommandCenterQuery
@@ -2258,6 +2334,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.muteConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -2293,6 +2370,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.notificationConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate : GTLRSecurityCommandCenterQuery
@@ -2321,6 +2399,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.notificationConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -2344,6 +2423,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.notificationConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet : GTLRSecurityCommandCenterQuery
@@ -2367,6 +2447,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.notificationConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList : GTLRSecurityCommandCenterQuery
@@ -2398,6 +2479,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.notificationConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -2431,6 +2513,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsCancel : GTLRSecurityCommandCenterQuery
@@ -2454,6 +2537,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.operations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsDelete : GTLRSecurityCommandCenterQuery
@@ -2477,6 +2561,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsGet : GTLRSecurityCommandCenterQuery
@@ -2500,6 +2585,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsList : GTLRSecurityCommandCenterQuery
@@ -2535,6 +2621,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.resourceValueConfigs.batchCreate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsBatchCreate : GTLRSecurityCommandCenterQuery
@@ -2563,6 +2650,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.resourceValueConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -2586,6 +2674,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.resourceValueConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsGet : GTLRSecurityCommandCenterQuery
@@ -2610,6 +2699,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.resourceValueConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsList : GTLRSecurityCommandCenterQuery
@@ -2641,6 +2731,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.resourceValueConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -2676,6 +2767,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
@@ -2704,6 +2796,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
@@ -2727,6 +2820,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -2751,6 +2845,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -2783,6 +2878,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.listDescendant
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
@@ -2815,6 +2911,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
@@ -2850,6 +2947,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.customModules.simulate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesSimulate : GTLRSecurityCommandCenterQuery
@@ -2878,6 +2976,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -2902,6 +3001,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.securityHealthAnalyticsSettings.effectiveCustomModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -2934,6 +3034,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.simulations.attackExposureResults.attackPaths.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsAttackPathsList : GTLRSecurityCommandCenterQuery
@@ -2967,6 +3068,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.simulations.attackExposureResults.valuedResources.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsValuedResourcesList : GTLRSecurityCommandCenterQuery
@@ -3002,6 +3104,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.simulations.attackPaths.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackPathsList : GTLRSecurityCommandCenterQuery
@@ -3035,6 +3138,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.simulations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsGet : GTLRSecurityCommandCenterQuery
@@ -3058,6 +3162,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.simulations.valuedResources.attackPaths.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesAttackPathsList : GTLRSecurityCommandCenterQuery
@@ -3091,6 +3196,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.simulations.valuedResources.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesGet : GTLRSecurityCommandCenterQuery
@@ -3114,6 +3220,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.simulations.valuedResources.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesList : GTLRSecurityCommandCenterQuery
@@ -3149,6 +3256,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesCreate : GTLRSecurityCommandCenterQuery
@@ -3175,6 +3283,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsCreate : GTLRSecurityCommandCenterQuery
@@ -3203,6 +3312,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.externalSystems.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsExternalSystemsPatch : GTLRSecurityCommandCenterQuery
@@ -3238,6 +3348,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.group
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsGroup : GTLRSecurityCommandCenterQuery
@@ -3264,6 +3375,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsList : GTLRSecurityCommandCenterQuery
@@ -3310,6 +3422,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
@@ -3343,6 +3456,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.setMute
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetMute : GTLRSecurityCommandCenterQuery
@@ -3369,6 +3483,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.setState
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
@@ -3395,6 +3510,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.findings.updateSecurityMarks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
@@ -3430,6 +3546,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesGet : GTLRSecurityCommandCenterQuery
@@ -3453,6 +3570,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesGetIamPolicy : GTLRSecurityCommandCenterQuery
@@ -3479,6 +3597,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesList : GTLRSecurityCommandCenterQuery
@@ -3510,6 +3629,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesPatch : GTLRSecurityCommandCenterQuery
@@ -3543,6 +3663,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesSetIamPolicy : GTLRSecurityCommandCenterQuery
@@ -3569,6 +3690,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.sources.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesTestIamPermissions : GTLRSecurityCommandCenterQuery
@@ -3595,6 +3717,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.updateOrganizationSettings
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -3629,6 +3752,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.organizations.valuedResources.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsValuedResourcesList : GTLRSecurityCommandCenterQuery
@@ -3664,6 +3788,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.assets.group
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -3691,6 +3816,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.assets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 GTLR_DEPRECATED
@@ -3738,6 +3864,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.assets.updateSecurityMarks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsAssetsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
@@ -3773,6 +3900,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.bigQueryExports.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsCreate : GTLRSecurityCommandCenterQuery
@@ -3803,6 +3931,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.bigQueryExports.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsDelete : GTLRSecurityCommandCenterQuery
@@ -3826,6 +3955,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.bigQueryExports.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsGet : GTLRSecurityCommandCenterQuery
@@ -3850,6 +3980,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.bigQueryExports.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsList : GTLRSecurityCommandCenterQuery
@@ -3881,6 +4012,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.bigQueryExports.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsPatch : GTLRSecurityCommandCenterQuery
@@ -3916,6 +4048,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
@@ -3943,6 +4076,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
@@ -3966,6 +4100,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -3989,6 +4124,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -4021,6 +4157,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.listDescendant
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
@@ -4053,6 +4190,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.customModules.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
@@ -4087,6 +4225,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.effectiveCustomModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -4111,6 +4250,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.effectiveCustomModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -4143,6 +4283,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.eventThreatDetectionSettings.validateCustomModule
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsValidateCustomModule : GTLRSecurityCommandCenterQuery
@@ -4171,6 +4312,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.findings.bulkMute
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsFindingsBulkMute : GTLRSecurityCommandCenterQuery
@@ -4197,6 +4339,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.locations.muteConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -4220,6 +4363,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.locations.muteConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsGet : GTLRSecurityCommandCenterQuery
@@ -4244,6 +4388,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.locations.muteConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -4279,6 +4424,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.muteConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsCreate : GTLRSecurityCommandCenterQuery
@@ -4309,6 +4455,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.muteConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -4332,6 +4479,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.muteConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsGet : GTLRSecurityCommandCenterQuery
@@ -4356,6 +4504,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.muteConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsList : GTLRSecurityCommandCenterQuery
@@ -4387,6 +4536,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.muteConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -4422,6 +4572,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.notificationConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsCreate : GTLRSecurityCommandCenterQuery
@@ -4450,6 +4601,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.notificationConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsDelete : GTLRSecurityCommandCenterQuery
@@ -4473,6 +4625,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.notificationConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsGet : GTLRSecurityCommandCenterQuery
@@ -4496,6 +4649,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.notificationConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsList : GTLRSecurityCommandCenterQuery
@@ -4527,6 +4681,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.notificationConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsPatch : GTLRSecurityCommandCenterQuery
@@ -4560,6 +4715,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesCreate : GTLRSecurityCommandCenterQuery
@@ -4588,6 +4744,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesDelete : GTLRSecurityCommandCenterQuery
@@ -4611,6 +4768,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -4635,6 +4793,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -4667,6 +4826,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.listDescendant
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesListDescendant : GTLRSecurityCommandCenterQuery
@@ -4699,6 +4859,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesPatch : GTLRSecurityCommandCenterQuery
@@ -4734,6 +4895,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.customModules.simulate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesSimulate : GTLRSecurityCommandCenterQuery
@@ -4762,6 +4924,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet : GTLRSecurityCommandCenterQuery
@@ -4786,6 +4949,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.securityHealthAnalyticsSettings.effectiveCustomModules.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList : GTLRSecurityCommandCenterQuery
@@ -4818,6 +4982,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.findings.externalSystems.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsExternalSystemsPatch : GTLRSecurityCommandCenterQuery
@@ -4853,6 +5018,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.findings.group
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsGroup : GTLRSecurityCommandCenterQuery
@@ -4879,6 +5045,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.findings.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsList : GTLRSecurityCommandCenterQuery
@@ -4925,6 +5092,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.findings.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
@@ -4958,6 +5126,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.findings.setMute
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetMute : GTLRSecurityCommandCenterQuery
@@ -4984,6 +5153,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.findings.setState
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
@@ -5010,6 +5180,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.findings.updateSecurityMarks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
@@ -5045,6 +5216,7 @@ GTLR_DEPRECATED
  *  Method: securitycenter.projects.sources.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenter
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesList : GTLRSecurityCommandCenterQuery

@@ -369,7 +369,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ColumnFamilyStats
-@dynamic averageCellsPerColumn, averageColumnsPerRow, logicalDataBytes;
+@dynamic averageCellsPerColumn, averageColumnsPerRow, logicalDataBytes,
+         logicalDataHddBytes, logicalDataSsdBytes;
 @end
 
 
@@ -527,7 +528,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_CreateMaterializedViewRequest
-@dynamic materializedView, materializedViewId, parent;
+@dynamic ignoreWarnings, materializedView, materializedViewId, parent;
 @end
 
 
@@ -1147,8 +1148,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Instance
-@dynamic createTime, displayName, edition, labels, name, satisfiesPzi,
-         satisfiesPzs, state, tags, type;
+@dynamic createTime, displayName, edition, knowledgeCatalogRegion, labels, name,
+         satisfiesPzi, satisfiesPzs, state, tags, type;
 @end
 
 

@@ -30,6 +30,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Accoun
 
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason.reason
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_AccountHistoryReputable = @"ACCOUNT_HISTORY_REPUTABLE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_IdentityGlobalActivityReputable = @"IDENTITY_GLOBAL_ACTIVITY_REPUTABLE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_IdentityHistoryReputable = @"IDENTITY_HISTORY_REPUTABLE";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_ProfileMatch = @"PROFILE_MATCH";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_TrustReasonUnspecified = @"TRUST_REASON_UNSPECIFIED";
 
@@ -75,6 +77,12 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_Bo
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_ContentScraper = @"CONTENT_SCRAPER";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_SearchIndexer = @"SEARCH_INDEXER";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome.difficulty
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Balance = @"BALANCE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_ChallengeSecurityPreferenceUnspecified = @"CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Security = @"SECURITY";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Usability = @"USABILITY";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled = @"DISABLED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled = @"ENABLED";
@@ -103,6 +111,11 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAn
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Failed = @"FAILED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Nocaptcha = @"NOCAPTCHA";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Passed = @"PASSED";
+
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.lastChallengeType
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeAudio = @"CHALLENGE_TYPE_AUDIO";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeUnspecified = @"CHALLENGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeVisual = @"CHALLENGE_TYPE_VISUAL";
 
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_Automation = @"AUTOMATION";
@@ -342,7 +355,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment
 @dynamic accountDefenderAssessment, accountVerification, assessmentEnvironment,
          event, firewallPolicyAssessment, fraudPreventionAssessment,
-         fraudSignals, name, phoneFraudAssessment,
+         fraudSignals, name, phoneFraudAssessment, policyEvaluation,
          privatePasswordLeakVerification, riskAnalysis, tokenProperties;
 @end
 
@@ -374,6 +387,81 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics
 @dynamic failedCount, nocaptchaCount, pageloadCount, passedCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRule
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRule
+@dynamic challenge, condition, noChallenge;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome
+@dynamic difficulty;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleEvaluation
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleEvaluation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleGroup
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleGroup
+@dynamic actions, challengeRules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [NSString class],
+    @"challengeRules" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleNoChallengeOutcome
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleNoChallengeOutcome
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ClientSettings
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ClientSettings
+@dynamic allowAllDomains, allowedDomains, protectedEndpointGroup;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedDomains" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -647,7 +735,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key
 @dynamic androidSettings, createTime, displayName, expressSettings, iosSettings,
-         labels, name, testingOptions, wafSettings, webSettings;
+         labels, name, testingOptions, universalSettings, wafSettings,
+         webSettings;
 @end
 
 
@@ -826,6 +915,34 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy
+@dynamic challengeRuleGroups, clientSettings, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"challengeRuleGroups" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleGroup class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PolicyEvaluation
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PolicyEvaluation
+@dynamic challengeRuleEvaluation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification
 //
 
@@ -836,6 +953,34 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"encryptedLeakMatchPrefixes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpoint
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpoint
+@dynamic action, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpointGroup
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpointGroup
+@dynamic protectedEndpoints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"protectedEndpoints" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpoint class]
   };
   return map;
 }
@@ -925,7 +1070,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis
-@dynamic challenge, extendedVerdictReasons, reasons, score, verifiedBots;
+@dynamic challenge, extendedVerdictReasons, lastChallengeType, reasons, score,
+         verifiedBots;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1136,6 +1282,15 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent
 @dynamic eventTime, eventType, reason, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UniversalKeySettings
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UniversalKeySettings
 @end
 
 

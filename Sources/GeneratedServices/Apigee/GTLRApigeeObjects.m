@@ -329,10 +329,20 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeg
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCloudTrace = @"OPEN_TELEMETRY_CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCollector = @"OPEN_TELEMETRY_COLLECTOR";
 
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.spanSemantics
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Legacy = @"LEGACY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Otel = @"OTEL";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_SpanSemanticsUnspecified = @"SPAN_SEMANTICS_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.traceProtocol
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_OpenCensus = @"OPEN_CENSUS";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_Otlp = @"OTLP";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_TraceProtocolUnspecified = @"TRACE_PROTOCOL_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride.spanSemantics
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_Legacy = @"LEGACY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_Otel = @"OTEL";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_SpanSemanticsUnspecified = @"SPAN_SEMANTICS_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride.traceProtocol
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_OpenCensus = @"OPEN_CENSUS";
@@ -460,6 +470,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUns
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger = @"JAEGER";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCloudTrace = @"OPEN_TELEMETRY_CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCollector = @"OPEN_TELEMETRY_COLLECTOR";
+
+// GTLRApigee_GoogleCloudApigeeV1TraceConfig.spanSemantics
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_Legacy = @"LEGACY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_Otel = @"OTEL";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_SpanSemanticsUnspecified = @"SPAN_SEMANTICS_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1TraceConfig.traceProtocol
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_TraceProtocol_OpenCensus = @"OPEN_CENSUS";
@@ -4681,7 +4696,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig
 @dynamic endpoint, exporter, name, openTelemetryProtocolEnabled, overrides,
-         revisionCreateTime, revisionId, samplingConfig, traceProtocol;
+         revisionCreateTime, revisionId, samplingConfig, spanSemantics,
+         traceProtocol;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4700,7 +4716,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride
 @dynamic apiProxy, name, openTelemetryProtocolEnabled, revisionCreateTime,
-         revisionId, samplingConfig, traceProtocol, uid;
+         revisionId, samplingConfig, spanSemantics, traceProtocol, uid;
 @end
 
 
@@ -5675,7 +5691,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1TraceConfig
-@dynamic endpoint, exporter, samplingConfig, traceProtocol;
+@dynamic endpoint, exporter, samplingConfig, spanSemantics, traceProtocol;
 @end
 
 

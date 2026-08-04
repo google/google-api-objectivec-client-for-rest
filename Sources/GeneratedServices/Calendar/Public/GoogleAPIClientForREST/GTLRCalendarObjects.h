@@ -48,6 +48,7 @@
 @class GTLRCalendar_EventBirthdayProperties;
 @class GTLRCalendar_EventDateTime;
 @class GTLRCalendar_EventFocusTimeProperties;
+@class GTLRCalendar_EventLabel;
 @class GTLRCalendar_EventOutOfOfficeProperties;
 @class GTLRCalendar_EventReminder;
 @class GTLRCalendar_EventWorkingLocationProperties;
@@ -58,6 +59,7 @@
 @class GTLRCalendar_FreeBusyRequestItem;
 @class GTLRCalendar_FreeBusyResponse_Calendars;
 @class GTLRCalendar_FreeBusyResponse_Groups;
+@class GTLRCalendar_LabelProperties;
 @class GTLRCalendar_Notification;
 @class GTLRCalendar_Setting;
 @class GTLRCalendar_TimePeriod;
@@ -133,6 +135,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "freeBusyReader" - Provides read access to free/busy information.
  *  - "reader" - Provides read access to the calendar. Private events will
  *  appear to users with reader access, but event details will be hidden.
+ *  - "writerWithoutPrivateAccess" - Provides read and write access to the
+ *  calendar. Private events will appear to users with
+ *  writerWithoutPrivateAccess access, but event details will be hidden.
  *  - "writer" - Provides read and write access to the calendar. Private events
  *  will appear to users with writer access, and event details will be visible.
  *  Provides read access to the calendar's ACLs.
@@ -221,6 +226,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** Type of the resource ("calendar#calendar"). */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Label properties defined on this calendar. If specified, overwrites the
+ *  existing label properties. If not specified, the label properties remain
+ *  unchanged.
+ */
+@property(nonatomic, strong, nullable) GTLRCalendar_LabelProperties *labelProperties;
+
 /** Geographic location of the calendar as free-form text. Optional. */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -287,6 +299,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "freeBusyReader" - Provides read access to free/busy information.
  *  - "reader" - Provides read access to the calendar. Private events will
  *  appear to users with reader access, but event details will be hidden.
+ *  - "writerWithoutPrivateAccess" - Provides read and write access to the
+ *  calendar. Private events will appear to users with
+ *  writerWithoutPrivateAccess access, but event details will be hidden.
  *  - "writer" - Provides read and write access to the calendar. Private events
  *  will appear to users with writer access, and event details will be visible.
  *  - "owner" - Provides manager access to the calendar. This role has all of
@@ -1013,6 +1028,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  The ID of the event label assigned to the event. Optional. This refers to
+ *  the ID of an entry in the labelProperties.eventLabels property of the
+ *  calendar (see the Calendars.get endpoint.)
+ *  This property supersedes the index-based colorId property. To set or change
+ *  this property, you need to specify eventLabelVersion=1 in the parameters of
+ *  the insert, import, update, and patch methods.
+ *  Setting an empty string, or not setting this field at all, will remove the
+ *  existing label from the event.
+ */
+@property(nonatomic, copy, nullable) NSString *eventLabelId;
+
+/**
  *  Specific type of the event. This cannot be modified after the event is
  *  created. Possible values are:
  *  - "birthday" - A special all-day event with an annual recurrence.
@@ -1251,6 +1278,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  details.
  *  - "confidential" - The event is private. This value is provided for
  *  compatibility reasons.
+ *  Note on recurring events: Changing the visibility of a single instance of a
+ *  recurring event can affect all instances of the series. If the new setting
+ *  is more restrictive (e.g. from public to private), it is applied to all
+ *  instances. If the new setting is less restrictive (e.g. from private to
+ *  public), the change is ignored. To make a recurring event less restrictive,
+ *  you must update the parent recurring event.
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
@@ -1713,6 +1746,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCalendar_EventLabel
  */
 @interface GTLRCalendar_EventLabel : GTLRObject
+
+/**
+ *  Background color of the label in hexadecimal format, such as "#039be5".
+ *  Events with this label are displayed in this color. Required.
+ */
+@property(nonatomic, copy, nullable) NSString *backgroundColor;
+
+/**
+ *  The ID of the label. Optional when inserting a new label. If not provided, a
+ *  unique ID will be generated. Required when updating a label.
+ *  If provided, the ID must be unique within the calendar and follow UUID
+ *  format.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Name of the label. Optional.
+ *  If provided this must have at most 50 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -1782,6 +1838,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "freeBusyReader" - The user has read access to free/busy information.
  *  - "reader" - The user has read access to the calendar. Private events will
  *  appear to users with reader access, but event details will be hidden.
+ *  - "writerWithoutPrivateAccess" - The user has read and write access to the
+ *  calendar. Private events will appear to users with
+ *  writerWithoutPrivateAccess access, but event details will be hidden.
  *  - "writer" - The user has read and write access to the calendar. Private
  *  events will appear to users with writer access, and event details will be
  *  visible.
@@ -2063,6 +2122,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCalendar_LabelProperties
  */
 @interface GTLRCalendar_LabelProperties : GTLRObject
+
+/**
+ *  Event labels defined on this calendar. If this is present when updating the
+ *  calendar, it will replace the existing event labels.
+ *  Extend the list to add a new event label, and remove entities from the list
+ *  to delete a label from calendar.
+ *  Each calendar can have a maximum of 200 labels.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCalendar_EventLabel *> *eventLabels;
+
 @end
 
 

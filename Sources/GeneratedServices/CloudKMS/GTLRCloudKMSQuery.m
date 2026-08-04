@@ -77,6 +77,25 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_FoldersShowEffectiveAutokeyConfig
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:showEffectiveAutokeyConfig";
+  GTLRCloudKMSQuery_FoldersShowEffectiveAutokeyConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse class];
+  query.loggingName = @"cloudkms.folders.showEffectiveAutokeyConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
 
 @dynamic name, updateMask;
@@ -639,7 +658,8 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCreate
 
-@dynamic cryptoKeyId, parent, skipInitialVersionCreation;
+@dynamic cryptoKeyId, parent, skipInitialVersionCreation,
+         trustedWrappingEnabled;
 
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKey *)object
                          parent:(NSString *)parent {
@@ -818,6 +838,25 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsExportTrustedKeyWrappedCryptoKeyVersion
+
+@dynamic name, wrappingKey;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:exportTrustedKeyWrappedCryptoKeyVersion";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsExportTrustedKeyWrappedCryptoKeyVersion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_ExportTrustedKeyWrappedCryptoKeyVersionResponse class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.exportTrustedKeyWrappedCryptoKeyVersion";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGet
 
 @dynamic name;
@@ -878,6 +917,33 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudKMS_CryptoKeyVersion class];
   query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImportTrustedKeyWrappedCryptoKeyVersion
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/cryptoKeyVersions:importTrustedKeyWrappedCryptoKeyVersion";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImportTrustedKeyWrappedCryptoKeyVersion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_CryptoKeyVersion class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.importTrustedKeyWrappedCryptoKeyVersion";
   return query;
 }
 

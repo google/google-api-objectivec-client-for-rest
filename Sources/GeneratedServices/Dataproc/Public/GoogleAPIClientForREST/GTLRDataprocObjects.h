@@ -27,6 +27,7 @@
 @class GTLRDataproc_ApplicationInfo;
 @class GTLRDataproc_AppSummary;
 @class GTLRDataproc_AttachedDiskConfig;
+@class GTLRDataproc_AttachmentOperationMetadata_Labels;
 @class GTLRDataproc_AuthenticationConfig;
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
@@ -55,6 +56,7 @@
 @class GTLRDataproc_ClusterStatus;
 @class GTLRDataproc_ClusterToRepair;
 @class GTLRDataproc_CohortInfo;
+@class GTLRDataproc_ComputeTuningConfigResponse_RecommendedProperties;
 @class GTLRDataproc_ConfidentialInstanceConfig;
 @class GTLRDataproc_ConsolidatedExecutorSummary;
 @class GTLRDataproc_DiskConfig;
@@ -366,6 +368,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_Hyp
  *  Value: "HYPERDISK_THROUGHPUT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskThroughput;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_AttachmentOperationMetadata.operationType
+
+/**
+ *  Attachment operation type is unknown.
+ *
+ *  Value: "ATTACHMENT_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_AttachmentOperationTypeUnspecified;
+/**
+ *  Create Attachment operation type.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_Create;
+/**
+ *  Delete Attachment operation type.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_Delete;
+/**
+ *  Update Attachment operation type.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachmentOperationMetadata_OperationType_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_AuthenticationConfig.userWorkloadAuthenticationType
@@ -1869,6 +1899,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Details of a native build info for a Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationNativeBuildInfoResponse : GTLRObject
+
+/** Native SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeBuildInfoUiData *executionData;
+
+@end
+
+
+/**
+ *  Details of a native query for a Spark Application
+ */
+@interface GTLRDataproc_AccessSessionSparkApplicationNativeSqlQueryResponse : GTLRObject
+
+/** Native SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeSqlExecutionUiData *executionData;
+
+@end
+
+
+/**
  *  A summary of Spark Application
  */
 @interface GTLRDataproc_AccessSessionSparkApplicationResponse : GTLRObject
@@ -1943,6 +1995,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. Data corresponding to a spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobData *jobData;
+
+@end
+
+
+/**
+ *  Details of Native Build Info for a Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationNativeBuildInfoResponse : GTLRObject
+
+/** Native Build Info Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeBuildInfoUiData *buildInfo;
+
+@end
+
+
+/**
+ *  Details of a query for a Spark Application
+ */
+@interface GTLRDataproc_AccessSparkApplicationNativeSqlQueryResponse : GTLRObject
+
+/** Native SQL Execution Data */
+@property(nonatomic, strong, nullable) GTLRDataproc_NativeSqlExecutionUiData *executionData;
 
 @end
 
@@ -2350,6 +2424,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
 
+@end
+
+
+/**
+ *  Metadata describing the Attachment operation.
+ */
+@interface GTLRDataproc_AttachmentOperationMetadata : GTLRObject
+
+/** Output only. Name of the attachment for the operation. */
+@property(nonatomic, copy, nullable) NSString *attachment;
+
+/** Output only. Attachment UUID for the operation. */
+@property(nonatomic, copy, nullable) NSString *attachmentUuid;
+
+/** Output only. The time when the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Short description of the operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
+/** Output only. Labels associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_AttachmentOperationMetadata_Labels *labels;
+
+/**
+ *  Output only. The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_AttachmentOperationMetadata_OperationType_AttachmentOperationTypeUnspecified
+ *        Attachment operation type is unknown. (Value:
+ *        "ATTACHMENT_OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_AttachmentOperationMetadata_OperationType_Create
+ *        Create Attachment operation type. (Value: "CREATE")
+ *    @arg @c kGTLRDataproc_AttachmentOperationMetadata_OperationType_Delete
+ *        Delete Attachment operation type. (Value: "DELETE")
+ *    @arg @c kGTLRDataproc_AttachmentOperationMetadata_OperationType_Update
+ *        Update Attachment operation type. (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Output only. Warnings encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Output only. Labels associated with the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_AttachmentOperationMetadata_Labels : GTLRObject
 @end
 
 
@@ -3430,6 +3565,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *cohortSource;
 
+@end
+
+
+/**
+ *  Response for ComputeTuningConfig RPC.
+ */
+@interface GTLRDataproc_ComputeTuningConfigResponse : GTLRObject
+
+/**
+ *  Recommended Spark properties for the query (e.g.,
+ *  {"spark.sql.shuffle.partitions": "500"}).
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_ComputeTuningConfigResponse_RecommendedProperties *recommendedProperties;
+
+@end
+
+
+/**
+ *  Recommended Spark properties for the query (e.g.,
+ *  {"spark.sql.shuffle.partitions": "500"}).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ComputeTuningConfigResponse_RecommendedProperties : GTLRObject
 @end
 
 
@@ -5215,6 +5377,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_IdentityConfig : GTLRObject
 
+/**
+ *  Optional. Whether to enable SSH access for the cluster. The default is true
+ *  for image versions prior to 3.1 and false for image versions 3.1 and later.
+ *  The default behavior can be changed when creating clusters using image
+ *  versions 2.3.30 and later.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSsh;
+
 /** Required. Map of user to service account. */
 @property(nonatomic, strong, nullable) GTLRDataproc_IdentityConfig_UserServiceAccountMapping *userServiceAccountMapping;
 
@@ -5542,6 +5714,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Defines machines types and a rank to which the machines types belong.
  */
 @interface GTLRDataproc_InstanceSelection : GTLRObject
+
+/**
+ *  Optional. Disk configuration to apply to the instances in this instance
+ *  selection. If specified on any entry in instanceSelectionList, then it must
+ *  be specified on every entry in instanceSelectionList and the
+ *  instanceGroupConfig must not specify any diskConfig.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_DiskConfig *diskConfig;
 
 /** Optional. Full machine-type names, e.g. "n1-standard-16". */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *machineTypes;
@@ -8670,6 +8850,34 @@ GTLR_DEPRECATED
 
 
 /**
+ *  List of all Native queries for a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationNativeSqlQueries" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSessionSparkApplicationNativeSqlQueriesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSessionSparkApplicationSqlQueriesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Native SQL Execution Data
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NativeSqlExecutionUiData *> *sparkApplicationNativeSqlQueries;
+
+@end
+
+
+/**
  *  List of all queries for a Spark Application.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -8889,6 +9097,34 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_JobData *> *sparkApplicationJobs;
+
+@end
+
+
+/**
+ *  List of all Native SQL queries details for a Spark Application.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sparkApplicationNativeSqlQueries" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataproc_SearchSparkApplicationNativeSqlQueriesResponse : GTLRCollectionObject
+
+/**
+ *  This token is included in the response if there are more results to fetch.
+ *  To fetch additional results, provide this value as the page_token in a
+ *  subsequent SearchSparkApplicationNativeSqlQueriesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Native SQL Execution Data
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NativeSqlExecutionUiData *> *sparkApplicationNativeSqlQueries;
 
 @end
 

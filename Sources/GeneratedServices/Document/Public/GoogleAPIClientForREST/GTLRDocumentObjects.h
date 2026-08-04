@@ -2385,7 +2385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3AutoLabelDocumentsMetadataIndividualAutoLabelStatus : GTLRObject
 
 /**
- *  The document id of the auto-labeled document. This will replace the gcs_uri.
+ *  The document ID of the auto-labeled document. This will replace the gcs_uri.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
 
@@ -2435,7 +2435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus : GTLRObject
 
-/** The document id of the document. */
+/** The document ID of the document. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
 
 /** The status of deleting the document in storage. */
@@ -2504,7 +2504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadataIndividualBatchMoveStatus : GTLRObject
 
-/** The document id of the document. */
+/** The document ID of the document. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
 
 /** The status of moving the document. */
@@ -2539,7 +2539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchUpdateDocumentsMetadataIndividualBatchUpdateStatus : GTLRObject
 
-/** The document id of the document. */
+/** The document ID of the document. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *documentId;
 
 /** The status of updating the document in storage. */
@@ -2680,13 +2680,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId : GTLRObject
 
-/** A document id within user-managed Cloud Storage. */
+/** A document ID within user-managed Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId *gcsManagedDocId;
 
 /** Points to a specific revision of the document if set. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef *revisionRef;
 
-/** A document id within unmanaged dataset. */
+/** A document ID within unmanaged dataset. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdUnmanagedDocumentId *unmanagedDocId;
 
 @end
@@ -2698,7 +2698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdGCSManagedDocumentId : GTLRObject
 
-/** Id of the document (indexed) managed by Content Warehouse. */
+/** ID of the document (indexed) managed by Content Warehouse. */
 @property(nonatomic, copy, nullable) NSString *cwDocId GTLR_DEPRECATED;
 
 /** Required. The Cloud Storage URI where the actual document is stored. */
@@ -2713,7 +2713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentIdUnmanagedDocumentId : GTLRObject
 
-/** Required. The id of the document. */
+/** Required. The ID of the document. */
 @property(nonatomic, copy, nullable) NSString *docId;
 
 @end
@@ -2735,7 +2735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. Document level prompt provided by the user. This custom text is
+ *  Optional. Document-level prompt provided by the user. This custom text is
  *  injected into the AI model's prompt to provide extra, document-wide guidance
  *  for processing.
  */
@@ -2792,8 +2792,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  - Must start with a letter. - Allowed characters: ASCII letters
  *  `[a-z0-9_-]`. (For backward compatibility, internal infrastructure and
  *  tooling can handle any ASCII character.) - The `/` is sometimes used to
- *  denote a property of a type. For example `line_item/amount`. This convention
- *  is deprecated, but will still be honored for backward compatibility.
+ *  denote a property of a type. For example, `line_item/amount`. This
+ *  convention is deprecated, but will still be honored for backward
+ *  compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3341,7 +3342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *inputGcsSource;
 
 /**
- *  The document id of imported document if it was successful, otherwise empty.
+ *  The document ID of imported document if it was successful, otherwise empty.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentId *outputDocumentId;
 
@@ -3395,7 +3396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  Optional. SchemaVersion used by the Processor. It is the same as Processor's
  *  DatasetSchema.schema_version Format is
- *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}
+ *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}.
  */
 @property(nonatomic, copy, nullable) NSString *activeSchemaVersion;
 
@@ -4470,7 +4471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDeleteDocumentsMetadataIndividualBatchDeleteStatus : GTLRObject
 
-/** The document id of the document. */
+/** The document ID of the document. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId *documentId;
 
 /** The status of deleting the document in storage. */
@@ -4782,13 +4783,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId : GTLRObject
 
-/** A document id within user-managed Cloud Storage. */
+/** A document ID within user-managed Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdGCSManagedDocumentId *gcsManagedDocId;
 
 /** Points to a specific revision of the document if set. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3RevisionRef *revisionRef;
 
-/** A document id within unmanaged dataset. */
+/** A document ID within unmanaged dataset. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdUnmanagedDocumentId *unmanagedDocId;
 
 @end
@@ -4800,7 +4801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdGCSManagedDocumentId : GTLRObject
 
-/** Id of the document (indexed) managed by Content Warehouse. */
+/** ID of the document (indexed) managed by Content Warehouse. */
 @property(nonatomic, copy, nullable) NSString *cwDocId GTLR_DEPRECATED;
 
 /** Required. The Cloud Storage URI where the actual document is stored. */
@@ -4815,7 +4816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdUnmanagedDocumentId : GTLRObject
 
-/** Required. The id of the document. */
+/** Required. The ID of the document. */
 @property(nonatomic, copy, nullable) NSString *docId;
 
 @end
@@ -4837,7 +4838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. Document level prompt provided by the user. This custom text is
+ *  Optional. Document-level prompt provided by the user. This custom text is
  *  injected into the AI model's prompt to provide extra, document-wide guidance
  *  for processing.
  */
@@ -4894,8 +4895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  - Must start with a letter. - Allowed characters: ASCII letters
  *  `[a-z0-9_-]`. (For backward compatibility, internal infrastructure and
  *  tooling can handle any ASCII character.) - The `/` is sometimes used to
- *  denote a property of a type. For example `line_item/amount`. This convention
- *  is deprecated, but will still be honored for backward compatibility.
+ *  denote a property of a type. For example, `line_item/amount`. This
+ *  convention is deprecated, but will still be honored for backward
+ *  compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5313,7 +5315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *inputGcsSource;
 
 /**
- *  The document id of imported document if it was successful, otherwise empty.
+ *  The document ID of imported document if it was successful, otherwise empty.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId *outputDocumentId;
 
@@ -5361,7 +5363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  Optional. SchemaVersion used by the Processor. It is the same as Processor's
  *  DatasetSchema.schema_version Format is
- *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}
+ *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}.
  */
 @property(nonatomic, copy, nullable) NSString *activeSchemaVersion;
 
@@ -6084,7 +6086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  Optional. The blob assets in this document. This is used to store the
  *  content of the inline blobs in this document, for example, image bytes, such
- *  that it can be referenced by other fields in the document via asset id.
+ *  that it can be referenced by other fields in the document via asset ID.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentBlobAsset *> *blobAssets;
 
@@ -6117,10 +6119,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  The entity revision ID that `document.entities` field is based on. If this
- *  field is set and `entities_revisions` is not empty, the entities in
- *  `document.entities` field are the entities in the entity revision with this
- *  id and `document.entity_validation_output` field is the
- *  `entity_validation_output` field in this entity revision.
+ *  field and `entities_revisions` are set, the entities in `document.entities`
+ *  are the entities in the entity revision with this ID. The
+ *  `document.entity_validation_output` field is the `entity_validation_output`
+ *  field in this entity revision.
  */
 @property(nonatomic, copy, nullable) NSString *entitiesRevisionId;
 
@@ -6207,7 +6209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentBlobAsset : GTLRObject
 
-/** Optional. The id of the blob asset. */
+/** Optional. The ID of the blob asset. */
 @property(nonatomic, copy, nullable) NSString *assetId;
 
 /**
@@ -6341,19 +6343,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations *annotations;
 
 /**
- *  Optional. Asset id of the inline image. If set, find the image content in
+ *  Optional. Asset ID of the inline image. If set, find the image content in
  *  the blob_assets field.
  */
 @property(nonatomic, copy, nullable) NSString *blobAssetId;
 
 /**
- *  Optional. Data uri of the image. It is composed of four parts: a prefix
+ *  Optional. Data URI of the image. It is composed of four parts: a prefix
  *  (data:), a MIME type indicating the type of data, an optional base64 token
  *  if non-textual, and the data itself: data:,
  */
 @property(nonatomic, copy, nullable) NSString *dataUri;
 
-/** Optional. Google Cloud Storage uri of the image. */
+/** Optional. Google Cloud Storage URI of the image. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 @end
@@ -6421,19 +6423,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentAnnotations *annotations;
 
 /**
- *  Optional. Asset id of the inline image. If set, find the image content in
+ *  Optional. Asset ID of the inline image. If set, find the image content in
  *  the blob_assets field.
  */
 @property(nonatomic, copy, nullable) NSString *blobAssetId;
 
 /**
- *  Optional. Data uri of the image. It is composed of four parts: a prefix
+ *  Optional. Data URI of the image. It is composed of four parts: a prefix
  *  (data:), a MIME type indicating the type of data, an optional base64 token
  *  if non-textual, and the data itself: data:,
  */
 @property(nonatomic, copy, nullable) NSString *dataUri;
 
-/** Optional. Google Cloud Storage uri of the image. */
+/** Optional. Google Cloud Storage URI of the image. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 /**
@@ -6750,8 +6752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
 
 /**
- *  A signature - a graphical representation of a person's name, often used to
- *  sign a document.
+ *  A signature, which is a graphical representation of a person's name, often
+ *  used to sign a document.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7640,7 +7642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance : GTLRObject
 
 /**
- *  The Id of this operation. Needs to be unique within the scope of the
+ *  The ID of this operation. Needs to be unique within the scope of the
  *  revision.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -7701,7 +7703,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent : GTLRObject
 
 /**
- *  The id of the parent provenance.
+ *  The ID of the parent provenance.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -7733,7 +7735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision : GTLRObject
 
 /**
- *  If the change was made by a person specify the name or id of that person.
+ *  If the change was made by a person specify the name or ID of that person.
  */
 @property(nonatomic, copy, nullable) NSString *agent;
 
@@ -7747,7 +7749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentRevisionHumanReview *humanReview;
 
 /**
- *  Id of the revision, internally generated by doc proto storage. Unique within
+ *  ID of the revision, internally generated by doc proto storage. Unique within
  *  the context of the document.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -7823,7 +7825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. Document level prompt provided by the user. This custom text is
+ *  Optional. Document-level prompt provided by the user. This custom text is
  *  injected into the AI model's prompt to provide extra, document-wide guidance
  *  for processing.
  */
@@ -7869,8 +7871,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  - Must start with a letter. - Allowed characters: ASCII letters
  *  `[a-z0-9_-]`. (For backward compatibility, internal infrastructure and
  *  tooling can handle any ASCII character.) - The `/` is sometimes used to
- *  denote a property of a type. For example `line_item/amount`. This convention
- *  is deprecated, but will still be honored for backward compatibility.
+ *  denote a property of a type. For example, `line_item/amount`. This
+ *  convention is deprecated, but will still be honored for backward
+ *  compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -9136,7 +9139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  Optional. SchemaVersion used by the Processor. It is the same as Processor's
  *  DatasetSchema.schema_version Format is
- *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}
+ *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}.
  */
 @property(nonatomic, copy, nullable) NSString *activeSchemaVersion;
 
@@ -9954,7 +9957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *learningRateMultiplier;
 
 /**
- *  Optional. Resource name of a previously fine tuned version id to copy the
+ *  Optional. Resource name of a previously fine tuned version ID to copy the
  *  overwritten configs from. The base_processor_version should be newer than
  *  the base processor version used to fine tune this provided processor
  *  version. Format:

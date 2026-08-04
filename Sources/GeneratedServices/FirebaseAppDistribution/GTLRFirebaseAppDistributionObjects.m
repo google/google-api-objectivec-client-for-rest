@@ -45,6 +45,26 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_I
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAndroidDeveloperConsoleAccountNotFound = @"PLAY_ANDROID_DEVELOPER_CONSOLE_ACCOUNT_NOT_FOUND";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayIasTermsNotAccepted = @"PLAY_IAS_TERMS_NOT_ACCEPTED";
 
+// GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release.androidPackageRegistrationState
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_AndroidPackageRegistrationStateUnspecified = @"ANDROID_PACKAGE_REGISTRATION_STATE_UNSPECIFIED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_NotRegistered = @"NOT_REGISTERED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_Registered = @"REGISTERED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_AndroidPackageRegistrationState_RegisteredWithAnotherCertificateFingerprint = @"REGISTERED_WITH_ANOTHER_CERTIFICATE_FINGERPRINT";
+
+// GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release.binaryType
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Aab = @"AAB";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Apk = @"APK";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_BinaryTypeUnspecified = @"BINARY_TYPE_UNSPECIFIED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_BinaryType_Ipa = @"IPA";
+
+// GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release.testState
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Failed = @"FAILED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Inconclusive = @"INCONCLUSIVE";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_NoTestsRequested = @"NO_TESTS_REQUESTED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_Passed = @"PASSED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release_TestState_TestStateUnspecified = @"TEST_STATE_UNSPECIFIED";
+
 // GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadReleaseResponse.result
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadReleaseResponse_Result_ReleaseCreated = @"RELEASE_CREATED";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadReleaseResponse_Result_ReleaseUnmodified = @"RELEASE_UNMODIFIED";
@@ -427,7 +447,7 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadRel
 //
 
 @implementation GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1ListReleasesResponse
-@dynamic nextPageToken, releases;
+@dynamic nextPageToken, releases, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -471,9 +491,11 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadRel
 //
 
 @implementation GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release
-@dynamic binaryDownloadUri, buildVersion, createTime, displayVersion,
-         expireTime, firebaseConsoleUri, name, releaseNotes, testingUri,
-         updateTime;
+@dynamic acceptedInvitationCount, androidPackageRegistrationState,
+         binaryDownloadUri, binaryType, buildVersion, createTime,
+         displayVersion, expireTime, feedbackCount, firebaseConsoleUri,
+         installationCount, name, openInvitationCount, releaseNotes, testingUri,
+         testState, updateTime;
 @end
 
 

@@ -688,9 +688,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @interface GTLRAIPlatformNotebooks_AccessConfig : GTLRObject
 
 /**
- *  An external IP address associated with this instance. Specify an unused
- *  static external IP address available to the project or leave this field
- *  undefined to use an IP from a shared ephemeral IP address pool. If you
+ *  Optional. An external IP address associated with this instance. Specify an
+ *  unused static external IP address available to the project or leave this
+ *  field undefined to use an IP from a shared ephemeral IP address pool. If you
  *  specify a static external IP address, it must live in the same region as the
  *  zone of the instance.
  */
@@ -791,8 +791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @interface GTLRAIPlatformNotebooks_BootDisk : GTLRObject
 
 /**
- *  Optional. Input only. Disk encryption method used on the boot and data
- *  disks, defaults to GMEK.
+ *  Optional. Disk encryption method used on the boot and data disks, defaults
+ *  to GMEK.
  *
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskEncryption_Cmek Use customer
@@ -848,8 +848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
- *  Optional. Input only. The KMS key used to encrypt the disks, only applicable
- *  if disk_encryption is CMEK. Format:
+ *  Optional. The KMS key used to encrypt the disks, only applicable if
+ *  disk_encryption is CMEK. Format:
  *  `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
  *  Learn more about using your own encryption keys.
  */
@@ -1020,8 +1020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @interface GTLRAIPlatformNotebooks_DataDisk : GTLRObject
 
 /**
- *  Optional. Input only. Disk encryption method used on the boot and data
- *  disks, defaults to GMEK.
+ *  Optional. Disk encryption method used on the boot and data disks, defaults
+ *  to GMEK.
  *
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskEncryption_Cmek Use customer
@@ -1076,8 +1076,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
- *  Optional. Input only. The KMS key used to encrypt the disks, only applicable
- *  if disk_encryption is CMEK. Format:
+ *  Optional. The KMS key used to encrypt the disks, only applicable if
+ *  disk_encryption is CMEK. Format:
  *  `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
  *  Learn more about using your own encryption keys.
  */

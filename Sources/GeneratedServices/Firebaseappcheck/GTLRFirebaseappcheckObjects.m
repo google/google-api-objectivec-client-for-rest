@@ -36,10 +36,6 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Off = @"OFF";
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Unenforced = @"UNENFORCED";
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppAttestConfig
@@ -143,24 +139,6 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse
-@dynamic configs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig class]
   };
   return map;
 }
@@ -301,7 +279,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeCustomTokenRequest
-@dynamic customToken, limitedUse;
+@dynamic customToken, jti, limitedUse;
 @end
 
 
@@ -352,16 +330,6 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeRecaptchaV3TokenRequest
 @dynamic limitedUse, recaptchaV3Token;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest
-@dynamic safetyNetToken;
 @end
 
 
@@ -584,16 +552,6 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig
-//
-
-@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig
-@dynamic name, tokenTtl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service
 //
 
@@ -634,5 +592,3 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
 
 @implementation GTLRFirebaseappcheck_GoogleProtobufEmpty
 @end
-
-#pragma clang diagnostic pop

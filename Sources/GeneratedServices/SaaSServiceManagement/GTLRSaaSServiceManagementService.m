@@ -11,9 +11,11 @@
 #import <GoogleAPIClientForREST/GTLRSaaSServiceManagement.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 NSString * const kGTLRAuthScopeSaaSServiceManagementCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeSaaSServiceManagementReadonly   = @"https://www.googleapis.com/auth/saasservicemgmt.readonly";
+NSString * const kGTLRAuthScopeSaaSServiceManagementReadWrite  = @"https://www.googleapis.com/auth/saasservicemgmt.read-write";
 
 // ----------------------------------------------------------------------------
 //   GTLRSaaSServiceManagementService

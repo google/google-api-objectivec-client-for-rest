@@ -1745,6 +1745,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceCo
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCollector;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.spanSemantics
+
+/**
+ *  Uses Apigee legacy span and attribute names.
+ *
+ *  Value: "LEGACY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Legacy;
+/**
+ *  Uses OpenTelemetry semantic-convention-aligned span and attribute names.
+ *
+ *  Value: "OTEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Otel;
+/**
+ *  Semantics unspecified. Defaults to LEGACY.
+ *
+ *  Value: "SPAN_SEMANTICS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_SpanSemanticsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.traceProtocol
 
 /**
@@ -1765,6 +1787,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceCo
  *  Value: "TRACE_PROTOCOL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_TraceProtocolUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride.spanSemantics
+
+/**
+ *  Uses Apigee legacy span and attribute names.
+ *
+ *  Value: "LEGACY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_Legacy;
+/**
+ *  Uses OpenTelemetry semantic-convention-aligned span and attribute names.
+ *
+ *  Value: "OTEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_Otel;
+/**
+ *  Semantics unspecified. Defaults to LEGACY.
+ *
+ *  Value: "SPAN_SEMANTICS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_SpanSemanticsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride.traceProtocol
@@ -2366,6 +2410,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Ex
  *  Value: "OPEN_TELEMETRY_COLLECTOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCollector;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1TraceConfig.spanSemantics
+
+/**
+ *  Uses Apigee legacy span and attribute names.
+ *
+ *  Value: "LEGACY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_Legacy;
+/**
+ *  Uses OpenTelemetry semantic-convention-aligned span and attribute names.
+ *
+ *  Value: "OTEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_Otel;
+/**
+ *  Semantics unspecified. Defaults to LEGACY.
+ *
+ *  Value: "SPAN_SEMANTICS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_SpanSemanticsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1TraceConfig.traceProtocol
@@ -11187,7 +11253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  NEXT ID: 10 RuntimeTraceConfig defines the configurations for distributed
+ *  NEXT ID: 11 RuntimeTraceConfig defines the configurations for distributed
  *  trace in an environment.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig : GTLRObject
@@ -11253,6 +11319,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig *samplingConfig;
 
 /**
+ *  Optional. The span semantics to use. Configuration Requirements (if
+ *  `span_semantics` is `OTEL`): - `trace_protocol` must be `OTLP`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Legacy
+ *        Uses Apigee legacy span and attribute names. (Value: "LEGACY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Otel
+ *        Uses OpenTelemetry semantic-convention-aligned span and attribute
+ *        names. (Value: "OTEL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_SpanSemanticsUnspecified
+ *        Semantics unspecified. Defaults to LEGACY. (Value:
+ *        "SPAN_SEMANTICS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spanSemantics;
+
+/**
  *  Optional. The trace protocol to use.
  *
  *  Likely values:
@@ -11270,7 +11352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  NEXT ID: 9 Trace configuration override for a specific API proxy in an
+ *  NEXT ID: 10 Trace configuration override for a specific API proxy in an
  *  environment.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride : GTLRObject
@@ -11313,6 +11395,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Trace configuration override for a specific API proxy in an environment.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig *samplingConfig;
+
+/**
+ *  Optional. The span semantics to use. Configuration Requirements (if
+ *  `span_semantics` is `OTEL`): - `trace_protocol` must be `OTLP`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_Legacy
+ *        Uses Apigee legacy span and attribute names. (Value: "LEGACY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_Otel
+ *        Uses OpenTelemetry semantic-convention-aligned span and attribute
+ *        names. (Value: "OTEL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_SpanSemantics_SpanSemanticsUnspecified
+ *        Semantics unspecified. Defaults to LEGACY. (Value:
+ *        "SPAN_SEMANTICS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spanSemantics;
 
 /**
  *  Optional. The trace protocol to use.
@@ -13517,6 +13615,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  distributed trace configuration overrides API.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig *samplingConfig;
+
+/**
+ *  Optional. The span semantics to use. Configuration Requirements (if
+ *  span_semantics is OTEL): - trace_protocol must be OTLP.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_Legacy
+ *        Uses Apigee legacy span and attribute names. (Value: "LEGACY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_Otel Uses
+ *        OpenTelemetry semantic-convention-aligned span and attribute names.
+ *        (Value: "OTEL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_SpanSemanticsUnspecified
+ *        Semantics unspecified. Defaults to LEGACY. (Value:
+ *        "SPAN_SEMANTICS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spanSemantics;
 
 /**
  *  Optional. The trace protocol to use. Configuration Requirements (if

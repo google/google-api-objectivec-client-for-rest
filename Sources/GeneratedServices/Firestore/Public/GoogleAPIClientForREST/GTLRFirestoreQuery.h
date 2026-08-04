@@ -1109,6 +1109,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
+ *  Optional. If the list should recursively include all documents nested under
+ *  the parent at any level. If the request specifies a `collection_id`, then
+ *  the list will include all nested documents in the collection under the
+ *  parent. This is optional, and when not provided, Firestore will only list
+ *  documents nested immediately under the parent. Requests with `recursive` may
+ *  not specify `show_missing`.
+ */
+@property(nonatomic, assign) BOOL recursive;
+
+/**
  *  If the list should show missing documents. A document is missing if it does
  *  not exist, but there are sub-documents nested underneath it. When true, such
  *  missing documents will be returned with a key but will not have fields,
@@ -1255,6 +1265,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  can additionally be a whole minute timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/**
+ *  Optional. If the list should recursively include all documents nested under
+ *  the parent at any level. If the request specifies a `collection_id`, then
+ *  the list will include all nested documents in the collection under the
+ *  parent. This is optional, and when not provided, Firestore will only list
+ *  documents nested immediately under the parent. Requests with `recursive` may
+ *  not specify `show_missing`.
+ */
+@property(nonatomic, assign) BOOL recursive;
 
 /**
  *  If the list should show missing documents. A document is missing if it does

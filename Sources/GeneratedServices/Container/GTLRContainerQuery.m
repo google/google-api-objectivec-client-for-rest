@@ -58,6 +58,33 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsLocationsClustersCompleteControlPlaneUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContainer_CompleteControlPlaneUpgradeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:completeControlPlaneUpgrade";
+  GTLRContainerQuery_ProjectsLocationsClustersCompleteControlPlaneUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_Operation class];
+  query.loggingName = @"container.projects.locations.clusters.completeControlPlaneUpgrade";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
 
 @dynamic name;
@@ -967,6 +994,33 @@
   query.clusterId = clusterId;
   query.expectedObjectClass = [GTLRContainer_Operation class];
   query.loggingName = @"container.projects.zones.clusters.addons";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerQuery_ProjectsZonesClustersCompleteControlPlaneUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContainer_CompleteControlPlaneUpgradeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:completeControlPlaneUpgrade";
+  GTLRContainerQuery_ProjectsZonesClustersCompleteControlPlaneUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_Operation class];
+  query.loggingName = @"container.projects.zones.clusters.completeControlPlaneUpgrade";
   return query;
 }
 

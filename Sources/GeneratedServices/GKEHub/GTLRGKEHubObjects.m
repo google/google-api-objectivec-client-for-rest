@@ -304,6 +304,7 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationIncompatible
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationInProgress = @"MODERNIZATION_IN_PROGRESS";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationManual = @"MODERNIZATION_MANUAL";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationMigratingWorkloads = @"MODERNIZATION_MIGRATING_WORKLOADS";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernized = @"MODERNIZATION_MODERNIZED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizedSoaking = @"MODERNIZATION_MODERNIZED_SOAKING";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationModernizing = @"MODERNIZATION_MODERNIZING";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ModernizationPrepared = @"MODERNIZATION_PREPARED";

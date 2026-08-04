@@ -73,6 +73,7 @@
 @class GTLRDatastore_ReadOnly;
 @class GTLRDatastore_ReadOptions;
 @class GTLRDatastore_ReadWrite;
+@class GTLRDatastore_RequestOptions;
 @class GTLRDatastore_Status;
 @class GTLRDatastore_Status_Details_Item;
 @class GTLRDatastore_Sum;
@@ -1048,6 +1049,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
+
 @end
 
 
@@ -1104,6 +1108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  allowed; please use empty string '' to refer the default database.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
+
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
 
 /** Options for a new transaction. */
 @property(nonatomic, strong, nullable) GTLRDatastore_TransactionOptions *transactionOptions;
@@ -1164,6 +1171,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  `NON_TRANSACTIONAL`, no two mutations may affect a single entity.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Mutation *> *mutations;
+
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
 
 /**
  *  Options for beginning a new transaction for this request. The transaction is
@@ -2604,6 +2614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /** The options for this lookup request. */
 @property(nonatomic, strong, nullable) GTLRDatastore_ReadOptions *readOptions;
 
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
+
 @end
 
 
@@ -3348,6 +3361,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
+ *  Options for a request.
+ */
+@interface GTLRDatastore_RequestOptions : GTLRObject
+
+/**
+ *  Optional. The request tags for the request. The tags are processed as
+ *  follows: - Truncated to 510 characters. - Filtered out if empty. -
+ *  Deduplicated. - Limited to 50 tags.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestTags;
+
+@end
+
+
+/**
  *  The request for Datastore.ReserveIds.
  */
 @interface GTLRDatastore_ReserveIdsRequest : GTLRObject
@@ -3363,6 +3391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  not be auto-allocated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
+
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
 
 @end
 
@@ -3384,6 +3415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  allowed; please use empty string '' to refer the default database.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
+
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
 
 /**
  *  Required. The transaction identifier, returned by a call to
@@ -3436,6 +3470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** The options for this query. */
 @property(nonatomic, strong, nullable) GTLRDatastore_ReadOptions *readOptions;
+
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
 
 @end
 
@@ -3509,6 +3546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** The options for this query. */
 @property(nonatomic, strong, nullable) GTLRDatastore_ReadOptions *readOptions;
+
+/** Optional. The options for this request. */
+@property(nonatomic, strong, nullable) GTLRDatastore_RequestOptions *requestOptions;
 
 @end
 

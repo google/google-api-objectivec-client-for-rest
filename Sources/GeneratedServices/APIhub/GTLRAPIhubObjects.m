@@ -179,6 +179,17 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperation_Method_Post = @"PO
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperation_Method_Put = @"PUT";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperation_Method_Trace = @"TRACE";
 
+// GTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig.method
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Delete = @"DELETE";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Get = @"GET";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Head = @"HEAD";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Options = @"OPTIONS";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Patch = @"PATCH";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Post = @"POST";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Put = @"PUT";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig_Method_Trace = @"TRACE";
+
 // GTLRAPIhub_GoogleCloudApihubV1Issue.severity
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Issue_Severity_SeverityError = @"SEVERITY_ERROR";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Issue_Severity_SeverityHint = @"SEVERITY_HINT";
@@ -232,6 +243,7 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApiDiscovery 
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePrivateCloud = @"APIGEE_EDGE_PRIVATE_CLOUD";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePublicCloud = @"APIGEE_EDGE_PUBLIC_CLOUD";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeXAndHybrid = @"APIGEE_X_AND_HYBRID";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AwsApiGateway = @"AWS_API_GATEWAY";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudApiGateway = @"CLOUD_API_GATEWAY";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudEndpoints = @"CLOUD_ENDPOINTS";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_GatewayTypeUnspecified = @"GATEWAY_TYPE_UNSPECIFIED";
@@ -500,6 +512,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1ApigeeXTargetDetails
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ApigeeXTargetDetails
+@dynamic deployedRevision, environment, metadata, proxy, targetProject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance
 //
 
@@ -735,6 +757,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1ConfigureAndDeployServerRequest
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ConfigureAndDeployServerRequest
+@dynamic mcpServerConfig;
 @end
 
 
@@ -1264,6 +1296,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1HttpOperation
 @dynamic method, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1HttpOperationConfig
+@dynamic method, path, spec;
 @end
 
 
@@ -1830,12 +1872,60 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1McpServerConfig
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1McpServerConfig
+@dynamic apigeeXTargetDetails, tools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tools" : [GTLRAPIhub_GoogleCloudApihubV1McpToolConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1McpTool
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1McpTool
 @dynamic annotations, descriptionProperty, inputSchema, name, outputSchema,
          title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1McpToolConfig
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1McpToolConfig
+@dynamic descriptionProperty, operation, toolId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1MetaData
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1MetaData
+@dynamic descriptionProperty, displayName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1915,6 +2005,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails
 @dynamic format, owner, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1OperationConfig
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1OperationConfig
+@dynamic httpOperation, operation;
 @end
 
 

@@ -220,6 +220,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm;
 /**
+ *  AES key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *  keys with purpose AES_WRAPPING.
+ *
+ *  Value: "AES_256_KWP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Kwp;
+/**
  *  Not specified.
  *
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
@@ -1076,6 +1083,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm
  *        AES-GCM (Galois Counter Mode) using 256-bit keys. (Value:
  *        "AES_256_GCM")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Kwp AES
+ *        key wrap with zero padding algorithm (RFC 5649). Can only be used by
+ *        keys with purpose AES_WRAPPING. (Value: "AES_256_KWP")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519

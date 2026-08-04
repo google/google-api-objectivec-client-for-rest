@@ -48,6 +48,7 @@
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy;
@@ -387,6 +388,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecurity
  *  Value: "PROTOBUF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Protobuf;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo.outputType
+
+/**
+ *  JSON output type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_Json;
+/**
+ *  Explicitly disable header output.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_None;
+/**
+ *  The unspecified output type.
+ *
+ *  Value: "OUTPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_OutputTypeUnspecified;
+/**
+ *  Protobuf output type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_Protobuf;
 
 // ----------------------------------------------------------------------------
 // GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo.outputType
@@ -2009,6 +2038,9 @@ GTLR_DEPRECATED
 /** Optional. The device information configuration. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo *deviceInfo;
 
+/** Optional. The dispatch information configuration. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo *dispatchInfo;
+
 /** Optional. Group details. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo *groupInfo;
 
@@ -2049,6 +2081,29 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_OutputTypeUnspecified
  *        The unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Protobuf
+ *        Protobuf output type. (Value: "PROTOBUF")
+ */
+@property(nonatomic, copy, nullable) NSString *outputType;
+
+@end
+
+
+/**
+ *  The delegated dispatch information configuration.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo : GTLRObject
+
+/**
+ *  Optional. The output type details for the delegated dispatch information.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_Json
+ *        JSON output type. (Value: "JSON")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_None
+ *        Explicitly disable header output. (Value: "NONE")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_OutputTypeUnspecified
+ *        The unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_Protobuf
  *        Protobuf output type. (Value: "PROTOBUF")
  */
 @property(nonatomic, copy, nullable) NSString *outputType;

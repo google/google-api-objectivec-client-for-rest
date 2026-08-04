@@ -157,6 +157,13 @@ NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation = @"EVENT_TYPE_MIN_TTL_FROM_CREATION";
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_DetectorReference.severity
+NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_DiscoveredWorkload.confidence
 NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_Confidence_ConfidenceHigh = @"CONFIDENCE_HIGH";
 NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_Confidence_ConfidenceUnspecified = @"CONFIDENCE_UNSPECIFIED";
@@ -479,6 +486,13 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataReten
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification = @"EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation = @"EVENT_TYPE_MIN_TTL_FROM_CREATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference.severity
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload.confidence
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_Confidence_ConfidenceHigh = @"CONFIDENCE_HIGH";
@@ -1555,11 +1569,55 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Agent
+//
+
+@implementation GTLRSecurityCommandCenter_Agent
+@dynamic displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AgentAnomaly
+//
+
+@implementation GTLRSecurityCommandCenter_AgentAnomaly
+@dynamic confidenceScore, detectorReferences, invocationReferences;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectorReferences" : [GTLRSecurityCommandCenter_DetectorReference class],
+    @"invocationReferences" : [GTLRSecurityCommandCenter_InvocationReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_AgentDataAccessEvent
 //
 
 @implementation GTLRSecurityCommandCenter_AgentDataAccessEvent
 @dynamic eventId, eventTime, operation, principalSubject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AgentSession
+//
+
+@implementation GTLRSecurityCommandCenter_AgentSession
+@dynamic sessionId;
 @end
 
 
@@ -2416,6 +2474,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_DetectorReference
+//
+
+@implementation GTLRSecurityCommandCenter_DetectorReference
+@dynamic detectorId, displayName, explanation, recommendation, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_DiscoveredWorkload
 //
 
@@ -2664,21 +2732,22 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, affectedResources, agentDataAccessEvents, aiModel, application,
-         artifactGuardPolicies, attackExposure, backupDisasterRecovery,
-         canonicalName, category, chokepoint, cloudArmor, cloudDlpDataProfile,
-         cloudDlpInspection, complianceDetails, compliances, connections,
-         contacts, containers, createTime, dataAccessEvents, database,
-         dataFlowEvents, dataRetentionDeletionEvents, descriptionProperty,
-         discoveredWorkload, disk, eventTime, exfiltration, externalExposure,
-         externalSystems, externalUri, files, findingClass, groupMemberships,
-         iamBindings, iamDetails, indicator, ipRules, job, kernelRootkit,
-         kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
-         muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
-         notebook, orgPolicies, parent, parentDisplayName,
-         policyViolationSummary, processes, resourceName, secret, securityMarks,
-         securityPosture, severity, sourceProperties, state, toxicCombination,
-         vertexAi, vulnerability;
+@dynamic access, affectedResources, agent, agentAnomaly, agentDataAccessEvents,
+         agentSessions, aiModel, application, artifactGuardPolicies,
+         attackExposure, backupDisasterRecovery, canonicalName, category,
+         chokepoint, cloudArmor, cloudDlpDataProfile, cloudDlpInspection,
+         complianceDetails, compliances, connections, contacts, containers,
+         createTime, dataAccessEvents, database, dataFlowEvents,
+         dataRetentionDeletionEvents, descriptionProperty, discoveredWorkload,
+         disk, eventTime, exfiltration, externalExposure, externalSystems,
+         externalUri, files, findingClass, groupMemberships, iamBindings,
+         iamDetails, indicator, ipRules, job, kernelRootkit, kubernetes,
+         loadBalancers, logEntries, mitreAttack, moduleName, mute, muteInfo,
+         muteInitiator, muteUpdateTime, name, networks, nextSteps, notebook,
+         orgPolicies, parent, parentDisplayName, policyViolationSummary,
+         processes, resourceName, secret, securityMarks, securityPosture,
+         severity, sourceProperties, state, toxicCombination, vertexAi,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2687,6 +2756,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"agentDataAccessEvents" : [GTLRSecurityCommandCenter_AgentDataAccessEvent class],
+    @"agentSessions" : [GTLRSecurityCommandCenter_AgentSession class],
     @"compliances" : [GTLRSecurityCommandCenter_Compliance class],
     @"connections" : [GTLRSecurityCommandCenter_Connection class],
     @"containers" : [GTLRSecurityCommandCenter_Container class],
@@ -3357,11 +3427,55 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Agent
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Agent
+@dynamic displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentAnomaly
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentAnomaly
+@dynamic confidenceScore, detectorReferences, invocationReferences;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectorReferences" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference class],
+    @"invocationReferences" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InvocationReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent
 @dynamic eventId, eventTime, operation, principalSubject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentSession
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentSession
+@dynamic sessionId;
 @end
 
 
@@ -3986,6 +4100,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference
+@dynamic detectorId, displayName, explanation, recommendation, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload
 //
 
@@ -4151,21 +4275,22 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding
-@dynamic access, affectedResources, agentDataAccessEvents, aiModel, application,
-         artifactGuardPolicies, attackExposure, backupDisasterRecovery,
-         canonicalName, category, chokepoint, cloudArmor, cloudDlpDataProfile,
-         cloudDlpInspection, complianceDetails, compliances, connections,
-         contacts, containers, createTime, cryptoKeyName, dataAccessEvents,
-         database, dataFlowEvents, dataRetentionDeletionEvents,
-         descriptionProperty, discoveredWorkload, disk, eventTime, exfiltration,
-         externalExposure, externalSystems, externalUri, files, findingClass,
-         groupMemberships, iamBindings, iamDetails, indicator, ipRules, job,
-         kernelRootkit, kubernetes, loadBalancers, logEntries, mitreAttack,
-         moduleName, mute, muteInfo, muteInitiator, muteUpdateTime, name,
-         networks, nextSteps, notebook, orgPolicies, parent, parentDisplayName,
-         policyViolationSummary, processes, resourceName, secret, securityMarks,
-         securityPosture, severity, sourceProperties, state, toxicCombination,
-         vertexAi, vulnerability;
+@dynamic access, affectedResources, agent, agentAnomaly, agentDataAccessEvents,
+         agentSessions, aiModel, application, artifactGuardPolicies,
+         attackExposure, backupDisasterRecovery, canonicalName, category,
+         chokepoint, cloudArmor, cloudDlpDataProfile, cloudDlpInspection,
+         complianceDetails, compliances, connections, contacts, containers,
+         createTime, cryptoKeyName, dataAccessEvents, database, dataFlowEvents,
+         dataRetentionDeletionEvents, descriptionProperty, discoveredWorkload,
+         disk, eventTime, exfiltration, externalExposure, externalSystems,
+         externalUri, files, findingClass, groupMemberships, iamBindings,
+         iamDetails, indicator, ipRules, job, kernelRootkit, kubernetes,
+         loadBalancers, logEntries, mitreAttack, moduleName, mute, muteInfo,
+         muteInitiator, muteUpdateTime, name, networks, nextSteps, notebook,
+         orgPolicies, parent, parentDisplayName, policyViolationSummary,
+         processes, resourceName, secret, securityMarks, securityPosture,
+         severity, sourceProperties, state, toxicCombination, vertexAi,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -4174,6 +4299,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"agentDataAccessEvents" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent class],
+    @"agentSessions" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentSession class],
     @"compliances" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Compliance class],
     @"connections" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Connection class],
     @"containers" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Container class],
@@ -4362,6 +4488,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InfoType
 @dynamic name, sensitivityScore, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InvocationReference
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InvocationReference
+@dynamic invocationId;
 @end
 
 
@@ -5609,6 +5745,16 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_InfoType
 @dynamic name, sensitivityScore, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_InvocationReference
+//
+
+@implementation GTLRSecurityCommandCenter_InvocationReference
+@dynamic invocationId;
 @end
 
 

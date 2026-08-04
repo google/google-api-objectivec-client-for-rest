@@ -22,6 +22,16 @@ NSString * const kGTLRParameterManager_Parameter_Format_ParameterFormatUnspecifi
 NSString * const kGTLRParameterManager_Parameter_Format_Unformatted = @"UNFORMATTED";
 NSString * const kGTLRParameterManager_Parameter_Format_Yaml   = @"YAML";
 
+// GTLRParameterManager_RenderTemplateVersionResponse.templateFormat
+NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatJson = @"TEMPLATE_FORMAT_JSON";
+NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatUnspecified = @"TEMPLATE_FORMAT_UNSPECIFIED";
+NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatYaml = @"TEMPLATE_FORMAT_YAML";
+
+// GTLRParameterManager_Template.format
+NSString * const kGTLRParameterManager_Template_Format_TemplateFormatJson = @"TEMPLATE_FORMAT_JSON";
+NSString * const kGTLRParameterManager_Template_Format_TemplateFormatUnspecified = @"TEMPLATE_FORMAT_UNSPECIFIED";
+NSString * const kGTLRParameterManager_Template_Format_TemplateFormatYaml = @"TEMPLATE_FORMAT_YAML";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRParameterManager_Empty
@@ -94,6 +104,52 @@ NSString * const kGTLRParameterManager_Parameter_Format_Yaml   = @"YAML";
 
 + (NSString *)collectionItemsKey {
   return @"parameterVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRParameterManager_ListTemplatesResponse
+//
+
+@implementation GTLRParameterManager_ListTemplatesResponse
+@dynamic nextPageToken, templates, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"templates" : [GTLRParameterManager_Template class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"templates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRParameterManager_ListTemplateVersionsResponse
+//
+
+@implementation GTLRParameterManager_ListTemplateVersionsResponse
+@dynamic nextPageToken, templateVersions, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"templateVersions" : [GTLRParameterManager_TemplateVersion class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"templateVersions";
 }
 
 @end
@@ -193,9 +249,64 @@ NSString * const kGTLRParameterManager_Parameter_Format_Yaml   = @"YAML";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRParameterManager_RenderTemplateVersionResponse
+//
+
+@implementation GTLRParameterManager_RenderTemplateVersionResponse
+@dynamic parameterVersion, payload, renderedPayload, templateFormat,
+         templateVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRParameterManager_ResourcePolicyMember
 //
 
 @implementation GTLRParameterManager_ResourcePolicyMember
 @dynamic iamPolicyNamePrincipal, iamPolicyUidPrincipal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRParameterManager_Template
+//
+
+@implementation GTLRParameterManager_Template
+@dynamic createTime, format, labels, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRParameterManager_Template_Labels
+//
+
+@implementation GTLRParameterManager_Template_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRParameterManager_TemplateVersion
+//
+
+@implementation GTLRParameterManager_TemplateVersion
+@dynamic createTime, disabled, name, payload, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRParameterManager_TemplateVersionPayload
+//
+
+@implementation GTLRParameterManager_TemplateVersionPayload
+@dynamic data;
 @end

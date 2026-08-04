@@ -318,6 +318,232 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_AppstoreappsreviewCreateappstorehostedapp
+
+@dynamic appStorePackageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CreateAppStoreHostedAppRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"appStorePackageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstore/{appStorePackageName}/apps:create";
+  GTLRAndroidPublisherQuery_AppstoreappsreviewCreateappstorehostedapp *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appStorePackageName = appStorePackageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_CreateAppStoreHostedAppResponse class];
+  query.loggingName = @"androidpublisher.appstoreappsreview.createappstorehostedapp";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapp
+
+@dynamic appStorePackageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UpdateAppStoreHostedAppRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"appStorePackageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstore/{appStorePackageName}/apps:update";
+  GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapp *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appStorePackageName = appStorePackageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_UpdateAppStoreHostedAppResponse class];
+  query.loggingName = @"androidpublisher.appstoreappsreview.updateappstorehostedapp";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapppublishstatus
+
+@dynamic appStorePackageName, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appStorePackageName", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstore/{appStorePackageName}/apps/{packageName}:updateAppStoreHostedAppPublishStatus";
+  GTLRAndroidPublisherQuery_AppstoreappsreviewUpdateappstorehostedapppublishstatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appStorePackageName = appStorePackageName;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusResponse class];
+  query.loggingName = @"androidpublisher.appstoreappsreview.updateappstorehostedapppublishstatus";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppstoreappsreviewUploadapk
+
+@dynamic appStorePackageName, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UploadApkRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appStorePackageName", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstore/{appStorePackageName}/apps/{packageName}/apks:upload";
+  GTLRAndroidPublisherQuery_AppstoreappsreviewUploadapk *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appStorePackageName = appStorePackageName;
+  query.packageName = packageName;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAndroidPublisher_UploadApkResponse class];
+  query.loggingName = @"androidpublisher.appstoreappsreview.uploadapk";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppstoreappsreviewUploadappstoreapppolicydeclarationfile
+
+@dynamic appStorePackageName, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appStorePackageName", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstore/{appStorePackageName}/apps/{packageName}/policyDeclarationFiles:upload";
+  GTLRAndroidPublisherQuery_AppstoreappsreviewUploadappstoreapppolicydeclarationfile *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appStorePackageName = appStorePackageName;
+  query.packageName = packageName;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileResponse class];
+  query.loggingName = @"androidpublisher.appstoreappsreview.uploadappstoreapppolicydeclarationfile";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppstoreappsreviewUploadimage
+
+@dynamic appStorePackageName, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_UploadImageRequest *)object
+            appStorePackageName:(NSString *)appStorePackageName
+                    packageName:(NSString *)packageName
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"appStorePackageName", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstore/{appStorePackageName}/apps/{packageName}/images:upload";
+  GTLRAndroidPublisherQuery_AppstoreappsreviewUploadimage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.appStorePackageName = appStorePackageName;
+  query.packageName = packageName;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAndroidPublisher_UploadImageResponse class];
+  query.loggingName = @"androidpublisher.appstoreappsreview.uploadimage";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppstorecatalogRecentappviewsGet
+
+@dynamic appStorePackageName, playAppPackageName;
+
++ (instancetype)queryWithAppStorePackageName:(NSString *)appStorePackageName
+                          playAppPackageName:(NSString *)playAppPackageName {
+  NSArray *pathParams = @[
+    @"appStorePackageName", @"playAppPackageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstorecatalog/{appStorePackageName}/recentAppViews/{playAppPackageName}";
+  GTLRAndroidPublisherQuery_AppstorecatalogRecentappviewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.appStorePackageName = appStorePackageName;
+  query.playAppPackageName = playAppPackageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_RecentAppView class];
+  query.loggingName = @"androidpublisher.appstorecatalog.recentappviews.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppstorecatalogRecentupdateeventsList
+
+@dynamic appStorePackageName, endTime, pageSize, pageToken, startTime;
+
++ (instancetype)queryWithAppStorePackageName:(NSString *)appStorePackageName {
+  NSArray *pathParams = @[ @"appStorePackageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/appstorecatalog/{appStorePackageName}/recentUpdateEvents";
+  GTLRAndroidPublisherQuery_AppstorecatalogRecentupdateeventsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.appStorePackageName = appStorePackageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListRecentUpdateEventsResponse class];
+  query.loggingName = @"androidpublisher.appstorecatalog.recentupdateevents.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted
 
 @dynamic editId, packageName;
@@ -3138,6 +3364,36 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_OrdersReviewrefund
+
+@dynamic orderId, packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_OrdersReviewRefundRequest *)object
+                    packageName:(NSString *)packageName
+                        orderId:(NSString *)orderId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"orderId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/orders/{orderId}:reviewrefund";
+  GTLRAndroidPublisherQuery_OrdersReviewrefund *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.orderId = orderId;
+  query.loggingName = @"androidpublisher.orders.reviewrefund";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge
 
 @dynamic packageName, productId, token;
@@ -3326,79 +3582,6 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
   query.token = token;
   query.expectedObjectClass = [GTLRAndroidPublisher_SubscriptionPurchasesDeferResponse class];
   query.loggingName = @"androidpublisher.purchases.subscriptions.defer";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet
-
-@dynamic packageName, subscriptionId, token;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                      subscriptionId:(NSString *)subscriptionId
-                               token:(NSString *)token {
-  NSArray *pathParams = @[
-    @"packageName", @"subscriptionId", @"token"
-  ];
-  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}";
-  GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.subscriptionId = subscriptionId;
-  query.token = token;
-  query.expectedObjectClass = [GTLRAndroidPublisher_SubscriptionPurchase class];
-  query.loggingName = @"androidpublisher.purchases.subscriptions.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund
-
-@dynamic packageName, subscriptionId, token;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                      subscriptionId:(NSString *)subscriptionId
-                               token:(NSString *)token {
-  NSArray *pathParams = @[
-    @"packageName", @"subscriptionId", @"token"
-  ];
-  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:refund";
-  GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.subscriptionId = subscriptionId;
-  query.token = token;
-  query.loggingName = @"androidpublisher.purchases.subscriptions.refund";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke
-
-@dynamic packageName, subscriptionId, token;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName
-                      subscriptionId:(NSString *)subscriptionId
-                               token:(NSString *)token {
-  NSArray *pathParams = @[
-    @"packageName", @"subscriptionId", @"token"
-  ];
-  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:revoke";
-  GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.subscriptionId = subscriptionId;
-  query.token = token;
-  query.loggingName = @"androidpublisher.purchases.subscriptions.revoke";
   return query;
 }
 

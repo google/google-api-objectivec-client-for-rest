@@ -30,7 +30,13 @@
 @class GTLRAndroidPublisher_ApkDescription;
 @class GTLRAndroidPublisher_ApkSet;
 @class GTLRAndroidPublisher_ApkTargeting;
+@class GTLRAndroidPublisher_AppContactInformation;
 @class GTLRAndroidPublisher_AppRecoveryAction;
+@class GTLRAndroidPublisher_AppStoreAppActiveApks;
+@class GTLRAndroidPublisher_AppStoreAppActiveApkSet;
+@class GTLRAndroidPublisher_AppStoreAppDetails;
+@class GTLRAndroidPublisher_AppStoreAppPolicyDeclaration;
+@class GTLRAndroidPublisher_AppStoreAppStoreListing;
 @class GTLRAndroidPublisher_AppVersionList;
 @class GTLRAndroidPublisher_AppVersionRange;
 @class GTLRAndroidPublisher_ArtifactSummary;
@@ -48,11 +54,19 @@
 @class GTLRAndroidPublisher_CancellationEvent;
 @class GTLRAndroidPublisher_CancelOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_CancelSurveyResult;
+@class GTLRAndroidPublisher_CatalogAppView;
+@class GTLRAndroidPublisher_CatalogDeviceSelector;
+@class GTLRAndroidPublisher_CatalogPermission;
+@class GTLRAndroidPublisher_CatalogSdkVersion;
+@class GTLRAndroidPublisher_CoarseLocation;
 @class GTLRAndroidPublisher_Comment;
+@class GTLRAndroidPublisher_CompatibleScreen;
+@class GTLRAndroidPublisher_ConsumptionUsageEvent;
 @class GTLRAndroidPublisher_ConvertedOtherRegionsPrice;
 @class GTLRAndroidPublisher_ConvertedRegionPrice;
 @class GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices;
 @class GTLRAndroidPublisher_CountryTargeting;
+@class GTLRAndroidPublisher_Date;
 @class GTLRAndroidPublisher_DeactivateBasePlanRequest;
 @class GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_DeactivatePurchaseOptionRequest;
@@ -65,11 +79,14 @@
 @class GTLRAndroidPublisher_DeletePurchaseOptionRequest;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
+@class GTLRAndroidPublisher_DeveloperDetails;
 @class GTLRAndroidPublisher_DeveloperInitiatedCancellation;
+@class GTLRAndroidPublisher_DeviceCompatibilityRequirements;
 @class GTLRAndroidPublisher_DeviceFeature;
 @class GTLRAndroidPublisher_DeviceFeatureTargeting;
 @class GTLRAndroidPublisher_DeviceGroup;
 @class GTLRAndroidPublisher_DeviceId;
+@class GTLRAndroidPublisher_DeviceIdentifier;
 @class GTLRAndroidPublisher_DeviceMetadata;
 @class GTLRAndroidPublisher_DeviceRam;
 @class GTLRAndroidPublisher_DeviceSelector;
@@ -97,7 +114,9 @@
 @class GTLRAndroidPublisher_GetOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_GetSubscriptionOfferRequest;
 @class GTLRAndroidPublisher_Grant;
+@class GTLRAndroidPublisher_Group;
 @class GTLRAndroidPublisher_Image;
+@class GTLRAndroidPublisher_ImageAsset;
 @class GTLRAndroidPublisher_InAppProduct;
 @class GTLRAndroidPublisher_InAppProduct_Listings;
 @class GTLRAndroidPublisher_InAppProduct_Prices;
@@ -108,13 +127,15 @@
 @class GTLRAndroidPublisher_InstallmentPlan;
 @class GTLRAndroidPublisher_InstallmentsBasePlanType;
 @class GTLRAndroidPublisher_IntroductoryPriceDetails;
-@class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_IntroductoryPriceOfferPhase;
 @class GTLRAndroidPublisher_ItemExpiryTimeDetails;
 @class GTLRAndroidPublisher_ItemReplacement;
+@class GTLRAndroidPublisher_KeyedGroup;
 @class GTLRAndroidPublisher_LanguageTargeting;
 @class GTLRAndroidPublisher_LineItem;
 @class GTLRAndroidPublisher_Listing;
+@class GTLRAndroidPublisher_LocalizedStoreListing;
+@class GTLRAndroidPublisher_LocalizedStoreListings;
 @class GTLRAndroidPublisher_LocalizedText;
 @class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode;
@@ -125,6 +146,7 @@
 @class GTLRAndroidPublisher_Money;
 @class GTLRAndroidPublisher_MultiAbi;
 @class GTLRAndroidPublisher_MultiAbiTargeting;
+@class GTLRAndroidPublisher_NestedPolicyResponse;
 @class GTLRAndroidPublisher_OfferDetails;
 @class GTLRAndroidPublisher_OfferPhase;
 @class GTLRAndroidPublisher_OfferPhaseDetails;
@@ -163,6 +185,14 @@
 @class GTLRAndroidPublisher_PausedStateContext;
 @class GTLRAndroidPublisher_PendingCancellation;
 @class GTLRAndroidPublisher_PointsDetails;
+@class GTLRAndroidPublisher_PolicyBooleanResponse;
+@class GTLRAndroidPublisher_PolicyDocumentResponse;
+@class GTLRAndroidPublisher_PolicyGroupResponse;
+@class GTLRAndroidPublisher_PolicyKeyedGroupResponse;
+@class GTLRAndroidPublisher_PolicyMultipleChoiceResponse;
+@class GTLRAndroidPublisher_PolicyResponse;
+@class GTLRAndroidPublisher_PolicySingleChoiceResponse;
+@class GTLRAndroidPublisher_PolicyStringResponse;
 @class GTLRAndroidPublisher_PreorderDetails;
 @class GTLRAndroidPublisher_PreorderOfferDetails;
 @class GTLRAndroidPublisher_PrepaidBasePlanType;
@@ -176,6 +206,8 @@
 @class GTLRAndroidPublisher_ProrationPeriodOfferPhase;
 @class GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_PurchaseStateContext;
+@class GTLRAndroidPublisher_RamSelector;
+@class GTLRAndroidPublisher_RecentUpdateEvent;
 @class GTLRAndroidPublisher_RecurringExternalTransaction;
 @class GTLRAndroidPublisher_RefundDetails;
 @class GTLRAndroidPublisher_RefundEvent;
@@ -206,15 +238,16 @@
 @class GTLRAndroidPublisher_RevocationContextProratedRefund;
 @class GTLRAndroidPublisher_ScreenDensity;
 @class GTLRAndroidPublisher_ScreenDensityTargeting;
+@class GTLRAndroidPublisher_ScreenshotSet;
 @class GTLRAndroidPublisher_SdkVersion;
 @class GTLRAndroidPublisher_SdkVersionTargeting;
 @class GTLRAndroidPublisher_SignupPromotion;
+@class GTLRAndroidPublisher_SocSelector;
 @class GTLRAndroidPublisher_SplitApkMetadata;
 @class GTLRAndroidPublisher_SplitApkVariant;
 @class GTLRAndroidPublisher_StandaloneApkMetadata;
 @class GTLRAndroidPublisher_SubscribeWithGoogleInfo;
 @class GTLRAndroidPublisher_Subscription;
-@class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
 @class GTLRAndroidPublisher_SubscriptionDetails;
 @class GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails;
@@ -222,7 +255,6 @@
 @class GTLRAndroidPublisher_SubscriptionOffer;
 @class GTLRAndroidPublisher_SubscriptionOfferPhase;
 @class GTLRAndroidPublisher_SubscriptionOfferTargeting;
-@class GTLRAndroidPublisher_SubscriptionPriceChange;
 @class GTLRAndroidPublisher_SubscriptionPurchaseLineItem;
 @class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode;
@@ -259,10 +291,12 @@
 @class GTLRAndroidPublisher_UserCountriesTargeting;
 @class GTLRAndroidPublisher_UserCountrySet;
 @class GTLRAndroidPublisher_UserInitiatedCancellation;
+@class GTLRAndroidPublisher_UsesConfiguration;
 @class GTLRAndroidPublisher_UsesPermission;
 @class GTLRAndroidPublisher_VanityCode;
 @class GTLRAndroidPublisher_Variant;
 @class GTLRAndroidPublisher_VariantTargeting;
+@class GTLRAndroidPublisher_VideoAsset;
 @class GTLRAndroidPublisher_VoidedPurchase;
 
 // Generated comments include content from the discovery document; avoid them
@@ -671,6 +705,166 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reas
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_CatalogAppView.appCategory
+
+/**
+ *  General app.
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CatalogAppView_AppCategory_App;
+/**
+ *  Unspecified category.
+ *
+ *  Value: "APP_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CatalogAppView_AppCategory_AppCategoryUnspecified;
+/**
+ *  Game app.
+ *
+ *  Value: "GAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CatalogAppView_AppCategory_Game;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_CatalogDeviceSelector.deviceTypeSelector
+
+/**
+ *  Android Go device type.
+ *
+ *  Value: "ANDROID_GO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CatalogDeviceSelector_DeviceTypeSelector_AndroidGo;
+/**
+ *  Unspecified device type selector.
+ *
+ *  Value: "DEVICE_TYPE_SELECTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CatalogDeviceSelector_DeviceTypeSelector_DeviceTypeSelectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_CompatibleScreen.density
+
+/**
+ *  280 dpi.
+ *
+ *  Value: "DENSITY_280"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density280;
+/**
+ *  360 dpi.
+ *
+ *  Value: "DENSITY_360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density360;
+/**
+ *  400 dpi.
+ *
+ *  Value: "DENSITY_400"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density400;
+/**
+ *  420 dpi.
+ *
+ *  Value: "DENSITY_420"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density420;
+/**
+ *  560 dpi.
+ *
+ *  Value: "DENSITY_560"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_Density560;
+/**
+ *  High density.
+ *
+ *  Value: "DENSITY_HDPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityHdpi;
+/**
+ *  Low density.
+ *
+ *  Value: "DENSITY_LDPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityLdpi;
+/**
+ *  Medium density.
+ *
+ *  Value: "DENSITY_MDPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityMdpi;
+/**
+ *  No density.
+ *
+ *  Value: "DENSITY_NODPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityNodpi;
+/**
+ *  TV density.
+ *
+ *  Value: "DENSITY_TVDPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityTvdpi;
+/**
+ *  Unspecified density.
+ *
+ *  Value: "DENSITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityUnspecified;
+/**
+ *  Extra high density.
+ *
+ *  Value: "DENSITY_XHDPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXhdpi;
+/**
+ *  Extra extra high density.
+ *
+ *  Value: "DENSITY_XXHDPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXxhdpi;
+/**
+ *  Extra extra extra high density.
+ *
+ *  Value: "DENSITY_XXXHDPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXxxhdpi;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_CompatibleScreen.screenSize
+
+/**
+ *  Extra large screen size.
+ *
+ *  Value: "SCREEN_SIZE_EXTRA_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeExtraLarge;
+/**
+ *  Large screen size.
+ *
+ *  Value: "SCREEN_SIZE_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeLarge;
+/**
+ *  Normal screen size.
+ *
+ *  Value: "SCREEN_SIZE_NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeNormal;
+/**
+ *  Small screen size.
+ *
+ *  Value: "SCREEN_SIZE_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeSmall;
+/**
+ *  Unspecified screen size.
+ *
+ *  Value: "SCREEN_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_DeactivateBasePlanRequest.latencyTolerance
 
 /**
@@ -873,6 +1067,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_Symbo
  *  Value: "proguard"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeviceCompatibilityRequirements.supportedScreens
+
+/**
+ *  Extra large screen size.
+ *
+ *  Value: "SCREEN_SIZE_EXTRA_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeExtraLarge;
+/**
+ *  Large screen size.
+ *
+ *  Value: "SCREEN_SIZE_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeLarge;
+/**
+ *  Normal screen size.
+ *
+ *  Value: "SCREEN_SIZE_NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeNormal;
+/**
+ *  Small screen size.
+ *
+ *  Value: "SCREEN_SIZE_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeSmall;
+/**
+ *  Unspecified screen size.
+ *
+ *  Value: "SCREEN_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_SupportedScreens_ScreenSizeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeviceCompatibilityRequirements.use32BitAbi
+
+/**
+ *  Value of use32BitAbi is not set or set to something other than "true".
+ *
+ *  Value: "USE_32_BIT_ABI_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiOther;
+/**
+ *  Value of use32BitAbi is set to "true".
+ *
+ *  Value: "USE_32_BIT_ABI_TRUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiTrue;
+/**
+ *  Unspecified 32-bit ABI usage.
+ *
+ *  Value: "USE_32_BIT_ABI_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ExternalOfferDetails.installedAppCategory
@@ -1684,6 +1934,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_Refunded;
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_OrdersReviewRefundRequest.refundPreference
+
+/**
+ *  Developer prefers that Play grants the refund in full.
+ *
+ *  Value: "APPROVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Approve;
+/**
+ *  Developer prefers that Play declines the refund.
+ *
+ *  Value: "DECLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Decline;
+/**
+ *  Developer has no preference about Google Play's decision to issue a refund
+ *
+ *  Value: "NEUTRAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Neutral;
+/**
+ *  Refund preference unspecified. This value is not used.
+ *
+ *  Value: "REFUND_PREFERENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_RefundPreferenceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_PartialRefundEvent.state
 
 /**
@@ -1896,6 +2174,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseStateContext_Pu
  *  Value: "PURCHASE_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_PurchaseStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RecentUpdateEvent.updateType
+
+/**
+ *  The app stopped being eligible for catalog inclusion or was removed from the
+ *  Play Store.
+ *
+ *  Value: "DELETION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_Deletion;
+/**
+ *  The app was modified.
+ *
+ *  Value: "MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_Modification;
+/**
+ *  Default value. This value is not used.
+ *
+ *  Value: "UPDATE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_UpdateTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
@@ -2634,6 +2935,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InP
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest.publishState
+
+/**
+ *  The app is published and available on the third-party app store.
+ *
+ *  Value: "APP_STORE_APP_PUBLISH_STATE_PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStatePublished;
+/**
+ *  The app is unpublished and no longer available on the third-party app store.
+ *
+ *  Value: "APP_STORE_APP_PUBLISH_STATE_UNPUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStateUnpublished;
+/**
+ *  Unspecified publish state. Do not use.
+ *
+ *  Value: "APP_STORE_APP_PUBLISH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest.latencyTolerance
 
 /**
@@ -2736,6 +3059,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionReque
  *  Value: "PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UpdateSubscriptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest.fileType
+
+/**
+ *  File type for PDF, JPEG, and PNG documents.
+ *
+ *  Value: "DECLARATION_FILE_TYPE_DOCUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest_FileType_DeclarationFileTypeDocument;
+/**
+ *  Unspecified file type.
+ *
+ *  Value: "DECLARATION_FILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest_FileType_DeclarationFileTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_User.accessState
@@ -2901,6 +3240,114 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  Value: "DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UsesConfiguration.requiredKeyboardType
+
+/**
+ *  No keys keyboard.
+ *
+ *  Value: "KEYBOARD_TYPE_NO_KEYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeNoKeys;
+/**
+ *  Qwerty keyboard.
+ *
+ *  Value: "KEYBOARD_TYPE_QWERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeQwerty;
+/**
+ *  Twelve key keyboard.
+ *
+ *  Value: "KEYBOARD_TYPE_TWELVE_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeTwelveKey;
+/**
+ *  Undefined keyboard type.
+ *
+ *  Value: "KEYBOARD_TYPE_UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeUndefined;
+/**
+ *  Unspecified keyboard type.
+ *
+ *  Value: "KEYBOARD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UsesConfiguration.requiredNavigationType
+
+/**
+ *  Dpad navigation.
+ *
+ *  Value: "NAVIGATION_TYPE_DPAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeDpad;
+/**
+ *  No navigation.
+ *
+ *  Value: "NAVIGATION_TYPE_NO_NAVIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeNoNavigation;
+/**
+ *  Trackball navigation.
+ *
+ *  Value: "NAVIGATION_TYPE_TRACKBALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeTrackball;
+/**
+ *  Undefined navigation type.
+ *
+ *  Value: "NAVIGATION_TYPE_UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeUndefined;
+/**
+ *  Unspecified navigation type.
+ *
+ *  Value: "NAVIGATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeUnspecified;
+/**
+ *  Wheel navigation.
+ *
+ *  Value: "NAVIGATION_TYPE_WHEEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeWheel;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_UsesConfiguration.requiredTouchscreenType
+
+/**
+ *  Finger touchscreen.
+ *
+ *  Value: "TOUCHSCREEN_TYPE_FINGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeFinger;
+/**
+ *  No touchscreen.
+ *
+ *  Value: "TOUCHSCREEN_TYPE_NO_TOUCHSCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeNoTouchscreen;
+/**
+ *  Stylus touchscreen.
+ *
+ *  Value: "TOUCHSCREEN_TYPE_STYLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeStylus;
+/**
+ *  Undefined touchscreen type.
+ *
+ *  Value: "TOUCHSCREEN_TYPE_UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeUndefined;
+/**
+ *  Unspecified touchscreen type.
+ *
+ *  Value: "TOUCHSCREEN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeUnspecified;
 
 /**
  *  Represents an Abi.
@@ -3318,6 +3765,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Contact information for the app.
+ */
+@interface GTLRAndroidPublisher_AppContactInformation : GTLRObject
+
+/** The contact email for this app. Always set. */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/** The contact phone for this app. Optionally provided by the developer. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  The contact website url for this app. Optionally provided by the developer.
+ */
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
+
+@end
+
+
+/**
  *  The app details. The resource for DetailsService.
  */
 @interface GTLRAndroidPublisher_AppDetails : GTLRObject
@@ -3431,6 +3897,109 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
  *  android sdk versions, app versions etc.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Targeting *targeting;
+
+@end
+
+
+/**
+ *  Information about active APKs of an app store hosted app.
+ */
+@interface GTLRAndroidPublisher_AppStoreAppActiveApks : GTLRObject
+
+/**
+ *  Required. List specifying which APK sets are distributed together. This list
+ *  should contain all APKs that you're distributing for this app. Add an entry
+ *  for each individual installable set of APKs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_AppStoreAppActiveApkSet *> *activeApkSets;
+
+@end
+
+
+/**
+ *  An installable set of active APKs. A set of APKs might only contain 1 APK if
+ *  the app in question publishes using APKs. If the app uses app bundles (or a
+ *  similar technology), this set should contain all APKs (even optional ones)
+ *  that might be installed for this app. A set of APKs should be installable
+ *  together. If certain APKs are exclusive to one another and cannot be
+ *  installed together, then a separate AppStoreAppActiveApkSet should be
+ *  created.
+ */
+@interface GTLRAndroidPublisher_AppStoreAppActiveApkSet : GTLRObject
+
+/**
+ *  Required. The ID for the main base application module. Example: base.apk or
+ *  app.apk.
+ */
+@property(nonatomic, copy, nullable) NSString *baseApkId;
+
+/**
+ *  Optional. IDs for split modules that might be installed in combination with
+ *  the base APK. Can be empty if app bundles (or a similar technology) are not
+ *  used. Example: config.en.apk.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *splitApkId;
+
+@end
+
+
+/**
+ *  Details about the app.
+ */
+@interface GTLRAndroidPublisher_AppStoreAppDetails : GTLRObject
+
+/** Required. The app developer's contact email address. */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/** Required. The app developer's name. */
+@property(nonatomic, copy, nullable) NSString *developerName;
+
+/** Optional. Website link for the developer or app. */
+@property(nonatomic, copy, nullable) NSString *developerWebsite;
+
+@end
+
+
+/**
+ *  A policy declaration with its responses.
+ */
+@interface GTLRAndroidPublisher_AppStoreAppPolicyDeclaration : GTLRObject
+
+/** Required. ID of the policy declaration. */
+@property(nonatomic, copy, nullable) NSString *declarationId;
+
+/** Required. Responses provided for this declaration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_PolicyResponse *> *responses;
+
+@end
+
+
+/**
+ *  A localized store listing. These are the details about the app as shown in
+ *  your app store.
+ */
+@interface GTLRAndroidPublisher_AppStoreAppStoreListing : GTLRObject
+
+/** Required. Image ID generated from UploadImage for the main app icon. */
+@property(nonatomic, copy, nullable) NSString *appIconId;
+
+/** Required. The title of the app. */
+@property(nonatomic, copy, nullable) NSString *appName;
+
+/** Required. Comprehensive description text about the app. */
+@property(nonatomic, copy, nullable) NSString *fullDescription;
+
+/** Required. Language code (e.g., "en-US") of the listing. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. Multiple image IDs for screenshot galleries. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *screenshotId;
+
+/** Optional. Quick summary about the app. */
+@property(nonatomic, copy, nullable) NSString *shortDescription;
+
+/** Optional. Link to a video about the app. */
+@property(nonatomic, copy, nullable) NSString *videoLink;
 
 @end
 
@@ -4364,6 +4933,250 @@ GTLR_DEPRECATED
 
 
 /**
+ *  LINT.IfChange A view of a Google Play app within the Catalog Export for app
+ *  stores.
+ */
+@interface GTLRAndroidPublisher_CatalogAppView : GTLRObject
+
+/**
+ *  Active versions of the app mapped from `android:versionName` manifest
+ *  attributes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *activeVersionNames;
+
+/**
+ *  The category of the app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_CatalogAppView_AppCategory_App General app.
+ *        (Value: "APP")
+ *    @arg @c kGTLRAndroidPublisher_CatalogAppView_AppCategory_AppCategoryUnspecified
+ *        Unspecified category. (Value: "APP_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_CatalogAppView_AppCategory_Game Game app.
+ *        (Value: "GAME")
+ */
+@property(nonatomic, copy, nullable) NSString *appCategory;
+
+/** Developer-provided contact information for the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AppContactInformation *appContactInformation;
+
+/** The subcategory of the app e.g. "GAME_ACTION". */
+@property(nonatomic, copy, nullable) NSString *appSubcategory;
+
+/**
+ *  The token used for delivery of the app with the Google Play Inline Install
+ *  API.
+ */
+@property(nonatomic, copy, nullable) NSString *deliveryToken;
+
+/** The developer details of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeveloperDetails *developerDetails;
+
+/**
+ *  The app may specify multiple sets of device compatibility requirements, and
+ *  a device is considered compatible with the app if it satisfies at least one
+ *  of `DeviceCompatibilityRequirements`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceCompatibilityRequirements *> *deviceCompatibilityRequirements;
+
+/**
+ *  List of devices excluded from the app's distribution even if they are
+ *  otherwise compatible with the requirements from
+ *  device_compatibility_requirements. These are OR-ed, i.e. a device is
+ *  excluded if it matches any of the identifiers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_DeviceIdentifier *> *excludedDevicesByIdentifier;
+
+/**
+ *  List of devices excluded from the app's distribution even if they are
+ *  otherwise compatible with the requirements from
+ *  device_compatibility_requirements. A device is excluded if it matches any of
+ *  given the selectors.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_CatalogDeviceSelector *> *excludedDevicesBySelector;
+
+/** The date when the app was first released. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Date *firstReleaseDate;
+
+/**
+ *  Whether the app has ads.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasInAppAds;
+
+/**
+ *  Whether the app has in-app purchases through Google Play.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasInAppPurchases;
+
+/** The IARC certificate ID for the app. */
+@property(nonatomic, copy, nullable) NSString *iarcCertificateId;
+
+/**
+ *  Whether the app is targeted to an adult-only (18+) audience.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAdultOnlyAudience;
+
+/** The timestamp when the app was last published. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPublishTime;
+
+/** The localized store listings of the app which are shown on Google Play. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_LocalizedStoreListings *localizedStoreListings;
+
+/** The package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required permissions declared by the app which apply for all Android SDK
+ *  versions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_CatalogPermission *> *permissions;
+
+/**
+ *  Required permissions declared by the app which apply for Android SDK
+ *  versions SDK 23 and above.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_CatalogPermission *> *permissionsSdk23;
+
+/** The price of the app in the United States. Empty if the app is free. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *priceInTheUnitedStates;
+
+/** The URL of the app's privacy policy. */
+@property(nonatomic, copy, nullable) NSString *privacyPolicyUrl;
+
+/**
+ *  The sale price of the app in the United States. Only populated for paid apps
+ *  with an active US sale.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *salePriceInTheUnitedStates;
+
+@end
+
+
+/**
+ *  Defines a device selector for a device. A device is considered matched if it
+ *  matches any of given the selectors.
+ */
+@interface GTLRAndroidPublisher_CatalogDeviceSelector : GTLRObject
+
+/**
+ *  The device type selector.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_CatalogDeviceSelector_DeviceTypeSelector_AndroidGo
+ *        Android Go device type. (Value: "ANDROID_GO")
+ *    @arg @c kGTLRAndroidPublisher_CatalogDeviceSelector_DeviceTypeSelector_DeviceTypeSelectorUnspecified
+ *        Unspecified device type selector. (Value:
+ *        "DEVICE_TYPE_SELECTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceTypeSelector;
+
+/** Defines a RAM selector for a device. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RamSelector *ramSelector;
+
+/**
+ *  The SOC selectors. A device matches the device selector if it matches any of
+ *  the SOC selectors.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_SocSelector *> *socSelectors;
+
+@end
+
+
+/**
+ *  A permission declared by an app.
+ */
+@interface GTLRAndroidPublisher_CatalogPermission : GTLRObject
+
+/**
+ *  The `maxSdkVersion` attribute indicating up to which Android SDK version the
+ *  permission is requested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
+
+/** The `name` attribute indicating the permission name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Defines a range of SDK versions. A device is considered compatible uf its\\
+ *  SDK version falls within the min_sdk_version and max_sdk_version range.
+ */
+@interface GTLRAndroidPublisher_CatalogSdkVersion : GTLRObject
+
+/**
+ *  The maximum SDK version required for the app (inclusive).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
+
+/**
+ *  The minimum SDK version required for the app (inclusive).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minSdkVersion;
+
+/**
+ *  The target SDK version for the app.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetSdkVersion;
+
+@end
+
+
+/**
+ *  Coarse Geographic location details for where the consumption happened.
+ */
+@interface GTLRAndroidPublisher_CoarseLocation : GTLRObject
+
+/**
+ *  Optional. Highest administrative subdivision which is used for postal
+ *  addresses of a country or region. For example, this can be a state, a
+ *  province, an oblast, or a prefecture. For Spain, this is the province and
+ *  not the autonomous community (for example, "Barcelona" and not "Catalonia").
+ *  Many countries don't use an administrative area in postal addresses. For
+ *  example, in Switzerland, this should be left unpopulated.
+ */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/**
+ *  Optional. Generally refers to the city or town portion of the address.
+ *  Examples: US city, IT comune, UK post town. In regions of the world where
+ *  localities are not well defined or do not fit into this structure well,
+ *  leave `locality` empty.
+ */
+@property(nonatomic, copy, nullable) NSString *locality;
+
+/**
+ *  Required. [CLDR region code](https://cldr.unicode.org/) of the
+ *  country/region of the address. This value is never inferred and you must
+ *  ensure the value is correct. Example: "CH" for Switzerland.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Optional. Sublocality of the address. For example, this can be a
+ *  neighborhood, borough, or district. For most addresses, you can omit this.
+ */
+@property(nonatomic, copy, nullable) NSString *sublocality;
+
+@end
+
+
+/**
  *  An entry of conversation between user and developer.
  */
 @interface GTLRAndroidPublisher_Comment : GTLRObject
@@ -4373,6 +5186,107 @@ GTLR_DEPRECATED
 
 /** A comment from a user. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_UserComment *userComment;
+
+@end
+
+
+/**
+ *  Compatible screens as listed in the `compatible-screens` Manifest tag.
+ */
+@interface GTLRAndroidPublisher_CompatibleScreen : GTLRObject
+
+/**
+ *  Screen density.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_Density280 280 dpi.
+ *        (Value: "DENSITY_280")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_Density360 360 dpi.
+ *        (Value: "DENSITY_360")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_Density400 400 dpi.
+ *        (Value: "DENSITY_400")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_Density420 420 dpi.
+ *        (Value: "DENSITY_420")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_Density560 560 dpi.
+ *        (Value: "DENSITY_560")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityHdpi High
+ *        density. (Value: "DENSITY_HDPI")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityLdpi Low
+ *        density. (Value: "DENSITY_LDPI")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityMdpi Medium
+ *        density. (Value: "DENSITY_MDPI")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityNodpi No
+ *        density. (Value: "DENSITY_NODPI")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityTvdpi TV
+ *        density. (Value: "DENSITY_TVDPI")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityUnspecified
+ *        Unspecified density. (Value: "DENSITY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXhdpi Extra
+ *        high density. (Value: "DENSITY_XHDPI")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXxhdpi Extra
+ *        extra high density. (Value: "DENSITY_XXHDPI")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_Density_DensityXxxhdpi
+ *        Extra extra extra high density. (Value: "DENSITY_XXXHDPI")
+ */
+@property(nonatomic, copy, nullable) NSString *density;
+
+/**
+ *  The screen size.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeExtraLarge
+ *        Extra large screen size. (Value: "SCREEN_SIZE_EXTRA_LARGE")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeLarge
+ *        Large screen size. (Value: "SCREEN_SIZE_LARGE")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeNormal
+ *        Normal screen size. (Value: "SCREEN_SIZE_NORMAL")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeSmall
+ *        Small screen size. (Value: "SCREEN_SIZE_SMALL")
+ *    @arg @c kGTLRAndroidPublisher_CompatibleScreen_ScreenSize_ScreenSizeUnspecified
+ *        Unspecified screen size. (Value: "SCREEN_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *screenSize;
+
+@end
+
+
+/**
+ *  List of events, each representing an instance where the user consumed or
+ *  used the purchased item or service.
+ */
+@interface GTLRAndroidPublisher_ConsumptionUsageEvent : GTLRObject
+
+/**
+ *  Optional. Free form text that allows developers to provide more info on the
+ *  item consumed. Maximum length is 5000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *consumptionItemDescription;
+
+/**
+ *  Optional. Time when the user consumed, used, downloaded, opened, or streamed
+ *  the content.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *consumptionTime;
+
+/** Optional. The IP address from which the consumption occurred. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** Optional. Geographic location where the consumption occurred. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CoarseLocation *location;
+
+/**
+ *  Optional. Obfuscated string that is uniquely associated with the purchaser's
+ *  user account in the app.
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedAccountId(java.lang.String)
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedAccountId;
+
+/**
+ *  Optional. Obfuscated string that is uniquely associated with the purchaser's
+ *  user profile in the app.
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setObfuscatedProfileId(java.lang.String)
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedProfileId;
 
 @end
 
@@ -4488,6 +5402,24 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request to create a new app record for an app store hosted app.
+ */
+@interface GTLRAndroidPublisher_CreateAppStoreHostedAppRequest : GTLRObject
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
+ *  Response for creating a new app record for an app store hosted app.
+ */
+@interface GTLRAndroidPublisher_CreateAppStoreHostedAppResponse : GTLRObject
+@end
+
+
+/**
  *  Request message for CreateDraftAppRecovery.
  */
 @interface GTLRAndroidPublisher_CreateDraftAppRecoveryRequest : GTLRObject
@@ -4503,6 +5435,46 @@ GTLR_DEPRECATED
  *  android sdk versions, app versions etc.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Targeting *targeting;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRAndroidPublisher_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
 
 @end
 
@@ -4931,9 +5903,117 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The developer details of a Google Play app.
+ */
+@interface GTLRAndroidPublisher_DeveloperDetails : GTLRObject
+
+/** The physical address of the developer. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/** The contact email of the developer. */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/** The developer name of the app. */
+@property(nonatomic, copy, nullable) NSString *developerName;
+
+/** The phone number of the developer. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/** The website of the developer. */
+@property(nonatomic, copy, nullable) NSString *website;
+
+@end
+
+
+/**
  *  Information specific to cancellations initiated by developers.
  */
 @interface GTLRAndroidPublisher_DeveloperInitiatedCancellation : GTLRObject
+@end
+
+
+/**
+ *  Defines a set of device compatibility requirements for the app. A device
+ *  must satisfy all of the requirements in a set to be considered compatible
+ *  with the app.
+ */
+@interface GTLRAndroidPublisher_DeviceCompatibilityRequirements : GTLRObject
+
+/** Compatible screens as listed in the `compatible-screens` Manifest tag. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_CompatibleScreen *> *compatibleScreens;
+
+/**
+ *  Required version of OpenGL ES.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *glEsVersion;
+
+/**
+ *  Specifies if the app requires a screen.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isScreenRequired;
+
+/**
+ *  List of required ABIs (Application Binary Interface), e.g. `armeabi` or
+ *  `x86`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nativePlatforms;
+
+/**
+ *  List of required libraries as declared in the `uses-library` manifest tag.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredSoftwareLibraries;
+
+/**
+ *  The system features that the app requires. A device must have all of the
+ *  system features to be considered compatible with the app.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredSystemFeatures;
+
+/**
+ *  Specifies the minimum smallest width required of the screen.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requiresSmallestWidthDp;
+
+/** Defines a range of SDK versions that the app is compatible with. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CatalogSdkVersion *sdkVersion;
+
+/**
+ *  Supported gl textures as specified by the `supported-gl-texture` Manifest
+ *  tag.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedGlTextures;
+
+/** Compatible screens as listed in the `supports-screens` Manifest tag. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedScreens;
+
+/**
+ *  Value of `android:use32BitAbi` flag retrieved from the Manifest.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiOther
+ *        Value of use32BitAbi is not set or set to something other than "true".
+ *        (Value: "USE_32_BIT_ABI_OTHER")
+ *    @arg @c kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiTrue
+ *        Value of use32BitAbi is set to "true". (Value: "USE_32_BIT_ABI_TRUE")
+ *    @arg @c kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiUnspecified
+ *        Unspecified 32-bit ABI usage. (Value: "USE_32_BIT_ABI_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *use32BitAbi;
+
+/**
+ *  Lists all configurations marked as required by use of the
+ *  `uses-configuration` manifest tag. Each instance of this proto represents a
+ *  single `uses-configuration` entry. See
+ *  http://developer.android.com/guide/topics/manifest/uses-configuration-element.html
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UsesConfiguration *> *usesConfigurations;
+
 @end
 
 
@@ -4995,6 +6075,20 @@ GTLR_DEPRECATED
 
 /** Value of Build.DEVICE. */
 @property(nonatomic, copy, nullable) NSString *buildDevice;
+
+@end
+
+
+/**
+ *  Defines a device identifier for a device.
+ */
+@interface GTLRAndroidPublisher_DeviceIdentifier : GTLRObject
+
+/** The brand of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceBrand;
+
+/** The model of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceModel;
 
 @end
 
@@ -5924,6 +7018,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A group of responses.
+ */
+@interface GTLRAndroidPublisher_Group : GTLRObject
+
+/** Required. Responses within a group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_NestedPolicyResponse *> *responses;
+
+@end
+
+
+/**
  *  An uploaded image. The resource for ImagesService.
  */
 @interface GTLRAndroidPublisher_Image : GTLRObject
@@ -5959,6 +7064,17 @@ GTLR_DEPRECATED
 
 /** A URL that will serve a preview of the image. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  An image asset.
+ */
+@interface GTLRAndroidPublisher_ImageAsset : GTLRObject
+
+/** The URL of the image asset. */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
 
 @end
 
@@ -6484,45 +7600,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Contains the introductory price information for a subscription.
- */
-@interface GTLRAndroidPublisher_IntroductoryPriceInfo : GTLRObject
-
-/**
- *  Introductory price of the subscription, not including tax. The currency is
- *  the same as price_currency_code. Price is expressed in micro-units, where
- *  1,000,000 micro-units represents one unit of the currency. For example, if
- *  the subscription price is €1.99, price_amount_micros is 1990000.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *introductoryPriceAmountMicros;
-
-/**
- *  ISO 4217 currency code for the introductory subscription price. For example,
- *  if the price is specified in British pounds sterling, price_currency_code is
- *  "GBP".
- */
-@property(nonatomic, copy, nullable) NSString *introductoryPriceCurrencyCode;
-
-/**
- *  The number of billing period to offer introductory pricing.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *introductoryPriceCycles;
-
-/**
- *  Introductory price period, specified in ISO 8601 format. Common values are
- *  (but not limited to) "P1W" (one week), "P1M" (one month), "P3M" (three
- *  months), "P6M" (six months), and "P1Y" (one year).
- */
-@property(nonatomic, copy, nullable) NSString *introductoryPricePeriod;
-
-@end
-
-
-/**
  *  Details about introductory price offer phase.
  */
 @interface GTLRAndroidPublisher_IntroductoryPriceOfferPhase : GTLRObject
@@ -6585,6 +7662,20 @@ GTLR_DEPRECATED
  *        "WITH_TIME_PRORATION")
  */
 @property(nonatomic, copy, nullable) NSString *replacementMode;
+
+@end
+
+
+/**
+ *  A group of responses, with a key.
+ */
+@interface GTLRAndroidPublisher_KeyedGroup : GTLRObject
+
+/** Required. Key for this group. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Required. Responses in this group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_NestedPolicyResponse *> *responses;
 
 @end
 
@@ -6781,6 +7872,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for ListRecentUpdateEvents.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "recentUpdateEvents" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAndroidPublisher_ListRecentUpdateEventsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of recent update events.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RecentUpdateEvent *> *recentUpdateEvents;
+
+@end
+
+
+/**
  *  Response listing all releases for a given track that are either ready to be
  *  sent for review, in review, approved, not approved or available.
  */
@@ -6871,6 +7989,61 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_User *> *users;
+
+@end
+
+
+/**
+ *  A localized store listings of the app.
+ */
+@interface GTLRAndroidPublisher_LocalizedStoreListing : GTLRObject
+
+/** The name of the app in this localization. */
+@property(nonatomic, copy, nullable) NSString *appName;
+
+/** The feature graphic of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ImageAsset *featureGraphic;
+
+/** A longer description of the app in this localization. */
+@property(nonatomic, copy, nullable) NSString *fullDescription;
+
+/** The icon of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ImageAsset *icon;
+
+/** The BCP-47 language code for this localization. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** The phone screenshots of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ScreenshotSet *phoneScreenshots;
+
+/** A short description of the app in this localization. */
+@property(nonatomic, copy, nullable) NSString *shortDescription;
+
+/** The regular tablet screenshots of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ScreenshotSet *tabletRegularScreenshots;
+
+/** The small tablet screenshots of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ScreenshotSet *tabletSmallScreenshots;
+
+/** The video of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_VideoAsset *video;
+
+@end
+
+
+/**
+ *  The localized store listings of an app.
+ */
+@interface GTLRAndroidPublisher_LocalizedStoreListings : GTLRObject
+
+/**
+ *  The default language code of the app. If a localized store listing is not
+ *  available for a given language, assets from the default language are used
+ *  instead.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLanguageCode;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_LocalizedStoreListing *> *localizedStoreListings;
 
 @end
 
@@ -7145,6 +8318,33 @@ GTLR_DEPRECATED
 
 /** Value of a multi abi. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_MultiAbi *> *value;
+
+@end
+
+
+/**
+ *  An individual nested response to a policy question about an app. Nested
+ *  responses are like regular responses but without groups.
+ */
+@interface GTLRAndroidPublisher_NestedPolicyResponse : GTLRObject
+
+/** Optional. A boolean response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyBooleanResponse *booleanResponse;
+
+/** Optional. A document response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyDocumentResponse *documentResponse;
+
+/** Optional. A multiple choice response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyMultipleChoiceResponse *multipleChoiceResponse;
+
+/** Required. ID of the question being answered. */
+@property(nonatomic, copy, nullable) NSString *questionId;
+
+/** Optional. A single choice response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicySingleChoiceResponse *singleChoiceResponse;
+
+/** Optional. A string response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyStringResponse *stringResponse;
 
 @end
 
@@ -7947,6 +9147,63 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request for the orders.reviewrefund API.
+ */
+@interface GTLRAndroidPublisher_OrdersReviewRefundRequest : GTLRObject
+
+/**
+ *  Optional. Percentage of the In-App purchase the customer consumed, in
+ *  milliunits. Minimum: 0 Maximum: 100,000. For paid apps, this can be omitted.
+ *  Example : 45200 represents 45.2%.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumptionPercentageMilliunits;
+
+/**
+ *  Optional. List of events, each representing an instance where the user
+ *  consumed or used the purchased item or service. Lists with over 1000 items
+ *  will be rejected.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ConsumptionUsageEvent *> *consumptionUsageEvents;
+
+/**
+ *  Required. The pending refund token included in the pending refund review
+ *  notification.
+ */
+@property(nonatomic, copy, nullable) NSString *pendingRefundToken;
+
+/**
+ *  Required. Indicates your preference, based on your operational logic, as to
+ *  whether the Play Store should grant the refund.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Approve
+ *        Developer prefers that Play grants the refund in full. (Value:
+ *        "APPROVE")
+ *    @arg @c kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Decline
+ *        Developer prefers that Play declines the refund. (Value: "DECLINE")
+ *    @arg @c kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_Neutral
+ *        Developer has no preference about Google Play's decision to issue a
+ *        refund (Value: "NEUTRAL")
+ *    @arg @c kGTLRAndroidPublisher_OrdersReviewRefundRequest_RefundPreference_RefundPreferenceUnspecified
+ *        Refund preference unspecified. This value is not used. (Value:
+ *        "REFUND_PREFERENCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *refundPreference;
+
+/**
+ *  Required. Indicates whether you provided a free sample, trial, or
+ *  information about the functionality prior to the purchase.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleContentProvided;
+
+@end
+
+
+/**
  *  Details of a recurring external transaction product which doesn't belong to
  *  any other more specific category.
  */
@@ -8226,6 +9483,136 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pointsSpent;
+
+@end
+
+
+/**
+ *  Responses that will only ever be a boolean.
+ */
+@interface GTLRAndroidPublisher_PolicyBooleanResponse : GTLRObject
+
+/**
+ *  Required. Provided boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  An uploaded document. Must be a single logical document (e.g. a financial
+ *  license).
+ */
+@interface GTLRAndroidPublisher_PolicyDocumentResponse : GTLRObject
+
+/** Required. ID of the uploaded document. */
+@property(nonatomic, copy, nullable) NSString *documentId;
+
+/** Optional. Expiry date for the document. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Date *expiryDate;
+
+/**
+ *  Optional. True if confirmed that the document does not have an expiry date.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nonExpiring;
+
+@end
+
+
+/**
+ *  A repeated group of responses.
+ */
+@interface GTLRAndroidPublisher_PolicyGroupResponse : GTLRObject
+
+/** Optional. Groups of responses to questions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Group *> *groups;
+
+@end
+
+
+/**
+ *  A group of responses each identified by a distinct key within an allowed
+ *  set.
+ */
+@interface GTLRAndroidPublisher_PolicyKeyedGroupResponse : GTLRObject
+
+/**
+ *  Optional. Groups of responses to questions. Each KeyedGroup.key must be
+ *  unique within this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_KeyedGroup *> *groups;
+
+@end
+
+
+/**
+ *  Any response where multiple options can be chosen from several
+ *  possibilities.
+ */
+@interface GTLRAndroidPublisher_PolicyMultipleChoiceResponse : GTLRObject
+
+/** Optional. Provided values. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  An individual response to a policy question about an app.
+ */
+@interface GTLRAndroidPublisher_PolicyResponse : GTLRObject
+
+/** Optional. A boolean response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyBooleanResponse *booleanResponse;
+
+/** Optional. A document response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyDocumentResponse *documentResponse;
+
+/** Optional. A group response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyGroupResponse *groupResponse;
+
+/** Optional. A keyed group response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyKeyedGroupResponse *keyedGroupResponse;
+
+/** Optional. A multiple choice response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyMultipleChoiceResponse *multipleChoiceResponse;
+
+/** Required. ID of the question being answered. */
+@property(nonatomic, copy, nullable) NSString *questionId;
+
+/** Optional. A single choice response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicySingleChoiceResponse *singleChoiceResponse;
+
+/** Optional. A string response. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PolicyStringResponse *stringResponse;
+
+@end
+
+
+/**
+ *  Any response where a single option is chosen from several possibilities.
+ */
+@interface GTLRAndroidPublisher_PolicySingleChoiceResponse : GTLRObject
+
+/** Required. Provided value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Any response best encoded as a string. Includes URLs and multiline text
+ *  fields.
+ */
+@interface GTLRAndroidPublisher_PolicyStringResponse : GTLRObject
+
+/** Required. Provided string value. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -8749,6 +10136,62 @@ GTLR_DEPRECATED
  *        "PURCHASE_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *purchaseState;
+
+@end
+
+
+/**
+ *  Defines a RAM selector for a device.
+ */
+@interface GTLRAndroidPublisher_RamSelector : GTLRObject
+
+/**
+ *  This will match any device that has less than or equal
+ *  ram_mb_less_than_or_equal mb of RAM.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ramMbLessThanOrEqual;
+
+@end
+
+
+/**
+ *  Metadata about a recently updated app.
+ */
+@interface GTLRAndroidPublisher_RecentAppView : GTLRObject
+
+/** Recently updated app view. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CatalogAppView *appView;
+
+@end
+
+
+/**
+ *  A recent update event.
+ */
+@interface GTLRAndroidPublisher_RecentUpdateEvent : GTLRObject
+
+/** The timestamp of the update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/** The package name of the app. */
+@property(nonatomic, copy, nullable) NSString *playAppPackageName;
+
+/**
+ *  The type of the update event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_Deletion The
+ *        app stopped being eligible for catalog inclusion or was removed from
+ *        the Play Store. (Value: "DELETION")
+ *    @arg @c kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_Modification
+ *        The app was modified. (Value: "MODIFICATION")
+ *    @arg @c kGTLRAndroidPublisher_RecentUpdateEvent_UpdateType_UpdateTypeUnspecified
+ *        Default value. This value is not used. (Value:
+ *        "UPDATE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *updateType;
 
 @end
 
@@ -9618,6 +11061,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A set of screenshots.
+ */
+@interface GTLRAndroidPublisher_ScreenshotSet : GTLRObject
+
+/** The image assets of the screenshots. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ImageAsset *> *screenshots;
+
+@end
+
+
+/**
  *  Represents an sdk version.
  */
 @interface GTLRAndroidPublisher_SdkVersion : GTLRObject
@@ -9659,6 +11113,21 @@ GTLR_DEPRECATED
 
 /** A vanity code was applied. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_VanityCode *vanityCode;
+
+@end
+
+
+/**
+ *  Defines a SOC selector for a device. This will match any device whose SoC
+ *  (System on Chip) matches all fields in the selector.
+ */
+@interface GTLRAndroidPublisher_SocSelector : GTLRObject
+
+/** The manufacturer of the SoC. */
+@property(nonatomic, copy, nullable) NSString *socMake;
+
+/** The model of the SoC. */
+@property(nonatomic, copy, nullable) NSString *socModel;
 
 @end
 
@@ -9783,30 +11252,6 @@ GTLR_DEPRECATED
 
 /** Details about taxes and legal compliance. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings *taxAndComplianceSettings;
-
-@end
-
-
-/**
- *  Information provided by the user when they complete the subscription
- *  cancellation flow (cancellation reason survey).
- */
-@interface GTLRAndroidPublisher_SubscriptionCancelSurveyResult : GTLRObject
-
-/**
- *  The cancellation reason the user chose in the survey. Possible values are:
- *  0. Other 1. I don't use this service enough 2. Technical issues 3.
- *  Cost-related reasons 4. I found a better app
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelSurveyReason;
-
-/**
- *  The customized input cancel reason from the user. Only present when
- *  cancelReason is 0.
- */
-@property(nonatomic, copy, nullable) NSString *userInputCancelReason;
 
 @end
 
@@ -10111,270 +11556,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Contains the price change information for a subscription that can be used to
- *  control the user journey for the price change in the app. This can be in the
- *  form of seeking confirmation from the user or tailoring the experience for a
- *  successful conversion.
- */
-@interface GTLRAndroidPublisher_SubscriptionPriceChange : GTLRObject
-
-/**
- *  The new price the subscription will renew with if the price change is
- *  accepted by the user.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *newPrice NS_RETURNS_NOT_RETAINED;
-
-/**
- *  The current state of the price change. Possible values are: 0. Outstanding:
- *  State for a pending price change waiting for the user to agree. In this
- *  state, you can optionally seek confirmation from the user using the In-App
- *  API. 1. Accepted: State for an accepted price change that the subscription
- *  will renew with unless it's canceled. The price change takes effect on a
- *  future date when the subscription renews. Note that the change might not
- *  occur when the subscription is renewed next.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *state;
-
-@end
-
-
-/**
- *  Deprecated: Use SubscriptionPurchaseV2 instead. A SubscriptionPurchase
- *  resource indicates the status of a user's subscription purchase.
- */
-GTLR_DEPRECATED
-@interface GTLRAndroidPublisher_SubscriptionPurchase : GTLRObject
-
-/**
- *  The acknowledgement state of the subscription product. Possible values are:
- *  0. Yet to be acknowledged 1. Acknowledged
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *acknowledgementState;
-
-/**
- *  Whether the subscription will automatically be renewed when it reaches its
- *  current expiry time.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoRenewing;
-
-/**
- *  Time at which the subscription will be automatically resumed, in
- *  milliseconds since the Epoch. Only present if the user has requested to
- *  pause the subscription.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoResumeTimeMillis;
-
-/**
- *  The reason why a subscription was canceled or is not auto-renewing. Possible
- *  values are: 0. User canceled the subscription 1. Subscription was canceled
- *  by the system, for example because of a billing problem 2. Subscription was
- *  replaced with a new subscription 3. Subscription was canceled by the
- *  developer
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelReason;
-
-/**
- *  Information provided by the user when they complete the subscription
- *  cancellation flow (cancellation reason survey).
- */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionCancelSurveyResult *cancelSurveyResult;
-
-/**
- *  ISO 3166-1 alpha-2 billing country/region code of the user at the time the
- *  subscription was granted.
- */
-@property(nonatomic, copy, nullable) NSString *countryCode;
-
-/**
- *  A developer-specified string that contains supplemental information about an
- *  order.
- */
-@property(nonatomic, copy, nullable) NSString *developerPayload;
-
-/**
- *  The email address of the user when the subscription was purchased. Only
- *  present for purchases made with 'Subscribe with Google'.
- */
-@property(nonatomic, copy, nullable) NSString *emailAddress;
-
-/**
- *  Time at which the subscription will expire, in milliseconds since the Epoch.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *expiryTimeMillis;
-
-/**
- *  User account identifier in the third-party service. Only present if account
- *  linking happened as part of the subscription purchase flow.
- */
-@property(nonatomic, copy, nullable) NSString *externalAccountId;
-
-/**
- *  The family name of the user when the subscription was purchased. Only
- *  present for purchases made with 'Subscribe with Google'.
- */
-@property(nonatomic, copy, nullable) NSString *familyName;
-
-/**
- *  The given name of the user when the subscription was purchased. Only present
- *  for purchases made with 'Subscribe with Google'.
- */
-@property(nonatomic, copy, nullable) NSString *givenName;
-
-/**
- *  Introductory price information of the subscription. This is only present
- *  when the subscription was purchased with an introductory price. This field
- *  does not indicate the subscription is currently in introductory price
- *  period.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_IntroductoryPriceInfo *introductoryPriceInfo;
-
-/**
- *  This kind represents a subscriptionPurchase object in the androidpublisher
- *  service.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The purchase token of the originating purchase if this subscription is one
- *  of the following: 0. Re-signup of a canceled but non-lapsed subscription 1.
- *  Upgrade/downgrade from a previous subscription For example, suppose a user
- *  originally signs up and you receive purchase token X, then the user cancels
- *  and goes through the resignup flow (before their subscription lapses) and
- *  you receive purchase token Y, and finally the user upgrades their
- *  subscription and you receive purchase token Z. If you call this API with
- *  purchase token Z, this field will be set to Y. If you call this API with
- *  purchase token Y, this field will be set to X. If you call this API with
- *  purchase token X, this field will not be set.
- */
-@property(nonatomic, copy, nullable) NSString *linkedPurchaseToken;
-
-/**
- *  An obfuscated version of the id that is uniquely associated with the user's
- *  account in your app. Present for the following purchases: * If account
- *  linking happened as part of the subscription purchase flow. * It was
- *  specified using
- *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid
- *  when the purchase was made.
- */
-@property(nonatomic, copy, nullable) NSString *obfuscatedExternalAccountId;
-
-/**
- *  An obfuscated version of the id that is uniquely associated with the user's
- *  profile in your app. Only present if specified using
- *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedprofileid
- *  when the purchase was made.
- */
-@property(nonatomic, copy, nullable) NSString *obfuscatedExternalProfileId;
-
-/**
- *  The order id of the latest recurring order associated with the purchase of
- *  the subscription. If the subscription was canceled because payment was
- *  declined, this will be the order id from the payment declined order.
- */
-@property(nonatomic, copy, nullable) NSString *orderId;
-
-/**
- *  The payment state of the subscription. Possible values are: 0. Payment
- *  pending 1. Payment received 2. Free trial 3. Pending deferred
- *  upgrade/downgrade Not present for canceled, expired subscriptions.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *paymentState;
-
-/**
- *  Price of the subscription, For tax exclusive countries, the price doesn't
- *  include tax. For tax inclusive countries, the price includes tax. Price is
- *  expressed in micro-units, where 1,000,000 micro-units represents one unit of
- *  the currency. For example, if the subscription price is €1.99,
- *  price_amount_micros is 1990000.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *priceAmountMicros;
-
-/**
- *  The latest price change information available. This is present only when
- *  there is an upcoming price change for the subscription yet to be applied.
- *  Once the subscription renews with the new price or the subscription is
- *  canceled, no price change information will be returned.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionPriceChange *priceChange;
-
-/**
- *  ISO 4217 currency code for the subscription price. For example, if the price
- *  is specified in British pounds sterling, price_currency_code is "GBP".
- */
-@property(nonatomic, copy, nullable) NSString *priceCurrencyCode;
-
-/**
- *  The Google profile id of the user when the subscription was purchased. Only
- *  present for purchases made with 'Subscribe with Google'.
- */
-@property(nonatomic, copy, nullable) NSString *profileId;
-
-/**
- *  The profile name of the user when the subscription was purchased. Only
- *  present for purchases made with 'Subscribe with Google'.
- */
-@property(nonatomic, copy, nullable) NSString *profileName;
-
-/**
- *  The promotion code applied on this purchase. This field is only set if a
- *  vanity code promotion is applied when the subscription was purchased.
- */
-@property(nonatomic, copy, nullable) NSString *promotionCode;
-
-/**
- *  The type of promotion applied on this purchase. This field is only set if a
- *  promotion is applied when the subscription was purchased. Possible values
- *  are: 0. One time code 1. Vanity code
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *promotionType;
-
-/**
- *  The type of purchase of the subscription. This field is only set if this
- *  purchase was not made using the standard in-app billing flow. Possible
- *  values are: 0. Test (i.e. purchased from a license testing account) 1. Promo
- *  (i.e. purchased using a promo code)
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *purchaseType;
-
-/**
- *  Time at which the subscription was granted, in milliseconds since the Epoch.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startTimeMillis;
-
-/**
- *  The time at which the subscription was canceled by the user, in milliseconds
- *  since the epoch. Only present if cancelReason is 0.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *userCancellationTimeMillis;
-
-@end
-
-
-/**
  *  Item-level info for a subscription purchase.
  */
 @interface GTLRAndroidPublisher_SubscriptionPurchaseLineItem : GTLRObject
@@ -10519,16 +11700,6 @@ GTLR_DEPRECATED
  *  service.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Deprecated: Use line_items.latest_successful_order_id instead. The order id
- *  of the latest order associated with the purchase of the subscription. For
- *  autoRenewing subscription, this is the order id of signup order if it is not
- *  renewed yet, or the last recurring order id (success, pending, or declined
- *  order). For prepaid subscription, this is the order id associated with the
- *  queried purchase token.
- */
-@property(nonatomic, copy, nullable) NSString *latestOrderId GTLR_DEPRECATED;
 
 /**
  *  Item-level info for a subscription purchase. The items in the same purchase
@@ -11228,6 +12399,69 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request to update the publish status of an app store hosted app. The default
+ *  state for any app with an update is PUBLISHED. It is not necessary to call
+ *  this RPC explicitly to set an app to PUBLISHED.
+ */
+@interface GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest : GTLRObject
+
+/**
+ *  Required. The new publish state for the hosted app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStatePublished
+ *        The app is published and available on the third-party app store.
+ *        (Value: "APP_STORE_APP_PUBLISH_STATE_PUBLISHED")
+ *    @arg @c kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStateUnpublished
+ *        The app is unpublished and no longer available on the third-party app
+ *        store. (Value: "APP_STORE_APP_PUBLISH_STATE_UNPUBLISHED")
+ *    @arg @c kGTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusRequest_PublishState_AppStoreAppPublishStateUnspecified
+ *        Unspecified publish state. Do not use. (Value:
+ *        "APP_STORE_APP_PUBLISH_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *publishState;
+
+@end
+
+
+/**
+ *  Response for updating the publish status of an app store hosted app.
+ */
+@interface GTLRAndroidPublisher_UpdateAppStoreHostedAppPublishStatusResponse : GTLRObject
+@end
+
+
+/**
+ *  Request to update an app record for an app store hosted app.
+ */
+@interface GTLRAndroidPublisher_UpdateAppStoreHostedAppRequest : GTLRObject
+
+/** Required. Actively distributed APKs of the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AppStoreAppActiveApks *activeApks;
+
+/** Required. Localized store listings details of the update. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_AppStoreAppStoreListing *> *activeLocalizedStoreListings;
+
+/** Required. General developer details for the app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_AppStoreAppDetails *appDetails;
+
+/** Required. Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. Policy declarations provided for the app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_AppStoreAppPolicyDeclaration *> *policyDeclarations;
+
+@end
+
+
+/**
+ *  Response for updating an app record for an app store hosted app.
+ */
+@interface GTLRAndroidPublisher_UpdateAppStoreHostedAppResponse : GTLRObject
+@end
+
+
+/**
  *  Request message to update the state of a subscription base plan.
  */
 @interface GTLRAndroidPublisher_UpdateBasePlanStateRequest : GTLRObject
@@ -11561,6 +12795,73 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request to upload an APK.
+ */
+@interface GTLRAndroidPublisher_UploadApkRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for uploading an APK.
+ */
+@interface GTLRAndroidPublisher_UploadApkResponse : GTLRObject
+
+/** The unique ID of the uploaded APK. */
+@property(nonatomic, copy, nullable) NSString *apkId;
+
+@end
+
+
+/**
+ *  Request to upload a policy declaration file.
+ */
+@interface GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest : GTLRObject
+
+/**
+ *  Required. Type of the policy declaration file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest_FileType_DeclarationFileTypeDocument
+ *        File type for PDF, JPEG, and PNG documents. (Value:
+ *        "DECLARATION_FILE_TYPE_DOCUMENT")
+ *    @arg @c kGTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileRequest_FileType_DeclarationFileTypeUnspecified
+ *        Unspecified file type. (Value: "DECLARATION_FILE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fileType;
+
+@end
+
+
+/**
+ *  Response for uploading a policy declaration file.
+ */
+@interface GTLRAndroidPublisher_UploadAppStoreAppPolicyDeclarationFileResponse : GTLRObject
+
+/** The unique ID of the uploaded file. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+@end
+
+
+/**
+ *  Request to upload an image.
+ */
+@interface GTLRAndroidPublisher_UploadImageRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for uploading an image.
+ */
+@interface GTLRAndroidPublisher_UploadImageResponse : GTLRObject
+
+/** The unique ID of the uploaded image. */
+@property(nonatomic, copy, nullable) NSString *imageId;
+
+@end
+
+
+/**
  *  A user resource.
  */
 @interface GTLRAndroidPublisher_User : GTLRObject
@@ -11759,6 +13060,82 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents all configurations marked as required by use of the
+ *  uses-configuration manifest tag.
+ */
+@interface GTLRAndroidPublisher_UsesConfiguration : GTLRObject
+
+/**
+ *  The type of keyboard required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeNoKeys
+ *        No keys keyboard. (Value: "KEYBOARD_TYPE_NO_KEYS")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeQwerty
+ *        Qwerty keyboard. (Value: "KEYBOARD_TYPE_QWERTY")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeTwelveKey
+ *        Twelve key keyboard. (Value: "KEYBOARD_TYPE_TWELVE_KEY")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeUndefined
+ *        Undefined keyboard type. (Value: "KEYBOARD_TYPE_UNDEFINED")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredKeyboardType_KeyboardTypeUnspecified
+ *        Unspecified keyboard type. (Value: "KEYBOARD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *requiredKeyboardType;
+
+/**
+ *  The navigation device required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeDpad
+ *        Dpad navigation. (Value: "NAVIGATION_TYPE_DPAD")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeNoNavigation
+ *        No navigation. (Value: "NAVIGATION_TYPE_NO_NAVIGATION")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeTrackball
+ *        Trackball navigation. (Value: "NAVIGATION_TYPE_TRACKBALL")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeUndefined
+ *        Undefined navigation type. (Value: "NAVIGATION_TYPE_UNDEFINED")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeUnspecified
+ *        Unspecified navigation type. (Value: "NAVIGATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredNavigationType_NavigationTypeWheel
+ *        Wheel navigation. (Value: "NAVIGATION_TYPE_WHEEL")
+ */
+@property(nonatomic, copy, nullable) NSString *requiredNavigationType;
+
+/**
+ *  The type of touchscreen required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeFinger
+ *        Finger touchscreen. (Value: "TOUCHSCREEN_TYPE_FINGER")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeNoTouchscreen
+ *        No touchscreen. (Value: "TOUCHSCREEN_TYPE_NO_TOUCHSCREEN")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeStylus
+ *        Stylus touchscreen. (Value: "TOUCHSCREEN_TYPE_STYLUS")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeUndefined
+ *        Undefined touchscreen type. (Value: "TOUCHSCREEN_TYPE_UNDEFINED")
+ *    @arg @c kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType_TouchscreenTypeUnspecified
+ *        Unspecified touchscreen type. (Value: "TOUCHSCREEN_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *requiredTouchscreenType;
+
+/**
+ *  Whether or not the application requires a five-way navigation control.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requiresFiveWayNavigation;
+
+/**
+ *  Whether or not the application requires a hardware keyboard.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requiresHardwareKeyboard;
+
+@end
+
+
+/**
  *  A permission used by this APK.
  */
 @interface GTLRAndroidPublisher_UsesPermission : GTLRObject
@@ -11828,6 +13205,17 @@ GTLR_DEPRECATED
 
 /** Texture-compression-format-level targeting */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TextureCompressionFormatTargeting *textureCompressionFormatTargeting;
+
+@end
+
+
+/**
+ *  A video asset.
+ */
+@interface GTLRAndroidPublisher_VideoAsset : GTLRObject
+
+/** The URL of the video asset. */
+@property(nonatomic, copy, nullable) NSString *videoUrl;
 
 @end
 

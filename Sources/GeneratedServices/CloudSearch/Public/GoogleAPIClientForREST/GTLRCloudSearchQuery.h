@@ -1182,6 +1182,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, copy, nullable) NSString *requestOptionsClientDisplayLanguageCode;
 
 /**
+ *  Optional. Specifies the country/region where the query originated, as a
+ *  lowercase ISO 3166-1 alpha-2 region code (using 'uk' instead of 'gb' for the
+ *  United Kingdom).
+ */
+@property(nonatomic, copy, nullable) NSString *requestOptionsCountryCode;
+
+/**
  *  If you are asked by Google to help with debugging, set this field.
  *  Otherwise, ignore this field.
  */

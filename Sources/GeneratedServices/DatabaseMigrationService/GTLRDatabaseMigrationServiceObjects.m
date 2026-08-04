@@ -490,6 +490,10 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_ValuePresentInListIfValueNotList = @"VALUE_PRESENT_IN_LIST_IF_VALUE_NOT_LIST";
 NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_ValuePresentInListUnspecified = @"VALUE_PRESENT_IN_LIST_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDatabaseMigrationService_AlloyDbConnectionProfile
@@ -3251,3 +3255,5 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 @implementation GTLRDatabaseMigrationService_VpcPeeringConnectivity
 @dynamic vpc;
 @end
+
+#pragma clang diagnostic pop

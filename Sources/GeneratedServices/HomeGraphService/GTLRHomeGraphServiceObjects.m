@@ -472,7 +472,21 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 //
 
 @implementation GTLRHomeGraphService_ReportStateAndNotificationResponse
-@dynamic requestId;
+@dynamic deviceResults, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_ReportStateAndNotificationResponse_DeviceResults
+//
+
+@implementation GTLRHomeGraphService_ReportStateAndNotificationResponse_DeviceResults
+
++ (Class)classForAdditionalProperties {
+  return [GTLRHomeGraphService_Result class];
+}
+
 @end
 
 
@@ -492,6 +506,16 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 //
 
 @implementation GTLRHomeGraphService_RequestSyncDevicesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_Result
+//
+
+@implementation GTLRHomeGraphService_Result
+@dynamic homeTraitCommitTime;
 @end
 
 
@@ -549,7 +573,7 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 //
 
 @implementation GTLRHomeGraphService_TraitData
-@dynamic commitTime, trait;
+@dynamic commitTime, providerVersionTime, trait;
 @end
 
 

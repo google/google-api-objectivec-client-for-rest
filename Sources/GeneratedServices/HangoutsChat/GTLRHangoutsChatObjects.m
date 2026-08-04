@@ -374,6 +374,11 @@ NSString * const kGTLRHangoutsChat_Membership_State_Joined     = @"JOINED";
 NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified = @"MEMBERSHIP_STATE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER";
 
+// GTLRHangoutsChat_Message.markupSyntax
+NSString * const kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxChat = @"MARKUP_SYNTAX_CHAT";
+NSString * const kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxMarkdown = @"MARKUP_SYNTAX_MARKDOWN";
+NSString * const kGTLRHangoutsChat_Message_MarkupSyntax_MarkupSyntaxUnspecified = @"MARKUP_SYNTAX_UNSPECIFIED";
+
 // GTLRHangoutsChat_PositionSectionRequest.relativePosition
 NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_End = @"END";
 NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_PositionUnspecified = @"POSITION_UNSPECIFIED";
@@ -391,6 +396,21 @@ NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile = @"D
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_GmailMessage = @"GMAIL_MESSAGE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_MeetSpace = @"MEET_SPACE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified = @"RICH_LINK_TYPE_UNSPECIFIED";
+
+// GTLRHangoutsChat_SearchMessageResult.spaceMuteSetting
+NSString * const kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_Muted = @"MUTED";
+NSString * const kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_MuteSettingUnspecified = @"MUTE_SETTING_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_SearchMessageResult_SpaceMuteSetting_Unmuted = @"UNMUTED";
+
+// GTLRHangoutsChat_SearchMessagesRequest.markupSyntax
+NSString * const kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxChat = @"MARKUP_SYNTAX_CHAT";
+NSString * const kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxMarkdown = @"MARKUP_SYNTAX_MARKDOWN";
+NSString * const kGTLRHangoutsChat_SearchMessagesRequest_MarkupSyntax_MarkupSyntaxUnspecified = @"MARKUP_SYNTAX_UNSPECIFIED";
+
+// GTLRHangoutsChat_SearchMessagesRequest.view
+NSString * const kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewBasic = @"SEARCH_MESSAGES_VIEW_BASIC";
+NSString * const kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewFull = @"SEARCH_MESSAGES_VIEW_FULL";
+NSString * const kGTLRHangoutsChat_SearchMessagesRequest_View_SearchMessagesViewUnspecified = @"SEARCH_MESSAGES_VIEW_UNSPECIFIED";
 
 // GTLRHangoutsChat_SlashCommandMetadata.type
 NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Add = @"ADD";
@@ -464,11 +484,39 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_AccessPermissionSetting
+//
+
+@implementation GTLRHangoutsChat_AccessPermissionSetting
+@dynamic principals;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"principals" : [GTLRHangoutsChat_Principal class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_AccessPermissionSettings
+//
+
+@implementation GTLRHangoutsChat_AccessPermissionSettings
+@dynamic discoverSpaceSetting, joinSpaceSetting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_AccessSettings
 //
 
 @implementation GTLRHangoutsChat_AccessSettings
-@dynamic accessState, audience;
+@dynamic accessPermissionSettings, accessState, audience;
 @end
 
 
@@ -551,6 +599,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 @implementation GTLRHangoutsChat_AttachmentDataRef
 @dynamic attachmentUploadToken, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Audience
+//
+
+@implementation GTLRHangoutsChat_Audience
+@dynamic name;
 @end
 
 
@@ -2034,8 +2092,8 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 @dynamic accessoryWidgets, actionResponse, annotations, argumentText,
          attachedGifs, attachment, cards, cardsV2, clientAssignedMessageId,
          createTime, deleteTime, deletionMetadata, emojiReactionSummaries,
-         fallbackText, formattedText, lastUpdateTime, matchedUrl, name,
-         privateMessageViewer, quotedMessageMetadata, sender, silent,
+         fallbackText, formattedText, lastUpdateTime, markupSyntax, matchedUrl,
+         name, privateMessageViewer, quotedMessageMetadata, sender, silent,
          slashCommand, space, text, thread, threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2221,6 +2279,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_Principal
+//
+
+@implementation GTLRHangoutsChat_Principal
+@dynamic audience;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_QuotedMessageMetadata
 //
 
@@ -2328,21 +2396,70 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRHangoutsChat_SearchSpacesResponse
+//   GTLRHangoutsChat_SearchMessageResult
 //
 
-@implementation GTLRHangoutsChat_SearchSpacesResponse
-@dynamic nextPageToken, spaces, totalSize;
+@implementation GTLRHangoutsChat_SearchMessageResult
+@dynamic message, read, spaceMuteSetting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SearchMessagesRequest
+//
+
+@implementation GTLRHangoutsChat_SearchMessagesRequest
+@dynamic filter, markupSyntax, orderBy, pageSize, pageToken, view;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SearchMessagesResponse
+//
+
+@implementation GTLRHangoutsChat_SearchMessagesResponse
+@dynamic nextPageToken, results;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"spaces" : [GTLRHangoutsChat_Space class]
+    @"results" : [GTLRHangoutsChat_SearchMessageResult class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"spaces";
+  return @"results";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SearchSpaceResult
+//
+
+@implementation GTLRHangoutsChat_SearchSpaceResult
+@dynamic space;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SearchSpacesResponse
+//
+
+@implementation GTLRHangoutsChat_SearchSpacesResponse
+@dynamic nextPageToken, results, spaces, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRHangoutsChat_SearchSpaceResult class],
+    @"spaces" : [GTLRHangoutsChat_Space class]
+  };
+  return map;
 }
 
 @end

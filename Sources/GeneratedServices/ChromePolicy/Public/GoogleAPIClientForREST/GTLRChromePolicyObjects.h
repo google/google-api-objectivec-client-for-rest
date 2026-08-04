@@ -1688,7 +1688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @interface GTLRChromePolicy_Proto2FileDescriptorProto : GTLRObject
 
 /**
- *  copybara:strip_begin TODO(b/297898292) Deprecate and remove this field in
+ *  copybara:strip_begin TODO(b/538805613) Deprecate and remove this field in
  *  favor of enums. copybara:strip_end
  */
 @property(nonatomic, copy, nullable) NSString *editionDeprecated GTLR_DEPRECATED;

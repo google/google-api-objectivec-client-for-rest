@@ -1186,7 +1186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 /**
  *  The list of instances matching the request filters, up to the requested
- *  ListInstancesRequest.pageSize.
+ *  `pageSize`.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1194,9 +1194,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, strong, nullable) NSArray<GTLRLooker_Instance *> *instances;
 
 /**
- *  If provided, a page token that can look up the next
- *  ListInstancesRequest.pageSize results. If empty, the results list is
- *  exhausted.
+ *  If provided, a page token that can look up the next `pageSize` results. If
+ *  empty, the results list is exhausted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

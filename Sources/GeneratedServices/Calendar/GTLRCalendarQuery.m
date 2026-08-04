@@ -291,7 +291,7 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 @implementation GTLRCalendarQuery_CalendarListList
 
 @dynamic maxResults, minAccessRole, pageToken, showDeleted, showHidden,
-         syncToken;
+         showOwnOrganizationOnly, syncToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"users/me/calendarList";
@@ -363,7 +363,7 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 @implementation GTLRCalendarQuery_CalendarListWatch
 
 @dynamic maxResults, minAccessRole, pageToken, showDeleted, showHidden,
-         syncToken;
+         showOwnOrganizationOnly, syncToken;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Channel *)object {
   if (object == nil) {
@@ -489,6 +489,28 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 @end
 
+@implementation GTLRCalendarQuery_CalendarsTransferOwnership
+
+@dynamic calendarId, newDataOwner, useAdminAccess;
+
++ (instancetype)queryWithCalendarId:(NSString *)calendarId
+                       newDataOwner:(NSString *)newDataOwner
+                     useAdminAccess:(BOOL)useAdminAccess {
+  NSArray *pathParams = @[ @"calendarId" ];
+  NSString *pathURITemplate = @"calendars/{calendarId}/transferOwnership";
+  GTLRCalendarQuery_CalendarsTransferOwnership *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.calendarId = calendarId;
+  query.newDataOwner = newDataOwner;
+  query.useAdminAccess = useAdminAccess;
+  query.loggingName = @"calendar.calendars.transferOwnership";
+  return query;
+}
+
+@end
+
 @implementation GTLRCalendarQuery_CalendarsUpdate
 
 @dynamic calendarId;
@@ -599,7 +621,8 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 @implementation GTLRCalendarQuery_EventsImport
 
-@dynamic calendarId, conferenceDataVersion, supportsAttachments;
+@dynamic calendarId, conferenceDataVersion, eventLabelVersion,
+         supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId {
@@ -626,8 +649,8 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 @implementation GTLRCalendarQuery_EventsInsert
 
-@dynamic calendarId, conferenceDataVersion, maxAttendees, sendNotifications,
-         sendUpdates, supportsAttachments;
+@dynamic calendarId, conferenceDataVersion, eventLabelVersion, maxAttendees,
+         sendNotifications, sendUpdates, supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId {
@@ -735,7 +758,8 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 @implementation GTLRCalendarQuery_EventsPatch
 
 @dynamic alwaysIncludeEmail, calendarId, conferenceDataVersion, eventId,
-         maxAttendees, sendNotifications, sendUpdates, supportsAttachments;
+         eventLabelVersion, maxAttendees, sendNotifications, sendUpdates,
+         supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId
@@ -788,7 +812,8 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 @implementation GTLRCalendarQuery_EventsUpdate
 
 @dynamic alwaysIncludeEmail, calendarId, conferenceDataVersion, eventId,
-         maxAttendees, sendNotifications, sendUpdates, supportsAttachments;
+         eventLabelVersion, maxAttendees, sendNotifications, sendUpdates,
+         supportsAttachments;
 
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId

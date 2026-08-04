@@ -250,6 +250,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Enables the managed rotation feature for a Secret. This method can only be
+ *  triggered once for a secret. In order to do further rotations, RotateSecret
+ *  should be used. This method will add a secret version and update the
+ *  password in Cloud SQL.
+ *
+ *  Method: secretmanager.projects.locations.secrets.enableManagedRotation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecretManagerCloudPlatform
+ */
+@interface GTLRSecretManagerQuery_ProjectsLocationsSecretsEnableManagedRotation : GTLRSecretManagerQuery
+
+/**
+ *  Required. The resource name of the Secret to associate with the
+ *  SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *  /locations/ * /secrets/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecretManager_SecretVersion.
+ *
+ *  Enables the managed rotation feature for a Secret. This method can only be
+ *  triggered once for a secret. In order to do further rotations, RotateSecret
+ *  should be used. This method will add a secret version and update the
+ *  password in Cloud SQL.
+ *
+ *  @param object The @c GTLRSecretManager_EnableManagedRotationRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Secret to associate with
+ *    the SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *    /locations/ * /secrets/ *`.
+ *
+ *  @return GTLRSecretManagerQuery_ProjectsLocationsSecretsEnableManagedRotation
+ */
++ (instancetype)queryWithObject:(GTLRSecretManager_EnableManagedRotationRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets metadata for a given Secret.
  *
  *  Method: secretmanager.projects.locations.secrets.get
@@ -419,6 +460,45 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRSecretManager_Secret *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Do a managed rotation for a Secret. This can only be triggered after Managed
+ *  rotation has been enabled. This method will add a secret version and update
+ *  the password in Cloud SQL.
+ *
+ *  Method: secretmanager.projects.locations.secrets.rotateSecret
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecretManagerCloudPlatform
+ */
+@interface GTLRSecretManagerQuery_ProjectsLocationsSecretsRotateSecret : GTLRSecretManagerQuery
+
+/**
+ *  Required. The resource name of the Secret to associate with the
+ *  SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *  /locations/ * /secrets/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecretManager_SecretVersion.
+ *
+ *  Do a managed rotation for a Secret. This can only be triggered after Managed
+ *  rotation has been enabled. This method will add a secret version and update
+ *  the password in Cloud SQL.
+ *
+ *  @param object The @c GTLRSecretManager_RotateSecretRequest to include in the
+ *    query.
+ *  @param parent Required. The resource name of the Secret to associate with
+ *    the SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *    /locations/ * /secrets/ *`.
+ *
+ *  @return GTLRSecretManagerQuery_ProjectsLocationsSecretsRotateSecret
+ */
++ (instancetype)queryWithObject:(GTLRSecretManager_RotateSecretRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -863,6 +943,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Enables the managed rotation feature for a Secret. This method can only be
+ *  triggered once for a secret. In order to do further rotations, RotateSecret
+ *  should be used. This method will add a secret version and update the
+ *  password in Cloud SQL.
+ *
+ *  Method: secretmanager.projects.secrets.enableManagedRotation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecretManagerCloudPlatform
+ */
+@interface GTLRSecretManagerQuery_ProjectsSecretsEnableManagedRotation : GTLRSecretManagerQuery
+
+/**
+ *  Required. The resource name of the Secret to associate with the
+ *  SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *  /locations/ * /secrets/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecretManager_SecretVersion.
+ *
+ *  Enables the managed rotation feature for a Secret. This method can only be
+ *  triggered once for a secret. In order to do further rotations, RotateSecret
+ *  should be used. This method will add a secret version and update the
+ *  password in Cloud SQL.
+ *
+ *  @param object The @c GTLRSecretManager_EnableManagedRotationRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Secret to associate with
+ *    the SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *    /locations/ * /secrets/ *`.
+ *
+ *  @return GTLRSecretManagerQuery_ProjectsSecretsEnableManagedRotation
+ */
++ (instancetype)queryWithObject:(GTLRSecretManager_EnableManagedRotationRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets metadata for a given Secret.
  *
  *  Method: secretmanager.projects.secrets.get
@@ -1032,6 +1153,45 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRSecretManager_Secret *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Do a managed rotation for a Secret. This can only be triggered after Managed
+ *  rotation has been enabled. This method will add a secret version and update
+ *  the password in Cloud SQL.
+ *
+ *  Method: secretmanager.projects.secrets.rotateSecret
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecretManagerCloudPlatform
+ */
+@interface GTLRSecretManagerQuery_ProjectsSecretsRotateSecret : GTLRSecretManagerQuery
+
+/**
+ *  Required. The resource name of the Secret to associate with the
+ *  SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *  /locations/ * /secrets/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecretManager_SecretVersion.
+ *
+ *  Do a managed rotation for a Secret. This can only be triggered after Managed
+ *  rotation has been enabled. This method will add a secret version and update
+ *  the password in Cloud SQL.
+ *
+ *  @param object The @c GTLRSecretManager_RotateSecretRequest to include in the
+ *    query.
+ *  @param parent Required. The resource name of the Secret to associate with
+ *    the SecretVersion in the format `projects/ * /secrets/ *` or `projects/ *
+ *    /locations/ * /secrets/ *`.
+ *
+ *  @return GTLRSecretManagerQuery_ProjectsSecretsRotateSecret
+ */
++ (instancetype)queryWithObject:(GTLRSecretManager_RotateSecretRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

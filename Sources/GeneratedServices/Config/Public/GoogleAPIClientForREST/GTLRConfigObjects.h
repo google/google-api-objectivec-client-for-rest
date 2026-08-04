@@ -1859,6 +1859,13 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 /** Outputs and artifacts from applying a deployment. */
 @property(nonatomic, strong, nullable) GTLRConfig_ApplyResults *applyResults;
 
+/**
+ *  Output only. Indicating if early apply results are available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applyResultsAvailable;
+
 /** Output only. Cloud Build instance UUID associated with this operation. */
 @property(nonatomic, copy, nullable) NSString *build;
 
@@ -2990,9 +2997,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. Optional deployment reference. If specified, the preview will be
- *  performed using the provided deployment's current state and use any relevant
- *  fields from the deployment unless explicitly specified in the preview create
+ *  Optional. Deployment reference. If specified, the preview will be performed
+ *  using the provided deployment's current state and use any relevant fields
+ *  from the deployment unless explicitly specified in the preview create
  *  request.
  */
 @property(nonatomic, copy, nullable) NSString *deployment;

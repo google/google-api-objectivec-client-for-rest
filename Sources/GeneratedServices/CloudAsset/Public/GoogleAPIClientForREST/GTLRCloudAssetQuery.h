@@ -117,6 +117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Method: cloudasset.assets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAsset
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_AssetsList : GTLRCloudAssetQuery
@@ -467,6 +468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Method: cloudasset.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAsset
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_OperationsGet : GTLRCloudAssetQuery
@@ -717,6 +719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Method: cloudasset.analyzeIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAsset
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1AnalyzeIamPolicy : GTLRCloudAssetQuery
@@ -908,6 +911,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Method: cloudasset.analyzeIamPolicyLongrunning
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAsset
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1AnalyzeIamPolicyLongrunning : GTLRCloudAssetQuery

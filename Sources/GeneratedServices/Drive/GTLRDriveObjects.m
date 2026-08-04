@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDrive_Approval.fileContentChangeBehavior
+NSString * const kGTLRDrive_Approval_FileContentChangeBehavior_FileContentChangeBehaviorUnspecified = @"FILE_CONTENT_CHANGE_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRDrive_Approval_FileContentChangeBehavior_NoApprovalAction = @"NO_APPROVAL_ACTION";
+NSString * const kGTLRDrive_Approval_FileContentChangeBehavior_ResetApproval = @"RESET_APPROVAL";
+
 // GTLRDrive_Approval.status
 NSString * const kGTLRDrive_Approval_Status_Approved          = @"APPROVED";
 NSString * const kGTLRDrive_Approval_Status_Cancelled         = @"CANCELLED";
@@ -30,6 +35,11 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_Approved = @"APPROVED";
 NSString * const kGTLRDrive_ReviewerResponse_Response_Declined = @"DECLINED";
 NSString * const kGTLRDrive_ReviewerResponse_Response_NoResponse = @"NO_RESPONSE";
 NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RESPONSE_UNSPECIFIED";
+
+// GTLRDrive_StartApprovalRequest.fileContentChangeBehavior
+NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_FileContentChangeBehaviorUnspecified = @"FILE_CONTENT_CHANGE_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_NoApprovalAction = @"NO_APPROVAL_ACTION";
+NSString * const kGTLRDrive_StartApprovalRequest_FileContentChangeBehavior_ResetApproval = @"RESET_APPROVAL";
 
 // ----------------------------------------------------------------------------
 //
@@ -240,8 +250,9 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 //
 
 @implementation GTLRDrive_Approval
-@dynamic approvalId, completeTime, createTime, dueTime, initiator, kind,
-         modifyTime, reviewerResponses, status, targetFileId;
+@dynamic approvalId, completeTime, createTime, dueTime,
+         fileContentChangeBehavior, initiator, kind, modifyTime,
+         reviewerResponses, status, targetFileId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1333,7 +1344,7 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 //
 
 @implementation GTLRDrive_StartApprovalRequest
-@dynamic dueTime, lockFile, message, reviewerEmails;
+@dynamic dueTime, fileContentChangeBehavior, lockFile, message, reviewerEmails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

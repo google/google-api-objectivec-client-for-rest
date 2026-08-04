@@ -297,6 +297,18 @@ NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVe
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationStatusUnspecified = @"POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded = @"POLICY_SIGNATURE_VERIFICATION_SUCCEEDED";
 
+// GTLRAndroidManagement_CrossDevicePolicies.nearbyAppStreaming
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingDisabled = @"NEARBY_APP_STREAMING_DISABLED";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUnspecified = @"NEARBY_APP_STREAMING_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUserChoice = @"NEARBY_APP_STREAMING_USER_CHOICE";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyAppStreaming_NearbyAppStreamingUserChoiceSameManagedAccount = @"NEARBY_APP_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT";
+
+// GTLRAndroidManagement_CrossDevicePolicies.nearbyNotificationStreaming
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingDisabled = @"NEARBY_NOTIFICATION_STREAMING_DISABLED";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUnspecified = @"NEARBY_NOTIFICATION_STREAMING_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoice = @"NEARBY_NOTIFICATION_STREAMING_USER_CHOICE";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoiceSameManagedAccount = @"NEARBY_NOTIFICATION_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT";
+
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileAppFunctions
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsAllowed = @"CROSS_PROFILE_APP_FUNCTIONS_ALLOWED";
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsDisallowed = @"CROSS_PROFILE_APP_FUNCTIONS_DISALLOWED";
@@ -1677,6 +1689,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_CrossDevicePolicies
+//
+
+@implementation GTLRAndroidManagement_CrossDevicePolicies
+@dynamic nearbyAppStreaming, nearbyNotificationStreaming;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_CrossProfilePolicies
 //
 
@@ -2928,14 +2950,14 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
          cameraDisabled, cellBroadcastsConfigDisabled, choosePrivateKeyRules,
          complianceRules, createWindowsDisabled,
          credentialProviderPolicyDefault, credentialsConfigDisabled,
-         crossProfilePolicies, dataRoamingDisabled, debuggingFeaturesAllowed,
-         defaultApplicationSettings, defaultPermissionPolicy,
-         deviceConnectivityManagement, deviceOwnerLockScreenInfo,
-         deviceRadioState, displaySettings, encryptionPolicy,
-         ensureVerifyAppsEnabled, enterpriseDisplayNameVisibility,
-         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
-         installUnknownSourcesAllowed, keyguardDisabled,
-         keyguardDisabledFeatures, kioskCustomization,
+         crossDevicePolicies, crossProfilePolicies, dataRoamingDisabled,
+         debuggingFeaturesAllowed, defaultApplicationSettings,
+         defaultPermissionPolicy, deviceConnectivityManagement,
+         deviceOwnerLockScreenInfo, deviceRadioState, displaySettings,
+         encryptionPolicy, ensureVerifyAppsEnabled,
+         enterpriseDisplayNameVisibility, factoryResetDisabled, frpAdminEmails,
+         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
+         keyguardDisabled, keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
          maximumTimeToLock, microphoneAccess, minimumApiLevel,
          mobileNetworksConfigDisabled, modifyAccountsDisabled,

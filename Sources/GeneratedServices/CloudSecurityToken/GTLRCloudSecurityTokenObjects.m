@@ -151,7 +151,7 @@
 //
 
 @implementation GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk
-@dynamic e, kid, kty, n, use;
+@dynamic alg, e, kid, kty, n, use;
 @end
 
 

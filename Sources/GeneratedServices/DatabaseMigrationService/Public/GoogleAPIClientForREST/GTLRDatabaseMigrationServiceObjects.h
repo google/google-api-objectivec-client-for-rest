@@ -183,6 +183,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -4760,7 +4761,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ErrorInfo_Metadata *metadata;
 
 /**
- *  The reason of the error. This is a constant value that identifies the
+ *  The reason for the error. This is a constant value that identifies the
  *  proximate cause of the error. Error reasons are unique within a particular
  *  domain of errors. This should be at most 63 characters and match a regular
  *  expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
@@ -4892,7 +4893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_LocalizedMessage *localizedMessage;
 
 /**
- *  The reason of the field-level error. This is a constant value that
+ *  The reason for the field-level error. This is a constant value that
  *  identifies the proximate cause of the field-level error. It should uniquely
  *  identify the type of the FieldViolation within the scope of the
  *  google.rpc.ErrorInfo.domain. This should be at most 63 characters and match
@@ -5790,8 +5791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *ruleScope;
 
-/** Optional. Rule to specify the primary key for a table */
-@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SetTablePrimaryKey *setTablePrimaryKey;
+/** Optional. Deprecated: This rule is no longer supported. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SetTablePrimaryKey *setTablePrimaryKey GTLR_DEPRECATED;
 
 /** Optional. Rule to specify how a single column is converted. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SingleColumnChange *singleColumnChange;
@@ -7949,11 +7950,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
- *  Options to configure rule type SetTablePrimaryKey. The rule is used to
- *  specify the columns and name to configure/alter the primary key of a table.
- *  The rule filter field can refer to one entity. The rule scope can be one of:
- *  Table.
+ *  Deprecated: Options to configure rule type SetTablePrimaryKey. The rule is
+ *  used to specify the columns and name to configure/alter the primary key of a
+ *  table. The rule filter field can refer to one entity. The rule scope can be
+ *  one of: Table.
  */
+GTLR_DEPRECATED
 @interface GTLRDatabaseMigrationService_SetTablePrimaryKey : GTLRObject
 
 /** Optional. Name for the primary key */

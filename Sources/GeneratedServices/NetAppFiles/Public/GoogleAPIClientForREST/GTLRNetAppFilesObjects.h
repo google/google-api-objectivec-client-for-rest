@@ -454,6 +454,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_P
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingSvmPeering;
 
 // ----------------------------------------------------------------------------
+// GTLRNetAppFiles_CloneDetails.splitState
+
+/**
+ *  The attempt to split the volume failed.
+ *
+ *  Value: "SPLIT_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateFailed;
+/**
+ *  A split operation is currently active and in progress.
+ *
+ *  Value: "SPLIT_STATE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateInProgress;
+/**
+ *  The volume is a thin clone, sharing blocks with its source.
+ *
+ *  Value: "SPLIT_STATE_NOT_SPLITTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateNotSplitting;
+/**
+ *  State is not specified.
+ *
+ *  Value: "SPLIT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetAppFiles_HostGroup.osType
 
 /**
@@ -676,6 +704,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_KmsConfig_State_StateUnspeci
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_KmsConfig_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_LocationMetadata.flexPerformanceTier
+
+/**
+ *  Unspecified flex performance tier.
+ *
+ *  Value: "FLEX_PERFORMANCE_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_LocationMetadata_FlexPerformanceTier_FlexPerformanceTierUnspecified;
+/**
+ *  Flex performance tier is limited.
+ *
+ *  Value: "LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_LocationMetadata_FlexPerformanceTier_Limited;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_LocationMetadata.supportedFlexPerformance
@@ -1157,6 +1201,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Snapshot_State_StateUnspecif
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Snapshot_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_SplitStatus.splitState
+
+/**
+ *  The attempt to split the volume failed.
+ *
+ *  Value: "SPLIT_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateFailed;
+/**
+ *  A split operation is currently active and in progress.
+ *
+ *  Value: "SPLIT_STATE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateInProgress;
+/**
+ *  The volume is a thin clone, sharing blocks with its source.
+ *
+ *  Value: "SPLIT_STATE_NOT_SPLITTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateNotSplitting;
+/**
+ *  State is not specified.
+ *
+ *  Value: "SPLIT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_StoragePool.encryptionType
@@ -2244,7 +2316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *sourceBackupVault;
 
 /**
- *  Output only. Region in which the backup vault is created. Format:
+ *  Optional. Region in which the backup vault is created. Format:
  *  `projects/{project_id}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *sourceRegion;
@@ -2529,6 +2601,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  projects/{project}/locations/{location}/volumes/{volume}
  */
 @property(nonatomic, copy, nullable) NSString *sourceVolume;
+
+/**
+ *  Output only. The current state of the clone split operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateFailed The
+ *        attempt to split the volume failed. (Value: "SPLIT_STATE_FAILED")
+ *    @arg @c kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateInProgress A
+ *        split operation is currently active and in progress. (Value:
+ *        "SPLIT_STATE_IN_PROGRESS")
+ *    @arg @c kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateNotSplitting
+ *        The volume is a thin clone, sharing blocks with its source. (Value:
+ *        "SPLIT_STATE_NOT_SPLITTING")
+ *    @arg @c kGTLRNetAppFiles_CloneDetails_SplitState_SplitStateUnspecified
+ *        State is not specified. (Value: "SPLIT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *splitState;
 
 @end
 
@@ -3674,6 +3763,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @interface GTLRNetAppFiles_LocationMetadata : GTLRObject
 
 /**
+ *  Output only. Indicates the flex performance tier of this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_LocationMetadata_FlexPerformanceTier_FlexPerformanceTierUnspecified
+ *        Unspecified flex performance tier. (Value:
+ *        "FLEX_PERFORMANCE_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_LocationMetadata_FlexPerformanceTier_Limited Flex
+ *        performance tier is limited. (Value: "LIMITED")
+ */
+@property(nonatomic, copy, nullable) NSString *flexPerformanceTier;
+
+/**
  *  Output only. Indicates if the location has ONTAP Proxy support.
  *
  *  Uses NSNumber of boolValue.
@@ -4527,6 +4628,53 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 /** Weekly schedule policy. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_WeeklySchedule *weeklySchedule;
 
+@end
+
+
+/**
+ *  Message for SplitStatus.
+ */
+@interface GTLRNetAppFiles_SplitStatus : GTLRObject
+
+/**
+ *  Output only. The estimated progress percentage of the split operation
+ *  (0-100). This is meaningful primarily when split_state is IN_PROGRESS.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/**
+ *  Output only. The current state of the clone split operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateFailed The
+ *        attempt to split the volume failed. (Value: "SPLIT_STATE_FAILED")
+ *    @arg @c kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateInProgress A
+ *        split operation is currently active and in progress. (Value:
+ *        "SPLIT_STATE_IN_PROGRESS")
+ *    @arg @c kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateNotSplitting The
+ *        volume is a thin clone, sharing blocks with its source. (Value:
+ *        "SPLIT_STATE_NOT_SPLITTING")
+ *    @arg @c kGTLRNetAppFiles_SplitStatus_SplitState_SplitStateUnspecified
+ *        State is not specified. (Value: "SPLIT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *splitState;
+
+/**
+ *  Output only. Human-readable details about the current state. Mostly used for
+ *  displaying error messages during split failure Examples: "Split in
+ *  progress", "Error: insufficient capacity".
+ */
+@property(nonatomic, copy, nullable) NSString *stateDetails;
+
+@end
+
+
+/**
+ *  Request message for splitting a volume.
+ */
+@interface GTLRNetAppFiles_StartSplitRequest : GTLRObject
 @end
 
 

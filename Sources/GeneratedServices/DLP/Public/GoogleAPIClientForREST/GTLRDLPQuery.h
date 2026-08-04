@@ -67,7 +67,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  Method: dlp.infoTypes.list
@@ -103,7 +103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  @return GTLRDLPQuery_InfoTypesList
@@ -115,7 +115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  Method: dlp.locations.infoTypes.list
@@ -151,7 +151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  @param parent The parent resource name. The format of this value is as
@@ -166,7 +166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.create
@@ -180,7 +180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -198,7 +198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -207,7 +207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -228,7 +228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.delete
@@ -249,7 +249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -265,7 +265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.get
@@ -286,7 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -302,7 +302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.list
@@ -343,7 +343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -360,13 +360,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -390,7 +390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.patch
@@ -411,7 +411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -432,7 +432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.create
@@ -446,7 +446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -464,7 +464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
@@ -472,7 +472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -493,7 +493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.delete
@@ -514,7 +514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -530,7 +530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.get
@@ -551,7 +551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -567,7 +567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.list
@@ -608,7 +608,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -625,13 +625,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -655,7 +655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.patch
@@ -676,7 +676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
@@ -1044,7 +1044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.create
@@ -1058,7 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -1076,7 +1076,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -1085,7 +1085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -1106,7 +1106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.delete
@@ -1127,7 +1127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -1143,7 +1143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.get
@@ -1164,7 +1164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -1180,7 +1180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.list
@@ -1221,7 +1221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -1238,13 +1238,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -1268,7 +1268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.patch
@@ -1289,7 +1289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -1506,9 +1506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DlpJobs that match the specified filter in the request. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.dlpJobs.list
@@ -1563,7 +1563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -1590,14 +1590,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse.
  *
  *  Lists DlpJobs that match the specified filter in the request. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -1763,7 +1763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.infoTypes.list
@@ -1799,7 +1799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  @param parent The parent resource name. The format of this value is as
@@ -1814,7 +1814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.create
@@ -1828,7 +1828,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -1846,7 +1846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
@@ -1854,7 +1854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -1875,7 +1875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.delete
@@ -1896,7 +1896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -1912,7 +1912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.get
@@ -1933,7 +1933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -1949,7 +1949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.list
@@ -1990,7 +1990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -2007,13 +2007,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -2037,7 +2037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.patch
@@ -2058,7 +2058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
@@ -2078,7 +2078,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.jobTriggers.create
@@ -2091,7 +2091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -2106,14 +2106,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -2131,7 +2131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.jobTriggers.delete
@@ -2151,7 +2151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
@@ -2165,7 +2165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.jobTriggers.get
@@ -2185,7 +2185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Gets a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
@@ -2199,7 +2199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists job triggers. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.jobTriggers.list
@@ -2256,7 +2256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -2283,12 +2283,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
  *
  *  Lists job triggers. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -2309,7 +2309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.jobTriggers.patch
@@ -2329,7 +2329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Updates a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest to
@@ -2447,7 +2447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.create
@@ -2461,7 +2461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -2478,7 +2478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
@@ -2486,7 +2486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -2507,7 +2507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.delete
@@ -2528,7 +2528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -2544,7 +2544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.get
@@ -2565,7 +2565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -2581,7 +2581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.list
@@ -2621,7 +2621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -2635,13 +2635,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -2663,7 +2663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.patch
@@ -2685,7 +2685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
@@ -2843,7 +2843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.create
@@ -2857,7 +2857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -2874,7 +2874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
@@ -2882,7 +2882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -2903,7 +2903,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.delete
@@ -2924,7 +2924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -2940,7 +2940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.get
@@ -2961,7 +2961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -2977,7 +2977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.list
@@ -3017,7 +3017,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -3031,13 +3031,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -3059,7 +3059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.patch
@@ -3081,7 +3081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
@@ -3100,7 +3100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  De-identifies potentially sensitive info from a ContentItem. This method has
  *  limits on input size and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -3116,7 +3116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -3131,7 +3131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  De-identifies potentially sensitive info from a ContentItem. This method has
  *  limits on input size and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -3141,7 +3141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -3163,8 +3163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  are specified in this request, the system will automatically choose what
  *  detectors to run. By default this may be all types, but may change over time
  *  as detectors are updated. For how to guides, see
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-images
- *  and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text,
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images
+ *  and
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text,
  *
  *  Method: dlp.projects.content.inspect
  *
@@ -3176,7 +3177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -3194,14 +3195,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  are specified in this request, the system will automatically choose what
  *  detectors to run. By default this may be all types, but may change over time
  *  as detectors are updated. For how to guides, see
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-images
- *  and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text,
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images
+ *  and
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text,
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -3219,7 +3221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Re-identifies content that has been de-identified. See
- *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
  *  Method: dlp.projects.content.reidentify
@@ -3232,7 +3234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -3246,14 +3248,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse.
  *
  *  Re-identifies content that has been de-identified. See
- *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -3272,7 +3274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.create
@@ -3286,7 +3288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -3304,7 +3306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -3313,7 +3315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -3334,7 +3336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.delete
@@ -3355,7 +3357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -3371,7 +3373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.get
@@ -3392,7 +3394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -3408,7 +3410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.list
@@ -3449,7 +3451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -3466,13 +3468,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -3496,7 +3498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.patch
@@ -3517,7 +3519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -3538,9 +3540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
  *  a best effort to cancel the DlpJob, but success is not guaranteed. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.dlpJobs.cancel
@@ -3558,9 +3560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
  *  a best effort to cancel the DlpJob, but success is not guaranteed. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest to
@@ -3576,9 +3578,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a new job to inspect storage or calculate risk metrics. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect
  *  jobs, the system will automatically choose what detectors to run. By default
  *  this may be all types, but may change over time as detectors are updated.
@@ -3593,7 +3595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -3607,9 +3609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
  *  Creates a new job to inspect storage or calculate risk metrics. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect
  *  jobs, the system will automatically choose what detectors to run. By default
  *  this may be all types, but may change over time as detectors are updated.
@@ -3618,7 +3620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -3638,9 +3640,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Deletes a long-running DlpJob. This method indicates that the client is no
  *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.dlpJobs.delete
@@ -3659,9 +3661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Deletes a long-running DlpJob. This method indicates that the client is no
  *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param name Required. The name of the DlpJob resource to be deleted.
@@ -3674,9 +3676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets the latest state of a long-running DlpJob. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.dlpJobs.get
@@ -3693,9 +3695,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
  *  Gets the latest state of a long-running DlpJob. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param name Required. The name of the DlpJob resource.
@@ -3708,9 +3710,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DlpJobs that match the specified filter in the request. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.dlpJobs.list
@@ -3765,7 +3767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -3792,14 +3794,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse.
  *
  *  Lists DlpJobs that match the specified filter in the request. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -3821,7 +3823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Redacts potentially sensitive info from an image. This method has limits on
  *  input size, processing time, and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -3838,7 +3840,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -3853,7 +3855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Redacts potentially sensitive info from an image. This method has limits on
  *  input size, processing time, and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -3864,7 +3866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    in the query.
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -3883,7 +3885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.create
@@ -3897,7 +3899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -3915,7 +3917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
@@ -3923,7 +3925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -3944,7 +3946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.delete
@@ -3965,7 +3967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -3981,7 +3983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.get
@@ -4002,7 +4004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -4018,7 +4020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.list
@@ -4059,7 +4061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -4076,13 +4078,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -4106,7 +4108,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.patch
@@ -4127,7 +4129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
@@ -4182,7 +4184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.jobTriggers.create
@@ -4195,7 +4197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -4210,14 +4212,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -4235,7 +4237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.jobTriggers.delete
@@ -4255,7 +4257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
@@ -4269,7 +4271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.jobTriggers.get
@@ -4289,7 +4291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Gets a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
@@ -4303,7 +4305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists job triggers. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.jobTriggers.list
@@ -4360,7 +4362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -4387,12 +4389,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
  *
  *  Lists job triggers. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -4413,7 +4415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.jobTriggers.patch
@@ -4433,7 +4435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Updates a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest to
@@ -4799,7 +4801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  De-identifies potentially sensitive info from a ContentItem. This method has
  *  limits on input size and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -4815,7 +4817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -4830,7 +4832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  De-identifies potentially sensitive info from a ContentItem. This method has
  *  limits on input size and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -4840,7 +4842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -4862,8 +4864,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  are specified in this request, the system will automatically choose what
  *  detectors to run. By default this may be all types, but may change over time
  *  as detectors are updated. For how to guides, see
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-images
- *  and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text,
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images
+ *  and
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text,
  *
  *  Method: dlp.projects.locations.content.inspect
  *
@@ -4875,7 +4878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -4893,14 +4896,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  are specified in this request, the system will automatically choose what
  *  detectors to run. By default this may be all types, but may change over time
  *  as detectors are updated. For how to guides, see
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-images
- *  and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text,
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images
+ *  and
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text,
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -5094,7 +5098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Re-identifies content that has been de-identified. See
- *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
  *  Method: dlp.projects.locations.content.reidentify
@@ -5107,7 +5111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -5121,14 +5125,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse.
  *
  *  Re-identifies content that has been de-identified. See
- *  https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -5147,7 +5151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.create
@@ -5161,7 +5165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -5179,7 +5183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a DeidentifyTemplate for reusing frequently used configuration for
  *  de-identifying content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -5188,7 +5192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -5209,7 +5213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.delete
@@ -5230,7 +5234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -5246,7 +5250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.get
@@ -5267,7 +5271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Gets a DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
@@ -5283,7 +5287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.list
@@ -5324,7 +5328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -5341,13 +5345,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
  *  Lists DeidentifyTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -5371,7 +5375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.patch
@@ -5392,7 +5396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
  *  Updates the DeidentifyTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-deid
  *  to learn more.
  *
  *  @param object The @c
@@ -5610,9 +5614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
  *  a best effort to cancel the DlpJob, but success is not guaranteed. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.cancel
@@ -5630,9 +5634,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
  *  a best effort to cancel the DlpJob, but success is not guaranteed. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest to
@@ -5648,9 +5652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a new job to inspect storage or calculate risk metrics. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect
  *  jobs, the system will automatically choose what detectors to run. By default
  *  this may be all types, but may change over time as detectors are updated.
@@ -5665,7 +5669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -5679,9 +5683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
  *  Creates a new job to inspect storage or calculate risk metrics. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect
  *  jobs, the system will automatically choose what detectors to run. By default
  *  this may be all types, but may change over time as detectors are updated.
@@ -5690,7 +5694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -5710,9 +5714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Deletes a long-running DlpJob. This method indicates that the client is no
  *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.delete
@@ -5731,9 +5735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Deletes a long-running DlpJob. This method indicates that the client is no
  *  longer interested in the DlpJob result. The job will be canceled if
  *  possible. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param name Required. The name of the DlpJob resource to be deleted.
@@ -5777,9 +5781,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets the latest state of a long-running DlpJob. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.get
@@ -5796,9 +5800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
  *  Gets the latest state of a long-running DlpJob. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param name Required. The name of the DlpJob resource.
@@ -5846,9 +5850,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists DlpJobs that match the specified filter in the request. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.list
@@ -5903,7 +5907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -5930,14 +5934,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse.
  *
  *  Lists DlpJobs that match the specified filter in the request. See
- *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
  *  and
- *  https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -6103,7 +6107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Redacts potentially sensitive info from an image. This method has limits on
  *  input size, processing time, and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -6120,7 +6124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Parent resource name. The format of this value varies depending on whether
  *  you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -6135,7 +6139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Redacts potentially sensitive info from an image. This method has limits on
  *  input size, processing time, and output size. See
- *  https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
  *  to learn more. When no InfoTypes or CustomInfoTypes are specified in this
  *  request, the system will automatically choose what detectors to run. By
  *  default this may be all types, but may change over time as detectors are
@@ -6146,7 +6150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    in the query.
  *  @param parent Parent resource name. The format of this value varies
  *    depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -6165,7 +6169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  Method: dlp.projects.locations.infoTypes.list
@@ -6201,7 +6205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Returns a list of the sensitive information types that the DLP API supports.
  *  See
- *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
  *  to learn more.
  *
  *  @param parent The parent resource name. The format of this value is as
@@ -6216,7 +6220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.create
@@ -6230,7 +6234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -6248,7 +6252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates an InspectTemplate for reusing frequently used configuration for
  *  inspecting content, images, and storage. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
@@ -6256,7 +6260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -6277,7 +6281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.delete
@@ -6298,7 +6302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -6314,7 +6318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.get
@@ -6335,7 +6339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Gets an InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
@@ -6351,7 +6355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.list
@@ -6392,7 +6396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -6409,13 +6413,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
  *  Lists InspectTemplates. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -6439,7 +6443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.patch
@@ -6460,7 +6464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
  *  Updates the InspectTemplate. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-templates
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
@@ -6515,7 +6519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.create
@@ -6528,7 +6532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -6543,14 +6547,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Creates a job trigger to run DLP actions such as scanning storage for
  *  sensitive information on a set schedule. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -6568,7 +6572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.delete
@@ -6588,7 +6592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
@@ -6602,7 +6606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.get
@@ -6622,7 +6626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Gets a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
@@ -6674,7 +6678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists job triggers. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.list
@@ -6731,7 +6735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Required. Parent resource name. The format of this value varies depending on
  *  whether you have [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -6758,12 +6762,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
  *
  *  Lists job triggers. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -6784,7 +6788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.patch
@@ -6804,7 +6808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Updates a job trigger. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest to
@@ -6922,7 +6926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.create
@@ -6936,7 +6940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -6953,7 +6957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
@@ -6961,7 +6965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -6982,7 +6986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.delete
@@ -7003,7 +7007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -7019,7 +7023,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.get
@@ -7040,7 +7044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -7056,7 +7060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.list
@@ -7096,7 +7100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -7110,13 +7114,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -7138,7 +7142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.patch
@@ -7160,7 +7164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
@@ -7318,7 +7322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.create
@@ -7332,7 +7336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` +
@@ -7349,7 +7353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Creates a pre-built stored infoType to be used for inspection. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
@@ -7357,7 +7361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` +
@@ -7378,7 +7382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.delete
@@ -7399,7 +7403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Deletes a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -7415,7 +7419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.get
@@ -7436,7 +7440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Gets a stored infoType. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
@@ -7452,7 +7456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.list
@@ -7492,7 +7496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Required. Parent resource name. The format of this value varies depending on
  *  the scope of the request (project or organization) and whether you have
  *  [specified a processing
- *  location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *  location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *  + Projects scope, location specified:
  *  `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *  location specified (defaults to global): `projects/{project_id}` The
@@ -7506,13 +7510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
  *  Lists stored infoTypes. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param parent Required. Parent resource name. The format of this value
  *    varies depending on the scope of the request (project or organization) and
  *    whether you have [specified a processing
- *    location](https://cloud.google.com/sensitive-data-protection/docs/specifying-location):
+ *    location](https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location):
  *    + Projects scope, location specified:
  *    `projects/{project_id}/locations/{location_id}` + Projects scope, no
  *    location specified (defaults to global): `projects/{project_id}` The
@@ -7534,7 +7538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.patch
@@ -7556,7 +7560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Updates the stored infoType by creating a new version. The existing version
  *  will continue to be used until the new version is ready. See
- *  https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+ *  https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest

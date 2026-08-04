@@ -7710,6 +7710,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  */
 @property(nonatomic, copy, nullable) NSString *clientDisplayLanguageCode;
 
+/**
+ *  Optional. Specifies the country/region where the query originated, as a
+ *  lowercase ISO 3166-1 alpha-2 region code (using 'uk' instead of 'gb' for the
+ *  United Kingdom).
+ */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
 /** Debug options of the request */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
 

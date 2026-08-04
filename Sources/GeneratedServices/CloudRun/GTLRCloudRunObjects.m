@@ -25,6 +25,13 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Executi
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_NonZeroExitCode = @"NON_ZERO_EXIT_CODE";
 
+// GTLRCloudRun_GoogleCloudRunV2Condition.instanceReason
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceDeleted = @"INSTANCE_DELETED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceNonZeroExitCode = @"INSTANCE_NON_ZERO_EXIT_CODE";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceReasonUnspecified = @"INSTANCE_REASON_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceStopped = @"INSTANCE_STOPPED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_InstanceReason_InstanceStopping = @"INSTANCE_STOPPING";
+
 // GTLRCloudRun_GoogleCloudRunV2Condition.reason
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_CommonReasonUndefined = @"COMMON_REASON_UNDEFINED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_ContainerImageAuthorizationCheckFailed = @"CONTAINER_IMAGE_AUTHORIZATION_CHECK_FAILED";
@@ -496,8 +503,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Condition
-@dynamic executionReason, lastTransitionTime, message, reason, revisionReason,
-         severity, state, type;
+@dynamic executionReason, instanceReason, lastTransitionTime, message, reason,
+         revisionReason, severity, state, type;
 @end
 
 
@@ -1445,7 +1452,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          iapEnabled, ingress, invokerIamDisabled, labels, lastModifier,
          latestCreatedRevision, latestReadyRevision, launchStage,
          multiRegionSettings, name, observedGeneration, reconciling,
-         satisfiesPzs, scaling, templateProperty, terminalCondition,
+         satisfiesPzs, scaling, sshEnabled, templateProperty, terminalCondition,
          threatDetectionEnabled, traffic, trafficStatuses, uid, updateTime, uri,
          urls;
 

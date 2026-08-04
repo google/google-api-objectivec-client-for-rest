@@ -459,7 +459,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  `gce_setup.reservation_affinity.values` * `gce_setup.tags` *
  *  `gce_setup.container_image` * `gce_setup.container_image.repository` *
  *  `gce_setup.container_image.tag` * `gce_setup.disable_public_ip` *
- *  `disable_proxy_access`
+ *  `disable_proxy_access` Note: `gce_setup.disable_public_ip` and
+ *  `disable_proxy_access` are one-way on update -- they can only be used to
+ *  *disable* the feature (set the field to `true`). Requests that set either
+ *  field back to `false` (re-enabling the external IP or proxy access) are
+ *  rejected with `INVALID_ARGUMENT`.
  *
  *  String format is a comma-separated list of fields.
  */

@@ -11,9 +11,6 @@
 
 #import <GoogleAPIClientForREST/GTLRFirebaseappcheckQuery.h>
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
-
 @implementation GTLRFirebaseappcheckQuery
 
 @dynamic fields;
@@ -622,33 +619,6 @@
 
 @end
 
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsExchangeSafetyNetToken
-
-@dynamic app;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeSafetyNetTokenRequest *)object
-                            app:(NSString *)app {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"app" ];
-  NSString *pathURITemplate = @"v1/{+app}:exchangeSafetyNetToken";
-  GTLRFirebaseappcheckQuery_ProjectsAppsExchangeSafetyNetToken *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.app = app;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken class];
-  query.loggingName = @"firebaseappcheck.projects.apps.exchangeSafetyNetToken";
-  return query;
-}
-
-@end
-
 @implementation GTLRFirebaseappcheckQuery_ProjectsAppsGenerateAppAttestChallenge
 
 @dynamic app;
@@ -919,78 +889,6 @@
 
 @end
 
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigBatchGet
-
-@dynamic names, parent;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/apps/-/safetyNetConfig:batchGet";
-  GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigBatchGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchGetSafetyNetConfigsResponse class];
-  query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.batchGet";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig class];
-  query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig class];
-  query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLRFirebaseappcheckQuery_ProjectsServicesBatchUpdate
 
 @dynamic parent;
@@ -1224,5 +1122,3 @@
 }
 
 @end
-
-#pragma clang diagnostic pop

@@ -20,6 +20,11 @@ NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTy
 NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeNone = @"NOTIFICATION_TYPE_NONE";
 NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeSilent = @"NOTIFICATION_TYPE_SILENT";
 
+// markupSyntax
+NSString * const kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxChat = @"MARKUP_SYNTAX_CHAT";
+NSString * const kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxMarkdown = @"MARKUP_SYNTAX_MARKDOWN";
+NSString * const kGTLRHangoutsChatMarkupSyntaxMarkupSyntaxUnspecified = @"MARKUP_SYNTAX_UNSPECIFIED";
+
 // messageReplyOption
 NSString * const kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified = @"MESSAGE_REPLY_OPTION_UNSPECIFIED";
 NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread = @"REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD";
@@ -504,7 +509,7 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesGet
 
-@dynamic name;
+@dynamic markupSyntax, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -523,7 +528,8 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent, showDeleted;
+@dynamic filter, markupSyntax, orderBy, pageSize, pageToken, parent,
+         showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -627,6 +633,33 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
   query.parent = parent;
   query.expectedObjectClass = [GTLRHangoutsChat_ListReactionsResponse class];
   query.loggingName = @"chat.spaces.messages.reactions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMessagesSearch
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SearchMessagesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/messages:search";
+  GTLRHangoutsChatQuery_SpacesMessagesSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_SearchMessagesResponse class];
+  query.loggingName = @"chat.spaces.messages.search";
   return query;
 }
 
@@ -763,20 +796,20 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
 
 @end
 
-@implementation GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability
+@implementation GTLRHangoutsChatQuery_UsersAvailabilityGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRHangoutsChatQuery_UsersAvailabilityGetAvailability *query =
+  GTLRHangoutsChatQuery_UsersAvailabilityGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRHangoutsChat_Availability class];
-  query.loggingName = @"chat.users.availability.getAvailability";
+  query.loggingName = @"chat.users.availability.get";
   return query;
 }
 
@@ -863,7 +896,7 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
 
 @end
 
-@implementation GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability
+@implementation GTLRHangoutsChatQuery_UsersAvailabilityPatch
 
 @dynamic name, updateMask;
 
@@ -877,14 +910,14 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRHangoutsChatQuery_UsersAvailabilityUpdateAvailability *query =
+  GTLRHangoutsChatQuery_UsersAvailabilityPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRHangoutsChat_Availability class];
-  query.loggingName = @"chat.users.availability.updateAvailability";
+  query.loggingName = @"chat.users.availability.patch";
   return query;
 }
 

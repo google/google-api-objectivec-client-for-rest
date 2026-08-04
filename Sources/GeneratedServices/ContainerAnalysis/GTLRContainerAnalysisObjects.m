@@ -95,6 +95,13 @@ NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactNone = 
 NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactPartial = @"IMPACT_PARTIAL";
 NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
 
+// GTLRContainerAnalysis_CVSS.exploitMaturity
+NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityAttacked = @"EXPLOIT_MATURITY_ATTACKED";
+NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityNotDefined = @"EXPLOIT_MATURITY_NOT_DEFINED";
+NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityPoc = @"EXPLOIT_MATURITY_POC";
+NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityUnreported = @"EXPLOIT_MATURITY_UNREPORTED";
+NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityUnspecified = @"EXPLOIT_MATURITY_UNSPECIFIED";
+
 // GTLRContainerAnalysis_CVSS.integrityImpact
 NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactComplete = @"IMPACT_COMPLETE";
 NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
@@ -258,9 +265,11 @@ NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X64 = @"X64";
 NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86 = @"X86";
 
 // GTLRContainerAnalysis_Finding.scanner
+NSString * const kGTLRContainerAnalysis_Finding_Scanner_GoogleAntivirus = @"GOOGLE_ANTIVIRUS";
 NSString * const kGTLRContainerAnalysis_Finding_Scanner_Llm    = @"LLM";
 NSString * const kGTLRContainerAnalysis_Finding_Scanner_ScannerUnspecified = @"SCANNER_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Finding_Scanner_Static = @"STATIC";
+NSString * const kGTLRContainerAnalysis_Finding_Scanner_WsPolicy = @"WS_POLICY";
 
 // GTLRContainerAnalysis_Finding.severity
 NSString * const kGTLRContainerAnalysis_Finding_Severity_Critical = @"CRITICAL";
@@ -1084,8 +1093,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_CVSS
 @dynamic attackComplexity, attackRequirements, attackVector, authentication,
          availabilityImpact, baseScore, confidentialityImpact,
-         exploitabilityScore, impactScore, integrityImpact, privilegesRequired,
-         scope, subsequentSystemAvailabilityImpact,
+         exploitabilityScore, exploitMaturity, impactScore, integrityImpact,
+         privilegesRequired, scope, subsequentSystemAvailabilityImpact,
          subsequentSystemConfidentialityImpact, subsequentSystemIntegrityImpact,
          userInteraction, vulnerableSystemAvailabilityImpact,
          vulnerableSystemConfidentialityImpact, vulnerableSystemIntegrityImpact;

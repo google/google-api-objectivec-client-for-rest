@@ -624,6 +624,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityIm
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.exploitMaturity
+
+/**
+ *  Exploit maturity: Attacked (E:A). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_ATTACKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityAttacked;
+/**
+ *  Exploit maturity: Not defined (E:X). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_NOT_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityNotDefined;
+/**
+ *  Exploit maturity: Proof-of-concept (E:P). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_POC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityPoc;
+/**
+ *  Exploit maturity: Unreported (E:U). Defined in CVSS v4.
+ *
+ *  Value: "EXPLOIT_MATURITY_UNREPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityUnreported;
+/**
+ *  Unspecified.
+ *
+ *  Value: "EXPLOIT_MATURITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_CVSS.integrityImpact
 
 /**
@@ -1295,6 +1329,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architect
 // GTLRContainerAnalysis_Finding.scanner
 
 /**
+ *  Google AntiVirus Service scanner.
+ *
+ *  Value: "GOOGLE_ANTIVIRUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Scanner_GoogleAntivirus;
+/**
  *  LLM scanner.
  *
  *  Value: "LLM"
@@ -1312,6 +1352,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Scanner_Scanne
  *  Value: "STATIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Scanner_Static;
+/**
+ *  WS_POLICY scanner.
+ *
+ *  Value: "WS_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Finding_Scanner_WsPolicy;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Finding.severity
@@ -3877,6 +3923,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) NSNumber *exploitabilityScore;
 
 /**
+ *  Exploit Maturity (E). Defined in CVSS v4.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityAttacked
+ *        Exploit maturity: Attacked (E:A). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_ATTACKED")
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityNotDefined
+ *        Exploit maturity: Not defined (E:X). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_NOT_DEFINED")
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityPoc
+ *        Exploit maturity: Proof-of-concept (E:P). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_POC")
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityUnreported
+ *        Exploit maturity: Unreported (E:U). Defined in CVSS v4. (Value:
+ *        "EXPLOIT_MATURITY_UNREPORTED")
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ExploitMaturity_ExploitMaturityUnspecified
+ *        Unspecified. (Value: "EXPLOIT_MATURITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *exploitMaturity;
+
+/**
  *  impactScore
  *
  *  Uses NSNumber of floatValue.
@@ -4822,12 +4889,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Scanner determines which engine (e.g. static, llm) emitted the finding.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_GoogleAntivirus Google
+ *        AntiVirus Service scanner. (Value: "GOOGLE_ANTIVIRUS")
  *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_Llm LLM scanner. (Value:
  *        "LLM")
  *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_ScannerUnspecified
  *        Unspecified scanner. (Value: "SCANNER_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_Static Static scanner.
  *        (Value: "STATIC")
+ *    @arg @c kGTLRContainerAnalysis_Finding_Scanner_WsPolicy WS_POLICY scanner.
+ *        (Value: "WS_POLICY")
  */
 @property(nonatomic, copy, nullable) NSString *scanner;
 

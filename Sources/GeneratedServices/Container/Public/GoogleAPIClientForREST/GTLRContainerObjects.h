@@ -76,6 +76,7 @@
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DesiredAdditionalIPRangesConfig;
 @class GTLRContainer_DesiredEnterpriseConfig;
+@class GTLRContainer_DiskIoScheduler;
 @class GTLRContainer_DisruptionBudget;
 @class GTLRContainer_DisruptionEvent;
 @class GTLRContainer_DnsCacheConfig;
@@ -117,6 +118,7 @@
 @class GTLRContainer_IPEndpointsConfig;
 @class GTLRContainer_Jwk;
 @class GTLRContainer_K8sBetaAPIConfig;
+@class GTLRContainer_KubeletCertInfo;
 @class GTLRContainer_KubernetesDashboard;
 @class GTLRContainer_LegacyAbac;
 @class GTLRContainer_LinuxNodeConfig;
@@ -170,6 +172,7 @@
 @class GTLRContainer_NodeReadinessConfig;
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_NodeTaints;
+@class GTLRContainer_NodeVfioConfig;
 @class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
 @class GTLRContainer_OperationError;
@@ -206,6 +209,8 @@
 @class GTLRContainer_ResourceManagerTags;
 @class GTLRContainer_ResourceManagerTags_Tags;
 @class GTLRContainer_ResourceUsageExportConfig;
+@class GTLRContainer_RollbackSafeUpgrade;
+@class GTLRContainer_RollbackSafeUpgradeStatus;
 @class GTLRContainer_RotationConfig;
 @class GTLRContainer_SandboxConfig;
 @class GTLRContainer_ScheduleUpgradeConfig;
@@ -2542,6 +2547,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeRes
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_RollbackSafeUpgradeStatus.mode
+
+/**
+ *  KCP_MINOR_UPGRADE_ROLLBACK_SAFE_MODE means it's in rollback-safe mode after
+ *  a KCP minor version step-one upgrade.
+ *
+ *  Value: "KCP_MINOR_UPGRADE_ROLLBACK_SAFE_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_RollbackSafeUpgradeStatus_Mode_KcpMinorUpgradeRollbackSafeMode;
+/**
+ *  MODE_UNSPECIFIED means it's in regular upgrade mode.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_RollbackSafeUpgradeStatus_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_SandboxConfig.type
 
 /**
@@ -4297,6 +4319,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *createTime;
 
+/**
+ *  Output only. The current emulated version of the master endpoint. The
+ *  version is in minor version format, e.g. 1.30. No value or empty string
+ *  means the cluster has no emulated version.
+ */
+@property(nonatomic, copy, nullable) NSString *currentEmulatedVersion;
+
 /** Output only. The current software version of the master endpoint. */
 @property(nonatomic, copy, nullable) NSString *currentMasterVersion;
 
@@ -4626,6 +4655,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  disabled when this config is unspecified.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *resourceUsageExportConfig;
+
+/**
+ *  Optional. The rollback safe upgrade information of the cluster. This field
+ *  is used when user manually triggers a rollback safe upgrade.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_RollbackSafeUpgrade *rollbackSafeUpgrade;
 
 /**
  *  Output only. Reserved for future use.
@@ -4983,6 +5018,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** DNSConfig contains clusterDNS config for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *desiredDnsConfig;
 
+/** Optional. The desired emulated version for the cluster. */
+@property(nonatomic, copy, nullable) NSString *desiredEmulatedVersion;
+
 /**
  *  Enable/Disable Cilium Clusterwide Network Policy for the cluster.
  *
@@ -5267,6 +5305,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired configuration for exporting resource usage. */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
 
+/** Optional. The desired rollback safe upgrade configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_RollbackSafeUpgrade *desiredRollbackSafeUpgrade;
+
 /** Enable/Disable Secret Manager Config. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecretManagerConfig *desiredSecretManagerConfig;
 
@@ -5366,8 +5407,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The auto upgrade paused reason. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pausedReason;
 
+/** Output only. The cluster's rollback-safe upgrade status. */
+@property(nonatomic, strong, nullable) GTLRContainer_RollbackSafeUpgradeStatus *rollbackSafeUpgradeStatus;
+
 /** The list of past auto upgrades. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_UpgradeDetails *> *upgradeDetails;
+
+@end
+
+
+/**
+ *  CompleteControlPlaneUpgradeRequest sets the name of target cluster to
+ *  complete upgrade.
+ */
+@interface GTLRContainer_CompleteControlPlaneUpgradeRequest : GTLRObject
+
+/** Optional. API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -5980,6 +6036,27 @@ GTLR_DEPRECATED
  *        STANDARD indicates a standard GKE cluster. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *desiredTier;
+
+@end
+
+
+/**
+ *  DiskIoScheduler contains the configuration for the disk IO scheduler.
+ */
+@interface GTLRContainer_DiskIoScheduler : GTLRObject
+
+/**
+ *  Optional. Configures the IO scheduler for the attached disks. Supported
+ *  values are `mq-deadline`, `bfq`, `kyber`, `none`.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeAttachedDiskIoScheduler;
+
+/**
+ *  Optional. Configures the IO scheduler for the boot disk or ephemeral lssd
+ *  that runs node system workloads. Supported values are `mq-deadline`, `bfq`,
+ *  `kyber`, `none`.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeSystemIoScheduler;
 
 @end
 
@@ -7365,6 +7442,20 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Contains expiry information about the kubelet certificate.
+ */
+@interface GTLRContainer_KubeletCertInfo : GTLRObject
+
+/** Output only. */
+@property(nonatomic, strong, nullable) GTLRDateTime *nonTpmBootstrapCertExpireTime;
+
+/** Output only. */
+@property(nonatomic, strong, nullable) GTLRDateTime *tpmBootstrapCertExpireTime;
+
+@end
+
+
+/**
  *  Configuration for the Kubernetes Dashboard.
  */
 @interface GTLRContainer_KubernetesDashboard : GTLRObject
@@ -7428,6 +7519,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRContainer_CustomNodeInit *customNodeInit;
 
+/** Optional. Controls the configuration for the disk IO scheduler. */
+@property(nonatomic, strong, nullable) GTLRContainer_DiskIoScheduler *diskIoScheduler;
+
 /** Optional. Amounts for 2M and 1G hugepages */
 @property(nonatomic, strong, nullable) GTLRContainer_HugepagesConfig *hugepages;
 
@@ -7437,6 +7531,9 @@ GTLR_DEPRECATED
  *  enforces kernel module signature verification.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeKernelModuleLoading *nodeKernelModuleLoading;
+
+/** Optional. Contains VFIO-related configurations for this node. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeVfioConfig *nodeVfioConfig;
 
 /**
  *  Optional. Enables and configures swap space on nodes. If omitted, swap is
@@ -7460,11 +7557,12 @@ GTLR_DEPRECATED
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
  *  net.netfilter.nf_conntrack_acct kernel.keys.maxkeys kernel.keys.maxbytes
- *  kernel.shmmni kernel.shmmax kernel.shmall kernel.perf_event_paranoid
- *  kernel.sched_rt_runtime_us kernel.softlockup_panic kernel.yama.ptrace_scope
- *  kernel.kptr_restrict kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr
- *  fs.file-max fs.inotify.max_user_instances fs.inotify.max_user_watches
- *  fs.nr_open vm.dirty_background_ratio vm.dirty_background_bytes
+ *  kernel.shmmni kernel.shmmax kernel.shmall kernel.core_pattern
+ *  kernel.perf_event_paranoid kernel.sched_rt_runtime_us
+ *  kernel.softlockup_panic kernel.yama.ptrace_scope kernel.kptr_restrict
+ *  kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr fs.file-max
+ *  fs.inotify.max_user_instances fs.inotify.max_user_watches fs.nr_open
+ *  vm.dirty_background_ratio vm.dirty_background_bytes
  *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_bytes
  *  vm.dirty_writeback_centisecs vm.max_map_count vm.overcommit_memory
  *  vm.overcommit_ratio vm.vfs_cache_pressure vm.swappiness
@@ -7554,11 +7652,12 @@ GTLR_DEPRECATED
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
  *  net.netfilter.nf_conntrack_acct kernel.keys.maxkeys kernel.keys.maxbytes
- *  kernel.shmmni kernel.shmmax kernel.shmall kernel.perf_event_paranoid
- *  kernel.sched_rt_runtime_us kernel.softlockup_panic kernel.yama.ptrace_scope
- *  kernel.kptr_restrict kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr
- *  fs.file-max fs.inotify.max_user_instances fs.inotify.max_user_watches
- *  fs.nr_open vm.dirty_background_ratio vm.dirty_background_bytes
+ *  kernel.shmmni kernel.shmmax kernel.shmall kernel.core_pattern
+ *  kernel.perf_event_paranoid kernel.sched_rt_runtime_us
+ *  kernel.softlockup_panic kernel.yama.ptrace_scope kernel.kptr_restrict
+ *  kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr fs.file-max
+ *  fs.inotify.max_user_instances fs.inotify.max_user_watches fs.nr_open
+ *  vm.dirty_background_ratio vm.dirty_background_bytes
  *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_bytes
  *  vm.dirty_writeback_centisecs vm.max_map_count vm.overcommit_memory
  *  vm.overcommit_ratio vm.vfs_cache_pressure vm.swappiness
@@ -9391,6 +9490,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
+/** Output only. Contains expiry information about the kubelet certificate. */
+@property(nonatomic, strong, nullable) GTLRContainer_KubeletCertInfo *kubeletCertInfo;
+
 /**
  *  The list of Google Compute Engine
  *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
@@ -9727,6 +9829,30 @@ GTLR_DEPRECATED
 
 /** List of node taints. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodeTaint *> *taints;
+
+@end
+
+
+/**
+ *  Configuration settings for VFIO (Virtual Function I/O) on a node. VFIO
+ *  allows safe, unprivileged, userspace drivers to access I/O devices.
+ */
+@interface GTLRContainer_NodeVfioConfig : GTLRObject
+
+/**
+ *  Optional. Specifies the maximum number of DMA entries (pages) that can be
+ *  mapped by the VFIO IOMMU type 1 driver for a container. This limit affects
+ *  the total amount of host memory that can be pinned for direct device access,
+ *  which is often critical for high-performance devices like TPUs and GPUs.
+ *  This setting corresponds to the kernel parameter at:
+ *  `/sys/module/vfio_iommu_type1/parameters/dma_entry_limit`. The default value
+ *  in the kernel is `65535`. Higher values may be needed for workloads mapping
+ *  large memory regions. Supported values are integers between `65535` and
+ *  `4194304`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dmaEntryLimit;
 
 @end
 
@@ -10597,6 +10723,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
+/** Output only. List of custom versions for the channel. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customVersions;
+
 /** The default version for newly created clusters on the channel. */
 @property(nonatomic, copy, nullable) NSString *defaultVersion;
 
@@ -10808,6 +10937,52 @@ GTLR_DEPRECATED
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  RollbackSafeUpgrade is the configuration for the rollback safe upgrade.
+ */
+@interface GTLRContainer_RollbackSafeUpgrade : GTLRObject
+
+/**
+ *  Optional. A user-defined period for the cluster remains in the rollbackable
+ *  state. ex: {seconds: 21600}.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *controlPlaneSoakDuration;
+
+@end
+
+
+/**
+ *  RollbackSafeUpgradeStatus contains the rollback-safe upgrade status of a
+ *  cluster.
+ */
+@interface GTLRContainer_RollbackSafeUpgradeStatus : GTLRObject
+
+/** Output only. The rollback-safe mode expiration time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *controlPlaneUpgradeRollbackEndTime;
+
+/**
+ *  Output only. The mode of the rollback-safe upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_RollbackSafeUpgradeStatus_Mode_KcpMinorUpgradeRollbackSafeMode
+ *        KCP_MINOR_UPGRADE_ROLLBACK_SAFE_MODE means it's in rollback-safe mode
+ *        after a KCP minor version step-one upgrade. (Value:
+ *        "KCP_MINOR_UPGRADE_ROLLBACK_SAFE_MODE")
+ *    @arg @c kGTLRContainer_RollbackSafeUpgradeStatus_Mode_ModeUnspecified
+ *        MODE_UNSPECIFIED means it's in regular upgrade mode. (Value:
+ *        "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Output only. The GKE version that the cluster previously used before
+ *  step-one upgrade.
+ */
+@property(nonatomic, copy, nullable) NSString *previousVersion;
 
 @end
 
@@ -12180,9 +12355,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  TopologyManager defines the configuration options for Topology Manager
- *  feature. See
- *  https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+ *  TopologyManager defines the configuration options for the [`kubelet`
+ *  Topology Manager
+ *  component](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/).
+ *  For more information about the supported machine types and versions for the
+ *  Topology Manager in GKE, see [Customizing node system
+ *  configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-system-config#kubelet-resource-managers).
  */
 @interface GTLRContainer_TopologyManager : GTLRObject
 
@@ -12614,6 +12792,9 @@ GTLR_DEPRECATED
 /** The end timestamp of the upgrade. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/** Output only. The emulated version before the upgrade. */
+@property(nonatomic, copy, nullable) NSString *initialEmulatedVersion;
+
 /** The version before the upgrade. */
 @property(nonatomic, copy, nullable) NSString *initialVersion;
 
@@ -12650,6 +12831,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Output only. The emulated version after the upgrade. */
+@property(nonatomic, copy, nullable) NSString *targetEmulatedVersion;
+
 /** The version after the upgrade. */
 @property(nonatomic, copy, nullable) NSString *targetVersion;
 
@@ -12661,6 +12845,9 @@ GTLR_DEPRECATED
  *  a resource is upgrading.
  */
 @interface GTLRContainer_UpgradeEvent : GTLRObject
+
+/** Output only. The current emulated version before the upgrade. */
+@property(nonatomic, copy, nullable) NSString *currentEmulatedVersion;
 
 /** The current version before the upgrade. */
 @property(nonatomic, copy, nullable) NSString *currentVersion;
@@ -12691,6 +12878,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
+/** Output only. The target emulated version for the upgrade. */
+@property(nonatomic, copy, nullable) NSString *targetEmulatedVersion;
+
 /** The target version for the upgrade. */
 @property(nonatomic, copy, nullable) NSString *targetVersion;
 
@@ -12702,6 +12892,9 @@ GTLR_DEPRECATED
  *  information of a resource.
  */
 @interface GTLRContainer_UpgradeInfoEvent : GTLRObject
+
+/** Output only. The current emulated version before the upgrade. */
+@property(nonatomic, copy, nullable) NSString *currentEmulatedVersion;
 
 /** The current version before the upgrade. */
 @property(nonatomic, copy, nullable) NSString *currentVersion;
@@ -12797,6 +12990,9 @@ GTLR_DEPRECATED
  *        indicates the upgrade has completed successfully. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The target emulated version for the upgrade. */
+@property(nonatomic, copy, nullable) NSString *targetEmulatedVersion;
 
 /** The target version for the upgrade. */
 @property(nonatomic, copy, nullable) NSString *targetVersion;

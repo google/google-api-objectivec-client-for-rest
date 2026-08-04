@@ -12,10 +12,184 @@
 #import <GoogleAPIClientForREST/GTLRWebContentPublisherObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRWebContentPublisher_ContentPolicyStatus.state
+NSString * const kGTLRWebContentPublisher_ContentPolicyStatus_State_Ok = @"OK";
+NSString * const kGTLRWebContentPublisher_ContentPolicyStatus_State_OrganizationViolationActive = @"ORGANIZATION_VIOLATION_ACTIVE";
+NSString * const kGTLRWebContentPublisher_ContentPolicyStatus_State_OrganizationViolationActiveImmediate = @"ORGANIZATION_VIOLATION_ACTIVE_IMMEDIATE";
+NSString * const kGTLRWebContentPublisher_ContentPolicyStatus_State_OrganizationViolationGracePeriod = @"ORGANIZATION_VIOLATION_GRACE_PERIOD";
+NSString * const kGTLRWebContentPublisher_ContentPolicyStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRWebContentPublisher_ContentPolicyStatus_State_ViolationActive = @"VIOLATION_ACTIVE";
+NSString * const kGTLRWebContentPublisher_ContentPolicyStatus_State_ViolationGracePeriod = @"VIOLATION_GRACE_PERIOD";
+
+// GTLRWebContentPublisher_Cta.state
+NSString * const kGTLRWebContentPublisher_Cta_State_Active     = @"ACTIVE";
+NSString * const kGTLRWebContentPublisher_Cta_State_Draft      = @"DRAFT";
+NSString * const kGTLRWebContentPublisher_Cta_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRWebContentPublisher_Cta.type
+NSString * const kGTLRWebContentPublisher_Cta_Type_NewsletterSignup = @"NEWSLETTER_SIGNUP";
+NSString * const kGTLRWebContentPublisher_Cta_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRWebContentPublisher_Publication.onboardingState
+NSString * const kGTLRWebContentPublisher_Publication_OnboardingState_ActionRequired = @"ACTION_REQUIRED";
+NSString * const kGTLRWebContentPublisher_Publication_OnboardingState_Complete = @"COMPLETE";
+NSString * const kGTLRWebContentPublisher_Publication_OnboardingState_OnboardingStateUnspecified = @"ONBOARDING_STATE_UNSPECIFIED";
+NSString * const kGTLRWebContentPublisher_Publication_OnboardingState_PendingVerification = @"PENDING_VERIFICATION";
+
+// GTLRWebContentPublisher_Publication.paymentOption
+NSString * const kGTLRWebContentPublisher_Publication_PaymentOption_Contributions = @"CONTRIBUTIONS";
+NSString * const kGTLRWebContentPublisher_Publication_PaymentOption_None = @"NONE";
+NSString * const kGTLRWebContentPublisher_Publication_PaymentOption_PaymentOptionUnspecified = @"PAYMENT_OPTION_UNSPECIFIED";
+NSString * const kGTLRWebContentPublisher_Publication_PaymentOption_Subscriptions = @"SUBSCRIPTIONS";
+
+// GTLRWebContentPublisher_Publication.publicationType
+NSString * const kGTLRWebContentPublisher_Publication_PublicationType_ForProfit = @"FOR_PROFIT";
+NSString * const kGTLRWebContentPublisher_Publication_PublicationType_NonProfit = @"NON_PROFIT";
+NSString * const kGTLRWebContentPublisher_Publication_PublicationType_PublicationTypeUnspecified = @"PUBLICATION_TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRWebContentPublisher_CheckFreeAccessResponse
 //
 
 @implementation GTLRWebContentPublisher_CheckFreeAccessResponse
 @dynamic isAllowed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_ContentPolicyStatus
+//
+
+@implementation GTLRWebContentPublisher_ContentPolicyStatus
+@dynamic policyInfoUrl, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_Cta
+//
+
+@implementation GTLRWebContentPublisher_Cta
+@dynamic displayName, name, newsletterConfig, state, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_DomainProperty
+//
+
+@implementation GTLRWebContentPublisher_DomainProperty
+@dynamic ownershipVerified, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_ListCtasResponse
+//
+
+@implementation GTLRWebContentPublisher_ListCtasResponse
+@dynamic ctas, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ctas" : [GTLRWebContentPublisher_Cta class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"ctas";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_ListPublicationsResponse
+//
+
+@implementation GTLRWebContentPublisher_ListPublicationsResponse
+@dynamic nextPageToken, publications;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"publications" : [GTLRWebContentPublisher_Publication class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"publications";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_NewsletterConfig
+//
+
+@implementation GTLRWebContentPublisher_NewsletterConfig
+@dynamic customConsentText, customMessage, nameRequired, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_Publication
+//
+
+@implementation GTLRWebContentPublisher_Publication
+@dynamic additionalDomains, contentPolicyStatus, displayName, languageCode,
+         name, onboardingState, organizationId, paymentOption, primaryDomain,
+         products, publicationId, publicationPrivacyPolicyUrl,
+         publicationTosUrl, publicationType, regionCode, rrmProduct, slProduct;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalDomains" : [GTLRWebContentPublisher_DomainProperty class],
+    @"products" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_RrmProduct
+//
+
+@implementation GTLRWebContentPublisher_RrmProduct
+@dynamic enabled, productTosUrl, tosAcceptance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_SlProduct
+//
+
+@implementation GTLRWebContentPublisher_SlProduct
+@dynamic enabled, gcpProjectNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_TosAcceptance
+//
+
+@implementation GTLRWebContentPublisher_TosAcceptance
+@dynamic emailOptIn, signer, signerTitle, userAccepted;
 @end

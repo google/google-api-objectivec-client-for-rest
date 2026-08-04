@@ -489,6 +489,28 @@
 
 @end
 
+@implementation GTLRDataManagerQuery_AudienceMembersRemoveAll
+
++ (instancetype)queryWithObject:(GTLRDataManager_RemoveAllAudienceMembersRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/audienceMembers:removeAll";
+  GTLRDataManagerQuery_AudienceMembersRemoveAll *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDataManager_RemoveAllAudienceMembersResponse class];
+  query.loggingName = @"datamanager.audienceMembers.removeAll";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataManagerQuery_EventsIngest
 
 + (instancetype)queryWithObject:(GTLRDataManager_IngestEventsRequest *)object {

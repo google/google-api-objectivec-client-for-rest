@@ -1016,11 +1016,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx;
 /**
- *  Spin.Ai.
+ *  Deprecated: Please use RISK_ASSESSMENT_PROVIDER_SPIN_AI_V2 instead. Spin.Ai.
  *
  *  Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi GTLR_DEPRECATED;
 /**
  *  Spin.AI V2.
  *
@@ -6011,6 +6011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx
  *        LayerX Security. (Value: "RISK_ASSESSMENT_PROVIDER_LAYERX")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi
+ *        Deprecated: Please use RISK_ASSESSMENT_PROVIDER_SPIN_AI_V2 instead.
  *        Spin.Ai. (Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAiV2
  *        Spin.AI V2. (Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI_V2")

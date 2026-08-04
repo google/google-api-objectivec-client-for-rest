@@ -260,6 +260,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get the decrypted password of an alert.
+ *
+ *  Method: threatintelligence.projects.alerts.getPassword
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeThreatIntelligenceServiceCloudPlatform
+ */
+@interface GTLRThreatIntelligenceServiceQuery_ProjectsAlertsGetPassword : GTLRThreatIntelligenceServiceQuery
+
+/**
+ *  Required. Name of the alert to get. Format:
+ *  projects/{project}/alerts/{alert}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRThreatIntelligenceService_Alert.
+ *
+ *  Get the decrypted password of an alert.
+ *
+ *  @param name Required. Name of the alert to get. Format:
+ *    projects/{project}/alerts/{alert}
+ *
+ *  @return GTLRThreatIntelligenceServiceQuery_ProjectsAlertsGetPassword
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Get a list of alerts that meet the filter criteria.
  *
  *  Method: threatintelligence.projects.alerts.list

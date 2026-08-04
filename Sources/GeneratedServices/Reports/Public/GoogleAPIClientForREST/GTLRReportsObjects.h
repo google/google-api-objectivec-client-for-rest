@@ -29,6 +29,9 @@
 @class GTLRReports_Activity_Id;
 @class GTLRReports_ActivityEventsStatus;
 @class GTLRReports_ActivityNetworkInfo;
+@class GTLRReports_ActivityUserDeviceInfo;
+@class GTLRReports_AgentAttributionInfo;
+@class GTLRReports_AgentAttributionInfoAgentOwner;
 @class GTLRReports_AppliedLabel;
 @class GTLRReports_Channel_Params;
 @class GTLRReports_CustomerIdentity;
@@ -127,6 +130,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
+ *  Whether the activity was performed by an agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAgenticAction;
+
+/**
  *  The type of API resource. For an activity report, the value is
  *  `audit#activity`.
  */
@@ -144,6 +154,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Details of the resource on which the action was performed. */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_ResourceDetails *> *resourceDetails;
 
+/** Device details of the user doing the action. */
+@property(nonatomic, strong, nullable) GTLRReports_ActivityUserDeviceInfo *userDeviceInfo;
+
 @end
 
 
@@ -151,6 +164,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  User doing the action.
  */
 @interface GTLRReports_Activity_Actor : GTLRObject
+
+/** Details of the AI agent that was the actor for the activity. */
+@property(nonatomic, strong, nullable) GTLRReports_AgentAttributionInfo *agentAttributionInfo;
 
 /** Details of the application that was the actor for the activity. */
 @property(nonatomic, strong, nullable) GTLRReports_Activity_Actor_ApplicationInfo *applicationInfo;
@@ -472,6 +488,54 @@ NS_ASSUME_NONNULL_BEGIN
  *  doing the action.
  */
 @property(nonatomic, copy, nullable) NSString *subdivisionCode;
+
+@end
+
+
+/**
+ *  Device details of the user doing the action.
+ */
+@interface GTLRReports_ActivityUserDeviceInfo : GTLRObject
+
+/** Output only. Device ID of the user's device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** Output only. Device OS version of the user's device. */
+@property(nonatomic, copy, nullable) NSString *deviceOsVersion;
+
+/** Output only. The type of the user's device. */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+@end
+
+
+/**
+ *  Details of the AI agent that was the actor for the activity.
+ */
+@interface GTLRReports_AgentAttributionInfo : GTLRObject
+
+/** The ID of the agent. */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/** The user visible name of the agent. */
+@property(nonatomic, copy, nullable) NSString *agentName;
+
+/** The owner of the agent. */
+@property(nonatomic, strong, nullable) GTLRReports_AgentAttributionInfoAgentOwner *agentOwner;
+
+/** Type of the agent. */
+@property(nonatomic, copy, nullable) NSString *agentType;
+
+@end
+
+
+/**
+ *  Details of the owner of the AI agent.
+ */
+@interface GTLRReports_AgentAttributionInfoAgentOwner : GTLRObject
+
+/** The email of the agent owner. */
+@property(nonatomic, copy, nullable) NSString *email;
 
 @end
 

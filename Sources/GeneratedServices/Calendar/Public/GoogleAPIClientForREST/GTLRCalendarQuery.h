@@ -655,6 +655,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, assign) BOOL showHidden;
 
 /**
+ *  Whether to show only entries for calendars from the organization. This
+ *  parameter is only applicable to Google Workspace users. Optional. The
+ *  default is False.
+ */
+@property(nonatomic, assign) BOOL showOwnOrganizationOnly;
+
+/**
  *  Token obtained from the nextSyncToken field returned on the last page of
  *  results from the previous list request. It makes the result of this list
  *  request contain only entries that have changed since then. If only read-only
@@ -662,8 +669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  returned. All entries deleted and hidden since the previous list request
  *  will always be in the result set and it is not allowed to set showDeleted
  *  neither showHidden to False.
- *  To ensure client state consistency minAccessRole query parameter cannot be
- *  specified together with nextSyncToken.
+ *  To ensure client state consistency minAccessRole and showOwnOrganizationOnly
+ *  query parameters cannot be specified together with nextSyncToken.
  *  If the syncToken expires, the server will respond with a 410 GONE response
  *  code and the client should clear its storage and perform a full
  *  synchronization without any syncToken.
@@ -830,6 +837,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, assign) BOOL showHidden;
 
 /**
+ *  Whether to show only entries for calendars from the organization. This
+ *  parameter is only applicable to Google Workspace users. Optional. The
+ *  default is False.
+ */
+@property(nonatomic, assign) BOOL showOwnOrganizationOnly;
+
+/**
  *  Token obtained from the nextSyncToken field returned on the last page of
  *  results from the previous list request. It makes the result of this list
  *  request contain only entries that have changed since then. If only read-only
@@ -837,8 +851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  returned. All entries deleted and hidden since the previous list request
  *  will always be in the result set and it is not allowed to set showDeleted
  *  neither showHidden to False.
- *  To ensure client state consistency minAccessRole query parameter cannot be
- *  specified together with nextSyncToken.
+ *  To ensure client state consistency minAccessRole and showOwnOrganizationOnly
+ *  query parameters cannot be specified together with nextSyncToken.
  *  If the syncToken expires, the server will respond with a 410 GONE response
  *  code and the client should clear its storage and perform a full
  *  synchronization without any syncToken.
@@ -1045,6 +1059,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  */
 + (instancetype)queryWithObject:(GTLRCalendar_Calendar *)object
                      calendarId:(NSString *)calendarId;
+
+@end
+
+/**
+ *  Transfers a secondary calendar between users within a Google Workspace
+ *  organization. Requires user authentication with Manage Calendars
+ *  administrator privilege, and one of the following authorization scopes:
+ *  - https://www.googleapis.com/auth/calendar
+ *  - https://www.googleapis.com/auth/calendar.calendars In the request, set
+ *  useAdminAccess to true. The secondary calendar must be active to be
+ *  transferred. Transferring disabled or deleted calendars isn't supported.
+ *
+ *  Method: calendar.calendars.transferOwnership
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCalendar
+ *    @c kGTLRAuthScopeCalendarCalendars
+ */
+@interface GTLRCalendarQuery_CalendarsTransferOwnership : GTLRCalendarQuery
+
+/**
+ *  Calendar identifier. To retrieve calendar IDs, call the calendarList.list
+ *  method.
+ */
+@property(nonatomic, copy, nullable) NSString *calendarId;
+
+/**
+ *  The email address of a user who will become the data owner of the calendar.
+ */
+@property(nonatomic, copy, nullable) NSString *newDataOwner NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  When true, the method runs using the user's Google Workspace administrator
+ *  privileges. The calling user must be a Google Workspace administrator with
+ *  the Manage Calendars privilege. This method currently only supports admin
+ *  access, thus only true is accepted for this field.
+ */
+@property(nonatomic, assign) BOOL useAdminAccess;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Transfers a secondary calendar between users within a Google Workspace
+ *  organization. Requires user authentication with Manage Calendars
+ *  administrator privilege, and one of the following authorization scopes:
+ *  - https://www.googleapis.com/auth/calendar
+ *  - https://www.googleapis.com/auth/calendar.calendars In the request, set
+ *  useAdminAccess to true. The secondary calendar must be active to be
+ *  transferred. Transferring disabled or deleted calendars isn't supported.
+ *
+ *  @param calendarId Calendar identifier. To retrieve calendar IDs, call the
+ *    calendarList.list method.
+ *  @param newDataOwner The email address of a user who will become the data
+ *    owner of the calendar.
+ *  @param useAdminAccess When true, the method runs using the user's Google
+ *    Workspace administrator privileges. The calling user must be a Google
+ *    Workspace administrator with the Manage Calendars privilege. This method
+ *    currently only supports admin access, thus only true is accepted for this
+ *    field.
+ *
+ *  @return GTLRCalendarQuery_CalendarsTransferOwnership
+ */
++ (instancetype)queryWithCalendarId:(NSString *)calendarId
+                       newDataOwner:(NSString *)newDataOwner
+                     useAdminAccess:(BOOL)useAdminAccess;
 
 @end
 
@@ -1317,6 +1397,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, assign) NSInteger conferenceDataVersion;
 
 /**
+ *  Version number of the event label feature supported by the API client.
+ *  Version 0 assumes no event label support and processes the colorId field for
+ *  color management. Version 1 enables support for event labels, and processes
+ *  the eventLabelId in the event's body. In this case, the colorId field is
+ *  ignored. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger eventLabelVersion;
+
+/**
  *  Whether API client performing operation supports event attachments.
  *  Optional. The default is False.
  */
@@ -1374,6 +1465,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  @note The documented range is 0..1.
  */
 @property(nonatomic, assign) NSInteger conferenceDataVersion;
+
+/**
+ *  Version number of the event label feature supported by the API client.
+ *  Version 0 assumes no event label support and processes the colorId field for
+ *  color management. Version 1 enables support for event labels, and processes
+ *  the eventLabelId in the event's body. In this case, the colorId field is
+ *  ignored. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger eventLabelVersion;
 
 /**
  *  The maximum number of attendees to include in the response. If there are
@@ -1871,6 +1973,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
+ *  Version number of the event label feature supported by the API client.
+ *  Version 0 assumes no event label support and processes the colorId field for
+ *  color management. Version 1 enables support for event labels, and processes
+ *  the eventLabelId in the event's body. In this case, the colorId field is
+ *  ignored. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger eventLabelVersion;
+
+/**
  *  The maximum number of attendees to include in the response. If there are
  *  more than the specified number of attendees, only the participant is
  *  returned. Optional.
@@ -2027,6 +2140,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /** Event identifier. */
 @property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  Version number of the event label feature supported by the API client.
+ *  Version 0 assumes no event label support and processes the colorId field for
+ *  color management. Version 1 enables support for event labels, and processes
+ *  the eventLabelId in the event's body. In this case, the colorId field is
+ *  ignored. The default is 0.
+ *
+ *  @note The documented range is 0..1.
+ */
+@property(nonatomic, assign) NSInteger eventLabelVersion;
 
 /**
  *  The maximum number of attendees to include in the response. If there are

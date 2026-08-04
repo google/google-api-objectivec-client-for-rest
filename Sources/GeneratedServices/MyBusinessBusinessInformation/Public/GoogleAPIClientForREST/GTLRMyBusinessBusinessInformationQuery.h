@@ -145,10 +145,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the account to fetch locations from. If the parent
- *  Account is of AccountType PERSONAL, only Locations that are directly owned
- *  by the Account are returned, otherwise it will return all accessible
- *  locations from the Account, either directly or indirectly.
+ *  Required. The name of the account to fetch locations from. * **Specific
+ *  Account ID**: If the account is of type `AccountType.PERSONAL`, the response
+ *  returns only locations directly owned by that account. For all other types
+ *  (e.g., `AccountType.LOCATION_GROUP`), it returns all accessible locations. *
+ *  **Wildcard (`-`)**: Using `accounts/-` identifies the authenticated user.
+ *  This scope defaults to `AccountType.PERSONAL` but includes both directly and
+ *  indirectly owned locations (e.g., those accessible via member groups).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -164,10 +167,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
  *
  *  Lists the locations for the specified account.
  *
- *  @param parent Required. The name of the account to fetch locations from. If
- *    the parent Account is of AccountType PERSONAL, only Locations that are
- *    directly owned by the Account are returned, otherwise it will return all
- *    accessible locations from the Account, either directly or indirectly.
+ *  @param parent Required. The name of the account to fetch locations from. *
+ *    **Specific Account ID**: If the account is of type `AccountType.PERSONAL`,
+ *    the response returns only locations directly owned by that account. For
+ *    all other types (e.g., `AccountType.LOCATION_GROUP`), it returns all
+ *    accessible locations. * **Wildcard (`-`)**: Using `accounts/-` identifies
+ *    the authenticated user. This scope defaults to `AccountType.PERSONAL` but
+ *    includes both directly and indirectly owned locations (e.g., those
+ *    accessible via member groups).
  *
  *  @return GTLRMyBusinessBusinessInformationQuery_AccountsLocationsList
  *
@@ -188,14 +195,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @interface GTLRMyBusinessBusinessInformationQuery_AttributesList : GTLRMyBusinessBusinessInformationQuery
 
 /**
- *  The primary category stable ID to find available attributes. Must be of the
- *  format categories/{category_id}.
+ *  Optional. The primary category stable ID to find available attributes. Must
+ *  be of the format `categories/{category_id}` (e.g.,
+ *  `categories/gcid:restaurant`). Required if `parent` is not set and
+ *  `show_all` is false.
  */
 @property(nonatomic, copy, nullable) NSString *categoryName;
 
 /**
- *  The BCP 47 code of language to get attribute display names in. If this
- *  language is not available, they will be provided in English.
+ *  Optional. The BCP 47 code of language to get attribute display names in. If
+ *  this language is not available, they will be provided in English.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -206,19 +215,23 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Resource name of the location to look up available attributes. If this field
- *  is set, category_name, region_code, language_code and show_all are not
- *  required and must not be set.
+ *  Optional. Resource name of the location to look up available attributes. If
+ *  this field is set, `category_name`, `region_code`, `language_code` and
+ *  `show_all` are not required and must not be set. Format:
+ *  `locations/{location_id}` (e.g., `locations/1234567890`).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The ISO 3166-1 alpha-2 country code to find available attributes. */
+/**
+ *  Optional. The ISO 3166-1 alpha-2 country code to find available attributes.
+ *  Required if `parent` is not set.
+ */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
- *  Metadata for all available attributes are returned when this field is set to
- *  true, disregarding parent and category_name fields. language_code and
- *  region_code are required when show_all is set to true.
+ *  Optional. If set to true, metadata for all available attributes are
+ *  returned, disregarding `parent` and `category_name` fields. `language_code`
+ *  and `region_code` are required when `show_all` is set to true.
  */
 @property(nonatomic, assign) BOOL showAll;
 

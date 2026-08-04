@@ -1655,6 +1655,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /** Backup Rule Name. */
 @property(nonatomic, copy, nullable) NSString *ruleName;
 
+/** The storage tier of the BackupRule. */
+@property(nonatomic, copy, nullable) NSString *storageTier;
+
 @end
 
 
@@ -1737,7 +1740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Log entry for Backup and Restore Job for resources using BackupPlan based
- *  protection. Next Id: 25
+ *  protection. Next Id: 26
  */
 @interface GTLRBackupforGKE_BDRBackupRestoreJobLog : GTLRObject
 
@@ -1835,6 +1838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** Start time of the job. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** The storage tier associated with the backup. */
+@property(nonatomic, copy, nullable) NSString *storageTier;
 
 /** The target resource type for restore jobs. */
 @property(nonatomic, copy, nullable) NSString *targetResourceType;

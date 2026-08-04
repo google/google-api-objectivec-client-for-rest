@@ -249,6 +249,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityNestUser;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations;
 /**
+ *  Authorization scope: Usage and diagnostic data from your Pixel devices.
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.pixel.device_data"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityPixelDeviceData;
+/**
  *  Authorization scope: Move a copy of information about your devices with
  *  Google Play Store installed
  *

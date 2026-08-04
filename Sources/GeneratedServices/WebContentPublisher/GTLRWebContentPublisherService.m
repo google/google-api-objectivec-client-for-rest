@@ -12,8 +12,9 @@
 #import <GoogleAPIClientForREST/GTLRWebContentPublisher.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage = @"https://www.googleapis.com/auth/subscribewithgoogle.publications.entitlements.manage";
 NSString * const kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsReadonly = @"https://www.googleapis.com/auth/subscribewithgoogle.publications.entitlements.readonly";
 
 // ----------------------------------------------------------------------------

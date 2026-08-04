@@ -314,18 +314,18 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @dynamic dnsName, location;
 
-+ (instancetype)queryWithDnsName:(NSString *)dnsName
-                        location:(NSString *)location {
++ (instancetype)queryWithLocation:(NSString *)location
+                          dnsName:(NSString *)dnsName {
   NSArray *pathParams = @[
     @"dnsName", @"location"
   ];
-  NSString *pathURITemplate = @"v1/dns/{dnsName}/locations/{location}:resolveConnectSettings";
+  NSString *pathURITemplate = @"v1/locations/{location}/dns/{dnsName}:resolveConnectSettings";
   GTLRSQLAdminQuery_ConnectResolve *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.dnsName = dnsName;
   query.location = location;
+  query.dnsName = dnsName;
   query.expectedObjectClass = [GTLRSQLAdmin_ConnectSettings class];
   query.loggingName = @"sql.connect.resolve";
   return query;
@@ -1001,7 +1001,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesPatch
 
-@dynamic instance, project;
+@dynamic instance, project, reconcilePscNetworking, reconcilePscNetworkingForce;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_DatabaseInstance *)object
                         project:(NSString *)project
@@ -1468,7 +1468,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_OperationsCancel
 
-@dynamic operation, project;
+@dynamic location, operation, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                        operation:(NSString *)operation {
@@ -1491,7 +1491,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_OperationsGet
 
-@dynamic operation, project;
+@dynamic location, operation, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                        operation:(NSString *)operation {
@@ -1514,7 +1514,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_OperationsList
 
-@dynamic instance, maxResults, pageToken, project;
+@dynamic instance, location, maxResults, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1990,11 +1990,13 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersUpdate
 
-@dynamic databaseRoles, host, instance, name, project, revokeExistingRoles;
+@dynamic databaseRoles, host, instance, name, project, revokeExistingRoles,
+         revokeExistingServerRoles, serverRoles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"databaseRoles" : [NSString class]
+    @"databaseRoles" : [NSString class],
+    @"serverRoles" : [NSString class]
   };
   return map;
 }

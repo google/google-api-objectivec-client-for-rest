@@ -23,8 +23,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Asset data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloudasset"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudAsset;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.

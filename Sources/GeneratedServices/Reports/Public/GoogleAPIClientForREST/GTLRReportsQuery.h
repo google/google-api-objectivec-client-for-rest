@@ -309,6 +309,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameVault;
  *  Value: "voice"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameVoice;
+/**
+ *  The Workspace Studio application's activity reports return information about
+ *  various types of Workspace Studio activity events.
+ *
+ *  Value: "workspace_studio"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameWorkspaceStudio;
 
 // ----------------------------------------------------------------------------
 // entityType
@@ -357,6 +364,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  This parameter supports both IPv4 and IPv6 address versions.
  */
 @property(nonatomic, copy, nullable) NSString *actorIpAddress;
+
+/**
+ *  Optional. Filters on agent info fields in the activity. This filter gets
+ *  applied in conjunction(AND) with other filters. Example:
+ *  "agentInfoFilter=agentId=\\"agent-id\\" AND agentName=\\"agent-name\\" AND
+ *  agentOwnerEmail=\\"agent-owner-email\\""
+ */
+@property(nonatomic, copy, nullable) NSString *agentInfoFilter;
 
 /**
  *  Optional. Used to filter on the `oAuthClientId` field present in
@@ -498,11 +513,23 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameChromeSync The Chrome Sync
  *        application's activity reports return information about various types
  *        of Chrome Sync activity events. (Value: "chrome_sync")
+ *    @arg @c kGTLRReportsApplicationNameWorkspaceStudio The Workspace Studio
+ *        application's activity reports return information about various types
+ *        of Workspace Studio activity events. (Value: "workspace_studio")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
 /** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Optional. Used to filter on the fields present in
+ *  [`UserDeviceInfo`](#userdeviceinfo) message like `deviceId`, `deviceType`,
+ *  and `deviceOsVersion`. **Usage** ``` GET...&deviceFilter=deviceId="123"
+ *  GET...&deviceFilter=deviceType="ANDROID"
+ *  GET...&deviceFilter=deviceOsVersion="14.0" ```
+ */
+@property(nonatomic, copy, nullable) NSString *deviceFilter;
 
 /**
  *  Sets the end of the range of time shown in the report. The date is in the
@@ -843,6 +870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameChromeSync The Chrome Sync
  *        application's activity reports return information about various types
  *        of Chrome Sync activity events. (Value: "chrome_sync")
+ *    @arg @c kGTLRReportsApplicationNameWorkspaceStudio The Workspace Studio
+ *        application's activity reports return information about various types
+ *        of Workspace Studio activity events. (Value: "workspace_studio")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *

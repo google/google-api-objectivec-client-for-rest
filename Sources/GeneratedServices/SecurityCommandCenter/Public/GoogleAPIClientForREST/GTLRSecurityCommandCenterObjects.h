@@ -22,7 +22,10 @@
 @class GTLRSecurityCommandCenter_AdcApplicationTemplateRevision;
 @class GTLRSecurityCommandCenter_AdcSharedTemplateRevision;
 @class GTLRSecurityCommandCenter_AffectedResources;
+@class GTLRSecurityCommandCenter_Agent;
+@class GTLRSecurityCommandCenter_AgentAnomaly;
 @class GTLRSecurityCommandCenter_AgentDataAccessEvent;
+@class GTLRSecurityCommandCenter_AgentSession;
 @class GTLRSecurityCommandCenter_AiModel;
 @class GTLRSecurityCommandCenter_Allowed;
 @class GTLRSecurityCommandCenter_Application;
@@ -78,6 +81,7 @@
 @class GTLRSecurityCommandCenter_Dataset;
 @class GTLRSecurityCommandCenter_Denied;
 @class GTLRSecurityCommandCenter_Detection;
+@class GTLRSecurityCommandCenter_DetectorReference;
 @class GTLRSecurityCommandCenter_DiscoveredWorkload;
 @class GTLRSecurityCommandCenter_Disk;
 @class GTLRSecurityCommandCenter_DiskPath;
@@ -137,7 +141,10 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplicationTemplateRevision;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcSharedTemplateRevision;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Agent;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentAnomaly;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentSession;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application;
@@ -179,6 +186,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath;
@@ -204,6 +212,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamRolePermission;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InfoType;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InvocationReference;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain;
@@ -290,6 +299,7 @@
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_Indicator;
 @class GTLRSecurityCommandCenter_InfoType;
+@class GTLRSecurityCommandCenter_InvocationReference;
 @class GTLRSecurityCommandCenter_IpRule;
 @class GTLRSecurityCommandCenter_IpRules;
 @class GTLRSecurityCommandCenter_Job;
@@ -656,6 +666,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDelet
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation;
 /** Value: "EVENT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_DetectorReference.severity
+
+/** Value: "CRITICAL" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_Critical;
+/** Value: "HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_High;
+/** Value: "LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_Low;
+/** Value: "MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_Medium;
+/** Value: "SEVERITY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DetectorReference_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_DiscoveredWorkload.confidence
@@ -1302,6 +1326,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation;
 /** Value: "EVENT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference.severity
+
+/** Value: "CRITICAL" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Critical;
+/** Value: "HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_High;
+/** Value: "LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Low;
+/** Value: "MEDIUM" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Medium;
+/** Value: "SEVERITY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload.confidence
@@ -3387,6 +3425,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  GTLRSecurityCommandCenter_Agent
+ */
+@interface GTLRSecurityCommandCenter_Agent : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_AgentAnomaly
+ */
+@interface GTLRSecurityCommandCenter_AgentAnomaly : GTLRObject
+
+/**
+ *  confidenceScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidenceScore;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_DetectorReference *> *detectorReferences;
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_InvocationReference *> *invocationReferences;
+
+@end
+
+
+/**
  *  GTLRSecurityCommandCenter_AgentDataAccessEvent
  */
 @interface GTLRSecurityCommandCenter_AgentDataAccessEvent : GTLRObject
@@ -3410,6 +3483,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *operation;
 
 @property(nonatomic, copy, nullable) NSString *principalSubject;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_AgentSession
+ */
+@interface GTLRSecurityCommandCenter_AgentSession : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 @end
 
@@ -4635,6 +4718,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  GTLRSecurityCommandCenter_DetectorReference
+ */
+@interface GTLRSecurityCommandCenter_DetectorReference : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *detectorId;
+@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *explanation;
+@property(nonatomic, copy, nullable) NSString *recommendation;
+
+/**
+ *  severity
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_DetectorReference_Severity_Critical
+ *        Value "CRITICAL"
+ *    @arg @c kGTLRSecurityCommandCenter_DetectorReference_Severity_High Value
+ *        "HIGH"
+ *    @arg @c kGTLRSecurityCommandCenter_DetectorReference_Severity_Low Value
+ *        "LOW"
+ *    @arg @c kGTLRSecurityCommandCenter_DetectorReference_Severity_Medium Value
+ *        "MEDIUM"
+ *    @arg @c kGTLRSecurityCommandCenter_DetectorReference_Severity_SeverityUnspecified
+ *        Value "SEVERITY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
  *  GTLRSecurityCommandCenter_DiscoveredWorkload
  */
 @interface GTLRSecurityCommandCenter_DiscoveredWorkload : GTLRObject
@@ -5046,7 +5159,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Access *access;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AffectedResources *affectedResources;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Agent *agent;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AgentAnomaly *agentAnomaly;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AgentDataAccessEvent *> *agentDataAccessEvents;
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AgentSession *> *agentSessions;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AiModel *aiModel;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Application *application;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ArtifactGuardPolicies *artifactGuardPolicies;
@@ -6148,6 +6264,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Agent
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Agent : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentAnomaly
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentAnomaly : GTLRObject
+
+/**
+ *  confidenceScore
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidenceScore;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference *> *detectorReferences;
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InvocationReference *> *invocationReferences;
+
+@end
+
+
+/**
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent : GTLRObject
@@ -6171,6 +6322,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *operation;
 
 @property(nonatomic, copy, nullable) NSString *principalSubject;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentSession
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentSession : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 @end
 
@@ -7168,6 +7329,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *detectorId;
+@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *explanation;
+@property(nonatomic, copy, nullable) NSString *recommendation;
+
+/**
+ *  severity
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Critical
+ *        Value "CRITICAL"
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_High
+ *        Value "HIGH"
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Low
+ *        Value "LOW"
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_Medium
+ *        Value "MEDIUM"
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DetectorReference_Severity_SeverityUnspecified
+ *        Value "SEVERITY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
  *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload : GTLRObject
@@ -7428,7 +7619,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Access *access;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources *affectedResources;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Agent *agent;
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentAnomaly *agentAnomaly;
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent *> *agentDataAccessEvents;
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentSession *> *agentSessions;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel *aiModel;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application *application;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicies *artifactGuardPolicies;
@@ -7768,6 +7962,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore *sensitivityScore;
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InvocationReference
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InvocationReference : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *invocationId;
 
 @end
 
@@ -9658,6 +9862,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SensitivityScore *sensitivityScore;
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  GTLRSecurityCommandCenter_InvocationReference
+ */
+@interface GTLRSecurityCommandCenter_InvocationReference : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *invocationId;
 
 @end
 

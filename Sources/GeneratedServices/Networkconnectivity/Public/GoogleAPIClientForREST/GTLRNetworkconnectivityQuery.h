@@ -2885,6 +2885,150 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Creates a new PscAuthorizationPolicy in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.pscAuthorizationPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesCreate : GTLRNetworkconnectivityQuery
+
+/** Required. The parent resource's name of the PscAuthorizationPolicy. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Resource ID of the PscAuthorizationPolicy. */
+@property(nonatomic, copy, nullable) NSString *pscAuthorizationPolicyId;
+
+/** Optional. An optional request ID to identify requests. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new PscAuthorizationPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_PscAuthorizationPolicy to
+ *    include in the query.
+ *  @param parent Required. The parent resource's name of the
+ *    PscAuthorizationPolicy.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_PscAuthorizationPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single PscAuthorizationPolicy.
+ *
+ *  Method: networkconnectivity.projects.locations.pscAuthorizationPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesDelete : GTLRNetworkconnectivityQuery
+
+/** Optional. The etag of the PscAuthorizationPolicy to delete. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the PscAuthorizationPolicy to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. An optional request ID to identify requests. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single PscAuthorizationPolicy.
+ *
+ *  @param name Required. The name of the PscAuthorizationPolicy to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single PscAuthorizationPolicy.
+ *
+ *  Method: networkconnectivity.projects.locations.pscAuthorizationPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the PscAuthorizationPolicy to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_PscAuthorizationPolicy.
+ *
+ *  Gets details of a single PscAuthorizationPolicy.
+ *
+ *  @param name Required. Name of the PscAuthorizationPolicy to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists PscAuthorizationPolicies in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.pscAuthorizationPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesList : GTLRNetworkconnectivityQuery
+
+/** Optional. Filter expression to restrict the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort order of the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of PscAuthorizationPolicies to return in a
+ *  single page. The service may return fewer than this value. If unspecified,
+ *  at most 50 PscAuthorizationPolicies will be returned. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListPscAuthorizationPolicies` call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListPscAuthorizationPoliciesResponse.
+ *
+ *  Lists PscAuthorizationPolicies in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new RegionalEndpoint in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.regionalEndpoints.create

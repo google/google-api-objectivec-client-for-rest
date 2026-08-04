@@ -1469,6 +1469,94 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesCreate
+
+@dynamic parent, pscAuthorizationPolicyId, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_PscAuthorizationPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pscAuthorizationPolicies";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.pscAuthorizationPolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesDelete
+
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.pscAuthorizationPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_PscAuthorizationPolicy class];
+  query.loggingName = @"networkconnectivity.projects.locations.pscAuthorizationPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pscAuthorizationPolicies";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsPscAuthorizationPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListPscAuthorizationPoliciesResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.pscAuthorizationPolicies.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsCreate
 
 @dynamic parent, regionalEndpointId, requestId;

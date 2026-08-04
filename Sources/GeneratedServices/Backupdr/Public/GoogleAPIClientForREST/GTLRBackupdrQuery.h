@@ -86,6 +86,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.folders.locations.resourceBackupConfigs.fetch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_FoldersLocationsResourceBackupConfigsFetch : GTLRBackupdrQuery
@@ -144,6 +145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.organizations.locations.resourceBackupConfigs.fetch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_OrganizationsLocationsResourceBackupConfigsFetch : GTLRBackupdrQuery
@@ -202,6 +204,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlanAssociations.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsCreate : GTLRBackupdrQuery
@@ -258,6 +261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlanAssociations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsDelete : GTLRBackupdrQuery
@@ -304,6 +308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlanAssociations.fetchForResourceType
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsFetchForResourceType : GTLRBackupdrQuery
@@ -378,6 +383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlanAssociations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsGet : GTLRBackupdrQuery
@@ -409,6 +415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlanAssociations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsList : GTLRBackupdrQuery
@@ -464,6 +471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlanAssociations.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsPatch : GTLRBackupdrQuery
@@ -526,6 +534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlanAssociations.triggerBackup
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsTriggerBackup : GTLRBackupdrQuery
@@ -560,6 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlans.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansCreate : GTLRBackupdrQuery
@@ -617,6 +627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlans.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansDelete : GTLRBackupdrQuery
@@ -663,6 +674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlans.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansGet : GTLRBackupdrQuery
@@ -694,6 +706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlans.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansList : GTLRBackupdrQuery
@@ -758,6 +771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlans.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansPatch : GTLRBackupdrQuery
@@ -819,6 +833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlans.revisions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsGet : GTLRBackupdrQuery
@@ -850,6 +865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupPlans.revisions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsList : GTLRBackupdrQuery
@@ -907,6 +923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsCreate : GTLRBackupdrQuery
@@ -963,6 +980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.abandonBackup
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesAbandonBackup : GTLRBackupdrQuery
@@ -996,6 +1014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsDelete : GTLRBackupdrQuery
@@ -1037,6 +1056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.fetchForResourceType
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsFetchForResourceType : GTLRBackupdrQuery
@@ -1127,6 +1147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsGet : GTLRBackupdrQuery
@@ -1172,6 +1193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsList : GTLRBackupdrQuery
@@ -1245,6 +1267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsPatch : GTLRBackupdrQuery
@@ -1308,6 +1331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.restore
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsRestore : GTLRBackupdrQuery
@@ -1342,6 +1366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.fetchAccessToken
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesFetchAccessToken : GTLRBackupdrQuery
@@ -1378,6 +1403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.finalizeBackup
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesFinalizeBackup : GTLRBackupdrQuery
@@ -1412,6 +1438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesGet : GTLRBackupdrQuery
@@ -1442,6 +1469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.initiateBackup
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesInitiateBackup : GTLRBackupdrQuery
@@ -1475,6 +1503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesList : GTLRBackupdrQuery
@@ -1533,6 +1562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesPatch : GTLRBackupdrQuery
@@ -1601,6 +1631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.remove
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesRemove : GTLRBackupdrQuery
@@ -1632,6 +1663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.dataSources.setInternalStatus
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesSetInternalStatus : GTLRBackupdrQuery
@@ -1665,6 +1697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDelete : GTLRBackupdrQuery
@@ -1738,6 +1771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.fetchUsable
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsFetchUsable : GTLRBackupdrQuery
@@ -1798,6 +1832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsGet : GTLRBackupdrQuery
@@ -1846,6 +1881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsList : GTLRBackupdrQuery
@@ -1921,6 +1957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsPatch : GTLRBackupdrQuery
@@ -2004,6 +2041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.backupVaults.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsTestIamPermissions : GTLRBackupdrQuery
@@ -2041,6 +2079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.dataSourceReferences.fetchForResourceType
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesFetchForResourceType : GTLRBackupdrQuery
@@ -2119,6 +2158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.dataSourceReferences.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesGet : GTLRBackupdrQuery
@@ -2150,6 +2190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.dataSourceReferences.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesList : GTLRBackupdrQuery
@@ -2217,6 +2258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsGet : GTLRBackupdrQuery
@@ -2243,6 +2285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.getTrial
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsGetTrial : GTLRBackupdrQuery
@@ -2285,6 +2328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsList : GTLRBackupdrQuery
@@ -2350,6 +2394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersCreate : GTLRBackupdrQuery
@@ -2405,6 +2450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersDelete : GTLRBackupdrQuery
@@ -2446,6 +2492,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersGet : GTLRBackupdrQuery
@@ -2478,6 +2525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersGetIamPolicy : GTLRBackupdrQuery
@@ -2526,6 +2574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersList : GTLRBackupdrQuery
@@ -2584,6 +2633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.msComplianceMetadata
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata : GTLRBackupdrQuery
@@ -2623,6 +2673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersSetIamPolicy : GTLRBackupdrQuery
@@ -2665,6 +2716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.managementServers.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsManagementServersTestIamPermissions : GTLRBackupdrQuery
@@ -2713,6 +2765,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsOperationsCancel : GTLRBackupdrQuery
@@ -2753,6 +2806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.operations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsOperationsDelete : GTLRBackupdrQuery
@@ -2784,6 +2838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsOperationsGet : GTLRBackupdrQuery
@@ -2813,6 +2868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsOperationsList : GTLRBackupdrQuery
@@ -2864,6 +2920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.resourceBackupConfigs.fetch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsFetch : GTLRBackupdrQuery
@@ -2922,6 +2979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.resourceBackupConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList : GTLRBackupdrQuery
@@ -2978,6 +3036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.serviceConfig.initialize
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize : GTLRBackupdrQuery
@@ -3014,6 +3073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.trial.end
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsTrialEnd : GTLRBackupdrQuery
@@ -3046,6 +3106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Method: backupdr.projects.locations.trial.subscribe
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudBackupdr
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe : GTLRBackupdrQuery

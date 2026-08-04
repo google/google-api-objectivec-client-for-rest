@@ -1707,9 +1707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSumma
 /** Status of the transfer run. */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Status *errorStatus;
 
-/** Output only. The metadata destination of the transfer run. */
-@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_MetadataDestination *metadataDestination;
-
 /**
  *  Identifier. The resource name of the transfer run. Transfer run names have
  *  the form

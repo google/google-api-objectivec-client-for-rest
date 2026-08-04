@@ -11,6 +11,16 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRNetworkServices_AgentConnectivityTemplate.accessPath
+NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AccessPath_AccessPathUnspecified = @"ACCESS_PATH_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AccessPath_AgentToAnywhere = @"AGENT_TO_ANYWHERE";
+NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AccessPath_ClientToAgent = @"CLIENT_TO_AGENT";
+
+// GTLRNetworkServices_AgentConnectivityTemplate.accessTypes
+NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AccessTypes_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AccessTypes_Private = @"PRIVATE";
+NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AccessTypes_Public = @"PUBLIC";
+
 // GTLRNetworkServices_AgentGateway.protocols
 NSString * const kGTLRNetworkServices_AgentGateway_Protocols_Mcp = @"MCP";
 NSString * const kGTLRNetworkServices_AgentGateway_Protocols_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
@@ -35,6 +45,16 @@ NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_LoadBal
 NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc = @"EXT_AUTHZ_GRPC";
 NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc = @"EXT_PROC_GRPC";
 NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_WireFormatUnspecified = @"WIRE_FORMAT_UNSPECIFIED";
+
+// GTLRNetworkServices_EgressNetworkConfig.vpcEgress
+NSString * const kGTLRNetworkServices_EgressNetworkConfig_VpcEgress_AllTraffic = @"ALL_TRAFFIC";
+NSString * const kGTLRNetworkServices_EgressNetworkConfig_VpcEgress_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
+NSString * const kGTLRNetworkServices_EgressNetworkConfig_VpcEgress_VpcEgressUnspecified = @"VPC_EGRESS_UNSPECIFIED";
+
+// GTLRNetworkServices_EgressNetworkConfigTlsConfig.additionalRoots
+NSString * const kGTLRNetworkServices_EgressNetworkConfigTlsConfig_AdditionalRoots_AdditionalRootsUnspecified = @"ADDITIONAL_ROOTS_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_EgressNetworkConfigTlsConfig_AdditionalRoots_NoAdditionalRoots = @"NO_ADDITIONAL_ROOTS";
+NSString * const kGTLRNetworkServices_EgressNetworkConfigTlsConfig_AdditionalRoots_PubliclyTrustedRoots = @"PUBLICLY_TRUSTED_ROOTS";
 
 // GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher.metadataLabelMatchCriteria
 NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAll = @"MATCH_ALL";
@@ -182,6 +202,47 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_AgentConnectivityTemplate
+//
+
+@implementation GTLRNetworkServices_AgentConnectivityTemplate
+@dynamic accessPath, accessTypes, createTime, descriptionProperty,
+         egressNetworkConfig, ETag, labels, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AgentConnectivityTemplate_Labels
+//
+
+@implementation GTLRNetworkServices_AgentConnectivityTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_AgentGateway
 //
 
@@ -285,25 +346,7 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_AgentGatewayNetworkConfigEgress
-@dynamic networkAttachment, trustConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkServices_AgentGatewayNetworkConfigEgressTrustConfig
-//
-
-@implementation GTLRNetworkServices_AgentGatewayNetworkConfigEgressTrustConfig
-@dynamic pemCertificates;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"pemCertificates" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic networkAttachment;
 @end
 
 
@@ -313,7 +356,15 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_AgentGatewaySelfManaged
-@dynamic resourceUri;
+@dynamic resourceUri, resourceUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceUris" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -430,6 +481,36 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_DnsPeeringConfig
+//
+
+@implementation GTLRNetworkServices_DnsPeeringConfig
+@dynamic domain, targetNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_EgressNetworkConfig
+//
+
+@implementation GTLRNetworkServices_EgressNetworkConfig
+@dynamic dnsPeeringConfig, networkAttachment, tlsConfig, trustConfig, vpcEgress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_EgressNetworkConfigTlsConfig
+//
+
+@implementation GTLRNetworkServices_EgressNetworkConfigTlsConfig
+@dynamic additionalRoots, trustConfig;
 @end
 
 
@@ -1269,6 +1350,29 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListAgentConnectivityTemplatesResponse
+//
+
+@implementation GTLRNetworkServices_ListAgentConnectivityTemplatesResponse
+@dynamic agentConnectivityTemplates, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentConnectivityTemplates" : [GTLRNetworkServices_AgentConnectivityTemplate class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"agentConnectivityTemplates";
 }
 
 @end

@@ -55,6 +55,7 @@
 @class GTLRArtifactRegistry_MavenArtifact;
 @class GTLRArtifactRegistry_MavenRepository;
 @class GTLRArtifactRegistry_MavenRepositoryConfig;
+@class GTLRArtifactRegistry_NoCacheFetching;
 @class GTLRArtifactRegistry_NpmPackage;
 @class GTLRArtifactRegistry_NpmRepository;
 @class GTLRArtifactRegistry_Operation;
@@ -2509,6 +2510,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The configuration for the no-cache fetching mode, which acts as a
+ *  non-caching proxy.
+ */
+@interface GTLRArtifactRegistry_NoCacheFetching : GTLRObject
+@end
+
+
+/**
  *  NpmPackage represents an npm artifact.
  */
 @interface GTLRArtifactRegistry_NpmPackage : GTLRObject
@@ -3089,6 +3098,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Specific settings for a Maven remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_MavenRepository *mavenRepository;
+
+/** The remote repository will act as a non-caching proxy. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_NoCacheFetching *noCache;
 
 /** Specific settings for an Npm remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_NpmRepository *npmRepository;

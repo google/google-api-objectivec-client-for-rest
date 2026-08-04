@@ -71,6 +71,7 @@ NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeLowCa
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -282,6 +283,7 @@ NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeLowCacheHit
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -484,6 +486,7 @@ NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeLowCacheHitAndM
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -595,6 +598,7 @@ NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeLowCacheH
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -699,6 +703,7 @@ NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalType
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -803,6 +808,7 @@ NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeLowCa
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMaxServerMemory = @"SIGNAL_TYPE_MAX_SERVER_MEMORY";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMemoryLimit = @"SIGNAL_TYPE_MEMORY_LIMIT";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMinimalErrorLogging = @"SIGNAL_TYPE_MINIMAL_ERROR_LOGGING";
+NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMissingEnhancedProtection = @"SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoDeletionProtection = @"SIGNAL_TYPE_NO_DELETION_PROTECTION";
 NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeNoMaintenancePolicyConfigured = @"SIGNAL_TYPE_NO_MAINTENANCE_POLICY_CONFIGURED";
@@ -1314,11 +1320,12 @@ NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeWeakR
 
 @implementation GTLRDatabaseCenter_QueryDatabaseResourceGroupsRequest
 @dynamic filter, orderBy, pageSize, pageToken, parent, signalFilters,
-         signalTypeGroups;
+         signalProductsFilters, signalTypeGroups;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"signalFilters" : [GTLRDatabaseCenter_SignalFilter class],
+    @"signalProductsFilters" : [GTLRDatabaseCenter_SignalProductsFilters class],
     @"signalTypeGroups" : [GTLRDatabaseCenter_SignalTypeGroup class]
   };
   return map;

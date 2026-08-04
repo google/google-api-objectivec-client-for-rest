@@ -462,7 +462,7 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 //
 
 @implementation GTLRConfig_DeploymentOperationMetadata
-@dynamic applyResults, build, logs, step;
+@dynamic applyResults, applyResultsAvailable, build, logs, step;
 @end
 
 

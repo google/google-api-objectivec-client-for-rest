@@ -296,6 +296,8 @@
 @class GTLRSA360_GoogleAdsSearchads360V23CommonStoreSalesMetadata;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonStoreSalesThirdPartyMetadata;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonStructuredSnippetAsset;
+@class GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation;
+@class GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentInfo;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonTagSnippet;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonTargetCpa;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonTargetCpaSimulationPoint;
@@ -825,6 +827,8 @@
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesBiddingStrategyOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesBillingSetupOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesBrandCampaignAssets;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesCallConversion;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesCallConversionResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignAssetOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignAssetSetOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignBidModifierOperation;
@@ -843,11 +847,17 @@
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignSharedSetOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignToForecast;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignToForecastCampaignBiddingStrategy;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesCartData;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesCartDataItem;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversionResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConfigureCampaignLifecycleGoalsResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConfigureCustomerLifecycleGoalsResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConversation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConversationOrError;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConversionActionOperation;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConversionCustomDimensionHeader;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConversionCustomMetricHeader;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesConversionCustomVariableOperation;
@@ -874,6 +884,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCustomerUserAccessOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCustomInterestOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCustomizerAttributeOperation;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesCustomVariable;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesCyoIncentives;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesDimensionOverlapResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesDismissRecommendationRequestDismissRecommendationOperation;
@@ -884,10 +895,12 @@
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesEnableOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesExperimentArmOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesExperimentOperation;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesExternalAttributionData;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesForecast;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesForecastAdGroup;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesForecastMetricOptions;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesFrequencyCap;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesGclidDateTimePair;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesGenerateKeywordHistoricalMetricsResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesGenerateKeywordIdeaResult;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesGenerateRecommendationsRequestAdGroupInfo;
@@ -1031,9 +1044,12 @@
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesRecommendationSubscriptionOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesRemarketingActionOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesRemoveCampaignAutomaticallyCreatedAssetOperation;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesRestatementValue;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesSearchAds360CampaignOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesSearchAds360Row;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesSearchSettings;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesSessionAttributeKeyValuePair;
+@class GTLRSA360_GoogleAdsSearchads360V23ServicesSessionAttributesKeyValuePairs;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesSharedCriterionOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesSharedSetOperation;
 @class GTLRSA360_GoogleAdsSearchads360V23ServicesSiteSeed;
@@ -1513,6 +1529,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsError
  *  Value: "INVALID_DATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_DateRangeError_InvalidDate;
+/**
+ *  The requested time granularity is not supported for the date range in the
+ *  query. Metrics with daily, hourly, or weekly segmentation are only available
+ *  for the last 37 months.
+ *
+ *  Value: "REQUESTED_DATE_GRANULARITY_NOT_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_DateRangeError_RequestedDateGranularityNotSupported;
 /**
  *  The start date was after the end date.
  *
@@ -9141,6 +9165,47 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegm
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_Device_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23CommonSegments.mobileDevicePlatform
+
+/**
+ *  Android devices.
+ *
+ *  Value: "ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Android;
+/**
+ *  Desktop devices.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Desktop;
+/**
+ *  iOS devices.
+ *
+ *  Value: "IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Ios;
+/**
+ *  Mobile devices that are not Android or iOS devices.
+ *
+ *  Value: "OTHER_MOBILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_OtherMobile;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *  Non-mobile and non-desktop devices will fall into this segment.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V23CommonSegments.productChannel
 
 /**
@@ -9317,6 +9382,68 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegm
  *  Value: "VACATION_RENTALS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_VerticalAdsVertical_VacationRentals;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation.source
+
+/**
+ *  Attestation provided by the advertiser.
+ *
+ *  Value: "ADVERTISER_ATTESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_AdvertiserAttested;
+/**
+ *  Google-generated content with advertiser review or input.
+ *
+ *  Value: "GOOGLE_GENERATED_ADVERTISER_REVIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_GoogleGeneratedAdvertiserReviewed;
+/**
+ *  Google-autogenerated content without advertiser review.
+ *
+ *  Value: "GOOGLE_GENERATED_FULLY_AUTOMATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_GoogleGeneratedFullyAutomated;
+/**
+ *  Used for return values only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation.status
+
+/**
+ *  The content is attested as synthetic.
+ *
+ *  Value: "IS_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_IsSynthetic;
+/**
+ *  The content is attested as not synthetic.
+ *
+ *  Value: "NOT_SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_NotSynthetic;
+/**
+ *  Used for return values only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V23CommonTagSnippet.pageFormat
@@ -13619,6 +13746,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErro
  *  Value: "PROJECT_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_ProjectDisabled;
+/**
+ *  This account does not have permission to perform mutates using the Search
+ *  Ads 360 API.
+ *
+ *  Value: "SEARCH_ADS360_MUTATE_ALLOWLIST_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_SearchAds360MutateAllowlistDenied;
+/**
+ *  This field is not allowed for mutates.
+ *
+ *  Value: "SEARCH_ADS360_MUTATE_FIELD_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_SearchAds360MutateFieldDenied;
+/**
+ *  The user does not have permission to perform mutates on accounts that are
+ *  not owned by Search Ads 360.
+ *
+ *  Value: "SEARCH_ADS360_OTHER_ENGINE_MUTATE_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_SearchAds360OtherEngineMutateDenied;
 /**
  *  The developer specified does not have access to the service.
  *
@@ -18813,6 +18960,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErro
  *  Value: "INVALID_DATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_DateRangeError_InvalidDate;
+/**
+ *  The requested time granularity is not supported for the date range in the
+ *  query. Metrics with daily, hourly, or weekly segmentation are only available
+ *  for the last 37 months.
+ *
+ *  Value: "REQUESTED_DATE_GRANULARITY_NOT_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_DateRangeError_RequestedDateGranularityNotSupported;
 /**
  *  The start date was after the end date.
  *
@@ -28138,7 +28293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesA
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesAd_Type_ExpandedDynamicSearchAd;
 /**
- *  The ad is an expanded text ad.
+ *  The ad is an expanded text ad. Expanded text ads are deprecated.
  *
  *  Value: "EXPANDED_TEXT_AD"
  */
@@ -29622,7 +29777,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesA
  *  includes automatically creating dynamic landing pages from the final URL and
  *  generating text assets from the content of those landing pages. This setting
  *  is turned OFF by default for Search campaigns, but it is turned ON by
- *  default for Performance Max campaigns.
+ *  default for Performance Max campaigns. Enabling final URL expansion also
+ *  enables text asset automation. There is no way to opt out of text asset
+ *  automation and still use final URL expansion. Contrast this with standard
+ *  `TEXT_ASSET_AUTOMATION` (text customization), which customizes copy across
+ *  all ads in the campaign even when final URL expansion does not occur.
  *
  *  Value: "FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION"
  */
@@ -29667,6 +29826,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesA
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_GenerateLandingPagePreview;
 /**
+ *  Generates text information from the landing page to be shown in the
+ *  engagement panel. Opted in by default for DemandGenVideoResponsiveAd.
+ *
+ *  Value: "GENERATE_LANDING_PAGE_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_GenerateLandingPageText;
+/**
  *  Shortens video assets to better capture user attention using content-aware
  *  technology.
  *
@@ -29689,8 +29855,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesA
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_GenerateVideosFromOtherAssets;
 /**
- *  Text asset automation includes headlines and descriptions. By default,
- *  advertisers are opted-in for Performance Max and opted-out for Search.
+ *  Text asset automation (text customization) includes headlines and
+ *  descriptions, allowing Google to create customized text assets using your
+ *  existing ads, landing page copy, and generative AI across your campaign's
+ *  ads. By default, advertisers are opted-in for Performance Max and opted-out
+ *  for Search. Contrast this with `FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION`,
+ *  which dynamically generates text assets to match the content of dynamically
+ *  selected landing pages when final URL expansion is active.
  *
  *  Value: "TEXT_ASSET_AUTOMATION"
  */
@@ -37763,7 +37934,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesC
  *  includes automatically creating dynamic landing pages from the final URL and
  *  generating text assets from the content of those landing pages. This setting
  *  is turned OFF by default for Search campaigns, but it is turned ON by
- *  default for Performance Max campaigns.
+ *  default for Performance Max campaigns. Enabling final URL expansion also
+ *  enables text asset automation. There is no way to opt out of text asset
+ *  automation and still use final URL expansion. Contrast this with standard
+ *  `TEXT_ASSET_AUTOMATION` (text customization), which customizes copy across
+ *  all ads in the campaign even when final URL expansion does not occur.
  *
  *  Value: "FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION"
  */
@@ -37808,6 +37983,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesC
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_GenerateLandingPagePreview;
 /**
+ *  Generates text information from the landing page to be shown in the
+ *  engagement panel. Opted in by default for DemandGenVideoResponsiveAd.
+ *
+ *  Value: "GENERATE_LANDING_PAGE_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_GenerateLandingPageText;
+/**
  *  Shortens video assets to better capture user attention using content-aware
  *  technology.
  *
@@ -37830,8 +38012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesC
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_GenerateVideosFromOtherAssets;
 /**
- *  Text asset automation includes headlines and descriptions. By default,
- *  advertisers are opted-in for Performance Max and opted-out for Search.
+ *  Text asset automation (text customization) includes headlines and
+ *  descriptions, allowing Google to create customized text assets using your
+ *  existing ads, landing page copy, and generative AI across your campaign's
+ *  ads. By default, advertisers are opted-in for Performance Max and opted-out
+ *  for Search. Contrast this with `FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION`,
+ *  which dynamically generates text assets to match the content of dynamically
+ *  selected landing pages when final URL expansion is active.
  *
  *  Value: "TEXT_ASSET_AUTOMATION"
  */
@@ -40304,9 +40491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesC
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesConversionAction_Type_LeadFormSubmit;
 /**
- *  Deprecated: The Salesforce integration will be going away and replaced with
- *  an improved way to import your conversions from Salesforce. - see
- *  https://support.google.com/google-ads/answer/14728349
+ *  Deprecated: The Salesforce integration ended on May 31, 2025. See [Legacy
+ *  Salesforce integration for conversions upgrade
+ *  FAQ](//support.google.com/google-ads/answer/14728349).
  *
  *  Value: "SALESFORCE"
  */
@@ -51833,6 +52020,134 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesCa
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesCampaignToForecast_KeywordPlanNetwork_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion.conversionEnvironment
+
+/**
+ *  The conversion was recorded on an app.
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_App;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_Unspecified;
+/**
+ *  The conversion was recorded on a website.
+ *
+ *  Value: "WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_Web;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion.customerType
+
+/**
+ *  Converting user is new to the advertiser.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_New;
+/**
+ *  Converting user is returning to the advertiser. Definition of returning
+ *  differs among conversion types, such as a second store visit versus a second
+ *  online purchase.
+ *
+ *  Value: "RETURNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_Returning;
+/**
+ *  The value is unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment.adjustmentType
+
+/**
+ *  Supplements an existing conversion with provided user identifiers and user
+ *  agent, which can be used by Google to enhance the conversion count.
+ *
+ *  Value: "ENHANCEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Enhancement;
+/**
+ *  Changes the value of a conversion.
+ *
+ *  Value: "RESTATEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Restatement;
+/**
+ *  Negates a conversion so that its total value and count are both zero.
+ *
+ *  Value: "RETRACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Retraction;
+/**
+ *  Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult.adjustmentType
+
+/**
+ *  Supplements an existing conversion with provided user identifiers and user
+ *  agent, which can be used by Google to enhance the conversion count.
+ *
+ *  Value: "ENHANCEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Enhancement;
+/**
+ *  Changes the value of a conversion.
+ *
+ *  Value: "RESTATEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Restatement;
+/**
+ *  Negates a conversion so that its total value and count are both zero.
+ *
+ *  Value: "RETRACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Retraction;
+/**
+ *  Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V23ServicesConversionRateSuggestion.conversionRateModel
 
 /**
@@ -55198,6 +55513,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesMu
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesMutateRecommendationSubscriptionRequest_ResponseContentType_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest.responseContentType
+
+/**
+ *  The mutate response will contain the resource name and the resource with
+ *  mutable fields if possible. Otherwise, only the resource name will be
+ *  returned.
+ *
+ *  Value: "MUTABLE_RESOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest_ResponseContentType_MutableResource;
+/**
+ *  The mutate response will be the resource name.
+ *
+ *  Value: "RESOURCE_NAME_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest_ResponseContentType_ResourceNameOnly;
+/**
+ *  Not specified. Will return the resource name only in the response.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest_ResponseContentType_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360Request.responseContentType
 
 /**
@@ -56855,6 +57194,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        Cannot set date to past time (Value: "CANNOT_SET_DATE_TO_PAST")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_DateRangeError_InvalidDate
  *        Invalid date. (Value: "INVALID_DATE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_DateRangeError_RequestedDateGranularityNotSupported
+ *        The requested time granularity is not supported for the date range in
+ *        the query. Metrics with daily, hourly, or weekly segmentation are only
+ *        available for the last 37 months. (Value:
+ *        "REQUESTED_DATE_GRANULARITY_NOT_SUPPORTED")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_DateRangeError_StartDateAfterEndDate
  *        The start date was after the end date. (Value:
  *        "START_DATE_AFTER_END_DATE")
@@ -61559,7 +61903,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  An expanded text ad.
+ *  An expanded text ad. Expanded text ads are deprecated.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23CommonExpandedTextAdInfo : GTLRObject
 
@@ -64504,8 +64848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  The total number of conversions. This includes all conversions regardless of
  *  the value of include_in_conversions_metric. When this column is selected
  *  with date, the values in date column means the conversion date. Details for
- *  the by_conversion_date columns are available at
- *  https://support.google.com/sa360/answer/9250611.
+ *  the `by_conversion_date` columns are available at [About the "All
+ *  conversions" column](https://support.google.com/sa360/answer/9250611).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -64596,8 +64940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /**
  *  The value of all conversions. When this column is selected with date, the
  *  values in date column means the conversion date. Details for the
- *  by_conversion_date columns are available at
- *  https://support.google.com/sa360/answer/9250611.
+ *  `by_conversion_date` columns are available at [About the "All conversions"
+ *  column](https://support.google.com/sa360/answer/9250611).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -64635,8 +64979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /**
  *  The total cost of all clicks divided by the total number of clicks received.
  *  This metric is a monetary value and returned in the customer's currency by
- *  default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  default. See the `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -64644,9 +64988,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  Average cost-per-thousand impressions (CPM). This metric is a monetary value
- *  and returned in the customer's currency by default. See the metrics_currency
- *  parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  and returned in the customer's currency by default. See the
+ *  `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -64691,8 +65035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  The number of client account conversions. This only includes conversion
- *  actions which include_in_client_account_conversions_metric attribute is set
- *  to true. If you use conversion-based bidding, your bid strategies will
+ *  actions which `include_in_client_account_conversions_metric` attribute is
+ *  set to `true`. If you use conversion-based bidding, your bid strategies will
  *  optimize for these conversions.
  *
  *  Uses NSNumber of doubleValue.
@@ -64701,8 +65045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  The value of client account conversions. This only includes conversion
- *  actions which include_in_client_account_conversions_metric attribute is set
- *  to true. If you use conversion-based bidding, your bid strategies will
+ *  actions which `include_in_client_account_conversions_metric` attribute is
+ *  set to `true`. If you use conversion-based bidding, your bid strategies will
  *  optimize for these conversions.
  *
  *  Uses NSNumber of doubleValue.
@@ -64723,9 +65067,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  value of $3, the shirt has a cost of goods sold value of $5. The cross-sell
  *  cost of goods sold for this order is $5. This metric is only available if
  *  you report conversions with cart data. This metric is a monetary value and
- *  returned in the customer's currency by default. See the metrics_currency
- *  parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  returned in the customer's currency by default. See the `metrics_currency`
+ *  parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -64746,8 +65090,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  cross-sell gross profit of this order is $15 = $20 - $5. This metric is only
  *  available if you report conversions with cart data. This metric is a
  *  monetary value and returned in the customer's currency by default. See the
- *  metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -64766,9 +65110,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  the same hat and a shirt. The hat is priced $10 and the shirt is priced $20.
  *  The cross-sell revenue of this order is $20. This metric is only available
  *  if you report conversions with cart data. This metric is a monetary value
- *  and returned in the customer's currency by default. See the metrics_currency
- *  parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  and returned in the customer's currency by default. See the
+ *  `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -64805,8 +65149,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  $3, the shirt has a cost of goods sold value of $5. The lead cost of goods
  *  sold for this order is $3. This metric is only available if you report
  *  conversions with cart data. This metric is a monetary value and returned in
- *  the customer's currency by default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  the customer's currency by default. See the `metrics_currency` parameter at
+ *  [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -64826,8 +65171,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  has a cost of goods sold value of $3. The lead gross profit of this order is
  *  $7 = $10 - $3. This metric is only available if you report conversions with
  *  cart data. This metric is a monetary value and returned in the customer's
- *  currency by default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  currency by default. See the `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -64846,8 +65191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  hat is priced $10 and the shirt is priced $20. The lead revenue of this
  *  order is $10. This metric is only available if you report conversions with
  *  cart data. This metric is a monetary value and returned in the customer's
- *  currency by default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  currency by default. See the `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -64925,7 +65270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /**
  *  The sum of conversions by conversion date for biddable conversion types. Can
  *  be fractional due to attribution modeling. When this column is selected with
- *  date, the values in date column means the conversion date.
+ *  date, the values in the date column mean the conversion date.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -64943,7 +65288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /**
  *  The value of conversions from interactions divided by the number of ad
  *  interactions. This only includes conversion actions which
- *  include_in_conversions_metric attribute is set to true. If you use
+ *  `include_in_conversions_metric` attribute is set to `true`. If you use
  *  conversion-based bidding, your bid strategies will optimize for these
  *  conversions.
  *
@@ -64979,8 +65324,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /**
  *  The sum of your cost-per-click (CPC) and cost-per-thousand impressions (CPM)
  *  costs during this period. This metric is a monetary value and returned in
- *  the customer's currency by default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  the customer's currency by default. See the `metrics_currency` parameter at
+ *  [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause)
+ *  for more details.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65018,8 +65365,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  The cost of ad interactions divided by current model attributed conversions.
- *  This only includes conversion actions which include_in_conversions_metric
- *  attribute is set to true. If you use conversion-based bidding, your bid
+ *  This only includes conversion actions which `include_in_conversions_metric`
+ *  attribute is set to `true`. If you use conversion-based bidding, your bid
  *  strategies will optimize for these conversions.
  *
  *  Uses NSNumber of doubleValue.
@@ -65029,7 +65376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /**
  *  Conversions from when a customer clicks on an ad on one device, then
  *  converts on a different device or browser. Cross-device conversions are
- *  already included in all_conversions.
+ *  already included in `all_conversions`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -65037,8 +65384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  The number of cross-device conversions by conversion date. Details for the
- *  by_conversion_date columns are available at
- *  https://support.google.com/sa360/answer/9250611.
+ *  `by_conversion_date` columns are available at [About the "All conversions"
+ *  column](https://support.google.com/sa360/answer/9250611)
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -65053,8 +65400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  The sum of cross-device conversions value by conversion date. Details for
- *  the by_conversion_date columns are available at
- *  https://support.google.com/sa360/answer/9250611.
+ *  the `by_conversion_date` columns are available at [About the "All
+ *  conversions" column](https://support.google.com/sa360/answer/9250611)
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -65074,8 +65421,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  shirt has a cost of goods sold value of $5. The cross-sell cost of goods
  *  sold for this order is $5. This metric is only available if you report
  *  conversions with cart data. This metric is a monetary value and returned in
- *  the customer's currency by default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  the customer's currency by default. See the `metrics_currency` parameter at
+ *  [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65095,8 +65443,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  has a cost of goods sold value of $5. The cross-sell gross profit of this
  *  order is $15 = $20 - $5. This metric is only available if you report
  *  conversions with cart data. This metric is a monetary value and returned in
- *  the customer's currency by default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  the customer's currency by default. See the `metrics_currency` parameter at
+ *  [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65115,9 +65464,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  and a shirt. The hat is priced $10 and the shirt is priced $20. The
  *  cross-sell revenue of this order is $20. This metric is only available if
  *  you report conversions with cart data. This metric is a monetary value and
- *  returned in the customer's currency by default. See the metrics_currency
- *  parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  returned in the customer's currency by default. See the `metrics_currency`
+ *  parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65155,9 +65504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  These are clicks Google considers illegitimate that are detected through
  *  routine means of filtration (that is, known invalid data-center traffic,
  *  bots and spiders or other crawlers, irregular patterns, etc). You're not
- *  charged for them, and they don't affect your account statistics. See the
- *  help page at https://support.google.com/campaignmanager/answer/6076504 for
- *  details.
+ *  charged for them, and they don't affect your account statistics. See
+ *  [Filtering invalid traffic to ensure
+ *  quality](https://support.google.com/campaignmanager/answer/6076504).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -65168,8 +65517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  that are detected through routine means of filtration (such as known invalid
  *  data-center traffic, bots and spiders or other crawlers, irregular patterns,
  *  etc.). You're not charged for them, and they don't affect your account
- *  statistics. See the help page at
- *  https://support.google.com/campaignmanager/answer/6076504 for details.
+ *  statistics. See [Filtering invalid traffic to ensure
+ *  quality](https://support.google.com/campaignmanager/answer/6076504).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65327,8 +65676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  shirt has a cost of goods sold value of $5. The lead cost of goods sold for
  *  this order is $3. This metric is only available if you report conversions
  *  with cart data. This metric is a monetary value and returned in the
- *  customer's currency by default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  customer's currency by default. See the `metrics_currency` parameter at
+ *  [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65348,8 +65698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  value of $3. The lead gross profit of this order is $7 = $10 - $3. This
  *  metric is only available if you report conversions with cart data. This
  *  metric is a monetary value and returned in the customer's currency by
- *  default. See the metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  default. See the `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65368,8 +65718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  the shirt is priced $20. The lead revenue of this order is $10. This metric
  *  is only available if you report conversions with cart data. This metric is a
  *  monetary value and returned in the customer's currency by default. See the
- *  metrics_currency parameter at
- *  https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause
+ *  `metrics_currency` parameter at [PARAMETERS
+ *  clause](https://developers.google.com/search-ads/reporting/query/query-structure#parameters_clause).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -65433,9 +65783,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  The percentage of the customer's Shopping or Search ad impressions that are
- *  shown in the most prominent Shopping position. See
- *  https://support.google.com/sa360/answer/9566729 for details. Any value below
- *  0.1 is reported as 0.0999.
+ *  shown in the most prominent Shopping position. See [About top and absolute
+ *  top metrics](https://support.google.com/sa360/answer/9566729) for details.
+ *  Any value below 0.1 is reported as 0.0999.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -65462,7 +65812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 @property(nonatomic, strong, nullable) NSNumber *searchBudgetLostImpressionShare;
 
 /**
- *  The number estimating how often your ad didn't show adjacent to the top
+ *  The estimated percent of times that your ad didn't show adjacent to the top
  *  organic search results due to a low budget. Note: Search budget lost top
  *  impression share is reported in the range of 0 to 0.9. Any value above 0.9
  *  is reported as 0.9001.
@@ -65586,8 +65936,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /**
  *  The value of all conversions divided by the number of all conversions. When
  *  this column is selected with date, the values in date column means the
- *  conversion date. Details for the by_conversion_date columns are available at
- *  https://support.google.com/sa360/answer/9250611.
+ *  conversion date. Details for the `by_conversion_date` columns are available
+ *  at [About the "All conversions"
+ *  column](https://support.google.com/sa360/answer/9250611).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -67359,7 +67710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  A Search Ads 360 expanded text ad.
+ *  A Search Ads 360 expanded text ad. Expanded text ads are deprecated. Use
+ *  SearchAds360ResponsiveSearchAd instead.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23CommonSearchAds360ExpandedTextAdInfo : GTLRObject
 
@@ -67745,6 +68097,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /** Keyword criterion. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonKeyword *keyword;
+
+/**
+ *  Mobile device platform to which metrics apply.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Android
+ *        Android devices. (Value: "ANDROID")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Desktop
+ *        Desktop devices. (Value: "DESKTOP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Ios
+ *        iOS devices. (Value: "IOS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_OtherMobile
+ *        Mobile devices that are not Android or iOS devices. (Value:
+ *        "OTHER_MOBILE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        Non-mobile and non-desktop devices will fall into this segment.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSegments_MobileDevicePlatform_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mobileDevicePlatform;
 
 /**
  *  Month as represented by the date of the first day of a month. Formatted as
@@ -68326,6 +68700,68 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  and 25 characters, inclusive.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Represents an attestation about synthetic content from a single source.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation : GTLRObject
+
+/**
+ *  The source of the synthetic content attestation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_AdvertiserAttested
+ *        Attestation provided by the advertiser. (Value: "ADVERTISER_ATTESTED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_GoogleGeneratedAdvertiserReviewed
+ *        Google-generated content with advertiser review or input. (Value:
+ *        "GOOGLE_GENERATED_ADVERTISER_REVIEWED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_GoogleGeneratedFullyAutomated
+ *        Google-autogenerated content without advertiser review. (Value:
+ *        "GOOGLE_GENERATED_FULLY_AUTOMATED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_Unknown
+ *        Used for return values only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Source_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Indicates whether the content is considered synthetic by this source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_IsSynthetic
+ *        The content is attested as synthetic. (Value: "IS_SYNTHETIC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_NotSynthetic
+ *        The content is attested as not synthetic. (Value: "NOT_SYNTHETIC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_Unknown
+ *        Used for return values only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation_Status_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Container for synthetic content attestations from different sources, such as
+ *  the advertiser and Google systems.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentInfo : GTLRObject
+
+/** Input provided by the advertiser. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation *advertiserAttestation;
+
+/**
+ *  Output only. Information about synthetic content generated by Google's
+ *  systems.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentAttestation *systemAttestation;
 
 @end
 
@@ -72252,6 +72688,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_ProjectDisabled
  *        The Google Cloud project sent in the request does not have permission
  *        to access the api. (Value: "PROJECT_DISABLED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_SearchAds360MutateAllowlistDenied
+ *        This account does not have permission to perform mutates using the
+ *        Search Ads 360 API. (Value: "SEARCH_ADS360_MUTATE_ALLOWLIST_DENIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_SearchAds360MutateFieldDenied
+ *        This field is not allowed for mutates. (Value:
+ *        "SEARCH_ADS360_MUTATE_FIELD_DENIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_SearchAds360OtherEngineMutateDenied
+ *        The user does not have permission to perform mutates on accounts that
+ *        are not owned by Search Ads 360. (Value:
+ *        "SEARCH_ADS360_OTHER_ENGINE_MUTATE_DENIED")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_AuthorizationError_ServiceAccessDenied
  *        The developer specified does not have access to the service. (Value:
  *        "SERVICE_ACCESS_DENIED")
@@ -75147,6 +75593,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        Cannot set date to past time (Value: "CANNOT_SET_DATE_TO_PAST")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_DateRangeError_InvalidDate
  *        Invalid date. (Value: "INVALID_DATE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_DateRangeError_RequestedDateGranularityNotSupported
+ *        The requested time granularity is not supported for the date range in
+ *        the query. Metrics with daily, hourly, or weekly segmentation are only
+ *        available for the last 37 months. (Value:
+ *        "REQUESTED_DATE_GRANULARITY_NOT_SUPPORTED")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_DateRangeError_StartDateAfterEndDate
  *        The start date was after the end date. (Value:
  *        "START_DATE_AFTER_END_DATE")
@@ -80799,7 +81250,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonExpandedDynamicSearchAdInfo *expandedDynamicSearchAd;
 
-/** Details pertaining to an expanded text ad. */
+/**
+ *  Details pertaining to an expanded text ad. Expanded text ads are deprecated.
+ *  Use `ResponsiveSearchAd` instead.
+ */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonExpandedTextAdInfo *expandedTextAd;
 
 /**
@@ -80870,7 +81324,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /** Immutable. Details pertaining to an expanded dynamic search ad. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonSearchAds360ExpandedDynamicSearchAdInfo *searchAds360ExpandedDynamicSearchAd;
 
-/** Immutable. Details pertaining to an expanded text ad. */
+/**
+ *  Immutable. Details pertaining to an expanded text ad. Expanded text ads are
+ *  deprecated. Use `SearchAds360ResponsiveSearchAd` instead.
+ */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonSearchAds360ExpandedTextAdInfo *searchAds360ExpandedTextAd;
 
 /** Immutable. Details pertaining to a responsive search ad. */
@@ -80890,6 +81347,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /** Details pertaining to a Smart campaign ad. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonSmartCampaignAdInfo *smartCampaignAd;
+
+/**
+ *  Synthetic content info for the ad. Only ads with specific ad types are
+ *  eligible for updates using the `synthetic_content_info` field. Allowed
+ *  `AdType` values: * `HTML5_UPLOAD_AD` * `DYNAMIC_HTML5_AD` * `IMAGE_AD`
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentInfo *syntheticContentInfo;
 
 /**
  *  Output only. If this ad is system managed, then this field will indicate the
@@ -80943,7 +81407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        The ad is an expanded dynamic search ad. (Value:
  *        "EXPANDED_DYNAMIC_SEARCH_AD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAd_Type_ExpandedTextAd
- *        The ad is an expanded text ad. (Value: "EXPANDED_TEXT_AD")
+ *        The ad is an expanded text ad. Expanded text ads are deprecated.
+ *        (Value: "EXPANDED_TEXT_AD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAd_Type_HotelAd The ad
  *        is a hotel ad. (Value: "HOTEL_AD")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAd_Type_Html5UploadAd
@@ -81783,7 +82248,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        This includes automatically creating dynamic landing pages from the
  *        final URL and generating text assets from the content of those landing
  *        pages. This setting is turned OFF by default for Search campaigns, but
- *        it is turned ON by default for Performance Max campaigns. (Value:
+ *        it is turned ON by default for Performance Max campaigns. Enabling
+ *        final URL expansion also enables text asset automation. There is no
+ *        way to opt out of text asset automation and still use final URL
+ *        expansion. Contrast this with standard `TEXT_ASSET_AUTOMATION` (text
+ *        customization), which customizes copy across all ads in the campaign
+ *        even when final URL expansion does not occur. (Value:
  *        "FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_GenerateDesignVersionsForImages
  *        Adds design elements and embeds text assets into image assets to
@@ -81807,6 +82277,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        permission to share the images with Google). You hereby instruct
  *        Google to publish these images on your behalf for advertising or other
  *        commercial purposes. (Value: "GENERATE_LANDING_PAGE_PREVIEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_GenerateLandingPageText
+ *        Generates text information from the landing page to be shown in the
+ *        engagement panel. Opted in by default for DemandGenVideoResponsiveAd.
+ *        (Value: "GENERATE_LANDING_PAGE_TEXT")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_GenerateShorterYoutubeVideos
  *        Shortens video assets to better capture user attention using
  *        content-aware technology. (Value: "GENERATE_SHORTER_YOUTUBE_VIDEOS")
@@ -81820,9 +82294,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        By default, advertisers are opted in for DemandGenMultiAssetAd.
  *        (Value: "GENERATE_VIDEOS_FROM_OTHER_ASSETS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_TextAssetAutomation
- *        Text asset automation includes headlines and descriptions. By default,
- *        advertisers are opted-in for Performance Max and opted-out for Search.
- *        (Value: "TEXT_ASSET_AUTOMATION")
+ *        Text asset automation (text customization) includes headlines and
+ *        descriptions, allowing Google to create customized text assets using
+ *        your existing ads, landing page copy, and generative AI across your
+ *        campaign's ads. By default, advertisers are opted-in for Performance
+ *        Max and opted-out for Search. Contrast this with
+ *        `FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION`, which dynamically
+ *        generates text assets to match the content of dynamically selected
+ *        landing pages when final URL expansion is active. (Value:
+ *        "TEXT_ASSET_AUTOMATION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesAdGroupAdAssetAutomationSetting_AssetAutomationType_Unknown
  *        Used as a return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -84229,7 +84709,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  An age range view.
+ *  An age range view. Represents the view of a customer's performance metrics
+ *  (like impressions and clicks) aggregated by age range. All statistics are
+ *  aggregated at the ad group level. Note: While you can segment metrics by age
+ *  range using `age_range_view` or by gender using `gender_view`, the Search
+ *  Ads 360 API does not support segmenting metrics by both age range and gender
+ *  simultaneously in a single query. Analyzing performance across both
+ *  dimensions combined is not supported in the Search Ads 360 API.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ResourcesAgeRangeView : GTLRObject
 
@@ -84709,6 +85195,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /** A structured snippet asset. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonStructuredSnippetAsset *structuredSnippetAsset;
+
+/**
+ *  Synthetic content info for the asset. Only assets with specific asset types
+ *  are eligible for updates using the `synthetic_content_info` field. Allowed
+ *  `AssetType` values: * `IMAGE` * `MEDIA_BUNDLE` * `YOUTUBE_VIDEO`
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonSyntheticContentInfo *syntheticContentInfo;
 
 /** Immutable. A text asset. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonTextAsset *textAsset;
@@ -88341,7 +88834,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        This includes automatically creating dynamic landing pages from the
  *        final URL and generating text assets from the content of those landing
  *        pages. This setting is turned OFF by default for Search campaigns, but
- *        it is turned ON by default for Performance Max campaigns. (Value:
+ *        it is turned ON by default for Performance Max campaigns. Enabling
+ *        final URL expansion also enables text asset automation. There is no
+ *        way to opt out of text asset automation and still use final URL
+ *        expansion. Contrast this with standard `TEXT_ASSET_AUTOMATION` (text
+ *        customization), which customizes copy across all ads in the campaign
+ *        even when final URL expansion does not occur. (Value:
  *        "FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_GenerateDesignVersionsForImages
  *        Adds design elements and embeds text assets into image assets to
@@ -88365,6 +88863,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        permission to share the images with Google). You hereby instruct
  *        Google to publish these images on your behalf for advertising or other
  *        commercial purposes. (Value: "GENERATE_LANDING_PAGE_PREVIEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_GenerateLandingPageText
+ *        Generates text information from the landing page to be shown in the
+ *        engagement panel. Opted in by default for DemandGenVideoResponsiveAd.
+ *        (Value: "GENERATE_LANDING_PAGE_TEXT")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_GenerateShorterYoutubeVideos
  *        Shortens video assets to better capture user attention using
  *        content-aware technology. (Value: "GENERATE_SHORTER_YOUTUBE_VIDEOS")
@@ -88378,9 +88880,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        By default, advertisers are opted in for DemandGenMultiAssetAd.
  *        (Value: "GENERATE_VIDEOS_FROM_OTHER_ASSETS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_TextAssetAutomation
- *        Text asset automation includes headlines and descriptions. By default,
- *        advertisers are opted-in for Performance Max and opted-out for Search.
- *        (Value: "TEXT_ASSET_AUTOMATION")
+ *        Text asset automation (text customization) includes headlines and
+ *        descriptions, allowing Google to create customized text assets using
+ *        your existing ads, landing page copy, and generative AI across your
+ *        campaign's ads. By default, advertisers are opted-in for Performance
+ *        Max and opted-out for Search. Contrast this with
+ *        `FINAL_URL_EXPANSION_TEXT_ASSET_AUTOMATION`, which dynamically
+ *        generates text assets to match the content of dynamically selected
+ *        landing pages when final URL expansion is active. (Value:
+ *        "TEXT_ASSET_AUTOMATION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignAssetAutomationSetting_AssetAutomationType_Unknown
  *        Used as a return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -91448,9 +91956,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        Conversions reported when a user submits a lead form. Read only.
  *        (Value: "LEAD_FORM_SUBMIT")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesConversionAction_Type_Salesforce
- *        Deprecated: The Salesforce integration will be going away and replaced
- *        with an improved way to import your conversions from Salesforce. - see
- *        https://support.google.com/google-ads/answer/14728349 (Value:
+ *        Deprecated: The Salesforce integration ended on May 31, 2025. See
+ *        [Legacy Salesforce integration for conversions upgrade
+ *        FAQ](//support.google.com/google-ads/answer/14728349). (Value:
  *        "SALESFORCE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesConversionAction_Type_SearchAds360
  *        Conversions imported from Search Ads 360 Floodlight data. Read only.
@@ -93858,14 +94366,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /**
  *  Output only. The resource name of the customer to which the label is
- *  attached. Read only.
+ *  attached. This field should not be set when creating a new `CustomerLabel`.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Output only. The resource name of the label assigned to the customer. Note:
- *  the Customer ID portion of the label resource name is not validated when
- *  creating a new CustomerLabel.
+ *  Output only. The resource name of the label assigned to the customer. This
+ *  field should not be set when creating a new `CustomerLabel`. Note: the
+ *  Customer ID portion of the label resource name is not validated when
+ *  creating a new `CustomerLabel`.
  */
 @property(nonatomic, copy, nullable) NSString *label;
 
@@ -94944,12 +95453,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  A view with metrics aggregated by ad group and URL or YouTube video. This
- *  view primarily surfaces placement data from the Google Display Network.
- *  While you can select segments like `segments.ad_network_type`, this view
- *  generally does not include placement data from other networks, such as the
- *  Search Partners network. To understand performance on Search Partners,
- *  consider other reports and segmentations.
+ *  A view with metrics aggregated by ad group and URL or YouTube video.
+ *  Provides granular performance data about specific URLs, YouTube videos, and
+ *  apps where your ads showed. This offers a more detailed breakdown compared
+ *  to the group_placement_view. This view primarily surfaces placement data
+ *  from the Google Display Network. While you can select segments like
+ *  `segments.ad_network_type`, this view generally does not include placement
+ *  data from other networks, such as the Search Partners network. To understand
+ *  performance on Search Partners, consider other reports and segmentations.
+ *  Data for low-traffic placements may be aggregated.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ResourcesDetailPlacementView : GTLRObject
 
@@ -95417,7 +95929,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ResourcesExperimentArm : GTLRObject
 
-/** List of asset groups in the experiment arm. */
+/**
+ *  List of asset groups in the experiment arm. The max length is one. In the
+ *  Optimize Assets experiment construction, the control arm and treatment arm
+ *  should both contain the same asset group ID.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ResourcesExperimentArmAssetGroupInfo *> *assetGroups;
 
 /** List of campaigns in the trial arm. The max length is one. */
@@ -95756,10 +96272,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  A gender view. The gender_view resource reflects the effective serving
- *  state, rather than what criteria were added. An ad group without gender
- *  criteria by default shows to all genders, so all genders appear in
- *  gender_view with stats.
+ *  A gender view resource. Represents the view of a customer's performance
+ *  metrics aggregated by gender. All statistics are aggregated at the ad group
+ *  level. Note: While you can segment metrics by age range using
+ *  `age_range_view` or by gender using `gender_view`, the Search Ads 360 API
+ *  does not support segmenting metrics by both age range and gender
+ *  simultaneously in a single query. Analyzing performance across both
+ *  dimensions combined is not supported in the Search Ads 360 API.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ResourcesGenderView : GTLRObject
 
@@ -96130,7 +96649,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  A group placement view.
+ *  A view showing performance data for where your ads actually served on the
+ *  Display Network and YouTube, including both targeted (managed) and automatic
+ *  placements. Data for low-traffic placements may be aggregated. The scope of
+ *  placements shown is influenced by the ad group's `TargetingSetting` for the
+ *  `PLACEMENT` dimension.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ResourcesGroupPlacementView : GTLRObject
 
@@ -99088,7 +99611,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  A managed placement view.
+ *  A view providing performance data for placements explicitly targeted in your
+ *  ad groups.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ResourcesManagedPlacementView : GTLRObject
 
@@ -103976,7 +104500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  the array describes a more specific sub-category. For example, {"Pets &
  *  Animals", "Pets", "Dogs"} represents the "Pets & Animals/Pets/Dogs"
  *  category. List of available topic categories at
- *  https://developers.google.com/google-ads/api/reference/data/verticals
+ *  https://developers.google.com/google-ads/api/data/topics
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *path;
 
@@ -106925,6 +107449,90 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
+ *  A call conversion.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesCallConversion : GTLRObject
+
+/**
+ *  The caller id from which this call was placed. Caller id is expected to be
+ *  in E.164 format with preceding '+' sign, for example, "+16502531234".
+ */
+@property(nonatomic, copy, nullable) NSString *callerId;
+
+/**
+ *  The date time at which the call occurred. The timezone must be specified.
+ *  The format is "yyyy-mm-dd hh:mm:ss+|-hh:mm", for example, "2019-01-01
+ *  12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *callStartDateTime;
+
+/** The consent setting for the event. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonConsent *consent;
+
+/**
+ *  Resource name of the conversion action associated with this conversion.
+ *  Note: Although this resource name consists of a customer id and a conversion
+ *  action id, validation will ignore the customer id and use the conversion
+ *  action id as the sole identifier of the conversion action.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionAction;
+
+/**
+ *  The date time at which the conversion occurred. Must be after the call time.
+ *  The timezone must be specified. The format is "yyyy-mm-dd hh:mm:ss+|-hh:mm",
+ *  for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *conversionDateTime;
+
+/**
+ *  The value of the conversion for the advertiser.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionValue;
+
+/**
+ *  Currency associated with the conversion value. This is the ISO 4217
+ *  3-character currency code. For example: USD, EUR.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** The custom variables associated with this conversion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesCustomVariable *> *customVariables;
+
+@end
+
+
+/**
+ *  Identifying information for a successfully processed CallConversionUpload.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesCallConversionResult : GTLRObject
+
+/**
+ *  The caller id from which this call was placed. Caller id is expected to be
+ *  in E.164 format with preceding '+' sign.
+ */
+@property(nonatomic, copy, nullable) NSString *callerId;
+
+/**
+ *  The date time at which the call occurred. The format is "yyyy-mm-dd
+ *  hh:mm:ss+|-hh:mm", for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *callStartDateTime;
+
+/** Resource name of the conversion action associated with this conversion. */
+@property(nonatomic, copy, nullable) NSString *conversionAction;
+
+/**
+ *  The date time at which the conversion occurred. The format is "yyyy-mm-dd
+ *  hh:mm:ss+|-hh:mm", for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *conversionDateTime;
+
+@end
+
+
+/**
  *  A single operation (create, remove) on a campaign asset.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignAssetOperation : GTLRObject
@@ -107416,6 +108024,253 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
+ *  Contains additional information about cart data.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesCartData : GTLRCollectionObject
+
+/** The country code associated with the feed where the items are uploaded. */
+@property(nonatomic, copy, nullable) NSString *feedCountryCode;
+
+/**
+ *  The language code associated with the feed where the items are uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *feedLanguageCode;
+
+/**
+ *  Data of the items purchased.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesCartDataItem *> *items;
+
+/**
+ *  Sum of all transaction level discounts, such as free shipping and coupon
+ *  discounts for the whole cart. The currency code is the same as that in the
+ *  `ClickConversion` message.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localTransactionCost;
+
+/**
+ *  The Merchant Center ID where the items are uploaded.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@end
+
+
+/**
+ *  Contains data of the items purchased.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesCartDataItem : GTLRObject
+
+/**
+ *  The shopping id of the item. Must be equal to the Merchant Center product
+ *  identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Number of items sold.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  Unit price excluding tax, shipping, and any transaction level discounts. The
+ *  currency code is the same as that in the `ClickConversion` message.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unitPrice;
+
+@end
+
+
+/**
+ *  A click conversion.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion : GTLRObject
+
+/** The cart data associated with this conversion. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesCartData *cartData;
+
+/** The consent setting for the event. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonConsent *consent;
+
+/**
+ *  Resource name of the conversion action associated with this conversion.
+ *  Note: Although this resource name consists of a customer id and a conversion
+ *  action id, validation will ignore the customer id and use the conversion
+ *  action id as the sole identifier of the conversion action.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionAction;
+
+/**
+ *  The date time at which the conversion occurred. Must be after the click
+ *  time. The timezone must be specified. The format is "yyyy-mm-dd
+ *  hh:mm:ss+|-hh:mm", for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *conversionDateTime;
+
+/**
+ *  The environment this conversion was recorded on, for example, App or Web.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_App
+ *        The conversion was recorded on an app. (Value: "APP")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_ConversionEnvironment_Web
+ *        The conversion was recorded on a website. (Value: "WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *conversionEnvironment;
+
+/**
+ *  The value of the conversion for the advertiser.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionValue;
+
+/**
+ *  Currency associated with the conversion value. This is the ISO 4217
+ *  3-character currency code. For example: USD, EUR.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Type of the customer associated with the conversion (new or returning).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_New
+ *        Converting user is new to the advertiser. (Value: "NEW")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_Returning
+ *        Converting user is returning to the advertiser. Definition of
+ *        returning differs among conversion types, such as a second store visit
+ *        versus a second online purchase. (Value: "RETURNING")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_Unknown
+ *        The value is unknown in this version. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion_CustomerType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *customerType;
+
+/** The custom variables associated with this conversion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesCustomVariable *> *customVariables;
+
+/**
+ *  Additional data about externally attributed conversions. This field is
+ *  required for conversions with an externally attributed conversion action,
+ *  but should not be set otherwise.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesExternalAttributionData *externalAttributionData;
+
+/** The URL parameter for clicks associated with app conversions. */
+@property(nonatomic, copy, nullable) NSString *gbraid;
+
+/** The Google click ID (gclid) associated with this conversion. */
+@property(nonatomic, copy, nullable) NSString *gclid;
+
+/**
+ *  The order ID associated with the conversion. An order id can only be used
+ *  for one conversion per conversion action.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  The session attributes for the event, represented as a base64-encoded JSON
+ *  string. The content should be generated by Google-provided library. To set
+ *  session attributes individually, use session_attributes_key_value_pairs
+ *  instead. This field is only available to allowlisted users. To include this
+ *  field in conversion imports, upgrade to the Data Manager API.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sessionAttributesEncoded;
+
+/**
+ *  The session attributes for the event, represented as key-value pairs. This
+ *  field is only available to allowlisted users. To include this field in
+ *  conversion imports, upgrade to the Data Manager API.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesSessionAttributesKeyValuePairs *sessionAttributesKeyValuePairs;
+
+/**
+ *  The user identifiers associated with this conversion. Only hashed_email and
+ *  hashed_phone_number are supported for conversion uploads. The maximum number
+ *  of user identifiers for each conversion is 5.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23CommonUserIdentifier *> *userIdentifiers;
+
+/**
+ *  The IP address of the customer when they arrived on the landing page after
+ *  an ad click but before a conversion event. This is the IP address of the
+ *  customer's device, not the advertiser's server. Google Ads does not support
+ *  IP address matching for end users in the European Economic Area (EEA),
+ *  United Kingdom (UK), or Switzerland (CH). Add logic to conditionally exclude
+ *  sharing IP addresses from users from these regions and ensure that you
+ *  provide users with clear and comprehensive information about the data you
+ *  collect on your sites, apps, and other properties and get consent where
+ *  required by law or any applicable Google policies. See [About offline
+ *  conversion imports](//support.google.com/google-ads/answer/2998031) page for
+ *  more details. This field is only available to allowlisted users. To include
+ *  this field in conversion imports, upgrade to the Data Manager API.
+ */
+@property(nonatomic, copy, nullable) NSString *userIpAddress;
+
+/** The URL parameter for clicks associated with web conversions. */
+@property(nonatomic, copy, nullable) NSString *wbraid;
+
+@end
+
+
+/**
+ *  Identifying information for a successfully processed `ClickConversion`.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversionResult : GTLRObject
+
+/** Resource name of the conversion action associated with this conversion. */
+@property(nonatomic, copy, nullable) NSString *conversionAction;
+
+/**
+ *  The date time at which the conversion occurred. The format is "yyyy-mm-dd
+ *  hh:mm:ss+|-hh:mm", for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *conversionDateTime;
+
+/** The URL parameter for clicks associated with app conversions. */
+@property(nonatomic, copy, nullable) NSString *gbraid;
+
+/** The Google Click ID (gclid) associated with this conversion. */
+@property(nonatomic, copy, nullable) NSString *gclid;
+
+/**
+ *  The user identifiers associated with this conversion. Only hashed_email and
+ *  hashed_phone_number are supported for conversion uploads. The maximum number
+ *  of user identifiers for each conversion is 5.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23CommonUserIdentifier *> *userIdentifiers;
+
+/** The URL parameter for clicks associated with web conversions. */
+@property(nonatomic, copy, nullable) NSString *wbraid;
+
+@end
+
+
+/**
  *  Request message for
  *  CampaignLifecycleGoalService.ConfigureCampaignLifecycleGoals.
  */
@@ -107562,6 +108417,135 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  A conversion adjustment.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment : GTLRObject
+
+/**
+ *  The date time at which the adjustment occurred. Must be after the
+ *  conversion_date_time. The timezone must be specified. The format is
+ *  "yyyy-mm-dd hh:mm:ss+|-hh:mm", for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *adjustmentDateTime;
+
+/**
+ *  The adjustment type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Enhancement
+ *        Supplements an existing conversion with provided user identifiers and
+ *        user agent, which can be used by Google to enhance the conversion
+ *        count. (Value: "ENHANCEMENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Restatement
+ *        Changes the value of a conversion. (Value: "RESTATEMENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Retraction
+ *        Negates a conversion so that its total value and count are both zero.
+ *        (Value: "RETRACTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Unknown
+ *        Represents value unknown in this version. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment_AdjustmentType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adjustmentType;
+
+/**
+ *  Resource name of the conversion action associated with this conversion
+ *  adjustment. Note: Although this resource name consists of a customer id and
+ *  a conversion action id, validation will ignore the customer id and use the
+ *  conversion action id as the sole identifier of the conversion action.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionAction;
+
+/**
+ *  For adjustments, uniquely identifies a conversion that was reported without
+ *  an order ID specified. If the adjustment_type is ENHANCEMENT, this value is
+ *  optional but may be set in addition to the order_id.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesGclidDateTimePair *gclidDateTimePair;
+
+/**
+ *  The order ID of the conversion to be adjusted. If the conversion was
+ *  reported with an order ID specified, that order ID must be used as the
+ *  identifier here. The order ID is required for enhancements.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Information needed to restate the conversion's value. Required for
+ *  restatements. Should not be supplied for retractions. An error will be
+ *  returned if provided for a retraction. NOTE: If you want to upload a second
+ *  restatement with a different adjusted value, it must have a new, more
+ *  recent, adjustment occurrence time. Otherwise, it will be treated as a
+ *  duplicate of the previous restatement and ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesRestatementValue *restatementValue;
+
+/**
+ *  The user agent to enhance the original conversion. This can be found in your
+ *  user's HTTP request header when they convert on your web page. Example,
+ *  "Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X)". User agent can
+ *  only be specified in enhancements with user identifiers.
+ */
+@property(nonatomic, copy, nullable) NSString *userAgent;
+
+/**
+ *  The user identifiers to enhance the original conversion.
+ *  ConversionAdjustmentUploadService only accepts user identifiers in
+ *  enhancements. The maximum number of user identifiers for each enhancement is
+ *  5.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23CommonUserIdentifier *> *userIdentifiers;
+
+@end
+
+
+/**
+ *  Information identifying a successfully processed ConversionAdjustment.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult : GTLRObject
+
+/**
+ *  The date time at which the adjustment occurred. The format is "yyyy-mm-dd
+ *  hh:mm:ss+|-hh:mm", for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *adjustmentDateTime;
+
+/**
+ *  The adjustment type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Enhancement
+ *        Supplements an existing conversion with provided user identifiers and
+ *        user agent, which can be used by Google to enhance the conversion
+ *        count. (Value: "ENHANCEMENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Restatement
+ *        Changes the value of a conversion. (Value: "RESTATEMENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Retraction
+ *        Negates a conversion so that its total value and count are both zero.
+ *        (Value: "RETRACTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Unknown
+ *        Represents value unknown in this version. (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult_AdjustmentType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adjustmentType;
+
+/**
+ *  Resource name of the conversion action associated with this conversion
+ *  adjustment.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionAction;
+
+/** The gclid and conversion date time of the conversion. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesGclidDateTimePair *gclidDateTimePair;
+
+/** The order ID of the conversion to be adjusted. */
+@property(nonatomic, copy, nullable) NSString *orderId;
 
 @end
 
@@ -108420,6 +109404,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
+ *  A custom variable.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesCustomVariable : GTLRObject
+
+/**
+ *  Resource name of the custom variable associated with this conversion. Note:
+ *  Although this resource name consists of a customer id and a conversion
+ *  custom variable id, validation will ignore the customer id and use the
+ *  conversion custom variable id as the sole identifier of the conversion
+ *  custom variable.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionCustomVariable;
+
+/**
+ *  The value string of this custom variable. The value of the custom variable
+ *  should not contain private customer data, such as email addresses or phone
+ *  numbers.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  An incentive offer in the Choose-Your-Own Incentive feature where a user can
  *  select from a set of incentives with different money amounts.
  */
@@ -108807,6 +109815,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
+ *  Contains additional information about externally attributed conversions.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesExternalAttributionData : GTLRObject
+
+/**
+ *  Represents the fraction of the conversion that is attributed to the Google
+ *  Ads click.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *externalAttributionCredit;
+
+/** Specifies the attribution model name. */
+@property(nonatomic, copy, nullable) NSString *externalAttributionModel;
+
+@end
+
+
+/**
  *  Response from getting the acquisition incentive for a user when they visit a
  *  specific marketing page.
  */
@@ -109010,6 +110037,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *        The cap would define limit per one week. (Value: "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
+
+@end
+
+
+/**
+ *  Uniquely identifies a conversion that was reported without an order ID
+ *  specified.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesGclidDateTimePair : GTLRObject
+
+/**
+ *  The date time at which the original conversion for this adjustment occurred.
+ *  The timezone must be specified. The format is "yyyy-mm-dd hh:mm:ss+|-hh:mm",
+ *  for example, "2019-01-01 12:32:45-08:00".
+ */
+@property(nonatomic, copy, nullable) NSString *conversionDateTime;
+
+/**
+ *  Google click ID (gclid) associated with the original conversion for this
+ *  adjustment.
+ */
+@property(nonatomic, copy, nullable) NSString *gclid;
 
 @end
 
@@ -116041,7 +117090,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
- *  Request message for CustomerLabelService.MutateCustomerLabels.
+ *  Request message for CustomerLabelService.MutateCustomerLabels. A single
+ *  `MutateCustomerLabelsRequest` can only modify labels for the single customer
+ *  account specified in the request. To apply a label to multiple different
+ *  accounts, separate `MutateCustomerLabelsRequest` calls must be made.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ServicesMutateCustomerLabelsRequest : GTLRObject
 
@@ -117686,6 +118738,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
+ *  Request message for SearchAds360CampaignService.MutateSearchAds360Campaigns.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest : GTLRObject
+
+/**
+ *  Required. The list of operations to perform on individual Search Ads 360
+ *  campaigns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesSearchAds360CampaignOperation *> *operations;
+
+/**
+ *  If true, successful operations will be carried out and invalid operations
+ *  will return errors. If false, all operations will be carried out in one
+ *  transaction if and only if they are all valid. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partialFailure;
+
+/**
+ *  The response content type setting. Determines whether the mutable resource
+ *  or just the resource name should be returned post mutation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest_ResponseContentType_MutableResource
+ *        The mutate response will contain the resource name and the resource
+ *        with mutable fields if possible. Otherwise, only the resource name
+ *        will be returned. (Value: "MUTABLE_RESOURCE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest_ResponseContentType_ResourceNameOnly
+ *        The mutate response will be the resource name. (Value:
+ *        "RESOURCE_NAME_ONLY")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsRequest_ResponseContentType_Unspecified
+ *        Not specified. Will return the resource name only in the response.
+ *        (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *responseContentType;
+
+/**
+ *  If true, the request is validated but not executed. Only errors are
+ *  returned, not results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response message for Search Ads 360 campaign mutate.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignsResponse : GTLRObject
+
+/** All results for the mutate. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360CampaignResult *> *results;
+
+@end
+
+
+/**
  *  Request message for Service.Mutate.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ServicesMutateSearchAds360Request : GTLRObject
@@ -119265,6 +120377,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
+ *  Contains information needed to restate a conversion's value.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesRestatementValue : GTLRObject
+
+/**
+ *  The restated conversion value. This is the value of the conversion after
+ *  restatement. For example, to change the value of a conversion from 100 to
+ *  70, an adjusted value of 70 should be reported. NOTE: If you want to upload
+ *  a second restatement with a different adjusted value, it must have a new,
+ *  more recent, adjustment occurrence time. Otherwise, it will be treated as a
+ *  duplicate of the previous restatement and ignored.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adjustedValue;
+
+/**
+ *  The currency of the restated value. If not provided, then the default
+ *  currency from the conversion action is used, and if that is not set then the
+ *  account currency is used. This is the ISO 4217 3-character currency code for
+ *  example, USD or EUR.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+@end
+
+
+/**
  *  Request message for BatchJobService.RunBatchJob.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23ServicesRunBatchJobRequest : GTLRObject
@@ -120094,6 +121234,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnTotalResultsCount;
+
+@end
+
+
+/**
+ *  Contains one session attribute of the conversion.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesSessionAttributeKeyValuePair : GTLRObject
+
+/** Required. The name of the session attribute. */
+@property(nonatomic, copy, nullable) NSString *sessionAttributeKey;
+
+/** Required. The value of the session attribute. */
+@property(nonatomic, copy, nullable) NSString *sessionAttributeValue;
+
+@end
+
+
+/**
+ *  Contains session attributes of the conversion, represented as key-value
+ *  pairs.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesSessionAttributesKeyValuePairs : GTLRObject
+
+/** Required. The session attributes for the conversion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesSessionAttributeKeyValuePair *> *keyValuePairs;
 
 @end
 
@@ -121094,6 +122260,204 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /** Result of the update. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Request message for ConversionUploadService.UploadCallConversions.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesUploadCallConversionsRequest : GTLRObject
+
+/** Required. The conversions that are being uploaded. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesCallConversion *> *conversions;
+
+/**
+ *  Required. If `true`, successful operations will be carried out and invalid
+ *  operations will return errors. If `false`, all operations will be carried
+ *  out in one transaction if and only if they are all valid. This should always
+ *  be set to `true`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partialFailure;
+
+/**
+ *  If true, the request is validated but not executed. Only errors are
+ *  returned, not results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response message for ConversionUploadService.UploadCallConversions.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesUploadCallConversionsResponse : GTLRObject
+
+/**
+ *  Errors that pertain to conversion failures in the partial failure mode.
+ *  Returned when all errors occur inside the conversions. If any errors occur
+ *  outside the conversions (for example, auth errors), we return an RPC level
+ *  error.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleRpcStatus *partialFailureError;
+
+/**
+ *  Returned for successfully processed conversions. Proto will be empty for
+ *  rows that received an error. Results are not returned when `validate_only`
+ *  is `true`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesCallConversionResult *> *results;
+
+@end
+
+
+/**
+ *  Request message for ConversionUploadService.UploadClickConversions.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesUploadClickConversionsRequest : GTLRObject
+
+/** Required. The conversions that are being uploaded. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversion *> *conversions;
+
+/**
+ *  Optional. Optional input to set job ID. Must be a non-negative number that
+ *  is less than 2^31 if provided. If this field is not provided, the API will
+ *  generate a job ID in the range [2^31, (2^63)-1]. The API will return the
+ *  value for this request in the `job_id` field of the
+ *  `UploadClickConversionsResponse`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobId;
+
+/**
+ *  Required. If `true`, successful operations will be carried out and invalid
+ *  operations will return errors. If `false`, all operations will be carried
+ *  out in one transaction if and only if they are all valid. This should always
+ *  be set to `true`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partialFailure;
+
+/**
+ *  If `true`, the request is validated but not executed. Only errors are
+ *  returned, not results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response message for ConversionUploadService.UploadClickConversions.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesUploadClickConversionsResponse : GTLRObject
+
+/**
+ *  Job ID for the upload batch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobId;
+
+/**
+ *  Errors that pertain to conversion failures in the partial failure mode.
+ *  Returned when all errors occur inside the conversions. If any errors occur
+ *  outside the conversions (for example, auth errors), we return an RPC level
+ *  error.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleRpcStatus *partialFailureError;
+
+/**
+ *  Returned for successfully processed conversions. Proto will be empty for
+ *  rows that received an error. Results are not returned when `validate_only`
+ *  is `true`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesClickConversionResult *> *results;
+
+@end
+
+
+/**
+ *  Request message for
+ *  ConversionAdjustmentUploadService.UploadConversionAdjustments.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesUploadConversionAdjustmentsRequest : GTLRObject
+
+/** Required. The conversion adjustments that are being uploaded. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustment *> *conversionAdjustments;
+
+/**
+ *  Optional. Optional input to set job ID. Must be a non-negative number that
+ *  is less than 2^31 if provided. If this field is not provided, the API will
+ *  generate a job ID in the range [2^31, (2^63)-1]. The API will return the
+ *  value for this request in the `job_id` field of the
+ *  `UploadConversionAdjustmentsResponse`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobId;
+
+/**
+ *  Required. If true, successful operations will be carried out and invalid
+ *  operations will return errors. If false, all operations will be carried out
+ *  in one transaction if and only if they are all valid. This should always be
+ *  set to true. See
+ *  https://developers.google.com/google-ads/api/docs/best-practices/partial-failures
+ *  for more information about partial failure.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partialFailure;
+
+/**
+ *  If true, the request is validated but not executed. Only errors are
+ *  returned, not results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response message for
+ *  ConversionAdjustmentUploadService.UploadConversionAdjustments.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23ServicesUploadConversionAdjustmentsResponse : GTLRObject
+
+/**
+ *  Job ID for the upload batch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jobId;
+
+/**
+ *  Errors that pertain to conversion adjustment failures in the partial failure
+ *  mode. Returned when all errors occur inside the adjustments. If any errors
+ *  occur outside the adjustments (for example, auth errors), we return an RPC
+ *  level error. See
+ *  https://developers.google.com/google-ads/api/docs/best-practices/partial-failures
+ *  for more information about partial failure.
+ */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleRpcStatus *partialFailureError;
+
+/**
+ *  Returned for successfully processed conversion adjustments. Proto will be
+ *  empty for rows that received an error. Results are not returned when
+ *  validate_only is true.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V23ServicesConversionAdjustmentResult *> *results;
 
 @end
 

@@ -82,6 +82,12 @@ NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Contextu
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_OutputTypeUnspecified = @"OUTPUT_TYPE_UNSPECIFIED";
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Protobuf = @"PROTOBUF";
 
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo.outputType
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_Json = @"JSON";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_None = @"NONE";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_OutputTypeUnspecified = @"OUTPUT_TYPE_UNSPECIFIED";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo_OutputType_Protobuf = @"PROTOBUF";
+
 // GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo.outputType
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Json = @"JSON";
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_None = @"NONE";
@@ -800,7 +806,7 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders
-@dynamic deviceInfo, groupInfo, outputType, userInfo;
+@dynamic deviceInfo, dispatchInfo, groupInfo, outputType, userInfo;
 @end
 
 
@@ -810,6 +816,16 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo
+@dynamic outputType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDispatchInfo
 @dynamic outputType;
 @end
 

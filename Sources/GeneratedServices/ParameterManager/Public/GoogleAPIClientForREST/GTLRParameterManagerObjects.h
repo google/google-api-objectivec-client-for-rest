@@ -25,6 +25,10 @@
 @class GTLRParameterManager_ParameterVersion;
 @class GTLRParameterManager_ParameterVersionPayload;
 @class GTLRParameterManager_ResourcePolicyMember;
+@class GTLRParameterManager_Template;
+@class GTLRParameterManager_Template_Labels;
+@class GTLRParameterManager_TemplateVersion;
+@class GTLRParameterManager_TemplateVersionPayload;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -63,6 +67,50 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Parameter_Format_Unform
  *  Value: "YAML"
  */
 FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Parameter_Format_Yaml;
+
+// ----------------------------------------------------------------------------
+// GTLRParameterManager_RenderTemplateVersionResponse.templateFormat
+
+/**
+ *  JSON format.
+ *
+ *  Value: "TEMPLATE_FORMAT_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatJson;
+/**
+ *  The default / unset value. The API will default to the YAML format.
+ *
+ *  Value: "TEMPLATE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatUnspecified;
+/**
+ *  YAML format.
+ *
+ *  Value: "TEMPLATE_FORMAT_YAML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatYaml;
+
+// ----------------------------------------------------------------------------
+// GTLRParameterManager_Template.format
+
+/**
+ *  JSON format.
+ *
+ *  Value: "TEMPLATE_FORMAT_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Template_Format_TemplateFormatJson;
+/**
+ *  The default / unset value. The API will default to the YAML format.
+ *
+ *  Value: "TEMPLATE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Template_Format_TemplateFormatUnspecified;
+/**
+ *  YAML format.
+ *
+ *  Value: "TEMPLATE_FORMAT_YAML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Template_Format_TemplateFormatYaml;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -145,6 +193,60 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Parameter_Format_Yaml;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRParameterManager_ParameterVersion *> *parameterVersions;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing Templates
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "templates" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRParameterManager_ListTemplatesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Templates
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRParameterManager_Template *> *templates;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing TemplateVersions
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "templateVersions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRParameterManager_ListTemplateVersionsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of TemplateVersions
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRParameterManager_TemplateVersion *> *templateVersions;
 
 /** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
@@ -369,6 +471,54 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Parameter_Format_Yaml;
 
 
 /**
+ *  Message describing RenderTemplateVersionResponse resource
+ */
+@interface GTLRParameterManager_RenderTemplateVersionResponse : GTLRObject
+
+/**
+ *  Output only. The resource name of the ParameterVersion used to render the
+ *  template version in the format `projects/ * /locations/ * /parameters/ *
+ *  /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parameterVersion;
+
+/** Payload content of a TemplateVersion resource. */
+@property(nonatomic, strong, nullable) GTLRParameterManager_TemplateVersionPayload *payload;
+
+/**
+ *  Output only. Server generated rendered version of the user provided payload
+ *  data (TemplateVersionPayload) which has all the variables resolved using the
+ *  provided parameter version.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *renderedPayload;
+
+/**
+ *  Output only. Format of the template version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatJson
+ *        JSON format. (Value: "TEMPLATE_FORMAT_JSON")
+ *    @arg @c kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatUnspecified
+ *        The default / unset value. The API will default to the YAML format.
+ *        (Value: "TEMPLATE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatYaml
+ *        YAML format. (Value: "TEMPLATE_FORMAT_YAML")
+ */
+@property(nonatomic, copy, nullable) NSString *templateFormat;
+
+/**
+ *  Resource identifier of a TemplateVersion in the format `projects/ *
+ *  /locations/ * /templates/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *templateVersion;
+
+@end
+
+
+/**
  *  Output-only policy member strings of a Google Cloud resource's built-in
  *  identity.
  */
@@ -391,6 +541,102 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManager_Parameter_Format_Yaml;
  *  `principal://parametermanager.googleapis.com/projects/12345/uid/locations/us-central1-a/parameters/a918fed5`
  */
 @property(nonatomic, copy, nullable) NSString *iamPolicyUidPrincipal;
+
+@end
+
+
+/**
+ *  Message describing Template resource
+ */
+@interface GTLRParameterManager_Template : GTLRObject
+
+/** Output only. Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Specifies the format of a Template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRParameterManager_Template_Format_TemplateFormatJson JSON
+ *        format. (Value: "TEMPLATE_FORMAT_JSON")
+ *    @arg @c kGTLRParameterManager_Template_Format_TemplateFormatUnspecified
+ *        The default / unset value. The API will default to the YAML format.
+ *        (Value: "TEMPLATE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRParameterManager_Template_Format_TemplateFormatYaml YAML
+ *        format. (Value: "TEMPLATE_FORMAT_YAML")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRParameterManager_Template_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the Template in the format `projects/ *
+ *  /locations/ * /templates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRParameterManager_Template_Labels : GTLRObject
+@end
+
+
+/**
+ *  Message describing TemplateVersion resource
+ */
+@interface GTLRParameterManager_TemplateVersion : GTLRObject
+
+/** Output only. Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Disabled boolean to determine if a TemplateVersion acts as a
+ *  metadata only resource (payload is never returned if disabled is true).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Identifier. The resource name of the TemplateVersion in the format
+ *  `projects/ * /locations/ * /templates/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Immutable. Payload content of a TemplateVersion resource. */
+@property(nonatomic, strong, nullable) GTLRParameterManager_TemplateVersionPayload *payload;
+
+/** Output only. Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Message for storing a TemplateVersion resource's payload data
+ */
+@interface GTLRParameterManager_TemplateVersionPayload : GTLRObject
+
+/**
+ *  Required. bytes data for storing payload.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
 
 @end
 

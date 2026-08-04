@@ -1102,6 +1102,106 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureOpt
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_Version.appEngineBundledServices
+
+/**
+ *  App Identity Service
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_APP_IDENTITY_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeAppIdentityService;
+/**
+ *  Blobstore
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_BLOBSTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeBlobstore;
+/**
+ *  Capability Service
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_CAPABILITY_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeCapabilityService;
+/**
+ *  Datastore V3
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_DATASTORE_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeDatastoreV3;
+/**
+ *  Deferred
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_DEFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeDeferred;
+/**
+ *  Images
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_IMAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeImages;
+/**
+ *  Mail
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_MAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeMail;
+/**
+ *  Memcache
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_MEMCACHE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeMemcache;
+/**
+ *  Modules
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_MODULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeModules;
+/**
+ *  Namespaces
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_NAMESPACES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeNamespaces;
+/**
+ *  NDB
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_NDB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeNdb;
+/**
+ *  Search
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeSearch;
+/**
+ *  Task Queues
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_TASKQUEUES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeTaskqueues;
+/**
+ *  Default, invalid value
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeUnspecified;
+/**
+ *  URL Fetch
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_URLFETCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeUrlfetch;
+/**
+ *  Users
+ *
+ *  Value: "BUNDLED_SERVICE_TYPE_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_AppEngineBundledServices_BundledServiceTypeUsers;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_Version.inboundServices
 
 /**
@@ -4408,6 +4508,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *appEngineApis;
+
+/**
+ *  List of specific App Engine Bundled Services that are enabled for this
+ *  Version.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *appEngineBundledServices;
 
 /**
  *  Automatic scaling is based on request rate, response latencies, and other

@@ -405,6 +405,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMinimalErrorLogging;
 /**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMissingEnhancedProtection;
+/**
  *  Represents if a resource has an automated backup policy.
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
@@ -1611,6 +1617,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMinimalErrorLogging;
 /**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMissingEnhancedProtection;
+/**
  *  Represents if a resource has an automated backup policy.
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
@@ -2771,6 +2783,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMinimalErrorLogging;
 /**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMissingEnhancedProtection;
+/**
  *  Represents if a resource has an automated backup policy.
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
@@ -3461,6 +3479,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMinimalErrorLogging;
 /**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMissingEnhancedProtection;
+/**
  *  Represents if a resource has an automated backup policy.
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
@@ -4116,6 +4140,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_Sig
  *  Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMinimalErrorLogging;
+/**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMissingEnhancedProtection;
 /**
  *  Represents if a resource has an automated backup policy.
  *
@@ -4773,6 +4803,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMinimalErrorLogging;
 /**
+ *  Indicates that the resource is missing enhanced protection.
+ *
+ *  Value: "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTypes_SignalTypeMissingEnhancedProtection;
+/**
  *  Represents if a resource has an automated backup policy.
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
@@ -5378,6 +5414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRDatabaseCenter_AdditionalDetail_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -6750,6 +6789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRDatabaseCenter_IssueStats_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -7384,6 +7426,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *  ANDed with the `filters` field above.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseCenter_SignalFilter *> *signalFilters;
+
+/**
+ *  Optional. Filters based on signal and product. The filter list will be ORed
+ *  across pairs and ANDed within a signal and products pair.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseCenter_SignalProductsFilters *> *signalProductsFilters;
 
 /** Optional. Groups of signal types that are requested. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseCenter_SignalTypeGroup *> *signalTypeGroups;
@@ -8117,6 +8165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRDatabaseCenter_Signal_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -8491,6 +8542,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRDatabaseCenter_SignalFilter_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
@@ -8873,6 +8927,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseCenter_SignalTypeGroup_SignalTyp
  *        Represents if the log_min_messages database flag for a Cloud SQL for
  *        PostgreSQL instance is not set to warning or another recommended
  *        value. (Value: "SIGNAL_TYPE_MINIMAL_ERROR_LOGGING")
+ *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeMissingEnhancedProtection
+ *        Indicates that the resource is missing enhanced protection. (Value:
+ *        "SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION")
  *    @arg @c kGTLRDatabaseCenter_SignalProductsFilters_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has an automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")

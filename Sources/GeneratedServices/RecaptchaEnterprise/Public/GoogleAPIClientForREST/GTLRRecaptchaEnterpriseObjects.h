@@ -25,6 +25,12 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRule;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleEvaluation;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleGroup;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleNoChallengeOutcome;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ClientSettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings;
@@ -51,7 +57,10 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneAuthenticationEvent;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PolicyEvaluation;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpoint;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpointGroup;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis;
@@ -68,6 +77,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataItem;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionEvent;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UniversalKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserId;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings;
@@ -175,6 +185,20 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "ACCOUNT_HISTORY_REPUTABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_AccountHistoryReputable;
+/**
+ *  The identity shows a global pattern of reputable activity based on
+ *  `userInfo` and associated identifiers.
+ *
+ *  Value: "IDENTITY_GLOBAL_ACTIVITY_REPUTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_IdentityGlobalActivityReputable;
+/**
+ *  The identity shows a long-standing history of reputable activity based on
+ *  `userInfo` and associated identifiers.
+ *
+ *  Value: "IDENTITY_HISTORY_REPUTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_IdentityHistoryReputable;
 /**
  *  The request matches a trusted profile associated with this account.
  *  Equivalent to `AccountDefenderLabel.PROFILE_MATCH`.
@@ -439,6 +463,34 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_SearchIndexer;
 
 // ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome.difficulty
+
+/**
+ *  Key tends to show balanced (in amount and difficulty) challenges.
+ *
+ *  Value: "BALANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Balance;
+/**
+ *  Default type that indicates this enum hasn't been specified.
+ *
+ *  Value: "CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_ChallengeSecurityPreferenceUnspecified;
+/**
+ *  Key tends to show more and harder challenges.
+ *
+ *  Value: "SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Security;
+/**
+ *  Key tends to show fewer and easier challenges.
+ *
+ *  Value: "USABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Usability;
+
+// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
 
 /**
@@ -583,6 +635,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "PASSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Passed;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.lastChallengeType
+
+/**
+ *  An audio challenge.
+ *
+ *  Value: "CHALLENGE_TYPE_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeAudio;
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "CHALLENGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeUnspecified;
+/**
+ *  A visual challenge.
+ *
+ *  Value: "CHALLENGE_TYPE_VISUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeVisual;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
@@ -1044,7 +1118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Score;
 
 /**
- *  Account defender risk assessment.
+ *  Account defense risk assessment.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment : GTLRObject
 
@@ -1058,7 +1132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  Risk explainability reasons for account defender.
+ *  Risk explainability reasons for Account defense.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason : GTLRObject
 
@@ -1121,7 +1195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  Trust explainability reasons for account defender.
+ *  Trust explainability reasons for Account defense.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason : GTLRObject
 
@@ -1133,6 +1207,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        The account's historical activity is reputable. It is unlikely that
  *        the account has been compromised in the past. (Value:
  *        "ACCOUNT_HISTORY_REPUTABLE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_IdentityGlobalActivityReputable
+ *        The identity shows a global pattern of reputable activity based on
+ *        `userInfo` and associated identifiers. (Value:
+ *        "IDENTITY_GLOBAL_ACTIVITY_REPUTABLE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_IdentityHistoryReputable
+ *        The identity shows a long-standing history of reputable activity based
+ *        on `userInfo` and associated identifiers. (Value:
+ *        "IDENTITY_HISTORY_REPUTABLE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_ProfileMatch
  *        The request matches a trusted profile associated with this account.
  *        Equivalent to `AccountDefenderLabel.PROFILE_MATCH`. (Value:
@@ -1367,7 +1449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment : GTLRObject
 
 /**
- *  Output only. Assessment returned by account defender when an account
+ *  Output only. Assessment returned by Account defense when an account
  *  identifier is provided.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment *accountDefenderAssessment;
@@ -1414,10 +1496,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Output only. Assessment returned when a site key, a token, and a phone
- *  number as `user_id` are provided. Account defender and SMS toll fraud
- *  protection need to be enabled.
+ *  number as `user_id` are provided. SMS defense needs to be enabled.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment *phoneFraudAssessment;
+
+/**
+ *  Output only. Provides information about the policy evaluation for this
+ *  assessment.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PolicyEvaluation *policyEvaluation;
 
 /**
  *  Optional. The private password leak verification field contains the
@@ -1483,11 +1570,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Optional. Enumerated string value that indicates the identity of the bot,
  *  formatted in kebab-case. Current example values include the following: *
- *  google-agent * browser-base * chat-gpt * aws-bedrock * cybaa-bot *
- *  cloudflare * payhawk Ensure that your applications can handle identifier
- *  values not explicitly listed here. Deprecated values might take some time to
- *  stop showing up in responses. New values can be pushed so this list should
- *  be taken as non exhaustive.
+ *  google-agent - AI_AGENT * browser-base - AI_AGENT * chat-gpt - AI_AGENT *
+ *  aws-bedrock - AI_AGENT * cybaa-bot - AI_AGENT * cloudflare - AI_AGENT *
+ *  payhawk - AI_AGENT * duck-duck-go - SEARCH_INDEXER * mediaboard -
+ *  CONTENT_SCRAPER * marker-io - AI_AGENT * broadcom - AI_AGENT *
+ *  anchor-browser - AI_AGENT * shopify - AI_AGENT * stackscope -
+ *  CONTENT_SCRAPER * manus - AI_AGENT * kernel-sh - AI_AGENT * zvelo -
+ *  SEARCH_INDEXER Ensure that your applications can handle identifier values
+ *  not explicitly listed here. Deprecated values might take some time to stop
+ *  showing up in responses. New values can be pushed so this list should be
+ *  taken as non exhaustive.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1535,6 +1627,131 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  A rule to configure the behavior of reCAPTCHA for conditionally presenting a
+ *  challenge.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRule : GTLRObject
+
+/** Present a challenge to the user. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome *challenge;
+
+/**
+ *  Optional. A CEL condition that must be met for this rule to apply. If
+ *  unspecified, the rule applies unconditionally. The following fields can be
+ *  referenced in the condition: * `score` * `user_ip_address` * `user_asn` *
+ *  `user_agent` * `verified_bots.name` * `verified_bots.bot_type` Examples: *
+ *  `score < 0.5` * `user_ip_address == "123.45.67.89"` *
+ *  `user_agent.contains("Chrome")` * `score < 0.5 && user_ip_address ==
+ *  "123.45.67.89"`
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** Do not present a challenge to the user. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleNoChallengeOutcome *noChallenge;
+
+@end
+
+
+/**
+ *  An outcome that indicates that a challenge of a specified difficulty should
+ *  be presented to the user.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome : GTLRObject
+
+/**
+ *  Optional. The difficulty of the challenge to present to the user. If
+ *  unspecified, `BALANCE` is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Balance
+ *        Key tends to show balanced (in amount and difficulty) challenges.
+ *        (Value: "BALANCE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_ChallengeSecurityPreferenceUnspecified
+ *        Default type that indicates this enum hasn't been specified. (Value:
+ *        "CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Security
+ *        Key tends to show more and harder challenges. (Value: "SECURITY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleChallengeOutcome_Difficulty_Usability
+ *        Key tends to show fewer and easier challenges. (Value: "USABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *difficulty;
+
+@end
+
+
+/**
+ *  Information about the evaluation of a `ChallengeRule`.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleEvaluation : GTLRObject
+@end
+
+
+/**
+ *  A collection of challenge rules that applies to one or more actions.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleGroup : GTLRObject
+
+/**
+ *  Required. Action name provided at token generation. The action name is not
+ *  case-sensitive and can only contain alphanumeric characters, slashes, and
+ *  underscores. If "*" is provided, the rule group applies to all actions. If
+ *  multiple actions are provided, the rule group is applied to all of them.
+ *  This field is required.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+/**
+ *  Required. A list of rules that configure when and how reCAPTCHA presents a
+ *  challenge. reCAPTCHA evaluates these rules in order and applies the first
+ *  one that matches.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRule *> *challengeRules;
+
+@end
+
+
+/**
+ *  An outcome that indicates that no challenge should be presented to the user.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleNoChallengeOutcome : GTLRObject
+@end
+
+
+/**
+ *  Configuration for clients to protect with reCAPTCHA.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ClientSettings : GTLRObject
+
+/**
+ *  Optional. If set to true, it means allowed_domains are not enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAllDomains;
+
+/**
+ *  Optional. Domains or subdomains of websites allowed to use the policy. All
+ *  subdomains of an allowed domain are automatically allowed. A valid domain
+ *  requires a host and must not include any path, port, query or fragment.
+ *  Examples: 'example.com' or 'subdomain.example.com' Each policy supports a
+ *  maximum of 250 domains. To use a policy on more domains, set
+ *  `allow_all_domains` to true. When this is set, you are responsible for
+ *  validating the hostname by checking the `token_properties.hostname` field in
+ *  each assessment response against your list of allowed domains.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDomains;
+
+/**
+ *  Optional. Configuration for all API endpoints to protect with reCAPTCHA. If
+ *  this field is not set, reCAPTCHA will not automatically request tokens on
+ *  any API endpoints.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpointGroup *protectedEndpointGroup;
+
+@end
+
+
+/**
  *  Information about a verification endpoint that can be used for 2FA.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo : GTLRObject
@@ -1571,7 +1788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Optional. The expected action for this type of event. This should be the
  *  same action provided at token generation time on client-side platforms
- *  already integrated with recaptcha enterprise.
+ *  already integrated with recaptcha enterprise. Required for Universal keys.
  */
 @property(nonatomic, copy, nullable) NSString *expectedAction;
 
@@ -2151,6 +2368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Optional. Options for user acceptance testing. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions *testingOptions;
 
+/** Settings for keys that are configured through their Policy. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UniversalKeySettings *universalSettings;
+
 /** Optional. Settings for Web Application Firewall (WAF). */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings *wafSettings;
 
@@ -2394,6 +2614,46 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  A complete configuration set containing multiple grouped rules defining the
+ *  behavior of reCAPTCHA for fraud detection and prevention.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Policy : GTLRObject
+
+/**
+ *  Optional. Rules to configure the behavior of reCAPTCHA for showing a
+ *  challenge. Rule groups are evaluated in order. Evaluation stops when the
+ *  first matching rule group is found.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleGroup *> *challengeRuleGroups;
+
+/** Required. Configuration for clients protected by this policy. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ClientSettings *clientSettings;
+
+/**
+ *  Identifier. Resource name for this policy. Format:
+ *  "projects/{project}/keys/{key}/policy" for a policy under a key.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Information about the policy evaluation.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PolicyEvaluation : GTLRObject
+
+/**
+ *  Output only. Populated if one or more Challenge rules were matched. Its
+ *  presence in the assessment indicates that at least one challenge rule was
+ *  matched and determined whether a challenge was presented to the user.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeRuleEvaluation *challengeRuleEvaluation;
+
+@end
+
+
+/**
  *  Private password leak verification info.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification : GTLRObject
@@ -2437,6 +2697,52 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *reencryptedUserCredentialsHash;
+
+@end
+
+
+/**
+ *  Configuration for an API endpoint to protect with reCAPTCHA.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpoint : GTLRObject
+
+/**
+ *  Required. Action name to be used for token generation for this endpoint. The
+ *  action name can only contain alphanumeric characters, slashes, and
+ *  underscores.
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. URI path of the API endpoint to protect. Must start with '/'.
+ *  Supports glob characters '*' to match a single path segment and '**' to
+ *  match multiple path segments. Standalone root catch-alls ('/ *' and '/ **')
+ *  are invalid because it can negatively impact performance to trigger
+ *  reCAPTCHA on every single request to your backend. Matching is evaluated
+ *  against the URL path only (domain, scheme, and query parameters are
+ *  ignored). Examples: - `/login` matches `/login`,
+ *  `https://example.com/login`, and `/login?query=1`, but not `/login/step1`. -
+ *  `/products/ *` matches `/products/123`, but not `/products/123/456`. -
+ *  `/content/ **` matches `/content/articles/2024/01/01`.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  Configuration for API endpoints to protect with reCAPTCHA.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpointGroup : GTLRObject
+
+/**
+ *  Optional. List of API endpoints to automatically protect with reCAPTCHA. If
+ *  any of these endpoints is invoked from a page where a key bound to this
+ *  policy is installed, a reCAPTCHA token is automatically generated and
+ *  attached to the request. If multiple protected endpoints match a given API
+ *  endpoint, the first one in the list is used.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ProtectedEndpoint *> *protectedEndpoints;
 
 @end
 
@@ -2549,8 +2855,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis : GTLRObject
 
 /**
- *  Output only. Challenge information for POLICY_BASED_CHALLENGE and INVISIBLE
- *  keys.
+ *  Output only. Challenge information for Universal, `POLICY_BASED_CHALLENGE`
+ *  and `INVISIBLE` keys.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_ChallengeUnspecified
@@ -2571,6 +2877,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  for more information. The set of reasons is subject to change.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extendedVerdictReasons;
+
+/**
+ *  Output only. Type of the last challenge presented to the user for Universal,
+ *  `POLICY_BASED_CHALLENGE` and `INVISIBLE` keys. The field is only set when a
+ *  challenge was presented to the user.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeAudio
+ *        An audio challenge. (Value: "CHALLENGE_TYPE_AUDIO")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeUnspecified
+ *        Default unspecified type. (Value: "CHALLENGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_LastChallengeType_ChallengeTypeVisual
+ *        A visual challenge. (Value: "CHALLENGE_TYPE_VISUAL")
+ */
+@property(nonatomic, copy, nullable) NSString *lastChallengeType;
 
 /** Output only. Reasons contributing to the risk analysis verdict. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
@@ -3051,9 +3372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataUser : GTLRObject
 
 /**
- *  Optional. Unique account identifier for this user. If using account
- *  defender, this should match the hashed_account_id field. Otherwise, a unique
- *  and persistent identifier for this account.
+ *  Optional. Unique account identifier for this user. If using Account defense,
+ *  this should match the hashed_account_id field. Otherwise, a unique and
+ *  persistent identifier for this account.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
@@ -3211,6 +3532,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) NSNumber *value;
 
+@end
+
+
+/**
+ *  Settings for keys that are configured through their Policy.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UniversalKeySettings : GTLRObject
 @end
 
 

@@ -1490,6 +1490,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_BrandPartner
+//
+
+@implementation GTLRYouTube_BrandPartner
+@dynamic channelHandle, channelId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_Caption
 //
 
@@ -3731,8 +3741,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_Video
-@dynamic ageGating, contentDetails, ETag, fileDetails, identifier, kind,
-         liveStreamingDetails, localizations, monetizationDetails,
+@dynamic ageGating, brandPartner, contentDetails, ETag, fileDetails, identifier,
+         kind, liveStreamingDetails, localizations, monetizationDetails,
          paidProductPlacementDetails, player, processingDetails, projectDetails,
          recordingDetails, snippet, statistics, status, suggestions,
          topicDetails;

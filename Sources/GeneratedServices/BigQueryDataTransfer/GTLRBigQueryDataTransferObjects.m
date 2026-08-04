@@ -651,9 +651,8 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 
 @implementation GTLRBigQueryDataTransfer_TransferRun
 @dynamic dataSourceId, destinationDatasetId, emailPreferences, endTime,
-         errorStatus, metadataDestination, name, notificationPubsubTopic,
-         params, runTime, schedule, scheduleTime, startTime, state, updateTime,
-         userId;
+         errorStatus, name, notificationPubsubTopic, params, runTime, schedule,
+         scheduleTime, startTime, state, updateTime, userId;
 @end
 
 

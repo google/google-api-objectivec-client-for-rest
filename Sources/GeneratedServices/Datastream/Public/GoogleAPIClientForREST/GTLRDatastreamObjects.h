@@ -81,6 +81,7 @@
 @class GTLRDatastream_NextAvailableStartPosition;
 @class GTLRDatastream_Oauth2ClientCredentials;
 @class GTLRDatastream_OauthClientCredentials;
+@class GTLRDatastream_OauthRefreshTokenCredentials;
 @class GTLRDatastream_ObjectFilter;
 @class GTLRDatastream_Operation;
 @class GTLRDatastream_Operation_Metadata;
@@ -173,6 +174,8 @@
 @class GTLRDatastream_ValidationMessage_Metadata;
 @class GTLRDatastream_ValidationResult;
 @class GTLRDatastream_VpcPeeringConfig;
+@class GTLRDatastream_WorkdayProfile;
+@class GTLRDatastream_WorkdaySourceConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -996,6 +999,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. The update time of the resource. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** Optional. Profile for connecting to a Workday source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_WorkdayProfile *workdayProfile;
+
 @end
 
 
@@ -1359,7 +1365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) GTLRDatastream_ErrorInfo_Metadata *metadata;
 
 /**
- *  The reason of the error. This is a constant value that identifies the
+ *  The reason for the error. This is a constant value that identifies the
  *  proximate cause of the error. Error reasons are unique within a particular
  *  domain of errors. This should be at most 63 characters and match a regular
  *  expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
@@ -1457,7 +1463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) GTLRDatastream_LocalizedMessage *localizedMessage;
 
 /**
- *  The reason of the field-level error. This is a constant value that
+ *  The reason for the field-level error. This is a constant value that
  *  identifies the proximate cause of the field-level error. It should uniquely
  *  identify the type of the FieldViolation within the scope of the
  *  google.rpc.ErrorInfo.domain. This should be at most 63 characters and match
@@ -2579,6 +2585,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Required. Client secret for OAuth Client Credentials. */
 @property(nonatomic, strong, nullable) GTLRDatastream_Secret *clientSecret;
+
+@end
+
+
+/**
+ *  OAuth Refresh Token Credentials.
+ */
+@interface GTLRDatastream_OauthRefreshTokenCredentials : GTLRObject
+
+/** Required. Specifies the OAuth Client Credentials. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OauthClientCredentials *oauthClientCredentials;
+
+/** Required. Specifies the OAuth Refresh Token. */
+@property(nonatomic, strong, nullable) GTLRDatastream_Secret *refreshToken;
 
 @end
 
@@ -4030,6 +4050,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** SQLServer data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerSourceConfig *sqlServerSourceConfig;
 
+/** Optional. Workday data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_WorkdaySourceConfig *workdaySourceConfig;
+
 @end
 
 
@@ -5036,6 +5059,50 @@ GTLR_DEPRECATED
  *  Format: `projects/{project}/global/{networks}/{name}`
  */
 @property(nonatomic, copy, nullable) NSString *vpc;
+
+@end
+
+
+/**
+ *  Profile for connecting to a Workday source.
+ */
+@interface GTLRDatastream_WorkdayProfile : GTLRObject
+
+/**
+ *  Required. Host for the Workday connection. Must be a valid hostname (e.g.,
+ *  `wd3-impl-services1.workday.com`).
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Required. Credentials for authenticating with the Workday API. OAuth Refresh
+ *  Token credentials for authenticating with the Workday API.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_OauthRefreshTokenCredentials *oauthRefreshTokenCredentials;
+
+/** Required. Tenant for the Workday connection (e.g., `google12`). */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+@end
+
+
+/**
+ *  Configuration for syncing data from a Workday source.
+ */
+@interface GTLRDatastream_WorkdaySourceConfig : GTLRObject
+
+/** Optional. The objects to exclude from the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *excludeObjects;
+
+/** Optional. The objects to retrieve from the source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceCatalog *includeObjects;
+
+/**
+ *  Required. Incremental sync polling interval for all objects. If not set, a
+ *  default value of `5 minutes` is used. The duration must be from `5 minutes`
+ *  to `24 hours`, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *pollingInterval;
 
 @end
 
