@@ -181,6 +181,24 @@
   }
 }
 
+- (void)testFractionalSecondsBeforeEpoch {
+  // A date before 1970 with a fractional second should round-trip the
+  // fraction through -date and -RFC3339String instead of silently dropping it
+  // (1969-12-31 23:59:59.500 UTC is -0.5 seconds since the epoch).
+  NSDate *date = [NSDate dateWithTimeIntervalSince1970:-0.5];
+  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithDate:date];
+  XCTAssertEqualObjects(dateTime.RFC3339String, @"1969-12-31T23:59:59.500Z");
+
+  // Bouncing through -date should keep the milliseconds.
+  GTLRDateTime *roundTripped = [GTLRDateTime dateTimeWithDate:dateTime.date];
+  XCTAssertEqualObjects(roundTripped, dateTime);
+
+  // A pre-epoch time with a whole-second component plus a fraction.
+  NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:-1.25];
+  GTLRDateTime *dateTime2 = [GTLRDateTime dateTimeWithDate:date2];
+  XCTAssertEqualObjects(dateTime2.RFC3339String, @"1969-12-31T23:59:58.750Z");
+}
+
 - (NSDate *)dateWithYear:(NSInteger)year
                    month:(NSInteger)month
                      day:(NSInteger)day

@@ -238,8 +238,16 @@ static NSUInteger const kGTLRDateComponentBits = (NSCalendarUnitYear | NSCalenda
   self.dateComponents = components;
 
   // Extract the fractional seconds.
+  //
+  // Use floor() rather than trunc() so the fraction stays in [0, 1).  For a
+  // date before 1970 the timeIntervalSince1970 is negative, and trunc()
+  // rounds toward zero, which would leave a negative fraction here.  The
+  // dateComponents above are built from the calendar (which effectively
+  // floors), so a negative fraction would not match them and would also be
+  // dropped by -date and -RFC3339String (both only apply positive
+  // milliseconds).
   NSTimeInterval asTimeInterval = [date timeIntervalSince1970];
-  NSTimeInterval worker = asTimeInterval - trunc(asTimeInterval);
+  NSTimeInterval worker = asTimeInterval - floor(asTimeInterval);
   self.milliseconds = (NSInteger)round(worker * 1000.0);
 }
 
