@@ -241,14 +241,16 @@ static NSUInteger const kGTLRDateComponentBits = (NSCalendarUnitYear | NSCalenda
   //
   // Use floor() rather than trunc() so the fraction stays in [0, 1).  For a
   // date before 1970 the timeIntervalSince1970 is negative, and trunc()
-  // rounds toward zero, which would leave a negative fraction here.  The
-  // dateComponents above are built from the calendar (which effectively
-  // floors), so a negative fraction would not match them and would also be
-  // dropped by -date and -RFC3339String (both only apply positive
-  // milliseconds).
+  // rounds toward zero, leaving a negative fraction here; the calendar above
+  // (which effectively floors) would not match it, and -date and
+  // -RFC3339String both only apply positive milliseconds.
   NSTimeInterval asTimeInterval = [date timeIntervalSince1970];
   NSTimeInterval worker = asTimeInterval - floor(asTimeInterval);
-  self.milliseconds = (NSInteger)round(worker * 1000.0);
+  NSTimeInterval rawMilliseconds = round(worker * 1000.0);
+  // round() yields 1000 when the fraction is within half a millisecond of the
+  // next second; clamp back to 999 to keep the 0-999 milliseconds invariant
+  // and match the floored date components above.
+  self.milliseconds = (NSInteger)MIN(999.0, rawMilliseconds);
 }
 
 - (void)setFromRFC3339String:(NSString *)str {

@@ -182,21 +182,44 @@
 }
 
 - (void)testFractionalSecondsBeforeEpoch {
-  // A date before 1970 with a fractional second should round-trip the
-  // fraction through -date and -RFC3339String instead of silently dropping it
-  // (1969-12-31 23:59:59.500 UTC is -0.5 seconds since the epoch).
-  NSDate *date = [NSDate dateWithTimeIntervalSince1970:-0.5];
-  GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithDate:date];
-  XCTAssertEqualObjects(dateTime.RFC3339String, @"1969-12-31T23:59:59.500Z");
+  // A date before 1970 has a negative timeIntervalSince1970, so its fractional
+  // second must round-trip through -date and -RFC3339String instead of being
+  // silently dropped (e.g. 1969-12-31 23:59:59.500 UTC is -0.5 seconds since
+  // the epoch).
+  struct FractionalSecondsBeforeEpochTestRecord {
+    __unsafe_unretained NSString *expectedString;
+    NSTimeInterval timeIntervalSince1970;
+  };
 
-  // Bouncing through -date should keep the milliseconds.
-  GTLRDateTime *roundTripped = [GTLRDateTime dateTimeWithDate:dateTime.date];
-  XCTAssertEqualObjects(roundTripped, dateTime);
+  struct FractionalSecondsBeforeEpochTestRecord tests[] = {
+    // Fractional second.
+    { @"1969-12-31T23:59:59.500Z", -0.5 },
+    // Whole-second component plus a fraction.
+    { @"1969-12-31T23:59:58.750Z", -1.25 },
+    // Whole second, no fraction.
+    { @"1969-12-31T23:59:59Z", -1.0 },
+    // Fraction within half a millisecond of the next second; clamp to .999
+    // rather than overflowing to .1000.
+    { @"1969-12-31T23:59:59.999Z", -0.0001 },
+    // Done.
+    { nil, 0 }
+  };
 
-  // A pre-epoch time with a whole-second component plus a fraction.
-  NSDate *date2 = [NSDate dateWithTimeIntervalSince1970:-1.25];
-  GTLRDateTime *dateTime2 = [GTLRDateTime dateTimeWithDate:date2];
-  XCTAssertEqualObjects(dateTime2.RFC3339String, @"1969-12-31T23:59:58.750Z");
+  for (int idx = 0; tests[idx].expectedString != nil; idx++) {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:tests[idx].timeIntervalSince1970];
+    GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithDate:date];
+    XCTAssertEqualObjects(dateTime.RFC3339String, tests[idx].expectedString, @"idx %d", idx);
+
+    // Bouncing through -date should keep the milliseconds.
+    GTLRDateTime *roundTripped = [GTLRDateTime dateTimeWithDate:dateTime.date];
+    XCTAssertEqualObjects(roundTripped, dateTime, @"idx %d", idx);
+  }
+
+  // A pre-epoch date with an offset keeps the fraction too.
+  GTLRDateTime *offsetDateTime =
+      [GTLRDateTime dateTimeWithDate:[NSDate dateWithTimeIntervalSince1970:-0.5]
+                       offsetMinutes:-60];
+  XCTAssertEqualObjects(offsetDateTime.RFC3339String, @"1969-12-31T22:59:59.500-01:00");
 }
 
 - (NSDate *)dateWithYear:(NSInteger)year
