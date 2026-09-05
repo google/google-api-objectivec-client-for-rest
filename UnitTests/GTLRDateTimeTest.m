@@ -198,9 +198,10 @@
     { @"1969-12-31T23:59:58.750Z", -1.25 },
     // Whole second, no fraction.
     { @"1969-12-31T23:59:59Z", -1.0 },
-    // Fraction within half a millisecond of the next second; clamp to .999
-    // rather than overflowing to .1000.
-    { @"1969-12-31T23:59:59.999Z", -0.0001 },
+    // Fraction within half a millisecond of the next second (-0.0001 is
+    // 23:59:59.9999, a tenth of a millisecond before the epoch); it rounds up
+    // to the epoch rather than clamping to .999.
+    { @"1970-01-01T00:00:00Z", -0.0001 },
     // Done.
     { nil, 0 }
   };
