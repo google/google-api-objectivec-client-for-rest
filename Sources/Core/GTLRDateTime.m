@@ -246,11 +246,21 @@ static NSUInteger const kGTLRDateComponentBits = (NSCalendarUnitYear | NSCalenda
   // -RFC3339String both only apply positive milliseconds.
   NSTimeInterval asTimeInterval = [date timeIntervalSince1970];
   NSTimeInterval worker = asTimeInterval - floor(asTimeInterval);
-  NSTimeInterval rawMilliseconds = round(worker * 1000.0);
-  // round() yields 1000 when the fraction is within half a millisecond of the
-  // next second; clamp back to 999 to keep the 0-999 milliseconds invariant
-  // and match the floored date components above.
-  self.milliseconds = (NSInteger)MIN(999.0, rawMilliseconds);
+  NSInteger milliseconds = (NSInteger)round(worker * 1000.0);
+
+  if (milliseconds == 1000) {
+    // The fraction is within half a millisecond of the next second, so round()
+    // carries over to 1000. Roll that second into the date components rather
+    // than clamping to 999; re-extracting lets the calendar normalize the
+    // carry across minute/hour/day boundaries.
+    NSDate *nextSecondDate = [[cal dateFromComponents:components]
+        dateByAddingTimeInterval:1.0];
+    components = [cal components:kGTLRDateComponentBits fromDate:nextSecondDate];
+    self.dateComponents = components;
+    milliseconds = 0;
+  }
+
+  self.milliseconds = milliseconds;
 }
 
 - (void)setFromRFC3339String:(NSString *)str {
