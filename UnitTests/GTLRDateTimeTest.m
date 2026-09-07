@@ -181,6 +181,48 @@
   }
 }
 
+- (void)testFractionalSecondsBeforeEpoch {
+  // A date before 1970 has a negative timeIntervalSince1970, so its fractional
+  // second must round-trip through -date and -RFC3339String instead of being
+  // silently dropped (e.g. 1969-12-31 23:59:59.500 UTC is -0.5 seconds since
+  // the epoch).
+  struct FractionalSecondsBeforeEpochTestRecord {
+    __unsafe_unretained NSString *expectedString;
+    NSTimeInterval timeIntervalSince1970;
+  };
+
+  struct FractionalSecondsBeforeEpochTestRecord tests[] = {
+    // Fractional second.
+    { @"1969-12-31T23:59:59.500Z", -0.5 },
+    // Whole-second component plus a fraction.
+    { @"1969-12-31T23:59:58.750Z", -1.25 },
+    // Whole second, no fraction.
+    { @"1969-12-31T23:59:59Z", -1.0 },
+    // Fraction within half a millisecond of the next second (-0.0001 is
+    // 23:59:59.9999, a tenth of a millisecond before the epoch); it rounds up
+    // to the epoch rather than clamping to .999.
+    { @"1970-01-01T00:00:00Z", -0.0001 },
+    // Done.
+    { nil, 0 }
+  };
+
+  for (int idx = 0; tests[idx].expectedString != nil; idx++) {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:tests[idx].timeIntervalSince1970];
+    GTLRDateTime *dateTime = [GTLRDateTime dateTimeWithDate:date];
+    XCTAssertEqualObjects(dateTime.RFC3339String, tests[idx].expectedString, @"idx %d", idx);
+
+    // Bouncing through -date should keep the milliseconds.
+    GTLRDateTime *roundTripped = [GTLRDateTime dateTimeWithDate:dateTime.date];
+    XCTAssertEqualObjects(roundTripped, dateTime, @"idx %d", idx);
+  }
+
+  // A pre-epoch date with an offset keeps the fraction too.
+  GTLRDateTime *offsetDateTime =
+      [GTLRDateTime dateTimeWithDate:[NSDate dateWithTimeIntervalSince1970:-0.5]
+                       offsetMinutes:-60];
+  XCTAssertEqualObjects(offsetDateTime.RFC3339String, @"1969-12-31T22:59:59.500-01:00");
+}
+
 - (NSDate *)dateWithYear:(NSInteger)year
                    month:(NSInteger)month
                      day:(NSInteger)day
