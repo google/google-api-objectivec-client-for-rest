@@ -1,0 +1,53 @@
+name: Embedded Framework
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'Sources/**'
+    - 'Package*.swift'
+    - 'SwiftPMTests/EmbeddedFrameworkLinkTest/**'
+    - '.github/workflows/embedded_framework.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'Sources/**'
+    - 'Package*.swift'
+    - 'SwiftPMTests/EmbeddedFrameworkLinkTest/**'
+    - '.github/workflows/embedded_framework.yml'
+  schedule:
+    # Run the first and fifteenth of every month at 6:32 UTC
+    - cron:  '32 6 1,15 * *'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    # Builds an app and an embedded framework that both link a service and
+    # GTMSessionFetcherCore, which makes Xcode build the package products as
+    # separate frameworks.
+    runs-on: macos-26
+    strategy:
+      fail-fast: false
+      matrix:
+        PLATFORM: ["iOS Simulator", "macOS"]
+        CONFIGURATION: ["Debug", "Release"]
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
+    - name: Build
+      env:
+        PLATFORM: ${{ matrix.PLATFORM }}
+        CONFIGURATION: ${{ matrix.CONFIGURATION }}
+      run:  |
+        set -eu
+        cd SwiftPMTests/EmbeddedFrameworkLinkTest
+        xcodebuild \
+          -project EmbeddedFrameworkLinkTest.xcodeproj \
+          -scheme App \
+          -configuration "${CONFIGURATION}" \
+          -destination "generic/platform=${PLATFORM}" \
+          CODE_SIGNING_ALLOWED=NO \
+          build
