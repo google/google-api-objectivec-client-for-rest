@@ -1286,6 +1286,7 @@ let package = Package(
         .target(
             name: "GoogleAPIClientForRESTCore",
             dependencies: [
+              .product(name: "GTMSessionFetcherCore", package: "gtm-session-fetcher"),
               .product(name: "GTMSessionFetcherFull", package: "gtm-session-fetcher")
             ],
             path: "Sources/Core",
