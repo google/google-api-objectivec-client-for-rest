@@ -686,7 +686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices_ServicePatternsEnforcementScopes_GoogleApisViaPrivatePath;
 /**
- *  Default value. This can not be used.
+ *  Default value. This cannot be used.
  *
  *  Value: "SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED"
  */
@@ -3949,7 +3949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Modifier : GTLRObject
 
-/** Adds additional HTTP request headers. */
+/** Adds an additional HTTP request header. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AddRequestHeader *addRequestHeader;
 
 @end
@@ -4028,7 +4028,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  URL pattern to allow. Only patterns of ".googleapis.com/ *",
  *  "www.googleapis.com// *" and "*.appspot.com/ * forms are supported, where
- *  should be alphanumerical name.
+ *  should be an alphanumeric name.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
 

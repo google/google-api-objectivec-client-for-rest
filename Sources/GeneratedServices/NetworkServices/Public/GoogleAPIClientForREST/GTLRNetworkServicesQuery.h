@@ -375,6 +375,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  */
 @interface GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysList : GTLRNetworkServicesQuery
 
+/**
+ *  Optional. A filter expression to filter the results listed in the response.
+ *  The expression must follow the syntax described in
+ *  [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** Optional. Maximum number of AgentGateways to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -673,7 +680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Used to specify the fields to be overwritten in the
+ *  Optional. Used to specify the fields to be overwritten in the
  *  `AuthzExtension` resource by the update. The fields specified in the
  *  `update_mask` are relative to the resource, not the full request. A field is
  *  overwritten if it is in the mask. If the user does not specify a mask, then
@@ -1292,6 +1299,202 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_EndpointPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `ExtensionBinding` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.extensionBindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsCreate : GTLRNetworkServicesQuery
+
+/** Required. Short name of the `ExtensionBinding` resource to be created. */
+@property(nonatomic, copy, nullable) NSString *extensionBindingId;
+
+/**
+ *  Required. The parent resource of the `ExtensionBinding` resource. Must be in
+ *  the format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `ExtensionBinding` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_ExtensionBinding to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `ExtensionBinding`
+ *    resource. Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_ExtensionBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `ExtensionBinding` resource.
+ *
+ *  Method: networkservices.projects.locations.extensionBindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsDelete : GTLRNetworkServicesQuery
+
+/** Optional. The etag of the ExtensionBinding to delete. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the `ExtensionBinding` resource to delete. Must be in
+ *  the format
+ *  `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `ExtensionBinding` resource.
+ *
+ *  @param name Required. A name of the `ExtensionBinding` resource to delete.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `ExtensionBinding` resource.
+ *
+ *  Method: networkservices.projects.locations.extensionBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `ExtensionBinding` resource to get. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ExtensionBinding.
+ *
+ *  Gets details of the specified `ExtensionBinding` resource.
+ *
+ *  @param name Required. A name of the `ExtensionBinding` resource to get. Must
+ *    be in the format
+ *    `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `ExtensionBinding` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.extensionBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsList : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. Maximum number of `ExtensionBinding` resources to return per call.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListExtensionBindingsResponse`
+ *  Indicates that this is a continuation of a prior `ListExtensionBindings`
+ *  call, and that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `ExtensionBinding`
+ *  resources should be listed, specified in the format
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListExtensionBindingsResponse.
+ *
+ *  Lists `ExtensionBinding` resources in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `ExtensionBinding` resources should be listed, specified in the format
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of the specified `ExtensionBinding` resource.
+ *
+ *  Method: networkservices.projects.locations.extensionBindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Identifier. Name of the `ExtensionBinding` resource in the following format:
+ *  `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  `ExtensionBinding` resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of the specified `ExtensionBinding` resource.
+ *
+ *  @param object The @c GTLRNetworkServices_ExtensionBinding to include in the
+ *    query.
+ *  @param name Identifier. Name of the `ExtensionBinding` resource in the
+ *    following format:
+ *    `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_ExtensionBinding *)object
                            name:(NSString *)name;
 
 @end
@@ -3703,6 +3906,158 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @end
 
 /**
+ *  Creates a new `ProducerExtension` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.producerExtensions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The parent resource of the `ProducerExtension` resource. Must be
+ *  in the format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Short name of the `ProducerExtension` resource to be created. */
+@property(nonatomic, copy, nullable) NSString *producerExtensionId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `ProducerExtension` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_ProducerExtension to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `ProducerExtension`
+ *    resource. Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_ProducerExtension *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `ProducerExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.producerExtensions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsDelete : GTLRNetworkServicesQuery
+
+/** Optional. The etag of the ProducerExtension to delete. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the `ProducerExtension` resource to delete. Must be in
+ *  the format
+ *  `projects/{project}/locations/{location}/producerExtensions/{producer_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `ProducerExtension` resource.
+ *
+ *  @param name Required. A name of the `ProducerExtension` resource to delete.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/producerExtensions/{producer_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `ProducerExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.producerExtensions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `ProducerExtension` resource to get. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/producerExtensions/{producer_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ProducerExtension.
+ *
+ *  Gets details of the specified `ProducerExtension` resource.
+ *
+ *  @param name Required. A name of the `ProducerExtension` resource to get.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/producerExtensions/{producer_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `ProducerExtension` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.producerExtensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsList : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. Maximum number of `ProducerExtension` resources to return per
+ *  call.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListProducerExtensionsResponse`
+ *  Indicates that this is a continuation of a prior `ListProducerExtensions`
+ *  call, and that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `ProducerExtension`
+ *  resources should be listed, specified in the format
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListProducerExtensionsResponse.
+ *
+ *  Lists `ProducerExtension` resources in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `ProducerExtension` resources should be listed, specified in the format
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new ServiceBinding in a given project and location.
  *
  *  Method: networkservices.projects.locations.serviceBindings.create
@@ -3717,6 +4072,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees this for 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID version 4 with the exception that zero UUID
+ *  is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /** Required. Short name of the ServiceBinding resource to be created. */
 @property(nonatomic, copy, nullable) NSString *serviceBindingId;
@@ -3753,6 +4121,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  `projects/ * /locations/ * /serviceBindings/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees this for 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID version 4 with the exception that zero UUID
+ *  is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkServices_Operation.
@@ -3858,6 +4239,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  `projects/ * /locations/ * /serviceBindings/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees this for 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request. This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID version 4 with the exception that zero UUID
+ *  is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Optional. Field mask is used to specify the fields to be overwritten in the

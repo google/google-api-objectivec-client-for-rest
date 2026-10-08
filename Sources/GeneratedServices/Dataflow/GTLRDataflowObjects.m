@@ -389,6 +389,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_AutoscalingSchedule
+//
+
+@implementation GTLRDataflow_AutoscalingSchedule
+@dynamic crontab, duration, name, parameters, priority, timeZone, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_AutoscalingSettings
 //
 
@@ -528,6 +538,26 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_ConcatPosition
 @dynamic index, position;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ConfigStoreSetting
+//
+
+@implementation GTLRDataflow_ConfigStoreSetting
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ConfigStoreSettingValue
+//
+
+@implementation GTLRDataflow_ConfigStoreSettingValue
+@dynamic boolValue, stringValue;
 @end
 
 
@@ -778,6 +808,15 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_DynamicSourceSplit
 @dynamic primary, residual;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_Empty
+//
+
+@implementation GTLRDataflow_Empty
 @end
 
 
@@ -1666,6 +1705,28 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_ListConfigStoreSettingsResponse
+//
+
+@implementation GTLRDataflow_ListConfigStoreSettingsResponse
+@dynamic configStoreSettings, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configStoreSettings" : [GTLRDataflow_ConfigStoreSetting class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"configStoreSettings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_ListJobMessagesResponse
 //
 
@@ -1963,6 +2024,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_Parameters
+//
+
+@implementation GTLRDataflow_Parameters
+@dynamic cpuUtilizationTarget, latencyTarget, maxWorkerCount, minWorkerCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_ParDoInstruction
 //
 
@@ -2254,6 +2325,33 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_ResolveConfigStoreSettingRequest
+//
+
+@implementation GTLRDataflow_ResolveConfigStoreSettingRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ResolveConfigStoreSettingResponse
+//
+
+@implementation GTLRDataflow_ResolveConfigStoreSettingResponse
+@dynamic choices, setting;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"choices" : [GTLRDataflow_ConfigStoreSetting class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_ResourceUtilizationReport
 //
 
@@ -2361,7 +2459,15 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_RuntimeUpdatableParams
 @dynamic acceptableBacklogDuration, autoscalingTier, latencyTier, maxNumWorkers,
-         minNumWorkers, workerUtilizationHint;
+         minNumWorkers, schedules, workerUtilizationHint;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedules" : [GTLRDataflow_AutoscalingSchedule class]
+  };
+  return map;
+}
+
 @end
 
 

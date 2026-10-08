@@ -22,6 +22,11 @@ NSString * const kGTLRParameterManager_Parameter_Format_ParameterFormatUnspecifi
 NSString * const kGTLRParameterManager_Parameter_Format_Unformatted = @"UNFORMATTED";
 NSString * const kGTLRParameterManager_Parameter_Format_Yaml   = @"YAML";
 
+// GTLRParameterManager_ParameterVersion.checksumSource
+NSString * const kGTLRParameterManager_ParameterVersion_ChecksumSource_ChecksumSourceUnspecified = @"CHECKSUM_SOURCE_UNSPECIFIED";
+NSString * const kGTLRParameterManager_ParameterVersion_ChecksumSource_ServerGenerated = @"SERVER_GENERATED";
+NSString * const kGTLRParameterManager_ParameterVersion_ChecksumSource_UserSpecified = @"USER_SPECIFIED";
+
 // GTLRParameterManager_RenderTemplateVersionResponse.templateFormat
 NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatJson = @"TEMPLATE_FORMAT_JSON";
 NSString * const kGTLRParameterManager_RenderTemplateVersionResponse_TemplateFormat_TemplateFormatUnspecified = @"TEMPLATE_FORMAT_UNSPECIFIED";
@@ -199,7 +204,8 @@ NSString * const kGTLRParameterManager_Template_Format_TemplateFormatYaml = @"TE
 //
 
 @implementation GTLRParameterManager_Parameter
-@dynamic createTime, format, kmsKey, labels, name, policyMember, updateTime;
+@dynamic createTime, format, kmsKey, labels, name, policyMember, tags,
+         updateTime;
 @end
 
 
@@ -219,11 +225,26 @@ NSString * const kGTLRParameterManager_Template_Format_TemplateFormatYaml = @"TE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRParameterManager_Parameter_Tags
+//
+
+@implementation GTLRParameterManager_Parameter_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRParameterManager_ParameterVersion
 //
 
 @implementation GTLRParameterManager_ParameterVersion
-@dynamic createTime, disabled, kmsKeyVersion, name, payload, updateTime;
+@dynamic checksumSource, createTime, disabled, kmsKeyVersion, name, payload,
+         updateTime;
 @end
 
 
@@ -233,7 +254,7 @@ NSString * const kGTLRParameterManager_Template_Format_TemplateFormatYaml = @"TE
 //
 
 @implementation GTLRParameterManager_ParameterVersionPayload
-@dynamic data;
+@dynamic data, dataCrc32c;
 @end
 
 

@@ -1026,7 +1026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *  If not provided, a system generated id will be used. This value should be
  *  4-500 characters, overall resource name which will be of format
  *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/operations/{operation}`,
- *  its length is limited to 700 characters, and valid characters are
+ *  its length is limited to 1000 characters, and valid characters are
  *  /a-z[0-9]-_/.
  */
 @property(nonatomic, copy, nullable) NSString *apiOperationId;
@@ -1060,7 +1060,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 /**
  *  Delete an operation in an API version and we can delete only the operations
  *  created via create API. If the operation was created by parsing the spec,
- *  then it can be deleted by editing or deleting the spec.
+ *  then it can be deleted by editing or deleting the spec. Deleting an
+ *  operation will also remove any links between the operation and deployments.
  *
  *  Method: apihub.projects.locations.apis.versions.operations.delete
  *
@@ -1081,7 +1082,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *
  *  Delete an operation in an API version and we can delete only the operations
  *  created via create API. If the operation was created by parsing the spec,
- *  then it can be deleted by editing or deleting the spec.
+ *  then it can be deleted by editing or deleting the spec. Deleting an
+ *  operation will also remove any links between the operation and deployments.
  *
  *  @param name Required. The name of the operation resource to delete. Format:
  *    `projects/{project}/locations/{location}/apis/{api}/versions/{version}/operations/{operation}`
@@ -1427,7 +1429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 
 /**
  *  Delete a spec. Deleting a spec will also delete the associated operations
- *  from the version.
+ *  from the version and remove any links between the spec and deployments.
  *
  *  Method: apihub.projects.locations.apis.versions.specs.delete
  *
@@ -1447,7 +1449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
  *  Fetches a @c GTLRAPIhub_Empty.
  *
  *  Delete a spec. Deleting a spec will also delete the associated operations
- *  from the version.
+ *  from the version and remove any links between the spec and deployments.
  *
  *  @param name Required. The name of the spec to delete. Format:
  *    `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}`
@@ -2599,7 +2601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 @end
 
 /**
- *  Delete a deployment resource in the API hub.
+ *  Deletes a deployment resource in the API hub. A deployment can only be
+ *  deleted after its links to any versions, specs, and API operations have been
+ *  removed.
  *
  *  Method: apihub.projects.locations.deployments.delete
  *
@@ -2618,7 +2622,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 /**
  *  Fetches a @c GTLRAPIhub_Empty.
  *
- *  Delete a deployment resource in the API hub.
+ *  Deletes a deployment resource in the API hub. A deployment can only be
+ *  deleted after its links to any versions, specs, and API operations have been
+ *  removed.
  *
  *  @param name Required. The name of the deployment resource to delete. Format:
  *    `projects/{project}/locations/{location}/deployments/{deployment}`

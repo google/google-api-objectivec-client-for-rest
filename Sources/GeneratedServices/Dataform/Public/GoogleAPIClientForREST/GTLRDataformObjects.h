@@ -22,6 +22,8 @@
 @class GTLRDataform_ActionSqlDefinition;
 @class GTLRDataform_Assertion;
 @class GTLRDataform_BigQueryAction;
+@class GTLRDataform_BigQueryUnitTest;
+@class GTLRDataform_BigQueryUnitTestAction;
 @class GTLRDataform_Binding;
 @class GTLRDataform_CodeCompilationConfig;
 @class GTLRDataform_CodeCompilationConfig_Vars;
@@ -40,6 +42,8 @@
 @class GTLRDataform_DeleteFile;
 @class GTLRDataform_DirectoryEntry;
 @class GTLRDataform_DirectorySearchResult;
+@class GTLRDataform_EndUserAuthConfig;
+@class GTLRDataform_EndUserAuthenticationConfig;
 @class GTLRDataform_ErrorTable;
 @class GTLRDataform_Expr;
 @class GTLRDataform_FileOperation;
@@ -47,6 +51,8 @@
 @class GTLRDataform_FilesystemEntryMetadata;
 @class GTLRDataform_Folder;
 @class GTLRDataform_FolderContentsEntry;
+@class GTLRDataform_GcsRepositorySnapshotDestination;
+@class GTLRDataform_GcsRepositorySnapshotMetadata;
 @class GTLRDataform_GitRemoteSettings;
 @class GTLRDataform_IncrementalLoadMode;
 @class GTLRDataform_IncrementalTableConfig;
@@ -59,10 +65,12 @@
 @class GTLRDataform_Notebook;
 @class GTLRDataform_NotebookAction;
 @class GTLRDataform_NotebookRuntimeOptions;
+@class GTLRDataform_OAuthConfig;
 @class GTLRDataform_Operation;
 @class GTLRDataform_Operation_Metadata;
 @class GTLRDataform_Operation_Response;
 @class GTLRDataform_Operations;
+@class GTLRDataform_PipelineConfig;
 @class GTLRDataform_Policy;
 @class GTLRDataform_PolicyName;
 @class GTLRDataform_PrivateResourceMetadata;
@@ -169,6 +177,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_T
 FOUNDATION_EXTERN NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_Valid;
 
 // ----------------------------------------------------------------------------
+// GTLRDataform_InvocationConfig.executionMode
+
+/**
+ *  Run all actions except unit tests.
+ *
+ *  Value: "ALL_EXCEPT_UNIT_TESTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_AllExceptUnitTests;
+/**
+ *  Default execution mode, which runs all actions except unit tests. Same as
+ *  ALL_EXCEPT_UNIT_TESTS.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_Default;
+/**
+ *  Default value.
+ *
+ *  Value: "EXECUTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_ExecutionModeUnspecified;
+/**
+ *  Run unit tests only.
+ *
+ *  Value: "UNIT_TESTS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_UnitTestsOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRDataform_InvocationConfig.queryPriority
 
 /**
@@ -193,6 +230,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_QueryPriority_
  *  Value: "QUERY_PRIORITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_QueryPriority_QueryPriorityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataform_PipelineConfig.pipelineType
+
+/**
+ *  Regular Dataform pipeline.
+ *
+ *  Value: "DATAFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_PipelineConfig_PipelineType_Dataform;
+/**
+ *  Notebook single file asset.
+ *
+ *  Value: "NOTEBOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_PipelineConfig_PipelineType_Notebook;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "PIPELINE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_PipelineConfig_PipelineType_PipelineTypeUnspecified;
+/**
+ *  SQL single file asset.
+ *
+ *  Value: "SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_PipelineConfig_PipelineType_Sql;
 
 // ----------------------------------------------------------------------------
 // GTLRDataform_Relation.fileFormat
@@ -521,6 +586,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Represents a BigQuery unit test.
+ */
+@interface GTLRDataform_BigQueryUnitTest : GTLRObject
+
+/** A list of actions that this action depends on. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_Target *> *dependencyTargets;
+
+/**
+ *  Whether this action is disabled (i.e. should not be run).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** The name of the unit test. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Expected output query to compare against the test query. */
+@property(nonatomic, copy, nullable) NSString *expectedOutputQuery;
+
+/** Arbitrary, user-defined tags on this action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/** Test query to execute. */
+@property(nonatomic, copy, nullable) NSString *testQuery;
+
+@end
+
+
+/**
+ *  Represents a workflow action that will run a BigQuery unit test.
+ */
+@interface GTLRDataform_BigQueryUnitTestAction : GTLRObject
+
+/** Output only. Job ID for the actual results. */
+@property(nonatomic, copy, nullable) NSString *actualResultsJobId;
+
+/** Output only. SQL script for the actual results. */
+@property(nonatomic, copy, nullable) NSString *actualResultsSqlScript;
+
+/** Output only. Job ID for the expected results. */
+@property(nonatomic, copy, nullable) NSString *expectedResultsJobId;
+
+/** Output only. SQL script for the expected results. */
+@property(nonatomic, copy, nullable) NSString *expectedResultsSqlScript;
+
+/**
+ *  Output only. Total bytes billed for this action. Combined total for actual
+ *  and expected jobs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalBilledBytes;
+
+/**
+ *  Output only. Total bytes processed for this action. Combined total for
+ *  actual and expected jobs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalProcessedBytes;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRDataform_Binding : GTLRObject
@@ -659,6 +790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Optional. The default schema (BigQuery dataset ID). */
 @property(nonatomic, copy, nullable) NSString *defaultSchema;
+
+/**
+ *  Optional. The pipeline options which defines the pipeline type and path
+ *  within the Git repository.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_PipelineConfig *pipelineConfig;
 
 /**
  *  Optional. The suffix that should be appended to all schema (BigQuery dataset
@@ -890,6 +1027,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *dataformCoreVersion;
 
 /**
+ *  Output only. Metadata about the repository snapshot used by scheduled
+ *  notebooks.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_GcsRepositorySnapshotMetadata *gcsRepositorySnapshotMetadata;
+
+/**
  *  Immutable. Git commit/tag/branch name at which the repository should be
  *  compiled. Must exist in the remote repository. Examples: - a commit SHA:
  *  `12ade345` - a tag: `tag1` - a branch name: `branch1`
@@ -941,6 +1084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** The assertion executed by this action. */
 @property(nonatomic, strong, nullable) GTLRDataform_Assertion *assertion;
+
+/** The unit test executed by this action. */
+@property(nonatomic, strong, nullable) GTLRDataform_BigQueryUnitTest *bigqueryUnitTest;
 
 /**
  *  The action's identifier if the project had been compiled without any
@@ -1220,6 +1366,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Includes configuration options for repository end user authentication.
+ */
+@interface GTLRDataform_EndUserAuthConfig : GTLRObject
+
+/** Optional. OAuth configuration for repository end user authentication. */
+@property(nonatomic, strong, nullable) GTLRDataform_OAuthConfig *oauthConfig;
+
+@end
+
+
+/**
+ *  Includes configuration options for end user authentication.
+ */
+@interface GTLRDataform_EndUserAuthenticationConfig : GTLRObject
+
+/** Optional. OAuth configuration for end user authentication. */
+@property(nonatomic, strong, nullable) GTLRDataform_OAuthConfig *oauthConfig;
+
+/**
+ *  Output only. Email address of the user to run workflow invocations under.
+ */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+@end
+
+
+/**
  *  Error table information, used to write error data into a BigQuery table.
  */
 @interface GTLRDataform_ErrorTable : GTLRObject
@@ -1390,7 +1563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_FileSearchResult : GTLRObject
 
-/** File system path relative to the workspace root. */
+/** File system path relative to the file tree root. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 @end
@@ -1472,6 +1645,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** A repository. */
 @property(nonatomic, strong, nullable) GTLRDataform_Repository *repository;
+
+@end
+
+
+/**
+ *  Configures the destination for a repository snapshot.
+ */
+@interface GTLRDataform_GcsRepositorySnapshotDestination : GTLRObject
+
+/**
+ *  Optional. The Google Cloud Storage destination to upload the repository
+ *  snapshot to. Format: `gs://bucket-name/path/`.
+ */
+@property(nonatomic, copy, nullable) NSString *repositorySnapshotUri;
+
+@end
+
+
+/**
+ *  Metadata about a repository snapshot stored in Google Cloud Storage.
+ */
+@interface GTLRDataform_GcsRepositorySnapshotMetadata : GTLRObject
+
+/**
+ *  Output only. The crc32c checksum of the repository snapshot, big-endian
+ *  base64 encoded.
+ */
+@property(nonatomic, copy, nullable) NSString *crc32cChecksum;
+
+/**
+ *  Output only. The generation number of the Cloud Storage object. See
+ *  https://cloud.google.com/storage/docs/metadata#generation-number.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/** Output only. The Google Cloud Storage URI of the repository snapshot. */
+@property(nonatomic, copy, nullable) NSString *repositorySnapshotUri;
 
 @end
 
@@ -1618,6 +1830,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  `InstallNpmPackages` request message.
  */
 @interface GTLRDataform_InstallNpmPackagesRequest : GTLRObject
+
+/**
+ *  Optional. The pipeline options which defines the pipeline type and path
+ *  within the Git repository.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_PipelineConfig *pipelineConfig;
+
 @end
 
 
@@ -1657,6 +1876,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  included.
  */
 @interface GTLRDataform_InvocationConfig : GTLRObject
+
+/**
+ *  Optional. Configuration for end user authentication. Note that this should
+ *  not be set when `service_account` is used.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_EndUserAuthenticationConfig *endUserAuthConfig;
+
+/**
+ *  Optional. Specifies the execution mode for the workflow invocation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataform_InvocationConfig_ExecutionMode_AllExceptUnitTests
+ *        Run all actions except unit tests. (Value: "ALL_EXCEPT_UNIT_TESTS")
+ *    @arg @c kGTLRDataform_InvocationConfig_ExecutionMode_Default Default
+ *        execution mode, which runs all actions except unit tests. Same as
+ *        ALL_EXCEPT_UNIT_TESTS. (Value: "DEFAULT")
+ *    @arg @c kGTLRDataform_InvocationConfig_ExecutionMode_ExecutionModeUnspecified
+ *        Default value. (Value: "EXECUTION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDataform_InvocationConfig_ExecutionMode_UnitTestsOnly Run
+ *        unit tests only. (Value: "UNIT_TESTS_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *executionMode;
 
 /**
  *  Optional. When set to true, any incremental tables will be fully refreshed.
@@ -2177,6 +2418,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /** Output only. The code contents of a Notebook to be run. */
 @property(nonatomic, copy, nullable) NSString *contents;
 
+/** Output only. The path to the notebook file in the repository. */
+@property(nonatomic, copy, nullable) NSString *filePath;
+
 /**
  *  Output only. The ID of the Gemini Enterprise Agent Platform job that
  *  executed the notebook in contents and also the ID used for the outputs
@@ -2206,6 +2450,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  `gs://bucket-name`.
  */
 @property(nonatomic, copy, nullable) NSString *gcsOutputBucket;
+
+/**
+ *  Optional. The Google Cloud Storage destination to upload the snapshot to.
+ *  For empty URI it defaults to the provided gcs_output_bucket. Format:
+ *  `gs://bucket-name/path/`.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_GcsRepositorySnapshotDestination *gcsRepositorySnapshotDestination;
+
+@end
+
+
+/**
+ *  OAuth configuration for end user authentication.
+ */
+@interface GTLRDataform_OAuthConfig : GTLRObject
+
+/**
+ *  Optional. Additional OAuth scopes to use for BigQuery executions. Scopes
+ *  always in use: `https://www.googleapis.com/auth/bigquery`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalOauthScopes;
 
 @end
 
@@ -2363,6 +2628,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Arbitrary, user-defined tags on this action. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
+ *  Defines the pipeline type and path within the Git repository.
+ */
+@interface GTLRDataform_PipelineConfig : GTLRObject
+
+/**
+ *  Required. The relative path within the Git repository where the pipeline is
+ *  defined. For example, for a Dataform pipeline, it is a path to the folder
+ *  where `workflow_settings.yaml` or `dataform.json` is located.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Required. The type of the pipeline.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataform_PipelineConfig_PipelineType_Dataform Regular
+ *        Dataform pipeline. (Value: "DATAFORM")
+ *    @arg @c kGTLRDataform_PipelineConfig_PipelineType_Notebook Notebook single
+ *        file asset. (Value: "NOTEBOOK")
+ *    @arg @c kGTLRDataform_PipelineConfig_PipelineType_PipelineTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "PIPELINE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataform_PipelineConfig_PipelineType_Sql SQL single file
+ *        asset. (Value: "SQL")
+ */
+@property(nonatomic, copy, nullable) NSString *pipelineType;
 
 @end
 
@@ -3009,9 +3305,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Optional. Specifies the time zone to be used when interpreting
- *  cron_schedule. Must be a time zone name from the time zone database
- *  (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left
- *  unspecified, the default is UTC.
+ *  cron_schedule. Must be a time zone name from the [time zone
+ *  database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If
+ *  left unspecified, the default is `UTC`.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -3084,6 +3380,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Optional. The repository's user-friendly name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. Includes configuration options for end user authentication. */
+@property(nonatomic, strong, nullable) GTLRDataform_EndUserAuthConfig *endUserAuthConfig;
 
 /**
  *  Optional. If set, configures this repository to be linked to a Git remote.
@@ -3616,9 +3915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Optional. Specifies the time zone to be used when interpreting
- *  cron_schedule. Must be a time zone name from the time zone database
- *  (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left
- *  unspecified, the default is UTC.
+ *  cron_schedule. Must be a time zone name from the [time zone
+ *  database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If
+ *  left unspecified, the default is `UTC`.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -3658,6 +3957,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Output only. The workflow invocation's name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The pipeline options which defines the pipeline type and path
+ *  within the Git repository.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_PipelineConfig *pipelineConfig;
 
 /**
  *  Output only. Metadata indicating whether this resource is user-scoped.
@@ -3709,6 +4014,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Output only. The workflow action's bigquery action details. */
 @property(nonatomic, strong, nullable) GTLRDataform_BigQueryAction *bigqueryAction;
+
+/** Output only. The workflow action's unit test details. */
+@property(nonatomic, strong, nullable) GTLRDataform_BigQueryUnitTestAction *bigqueryUnitTestAction;
 
 /**
  *  Output only. The action's identifier if the project had been compiled

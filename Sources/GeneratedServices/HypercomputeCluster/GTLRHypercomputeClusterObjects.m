@@ -24,6 +24,7 @@ NSString * const kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClas
 NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Archive = @"ARCHIVE";
 NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Coldline = @"COLDLINE";
 NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Nearline = @"NEARLINE";
+NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Rapid = @"RAPID";
 NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Standard = @"STANDARD";
 NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_StorageClassUnspecified = @"STORAGE_CLASS_UNSPECIFIED";
 
@@ -93,7 +94,7 @@ NSString * const kGTLRHypercomputeCluster_OperationStep_State_Waiting = @"WAITIN
 
 @implementation GTLRHypercomputeCluster_Cluster
 @dynamic computeResources, createTime, descriptionProperty, labels, name,
-         networkResources, orchestrator, reconciling, storageResources,
+         networkResources, orchestrator, reconciling, storageResources, uid,
          updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

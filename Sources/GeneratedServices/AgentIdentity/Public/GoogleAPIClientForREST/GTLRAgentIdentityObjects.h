@@ -45,31 +45,31 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAgentIdentity_AccessSummary.authProviderType
 
 /**
- *  API Key auth-provider type.
+ *  API key auth provider type.
  *
  *  Value: "AUTH_PROVIDER_TYPE_API_KEY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeApiKey;
 /**
- *  Gemini Enterprise auth-provider type.
+ *  Gemini Enterprise auth provider type.
  *
  *  Value: "AUTH_PROVIDER_TYPE_GEMINI_ENTERPRISE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeGeminiEnterprise;
 /**
- *  Three Legged OAuth auth-provider type.
+ *  3-legged OAuth (3LO) auth provider type.
  *
  *  Value: "AUTH_PROVIDER_TYPE_THREE_LEGGED_OAUTH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeThreeLeggedOauth;
 /**
- *  Two Legged OAuth auth-provider type.
+ *  2-legged OAuth (2LO) auth provider type.
  *
  *  Value: "AUTH_PROVIDER_TYPE_TWO_LEGGED_OAUTH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeTwoLeggedOauth;
 /**
- *  Unspecified auth-provider type.
+ *  Unspecified auth provider type.
  *
  *  Value: "AUTH_PROVIDER_TYPE_UNSPECIFIED"
  */
@@ -148,53 +148,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_Enabled
 FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUnspecified;
 
 /**
- *  Message describing AccessSummary object
+ *  Represents an access summary.
  */
 @interface GTLRAgentIdentity_AccessSummary : GTLRObject
 
 /**
- *  Output only. The auth_provider that this access summary is associated with.
+ *  Output only. The auth provider that this access summary is associated with.
  */
 @property(nonatomic, copy, nullable) NSString *authProvider;
 
 /**
- *  Output only. The type of the connector that was used to create this access
- *  summary.
+ *  Output only. The auth provider type used to create this access summary.
  *
  *  Likely values:
  *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeApiKey
- *        API Key auth-provider type. (Value: "AUTH_PROVIDER_TYPE_API_KEY")
+ *        API key auth provider type. (Value: "AUTH_PROVIDER_TYPE_API_KEY")
  *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeGeminiEnterprise
- *        Gemini Enterprise auth-provider type. (Value:
+ *        Gemini Enterprise auth provider type. (Value:
  *        "AUTH_PROVIDER_TYPE_GEMINI_ENTERPRISE")
  *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeThreeLeggedOauth
- *        Three Legged OAuth auth-provider type. (Value:
+ *        3-legged OAuth (3LO) auth provider type. (Value:
  *        "AUTH_PROVIDER_TYPE_THREE_LEGGED_OAUTH")
  *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeTwoLeggedOauth
- *        Two Legged OAuth auth-provider type. (Value:
+ *        2-legged OAuth (2LO) auth provider type. (Value:
  *        "AUTH_PROVIDER_TYPE_TWO_LEGGED_OAUTH")
  *    @arg @c kGTLRAgentIdentity_AccessSummary_AuthProviderType_AuthProviderTypeUnspecified
- *        Unspecified auth-provider type. (Value:
+ *        Unspecified auth provider type. (Value:
  *        "AUTH_PROVIDER_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *authProviderType;
 
 /**
- *  Output only. The first time this user has interacted with this workload.
- *  Rounded to the previous hour.
+ *  Output only. The first time this user interacted with this workload, rounded
+ *  to the previous hour.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *firstAccessTime;
 
-/** Optional. Labels as key value pairs */
+/** Optional. Labels as key-value pairs. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_AccessSummary_Labels *labels;
 
 /**
- *  Output only. The most recent time this user has interacted with this
- *  workload. Rounded to the previous hour.
+ *  Output only. The most recent time this user interacted with this workload,
+ *  rounded to the previous hour.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastAccessTime;
 
-/** Output only. Identifier. Name of the AccessSummary */
+/** Output only. Identifier. The resource name of the access summary. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. The time when this access summary is permanently deleted. */
@@ -206,18 +205,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
-/** Output only. The url of the authentication server that was accessed. */
+/** Output only. The URL of the authentication server that was accessed. */
 @property(nonatomic, copy, nullable) NSString *tokenUrl;
 
 /**
- *  Output only. The user_id provided by the workload application for this user.
+ *  Output only. The user ID provided by the workload application for this user.
  *  Not verified by Google.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Output only. The identity bound to the workload that this user interacted
- *  with to produce this AccessSummary. Will typically be an agentic spiffe id
+ *  with to produce this access summary. Typically an agentic SPIFFE ID.
  */
 @property(nonatomic, copy, nullable) NSString *workloadId;
 
@@ -225,7 +224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Optional. Labels as key value pairs
+ *  Optional. Labels as key-value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -237,11 +236,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message describing ApiKeyParams object.
+ *  Configuration for API key authentication.
  */
 @interface GTLRAgentIdentity_ApiKeyParams : GTLRObject
 
-/** Optional. Input only. The API key for this auth_provider. */
+/** Optional. Input only. The API key for this auth provider. */
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 @end
@@ -314,20 +313,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message describing Authorization object
+ *  Represents an authorization.
  */
 @interface GTLRAgentIdentity_Authorization : GTLRObject
 
 /**
- *  Output only. The client_user_id provided by the client application for their
+ *  Output only. The client user ID provided by the client application for their
  *  end user. Not verified by Google.
  */
 @property(nonatomic, copy, nullable) NSString *clientUserId;
 
-/** Output only. [Output only] Create time stamp */
+/** Output only. The creation timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Identifier. name of resource */
+/** Identifier. The resource name of the authorization. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -349,43 +348,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. [Output only] Update time stamp */
+/** Output only. The update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Message describing AuthProvider object
+ *  Represents an auth provider.
  */
 @interface GTLRAgentIdentity_AuthProvider : GTLRObject
 
 /**
- *  Optional. List of scopes that are allowed to be requested for this
- *  auth_provider. If this list is non-empty, only scopes within this list may
- *  be requested. If this list is empty, all scopes may be requested. Scopes
+ *  Optional. List of scopes that are allowed to be requested for this auth
+ *  provider. If this list is non-empty, only scopes within this list may be
+ *  requested. If this list is empty, all scopes may be requested. Scopes
  *  appearing in `blocked_scopes` are disallowed even if they appear in
  *  `allowed_scopes`. The number of allowed scopes is limited to 200.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedScopes;
 
-/** Required. AuthProvider type specific parameters. */
+/** Required. Parameters specific to the auth provider type. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_AuthProviderTypeParams *authProviderTypeParams;
 
 /**
- *  Optional. List of scopes that are blocked from being requested for this
- *  auth_provider. If a scope appears in this list, it will not be requested,
- *  even if it also appears in `allowed_scopes`. `blocked_scopes` takes
- *  precedence over `allowed_scopes`. The number of blocked scopes is limited to
- *  200.
+ *  Optional. List of scopes that are blocked from being requested for this auth
+ *  provider. If a scope appears in this list, it will not be requested, even if
+ *  it also appears in `allowed_scopes`. `blocked_scopes` takes precedence over
+ *  `allowed_scopes`. The number of blocked scopes is limited to 200.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blockedScopes;
 
-/** Output only. [Output only] Create time stamp */
+/** Output only. The creation timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. This is set to true if the auth_provider is deleted.
+ *  Output only. Set to `true` if the auth provider is deleted.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -398,20 +396,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Output only. The time when the auth_provider will expire. */
+/** Output only. The time when the auth provider will expire. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
-/** Optional. Labels as key value pairs */
+/** Optional. Labels as key-value pairs. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_AuthProvider_Labels *labels;
 
 /**
- *  Identifier. The full resource name of the auth_provider. Format:
+ *  Identifier. The full resource name of the auth provider. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The state of the auth_provider.
+ *  Output only. The state of the auth provider.
  *
  *  Likely values:
  *    @arg @c kGTLRAgentIdentity_AuthProvider_State_Disabled Disabled and cannot
@@ -423,12 +421,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. [Output only] Update time stamp */
+/** Output only. The update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Optional. Input only. Represents the workload identity in IAM `principal://`
- *  format of the agent(s) that will use this AuthProvider. Example:
+ *  Optional. Input only. Identifiers for the agents that will use this auth
+ *  provider, starting with `principal://`. For example:
  *  `principal://agents.global.org-${ORG_ID}.system.id.goog/resources/aiplatform/projects/{PROJECT_ID}/locations/{LOCATIONS}/reasoningEngines/{ID}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *workloadIds;
@@ -437,7 +435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Optional. Labels as key value pairs
+ *  Optional. Labels as key-value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -449,21 +447,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  AuthProvider type specific parameters. Required when creating an
- *  auth_provider.
+ *  Required. Parameters specific to the auth provider type.
  */
 @interface GTLRAgentIdentity_AuthProviderTypeParams : GTLRObject
 
-/** ApiKey AuthProvider type parameters. */
+/** Parameters for API key authentication. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_ApiKeyParams *apiKey;
 
-/** GeminiEnterprise auth_provider type parameters. */
+/** Parameters for Gemini Enterprise authentication. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_GeminiEnterpriseAuthProviderParams *geAuthProvider;
 
-/** ThreeLeggedOAuth AuthProvider type parameters. */
+/** Parameters for 3-legged OAuth (3LO) authentication. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_ThreeLeggedOAuth *threeLeggedOauth;
 
-/** TwoLeggedOAuth AuthProvider type parameters. */
+/** Parameters for 2-legged OAuth (2LO) authentication. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentity_TwoLeggedOAuth *twoLeggedOauth;
 
 @end
@@ -556,7 +553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message for disabling an AuthProvider
+ *  Request message for `DisableAuthProvider`.
  */
 @interface GTLRAgentIdentity_DisableAuthProviderRequest : GTLRObject
 
@@ -584,7 +581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message for enabling an AuthProvider
+ *  Request message for `EnableAuthProvider`.
  */
 @interface GTLRAgentIdentity_EnableAuthProviderRequest : GTLRObject
 
@@ -651,14 +648,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message describing GeminiEnterpriseAuthProviderParams object.
+ *  Configuration for Gemini Enterprise authentication.
  */
 @interface GTLRAgentIdentity_GeminiEnterpriseAuthProviderParams : GTLRObject
 @end
 
 
 /**
- *  Message for response to listing AccessSummaries
+ *  Response message for `ListAccessSummaries`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "accessSummaries" property. If returned as the result of a query,
@@ -668,7 +665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 @interface GTLRAgentIdentity_ListAccessSummariesResponse : GTLRCollectionObject
 
 /**
- *  The list of AccessSummary
+ *  The list of access summaries.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -685,7 +682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message for response to listing Authorizations
+ *  Response message for `ListAuthorizations`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "authorizations" property. If returned as the result of a query,
@@ -695,7 +692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 @interface GTLRAgentIdentity_ListAuthorizationsResponse : GTLRCollectionObject
 
 /**
- *  The list of Authorization
+ *  The list of authorizations.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -712,7 +709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message for response to listing AuthProviders
+ *  Response message for `ListAuthProviders`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "authProviders" property. If returned as the result of a query, it
@@ -722,7 +719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 @interface GTLRAgentIdentity_ListAuthProvidersResponse : GTLRCollectionObject
 
 /**
- *  The list of AuthProvider
+ *  The list of auth providers.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -915,11 +912,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Response message for QueryAuthProviders.
+ *  Response message for `QueryAuthProviders`.
  */
 @interface GTLRAgentIdentity_QueryAuthProvidersResponse : GTLRObject
 
-/** The unique list of auth_provider resource names used by the workload. */
+/** The unique list of auth provider resource names used by the workload. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authProviderNames;
 
 /**
@@ -932,7 +929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Response message for QueryWorkloads.
+ *  Response message for `QueryWorkloads`.
  */
 @interface GTLRAgentIdentity_QueryWorkloadsResponse : GTLRObject
 
@@ -940,8 +937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The unique list of workload identifiers (agents) that used the
- *  auth_provider.
+ *  The unique list of identifiers for the agents that used this auth provider,
+ *  starting with `principal://`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *workloadIds;
 
@@ -949,7 +946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Request message for RevokeAuthorization.
+ *  Request message for `RevokeAuthorization`.
  */
 @interface GTLRAgentIdentity_RevokeAuthorizationRequest : GTLRObject
 
@@ -960,7 +957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Response message for RevokeAuthorization.
+ *  Response message for `RevokeAuthorization`.
  */
 @interface GTLRAgentIdentity_RevokeAuthorizationResponse : GTLRObject
 @end
@@ -1019,13 +1016,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message describing ThreeLeggedOAuth object.
+ *  Configuration for 3-legged OAuth (3LO) authentication.
  */
 @interface GTLRAgentIdentity_ThreeLeggedOAuth : GTLRObject
 
 /**
  *  Optional. The authorization endpoint to send users to for consenting to
- *  delegate to the agent. eg. "https://auth.atlassian.com/authorize"
+ *  delegate to the agent. For example, "https://auth.atlassian.com/authorize".
  */
 @property(nonatomic, copy, nullable) NSString *authorizationUrl;
 
@@ -1036,8 +1033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 @property(nonatomic, copy, nullable) NSString *clientSecret;
 
 /**
- *  Optional. The default continue URI for 3LO flow and it will be used when no
- *  continue URI is provided in the RetrieveCredentials request.
+ *  Optional. The default continue URI for the 3LO flow, used when no continue
+ *  URI is provided in the RetrieveCredentials request.
  */
 @property(nonatomic, copy, nullable) NSString *defaultContinueUri;
 
@@ -1050,14 +1047,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 @property(nonatomic, strong, nullable) NSNumber *enablePkce;
 
 /**
- *  Output only. The redirect URL this auth_provider uses for the OAuth
- *  exchange. This is deterministic based on the name of the auth_provider.
+ *  Output only. The redirect URL this auth provider uses for the OAuth
+ *  exchange. This is deterministic based on the name of the auth provider.
  */
 @property(nonatomic, copy, nullable) NSString *redirectUrl;
 
 /**
  *  Optional. The token endpoint for requesting tokens on behalf of an end user.
- *  eg. "https://auth.atlassian.com/oauth/token"
+ *  For example, "https://auth.atlassian.com/oauth/token".
  */
 @property(nonatomic, copy, nullable) NSString *tokenUrl;
 
@@ -1065,7 +1062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message describing TwoLeggedOAuth object.
+ *  Configuration for 2-legged OAuth (2LO) authentication.
  */
 @interface GTLRAgentIdentity_TwoLeggedOAuth : GTLRObject
 
@@ -1082,7 +1079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAgentIdentity_AuthProvider_State_StateUn
 
 
 /**
- *  Message for undeleting a AuthProvider
+ *  Request message for `UndeleteAuthProvider`.
  */
 @interface GTLRAgentIdentity_UndeleteAuthProviderRequest : GTLRObject
 

@@ -253,6 +253,20 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512;
 /**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemEcdhP384;
+/**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
  *
@@ -692,6 +706,20 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512;
 /**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemEcdhP384;
+/**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
  *
@@ -1037,6 +1065,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  Value: "CAVIUM_V1_COMPRESSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV1Compressed;
+/**
+ *  Cavium HSM attestation V209, introduced in Cavium's version 2.09-0702.
+ *
+ *  Value: "CAVIUM_V209"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV209;
 /**
  *  Cavium HSM attestation V2 compressed with gzip. This is a new format
  *  introduced in Cavium's version 3.2-08.
@@ -1507,6 +1541,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemEcdhP256
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemEcdhP384
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemXwing
  *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
@@ -1775,11 +1815,11 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Immutable. Field indicating that the key may be wrapped by a trusted key.
- *  This field can be set for all key purposes except ENCRYPT_DECRYPT, and is
- *  only valid for keys with protection level HSM_SINGLE_TENANT. This field can
- *  only be set at creation or import time via CreateCryptoKeyVersion, or
- *  ImportCryptoKeyVersion.
+ *  Optional. Immutable. Field indicating that the key may be wrapped by a
+ *  trusted key. This field can be set for all key purposes except
+ *  ENCRYPT_DECRYPT, and is only valid for keys with protection level
+ *  HSM_SINGLE_TENANT. This field can only be set at creation or import time via
+ *  CreateCryptoKeyVersion, or ImportCryptoKeyVersion.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1857,6 +1897,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemEcdhP256
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemEcdhP384
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemXwing
  *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
@@ -1988,9 +2034,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 /**
  *  Optional. The resource name of the backend environment where the key
  *  material of CryptoKeyVersions is associated with. Setting this field
- *  overrides the CryptoKeyBackend. This field may be set when CryptoKeyVersions
- *  is set to EXTERNAL_VPC. Format: `projects/ * /locations/ * /ekmConnections/
- *  *`.
+ *  overrides the crypto_key_backend. This field may be set when
+ *  CryptoKeyVersions is set to EXTERNAL_VPC. Format: `projects/ * /locations/ *
+ *  /ekmConnections/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *ekmConnectionBackendOverride;
 
@@ -2059,6 +2105,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        defined by Cavium and subject to change at any time. See
  *        https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/software-key-attestation.html.
  *        (Value: "CAVIUM_V1_COMPRESSED")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV209
+ *        Cavium HSM attestation V209, introduced in Cavium's version 2.09-0702.
+ *        (Value: "CAVIUM_V209")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV2Compressed
  *        Cavium HSM attestation V2 compressed with gzip. This is a new format
  *        introduced in Cavium's version 3.2-08. (Value: "CAVIUM_V2_COMPRESSED")

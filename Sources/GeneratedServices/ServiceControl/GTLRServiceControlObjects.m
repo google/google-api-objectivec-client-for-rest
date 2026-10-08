@@ -190,6 +190,16 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceControl_AuditPamBindingId
+//
+
+@implementation GTLRServiceControl_AuditPamBindingId
+@dynamic container, grantUuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceControl_Auth
 //
 
@@ -276,7 +286,8 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_AuthorizationInfo
-@dynamic granted, permission, permissionType, resource, resourceAttributes;
+@dynamic granted, permission, permissionType, privilegedAccessManagerMetadata,
+         resource, resourceAttributes;
 @end
 
 
@@ -457,6 +468,24 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 
 @implementation GTLRServiceControl_PolicyViolationInfo
 @dynamic orgPolicyViolationInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_PrivilegedAccessManagerMetadata
+//
+
+@implementation GTLRServiceControl_PrivilegedAccessManagerMetadata
+@dynamic pamBindingIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pamBindingIds" : [GTLRServiceControl_AuditPamBindingId class]
+  };
+  return map;
+}
+
 @end
 
 

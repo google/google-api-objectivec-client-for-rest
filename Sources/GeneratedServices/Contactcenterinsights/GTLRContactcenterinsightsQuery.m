@@ -14,12 +14,14 @@
 // qaScorecardSources
 NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceCustomerDefined = @"QA_SCORECARD_SOURCE_CUSTOMER_DEFINED";
 NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceDiscoveryEngine = @"QA_SCORECARD_SOURCE_DISCOVERY_ENGINE";
+NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceIntentTaxonomy = @"QA_SCORECARD_SOURCE_INTENT_TAXONOMY";
 NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceUnspecified = @"QA_SCORECARD_SOURCE_UNSPECIFIED";
 
 // view
 NSString * const kGTLRContactcenterinsightsViewBasic           = @"BASIC";
 NSString * const kGTLRContactcenterinsightsViewConversationViewUnspecified = @"CONVERSATION_VIEW_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
+NSString * const kGTLRContactcenterinsightsViewFullWithStructuredTranscript = @"FULL_WITH_STRUCTURED_TRANSCRIPT";
 
 // ----------------------------------------------------------------------------
 // Query Classes

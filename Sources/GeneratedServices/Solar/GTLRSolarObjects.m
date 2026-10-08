@@ -208,6 +208,30 @@ NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrientationUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSolar_Obstacle
+//
+
+@implementation GTLRSolar_Obstacle
+@dynamic polygonGeojson;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSolar_Obstacle_PolygonGeojson
+//
+
+@implementation GTLRSolar_Obstacle_PolygonGeojson
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSolar_Panel
 //
 
@@ -242,13 +266,14 @@ NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrientationUnspecified =
 @implementation GTLRSolar_Potential
 @dynamic buildingStats, carbonOffsetFactorKgPerMwh, financialAnalyses,
          maxArrayAreaMeters2, maxArrayPanelsCount, maxSunshineHoursPerYear,
-         panelCapacityWatts, panelHeightMeters, panelLifetimeYears,
+         obstacles, panelCapacityWatts, panelHeightMeters, panelLifetimeYears,
          panelWidthMeters, roofSegmentStats, solarPanelConfigs, solarPanels,
          wholeRoofStats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"financialAnalyses" : [GTLRSolar_FinancialAnalysis class],
+    @"obstacles" : [GTLRSolar_Obstacle class],
     @"roofSegmentStats" : [GTLRSolar_RoofSegmentSizeAndSunshineStats class],
     @"solarPanelConfigs" : [GTLRSolar_PanelConfig class],
     @"solarPanels" : [GTLRSolar_Panel class]
@@ -266,7 +291,21 @@ NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrientationUnspecified =
 
 @implementation GTLRSolar_RoofSegmentSizeAndSunshineStats
 @dynamic azimuthDegrees, boundingBox, center, pitchDegrees,
-         planeHeightAtCenterMeters, stats;
+         planeHeightAtCenterMeters, polygonGeojson, stats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSolar_RoofSegmentSizeAndSunshineStats_PolygonGeojson
+//
+
+@implementation GTLRSolar_RoofSegmentSizeAndSunshineStats_PolygonGeojson
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

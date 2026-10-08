@@ -22,8 +22,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Agent Platform Workbench Instances data and see the email address for your
+ *  Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/notebooks"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAIPlatformNotebooks;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.

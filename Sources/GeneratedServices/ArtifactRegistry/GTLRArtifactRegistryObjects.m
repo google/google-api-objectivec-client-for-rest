@@ -107,6 +107,7 @@ NSString * const kGTLRArtifactRegistry_PythonRepository_PublicRepository_Pypi = 
 
 // GTLRArtifactRegistry_Repository.format
 NSString * const kGTLRArtifactRegistry_Repository_Format_Apt   = @"APT";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Conda = @"CONDA";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Generic = @"GENERIC";
@@ -126,6 +127,10 @@ NSString * const kGTLRArtifactRegistry_Repository_Mode_ModeUnspecified = @"MODE_
 NSString * const kGTLRArtifactRegistry_Repository_Mode_RemoteRepository = @"REMOTE_REPOSITORY";
 NSString * const kGTLRArtifactRegistry_Repository_Mode_StandardRepository = @"STANDARD_REPOSITORY";
 NSString * const kGTLRArtifactRegistry_Repository_Mode_VirtualRepository = @"VIRTUAL_REPOSITORY";
+
+// GTLRArtifactRegistry_UploadFileRequest.fileType
+NSString * const kGTLRArtifactRegistry_UploadFileRequest_FileType_Artifact = @"ARTIFACT";
+NSString * const kGTLRArtifactRegistry_UploadFileRequest_FileType_Attachment = @"ATTACHMENT";
 
 // GTLRArtifactRegistry_VPCSCConfig.vpcscPolicy
 NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_Allow = @"ALLOW";
@@ -1674,7 +1679,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_UploadFileRequest
-@dynamic fileId;
+@dynamic fileId, fileType;
 @end
 
 
@@ -1703,7 +1708,21 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_UploadGenericArtifactRequest
-@dynamic filename, packageId, versionId;
+@dynamic filename, packageId, versionAnnotations, versionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadGenericArtifactRequest_VersionAnnotations
+//
+
+@implementation GTLRArtifactRegistry_UploadGenericArtifactRequest_VersionAnnotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

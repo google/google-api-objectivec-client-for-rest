@@ -172,6 +172,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Lists reader entitlements across parent publications via wildcard. - Returns
+ *  PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if
+ *  the reader does not exist.
+ *
+ *  Method: readerrevenuesubscriptionlinking.publications.-.readers.entitlements.list
+ */
+@interface GTLRSubscriptionLinkingQuery_PublicationsXReadersEntitlementsList : GTLRSubscriptionLinkingQuery
+
+/**
+ *  Optional. The maximum number of entitlements to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 entitlements will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListReaderEntitlements`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListReaderEntitlements` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent reader scope. Format:
+ *  "publications/-/readers/{reader_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSubscriptionLinking_ListReaderEntitlementsResponse.
+ *
+ *  Lists reader entitlements across parent publications via wildcard. - Returns
+ *  PERMISSION_DENIED if the caller does not have access. - Returns NOT_FOUND if
+ *  the reader does not exist.
+ *
+ *  @param parent Required. The parent reader scope. Format:
+ *    "publications/-/readers/{reader_id}"
+ *
+ *  @return GTLRSubscriptionLinkingQuery_PublicationsXReadersEntitlementsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

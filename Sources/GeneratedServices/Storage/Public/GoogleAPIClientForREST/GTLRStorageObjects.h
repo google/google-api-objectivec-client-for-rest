@@ -41,6 +41,7 @@
 @class GTLRStorage_Bucket_Owner;
 @class GTLRStorage_Bucket_RetentionPolicy;
 @class GTLRStorage_Bucket_SoftDeletePolicy;
+@class GTLRStorage_Bucket_SoftDeletePolicy_HardDeletePause;
 @class GTLRStorage_Bucket_Versioning;
 @class GTLRStorage_Bucket_Website;
 @class GTLRStorage_BucketAccessControl;
@@ -72,7 +73,12 @@
 @class GTLRStorage_ObjectAccessControl;
 @class GTLRStorage_ObjectAccessControl_ProjectTeam;
 @class GTLRStorage_ObjectCustomContextPayload;
+@class GTLRStorage_ObjectFullContext_ExtendedData;
 @class GTLRStorage_Policy_Bindings_Item;
+@class GTLRStorage_RapidCache;
+@class GTLRStorage_RapidCacheConfig;
+@class GTLRStorage_RapidCacheConfig_Policies;
+@class GTLRStorage_RapidCachePolicy;
 @class GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig;
 
 // Generated comments include content from the discovery document; avoid them
@@ -134,6 +140,34 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  *  Value: "NotRestricted"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted;
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_ObjectFullContext.type
+
+/**
+ *  Custom object context.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_ObjectFullContext_Type_Custom;
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_RapidCachePolicy.ingestOnWrite
+
+/**
+ *  Ingestion on write is explicitly enabled for the managed folder.
+ *
+ *  Value: "enabled"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_RapidCachePolicy_IngestOnWrite_Enabled;
+/**
+ *  Ingestion on write isn't specified at the managed folder level and is
+ *  inherited from the parent resource's configuration. This is the default
+ *  value.
+ *
+ *  Value: "unspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_RapidCachePolicy_IngestOnWrite_Unspecified;
 
 /**
  *  An AdvanceRelocateBucketOperation request.
@@ -800,6 +834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
 @property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
 
 /**
+ *  The bucket's hard delete pause configuration. If set, soft-deleted objects
+ *  in the bucket will not be permanently deleted until the hard delete pause is
+ *  disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_SoftDeletePolicy_HardDeletePause *hardDeletePause;
+
+/**
  *  The duration in seconds that soft-deleted objects in the bucket will be
  *  retained and cannot be permanently deleted.
  *
@@ -1038,6 +1079,29 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
 
 /** The condition(s) under which the action will be taken. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Lifecycle_Rule_Item_Condition *condition;
+
+@end
+
+
+/**
+ *  The bucket's hard delete pause configuration. If set, soft-deleted objects
+ *  in the bucket will not be permanently deleted until the hard delete pause is
+ *  disabled.
+ */
+@interface GTLRStorage_Bucket_SoftDeletePolicy_HardDeletePause : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which the hard delete
+ *  pause became effective. This value is in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  Whether hard deletions are paused.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1995,6 +2059,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The rapid cache configuration for the managed folder. */
+@property(nonatomic, strong, nullable) GTLRStorage_RapidCacheConfig *rapidCacheConfig;
+
 /** The link to this managed folder. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -2555,6 +2622,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
 /** The time at which the object context was created in RFC 3339 format. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** The type URL of the object context's extended data. */
+@property(nonatomic, copy, nullable) NSString *extendedDataTypeUrl;
+
 /**
  *  The time at which the object context was last updated in RFC 3339 format.
  */
@@ -2563,6 +2633,62 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
 /** The value of the object context. */
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  A full representation of an object context.
+ */
+@interface GTLRStorage_ObjectFullContext : GTLRObject
+
+/**
+ *  The time at which the object context was created. This value is in RFC 3339
+ *  format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The extended data of the object context. */
+@property(nonatomic, strong, nullable) GTLRStorage_ObjectFullContext_ExtendedData *extendedData;
+
+/** The key of the object context. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The kind of item this is. For ObjectFullContext, this is always
+ *  storage#objectFullContext.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The type of the object context.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_ObjectFullContext_Type_Custom Custom object context.
+ *        (Value: "CUSTOM")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The time at which the object context was last updated. This value is in RFC
+ *  3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The value of the object context. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The extended data of the object context.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStorage_ObjectFullContext_ExtendedData : GTLRObject
 @end
 
 
@@ -2716,6 +2842,167 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  *  a bucket with the OWNER role.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  A Rapid Cache instance.
+ */
+@interface GTLRStorage_RapidCache : GTLRObject
+
+/** The cache-level entry admission policy. */
+@property(nonatomic, copy, nullable) NSString *admissionPolicy;
+
+/** The name of the bucket containing this cache instance. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  The type of Rapid Cache this represents. Valid values include: "rapid-cache"
+ *  and "rapid-cache-ultra".
+ */
+@property(nonatomic, copy, nullable) NSString *cacheType;
+
+/** The creation time of the cache instance in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The ID of the resource, including the project number, bucket name and rapid
+ *  cache ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Specifies whether objects are ingested into the cache upon write.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ingestOnWrite;
+
+/**
+ *  The kind of item this is. For Rapid Cache, this is always
+ *  storage#rapidCache.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  True if the cache instance has an active Update long-running operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pendingUpdate;
+
+/** The ID of the Rapid cache instance. */
+@property(nonatomic, copy, nullable) NSString *rapidCacheId;
+
+/** The link to this cache instance. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** The current state of the cache instance. */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The TTL of all cache entries in whole seconds. e.g., "7200s". */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/**
+ *  The modification time of the cache instance metadata in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The zone in which the cache instance is running. For example, us-central1-a.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Configuration options for the rapid cache of a managed folder.
+ */
+@interface GTLRStorage_RapidCacheConfig : GTLRObject
+
+/**
+ *  A map of rapid cache IDs to the corresponding `RapidCachePolicy`
+ *  configurations for a managed folder.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_RapidCacheConfig_Policies *policies;
+
+@end
+
+
+/**
+ *  A map of rapid cache IDs to the corresponding `RapidCachePolicy`
+ *  configurations for a managed folder.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRStorage_RapidCachePolicy. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStorage_RapidCacheConfig_Policies : GTLRObject
+@end
+
+
+/**
+ *  The rapid cache policy configuration for a managed folder.
+ */
+@interface GTLRStorage_RapidCachePolicy : GTLRObject
+
+/**
+ *  The ingest-on-write policy for objects in the managed folder. When set to
+ *  `enabled`, objects are automatically ingested into the cache when they are
+ *  written to the managed folder.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_RapidCachePolicy_IngestOnWrite_Enabled Ingestion on
+ *        write is explicitly enabled for the managed folder. (Value: "enabled")
+ *    @arg @c kGTLRStorage_RapidCachePolicy_IngestOnWrite_Unspecified Ingestion
+ *        on write isn't specified at the managed folder level and is inherited
+ *        from the parent resource's configuration. This is the default value.
+ *        (Value: "unspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *ingestOnWrite;
+
+/** The unique identifier of the rapid cache. */
+@property(nonatomic, copy, nullable) NSString *rapidCacheId;
+
+@end
+
+
+/**
+ *  A list of Rapid Caches.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRStorage_RapidCaches : GTLRCollectionObject
+
+/**
+ *  The list of items.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_RapidCache *> *items;
+
+/**
+ *  The kind of item this is. For lists of Rapid Caches, this is always
+ *  storage#rapidCaches.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The continuation token, used to page through large result sets. Provide this
+ *  value in a subsequent request to return the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

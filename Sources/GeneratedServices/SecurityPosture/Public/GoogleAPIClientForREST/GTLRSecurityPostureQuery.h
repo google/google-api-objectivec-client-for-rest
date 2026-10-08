@@ -37,6 +37,107 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets information about a location.
+ *
+ *  Method: securityposture.organizations.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityPostureCloudPlatform
+ */
+@interface GTLRSecurityPostureQuery_OrganizationsLocationsGet : GTLRSecurityPostureQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityPosture_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRSecurityPostureQuery_OrganizationsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service. This
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
+ *
+ *  Method: securityposture.organizations.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityPostureCloudPlatform
+ */
+@interface GTLRSecurityPostureQuery_OrganizationsLocationsList : GTLRSecurityPostureQuery
+
+/**
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRSecurityPosture_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service. This
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRSecurityPostureQuery_OrganizationsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -934,107 +1035,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets information about a location.
- *
- *  Method: securityposture.projects.locations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeSecurityPostureCloudPlatform
- */
-@interface GTLRSecurityPostureQuery_ProjectsLocationsGet : GTLRSecurityPostureQuery
-
-/** Resource name for the location. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRSecurityPosture_Location.
- *
- *  Gets information about a location.
- *
- *  @param name Resource name for the location.
- *
- *  @return GTLRSecurityPostureQuery_ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists information about the supported locations for this service. This
- *  method lists locations based on the resource scope provided in the
- *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
- *  the method lists the public locations available to all projects. *
- *  **Project-specific locations**: If `name` follows the format
- *  `projects/{project}`, the method lists locations visible to that specific
- *  project. This includes public, private, or other project-specific locations
- *  enabled for the project. For gRPC and client library implementations, the
- *  resource name is passed as the `name` field. For direct service calls, the
- *  resource name is incorporated into the request path based on the specific
- *  service implementation and version.
- *
- *  Method: securityposture.projects.locations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeSecurityPostureCloudPlatform
- */
-@interface GTLRSecurityPostureQuery_ProjectsLocationsList : GTLRSecurityPostureQuery
-
-/**
- *  Optional. Do not use this field unless explicitly documented otherwise. This
- *  is primarily for internal usage.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
-
-/**
- *  A filter to narrow down results to a preferred subset. The filtering
- *  language accepts strings like `"displayName=tokyo"`, and is documented in
- *  more detail in [AIP-160](https://google.aip.dev/160).
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The resource that owns the locations collection, if applicable. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The maximum number of results to return. If not set, the service selects a
- *  default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A page token received from the `next_page_token` field in the response. Send
- *  that page token to receive the subsequent page.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRSecurityPosture_ListLocationsResponse.
- *
- *  Lists information about the supported locations for this service. This
- *  method lists locations based on the resource scope provided in the
- *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
- *  the method lists the public locations available to all projects. *
- *  **Project-specific locations**: If `name` follows the format
- *  `projects/{project}`, the method lists locations visible to that specific
- *  project. This includes public, private, or other project-specific locations
- *  enabled for the project. For gRPC and client library implementations, the
- *  resource name is passed as the `name` field. For direct service calls, the
- *  resource name is incorporated into the request path based on the specific
- *  service implementation and version.
- *
- *  @param name The resource that owns the locations collection, if applicable.
- *
- *  @return GTLRSecurityPostureQuery_ProjectsLocationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -26,6 +26,18 @@ NSString * const kGTLRThreatIntelligenceService_Alert_State_StateUnspecified = @
 NSString * const kGTLRThreatIntelligenceService_Alert_State_TrackedExternally = @"TRACKED_EXTERNALLY";
 NSString * const kGTLRThreatIntelligenceService_Alert_State_Triaged = @"TRIAGED";
 
+// GTLRThreatIntelligenceService_Alert.tags
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagMatchLoginEmailDomain = @"ALERT_TAG_MATCH_LOGIN_EMAIL_DOMAIN";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagMatchServiceDomain = @"ALERT_TAG_MATCH_SERVICE_DOMAIN";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasLowercase = @"ALERT_TAG_PASSWORD_HAS_LOWERCASE";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasNumber = @"ALERT_TAG_PASSWORD_HAS_NUMBER";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasSpecial = @"ALERT_TAG_PASSWORD_HAS_SPECIAL";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasUppercase = @"ALERT_TAG_PASSWORD_HAS_UPPERCASE";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordLength12Plus = @"ALERT_TAG_PASSWORD_LENGTH_12_PLUS";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordLength8To11 = @"ALERT_TAG_PASSWORD_LENGTH_8_TO_11";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordLengthUnder8 = @"ALERT_TAG_PASSWORD_LENGTH_UNDER_8";
+NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagUnspecified = @"ALERT_TAG_UNSPECIFIED";
+
 // GTLRThreatIntelligenceService_Association.type
 NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeCampaign = @"THREAT_INTEL_OBJECT_TYPE_CAMPAIGN";
 NSString * const kGTLRThreatIntelligenceService_Association_Type_ThreatIntelObjectTypeIocCollection = @"THREAT_INTEL_OBJECT_TYPE_IOC_COLLECTION";
@@ -42,12 +54,42 @@ NSString * const kGTLRThreatIntelligenceService_Configuration_State_Disabled = @
 NSString * const kGTLRThreatIntelligenceService_Configuration_State_Enabled = @"ENABLED";
 NSString * const kGTLRThreatIntelligenceService_Configuration_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRThreatIntelligenceService_CustomThreatScenarioConfig.scenarioType
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CardShops = @"CARD_SHOPS";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CustomMonitor = @"CUSTOM_MONITOR";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CustomThreatScenarioTypeUnspecified = @"CUSTOM_THREAT_SCENARIO_TYPE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DataLeaks = @"DATA_LEAKS";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DeepDarkWeb = @"DEEP_DARK_WEB";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DomainProtection = @"DOMAIN_PROTECTION";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_InitialAccessBroker = @"INITIAL_ACCESS_BROKER";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_NetblocksAndDomainMentions = @"NETBLOCKS_AND_DOMAIN_MENTIONS";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_RansomwareThreats = @"RANSOMWARE_THREATS";
+NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_SupplyChainCompromise = @"SUPPLY_CHAIN_COMPROMISE";
+
 // GTLRThreatIntelligenceService_DataLeakFindingDetail.severity
 NSString * const kGTLRThreatIntelligenceService_DataLeakFindingDetail_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRThreatIntelligenceService_DataLeakFindingDetail_Severity_High = @"HIGH";
 NSString * const kGTLRThreatIntelligenceService_DataLeakFindingDetail_Severity_Low = @"LOW";
 NSString * const kGTLRThreatIntelligenceService_DataLeakFindingDetail_Severity_Medium = @"MEDIUM";
 NSString * const kGTLRThreatIntelligenceService_DataLeakFindingDetail_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRThreatIntelligenceService_DocumentQuery.queryType
+NSString * const kGTLRThreatIntelligenceService_DocumentQuery_QueryType_Json = @"JSON";
+NSString * const kGTLRThreatIntelligenceService_DocumentQuery_QueryType_QueryTypeUnspecified = @"QUERY_TYPE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_DocumentQuery_QueryType_String = @"STRING";
+
+// GTLRThreatIntelligenceService_DomainMonitoringGtiDetails.verdict
+NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictBenign = @"DOMAIN_MONITORING_GTI_VERDICT_BENIGN";
+NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictMalicious = @"DOMAIN_MONITORING_GTI_VERDICT_MALICIOUS";
+NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictSuspicious = @"DOMAIN_MONITORING_GTI_VERDICT_SUSPICIOUS";
+NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUndetected = @"DOMAIN_MONITORING_GTI_VERDICT_UNDETECTED";
+NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUnknown = @"DOMAIN_MONITORING_GTI_VERDICT_UNKNOWN";
+NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUnspecified = @"DOMAIN_MONITORING_GTI_VERDICT_UNSPECIFIED";
+
+// GTLRThreatIntelligenceService_DomainSetting.state
+NSString * const kGTLRThreatIntelligenceService_DomainSetting_State_Pending = @"PENDING";
+NSString * const kGTLRThreatIntelligenceService_DomainSetting_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRThreatIntelligenceService_DomainSetting_State_Verified = @"VERIFIED";
 
 // GTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail.severity
 NSString * const kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_Critical = @"CRITICAL";
@@ -206,7 +248,7 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 @implementation GTLRThreatIntelligenceService_Alert
 @dynamic aiSummary, audit, configurations, detail, displayName, duplicatedBy,
          duplicateOf, ETag, externalId, findingCount, findings, name,
-         priorityAnalysis, relevanceAnalysis, severityAnalysis, state;
+         priorityAnalysis, relevanceAnalysis, severityAnalysis, state, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -216,7 +258,8 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
   NSDictionary<NSString *, Class> *map = @{
     @"configurations" : [NSString class],
     @"duplicatedBy" : [NSString class],
-    @"findings" : [NSString class]
+    @"findings" : [NSString class],
+    @"tags" : [NSString class]
   };
   return map;
 }
@@ -230,8 +273,8 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_AlertDetail
-@dynamic dataLeak, detailType, initialAccessBroker, insiderThreat,
-         targetTechnology;
+@dynamic dataLeak, detailType, domainMonitoring, initialAccessBroker,
+         insiderThreat, targetTechnology;
 @end
 
 
@@ -284,6 +327,45 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRThreatIntelligenceService_AVDetections
+//
+
+@implementation GTLRThreatIntelligenceService_AVDetections
+@dynamic detectedVendorCount, totalVendorCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_CertificateDetails
+//
+
+@implementation GTLRThreatIntelligenceService_CertificateDetails
+@dynamic issuer, subjectAlternativeNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjectAlternativeNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_CommunicationContext
+//
+
+@implementation GTLRThreatIntelligenceService_CommunicationContext
+@dynamic channelDescription, channelName, channelPath, channelUrl, serviceName,
+         threadId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRThreatIntelligenceService_Configuration
 //
 
@@ -308,7 +390,8 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_ConfigurationDetail
-@dynamic customerProfile, detailType, technologyWatchlist;
+@dynamic customerProfile, customThreatScenario, detailType, domainConfiguration,
+         domainMonitoring, technologyWatchlist;
 @end
 
 
@@ -376,7 +459,7 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 @implementation GTLRThreatIntelligenceService_CustomerProfileConfig
 @dynamic citations, contactInfo, executives, industries, locations, org,
          orgSummary, parentCompanies, products, securityConsiderations, summary,
-         technologyPresence, webPresences;
+         technologies, technologyPresence, webPresences;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -387,6 +470,7 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
     @"locations" : [GTLRThreatIntelligenceService_CustomerProfileLocation class],
     @"parentCompanies" : [GTLRThreatIntelligenceService_CustomerProfileCompany class],
     @"products" : [GTLRThreatIntelligenceService_CustomerProfileProduct class],
+    @"technologies" : [GTLRThreatIntelligenceService_CustomerProfileTechnology class],
     @"webPresences" : [GTLRThreatIntelligenceService_CustomerProfileWebPresence class]
   };
   return map;
@@ -517,6 +601,24 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRThreatIntelligenceService_CustomerProfileTechnology
+//
+
+@implementation GTLRThreatIntelligenceService_CustomerProfileTechnology
+@dynamic citationIds, technology;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citationIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRThreatIntelligenceService_CustomerProfileWebPresence
 //
 
@@ -535,15 +637,27 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRThreatIntelligenceService_CustomThreatScenarioConfig
+//
+
+@implementation GTLRThreatIntelligenceService_CustomThreatScenarioConfig
+@dynamic compiledLuceneQuery, documentCondition, documentQuery,
+         legacyMonitorMetadata, scenarioType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRThreatIntelligenceService_DataLeakAlertDetail
 //
 
 @implementation GTLRThreatIntelligenceService_DataLeakAlertDetail
-@dynamic discoveryDocumentIds, severity;
+@dynamic discoveryDocumentIds, discoveryDocuments, severity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"discoveryDocumentIds" : [NSString class]
+    @"discoveryDocumentIds" : [NSString class],
+    @"discoveryDocuments" : [GTLRThreatIntelligenceService_DiscoveryDocument class]
   };
   return map;
 }
@@ -557,7 +671,198 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_DataLeakFindingDetail
-@dynamic documentId, matchScore, severity;
+@dynamic discoveryDocument, documentId, matchScore, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DiscoveryDocument
+//
+
+@implementation GTLRThreatIntelligenceService_DiscoveryDocument
+@dynamic communicationContext, documentId, documentType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DnsRegistrationDetails
+//
+
+@implementation GTLRThreatIntelligenceService_DnsRegistrationDetails
+@dynamic expireTime, privateRegistration, registrantCountry, registrar,
+         registrationTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DocumentQuery
+//
+
+@implementation GTLRThreatIntelligenceService_DocumentQuery
+@dynamic query, queryType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainConfiguration
+//
+
+@implementation GTLRThreatIntelligenceService_DomainConfiguration
+@dynamic domainSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domainSettings" : [GTLRThreatIntelligenceService_DomainSetting class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringAlertDetail
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringAlertDetail
+@dynamic dnsDetails, domainDetails, gtiDetails, infrastructure, matchedDomain,
+         protectedBrand, protectedDomain, registrationDetails, relationships,
+         threatAttributionDetails, urlDetails, whoisDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringConfig
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringConfig
+@dynamic domains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [GTLRThreatIntelligenceService_DomainMonitoringDomain class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringDnsDetails
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringDnsDetails
+@dynamic dnsRecords, retrievalTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsRecords" : [GTLRThreatIntelligenceService_DomainMonitoringDnsRecord class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringDnsRecord
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringDnsRecord
+@dynamic asnHosting, asnRegionCode, ipRegionCode, recordData, resolvedIp, ttl,
+         type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringDomain
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringDomain
+@dynamic domain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringDomainDetails
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringDomainDetails
+@dynamic domain;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringFeatureConfig
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringFeatureConfig
+@dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringFindingDetail
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringFindingDetail
+@dynamic dnsDetails, domainDetails, gtiDetails, infrastructure, matchedDomain,
+         protectedBrand, protectedDomain, registrationDetails, relationships,
+         threatAttributionDetails, urlDetails, whoisDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringGtiDetails
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringGtiDetails
+@dynamic avDetections, domainPermutation, gtiDomainUri, gtiScore,
+         threatClassification, verdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringUrlDetails
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringUrlDetails
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainMonitoringWhoIsDetails
+//
+
+@implementation GTLRThreatIntelligenceService_DomainMonitoringWhoIsDetails
+@dynamic retrievalTime, whois;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_DomainSetting
+//
+
+@implementation GTLRThreatIntelligenceService_DomainSetting
+@dynamic domain, domainMonitoringConfig, state;
 @end
 
 
@@ -653,8 +958,8 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_FindingDetail
-@dynamic dataLeak, detailType, initialAccessBroker, insiderThreat,
-         targetTechnology;
+@dynamic dataLeak, detailType, domainMonitoring, initialAccessBroker,
+         insiderThreat, targetTechnology;
 @end
 
 
@@ -670,15 +975,36 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRThreatIntelligenceService_GetPasswordResponse
+//
+
+@implementation GTLRThreatIntelligenceService_GetPasswordResponse
+@dynamic password;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_Infrastructure
+//
+
+@implementation GTLRThreatIntelligenceService_Infrastructure
+@dynamic certificateDetails, urlResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRThreatIntelligenceService_InitialAccessBrokerAlertDetail
 //
 
 @implementation GTLRThreatIntelligenceService_InitialAccessBrokerAlertDetail
-@dynamic discoveryDocumentIds, severity;
+@dynamic discoveryDocumentIds, discoveryDocuments, severity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"discoveryDocumentIds" : [NSString class]
+    @"discoveryDocumentIds" : [NSString class],
+    @"discoveryDocuments" : [GTLRThreatIntelligenceService_DiscoveryDocument class]
   };
   return map;
 }
@@ -692,7 +1018,7 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail
-@dynamic documentId, matchScore, severity;
+@dynamic discoveryDocument, documentId, matchScore, severity;
 @end
 
 
@@ -702,11 +1028,12 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_InsiderThreatAlertDetail
-@dynamic discoveryDocumentIds, severity;
+@dynamic discoveryDocumentIds, discoveryDocuments, severity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"discoveryDocumentIds" : [NSString class]
+    @"discoveryDocumentIds" : [NSString class],
+    @"discoveryDocuments" : [GTLRThreatIntelligenceService_DiscoveryDocument class]
   };
   return map;
 }
@@ -720,7 +1047,26 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 //
 
 @implementation GTLRThreatIntelligenceService_InsiderThreatFindingDetail
-@dynamic documentId, matchScore, severity;
+@dynamic discoveryDocument, documentId, matchScore, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_LegacyMetadata
+//
+
+@implementation GTLRThreatIntelligenceService_LegacyMetadata
+@dynamic aggregationEnabled, aggregationSimilarity, conditionVersion,
+         creatorUserId, descriptionProperty, disabledCode, disabledReason,
+         displayName, emailNotificationEnabled, emailNotificationImmediate,
+         legacyMonitorId, staleTime, templateId, tenantId, updaterUserId,
+         version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -965,6 +1311,26 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRThreatIntelligenceService_Relationships
+//
+
+@implementation GTLRThreatIntelligenceService_Relationships
+@dynamic relatedUrls, siblingDomains, subdomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relatedUrls" : [NSString class],
+    @"siblingDomains" : [NSString class],
+    @"subdomains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRThreatIntelligenceService_RelevanceAnalysis
 //
 
@@ -1087,6 +1453,26 @@ NSString * const kGTLRThreatIntelligenceService_VulnerabilityMatch_RiskRating_Un
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"technologies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRThreatIntelligenceService_ThreatAttributionDetails
+//
+
+@implementation GTLRThreatIntelligenceService_ThreatAttributionDetails
+@dynamic actors, collections, malware;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actors" : [NSString class],
+    @"collections" : [NSString class],
+    @"malware" : [NSString class]
   };
   return map;
 }

@@ -4,7 +4,7 @@
 // API:
 //   Policy Analyzer API (policyanalyzer/v1)
 // Documentation:
-//   https://www.google.com
+//   https://cloud.google.com/policy-intelligence/docs/overview
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 

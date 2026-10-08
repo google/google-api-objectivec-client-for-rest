@@ -159,6 +159,231 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a CapabilityConfig under a parent Organization, Folder or Project.
+ *  Creating a CapabilityConfig triggers the creation of a Management Project if
+ *  one is not supplied.
+ *
+ *  Method: cloudresourcemanager.folders.capabilityConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsCreate : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The user-assigned ID for the CapabilityConfig, which will become
+ *  the final component of the CapabilityConfig's resource name. Must be unique
+ *  within the parent resource. It must be 6 to 30 lowercase ASCII letters,
+ *  digits, or hyphens. It must start with a letter. Trailing hyphens are
+ *  prohibited. Example: `my-capability-config-123`
+ */
+@property(nonatomic, copy, nullable) NSString *capabilityConfigId;
+
+/**
+ *  Required. The parent resource under which the CapabilityConfig will be
+ *  created. Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ *  or `projects/{project_number}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Creates a CapabilityConfig under a parent Organization, Folder or Project.
+ *  Creating a CapabilityConfig triggers the creation of a Management Project if
+ *  one is not supplied.
+ *
+ *  @param object The @c GTLRCloudResourceManager_CapabilityConfig to include in
+ *    the query.
+ *  @param parent Required. The parent resource under which the CapabilityConfig
+ *    will be created. Format: `organizations/{organization_id}` or
+ *    `folders/{folder_id}` or `projects/{project_number}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_CapabilityConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.folders.capabilityConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsDelete : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the CapabilityConfig to delete. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Deletes the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param name Required. The name of the CapabilityConfig to delete. Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.folders.capabilityConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the CapabilityConfig to retrieve. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}` Example:
+ *  `folders/123456789/capabilityConfigs/my-capability-config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_CapabilityConfig.
+ *
+ *  Retrieves the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param name Required. The name of the CapabilityConfig to retrieve. Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}` Example:
+ *    `folders/123456789/capabilityConfigs/my-capability-config`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists CapabilityConfigs that are direct children of the specified
+ *  organization, folder or project resource.
+ *
+ *  Method: cloudresourcemanager.folders.capabilityConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsList : GTLRCloudResourceManagerQuery
+
+/**
+ *  Optional. The maximum number of CapabilityConfigs to return in the response.
+ *  The service may return fewer CapabilityConfigs than requested. If
+ *  unspecified, at most 100 CapabilityConfigs will be returned. The maximum
+ *  value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A pagination token received from a previous call to
+ *  `ListCapabilityConfigs` that indicates from where listing should continue.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose CapabilityConfigs are being
+ *  listed. Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListCapabilityConfigsResponse.
+ *
+ *  Lists CapabilityConfigs that are direct children of the specified
+ *  organization, folder or project resource.
+ *
+ *  @param parent Required. The name of the parent resource whose
+ *    CapabilityConfigs are being listed. Format:
+ *    `organizations/{organization_id}` or `folders/{folder_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig
+ *  identified by the specified `name` (for example,
+ *  `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.folders.capabilityConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The unique resource name of the CapabilityConfig. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig
+ *  identified by the specified `name` (for example,
+ *  `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param object The @c GTLRCloudResourceManager_CapabilityConfig to include in
+ *    the query.
+ *  @param name Identifier. The unique resource name of the CapabilityConfig.
+ *    Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilityConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_CapabilityConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a folder in the resource hierarchy. Returns an `Operation` which can
  *  be used to track the progress of the folder creation workflow. Upon success,
  *  the `Operation.response` field will be populated with the created Folder. In
@@ -1014,6 +1239,231 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a CapabilityConfig under a parent Organization, Folder or Project.
+ *  Creating a CapabilityConfig triggers the creation of a Management Project if
+ *  one is not supplied.
+ *
+ *  Method: cloudresourcemanager.organizations.capabilityConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsCreate : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The user-assigned ID for the CapabilityConfig, which will become
+ *  the final component of the CapabilityConfig's resource name. Must be unique
+ *  within the parent resource. It must be 6 to 30 lowercase ASCII letters,
+ *  digits, or hyphens. It must start with a letter. Trailing hyphens are
+ *  prohibited. Example: `my-capability-config-123`
+ */
+@property(nonatomic, copy, nullable) NSString *capabilityConfigId;
+
+/**
+ *  Required. The parent resource under which the CapabilityConfig will be
+ *  created. Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ *  or `projects/{project_number}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Creates a CapabilityConfig under a parent Organization, Folder or Project.
+ *  Creating a CapabilityConfig triggers the creation of a Management Project if
+ *  one is not supplied.
+ *
+ *  @param object The @c GTLRCloudResourceManager_CapabilityConfig to include in
+ *    the query.
+ *  @param parent Required. The parent resource under which the CapabilityConfig
+ *    will be created. Format: `organizations/{organization_id}` or
+ *    `folders/{folder_id}` or `projects/{project_number}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_CapabilityConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.organizations.capabilityConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsDelete : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the CapabilityConfig to delete. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Deletes the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param name Required. The name of the CapabilityConfig to delete. Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.organizations.capabilityConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the CapabilityConfig to retrieve. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}` Example:
+ *  `folders/123456789/capabilityConfigs/my-capability-config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_CapabilityConfig.
+ *
+ *  Retrieves the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param name Required. The name of the CapabilityConfig to retrieve. Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}` Example:
+ *    `folders/123456789/capabilityConfigs/my-capability-config`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists CapabilityConfigs that are direct children of the specified
+ *  organization, folder or project resource.
+ *
+ *  Method: cloudresourcemanager.organizations.capabilityConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsList : GTLRCloudResourceManagerQuery
+
+/**
+ *  Optional. The maximum number of CapabilityConfigs to return in the response.
+ *  The service may return fewer CapabilityConfigs than requested. If
+ *  unspecified, at most 100 CapabilityConfigs will be returned. The maximum
+ *  value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A pagination token received from a previous call to
+ *  `ListCapabilityConfigs` that indicates from where listing should continue.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose CapabilityConfigs are being
+ *  listed. Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListCapabilityConfigsResponse.
+ *
+ *  Lists CapabilityConfigs that are direct children of the specified
+ *  organization, folder or project resource.
+ *
+ *  @param parent Required. The name of the parent resource whose
+ *    CapabilityConfigs are being listed. Format:
+ *    `organizations/{organization_id}` or `folders/{folder_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig
+ *  identified by the specified `name` (for example,
+ *  `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.organizations.capabilityConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The unique resource name of the CapabilityConfig. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig
+ *  identified by the specified `name` (for example,
+ *  `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param object The @c GTLRCloudResourceManager_CapabilityConfig to include in
+ *    the query.
+ *  @param name Identifier. The unique resource name of the CapabilityConfig.
+ *    Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_OrganizationsCapabilityConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_CapabilityConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Fetches an organization resource identified by the specified resource name.
  *
  *  Method: cloudresourcemanager.organizations.get
@@ -1239,6 +1689,231 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a CapabilityConfig under a parent Organization, Folder or Project.
+ *  Creating a CapabilityConfig triggers the creation of a Management Project if
+ *  one is not supplied.
+ *
+ *  Method: cloudresourcemanager.projects.capabilityConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsCreate : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The user-assigned ID for the CapabilityConfig, which will become
+ *  the final component of the CapabilityConfig's resource name. Must be unique
+ *  within the parent resource. It must be 6 to 30 lowercase ASCII letters,
+ *  digits, or hyphens. It must start with a letter. Trailing hyphens are
+ *  prohibited. Example: `my-capability-config-123`
+ */
+@property(nonatomic, copy, nullable) NSString *capabilityConfigId;
+
+/**
+ *  Required. The parent resource under which the CapabilityConfig will be
+ *  created. Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ *  or `projects/{project_number}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Creates a CapabilityConfig under a parent Organization, Folder or Project.
+ *  Creating a CapabilityConfig triggers the creation of a Management Project if
+ *  one is not supplied.
+ *
+ *  @param object The @c GTLRCloudResourceManager_CapabilityConfig to include in
+ *    the query.
+ *  @param parent Required. The parent resource under which the CapabilityConfig
+ *    will be created. Format: `organizations/{organization_id}` or
+ *    `folders/{folder_id}` or `projects/{project_number}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_CapabilityConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.projects.capabilityConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsDelete : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the CapabilityConfig to delete. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Deletes the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param name Required. The name of the CapabilityConfig to delete. Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.projects.capabilityConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the CapabilityConfig to retrieve. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}` Example:
+ *  `folders/123456789/capabilityConfigs/my-capability-config`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_CapabilityConfig.
+ *
+ *  Retrieves the CapabilityConfig identified by the specified `name` (for
+ *  example, `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param name Required. The name of the CapabilityConfig to retrieve. Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}` Example:
+ *    `folders/123456789/capabilityConfigs/my-capability-config`
+ *
+ *  @return GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists CapabilityConfigs that are direct children of the specified
+ *  organization, folder or project resource.
+ *
+ *  Method: cloudresourcemanager.projects.capabilityConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsList : GTLRCloudResourceManagerQuery
+
+/**
+ *  Optional. The maximum number of CapabilityConfigs to return in the response.
+ *  The service may return fewer CapabilityConfigs than requested. If
+ *  unspecified, at most 100 CapabilityConfigs will be returned. The maximum
+ *  value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A pagination token received from a previous call to
+ *  `ListCapabilityConfigs` that indicates from where listing should continue.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose CapabilityConfigs are being
+ *  listed. Format: `organizations/{organization_id}` or `folders/{folder_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_ListCapabilityConfigsResponse.
+ *
+ *  Lists CapabilityConfigs that are direct children of the specified
+ *  organization, folder or project resource.
+ *
+ *  @param parent Required. The name of the parent resource whose
+ *    CapabilityConfigs are being listed. Format:
+ *    `organizations/{organization_id}` or `folders/{folder_id}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig
+ *  identified by the specified `name` (for example,
+ *  `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  Method: cloudresourcemanager.projects.capabilityConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The unique resource name of the CapabilityConfig. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the `display_name`, `types` and `boundaries` of the CapabilityConfig
+ *  identified by the specified `name` (for example,
+ *  `folders/123456789/capabilityConfigs/my-capability-config`).
+ *
+ *  @param object The @c GTLRCloudResourceManager_CapabilityConfig to include in
+ *    the query.
+ *  @param name Identifier. The unique resource name of the CapabilityConfig.
+ *    Format:
+ *    `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *    `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *    `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ *
+ *  @return GTLRCloudResourceManagerQuery_ProjectsCapabilityConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_CapabilityConfig *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -62,6 +62,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Advisorynotifications"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AgenciesAndBrands",
+            targets: ["GoogleAPIClientForREST_AgenciesAndBrands"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AgentIdentity",
             targets: ["GoogleAPIClientForREST_AgentIdentity"]
         ),
@@ -100,6 +104,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_AnalyticsHub",
             targets: ["GoogleAPIClientForREST_AnalyticsHub"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_AndroidDeveloperIDStatus",
+            targets: ["GoogleAPIClientForREST_AndroidDeveloperIDStatus"]
         ),
         .library(
             name: "GoogleAPIClientForREST_AndroidEnterprise",
@@ -282,6 +290,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudAsset"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudAuditManager",
+            targets: ["GoogleAPIClientForREST_CloudAuditManager"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudBatch",
             targets: ["GoogleAPIClientForREST_CloudBatch"]
         ),
@@ -332,6 +344,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CloudFilestore",
             targets: ["GoogleAPIClientForREST_CloudFilestore"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_CloudFTP",
+            targets: ["GoogleAPIClientForREST_CloudFTP"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudFunctions",
@@ -482,6 +498,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Css"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CurationPartners",
+            targets: ["GoogleAPIClientForREST_CurationPartners"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CustomerEngagementSuite",
             targets: ["GoogleAPIClientForREST_CustomerEngagementSuite"]
         ),
@@ -560,6 +580,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_DeveloperKnowledge",
             targets: ["GoogleAPIClientForREST_DeveloperKnowledge"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_DeviceRun",
+            targets: ["GoogleAPIClientForREST_DeviceRun"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Dfareporting",
@@ -1354,6 +1378,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_AgenciesAndBrands",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AgenciesAndBrands",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_AgentIdentity",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AgentIdentity",
@@ -1411,6 +1441,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_AnalyticsHub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AnalyticsHub",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AndroidDeveloperIDStatus",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AndroidDeveloperIDStatus",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1684,6 +1720,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_CloudAuditManager",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudAuditManager",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CloudBatch",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudBatch",
@@ -1759,6 +1801,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudFilestore",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudFilestore",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudFTP",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudFTP",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1984,6 +2032,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_CurationPartners",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CurationPartners",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CustomerEngagementSuite",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CustomerEngagementSuite",
@@ -2101,6 +2155,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_DeveloperKnowledge",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/DeveloperKnowledge",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DeviceRun",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DeviceRun",
             publicHeadersPath: "Public"
         ),
         .target(

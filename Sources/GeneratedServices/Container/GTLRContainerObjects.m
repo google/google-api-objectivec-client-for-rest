@@ -474,6 +474,7 @@ NSString * const kGTLRContainer_RollbackSafeUpgradeStatus_Mode_ModeUnspecified =
 
 // GTLRContainer_SandboxConfig.type
 NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor      = @"GVISOR";
+NSString * const kGTLRContainer_SandboxConfig_Type_Microvm     = @"MICROVM";
 NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified = @"UNSPECIFIED";
 
 // GTLRContainer_SecondaryBootDisk.mode
@@ -2692,8 +2693,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          evictionSoftGracePeriod, imageGcHighThresholdPercent,
          imageGcLowThresholdPercent, imageMaximumGcAge, imageMinimumGcAge,
          insecureKubeletReadonlyPortEnabled, maxParallelImagePulls,
-         memoryManager, podPidsLimit, shutdownGracePeriodCriticalPodsSeconds,
-         shutdownGracePeriodSeconds, singleProcessOomKill, topologyManager;
+         memoryManager, podPidsLimit, reservedResourcesConfig,
+         shutdownGracePeriodCriticalPodsSeconds, shutdownGracePeriodSeconds,
+         singleProcessOomKill, topologyManager;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3266,12 +3268,13 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ReleaseChannelConfig
-@dynamic channel, customVersions, defaultVersion, upgradeTargetVersion,
-         validVersions;
+@dynamic channel, customVersions, defaultVersion, previewVersions,
+         upgradeTargetVersion, validVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"customVersions" : [NSString class],
+    @"previewVersions" : [NSString class],
     @"validVersions" : [NSString class]
   };
   return map;
@@ -3295,6 +3298,17 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ReservedResourcesConfig
+//
+
+@implementation GTLRContainer_ReservedResourcesConfig
+@dynamic cpuReservedMillicore, effectiveCpuReservedMillicore,
+         effectiveMemoryReservedMib, memoryReservedMib;
 @end
 
 

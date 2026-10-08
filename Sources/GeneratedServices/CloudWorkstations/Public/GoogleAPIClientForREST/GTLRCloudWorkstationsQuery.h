@@ -1297,6 +1297,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Suspends a workstation to reduce costs.
+ *
+ *  Method: workstations.projects.locations.workstationClusters.workstationConfigs.workstations.suspend
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
+ */
+@interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsSuspend : GTLRCloudWorkstationsQuery
+
+/** Required. Name of the workstation to suspend. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudWorkstations_Operation.
+ *
+ *  Suspends a workstation to reduce costs.
+ *
+ *  @param object The @c GTLRCloudWorkstations_SuspendWorkstationRequest to
+ *    include in the query.
+ *  @param name Required. Name of the workstation to suspend.
+ *
+ *  @return GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsSuspend
+ */
++ (instancetype)queryWithObject:(GTLRCloudWorkstations_SuspendWorkstationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns permissions that a caller has on the specified resource. If the
  *  resource does not exist, this will return an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building

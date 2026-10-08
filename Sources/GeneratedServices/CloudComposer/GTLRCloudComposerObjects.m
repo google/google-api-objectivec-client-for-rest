@@ -48,10 +48,15 @@ NSString * const kGTLRCloudComposer_ConfigConflict_Type_Blocking = @"BLOCKING";
 NSString * const kGTLRCloudComposer_ConfigConflict_Type_ConflictTypeUnspecified = @"CONFLICT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_ConfigConflict_Type_NonBlocking = @"NON_BLOCKING";
 
+// GTLRCloudComposer_Environment.mode
+NSString * const kGTLRCloudComposer_Environment_Mode_Development = @"DEVELOPMENT";
+NSString * const kGTLRCloudComposer_Environment_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
 // GTLRCloudComposer_Environment.state
 NSString * const kGTLRCloudComposer_Environment_State_Creating = @"CREATING";
 NSString * const kGTLRCloudComposer_Environment_State_Deleting = @"DELETING";
 NSString * const kGTLRCloudComposer_Environment_State_Error    = @"ERROR";
+NSString * const kGTLRCloudComposer_Environment_State_Hibernated = @"HIBERNATED";
 NSString * const kGTLRCloudComposer_Environment_State_Running  = @"RUNNING";
 NSString * const kGTLRCloudComposer_Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_Environment_State_Updating = @"UPDATING";
@@ -77,8 +82,10 @@ NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CH
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_DatabaseFailover = @"DATABASE_FAILOVER";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Hibernate = @"HIBERNATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot = @"LOAD_SNAPSHOT";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Migrate = @"MIGRATE";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Resume = @"RESUME";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_SaveSnapshot = @"SAVE_SNAPSHOT";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update = @"UPDATE";
@@ -317,8 +324,8 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_Environment
-@dynamic config, createTime, labels, name, satisfiesPzi, satisfiesPzs, state,
-         storageConfig, updateTime, uuid;
+@dynamic config, createTime, labels, mode, name, satisfiesPzi, satisfiesPzs,
+         state, storageConfig, updateTime, uuid;
 @end
 
 

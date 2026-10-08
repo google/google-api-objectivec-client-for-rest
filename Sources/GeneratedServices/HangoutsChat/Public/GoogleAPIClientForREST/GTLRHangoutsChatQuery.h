@@ -584,11 +584,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @interface GTLRHangoutsChatQuery_SpacesCreate : GTLRHangoutsChatQuery
 
 /**
- *  Optional. A unique identifier for this request. A random UUID is
- *  recommended. Specifying an existing request ID returns the space created
- *  with that ID instead of creating a new space. Specifying an existing request
- *  ID from the same Chat app with a different authenticated user returns an
- *  error.
+ *  Optional. A unique ID for this request. A random UUID is recommended.
+ *  Specifying a request ID makes the request idempotent, which ensures that
+ *  multiple identical requests with the same request ID result in only a single
+ *  space being created. Subsequent requests with the same request ID return the
+ *  existing space and do not update the space, even if the requested details
+ *  differ from the current state. To use this field effectively: - Ensure that
+ *  subsequent requests are identical and use the same authentication
+ *  credentials as the original request. - If a space was already created with
+ *  the provided request ID, the request returns that space. Note that the
+ *  returned space might not be fully populated; the API echoes the space in
+ *  your request with the system-assigned resource name populated. To retrieve
+ *  the latest metadata for the space, call `GetSpace`. - Reusing an existing
+ *  request ID with a different authenticated user results in an error.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1633,6 +1641,165 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @end
 
 /**
+ *  Creates a message pin. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.spaces.pins` -
+ *  `https://www.googleapis.com/auth/chat.spaces`
+ *
+ *  Method: chat.spaces.messagePins.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatSpaces
+ *    @c kGTLRAuthScopeHangoutsChatSpacesPins
+ */
+@interface GTLRHangoutsChatQuery_SpacesMessagePinsCreate : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The parent space in which to create the message pin. Format:
+ *  spaces/{space}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_MessagePin.
+ *
+ *  Creates a message pin. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.spaces.pins` -
+ *  `https://www.googleapis.com/auth/chat.spaces`
+ *
+ *  @param object The @c GTLRHangoutsChat_MessagePin to include in the query.
+ *  @param parent Required. The parent space in which to create the message pin.
+ *    Format: spaces/{space}
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMessagePinsCreate
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MessagePin *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a message pin. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.spaces.pins` -
+ *  `https://www.googleapis.com/auth/chat.spaces`
+ *
+ *  Method: chat.spaces.messagePins.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatSpaces
+ *    @c kGTLRAuthScopeHangoutsChatSpacesPins
+ */
+@interface GTLRHangoutsChatQuery_SpacesMessagePinsDelete : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the message pin to remove. Format:
+ *  spaces/{space}/messagePins/{message_pin}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Empty.
+ *
+ *  Deletes a message pin. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.spaces.pins` -
+ *  `https://www.googleapis.com/auth/chat.spaces`
+ *
+ *  @param name Required. The resource name of the message pin to remove.
+ *    Format: spaces/{space}/messagePins/{message_pin}
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMessagePinsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists message pins in a space. Users can pin important messages in spaces
+ *  for easy access. For more information, see [Pin or unpin a conversation in
+ *  Google Chat](https://support.google.com/chat/answer/15622437). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.spaces.pins.readonly` -
+ *  `https://www.googleapis.com/auth/chat.spaces.pins` -
+ *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
+ *  `https://www.googleapis.com/auth/chat.spaces`
+ *
+ *  Method: chat.spaces.messagePins.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatSpaces
+ *    @c kGTLRAuthScopeHangoutsChatSpacesPins
+ *    @c kGTLRAuthScopeHangoutsChatSpacesPinsReadonly
+ *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
+ */
+@interface GTLRHangoutsChatQuery_SpacesMessagePinsList : GTLRHangoutsChatQuery
+
+/**
+ *  Optional. The maximum number of message pins returned. The service might
+ *  return fewer messages than this value. The maximum value is 100. If you use
+ *  a value more than 100, it's automatically changed to 100. If unspecified, at
+ *  most 100 message pins will be returned. Negative values return an
+ *  `INVALID_ARGUMENT` error.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous list message pins call.
+ *  Provide this parameter to retrieve the subsequent page. When paginating, all
+ *  other parameters provided should match the call that provided the page
+ *  token. Passing different values to the other parameters might lead to
+ *  unexpected results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent space which owns the collection of pinned items Format:
+ *  `spaces/{space}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_ListMessagePinsResponse.
+ *
+ *  Lists message pins in a space. Users can pin important messages in spaces
+ *  for easy access. For more information, see [Pin or unpin a conversation in
+ *  Google Chat](https://support.google.com/chat/answer/15622437). Requires
+ *  [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.spaces.pins.readonly` -
+ *  `https://www.googleapis.com/auth/chat.spaces.pins` -
+ *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
+ *  `https://www.googleapis.com/auth/chat.spaces`
+ *
+ *  @param parent Required. The parent space which owns the collection of pinned
+ *    items Format: `spaces/{space}`
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMessagePinsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the metadata of a message attachment. The attachment data is fetched
  *  using the [media
  *  API](https://developers.google.com/workspace/chat/api/reference/rest/v1/media/download).
@@ -1793,9 +1960,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A unique request ID for this message. Specifying an existing
- *  request ID returns the message created with that ID instead of creating a
- *  new message.
+ *  Optional. A unique ID for this request. A random UUID is recommended.
+ *  Specifying a request ID makes the request idempotent, which ensures that
+ *  multiple identical requests with the same request ID result in only a single
+ *  message being created. Subsequent requests with the same request ID return
+ *  the existing message and do not update the message, even if the requested
+ *  details differ from the current state. To use this field effectively: -
+ *  Ensure that subsequent requests are identical and use the same
+ *  authentication credentials as the original request. - If a message was
+ *  already created with the provided request ID, the request returns that
+ *  message. Note that the returned message might not be fully populated; the
+ *  API echoes the message in your request with the system-assigned resource
+ *  names populated. To retrieve the latest metadata for the message, call
+ *  `GetMessage`. - Reusing an existing request ID with a different
+ *  authenticated user results in an error.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2747,7 +2925,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  `access_settings.access_permission_settings` is not supported with
  *  `useAdminAccess`. The supported field masks include: -
  *  `access_settings.access_permission_settings.discoverSpaceSetting` -
- *  `access_settings.access_permission_settings.joinSpaceSetting`
+ *  `access_settings.access_permission_settings.joinSpaceSetting` -
+ *  `access_settings.access_permission_settings.viewSpaceMembershipSetting`
  *  `permission_settings`: Supports changing the [permission
  *  settings](https://support.google.com/chat/answer/13340792) of a space. When
  *  updating permission settings, you can only specify `permissionSettings`
@@ -2757,7 +2936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  `permission_settings.modifySpaceDetails` -
  *  `permission_settings.toggleHistory` - `permission_settings.useAtMentionAll`
  *  - `permission_settings.manageApps` - `permission_settings.manageWebhooks` -
- *  `permission_settings.replyMessages`
+ *  `permission_settings.replyMessages` -
+ *  `permission_settings.viewSpaceMembership`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2865,14 +3045,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  `membership_count.joined_direct_human_user_count ASC` - `last_active_time
  *  DESC` - `last_active_time ASC` - `create_time DESC` - `create_time ASC` When
  *  `useAdminAccess` is set to `false`: - `create_time DESC` - `relevance DESC`
+ *  [Developer Preview](https://developers.google.com/workspace/preview).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of spaces to return. The service may return fewer than
  *  this value. If unspecified, at most 100 spaces are returned. The maximum
- *  value is 1000. If you use a value more than 1000, it's automatically changed
- *  to 1000.
+ *  value is 1000 when `useAdminAccess` is set to `true`. Otherwise, the maximum
+ *  value is 100. If you use a value more than the maximum value, it's
+ *  automatically changed to the maximum value.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -2934,7 +3116,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecifie
  *  space_type = "SPACE" (display_name:"Hello" OR display_name:"Fun") AND
  *  space_type = "SPACE" (external_user_allowed = "true" AND space_type =
  *  "SPACE") // Returns an empty response. (external_user_allowed = "true" AND
- *  display_name:"Hello" AND space_type = "SPACE") ```
+ *  display_name:"Hello" AND space_type = "SPACE") ``` The maximum query length
+ *  is 1,000 characters. Invalid queries are rejected by the server with an
+ *  `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

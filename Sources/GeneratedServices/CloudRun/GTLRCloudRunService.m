@@ -31,6 +31,7 @@ NSString * const kGTLRAuthScopeCloudRunReadonly      = @"https://www.googleapis.
   if (self) {
     // From discovery.
     self.rootURLString = @"https://run.googleapis.com/";
+    self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

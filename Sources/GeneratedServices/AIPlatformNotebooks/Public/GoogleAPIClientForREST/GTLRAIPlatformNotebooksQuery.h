@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsGet : GTLRAIPlatformNotebooksQuery
@@ -66,6 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.checkAuthorization
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckAuthorization : GTLRAIPlatformNotebooksQuery
@@ -100,6 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.checkUpgradability
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckUpgradability : GTLRAIPlatformNotebooksQuery
@@ -130,6 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCreate : GTLRAIPlatformNotebooksQuery
@@ -166,6 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDelete : GTLRAIPlatformNotebooksQuery
@@ -199,6 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.diagnose
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDiagnose : GTLRAIPlatformNotebooksQuery
@@ -233,6 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.generateAccessToken
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGenerateAccessToken : GTLRAIPlatformNotebooksQuery
@@ -267,6 +274,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGet : GTLRAIPlatformNotebooksQuery
@@ -297,6 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.getConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetConfig : GTLRAIPlatformNotebooksQuery
@@ -324,6 +333,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetIamPolicy : GTLRAIPlatformNotebooksQuery
@@ -372,6 +382,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesList : GTLRAIPlatformNotebooksQuery
@@ -428,6 +439,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesPatch : GTLRAIPlatformNotebooksQuery
@@ -495,6 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.reportInfoSystem
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReportInfoSystem : GTLRAIPlatformNotebooksQuery
@@ -530,6 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.reset
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReset : GTLRAIPlatformNotebooksQuery
@@ -563,6 +577,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.resizeDisk
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesResizeDisk : GTLRAIPlatformNotebooksQuery
@@ -596,6 +611,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.restore
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRestore : GTLRAIPlatformNotebooksQuery
@@ -629,6 +645,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.rollback
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRollback : GTLRAIPlatformNotebooksQuery
@@ -664,6 +681,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRAIPlatformNotebooksQuery
@@ -702,6 +720,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.start
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStart : GTLRAIPlatformNotebooksQuery
@@ -735,6 +754,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.stop
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStop : GTLRAIPlatformNotebooksQuery
@@ -772,6 +792,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesTestIamPermissions : GTLRAIPlatformNotebooksQuery
@@ -812,6 +833,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.upgrade
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgrade : GTLRAIPlatformNotebooksQuery
@@ -846,6 +868,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.instances.upgradeSystem
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgradeSystem : GTLRAIPlatformNotebooksQuery
@@ -890,6 +913,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsList : GTLRAIPlatformNotebooksQuery
@@ -963,6 +987,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsCancel : GTLRAIPlatformNotebooksQuery
@@ -1003,6 +1028,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.operations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsDelete : GTLRAIPlatformNotebooksQuery
@@ -1034,6 +1060,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsGet : GTLRAIPlatformNotebooksQuery
@@ -1063,6 +1090,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: notebooks.projects.locations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooks
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsList : GTLRAIPlatformNotebooksQuery

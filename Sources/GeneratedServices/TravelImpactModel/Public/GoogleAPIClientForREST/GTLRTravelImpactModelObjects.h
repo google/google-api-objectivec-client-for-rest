@@ -797,18 +797,31 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 
 /**
  *  Information about the provenance of the data used to calculate emissions
- *  estimates, including contributing factors and their data sources.
+ *  estimates, including contributing factors and their data sources. In
+ *  `provenance_entries`, `provenance_entry_type` acts as the "key" identifying
+ *  the contributing factor, and there is always only one entry per entry type.
+ *  The remaining fields in each entry describe that specific entry type and may
+ *  or may not be populated depending on the contributing factor and available
+ *  data.
  */
 @interface GTLRTravelImpactModel_EmissionsProvenance : GTLRObject
 
-/** Output only. All contributing factors used to calculate emissions. */
+/**
+ *  Output only. All contributing factors used to calculate emissions. Each
+ *  entry type (`provenance_entry_type`) acts as a "key" identifying the factor,
+ *  with always only one entry per entry type. The remaining fields describe
+ *  that specific factor and may or may not be populated.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_EmissionsProvenanceEntry *> *provenanceEntries;
 
 @end
 
 
 /**
- *  Details about a single contributing factor in emissions calculations.
+ *  Details about a single contributing factor in emissions calculations. Each
+ *  entry represents a single factor where `provenance_entry_type` acts as the
+ *  key identifying the factor, and the other fields describe it and may or may
+ *  not be populated.
  */
 @interface GTLRTravelImpactModel_EmissionsProvenanceEntry : GTLRObject
 
@@ -940,7 +953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 @property(nonatomic, copy, nullable) NSString *loadFactorsT100Strategy;
 
 /**
- *  Output only. The type of the provenance entry.
+ *  Output only. The type of the provenance entry. Acts as the "key" identifying
+ *  the contributing factor; the remaining fields in this message describe it
+ *  and may or may not be populated.
  *
  *  Likely values:
  *    @arg @c kGTLRTravelImpactModel_EmissionsProvenanceEntry_ProvenanceEntryType_CargoMassFraction

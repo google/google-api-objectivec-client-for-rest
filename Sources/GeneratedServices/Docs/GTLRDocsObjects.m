@@ -18,6 +18,17 @@ NSString * const kGTLRDocs_AutoText_Type_PageCount       = @"PAGE_COUNT";
 NSString * const kGTLRDocs_AutoText_Type_PageNumber      = @"PAGE_NUMBER";
 NSString * const kGTLRDocs_AutoText_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDocs_BatchUpdateDocumentResponse.commentUpdateState
+NSString * const kGTLRDocs_BatchUpdateDocumentResponse_CommentUpdateState_AllFailedUnknownReason = @"ALL_FAILED_UNKNOWN_REASON";
+NSString * const kGTLRDocs_BatchUpdateDocumentResponse_CommentUpdateState_AllSaved = @"ALL_SAVED";
+NSString * const kGTLRDocs_BatchUpdateDocumentResponse_CommentUpdateState_CommentUpdateStateUnspecified = @"COMMENT_UPDATE_STATE_UNSPECIFIED";
+NSString * const kGTLRDocs_BatchUpdateDocumentResponse_CommentUpdateState_NoUpdatesRequested = @"NO_UPDATES_REQUESTED";
+
+// GTLRDocs_CommentThread.status
+NSString * const kGTLRDocs_CommentThread_Status_Open           = @"OPEN";
+NSString * const kGTLRDocs_CommentThread_Status_Resolved       = @"RESOLVED";
+NSString * const kGTLRDocs_CommentThread_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRDocs_CreateFooterRequest.type
 NSString * const kGTLRDocs_CreateFooterRequest_Type_Default    = @"DEFAULT";
 NSString * const kGTLRDocs_CreateFooterRequest_Type_HeaderFooterTypeUnspecified = @"HEADER_FOOTER_TYPE_UNSPECIFIED";
@@ -61,6 +72,12 @@ NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatUnspecifie
 // GTLRDocs_Dimension.unit
 NSString * const kGTLRDocs_Dimension_Unit_Pt              = @"PT";
 NSString * const kGTLRDocs_Dimension_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
+
+// GTLRDocs_Document.commentsViewMode
+NSString * const kGTLRDocs_Document_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRDocs_Document_CommentsViewMode_CommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRDocs_Document_CommentsViewMode_CommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRDocs_Document_CommentsViewMode_CommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
 
 // GTLRDocs_Document.suggestionsViewMode
 NSString * const kGTLRDocs_Document_SuggestionsViewMode_DefaultForCurrentAccess = @"DEFAULT_FOR_CURRENT_ACCESS";
@@ -172,6 +189,18 @@ NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_InFrontOfText = @"
 NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_PositionedObjectLayoutUnspecified = @"POSITIONED_OBJECT_LAYOUT_UNSPECIFIED";
 NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_WrapText = @"WRAP_TEXT";
 
+// GTLRDocs_Post.commentAction
+NSString * const kGTLRDocs_Post_CommentAction_CommentActionTypeUnspecified = @"COMMENT_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocs_Post_CommentAction_NoCommentActionChange = @"NO_COMMENT_ACTION_CHANGE";
+NSString * const kGTLRDocs_Post_CommentAction_Reopen           = @"REOPEN";
+NSString * const kGTLRDocs_Post_CommentAction_Resolve          = @"RESOLVE";
+
+// GTLRDocs_Post.suggestionAction
+NSString * const kGTLRDocs_Post_SuggestionAction_Accept        = @"ACCEPT";
+NSString * const kGTLRDocs_Post_SuggestionAction_NoSuggestionActionChange = @"NO_SUGGESTION_ACTION_CHANGE";
+NSString * const kGTLRDocs_Post_SuggestionAction_Reject        = @"REJECT";
+NSString * const kGTLRDocs_Post_SuggestionAction_SuggestionActionTypeUnspecified = @"SUGGESTION_ACTION_TYPE_UNSPECIFIED";
+
 // GTLRDocs_ReplaceImageRequest.imageReplaceMethod
 NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_CenterCrop = @"CENTER_CROP";
 NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified = @"IMAGE_REPLACE_METHOD_UNSPECIFIED";
@@ -190,6 +219,12 @@ NSString * const kGTLRDocs_SectionStyle_ContentDirection_RightToLeft = @"RIGHT_T
 NSString * const kGTLRDocs_SectionStyle_SectionType_Continuous = @"CONTINUOUS";
 NSString * const kGTLRDocs_SectionStyle_SectionType_NextPage   = @"NEXT_PAGE";
 NSString * const kGTLRDocs_SectionStyle_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
+
+// GTLRDocs_SuggestionThread.status
+NSString * const kGTLRDocs_SuggestionThread_Status_Accepted    = @"ACCEPTED";
+NSString * const kGTLRDocs_SuggestionThread_Status_Open        = @"OPEN";
+NSString * const kGTLRDocs_SuggestionThread_Status_Rejected    = @"REJECTED";
+NSString * const kGTLRDocs_SuggestionThread_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRDocs_TableCellBorder.dashStyle
 NSString * const kGTLRDocs_TableCellBorder_DashStyle_Dash      = @"DASH";
@@ -220,6 +255,41 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_BaselineOffsetUnspecified = 
 NSString * const kGTLRDocs_TextStyle_BaselineOffset_None       = @"NONE";
 NSString * const kGTLRDocs_TextStyle_BaselineOffset_Subscript  = @"SUBSCRIPT";
 NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT";
+
+// GTLRDocs_WriteControl.writeMode
+NSString * const kGTLRDocs_WriteControl_WriteMode_Edit         = @"EDIT";
+NSString * const kGTLRDocs_WriteControl_WriteMode_Suggest      = @"SUGGEST";
+NSString * const kGTLRDocs_WriteControl_WriteMode_WriteModeUnspecified = @"WRITE_MODE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_AcceptSuggestionRequest
+//
+
+@implementation GTLRDocs_AcceptSuggestionRequest
+@dynamic suggestionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_AddCommentReplyRequest
+//
+
+@implementation GTLRDocs_AddCommentReplyRequest
+@dynamic commentId, post, suggestionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_AddCommentReplyResponse
+//
+
+@implementation GTLRDocs_AddCommentReplyResponse
+@dynamic post;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -319,11 +389,13 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_BatchUpdateDocumentResponse
-@dynamic documentId, replies, writeControl;
+@dynamic commentUpdateState, documentId, replies, suggestionResponses,
+         writeControl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"replies" : [GTLRDocs_Response class]
+    @"replies" : [GTLRDocs_Response class],
+    @"suggestionResponses" : [GTLRDocs_SuggestionResponse class]
   };
   return map;
 }
@@ -425,6 +497,62 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
   return [GTLRDocs_SuggestedTextStyle class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CommentAnchor
+//
+
+@implementation GTLRDocs_CommentAnchor
+@dynamic anchorId, ranges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ranges" : [GTLRDocs_Range class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CommentThread
+//
+
+@implementation GTLRDocs_CommentThread
+@dynamic anchorId, commentId, headPost, plainTextQuote, replies, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replies" : [GTLRDocs_Post class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CreateDropdownDefinitionRequest
+//
+
+@implementation GTLRDocs_CreateDropdownDefinitionRequest
+@dynamic dropdownDefinition, tabId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CreateDropdownDefinitionResponse
+//
+
+@implementation GTLRDocs_CreateDropdownDefinitionResponse
+@dynamic dropdownDefinition;
 @end
 
 
@@ -611,11 +739,41 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_DeleteCommentReplyRequest
+//
+
+@implementation GTLRDocs_DeleteCommentReplyRequest
+@dynamic commentId, postId, suggestionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DeleteCommentRequest
+//
+
+@implementation GTLRDocs_DeleteCommentRequest
+@dynamic commentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_DeleteContentRangeRequest
 //
 
 @implementation GTLRDocs_DeleteContentRangeRequest
 @dynamic range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DeleteDropdownDefinitionRequest
+//
+
+@implementation GTLRDocs_DeleteDropdownDefinitionRequest
+@dynamic dropdownDefinitionId, tabId;
 @end
 
 
@@ -671,6 +829,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_DeleteSuggestionRequest
+//
+
+@implementation GTLRDocs_DeleteSuggestionRequest
+@dynamic suggestionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_DeleteTableColumnRequest
 //
 
@@ -715,13 +883,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Document
-@dynamic body, documentId, documentStyle, footers, footnotes, headers,
-         inlineObjects, lists, namedRanges, namedStyles, positionedObjects,
-         revisionId, suggestedDocumentStyleChanges, suggestedNamedStylesChanges,
-         suggestionsViewMode, tabs, title;
+@dynamic body, comments, commentsViewMode, documentId, documentStyle, footers,
+         footnotes, headers, inlineObjects, lists, namedRanges, namedStyles,
+         positionedObjects, revisionId, suggestedDocumentStyleChanges,
+         suggestedNamedStylesChanges, suggestions, suggestionsViewMode, tabs,
+         title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"comments" : [GTLRDocs_CommentThread class],
+    @"suggestions" : [GTLRDocs_SuggestionThread class],
     @"tabs" : [GTLRDocs_Tab class]
   };
   return map;
@@ -905,9 +1076,38 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_DocumentTab
-@dynamic body, documentStyle, footers, footnotes, headers, inlineObjects, lists,
-         namedRanges, namedStyles, positionedObjects,
-         suggestedDocumentStyleChanges, suggestedNamedStylesChanges;
+@dynamic body, commentAnchors, documentStyle, dropdownDefinitions, footers,
+         footnotes, headers, inlineObjects, lists, namedRanges, namedStyles,
+         positionedObjects, suggestedDocumentStyleChanges,
+         suggestedNamedStylesChanges;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_CommentAnchors
+//
+
+@implementation GTLRDocs_DocumentTab_CommentAnchors
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_CommentAnchor class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_DropdownDefinitions
+//
+
+@implementation GTLRDocs_DocumentTab_DropdownDefinitions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_DropdownDefinition class];
+}
+
 @end
 
 
@@ -1034,6 +1234,139 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
   return [GTLRDocs_SuggestedNamedStyles class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_Dropdown
+//
+
+@implementation GTLRDocs_Dropdown
+@dynamic dropdownId, dropdownProperties, suggestedDeletionIds,
+         suggestedDropdownPropertiesChanges, suggestedInsertionIds,
+         suggestedTextStyleChanges, textStyle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestedDeletionIds" : [NSString class],
+    @"suggestedInsertionIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_Dropdown_SuggestedDropdownPropertiesChanges
+//
+
+@implementation GTLRDocs_Dropdown_SuggestedDropdownPropertiesChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedDropdownProperties class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_Dropdown_SuggestedTextStyleChanges
+//
+
+@implementation GTLRDocs_Dropdown_SuggestedTextStyleChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedTextStyle class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DropdownDefinition
+//
+
+@implementation GTLRDocs_DropdownDefinition
+@dynamic dropdownDefinitionId, dropdownDefinitionProperties,
+         suggestedDeletionId, suggestedDropdownDefinitionPropertiesChanges,
+         suggestedInsertionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DropdownDefinition_SuggestedDropdownDefinitionPropertiesChanges
+//
+
+@implementation GTLRDocs_DropdownDefinition_SuggestedDropdownDefinitionPropertiesChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedDropdownDefinitionProperties class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DropdownDefinitionProperties
+//
+
+@implementation GTLRDocs_DropdownDefinitionProperties
+@dynamic options, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"options" : [GTLRDocs_DropdownOption class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DropdownDefinitionPropertiesSuggestionState
+//
+
+@implementation GTLRDocs_DropdownDefinitionPropertiesSuggestionState
+@dynamic optionsSuggested, titleSuggested;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DropdownOption
+//
+
+@implementation GTLRDocs_DropdownOption
+@dynamic displayValue, optionId, textStyle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DropdownProperties
+//
+
+@implementation GTLRDocs_DropdownProperties
+@dynamic displayValue, dropdownDefinitionId, selectedOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DropdownPropertiesSuggestionState
+//
+
+@implementation GTLRDocs_DropdownPropertiesSuggestionState
+@dynamic selectedOptionIdSuggested;
 @end
 
 
@@ -1385,11 +1718,51 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_InsertCommentRequest
+//
+
+@implementation GTLRDocs_InsertCommentRequest
+@dynamic assigneeEmailAddress, content, range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_InsertCommentResponse
+//
+
+@implementation GTLRDocs_InsertCommentResponse
+@dynamic commentThread;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_InsertDateRequest
 //
 
 @implementation GTLRDocs_InsertDateRequest
 @dynamic dateElementProperties, endOfSegmentLocation, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_InsertDropdownRequest
+//
+
+@implementation GTLRDocs_InsertDropdownRequest
+@dynamic dropdownDefinitionId, endOfSegmentLocation, location, selectedOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_InsertDropdownResponse
+//
+
+@implementation GTLRDocs_InsertDropdownResponse
+@dynamic dropdown;
 @end
 
 
@@ -1879,7 +2252,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_ParagraphElement
-@dynamic autoText, columnBreak, dateElement, endIndex, equation,
+@dynamic autoText, columnBreak, dateElement, dropdown, endIndex, equation,
          footnoteReference, horizontalRule, inlineObjectElement, pageBreak,
          person, richLink, startIndex, textRun;
 @end
@@ -2053,11 +2426,43 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_Post
+//
+
+@implementation GTLRDocs_Post
+@dynamic assigneeEmail, author, commentAction, content, contentHtml, createTime,
+         deleted, fromCopiedDocument, fromDocumentComparison,
+         fromImportedDocument, postId, suggestionAction, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_PostAuthor
+//
+
+@implementation GTLRDocs_PostAuthor
+@dynamic anonymous, displayName, me, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_Range
 //
 
 @implementation GTLRDocs_Range
 @dynamic endIndex, segmentId, startIndex, tabId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_RejectSuggestionRequest
+//
+
+@implementation GTLRDocs_RejectSuggestionRequest
+@dynamic suggestionId;
 @end
 
 
@@ -2107,18 +2512,22 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Request
-@dynamic addDocumentTab, createFooter, createFootnote, createHeader,
-         createNamedRange, createParagraphBullets, deleteContentRange,
+@dynamic acceptSuggestion, addCommentReply, addDocumentTab,
+         createDropdownDefinition, createFooter, createFootnote, createHeader,
+         createNamedRange, createParagraphBullets, deleteComment,
+         deleteCommentReply, deleteContentRange, deleteDropdownDefinition,
          deleteFooter, deleteHeader, deleteNamedRange, deleteParagraphBullets,
-         deletePositionedObject, deleteTab, deleteTableColumn, deleteTableRow,
-         insertDate, insertInlineImage, insertPageBreak, insertPerson,
-         insertRichLink, insertSectionBreak, insertTable, insertTableColumn,
-         insertTableRow, insertText, mergeTableCells, pinTableHeaderRows,
+         deletePositionedObject, deleteSuggestion, deleteTab, deleteTableColumn,
+         deleteTableRow, insertComment, insertDate, insertDropdown,
+         insertInlineImage, insertPageBreak, insertPerson, insertRichLink,
+         insertSectionBreak, insertTable, insertTableColumn, insertTableRow,
+         insertText, mergeTableCells, pinTableHeaderRows, rejectSuggestion,
          replaceAllText, replaceImage, replaceNamedRangeContent,
-         unmergeTableCells, updateDocumentStyle, updateDocumentTabProperties,
-         updateNamedStyle, updateParagraphStyle, updateSectionStyle,
-         updateTableCellStyle, updateTableColumnProperties, updateTableRowStyle,
-         updateTextStyle;
+         unmergeTableCells, updateCommentPost, updateDocumentStyle,
+         updateDocumentTabProperties, updateDropdownDefinitionProperties,
+         updateDropdownProperties, updateNamedStyle, updateParagraphStyle,
+         updateSectionStyle, updateTableCellStyle, updateTableColumnProperties,
+         updateTableRowStyle, updateTextStyle;
 @end
 
 
@@ -2128,9 +2537,10 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Response
-@dynamic addDocumentTab, createFooter, createFootnote, createHeader,
-         createNamedRange, insertInlineImage, insertInlineSheetsChart,
-         replaceAllText;
+@dynamic addCommentReply, addDocumentTab, createDropdownDefinition,
+         createFooter, createFootnote, createHeader, createNamedRange,
+         insertComment, insertDropdown, insertInlineImage,
+         insertInlineSheetsChart, replaceAllText;
 @end
 
 
@@ -2351,6 +2761,27 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_SuggestedDropdownDefinitionProperties
+//
+
+@implementation GTLRDocs_SuggestedDropdownDefinitionProperties
+@dynamic dropdownDefinitionProperties,
+         dropdownDefinitionPropertiesSuggestionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_SuggestedDropdownProperties
+//
+
+@implementation GTLRDocs_SuggestedDropdownProperties
+@dynamic dropdownProperties, dropdownPropertiesSuggestionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_SuggestedInlineObjectProperties
 //
 
@@ -2426,6 +2857,47 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_SuggestedTextStyle
 @dynamic textStyle, textStyleSuggestionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_SuggestionResponse
+//
+
+@implementation GTLRDocs_SuggestionResponse
+@dynamic acceptedSuggestionIds, createdSuggestionIds, deletedSuggestionIds,
+         rejectedSuggestionIds, updatedSummarySuggestionIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceptedSuggestionIds" : [NSString class],
+    @"createdSuggestionIds" : [NSString class],
+    @"deletedSuggestionIds" : [NSString class],
+    @"rejectedSuggestionIds" : [NSString class],
+    @"updatedSummarySuggestionIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_SuggestionThread
+//
+
+@implementation GTLRDocs_SuggestionThread
+@dynamic headPost, replies, status, suggestionId, summaryHtml, summaryText;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replies" : [GTLRDocs_Post class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2770,6 +3242,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_UpdateCommentPostRequest
+//
+
+@implementation GTLRDocs_UpdateCommentPostRequest
+@dynamic commentId, content, postId, suggestionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_UpdateDocumentStyleRequest
 //
 
@@ -2785,6 +3267,41 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_UpdateDocumentTabPropertiesRequest
 @dynamic fields, tabProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateDropdownDefinitionPropertiesRequest
+//
+
+@implementation GTLRDocs_UpdateDropdownDefinitionPropertiesRequest
+@dynamic dropdownDefinitionId, dropdownDefinitionProperties, fields,
+         selectedOptionIdReplacements, tabId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateDropdownDefinitionPropertiesRequest_SelectedOptionIdReplacements
+//
+
+@implementation GTLRDocs_UpdateDropdownDefinitionPropertiesRequest_SelectedOptionIdReplacements
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateDropdownPropertiesRequest
+//
+
+@implementation GTLRDocs_UpdateDropdownPropertiesRequest
+@dynamic dropdownId, dropdownProperties, fields, tabId;
 @end
 
 
@@ -2890,5 +3407,5 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_WriteControl
-@dynamic requiredRevisionId, targetRevisionId;
+@dynamic requiredRevisionId, targetRevisionId, writeMode;
 @end

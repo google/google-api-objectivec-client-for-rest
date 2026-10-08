@@ -34,6 +34,11 @@ NSString * const kGTLRAPIGateway_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRAPIGateway_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRAPIGateway_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRAPIGateway_Gateway.effectiveStreamingMode
+NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeDisabled = @"EFFECTIVE_STREAMING_MODE_DISABLED";
+NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeEnabled = @"EFFECTIVE_STREAMING_MODE_ENABLED";
+NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeUnspecified = @"EFFECTIVE_STREAMING_MODE_UNSPECIFIED";
+
 // GTLRAPIGateway_Gateway.state
 NSString * const kGTLRAPIGateway_Gateway_State_Active          = @"ACTIVE";
 NSString * const kGTLRAPIGateway_Gateway_State_Creating        = @"CREATING";
@@ -41,6 +46,10 @@ NSString * const kGTLRAPIGateway_Gateway_State_Deleting        = @"DELETING";
 NSString * const kGTLRAPIGateway_Gateway_State_Failed          = @"FAILED";
 NSString * const kGTLRAPIGateway_Gateway_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAPIGateway_Gateway_State_Updating        = @"UPDATING";
+
+// GTLRAPIGateway_Gateway.streamingMode
+NSString * const kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeEnabled = @"STREAMING_MODE_ENABLED";
+NSString * const kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeUnspecified = @"STREAMING_MODE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -234,8 +243,8 @@ NSString * const kGTLRAPIGateway_Gateway_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRAPIGateway_Gateway
-@dynamic apiConfig, createTime, defaultHostname, displayName, labels, name,
-         state, updateTime;
+@dynamic apiConfig, createTime, defaultHostname, displayName,
+         effectiveStreamingMode, labels, name, state, streamingMode, updateTime;
 @end
 
 

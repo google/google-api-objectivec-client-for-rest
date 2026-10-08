@@ -296,6 +296,52 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDevi
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_EnvironmentDetails.locationSpoofingRiskVerdict
+
+/**
+ *  Likely device-related spoofing was detected.
+ *
+ *  Value: "HIGH_RISK_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_HighRiskDevice;
+/**
+ *  Likely network-related spoofing was detected.
+ *
+ *  Value: "HIGH_RISK_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_HighRiskNetwork;
+/**
+ *  Catch-all for unrecognized enum values.
+ *
+ *  Value: "LOCATION_SPOOFING_RISK_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_LocationSpoofingRiskVerdictUnspecified;
+/**
+ *  Device-related spoofing was evaluated, and no issues were detected.
+ *
+ *  Value: "LOW_RISK_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_LowRiskDevice;
+/**
+ *  Network-related spoofing was evaluated, and no issues were detected.
+ *
+ *  Value: "LOW_RISK_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_LowRiskNetwork;
+/**
+ *  Potential device-related spoofing was detected.
+ *
+ *  Value: "MEDIUM_RISK_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_MediumRiskDevice;
+/**
+ *  Potential network-related spoofing was detected.
+ *
+ *  Value: "MEDIUM_RISK_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_MediumRiskNetwork;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
 
 /**
@@ -669,6 +715,9 @@ GTLR_DEPRECATED
 
 /** The evaluation of the App Access Risk verdicts. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_AppAccessRiskVerdict *appAccessRiskVerdict;
+
+/** The evaluation of the Location Spoofing Risk verdict. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locationSpoofingRiskVerdict;
 
 /**
  *  The evaluation of Play Protect verdict.

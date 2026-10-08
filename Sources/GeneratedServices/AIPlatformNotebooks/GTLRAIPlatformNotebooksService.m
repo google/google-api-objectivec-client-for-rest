@@ -11,8 +11,9 @@
 #import <GoogleAPIClientForREST/GTLRAIPlatformNotebooks.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeAIPlatformNotebooks             = @"https://www.googleapis.com/auth/notebooks";
 NSString * const kGTLRAuthScopeAIPlatformNotebooksCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

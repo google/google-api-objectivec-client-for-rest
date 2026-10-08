@@ -29,6 +29,7 @@ NSString * const kGTLRAuthScopeCalendarEventsPublicReadonly = @"https://www.goog
 NSString * const kGTLRAuthScopeCalendarEventsReadonly       = @"https://www.googleapis.com/auth/calendar.events.readonly";
 NSString * const kGTLRAuthScopeCalendarFreebusy             = @"https://www.googleapis.com/auth/calendar.freebusy";
 NSString * const kGTLRAuthScopeCalendarReadonly             = @"https://www.googleapis.com/auth/calendar.readonly";
+NSString * const kGTLRAuthScopeCalendarSettings             = @"https://www.googleapis.com/auth/calendar.settings";
 NSString * const kGTLRAuthScopeCalendarSettingsReadonly     = @"https://www.googleapis.com/auth/calendar.settings.readonly";
 
 // ----------------------------------------------------------------------------

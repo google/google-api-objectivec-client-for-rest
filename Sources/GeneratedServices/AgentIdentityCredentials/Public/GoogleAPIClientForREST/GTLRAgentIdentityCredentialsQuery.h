@@ -4,7 +4,8 @@
 // API:
 //   Agent Identity Credentials API (agentidentitycredentials/v1)
 // Description:
-//   agentidentitycredentials.googleapis.com API.
+//   The Agent Identity Credentials API retrieves and finalizes authorization
+//   credentials for auth providers.
 // Documentation:
 //   https://cloud.google.com/iam/docs/
 
@@ -44,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityCredentialsQuery_ProjectsLocationsAuthProvidersCredentialsFinalize : GTLRAgentIdentityCredentialsQuery
 
 /**
- *  Required. The resource name of the AuthProvider. Format:
+ *  Required. The resource name of the auth provider. Format:
  *  `projects/{project}/locations/{location}/authProviders/{auth_provider}`
  */
 @property(nonatomic, copy, nullable) NSString *authProvider;
@@ -58,7 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1FinalizeCredentialsRequest
  *    to include in the query.
- *  @param authProvider Required. The resource name of the AuthProvider. Format:
+ *  @param authProvider Required. The resource name of the auth provider.
+ *    Format:
  *    `projects/{project}/locations/{location}/authProviders/{auth_provider}`
  *
  *  @return GTLRAgentIdentityCredentialsQuery_ProjectsLocationsAuthProvidersCredentialsFinalize
@@ -69,10 +71,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves authorization credentials for an authprovider, or indicates what
+ *  Retrieves authorization credentials for an auth provider, or indicates what
  *  action needs to be taken to obtain credentials. If the `token` field in the
  *  response is populated, credential retrieval was successful. If one of the
- *  fields in the `status` oneof is populated, further action is required to
+ *  fields in the `result` oneof is populated, further action is required to
  *  obtain credentials, such as redirecting the user for consent. View comments
  *  on `RetrieveCredentialsResponse` for more information.
  *
@@ -84,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityCredentialsQuery_ProjectsLocationsAuthProvidersCredentialsRetrieve : GTLRAgentIdentityCredentialsQuery
 
 /**
- *  Required. The parent resource name of the AuthProvider. Format:
+ *  Required. The resource name of the auth provider. Format:
  *  `projects/{project}/locations/{location}/authProviders/{auth_provider}`
  */
 @property(nonatomic, copy, nullable) NSString *authProvider;
@@ -93,17 +95,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1RetrieveCredentialsResponse.
  *
- *  Retrieves authorization credentials for an authprovider, or indicates what
+ *  Retrieves authorization credentials for an auth provider, or indicates what
  *  action needs to be taken to obtain credentials. If the `token` field in the
  *  response is populated, credential retrieval was successful. If one of the
- *  fields in the `status` oneof is populated, further action is required to
+ *  fields in the `result` oneof is populated, further action is required to
  *  obtain credentials, such as redirecting the user for consent. View comments
  *  on `RetrieveCredentialsResponse` for more information.
  *
  *  @param object The @c
  *    GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1RetrieveCredentialsRequest
  *    to include in the query.
- *  @param authProvider Required. The parent resource name of the AuthProvider.
+ *  @param authProvider Required. The resource name of the auth provider.
  *    Format:
  *    `projects/{project}/locations/{location}/authProviders/{auth_provider}`
  *

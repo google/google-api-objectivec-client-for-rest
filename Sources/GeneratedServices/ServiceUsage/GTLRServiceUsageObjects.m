@@ -56,12 +56,6 @@ NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_
 NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_CheckIfServiceHasUsageUnspecified = @"CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED";
 NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_Skip = @"SKIP";
 
-// GTLRServiceUsage_EnableRule.enableType
-NSString * const kGTLRServiceUsage_EnableRule_EnableType_Client = @"CLIENT";
-NSString * const kGTLRServiceUsage_EnableRule_EnableType_EnableTypeUnspecified = @"ENABLE_TYPE_UNSPECIFIED";
-NSString * const kGTLRServiceUsage_EnableRule_EnableType_Resource = @"RESOURCE";
-NSString * const kGTLRServiceUsage_EnableRule_EnableType_V1Compatible = @"V1_COMPATIBLE";
-
 // GTLRServiceUsage_Enum.syntax
 NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
@@ -1046,10 +1040,11 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_EnableRule
-@dynamic enableType, services, values;
+@dynamic catalogs, services, values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"catalogs" : [NSString class],
     @"services" : [NSString class],
     @"values" : [NSString class]
   };
@@ -1514,10 +1509,11 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule
-@dynamic services;
+@dynamic catalogs, services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"catalogs" : [NSString class],
     @"services" : [NSString class]
   };
   return map;

@@ -71,6 +71,22 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscript;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartChip;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCitationPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartLinkPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListItem;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartProduct;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTablePart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTableRow;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTextPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CreateIssueRequest;
@@ -240,6 +256,22 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscript;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartChip;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCitationPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartLinkPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListItem;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartProduct;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTablePart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTableRow;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTextPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationRule;
@@ -370,6 +402,22 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscript;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartChip;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCitationPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartLinkPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListItem;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartMediaPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartProduct;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTablePart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTableRow;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTextPart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainCreateIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainCreateIssueRequest;
@@ -549,6 +597,7 @@
 @class GTLRContactcenterinsights_GoogleRpcStatus_Details_Item;
 @class GTLRContactcenterinsights_GoogleTypeExpr;
 @class GTLRContactcenterinsights_GoogleTypeInterval;
+@class GTLRContactcenterinsights_GoogleTypeMoney;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -739,6 +788,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "ROLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart.listType
+
+/**
+ *  Unspecified list type.
+ *
+ *  Value: "LIST_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_ListTypeUnspecified;
+/**
+ *  Ordered alphabetic list.
+ *
+ *  Value: "ORDERED_ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedAlpha;
+/**
+ *  Ordered numbered list.
+ *
+ *  Value: "ORDERED_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedNumber;
+/**
+ *  Unordered list.
+ *
+ *  Value: "UNORDERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_Unordered;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dataset.type
@@ -1867,6 +1944,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart.listType
+
+/**
+ *  Unspecified list type.
+ *
+ *  Value: "LIST_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_ListTypeUnspecified;
+/**
+ *  Ordered alphabetic list.
+ *
+ *  Value: "ORDERED_ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedAlpha;
+/**
+ *  Ordered numbered list.
+ *
+ *  Value: "ORDERED_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedNumber;
+/**
+ *  Unordered list.
+ *
+ *  Value: "UNORDERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_Unordered;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset.type
 
 /**
@@ -2788,6 +2893,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationQualityMetadataAgentInfo_AgentType_RoleUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart.listType
+
+/**
+ *  Unspecified list type.
+ *
+ *  Value: "LIST_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_ListTypeUnspecified;
+/**
+ *  Ordered alphabetic list.
+ *
+ *  Value: "ORDERED_ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedAlpha;
+/**
+ *  Ordered numbered list.
+ *
+ *  Value: "ORDERED_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedNumber;
+/**
+ *  Unordered list.
+ *
+ *  Value: "UNORDERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_Unordered;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainDataset.type
 
 /**
@@ -3612,6 +3745,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome;
 /**
+ *  Classifies whether the customer demonstrates AI aversion by instantly
+ *  requesting escalation to a human agent without attempting to work with the
+ *  AI agent.
+ *
+ *  Value: "CONVERSATION_OUTCOME_AI_AVERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAiAversion;
+/**
  *  A prebuilt classifier classfying the initiator of the conversation
  *  escalation. For example, if it was initiated by the customer or the agent.
  *
@@ -3676,6 +3817,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceDiscoveryEngine;
+/**
+ *  The scorecard is derived from the custom intent taxonomy. Customers can edit
+ *  question content, but cannot delete the scorecard or add/remove questions.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_INTENT_TAXONOMY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceIntentTaxonomy;
 /**
  *  The source of the scorecard is unspecified. Default to
  *  QA_SCORECARD_SOURCE_CUSTOMER_DEFINED.
@@ -4012,6 +4160,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @interface GTLRContactcenterinsights_GoogleCloudCesV1mainImage : GTLRObject
 
+/** Optional. The alternative text for the image. */
+@property(nonatomic, copy, nullable) NSString *altText;
+
 /**
  *  Required. Raw bytes of the image.
  *
@@ -4094,6 +4245,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @interface GTLRContactcenterinsights_GoogleCloudCesV1mainToolCall : GTLRObject
 
 /**
+ *  Output only. Human-readable name of the agent that issued this call, e.g.
+ *  "Contract Architect". Empty when the root agent issued it.
+ */
+@property(nonatomic, copy, nullable) NSString *agentName;
+
+/**
  *  Optional. The input parameters and values for the tool in JSON object
  *  format.
  */
@@ -4109,6 +4266,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The id of the tool call that caused this one, when it was
+ *  issued by a sub-agent working on behalf of a parent call. Empty for
+ *  top-level calls. Lets a client group a sub-agent's work under the call that
+ *  started it instead of rendering every step as a sibling.
+ */
+@property(nonatomic, copy, nullable) NSString *parentToolCallId;
 
 /**
  *  Optional. The name of the tool to execute. Format:
@@ -4140,6 +4305,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @interface GTLRContactcenterinsights_GoogleCloudCesV1mainToolResponse : GTLRObject
 
+/**
+ *  Output only. Human-readable name of the agent that issued this call, e.g.
+ *  "Contract Architect". Empty when the root agent issued it.
+ */
+@property(nonatomic, copy, nullable) NSString *agentName;
+
 /** Output only. Display name of the tool. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -4149,6 +4320,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The id of the tool call that caused this one, when it was
+ *  issued by a sub-agent working on behalf of a parent call. Empty for
+ *  top-level calls. Lets a client group a sub-agent's work under the call that
+ *  started it instead of rendering every step as a sibling.
+ */
+@property(nonatomic, copy, nullable) NSString *parentToolCallId;
 
 /**
  *  Required. The tool execution result in JSON object format. Use "output" key
@@ -4234,6 +4413,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Output only. The time at which the analysis was requested. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 @end
 
@@ -4638,12 +4831,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
 /**
- *  Output only. If true, the labeling rules will be re-evaluated for the
- *  conversations.
+ *  Output only. Deprecated: Use
+ *  `request.annotator_selector.run_auto_labeling_annotator` instead. If true,
+ *  the labeling rules will be re-evaluated for the conversations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *relabel;
+@property(nonatomic, strong, nullable) NSNumber *relabel GTLR_DEPRECATED;
 
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest *request;
@@ -4684,12 +4878,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. If true, the labeling rules will be re-evaluated for the
+ *  Optional. Deprecated: Use `annotator_selector.run_auto_labeling_annotator`
+ *  instead. If true, the labeling rules will be re-evaluated for the
  *  conversations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *relabel;
+@property(nonatomic, strong, nullable) NSNumber *relabel GTLR_DEPRECATED;
 
 @end
 
@@ -5027,6 +5222,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  agent interaction.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation *> *runtimeAnnotations;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** The time at which the conversation started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -5504,6 +5713,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** The time that the message occurred, if provided. */
 @property(nonatomic, strong, nullable) GTLRDateTime *messageTime;
 
+/** Optional. The structured parts that make up this transcript segment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPart *> *parts;
+
 /** The participant of this segment. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant *segmentParticipant;
 
@@ -5534,6 +5746,286 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *smartReplyAllowlistCovered;
+
+@end
+
+
+/**
+ *  A structured component/part of a transcript segment.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPart : GTLRObject
+
+/** Optional. Citation or reference to grounding material. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCitationPart *citation;
+
+/** Optional. Generic custom structured payload. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart *customPayload;
+
+/** Optional. Image media. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart *image;
+
+/** Optional. Web link or URL. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartLinkPart *link;
+
+/** Optional. Ordered or unordered list. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart *list;
+
+/** Optional. Product collection or carousel. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart *productCollection;
+
+/** Optional. Suggestion chips or interactive buttons. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart *suggestionChips;
+
+/** Optional. Tabular data. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTablePart *table;
+
+/** Optional. Plain text content. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTextPart *text;
+
+/** Optional. Model thought or internal reasoning. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart *thought;
+
+/** Optional. Video media. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart *video;
+
+@end
+
+
+/**
+ *  A suggestion chip.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartChip : GTLRObject
+
+/** Optional. Optional action or destination URI triggered by the chip. */
+@property(nonatomic, copy, nullable) NSString *actionUri;
+
+/** Optional. The chip label or text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A citation part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCitationPart : GTLRObject
+
+/** Optional. Snippet of the cited text. */
+@property(nonatomic, copy, nullable) NSString *snippet;
+
+/** Optional. The cited source title. */
+@property(nonatomic, copy, nullable) NSString *sourceTitle;
+
+/** Optional. The cited source URI. */
+@property(nonatomic, copy, nullable) NSString *sourceUri;
+
+@end
+
+
+/**
+ *  A custom payload part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart : GTLRObject
+
+/** Optional. Arbitrary structured payload. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload *payload;
+
+/** Optional. Type identifier for the payload. */
+@property(nonatomic, copy, nullable) NSString *payloadType;
+
+@end
+
+
+/**
+ *  Optional. Arbitrary structured payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload : GTLRObject
+@end
+
+
+/**
+ *  A link part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartLinkPart : GTLRObject
+
+/** Optional. Anchor or display text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** Optional. Target URI. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  An item in a list.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListItem : GTLRObject
+
+/** Optional. Nested sub-items. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListItem *> *subItems;
+
+/** Optional. The text of the list item. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A list part.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart : GTLRCollectionObject
+
+/**
+ *  Optional. List items.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListItem *> *items;
+
+/**
+ *  Optional. The type of list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_ListTypeUnspecified
+ *        Unspecified list type. (Value: "LIST_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedAlpha
+ *        Ordered alphabetic list. (Value: "ORDERED_ALPHA")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedNumber
+ *        Ordered numbered list. (Value: "ORDERED_NUMBER")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_Unordered
+ *        Unordered list. (Value: "UNORDERED")
+ */
+@property(nonatomic, copy, nullable) NSString *listType;
+
+@end
+
+
+/**
+ *  A media part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart : GTLRObject
+
+/** Optional. Alternative text description. */
+@property(nonatomic, copy, nullable) NSString *alternativeText;
+
+/** Optional. URI or URL to the media. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A product in a product collection.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartProduct : GTLRObject
+
+/**
+ *  Optional. Product description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Product display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Product ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. Product image URLs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *imageUris;
+
+/** Optional. Product price. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleTypeMoney *price;
+
+/** Optional. Product URL or deep link. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A product collection part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart : GTLRObject
+
+/** Optional. List of products. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartProduct *> *products;
+
+@end
+
+
+/**
+ *  A suggestion chips part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart : GTLRObject
+
+/** Optional. List of suggestion chips. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartChip *> *chips;
+
+@end
+
+
+/**
+ *  A table part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTablePart : GTLRObject
+
+/** Optional. Table column headers. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
+
+/** Optional. Table rows. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTableRow *> *rows;
+
+/** Optional. Optional title for the table. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A row in a table.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTableRow : GTLRObject
+
+/** Optional. The cell values in the row. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cells;
+
+@end
+
+
+/**
+ *  A text part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartTextPart : GTLRObject
+
+/** Optional. The text content. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A thought part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart : GTLRObject
+
+/** Optional. The thought or reasoning text. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -5676,6 +6168,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  projects/{project}/locations/{location}/datasets/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Optional. Option TTL for the dataset. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
@@ -6177,6 +6683,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 @end
 
 
@@ -6606,6 +7126,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** QaAnswer label used for Quality AI example conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue *qaAnswerLabel;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** Output only. Update time of the label. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -6618,10 +7152,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource : GTLRObject
 
 /**
- *  Cloud Storage URI that points to a file that contains the conversation
- *  audio.
+ *  Immutable. Deprecated: Use `audio_uris` instead. Cloud Storage URI that
+ *  points to a file that contains the conversation audio.
  */
-@property(nonatomic, copy, nullable) NSString *audioUri;
+@property(nonatomic, copy, nullable) NSString *audioUri GTLR_DEPRECATED;
+
+/**
+ *  Immutable. Cloud Storage URIs that point to files that contain the
+ *  conversation audio. Supports both single audio files and multi-leg session
+ *  recordings (e.g., call transfers, rolling recording buffers).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *audioUris;
 
 /**
  *  Immutable. Cloud Storage URI that points to a file that contains the
@@ -7781,6 +8322,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  Questions, we treat this field as optional.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *qaQuestionIds;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The most recent time at which the question tag was updated.
@@ -9214,6 +9769,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** Output only. The time at which the analysis was requested. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 @end
 
 
@@ -9354,6 +9923,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  projects/{project}/locations/{location}/analysisRules/{analysis_rule}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The most recent time at which this analysis rule was updated.
@@ -9724,6 +10307,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** The sample rule for the assessment rule. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleRule *sampleRule;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** Schedule info for the assessment rule. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ScheduleInfo *scheduleInfo;
 
@@ -9846,6 +10443,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The most recent time at which the authorized view was updated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -9869,6 +10480,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  projects/{project}/locations/{location}/authorizedViewSets/{authorized_view_set}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Output only. Update time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -9988,12 +10613,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
 /**
- *  Output only. If true, the labeling rules will be re-evaluated for the
- *  conversations.
+ *  Output only. Deprecated: Use
+ *  `request.annotator_selector.run_auto_labeling_annotator` instead. If true,
+ *  the labeling rules will be re-evaluated for the conversations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *relabel;
+@property(nonatomic, strong, nullable) NSNumber *relabel GTLR_DEPRECATED;
 
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *request;
@@ -10034,12 +10660,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. If true, the labeling rules will be re-evaluated for the
+ *  Optional. Deprecated: Use `annotator_selector.run_auto_labeling_annotator`
+ *  instead. If true, the labeling rules will be re-evaluated for the
  *  conversations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *relabel;
+@property(nonatomic, strong, nullable) NSNumber *relabel GTLR_DEPRECATED;
 
 @end
 
@@ -11009,6 +11636,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RuntimeAnnotation *> *runtimeAnnotations;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** The time at which the conversation started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -11502,6 +12143,9 @@ GTLR_DEPRECATED
 /** The time that the message occurred, if provided. */
 @property(nonatomic, strong, nullable) GTLRDateTime *messageTime;
 
+/** Optional. The structured parts that make up this transcript segment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPart *> *parts;
+
 /** The participant of this segment. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant *segmentParticipant;
 
@@ -11532,6 +12176,286 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *smartReplyAllowlistCovered;
+
+@end
+
+
+/**
+ *  A structured component/part of a transcript segment.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPart : GTLRObject
+
+/** Optional. Citation or reference to grounding material. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCitationPart *citation;
+
+/** Optional. Generic custom structured payload. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart *customPayload;
+
+/** Optional. Image media. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart *image;
+
+/** Optional. Web link or URL. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartLinkPart *link;
+
+/** Optional. Ordered or unordered list. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart *list;
+
+/** Optional. Product collection or carousel. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart *productCollection;
+
+/** Optional. Suggestion chips or interactive buttons. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart *suggestionChips;
+
+/** Optional. Tabular data. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTablePart *table;
+
+/** Optional. Plain text content. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTextPart *text;
+
+/** Optional. Model thought or internal reasoning. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart *thought;
+
+/** Optional. Video media. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart *video;
+
+@end
+
+
+/**
+ *  A suggestion chip.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartChip : GTLRObject
+
+/** Optional. Optional action or destination URI triggered by the chip. */
+@property(nonatomic, copy, nullable) NSString *actionUri;
+
+/** Optional. The chip label or text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A citation part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCitationPart : GTLRObject
+
+/** Optional. Snippet of the cited text. */
+@property(nonatomic, copy, nullable) NSString *snippet;
+
+/** Optional. The cited source title. */
+@property(nonatomic, copy, nullable) NSString *sourceTitle;
+
+/** Optional. The cited source URI. */
+@property(nonatomic, copy, nullable) NSString *sourceUri;
+
+@end
+
+
+/**
+ *  A custom payload part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart : GTLRObject
+
+/** Optional. Arbitrary structured payload. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload *payload;
+
+/** Optional. Type identifier for the payload. */
+@property(nonatomic, copy, nullable) NSString *payloadType;
+
+@end
+
+
+/**
+ *  Optional. Arbitrary structured payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload : GTLRObject
+@end
+
+
+/**
+ *  A link part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartLinkPart : GTLRObject
+
+/** Optional. Anchor or display text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** Optional. Target URI. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  An item in a list.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListItem : GTLRObject
+
+/** Optional. Nested sub-items. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListItem *> *subItems;
+
+/** Optional. The text of the list item. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A list part.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart : GTLRCollectionObject
+
+/**
+ *  Optional. List items.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListItem *> *items;
+
+/**
+ *  Optional. The type of list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_ListTypeUnspecified
+ *        Unspecified list type. (Value: "LIST_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedAlpha
+ *        Ordered alphabetic list. (Value: "ORDERED_ALPHA")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedNumber
+ *        Ordered numbered list. (Value: "ORDERED_NUMBER")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_Unordered
+ *        Unordered list. (Value: "UNORDERED")
+ */
+@property(nonatomic, copy, nullable) NSString *listType;
+
+@end
+
+
+/**
+ *  A media part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartMediaPart : GTLRObject
+
+/** Optional. Alternative text description. */
+@property(nonatomic, copy, nullable) NSString *alternativeText;
+
+/** Optional. URI or URL to the media. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A product in a product collection.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartProduct : GTLRObject
+
+/**
+ *  Optional. Product description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Product display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Product ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. Product image URLs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *imageUris;
+
+/** Optional. Product price. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleTypeMoney *price;
+
+/** Optional. Product URL or deep link. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A product collection part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart : GTLRObject
+
+/** Optional. List of products. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartProduct *> *products;
+
+@end
+
+
+/**
+ *  A suggestion chips part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart : GTLRObject
+
+/** Optional. List of suggestion chips. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartChip *> *chips;
+
+@end
+
+
+/**
+ *  A table part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTablePart : GTLRObject
+
+/** Optional. Table column headers. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
+
+/** Optional. Table rows. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTableRow *> *rows;
+
+/** Optional. Optional title for the table. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A row in a table.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTableRow : GTLRObject
+
+/** Optional. The cell values in the row. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cells;
+
+@end
+
+
+/**
+ *  A text part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartTextPart : GTLRObject
+
+/** Optional. The text content. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A thought part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart : GTLRObject
+
+/** Optional. The thought or reasoning text. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -11799,6 +12723,20 @@ GTLR_DEPRECATED
  *  projects/{project}/locations/{location}/datasets/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Optional. Option TTL for the dataset. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
@@ -12355,6 +13293,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 @end
 
 
@@ -12799,6 +13751,20 @@ GTLR_DEPRECATED
 /** QaAnswer label used for Quality AI example conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue *qaAnswerLabel;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** Output only. Update time of the label. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -12819,10 +13785,17 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource : GTLRObject
 
 /**
- *  Cloud Storage URI that points to a file that contains the conversation
- *  audio.
+ *  Immutable. Deprecated: Use `audio_uris` instead. Cloud Storage URI that
+ *  points to a file that contains the conversation audio.
  */
-@property(nonatomic, copy, nullable) NSString *audioUri;
+@property(nonatomic, copy, nullable) NSString *audioUri GTLR_DEPRECATED;
+
+/**
+ *  Immutable. Cloud Storage URIs that point to files that contain the
+ *  conversation audio. Supports both single audio files and multi-leg session
+ *  recordings (e.g., call transfers, rolling recording buffers).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *audioUris;
 
 /**
  *  Immutable. Cloud Storage URI that points to a file that contains the
@@ -14645,6 +15618,20 @@ GTLR_DEPRECATED
 /** Output only. The time at which the analysis was requested. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 @end
 
 
@@ -15048,12 +16035,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
 /**
- *  Output only. If true, the labeling rules will be re-evaluated for the
- *  conversations.
+ *  Output only. Deprecated: Use
+ *  `request.annotator_selector.run_auto_labeling_annotator` instead. If true,
+ *  the labeling rules will be re-evaluated for the conversations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *relabel;
+@property(nonatomic, strong, nullable) NSNumber *relabel GTLR_DEPRECATED;
 
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainBulkAnalyzeConversationsRequest *request;
@@ -15094,12 +16082,13 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. If true, the labeling rules will be re-evaluated for the
+ *  Optional. Deprecated: Use `annotator_selector.run_auto_labeling_annotator`
+ *  instead. If true, the labeling rules will be re-evaluated for the
  *  conversations.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *relabel;
+@property(nonatomic, strong, nullable) NSNumber *relabel GTLR_DEPRECATED;
 
 @end
 
@@ -15647,6 +16636,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainRuntimeAnnotation *> *runtimeAnnotations;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** The time at which the conversation started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -16123,6 +17126,9 @@ GTLR_DEPRECATED
 /** The time that the message occurred, if provided. */
 @property(nonatomic, strong, nullable) GTLRDateTime *messageTime;
 
+/** Optional. The structured parts that make up this transcript segment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPart *> *parts;
+
 /** The participant of this segment. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationParticipant *segmentParticipant;
 
@@ -16153,6 +17159,286 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *smartReplyAllowlistCovered;
+
+@end
+
+
+/**
+ *  A structured component/part of a transcript segment.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPart : GTLRObject
+
+/** Optional. Citation or reference to grounding material. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCitationPart *citation;
+
+/** Optional. Generic custom structured payload. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart *customPayload;
+
+/** Optional. Image media. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartMediaPart *image;
+
+/** Optional. Web link or URL. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartLinkPart *link;
+
+/** Optional. Ordered or unordered list. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart *list;
+
+/** Optional. Product collection or carousel. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart *productCollection;
+
+/** Optional. Suggestion chips or interactive buttons. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart *suggestionChips;
+
+/** Optional. Tabular data. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTablePart *table;
+
+/** Optional. Plain text content. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTextPart *text;
+
+/** Optional. Model thought or internal reasoning. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart *thought;
+
+/** Optional. Video media. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartMediaPart *video;
+
+@end
+
+
+/**
+ *  A suggestion chip.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartChip : GTLRObject
+
+/** Optional. Optional action or destination URI triggered by the chip. */
+@property(nonatomic, copy, nullable) NSString *actionUri;
+
+/** Optional. The chip label or text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A citation part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCitationPart : GTLRObject
+
+/** Optional. Snippet of the cited text. */
+@property(nonatomic, copy, nullable) NSString *snippet;
+
+/** Optional. The cited source title. */
+@property(nonatomic, copy, nullable) NSString *sourceTitle;
+
+/** Optional. The cited source URI. */
+@property(nonatomic, copy, nullable) NSString *sourceUri;
+
+@end
+
+
+/**
+ *  A custom payload part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart : GTLRObject
+
+/** Optional. Arbitrary structured payload. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload *payload;
+
+/** Optional. Type identifier for the payload. */
+@property(nonatomic, copy, nullable) NSString *payloadType;
+
+@end
+
+
+/**
+ *  Optional. Arbitrary structured payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartCustomPayloadPart_Payload : GTLRObject
+@end
+
+
+/**
+ *  A link part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartLinkPart : GTLRObject
+
+/** Optional. Anchor or display text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** Optional. Target URI. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  An item in a list.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListItem : GTLRObject
+
+/** Optional. Nested sub-items. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListItem *> *subItems;
+
+/** Optional. The text of the list item. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A list part.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart : GTLRCollectionObject
+
+/**
+ *  Optional. List items.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListItem *> *items;
+
+/**
+ *  Optional. The type of list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_ListTypeUnspecified
+ *        Unspecified list type. (Value: "LIST_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedAlpha
+ *        Ordered alphabetic list. (Value: "ORDERED_ALPHA")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_OrderedNumber
+ *        Ordered numbered list. (Value: "ORDERED_NUMBER")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartListPart_ListType_Unordered
+ *        Unordered list. (Value: "UNORDERED")
+ */
+@property(nonatomic, copy, nullable) NSString *listType;
+
+@end
+
+
+/**
+ *  A media part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartMediaPart : GTLRObject
+
+/** Optional. Alternative text description. */
+@property(nonatomic, copy, nullable) NSString *alternativeText;
+
+/** Optional. URI or URL to the media. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A product in a product collection.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartProduct : GTLRObject
+
+/**
+ *  Optional. Product description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Product display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Product ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. Product image URLs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *imageUris;
+
+/** Optional. Product price. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleTypeMoney *price;
+
+/** Optional. Product URL or deep link. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A product collection part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartProductCollectionPart : GTLRObject
+
+/** Optional. List of products. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartProduct *> *products;
+
+@end
+
+
+/**
+ *  A suggestion chips part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartSuggestionChipsPart : GTLRObject
+
+/** Optional. List of suggestion chips. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartChip *> *chips;
+
+@end
+
+
+/**
+ *  A table part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTablePart : GTLRObject
+
+/** Optional. Table column headers. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
+
+/** Optional. Table rows. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTableRow *> *rows;
+
+/** Optional. Optional title for the table. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A row in a table.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTableRow : GTLRObject
+
+/** Optional. The cell values in the row. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cells;
+
+@end
+
+
+/**
+ *  A text part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartTextPart : GTLRObject
+
+/** Optional. The text content. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A thought part.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentTranscriptPartThoughtPart : GTLRObject
+
+/** Optional. The thought or reasoning text. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -16295,6 +17581,20 @@ GTLR_DEPRECATED
  *  projects/{project}/locations/{location}/datasets/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Optional. Option TTL for the dataset. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
@@ -16796,6 +18096,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 @end
 
 
@@ -17225,6 +18539,20 @@ GTLR_DEPRECATED
 /** QaAnswer label used for Quality AI example conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerValue *qaAnswerLabel;
 
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** Output only. Update time of the label. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -17237,10 +18565,17 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGcsSource : GTLRObject
 
 /**
- *  Cloud Storage URI that points to a file that contains the conversation
- *  audio.
+ *  Immutable. Deprecated: Use `audio_uris` instead. Cloud Storage URI that
+ *  points to a file that contains the conversation audio.
  */
-@property(nonatomic, copy, nullable) NSString *audioUri;
+@property(nonatomic, copy, nullable) NSString *audioUri GTLR_DEPRECATED;
+
+/**
+ *  Immutable. Cloud Storage URIs that point to files that contain the
+ *  conversation audio. Supports both single audio files and multi-leg session
+ *  recordings (e.g., call transfers, rolling recording buffers).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *audioUris;
 
 /**
  *  Immutable. Cloud Storage URI that points to a file that contains the
@@ -18400,6 +19735,20 @@ GTLR_DEPRECATED
  *  Questions, we treat this field as optional.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *qaQuestionIds;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The most recent time at which the question tag was updated.
@@ -20287,6 +21636,20 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *questionType;
 
 /**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Questions are tagged for categorization and scoring. Tags can either be: -
  *  Default Tags: These are predefined categories. They are identified by their
  *  string value (e.g., "BUSINESS", "COMPLIANCE", and "CUSTOMER"). - Custom
@@ -20387,6 +21750,10 @@ GTLR_DEPRECATED
  *        A prebuilt classifier classfying the outcome of the conversation. For
  *        example, if the customer issue mentioned in a conversation has been
  *        resolved or not. (Value: "CONVERSATION_OUTCOME")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAiAversion
+ *        Classifies whether the customer demonstrates AI aversion by instantly
+ *        requesting escalation to a human agent without attempting to work with
+ *        the AI agent. (Value: "CONVERSATION_OUTCOME_AI_AVERSION")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole
  *        A prebuilt classifier classfying the initiator of the conversation
  *        escalation. For example, if it was initiated by the customer or the
@@ -20441,6 +21808,20 @@ GTLR_DEPRECATED
  *  Questions, we treat this field as optional.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *qaQuestionIds;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The most recent time at which the question tag was updated.
@@ -20514,6 +21895,20 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The source of the scorecard.
  *
  *  Likely values:
@@ -20523,6 +21918,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceDiscoveryEngine
  *        The scorecard is a scorecard created through discovery engine
  *        deployment. (Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceIntentTaxonomy
+ *        The scorecard is derived from the custom intent taxonomy. Customers
+ *        can edit question content, but cannot delete the scorecard or
+ *        add/remove questions. (Value: "QA_SCORECARD_SOURCE_INTENT_TAXONOMY")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceUnspecified
  *        The source of the scorecard is unspecified. Default to
  *        QA_SCORECARD_SOURCE_CUSTOMER_DEFINED. (Value:
@@ -20701,6 +22100,20 @@ GTLR_DEPRECATED
  *  projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}/revisions/{revision}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** The snapshot of the scorecard at the time of this revision's creation. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard *snapshot;
@@ -21925,6 +23338,20 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
 
 /**
+ *  Output only. Whether this resource is zone isolated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether this resource is zone separated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Optional. The path to a Cloud Storage bucket containing conversation screen
  *  recordings. If provided, Insights will search in the bucket for a screen
  *  recording file matching the conversation data source object name prefix. If
@@ -22052,6 +23479,13 @@ GTLR_DEPRECATED
  *  The signed URI for the audio from the Cloud Storage conversation source.
  */
 @property(nonatomic, copy, nullable) NSString *signedGcsAudioUri;
+
+/**
+ *  Output only. The signed URIs for the audio from the Cloud Storage
+ *  conversation source when multiple audio files exist (e.g. multi-leg
+ *  conversations).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signedGcsAudioUris;
 
 /**
  *  The signed URI for the audio corresponding to each turn in the conversation.
@@ -23149,6 +24583,36 @@ GTLR_DEPRECATED
  *  matching this interval will have to be the same or after the start.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Represents an amount of money with its currency type.
+ */
+@interface GTLRContactcenterinsights_GoogleTypeMoney : GTLRObject
+
+/** The three-letter currency code defined in ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Number of nano (10^-9) units of the amount. The value must be between
+ *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
+ *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
+ *  or negative. If `units` is negative, `nanos` must be negative or zero. For
+ *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
+ *  then 1 unit is one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
 
 @end
 

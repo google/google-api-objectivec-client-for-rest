@@ -410,6 +410,33 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
 FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageBatchOperations_ReconciliationOperationMetadata.exclusiveAction
+
+/**
+ *  The resource has to be deleted. When using this bit, the CLH should fail the
+ *  operation. DEPRECATED. Instead use DELETE_RESOURCE OperationSignal in
+ *  SideChannel.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_Delete GTLR_DEPRECATED;
+/**
+ *  This resource could not be repaired but the repair should be tried again at
+ *  a later time. This can happen if there is a dependency that needs to be
+ *  resolved first- e.g. if a parent resource must be repaired before a child
+ *  resource.
+ *
+ *  Value: "RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_Retry;
+/**
+ *  Unknown repair action.
+ *
+ *  Value: "UNKNOWN_REPAIR_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageBatchOperations_RewriteObject.storageClass
 
 /**
@@ -1666,6 +1693,39 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_RewriteObject_Sto
  *        Releases the hold. (Value: "UNSET")
  */
 @property(nonatomic, copy, nullable) NSString *temporaryHold;
+
+@end
+
+
+/**
+ *  Operation metadata returned by the CLH during resource state reconciliation.
+ */
+@interface GTLRStorageBatchOperations_ReconciliationOperationMetadata : GTLRObject
+
+/**
+ *  DEPRECATED. Use exclusive_action instead.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteResource GTLR_DEPRECATED;
+
+/**
+ *  Excluisive action returned by the CLH.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_Delete
+ *        The resource has to be deleted. When using this bit, the CLH should
+ *        fail the operation. DEPRECATED. Instead use DELETE_RESOURCE
+ *        OperationSignal in SideChannel. (Value: "DELETE")
+ *    @arg @c kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_Retry
+ *        This resource could not be repaired but the repair should be tried
+ *        again at a later time. This can happen if there is a dependency that
+ *        needs to be resolved first- e.g. if a parent resource must be repaired
+ *        before a child resource. (Value: "RETRY")
+ *    @arg @c kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction
+ *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *exclusiveAction;
 
 @end
 

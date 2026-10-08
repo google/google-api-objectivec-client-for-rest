@@ -31,6 +31,8 @@
 @class GTLRAnalyticsData_Comparison;
 @class GTLRAnalyticsData_ComparisonMetadata;
 @class GTLRAnalyticsData_ConcatenateExpression;
+@class GTLRAnalyticsData_DataTruncationDateRange;
+@class GTLRAnalyticsData_DataTruncationReason;
 @class GTLRAnalyticsData_DateRange;
 @class GTLRAnalyticsData_Dimension;
 @class GTLRAnalyticsData_DimensionCompatibility;
@@ -197,6 +199,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_M
  *  Value: "WEEKLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsData_DataTruncationReason.dataTruncationType
+
+/**
+ *  Data is truncated because CM360 policy does not permit data older than 2
+ *  years from being returned.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_CM360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeCm360;
+/**
+ *  Data is truncated in conversions report.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_CONVERSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeConversions;
+/**
+ *  Data is truncated in attribution report for data driven attribution golden
+ *  date.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_DATA_DRIVEN_ATTRIBUTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDataDrivenAttribution;
+/**
+ *  Query date range may not be fully served.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_DATE_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDateRange;
+/**
+ *  Data is truncated because DV360 policy does not permit data older than 2
+ *  years from being returned.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_DV360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDv360;
+/**
+ *  New event-scoped ecommerce metrics only have data after a specific date.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_EVENT_SCOPED_ECOMMERCE_METRICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeEventScopedEcommerceMetrics;
+/**
+ *  Data is truncated due to Google Ads 36 month retention policy.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_GOOGLE_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeGoogleAds;
+/**
+ *  New item-scoped ecommerce metrics only have data after a specific date.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_ITEM_SCOPED_ECOMMERCE_METRICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeItemScopedEcommerceMetrics;
+/**
+ *  Data truncated because the query attempts to read event data prior to its
+ *  retention date.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeProperty;
+/**
+ *  Data is truncated in attribution report for rules-based models golden date.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_RULES_BASED_MODELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeRulesBasedModels;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "DATA_TRUNCATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsData_DimensionCompatibility.compatibility
@@ -1152,6 +1228,79 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  Define the truncated date range from start_date to end_date.
+ */
+@interface GTLRAnalyticsData_DataTruncationDateRange : GTLRObject
+
+/** The end date in the format YYYY-MM-DD (inclusive). */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/** The start date in the format YYYY-MM-DD (inclusive). */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+@end
+
+
+/**
+ *  Describes a reason for data truncation in the report.
+ */
+@interface GTLRAnalyticsData_DataTruncationReason : GTLRObject
+
+/**
+ *  The data truncation date in the format YYYY-MM-DD. Indicates data before
+ *  this date is truncated.
+ */
+@property(nonatomic, copy, nullable) NSString *dataTruncationDate;
+
+/** The truncated date ranges. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DataTruncationDateRange *> *dataTruncationDateRanges;
+
+/** A descriptive message explaining the data truncation. */
+@property(nonatomic, copy, nullable) NSString *dataTruncationMessage;
+
+/**
+ *  The type of data truncation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeCm360
+ *        Data is truncated because CM360 policy does not permit data older than
+ *        2 years from being returned. (Value: "DATA_TRUNCATION_TYPE_CM360")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeConversions
+ *        Data is truncated in conversions report. (Value:
+ *        "DATA_TRUNCATION_TYPE_CONVERSIONS")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDataDrivenAttribution
+ *        Data is truncated in attribution report for data driven attribution
+ *        golden date. (Value: "DATA_TRUNCATION_TYPE_DATA_DRIVEN_ATTRIBUTION")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDateRange
+ *        Query date range may not be fully served. (Value:
+ *        "DATA_TRUNCATION_TYPE_DATE_RANGE")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDv360
+ *        Data is truncated because DV360 policy does not permit data older than
+ *        2 years from being returned. (Value: "DATA_TRUNCATION_TYPE_DV360")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeEventScopedEcommerceMetrics
+ *        New event-scoped ecommerce metrics only have data after a specific
+ *        date. (Value: "DATA_TRUNCATION_TYPE_EVENT_SCOPED_ECOMMERCE_METRICS")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeGoogleAds
+ *        Data is truncated due to Google Ads 36 month retention policy. (Value:
+ *        "DATA_TRUNCATION_TYPE_GOOGLE_ADS")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeItemScopedEcommerceMetrics
+ *        New item-scoped ecommerce metrics only have data after a specific
+ *        date. (Value: "DATA_TRUNCATION_TYPE_ITEM_SCOPED_ECOMMERCE_METRICS")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeProperty
+ *        Data truncated because the query attempts to read event data prior to
+ *        its retention date. (Value: "DATA_TRUNCATION_TYPE_PROPERTY")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeRulesBasedModels
+ *        Data is truncated in attribution report for rules-based models golden
+ *        date. (Value: "DATA_TRUNCATION_TYPE_RULES_BASED_MODELS")
+ *    @arg @c kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeUnspecified
+ *        Unspecified type. (Value: "DATA_TRUNCATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataTruncationType;
+
+@end
+
+
+/**
  *  A contiguous set of days: `startDate`, `startDate + 1`, ..., `endDate`.
  *  Requests are allowed up to 4 date ranges.
  */
@@ -1383,7 +1532,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
- *  Filter for empty values.
+ *  Filter for empty values. Matches dimension values that are `""` or `(not
+ *  set)` values. Use this filter to match rows with missing or unpopulated
+ *  dimension values, or combine it with `not_expression` to exclude them from a
+ *  report without filtering for both `""` and `(not set)` separately.
  */
 @interface GTLRAnalyticsData_EmptyFilter : GTLRObject
 @end
@@ -1397,7 +1549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /** A filter for two values. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_BetweenFilter *betweenFilter;
 
-/** A filter for empty values such as "(not set)" and "" values. */
+/** A filter for empty values such as `(not set)` and `""` values. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_EmptyFilter *emptyFilter;
 
 /**
@@ -2278,6 +2430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dataLossFromOtherRow;
+
+/** If set, indicate there is data truncation in the report. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DataTruncationReason *> *dataTruncationReasons;
 
 /** If empty reason is specified, the report is empty for this reason. */
 @property(nonatomic, copy, nullable) NSString *emptyReason;

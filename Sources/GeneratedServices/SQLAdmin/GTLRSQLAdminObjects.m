@@ -200,6 +200,20 @@ NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated        = @"AUTOMATED";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand         = @"ON_DEMAND";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified = @"SQL_BACKUP_RUN_TYPE_UNSPECIFIED";
 
+// GTLRSQLAdmin_BlueGreenDeployment.state
+NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_Deleting = @"DELETING";
+NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverCompleted = @"SWITCHOVER_COMPLETED";
+NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverInProgress = @"SWITCHOVER_IN_PROGRESS";
+NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverNotReady = @"SWITCHOVER_NOT_READY";
+NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverReady = @"SWITCHOVER_READY";
+
+// GTLRSQLAdmin_BlueGreenDeploymentInfo.state
+NSString * const kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_PostSwitchover = @"POST_SWITCHOVER";
+NSString * const kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_PreSwitchover = @"PRE_SWITCHOVER";
+NSString * const kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRSQLAdmin_ConnectSettings.backendType
 NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_External = @"EXTERNAL";
 NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen = @"FIRST_GEN";
@@ -340,6 +354,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Sta
 
 // GTLRSQLAdmin_DatabaseInstance.instanceType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_GreenInstance = @"GREEN_INSTANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance = @"ON_PREMISES_INSTANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadPoolInstance = @"READ_POOL_INSTANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadReplicaInstance = @"READ_REPLICA_INSTANCE";
@@ -368,6 +383,21 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_LegalIssue = @"
 NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_OperationalIssue = @"OPERATIONAL_ISSUE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_ProjectAbuse = @"PROJECT_ABUSE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_SqlSuspensionReasonUnspecified = @"SQL_SUSPENSION_REASON_UNSPECIFIED";
+
+// GTLRSQLAdmin_DeploymentTask.state
+NSString * const kGTLRSQLAdmin_DeploymentTask_State_Failed     = @"FAILED";
+NSString * const kGTLRSQLAdmin_DeploymentTask_State_Pending    = @"PENDING";
+NSString * const kGTLRSQLAdmin_DeploymentTask_State_Running    = @"RUNNING";
+NSString * const kGTLRSQLAdmin_DeploymentTask_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_DeploymentTask_State_Succeeded  = @"SUCCEEDED";
+
+// GTLRSQLAdmin_DeploymentTask.type
+NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Delete      = @"DELETE";
+NSString * const kGTLRSQLAdmin_DeploymentTask_Type_PostSwitchoverOperations = @"POST_SWITCHOVER_OPERATIONS";
+NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Provision   = @"PROVISION";
+NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Switchover  = @"SWITCHOVER";
+NSString * const kGTLRSQLAdmin_DeploymentTask_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Upgrade     = @"UPGRADE";
 
 // GTLRSQLAdmin_DnsNameMapping.connectionType
 NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
@@ -534,6 +564,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupVolume = @"BACKUP_V
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone   = @"CLONE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ClusterMaintenance = @"CLUSTER_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Create  = @"CREATE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateBlueGreenDeployment = @"CREATE_BLUE_GREEN_DEPLOYMENT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone = @"CREATE_CLONE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateDatabase = @"CREATE_DATABASE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateReadPool = @"CREATE_READ_POOL";
@@ -542,6 +573,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateUser = @"CREATE_USE
 NSString * const kGTLRSQLAdmin_Operation_OperationType_DeferMaintenance = @"DEFER_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Delete  = @"DELETE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteBackup = @"DELETE_BACKUP";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteBlueGreenDeployment = @"DELETE_BLUE_GREEN_DEPLOYMENT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteDatabase = @"DELETE_DATABASE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteUser = @"DELETE_USER";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteVolume = @"DELETE_VOLUME";
@@ -574,6 +606,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_StartExternalSync = @"STA
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StartReplica = @"START_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica = @"STOP_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Switchover = @"SWITCHOVER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_SwitchoverBlueGreenDeployment = @"SWITCHOVER_BLUE_GREEN_DEPLOYMENT";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_SwitchoverToReplica = @"SWITCHOVER_TO_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_TruncateLog = @"TRUNCATE_LOG";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Update  = @"UPDATE";
@@ -733,6 +766,18 @@ NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Asynchronous = @"ASYNCHR
 NSString * const kGTLRSQLAdmin_Settings_ReplicationType_SqlReplicationTypeUnspecified = @"SQL_REPLICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous = @"SYNCHRONOUS";
 
+// GTLRSQLAdmin_SourceTargetPairedNode.state
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Deleting = @"DELETING";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Provisioned = @"PROVISIONED";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverFailed = @"SWITCHOVER_FAILED";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverInProgress = @"SWITCHOVER_IN_PROGRESS";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverSucceeded = @"SWITCHOVER_SUCCEEDED";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Upgraded = @"UPGRADED";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_UpgradeFailed = @"UPGRADE_FAILED";
+NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Upgrading = @"UPGRADING";
+
 // GTLRSQLAdmin_SqlActiveDirectoryConfig.mode
 NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ActiveDirectoryModeUnspecified = @"ACTIVE_DIRECTORY_MODE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_CustomerManagedActiveDirectory = @"CUSTOMER_MANAGED_ACTIVE_DIRECTORY";
@@ -799,6 +844,8 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTable
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTablesWithReplicaIdentity = @"UNSUPPORTED_TABLES_WITH_REPLICA_IDENTITY";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UsersNotCreatedInReplica = @"USERS_NOT_CREATED_IN_REPLICA";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WillDeleteExisting = @"WILL_DELETE_EXISTING";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WritableDestinationReplicaRecreationDowntime = @"WRITABLE_DESTINATION_REPLICA_RECREATION_DOWNTIME";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WritableDestinationStorageAutoIncreaseDisabled = @"WRITABLE_DESTINATION_STORAGE_AUTO_INCREASE_DISABLED";
 
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
 NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_MigrationType_Logical = @"LOGICAL";
@@ -864,6 +911,12 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamServiceAccount = @"CLOUD_IAM_SE
 NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USER";
 NSString * const kGTLRSQLAdmin_User_Type_CloudIamWorkforceIdentity = @"CLOUD_IAM_WORKFORCE_IDENTITY";
 NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER";
+
+// GTLRSQLAdmin_WorkloadCapture.workloadCaptureState
+NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Completed = @"COMPLETED";
+NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Failed = @"FAILED";
+NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Running = @"RUNNING";
+NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -1075,6 +1128,40 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_BlueGreenDeployment
+//
+
+@implementation GTLRSQLAdmin_BlueGreenDeployment
+@dynamic createTime, deploymentMappings, deploymentTasks, descriptionProperty,
+         errorDetail, name, requestedConfig, sourceInstance, state,
+         switchoverTargetInstance;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentMappings" : [GTLRSQLAdmin_SourceTargetPairedNode class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_BlueGreenDeploymentInfo
+//
+
+@implementation GTLRSQLAdmin_BlueGreenDeploymentInfo
+@dynamic deploymentId, source, state, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_CloneContext
 //
 
@@ -1107,6 +1194,16 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_Column
 @dynamic name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ConfigDiff
+//
+
+@implementation GTLRSQLAdmin_ConfigDiff
+@dynamic field, sourceValue, targetValue;
 @end
 
 
@@ -1228,17 +1325,18 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 @implementation GTLRSQLAdmin_DatabaseInstance
 @dynamic availableMaintenanceVersions, backendType, connectionName, createTime,
          currentDiskSize, databaseCenterIntegrationEnabled,
-         databaseInstalledVersion, databaseVersion, diskEncryptionConfiguration,
-         diskEncryptionStatus, dnsName, dnsNames, ETag, failoverReplica,
-         gceZone, geminiConfig, includeReplicasForMajorVersionUpgrade,
-         instanceType, ipAddresses, ipv6Address, kind, maintenanceVersion,
-         masterInstanceName, maxDiskSize, name, nodeCount, nodes,
-         onPremisesConfiguration, outOfDiskReport, primaryDnsName, project,
-         pscServiceAttachmentLink, region, replicaConfiguration, replicaNames,
-         replicationCluster, rootPassword, satisfiesPzi, satisfiesPzs,
-         scheduledMaintenance, secondaryGceZone, selfLink, serverCaCert,
-         serviceAccountEmailAddress, settings, sqlNetworkArchitecture, state,
-         suspensionReason, switchTransactionLogsToCloudStorageEnabled, tags,
+         databaseInstalledVersion, databaseVersion, deploymentInfo,
+         diskEncryptionConfiguration, diskEncryptionStatus, dnsName, dnsNames,
+         ETag, failoverReplica, gceZone, geminiConfig,
+         includeReplicasForMajorVersionUpgrade, instanceType, ipAddresses,
+         ipv6Address, kind, maintenanceVersion, masterInstanceName, maxDiskSize,
+         name, nodeCount, nodes, onPremisesConfiguration, outOfDiskReport,
+         primaryDnsName, project, pscServiceAttachmentLink, region,
+         replicaConfiguration, replicaNames, replicationCluster, rootPassword,
+         satisfiesPzi, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
+         selfLink, serverCaCert, serviceAccountEmailAddress, settings,
+         sqlNetworkArchitecture, state, suspensionReason,
+         switchTransactionLogsToCloudStorageEnabled, tags,
          upgradableDatabaseVersions, writeEndpoint;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1406,11 +1504,39 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_DeploymentTask
+//
+
+@implementation GTLRSQLAdmin_DeploymentTask
+@dynamic endTime, errorMessage, startTime, state, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_DeploymentTasks
+//
+
+@implementation GTLRSQLAdmin_DeploymentTasks
+@dynamic task;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"task" : [GTLRSQLAdmin_DeploymentTask class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_DiskEncryptionConfiguration
 //
 
 @implementation GTLRSQLAdmin_DiskEncryptionConfiguration
-@dynamic kind, kmsKeyName;
+@dynamic cmekSourceLogEncryptionEnforced, confidentialMode, kind, kmsKeyName;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1997,7 +2123,7 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_InstancesRestoreBackupRequest
-@dynamic backup, backupdrBackup, restoreBackupContext,
+@dynamic backup, backupdrBackup, ignoreMaintenanceVersion, restoreBackupContext,
          restoreInstanceClearOverridesFieldNames, restoreInstanceSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2113,6 +2239,28 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_ListBlueGreenDeploymentsResponse
+//
+
+@implementation GTLRSQLAdmin_ListBlueGreenDeploymentsResponse
+@dynamic blueGreenDeployments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blueGreenDeployments" : [GTLRSQLAdmin_BlueGreenDeployment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"blueGreenDeployments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_LocationPreference
 //
 
@@ -2208,6 +2356,24 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_NodeInfo
+//
+
+@implementation GTLRSQLAdmin_NodeInfo
+@dynamic connection, dns, instance, ipMappings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipMappings" : [GTLRSQLAdmin_IpMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_OnPremisesConfiguration
 //
 
@@ -2240,7 +2406,9 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 @implementation GTLRSQLAdmin_Operation
 @dynamic acquireSsrsLeaseContext, apiWarning, backupContext, endTime, error,
          exportContext, importContext, insertTime, kind, name, operationType,
-         preCheckMajorVersionUpgradeContext, selfLink, startTime, status,
+         preCheckMajorVersionUpgradeContext, selfLink, startTime,
+         startWorkloadCaptureContext, startWorkloadReplayContext, status,
+         stopWorkloadCaptureContext, stopWorkloadReplayContext,
          subOperationType, targetId, targetLink, targetProject, user;
 
 + (BOOL)isKindValidForClassRegistry {
@@ -2567,6 +2735,16 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_RequestedConfig
+//
+
+@implementation GTLRSQLAdmin_RequestedConfig
+@dynamic databaseVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_Reschedule
 //
 
@@ -2726,6 +2904,34 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_SourceRole
+//
+
+@implementation GTLRSQLAdmin_SourceRole
+@dynamic targetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SourceTargetPairedNode
+//
+
+@implementation GTLRSQLAdmin_SourceTargetPairedNode
+@dynamic diffs, source, state, target;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"diffs" : [GTLRSQLAdmin_ConfigDiff class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SqlActiveDirectoryConfig
 //
 
@@ -2855,6 +3061,7 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest
+@dynamic location;
 @end
 
 
@@ -2864,7 +3071,7 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest
-@dynamic migrationType, mysqlSyncConfig, replicaOverwriteEnabled,
+@dynamic location, migrationType, mysqlSyncConfig, replicaOverwriteEnabled,
          skipVerification, syncMode, syncParallelLevel;
 @end
 
@@ -2875,7 +3082,7 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest
-@dynamic migrationType, mysqlSyncConfig, selectedObjects, syncMode,
+@dynamic location, migrationType, mysqlSyncConfig, selectedObjects, syncMode,
          syncParallelLevel, verifyConnectionOnly, verifyReplicationOnly;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -3007,6 +3214,46 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest
+//
+
+@implementation GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest
+@dynamic startWorkloadReplayContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlWorkloadCapturesStartRequest
+//
+
+@implementation GTLRSQLAdmin_SqlWorkloadCapturesStartRequest
+@dynamic startWorkloadCaptureContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest
+//
+
+@implementation GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest
+@dynamic stopWorkloadReplayContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlWorkloadCapturesStopRequest
+//
+
+@implementation GTLRSQLAdmin_SqlWorkloadCapturesStopRequest
+@dynamic stopWorkloadCaptureContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SslCert
 //
 
@@ -3105,6 +3352,26 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_StartWorkloadCaptureContext
+//
+
+@implementation GTLRSQLAdmin_StartWorkloadCaptureContext
+@dynamic enableLiveReplay, replayInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_StartWorkloadReplayContext
+//
+
+@implementation GTLRSQLAdmin_StartWorkloadReplayContext
+@dynamic replayInstance, workloadId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_Status
 //
 
@@ -3137,6 +3404,35 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_StopWorkloadCaptureContext
+//
+
+@implementation GTLRSQLAdmin_StopWorkloadCaptureContext
+@dynamic abortLiveReplay;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_StopWorkloadReplayContext
+//
+
+@implementation GTLRSQLAdmin_StopWorkloadReplayContext
+@dynamic replayInstance, workloadId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SwitchoverBlueGreenDeploymentRequest
+//
+
+@implementation GTLRSQLAdmin_SwitchoverBlueGreenDeploymentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SyncFlags
 //
 
@@ -3152,6 +3448,16 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_TargetMetric
 @dynamic metric, targetValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_TargetRole
+//
+
+@implementation GTLRSQLAdmin_TargetRole
+@dynamic sourceId;
 @end
 
 
@@ -3293,4 +3599,39 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_Value
 @dynamic nullValue, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_WorkloadCapture
+//
+
+@implementation GTLRSQLAdmin_WorkloadCapture
+@dynamic endTime, replayInstance, retentionDays, sourceInstance, startTime,
+         workloadCaptureState, workloadId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_WorkloadCapturesListResponse
+//
+
+@implementation GTLRSQLAdmin_WorkloadCapturesListResponse
+@dynamic kind, workloadCaptures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workloadCaptures" : [GTLRSQLAdmin_WorkloadCapture class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end

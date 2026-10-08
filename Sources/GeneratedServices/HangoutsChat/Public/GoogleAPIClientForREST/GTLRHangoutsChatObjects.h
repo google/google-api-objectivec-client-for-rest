@@ -131,6 +131,7 @@
 @class GTLRHangoutsChat_MessageBatchUpdatedEventData;
 @class GTLRHangoutsChat_MessageCreatedEventData;
 @class GTLRHangoutsChat_MessageDeletedEventData;
+@class GTLRHangoutsChat_MessagePin;
 @class GTLRHangoutsChat_MessageUpdatedEventData;
 @class GTLRHangoutsChat_OnClick;
 @class GTLRHangoutsChat_OpenLink;
@@ -468,6 +469,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention
  *  Value: "APP_COMMAND_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_AppCommandTypeUnspecified;
+/**
+ *  A message action. The user selects the command from the message context menu
+ *  in Chat.
+ *
+ *  Value: "MESSAGE_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_MessageAction;
 /**
  *  A quick command. The user selects the command from the Chat menu in the
  *  message reply area.
@@ -2415,6 +2423,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 /** Optional. Access permission setting for joining the space. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_AccessPermissionSetting *joinSpaceSetting;
 
+/**
+ *  Optional. Access permission setting for viewing space membership. Must be
+ *  specified together with `PermissionSettings.view_space_membership` in the
+ *  update mask and request body when updating who can view space membership.
+ *  When granting view access to a target audience, you must also grant
+ *  `PermissionSettings.view_space_membership` to all members in the same
+ *  request. To remove an existing target audience (for example, to restrict
+ *  view access to space managers or assistant managers only), specify an empty
+ *  `AccessPermissionSetting` (with no `principals`).
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_AccessPermissionSetting *viewSpaceMembershipSetting;
+
 @end
 
 
@@ -2669,10 +2689,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Output only. Annotations can be associated with the plain-text body of the
- *  message or with chips that link to Google Workspace resources like Google
- *  Docs or Sheets with `start_index` and `length` of 0. To add basic formatting
- *  to a text message, see [Format text
+ *  Annotations can be associated with the plain-text body of the message or
+ *  with chips that link to Google Workspace resources like Google Docs or
+ *  Sheets with `start_index` and `length` of 0. To add basic formatting to a
+ *  text message, see [Format text
  *  messages](https://developers.google.com/workspace/chat/format-messages).
  *  Example plain-text message body: ``` Hello \@FooBot how are you!" ``` The
  *  corresponding annotations metadata: ``` "annotations":[{
@@ -2751,6 +2771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_AppCommandTypeUnspecified
  *        Default value. Unspecified. (Value: "APP_COMMAND_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_MessageAction
+ *        A message action. The user selects the command from the message
+ *        context menu in Chat. (Value: "MESSAGE_ACTION")
  *    @arg @c kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_QuickCommand A
  *        quick command. The user selects the command from the Chat menu in the
  *        message reply area. (Value: "QUICK_COMMAND")
@@ -6793,6 +6816,33 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Response message for listing message pins.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "messagePins" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_ListMessagePinsResponse : GTLRCollectionObject
+
+/**
+ *  The pinned messages from the specified space.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_MessagePin *> *messagePins;
+
+/**
+ *  You can send a token as `pageToken` to retrieve the next page of results. If
+ *  empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for listing messages.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7120,9 +7170,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  Optional. The Google Chat user or app the membership corresponds to. If your
  *  Chat app [authenticates as a
  *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *  the output populates the
+ *  the output only populates the
  *  [user](https://developers.google.com/workspace/chat/api/reference/rest/v1/User)
- *  `name` and `type`.
+ *  `name` and `type` fields for both internal and external users, unless they
+ *  are members of the space or have a prior affinity, like a direct message
+ *  (DM) conversation, with the calling user.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *member;
 
@@ -7491,9 +7543,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  Output only. The user who created the message. If your Chat app
  *  [authenticates as a
  *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *  the output populates the
+ *  the output only populates the
  *  [user](https://developers.google.com/workspace/chat/api/reference/rest/v1/User)
- *  `name` and `type`.
+ *  `name` and `type` fields for both internal and external users, unless they
+ *  are members of the space or have a prior affinity, like a direct message
+ *  (DM) conversation, with the calling user.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *sender;
 
@@ -7607,6 +7661,30 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  fields are populated.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Message *message;
+
+@end
+
+
+/**
+ *  A pin on a Chat message. For more information see [Pin a
+ *  message](https://support.google.com/chat?p=chat-board-hc).
+ */
+@interface GTLRHangoutsChat_MessagePin : GTLRObject
+
+/**
+ *  Required. Immutable. The resource name of the message that is pinned.
+ *  Format: `spaces/{space}/messages/{message}`
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Identifier. The resource name of the message pin. Format:
+ *  `spaces/{space}/messagePins/{message_pin}` The resource ID component matches
+ *  the resource ID component of the message. For example, a message with
+ *  `spaces/AAA/messages/bbb.ccc` corresponds to the message pin with the
+ *  resource name `spaces/AAA/messagePins/bbb.ccc`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -7737,6 +7815,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /** Optional. Setting for using \@all in a space. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_PermissionSetting *useAtMentionAll;
+
+/**
+ *  Optional. Setting for viewing space membership. Must be specified together
+ *  with `AccessPermissionSettings.view_space_membership_setting` in the update
+ *  mask and request body when updating who can view space membership. When
+ *  restricting view access to specific roles (for example, space managers or
+ *  assistant managers only), specify the desired role permissions here and
+ *  provide an empty `AccessPermissionSettings.view_space_membership_setting` in
+ *  the same request. If a target audience is configured in
+ *  `AccessPermissionSettings.view_space_membership_setting`, this setting must
+ *  be granted to all members.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_PermissionSetting *viewSpaceMembership;
 
 @end
 
@@ -8071,22 +8162,26 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  filters spaces based on a partial match of their display name. Results are
  *  limited to the top five space matches. For example,
  *  `space.display_name:Project` searches for messages in the top five spaces
- *  that contain the word "Project" in their display names. - `attachment`:
- *  Supports the operator `:*` (has any) to check for the presence of
- *  attachments. If `attachment:*` is specified, only messages that have at
- *  least one attachment are returned. - `annotations.user_mentions.user.name`:
- *  The resource name of the mentioned user (`users/{user}`). Only supports `:`
- *  (has). For example: `annotations.user_mentions.user.name:"users/1234567890"`
- *  returns only messages that contain a mention to the specified user.
- *  Alternatively, the alias `me` can be used to filter for messages that
- *  mention the caller user, for example:
- *  `annotations.user_mentions.user.name:users/me`. You can also use the e-mail
- *  as an alias for `{user}`, for example, `users/example\@gmail.com`. For
- *  advanced filtering, the following functions are also available: -
- *  `has_link()`: Returns only messages that have at least one hyperlink in the
- *  message text. - `is_unread()`: Filters out messages that have been read by
- *  the calling user. Using the `space.display_name` filter requires that the
- *  calling credentials include one of the following [authorization
+ *  that contain the word "Project" in their display names. -
+ *  `space.space_type`: The type of the space. Only supports `=`. For example,
+ *  `space.space_type="DIRECT_MESSAGE"` returns only messages from direct
+ *  messages. The possible values are `DIRECT_MESSAGE`, `GROUP_CHAT`, and
+ *  `SPACE`. - `attachment`: Supports the operator `:*` (has any) to check for
+ *  the presence of attachments. If `attachment:*` is specified, only messages
+ *  that have at least one attachment are returned. -
+ *  `annotations.user_mentions.user.name`: The resource name of the mentioned
+ *  user (`users/{user}`). Only supports `:` (has). For example:
+ *  `annotations.user_mentions.user.name:"users/1234567890"` returns only
+ *  messages that contain a mention to the specified user. Alternatively, the
+ *  alias `me` can be used to filter for messages that mention the caller user,
+ *  for example: `annotations.user_mentions.user.name:users/me`. You can also
+ *  use the e-mail as an alias for `{user}`, for example,
+ *  `users/example\@gmail.com`. For advanced filtering, the following functions
+ *  are also available: - `has_link()`: Returns only messages that have at least
+ *  one hyperlink in the message text. - `is_unread()`: Filters out messages
+ *  that have been read by the calling user. Using the `space.display_name` or
+ *  the `space.space_type` filters requires that the calling credentials include
+ *  one of the following [authorization
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
  *  - `https://www.googleapis.com/auth/chat.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.spaces` Using the `is_unread()` filter
@@ -8113,8 +8208,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  names containing both `Project` and `Tasks`, whereas
  *  `space.display_name:Project OR space.display_name:Tasks` returns messages
  *  that are in spaces with display names containing either `Project` or `Tasks`
- *  or both. - `annotations.user_mentions.user.name` supports the operators
- *  `AND` and `OR`, but not a mix of both. For example:
+ *  or both. - `space.space_type` supports only the `OR` operator, for example:
+ *  `space.space_type = "DIRECT_MESSAGE" OR space.space_type = "GROUP_CHAT"`. -
+ *  `annotations.user_mentions.user.name` supports the operators `AND` and `OR`,
+ *  but not a mix of both. For example:
  *  `annotations.user_mentions.user.name:"users/1234567890" AND
  *  annotations.user_mentions.user.name:"users/0987654321"` returns only
  *  messages that mentions both users, whereas
@@ -8253,7 +8350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  A token that can be used to retrieve the next page. If this field is empty,
- *  there are no subsequent pages.
+ *  there are no subsequent pages. Only populated when `useAdminAccess` is set
+ *  to `true`.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -8269,7 +8367,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  The total number of spaces that match the query, across all pages. If the
- *  result is over 10,000 spaces, this value is an estimate.
+ *  result is over 10,000 spaces, this value is an estimate. Only populated when
+ *  `useAdminAccess` is set to `true`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8368,11 +8467,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Membership *> *memberships;
 
 /**
- *  Optional. A unique identifier for this request. A random UUID is
- *  recommended. Specifying an existing request ID returns the space created
- *  with that ID instead of creating a new space. Specifying an existing request
- *  ID from the same Chat app with a different authenticated user returns an
- *  error.
+ *  Optional. A unique ID for this request. A random UUID is recommended.
+ *  Specifying a request ID makes the request idempotent, which ensures that
+ *  multiple identical requests with the same request ID result in only a single
+ *  space being created. Subsequent requests with the same request ID return the
+ *  existing space and do not update the space, even if the requested details
+ *  differ from the current state. To use this field effectively: - Ensure that
+ *  subsequent requests are identical and use the same authentication
+ *  credentials as the original request. - If a space was already created with
+ *  the provided request ID, the request returns that space. Note that the
+ *  returned space might not be fully populated; the API echoes the space in
+ *  your request with the system-assigned resource name populated. To retrieve
+ *  the latest metadata for the space, call `GetSpace`. - Reusing an existing
+ *  request ID with a different authenticated user results in an error.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -8736,7 +8843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  Optional. A description of the space. For example, describe the space's
- *  discussion topic, functional purpose, or participants. Supports up to 150
+ *  discussion topic, functional purpose, or participants. Supports up to 4,096
  *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -9224,23 +9331,58 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  A user in Google Chat. When returned as an output from a request, if your
- *  Chat app [authenticates as a
+ *  If your Chat app [authenticates as a
  *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
- *  the output for a `User` resource only populates the user's `name` and
- *  `type`.
+ *  the output for a `User` resource (such as in the Messages and Memberships
+ *  APIs) only populates the `name` and `type` fields for both internal and
+ *  external users, unless they are members of the space or have prior affinity
+ *  with the calling user.
  */
 @interface GTLRHangoutsChat_User : GTLRObject
 
-/** Output only. The user's display name. */
+/**
+ *  Output only. The user's avatar image URL. When calling the Messages and
+ *  Memberships APIs with [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
+ *  this field is populated for both internal and external users for the
+ *  `sender` of a message, users within `annotations` (such as user mentions),
+ *  and within `Membership` resources, provided the user is a member of the
+ *  space or has prior affinity with the calling user.
+ */
+@property(nonatomic, copy, nullable) NSString *avatarUrl;
+
+/**
+ *  Output only. The user's display name. Populated for both app authentication
+ *  and user authentication. This field is always populated for requests made
+ *  with [app
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *  When calling the Messages and Memberships APIs with [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
+ *  this field is populated for both internal and external users for the
+ *  `sender` of a message, users within `annotations` (such as user mentions),
+ *  and within `Membership` resources, provided the user is a member of the
+ *  space or has prior affinity with the calling user.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Unique identifier of the user's Google Workspace domain. */
 @property(nonatomic, copy, nullable) NSString *domainId;
 
 /**
+ *  Output only. The user's email address. When calling the Messages and
+ *  Memberships APIs with [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user),
+ *  this field is populated for both internal and external users for the
+ *  `sender` of a message, users within `annotations` (such as user mentions),
+ *  and within `Membership` resources, provided the user is a member of the
+ *  space or has prior affinity with the calling user.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
  *  Output only. When `true`, the user is deleted or their profile is not
- *  visible.
+ *  visible, such as when a user is mentioned in a space without being a member
+ *  and without prior affinity with the calling user.
  *
  *  Uses NSNumber of boolValue.
  */

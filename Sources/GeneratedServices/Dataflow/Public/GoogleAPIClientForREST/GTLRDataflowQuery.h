@@ -169,6 +169,322 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
+ *  Creates a new ConfigStoreSetting.
+ *
+ *  Method: dataflow.folders.locations.configStoreSettings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsCreate : GTLRDataflowQuery
+
+/** Required. The ID to use for the setting. */
+@property(nonatomic, copy, nullable) NSString *configStoreSettingId;
+
+/** Required. The parent resource where this setting will be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataflow_ConfigStoreSetting.
+ *
+ *  Creates a new ConfigStoreSetting.
+ *
+ *  @param object The @c GTLRDataflow_ConfigStoreSetting to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this setting will be
+ *    created.
+ *
+ *  @return GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_ConfigStoreSetting *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing ConfigStoreSetting.
+ *
+ *  Method: dataflow.folders.locations.configStoreSettings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsDelete : GTLRDataflowQuery
+
+/** Required. The name of the ConfigStoreSetting to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_Empty.
+ *
+ *  Deletes an existing ConfigStoreSetting.
+ *
+ *  @param name Required. The name of the ConfigStoreSetting to delete.
+ *
+ *  @return GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ConfigStoreSetting.
+ *
+ *  Method: dataflow.folders.locations.configStoreSettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsGet : GTLRDataflowQuery
+
+/** Required. The name of the ConfigStoreSetting to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_ConfigStoreSetting.
+ *
+ *  Gets a ConfigStoreSetting.
+ *
+ *  @param name Required. The name of the ConfigStoreSetting to retrieve.
+ *
+ *  @return GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ConfigStoreSettings.
+ *
+ *  Method: dataflow.folders.locations.configStoreSettings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsList : GTLRDataflowQuery
+
+/** Optional. The maximum number of settings to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListConfigStoreSettings`
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource whose settings are being listed. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListConfigStoreSettingsResponse.
+ *
+ *  Lists ConfigStoreSettings.
+ *
+ *  @param parent Required. The parent resource whose settings are being listed.
+ *
+ *  @return GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Resolves effective value of a ConfigStoreSetting.
+ *
+ *  Method: dataflow.folders.locations.configStoreSettings.resolve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsResolve : GTLRDataflowQuery
+
+/** Required. The name of the setting to resolve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_ResolveConfigStoreSettingResponse.
+ *
+ *  Resolves effective value of a ConfigStoreSetting.
+ *
+ *  @param object The @c GTLRDataflow_ResolveConfigStoreSettingRequest to
+ *    include in the query.
+ *  @param name Required. The name of the setting to resolve.
+ *
+ *  @return GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsResolve
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_ResolveConfigStoreSettingRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new ConfigStoreSetting.
+ *
+ *  Method: dataflow.organizations.locations.configStoreSettings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsCreate : GTLRDataflowQuery
+
+/** Required. The ID to use for the setting. */
+@property(nonatomic, copy, nullable) NSString *configStoreSettingId;
+
+/** Required. The parent resource where this setting will be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataflow_ConfigStoreSetting.
+ *
+ *  Creates a new ConfigStoreSetting.
+ *
+ *  @param object The @c GTLRDataflow_ConfigStoreSetting to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this setting will be
+ *    created.
+ *
+ *  @return GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_ConfigStoreSetting *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing ConfigStoreSetting.
+ *
+ *  Method: dataflow.organizations.locations.configStoreSettings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsDelete : GTLRDataflowQuery
+
+/** Required. The name of the ConfigStoreSetting to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_Empty.
+ *
+ *  Deletes an existing ConfigStoreSetting.
+ *
+ *  @param name Required. The name of the ConfigStoreSetting to delete.
+ *
+ *  @return GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ConfigStoreSetting.
+ *
+ *  Method: dataflow.organizations.locations.configStoreSettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsGet : GTLRDataflowQuery
+
+/** Required. The name of the ConfigStoreSetting to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_ConfigStoreSetting.
+ *
+ *  Gets a ConfigStoreSetting.
+ *
+ *  @param name Required. The name of the ConfigStoreSetting to retrieve.
+ *
+ *  @return GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ConfigStoreSettings.
+ *
+ *  Method: dataflow.organizations.locations.configStoreSettings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsList : GTLRDataflowQuery
+
+/** Optional. The maximum number of settings to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListConfigStoreSettings`
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource whose settings are being listed. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListConfigStoreSettingsResponse.
+ *
+ *  Lists ConfigStoreSettings.
+ *
+ *  @param parent Required. The parent resource whose settings are being listed.
+ *
+ *  @return GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Resolves effective value of a ConfigStoreSetting.
+ *
+ *  Method: dataflow.organizations.locations.configStoreSettings.resolve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsResolve : GTLRDataflowQuery
+
+/** Required. The name of the setting to resolve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_ResolveConfigStoreSettingResponse.
+ *
+ *  Resolves effective value of a ConfigStoreSetting.
+ *
+ *  @param object The @c GTLRDataflow_ResolveConfigStoreSettingRequest to
+ *    include in the query.
+ *  @param name Required. The name of the setting to resolve.
+ *
+ *  @return GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsResolve
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_ResolveConfigStoreSettingRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a snapshot.
  *
  *  Method: dataflow.projects.deleteSnapshots
@@ -204,7 +520,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  List the jobs of a project across all regions. **Note:** This method doesn't
- *  support filtering the list of jobs by name.
+ *  support filtering the list of jobs by name. # IAM Permissions Requires the
+ *  `dataflow.jobs.list` permission on the project.
  *
  *  Method: dataflow.projects.jobs.aggregated
  *
@@ -259,6 +576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The project which owns the jobs. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** Optional. */
+@property(nonatomic, assign) BOOL regionalFanoutRequested;
+
 /**
  *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
  *  JobViews.
@@ -288,7 +608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
  *  List the jobs of a project across all regions. **Note:** This method doesn't
- *  support filtering the list of jobs by name.
+ *  support filtering the list of jobs by name. # IAM Permissions Requires the
+ *  `dataflow.jobs.list` permission on the project.
  *
  *  @param projectId The project which owns the jobs.
  *
@@ -304,7 +625,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
  *  `us-central1`. Do not enter confidential information when you supply string
- *  values using the API.
+ *  values using the API. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.create` permission on the project. 2.
+ *  `resourcemanager.projects.get` (Specifically required for regional endpoints
+ *  to resolve regional resource metadata)
  *
  *  Method: dataflow.projects.jobs.create
  *
@@ -359,7 +683,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
  *  `us-central1`. Do not enter confidential information when you supply string
- *  values using the API.
+ *  values using the API. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.create` permission on the project. 2.
+ *  `resourcemanager.projects.get` (Specifically required for regional endpoints
+ *  to resolve regional resource metadata)
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -448,7 +775,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
- *  jobs that are running in `us-central1`.
+ *  jobs that are running in `us-central1`. # IAM Permissions Requires the
+ *  `dataflow.jobs.get` permission on the job.
  *
  *  Method: dataflow.projects.jobs.get
  *
@@ -503,7 +831,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
- *  jobs that are running in `us-central1`.
+ *  jobs that are running in `us-central1`. # IAM Permissions Requires the
+ *  `dataflow.jobs.get` permission on the job.
  *
  *  @param projectId The ID of the Cloud Platform project that the job belongs
  *    to.
@@ -521,7 +850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
- *  status of jobs that are running in `us-central1`.
+ *  status of jobs that are running in `us-central1`. # IAM Permissions Requires
+ *  the `dataflow.metrics.get` permission on the job.
  *
  *  Method: dataflow.projects.jobs.getMetrics
  *
@@ -557,7 +887,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
- *  status of jobs that are running in `us-central1`.
+ *  status of jobs that are running in `us-central1`. # IAM Permissions Requires
+ *  the `dataflow.metrics.get` permission on the job.
  *
  *  @param projectId A project id.
  *  @param jobId The job to get metrics for.
@@ -577,7 +908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.jobs.list` is not recommended, because you can only get the list
  *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
  *  and `projects.jobs.list` support filtering the list of jobs by name.
- *  Filtering by name isn't supported by `projects.jobs.aggregated`.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`. # IAM
+ *  Permissions Requires the `dataflow.jobs.list` permission on the project.
  *
  *  Method: dataflow.projects.jobs.list
  *
@@ -632,6 +964,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The project which owns the jobs. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** Optional. */
+@property(nonatomic, assign) BOOL regionalFanoutRequested;
+
 /**
  *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
  *  JobViews.
@@ -667,7 +1002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.jobs.list` is not recommended, because you can only get the list
  *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
  *  and `projects.jobs.list` support filtering the list of jobs by name.
- *  Filtering by name isn't supported by `projects.jobs.aggregated`.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`. # IAM
+ *  Permissions Requires the `dataflow.jobs.list` permission on the project.
  *
  *  @param projectId The project which owns the jobs.
  *
@@ -682,7 +1018,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
- *  the status of jobs that are running in `us-central1`.
+ *  the status of jobs that are running in `us-central1`. # IAM Permissions
+ *  Requires the `dataflow.messages.list` permission on the job.
  *
  *  Method: dataflow.projects.jobs.messages.list
  *
@@ -773,7 +1110,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
- *  the status of jobs that are running in `us-central1`.
+ *  the status of jobs that are running in `us-central1`. # IAM Permissions
+ *  Requires the `dataflow.messages.list` permission on the job.
  *
  *  @param projectId A project id.
  *  @param jobId The job to get messages about.
@@ -786,7 +1124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Snapshot the state of a streaming job.
+ *  Snapshot the state of a streaming job. # IAM Permissions Requires the
+ *  `dataflow.jobs.snapshot` permission on the job.
  *
  *  Method: dataflow.projects.jobs.snapshot
  *
@@ -805,7 +1144,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_Snapshot.
  *
- *  Snapshot the state of a streaming job.
+ *  Snapshot the state of a streaming job. # IAM Permissions Requires the
+ *  `dataflow.jobs.snapshot` permission on the job.
  *
  *  @param object The @c GTLRDataflow_SnapshotJobRequest to include in the
  *    query.
@@ -826,7 +1166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
- *  of jobs that are running in `us-central1`.
+ *  of jobs that are running in `us-central1`. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.cancel` permission to cancel a job. 2. Requires the
+ *  `dataflow.jobs.updateContents` permission to update runtime parameters.
  *
  *  Method: dataflow.projects.jobs.update
  *
@@ -869,7 +1211,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
- *  of jobs that are running in `us-central1`.
+ *  of jobs that are running in `us-central1`. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.cancel` permission to cancel a job. 2. Requires the
+ *  `dataflow.jobs.updateContents` permission to update runtime parameters.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -955,7 +1299,169 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Launch a job with a FlexTemplate.
+ *  Creates a new ConfigStoreSetting.
+ *
+ *  Method: dataflow.projects.locations.configStoreSettings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsCreate : GTLRDataflowQuery
+
+/** Required. The ID to use for the setting. */
+@property(nonatomic, copy, nullable) NSString *configStoreSettingId;
+
+/** Required. The parent resource where this setting will be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataflow_ConfigStoreSetting.
+ *
+ *  Creates a new ConfigStoreSetting.
+ *
+ *  @param object The @c GTLRDataflow_ConfigStoreSetting to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this setting will be
+ *    created.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_ConfigStoreSetting *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing ConfigStoreSetting.
+ *
+ *  Method: dataflow.projects.locations.configStoreSettings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsDelete : GTLRDataflowQuery
+
+/** Required. The name of the ConfigStoreSetting to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_Empty.
+ *
+ *  Deletes an existing ConfigStoreSetting.
+ *
+ *  @param name Required. The name of the ConfigStoreSetting to delete.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ConfigStoreSetting.
+ *
+ *  Method: dataflow.projects.locations.configStoreSettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsGet : GTLRDataflowQuery
+
+/** Required. The name of the ConfigStoreSetting to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_ConfigStoreSetting.
+ *
+ *  Gets a ConfigStoreSetting.
+ *
+ *  @param name Required. The name of the ConfigStoreSetting to retrieve.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ConfigStoreSettings.
+ *
+ *  Method: dataflow.projects.locations.configStoreSettings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsList : GTLRDataflowQuery
+
+/** Optional. The maximum number of settings to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListConfigStoreSettings`
+ *  call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource whose settings are being listed. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListConfigStoreSettingsResponse.
+ *
+ *  Lists ConfigStoreSettings.
+ *
+ *  @param parent Required. The parent resource whose settings are being listed.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Resolves effective value of a ConfigStoreSetting.
+ *
+ *  Method: dataflow.projects.locations.configStoreSettings.resolve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsResolve : GTLRDataflowQuery
+
+/** Required. The name of the setting to resolve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataflow_ResolveConfigStoreSettingResponse.
+ *
+ *  Resolves effective value of a ConfigStoreSetting.
+ *
+ *  @param object The @c GTLRDataflow_ResolveConfigStoreSettingRequest to
+ *    include in the query.
+ *  @param name Required. The name of the setting to resolve.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsResolve
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_ResolveConfigStoreSettingRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Launch a job with a FlexTemplate. # IAM Permissions Requires the following
+ *  IAM permission(s) on the resource: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get` - `iam.serviceAccounts.actAs` -
+ *  `storage.buckets.get` - `storage.buckets.create` (Required if the default
+ *  staging bucket must be created)
  *
  *  Method: dataflow.projects.locations.flexTemplates.launch
  *
@@ -978,7 +1484,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_LaunchFlexTemplateResponse.
  *
- *  Launch a job with a FlexTemplate.
+ *  Launch a job with a FlexTemplate. # IAM Permissions Requires the following
+ *  IAM permission(s) on the resource: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get` - `iam.serviceAccounts.actAs` -
+ *  `storage.buckets.get` - `storage.buckets.create` (Required if the default
+ *  staging bucket must be created)
  *
  *  @param object The @c GTLRDataflow_LaunchFlexTemplateRequest to include in
  *    the query.
@@ -1002,7 +1512,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
  *  `us-central1`. Do not enter confidential information when you supply string
- *  values using the API.
+ *  values using the API. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.create` permission on the project. 2.
+ *  `resourcemanager.projects.get` (Specifically required for regional endpoints
+ *  to resolve regional resource metadata)
  *
  *  Method: dataflow.projects.locations.jobs.create
  *
@@ -1057,7 +1570,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.create` is not recommended, as your job will always start in
  *  `us-central1`. Do not enter confidential information when you supply string
- *  values using the API.
+ *  values using the API. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.create` permission on the project. 2.
+ *  `resourcemanager.projects.get` (Specifically required for regional endpoints
+ *  to resolve regional resource metadata)
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -1218,7 +1734,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
- *  jobs that are running in `us-central1`.
+ *  jobs that are running in `us-central1`. # IAM Permissions Requires the
+ *  `dataflow.jobs.get` permission on the job.
  *
  *  Method: dataflow.projects.locations.jobs.get
  *
@@ -1273,7 +1790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
- *  jobs that are running in `us-central1`.
+ *  jobs that are running in `us-central1`. # IAM Permissions Requires the
+ *  `dataflow.jobs.get` permission on the job.
  *
  *  @param projectId The ID of the Cloud Platform project that the job belongs
  *    to.
@@ -1292,7 +1810,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Request detailed information about the execution status of the job.
- *  EXPERIMENTAL. This API is subject to change or removal without notice.
+ *  EXPERIMENTAL. This API is subject to change or removal without notice. # IAM
+ *  Permissions Requires the `dataflow.metrics.get` permission on the job.
  *
  *  Method: dataflow.projects.locations.jobs.getExecutionDetails
  *
@@ -1332,7 +1851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_JobExecutionDetails.
  *
  *  Request detailed information about the execution status of the job.
- *  EXPERIMENTAL. This API is subject to change or removal without notice.
+ *  EXPERIMENTAL. This API is subject to change or removal without notice. # IAM
+ *  Permissions Requires the `dataflow.metrics.get` permission on the job.
  *
  *  @param projectId A project id.
  *  @param location The [regional endpoint]
@@ -1357,7 +1877,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
- *  status of jobs that are running in `us-central1`.
+ *  status of jobs that are running in `us-central1`. # IAM Permissions Requires
+ *  the `dataflow.metrics.get` permission on the job.
  *
  *  Method: dataflow.projects.locations.jobs.getMetrics
  *
@@ -1393,7 +1914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
- *  status of jobs that are running in `us-central1`.
+ *  status of jobs that are running in `us-central1`. # IAM Permissions Requires
+ *  the `dataflow.metrics.get` permission on the job.
  *
  *  @param projectId A project id.
  *  @param location The [regional endpoint]
@@ -1417,7 +1939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.jobs.list` is not recommended, because you can only get the list
  *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
  *  and `projects.jobs.list` support filtering the list of jobs by name.
- *  Filtering by name isn't supported by `projects.jobs.aggregated`.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`. # IAM
+ *  Permissions Requires the `dataflow.jobs.list` permission on the project.
  *
  *  Method: dataflow.projects.locations.jobs.list
  *
@@ -1472,6 +1995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /** The project which owns the jobs. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** Optional. */
+@property(nonatomic, assign) BOOL regionalFanoutRequested;
+
 /**
  *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
  *  JobViews.
@@ -1507,7 +2033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.jobs.list` is not recommended, because you can only get the list
  *  of jobs that are running in `us-central1`. `projects.locations.jobs.list`
  *  and `projects.jobs.list` support filtering the list of jobs by name.
- *  Filtering by name isn't supported by `projects.jobs.aggregated`.
+ *  Filtering by name isn't supported by `projects.jobs.aggregated`. # IAM
+ *  Permissions Requires the `dataflow.jobs.list` permission on the project.
  *
  *  @param projectId The project which owns the jobs.
  *  @param location The [regional endpoint]
@@ -1526,7 +2053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
- *  the status of jobs that are running in `us-central1`.
+ *  the status of jobs that are running in `us-central1`. # IAM Permissions
+ *  Requires the `dataflow.messages.list` permission on the job.
  *
  *  Method: dataflow.projects.locations.jobs.messages.list
  *
@@ -1617,7 +2145,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
- *  the status of jobs that are running in `us-central1`.
+ *  the status of jobs that are running in `us-central1`. # IAM Permissions
+ *  Requires the `dataflow.messages.list` permission on the job.
  *
  *  @param projectId A project id.
  *  @param location The [regional endpoint]
@@ -1634,7 +2163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Snapshot the state of a streaming job.
+ *  Snapshot the state of a streaming job. # IAM Permissions Requires the
+ *  `dataflow.jobs.snapshot` permission on the job.
  *
  *  Method: dataflow.projects.locations.jobs.snapshot
  *
@@ -1656,7 +2186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_Snapshot.
  *
- *  Snapshot the state of a streaming job.
+ *  Snapshot the state of a streaming job. # IAM Permissions Requires the
+ *  `dataflow.jobs.snapshot` permission on the job.
  *
  *  @param object The @c GTLRDataflow_SnapshotJobRequest to include in the
  *    query.
@@ -1713,6 +2244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Request detailed information about the execution status of a stage of the
  *  job. EXPERIMENTAL. This API is subject to change or removal without notice.
+ *  # IAM Permissions Requires the `dataflow.metrics.get` permission on the job.
  *
  *  Method: dataflow.projects.locations.jobs.stages.getExecutionDetails
  *
@@ -1762,6 +2294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *
  *  Request detailed information about the execution status of a stage of the
  *  job. EXPERIMENTAL. This API is subject to change or removal without notice.
+ *  # IAM Permissions Requires the `dataflow.metrics.get` permission on the job.
  *
  *  @param projectId A project id.
  *  @param location The [regional endpoint]
@@ -1789,7 +2322,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
- *  of jobs that are running in `us-central1`.
+ *  of jobs that are running in `us-central1`. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.cancel` permission to cancel a job. 2. Requires the
+ *  `dataflow.jobs.updateContents` permission to update runtime parameters.
  *
  *  Method: dataflow.projects.locations.jobs.update
  *
@@ -1832,7 +2367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
- *  of jobs that are running in `us-central1`.
+ *  of jobs that are running in `us-central1`. # IAM Permissions 1. Requires the
+ *  `dataflow.jobs.cancel` permission to cancel a job. 2. Requires the
+ *  `dataflow.jobs.updateContents` permission to update runtime parameters.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -2061,7 +2598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.create` is not recommended, because your job will always
- *  start in `us-central1`.
+ *  start in `us-central1`. # IAM Permissions Requires the following IAM
+ *  permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  Method: dataflow.projects.locations.templates.create
  *
@@ -2090,7 +2629,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.create` is not recommended, because your job will always
- *  start in `us-central1`.
+ *  start in `us-central1`. # IAM Permissions Requires the following IAM
+ *  permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  @param object The @c GTLRDataflow_CreateJobFromTemplateRequest to include in
  *    the query.
@@ -2114,7 +2655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.get` is not recommended, because only templates that are
- *  running in `us-central1` are retrieved.
+ *  running in `us-central1` are retrieved. # IAM Permissions Requires the
+ *  `resourcemanager.projects.get` permission on the project.
  *
  *  Method: dataflow.projects.locations.templates.get
  *
@@ -2157,7 +2699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.get` is not recommended, because only templates that are
- *  running in `us-central1` are retrieved.
+ *  running in `us-central1` are retrieved. # IAM Permissions Requires the
+ *  `resourcemanager.projects.get` permission on the project.
  *
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
@@ -2177,7 +2720,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.templates.launch` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.launch` is not recommended, because jobs launched from
- *  the template will always start in `us-central1`.
+ *  the template will always start in `us-central1`. # IAM Permissions Requires
+ *  the following IAM permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  Method: dataflow.projects.locations.templates.launch
  *
@@ -2228,7 +2773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.templates.launch` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.launch` is not recommended, because jobs launched from
- *  the template will always start in `us-central1`.
+ *  the template will always start in `us-central1`. # IAM Permissions Requires
+ *  the following IAM permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  @param object The @c GTLRDataflow_LaunchTemplateParameters to include in the
  *    query.
@@ -2363,7 +2910,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.create` is not recommended, because your job will always
- *  start in `us-central1`.
+ *  start in `us-central1`. # IAM Permissions Requires the following IAM
+ *  permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  Method: dataflow.projects.templates.create
  *
@@ -2385,7 +2934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.create` is not recommended, because your job will always
- *  start in `us-central1`.
+ *  start in `us-central1`. # IAM Permissions Requires the following IAM
+ *  permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  @param object The @c GTLRDataflow_CreateJobFromTemplateRequest to include in
  *    the query.
@@ -2405,7 +2956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.get` is not recommended, because only templates that are
- *  running in `us-central1` are retrieved.
+ *  running in `us-central1` are retrieved. # IAM Permissions Requires the
+ *  `resourcemanager.projects.get` permission on the project.
  *
  *  Method: dataflow.projects.templates.get
  *
@@ -2448,7 +3000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.get` is not recommended, because only templates that are
- *  running in `us-central1` are retrieved.
+ *  running in `us-central1` are retrieved. # IAM Permissions Requires the
+ *  `resourcemanager.projects.get` permission on the project.
  *
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
@@ -2464,7 +3017,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.templates.launch` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.launch` is not recommended, because jobs launched from
- *  the template will always start in `us-central1`.
+ *  the template will always start in `us-central1`. # IAM Permissions Requires
+ *  the following IAM permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  Method: dataflow.projects.templates.launch
  *
@@ -2515,7 +3070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  `projects.locations.templates.launch` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.templates.launch` is not recommended, because jobs launched from
- *  the template will always start in `us-central1`.
+ *  the template will always start in `us-central1`. # IAM Permissions Requires
+ *  the following IAM permission(s) on the project: - `dataflow.jobs.create` -
+ *  `resourcemanager.projects.get`
  *
  *  @param object The @c GTLRDataflow_LaunchTemplateParameters to include in the
  *    query.

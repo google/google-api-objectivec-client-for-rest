@@ -673,6 +673,33 @@
 
 @end
 
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsMintAppCheckToken
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1/{+app}:mintAppCheckToken";
+  GTLRFirebaseappcheckQuery_ProjectsAppsMintAppCheckToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.mintAppCheckToken";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseappcheckQuery_ProjectsAppsPlayIntegrityConfigBatchGet
 
 @dynamic names, parent;

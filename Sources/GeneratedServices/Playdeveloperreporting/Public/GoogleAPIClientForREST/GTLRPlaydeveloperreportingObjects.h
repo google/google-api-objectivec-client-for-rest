@@ -190,6 +190,37 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_Hourly;
 
 // ----------------------------------------------------------------------------
+// GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest.userCohort
+
+/**
+ *  This is the view with data only from users who have opted in to be testers
+ *  for a given app, excluding OS beta data.
+ *
+ *  Value: "APP_TESTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_AppTesters;
+/**
+ *  This is the view with just android beta data excluding released OS version
+ *  data.
+ *
+ *  Value: "OS_BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_OsBeta;
+/**
+ *  This is default view. Contains data from public released android versions
+ *  only.
+ *
+ *  Value: "OS_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_OsPublic;
+/**
+ *  Unspecified User cohort. This will automatically choose the default value.
+ *
+ *  Value: "USER_COHORT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_UserCohortUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest.userCohort
 
 /**
@@ -219,6 +250,37 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  Value: "USER_COHORT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest_UserCohort_UserCohortUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest.userCohort
+
+/**
+ *  This is the view with data only from users who have opted in to be testers
+ *  for a given app, excluding OS beta data.
+ *
+ *  Value: "APP_TESTERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_AppTesters;
+/**
+ *  This is the view with just android beta data excluding released OS version
+ *  data.
+ *
+ *  Value: "OS_BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_OsBeta;
+/**
+ *  This is default view. Contains data from public released android versions
+ *  only.
+ *
+ *  Value: "OS_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_OsPublic;
+/**
+ *  Unspecified User cohort. This will automatically choose the default value.
+ *
+ *  Value: "USER_COHORT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_UserCohortUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest.userCohort
@@ -524,6 +586,65 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  Singleton resource representing the set of Anon RSS and Swap Memory Usage
+ *  metrics. This metric set contains anon RSS and swap memory usage data
+ *  combined with usage data. **Supported aggregation periods:** * DAILY:
+ *  metrics are aggregated in calendar date intervals. Due to historical
+ *  constraints, the only supported timezone is `America/Los_Angeles`.
+ *  **Supported metrics:** * `anonRssAndSwapMemoryUsageP50`
+ *  (`google.type.Decimal`): 50th percentile of anon RSS and swap memory usage.
+ *  * `anonRssAndSwapMemoryUsageP75` (`google.type.Decimal`): 75th percentile of
+ *  anon RSS and swap memory usage. * `anonRssAndSwapMemoryUsageP90`
+ *  (`google.type.Decimal`): 90th percentile of anon RSS and swap memory usage.
+ *  * `anonRssAndSwapMemoryUsageP95` (`google.type.Decimal`): 95th percentile of
+ *  anon RSS and swap memory usage. * `anonRssAndSwapMemoryUsageP99`
+ *  (`google.type.Decimal`): 99th percentile of anon RSS and swap memory usage.
+ *  * `distinctUsers` (`google.type.Decimal`): Count of distinct users for which
+ *  memory metrics were reported during the aggregation period. **Supported
+ *  dimensions:** * `apiLevel` (string): the API level of Android that was
+ *  running on the user's device, e.g., 26. * `versionCode` (int64): version of
+ *  the app that was running on the user's device. * `deviceModel` (string):
+ *  unique identifier of the user's device model. The form of the identifier is
+ *  'deviceBrand/device', where deviceBrand corresponds to Build.BRAND and
+ *  device corresponds to Build.DEVICE, e.g., google/coral. * `deviceBrand`
+ *  (string): unique identifier of the user's device brand, e.g., google. *
+ *  `deviceType` (string): the type (also known as form factor) of the user's
+ *  device, e.g., PHONE. * `countryCode` (string): the country or region of the
+ *  user's device based on their IP address, represented as a 2-letter ISO-3166
+ *  code (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of
+ *  the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string):
+ *  Make of the device's primary system-on-chip, e.g., Samsung. *
+ *  `deviceSocModel` (string): Model of the device's primary system-on-chip,
+ *  e.g., "Exynos 2100". * `deviceCpuMake` (string): Make of the device's CPU,
+ *  e.g., Qualcomm. * `deviceCpuModel` (string): Model of the device's CPU,
+ *  e.g., "Kryo 240". * `deviceGpuMake` (string): Make of the device's GPU,
+ *  e.g., ARM. * `deviceGpuModel` (string): Model of the device's GPU, e.g.,
+ *  Mali. * `deviceGpuVersion` (string): Version of the device's GPU, e.g.,
+ *  T750. * `deviceVulkanVersion` (string): Vulkan version of the device, e.g.,
+ *  "4198400". * `deviceGlEsVersion` (string): OpenGL ES version of the device,
+ *  e.g., "196610". * `deviceScreenSize` (string): Screen size of the device,
+ *  e.g., NORMAL, LARGE. * `deviceScreenDpi` (string): Screen density of the
+ *  device, e.g., mdpi, hdpi. * `processName` (string): the name of the process
+ *  that was running, e.g., com.example.app. * `appState` (string): the state of
+ *  the app when memory was collected, e.g., FOREGROUND. **Required
+ *  permissions**: to access this resource, the calling user needs the _View app
+ *  information (read-only)_ permission for the app.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AnonRssAndSwapMemoryUsageMetricSet : GTLRObject
+
+/** Output only. * Summary about data freshness in this resource. */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
+
+/**
+ *  Identifier. * The resource name. Format:
+ *  apps/{app}/anonRssAndSwapMemoryUsageMetricSet
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Singleton resource representing the set of ANR (Application not responding)
  *  metrics. This metric set contains ANRs data combined with usage data to
  *  produce a normalized metric independent of user counts. **Supported
@@ -566,9 +687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
  *  the country or region of the user's device based on their IP address,
  *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
- *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
- *  etc.). * `deviceSocMake` (string): Make of the device's primary
- *  system-on-chip, e.g., Samsung.
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (e.g., 1024
+ *  for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -637,6 +758,66 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  Singleton resource representing the set of Bitmap Memory Usage metrics. This
+ *  metric set contains bitmap memory usage data combined with usage data.
+ *  **Supported aggregation periods:** * DAILY: metrics are aggregated in
+ *  calendar date intervals. Due to historical constraints, the only supported
+ *  timezone is `America/Los_Angeles`. **Supported metrics:** *
+ *  `bitmapMemoryUsageP50` (`google.type.Decimal`): 50th percentile of bitmap
+ *  memory usage. * `bitmapMemoryUsageP75` (`google.type.Decimal`): 75th
+ *  percentile of bitmap memory usage. * `bitmapMemoryUsageP90`
+ *  (`google.type.Decimal`): 90th percentile of bitmap memory usage. *
+ *  `bitmapMemoryUsageP95` (`google.type.Decimal`): 95th percentile of bitmap
+ *  memory usage. * `bitmapMemoryUsageP99` (`google.type.Decimal`): 99th
+ *  percentile of bitmap memory usage. * `distinctUsers`
+ *  (`google.type.Decimal`): Count of distinct users for which memory metrics
+ *  were reported during the aggregation period. Care must be taken not to
+ *  aggregate this count further, as it may result in users being counted
+ *  multiple times. The value is rounded to the nearest multiple of 10, 100,
+ *  1,000 or 1,000,000, depending on the magnitude of the value. **Supported
+ *  dimensions:** * `apiLevel` (string): the API level of Android that was
+ *  running on the user's device, e.g., 26. * `versionCode` (int64): version of
+ *  the app that was running on the user's device. * `deviceModel` (string):
+ *  unique identifier of the user's device model. The form of the identifier is
+ *  'deviceBrand/device', where deviceBrand corresponds to Build.BRAND and
+ *  device corresponds to Build.DEVICE, e.g., google/coral. * `deviceBrand`
+ *  (string): unique identifier of the user's device brand, e.g., google. *
+ *  `deviceType` (string): the type (also known as form factor) of the user's
+ *  device, e.g., PHONE. * `countryCode` (string): the country or region of the
+ *  user's device based on their IP address, represented as a 2-letter ISO-3166
+ *  code (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of
+ *  the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string):
+ *  Make of the device's primary system-on-chip, e.g., Samsung. *
+ *  `deviceSocModel` (string): Model of the device's primary system-on-chip,
+ *  e.g., "Exynos 2100". * `deviceCpuMake` (string): Make of the device's CPU,
+ *  e.g., Qualcomm. * `deviceCpuModel` (string): Model of the device's CPU,
+ *  e.g., "Kryo 240". * `deviceGpuMake` (string): Make of the device's GPU,
+ *  e.g., ARM. * `deviceGpuModel` (string): Model of the device's GPU, e.g.,
+ *  Mali. * `deviceGpuVersion` (string): Version of the device's GPU, e.g.,
+ *  T750. * `deviceVulkanVersion` (string): Vulkan version of the device, e.g.,
+ *  "4198400". * `deviceGlEsVersion` (string): OpenGL ES version of the device,
+ *  e.g., "196610". * `deviceScreenSize` (string): Screen size of the device,
+ *  e.g., NORMAL, LARGE. * `deviceScreenDpi` (string): Screen density of the
+ *  device, e.g., mdpi, hdpi. * `processName` (string): the name of the process
+ *  that was running, e.g., com.example.app. * `appState` (string): the state of
+ *  the app when memory was collected, e.g., FOREGROUND. **Required
+ *  permissions**: to access this resource, the calling user needs the _View app
+ *  information (read-only)_ permission for the app.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1BitmapMemoryUsageMetricSet : GTLRObject
+
+/** Output only. Summary about data freshness in this resource. */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
+
+/**
+ *  Identifier. The resource name. Format: apps/{app}/bitmapMemoryUsageMetricSet
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Singleton resource representing the set of crashrate metrics. This metric
  *  set contains crashes data combined with usage data to produce a normalized
  *  metric independent of user counts. **Supported aggregation periods:** *
@@ -682,9 +863,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
  *  the country or region of the user's device based on their IP address,
  *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
- *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
- *  etc.). * `deviceSocMake` (string): Make of the device's primary
- *  system-on-chip, e.g., Samsung.
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (e.g., 1024
+ *  for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -815,8 +996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  device's form factor, e.g., PHONE. * `issueId` (string): the id an error was
  *  assigned to. The value should correspond to the `{issue}` component of the
  *  issue name. * `deviceRamBucket` (int64): RAM of the device, in MB, in
- *  buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the device's
- *  primary system-on-chip, e.g., Samsung.
+ *  buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1085,9 +1266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
  *  the country or region of the user's device based on their IP address,
  *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
- *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
- *  etc.). * `deviceSocMake` (string): Make of the device's primary
- *  system-on-chip, e.g., Samsung.
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (e.g., 1024
+ *  for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1250,8 +1431,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  user's device, e.g., PHONE. * `countryCode` (string): the country or region
  *  of the user's device based on their IP address, represented as a 2-letter
  *  ISO-3166 code (e.g. US for the United States). * `deviceRamBucket` (int64):
- *  RAM of the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake`
- *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
+ *  RAM of the device, in MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for
+ *  4-6GB). * `deviceSocMake` (string): Make of the device's primary
+ *  system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1351,6 +1533,139 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  Request message for QueryAnonRssAndSwapMemoryUsageMetricSet.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest : GTLRObject
+
+/**
+ *  Optional. * Dimensions to slice the data by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung. * `deviceSocModel` (string):
+ *  Model of the device's primary system-on-chip, e.g., "Exynos 2100". *
+ *  `deviceCpuMake` (string): Make of the device's CPU, e.g., Qualcomm. *
+ *  `deviceCpuModel` (string): Model of the device's CPU, e.g., "Kryo 240". *
+ *  `deviceGpuMake` (string): Make of the device's GPU, e.g., ARM. *
+ *  `deviceGpuModel` (string): Model of the device's GPU, e.g., Mali. *
+ *  `deviceGpuVersion` (string): Version of the device's GPU, e.g., T750. *
+ *  `deviceVulkanVersion` (string): Vulkan version of the device, e.g.,
+ *  "4198400". * `deviceGlEsVersion` (string): OpenGL ES version of the device,
+ *  e.g., "196610". * `deviceScreenSize` (string): Screen size of the device,
+ *  e.g., NORMAL, LARGE. * `deviceScreenDpi` (string): Screen density of the
+ *  device, e.g., mdpi, hdpi. * `processName` (string): the name of the process
+ *  that was running, e.g., com.example.app. * `appState` (string): the state of
+ *  the app when memory was collected, e.g., FOREGROUND.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/**
+ *  Optional. * Filters to apply to data. The filtering expression follows
+ *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
+ *  equality of all breakdown dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. * Metrics to aggregate. **Supported metrics:** *
+ *  `anonRssAndSwapMemoryUsageP50` (`google.type.Decimal`): 50th percentile of
+ *  anon RSS and swap memory usage. * `anonRssAndSwapMemoryUsageP75`
+ *  (`google.type.Decimal`): 75th percentile of anon RSS and swap memory usage.
+ *  * `anonRssAndSwapMemoryUsageP90` (`google.type.Decimal`): 90th percentile of
+ *  anon RSS and swap memory usage. * `anonRssAndSwapMemoryUsageP95`
+ *  (`google.type.Decimal`): 95th percentile of anon RSS and swap memory usage.
+ *  * `anonRssAndSwapMemoryUsageP99` (`google.type.Decimal`): 99th percentile of
+ *  anon RSS and swap memory usage. * `distinctUsers` (`google.type.Decimal`):
+ *  Count of distinct users for which memory metrics were reported during the
+ *  aggregation period. Care must be taken not to aggregate this count further,
+ *  as it may result in users being counted multiple times. The value is rounded
+ *  to the nearest multiple of 10, 100, 1,000 or 1,000,000, depending on the
+ *  magnitude of the value.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
+
+/**
+ *  Optional. * Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100000; values above 100000 will
+ *  be coerced to 100000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. * A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. * Specification of the timeline aggregation parameters.
+ *  **Supported aggregation periods:** * DAILY: metrics are aggregated in
+ *  calendar date intervals. Due to historical constraints, the default and only
+ *  supported timezone is `America/Los_Angeles`.
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
+
+/**
+ *  Optional. * User view to select. The output data will correspond to the
+ *  selected view. The only supported value is `OS_PUBLIC`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_AppTesters
+ *        This is the view with data only from users who have opted in to be
+ *        testers for a given app, excluding OS beta data. (Value:
+ *        "APP_TESTERS")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_OsBeta
+ *        This is the view with just android beta data excluding released OS
+ *        version data. (Value: "OS_BETA")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_OsPublic
+ *        This is default view. Contains data from public released android
+ *        versions only. (Value: "OS_PUBLIC")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_UserCohortUnspecified
+ *        Unspecified User cohort. This will automatically choose the default
+ *        value. (Value: "USER_COHORT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userCohort;
+
+@end
+
+
+/**
+ *  Response message for QueryAnonRssAndSwapMemoryUsageMetricSet.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rows" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetResponse : GTLRCollectionObject
+
+/** * Continuation token to fetch the next page of data. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  * Returned rows of data.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow *> *rows;
+
+@end
+
+
+/**
  *  Request message for QueryAnrRateMetricSet.
  */
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest : GTLRObject
@@ -1368,8 +1683,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  PHONE. * `countryCode` (string): the country or region of the user's device
  *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
  *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
- *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
- *  device's primary system-on-chip, e.g., Samsung.
+ *  MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1505,6 +1820,138 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 
 
 /**
+ *  Request message for QueryBitmapMemoryUsageMetricSet.
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest : GTLRObject
+
+/**
+ *  Optional. Dimensions to slice the data by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
+ *  identifier of the user's device brand, e.g., google. * `deviceType`
+ *  (string): the type (also known as form factor) of the user's device, e.g.,
+ *  PHONE. * `countryCode` (string): the country or region of the user's device
+ *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
+ *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
+ *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung. * `deviceSocModel` (string):
+ *  Model of the device's primary system-on-chip, e.g., "Exynos 2100". *
+ *  `deviceCpuMake` (string): Make of the device's CPU, e.g., Qualcomm. *
+ *  `deviceCpuModel` (string): Model of the device's CPU, e.g., "Kryo 240". *
+ *  `deviceGpuMake` (string): Make of the device's GPU, e.g., ARM. *
+ *  `deviceGpuModel` (string): Model of the device's GPU, e.g., Mali. *
+ *  `deviceGpuVersion` (string): Version of the device's GPU, e.g., T750. *
+ *  `deviceVulkanVersion` (string): Vulkan version of the device, e.g.,
+ *  "4198400". * `deviceGlEsVersion` (string): OpenGL ES version of the device,
+ *  e.g., "196610". * `deviceScreenSize` (string): Screen size of the device,
+ *  e.g., NORMAL, LARGE. * `deviceScreenDpi` (string): Screen density of the
+ *  device, e.g., mdpi, hdpi. * `processName` (string): the name of the process
+ *  that was running, e.g., com.example.app. * `appState` (string): the state of
+ *  the app when memory was collected, e.g., FOREGROUND.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/**
+ *  Optional. Filters to apply to data. The filtering expression follows
+ *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
+ *  equality of all breakdown dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Metrics to aggregate. **Supported metrics:** *
+ *  `bitmapMemoryUsageP50` (`google.type.Decimal`): 50th percentile of bitmap
+ *  memory usage. * `bitmapMemoryUsageP75` (`google.type.Decimal`): 75th
+ *  percentile of bitmap memory usage. * `bitmapMemoryUsageP90`
+ *  (`google.type.Decimal`): 90th percentile of bitmap memory usage. *
+ *  `bitmapMemoryUsageP95` (`google.type.Decimal`): 95th percentile of bitmap
+ *  memory usage. * `bitmapMemoryUsageP99` (`google.type.Decimal`): 99th
+ *  percentile of bitmap memory usage. * `distinctUsers`
+ *  (`google.type.Decimal`): Count of distinct users for which memory metrics
+ *  were reported during the aggregation period. Care must be taken not to
+ *  aggregate this count further, as it may result in users being counted
+ *  multiple times. The value is rounded to the nearest multiple of 10, 100,
+ *  1,000 or 1,000,000, depending on the magnitude of the value.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
+
+/**
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100000; values above 100000 will
+ *  be coerced to 100000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
+ *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
+ *  intervals. Due to historical constraints, the default and only supported
+ *  timezone is `America/Los_Angeles`.
+ */
+@property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
+
+/**
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. The only supported value is `OS_PUBLIC`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_AppTesters
+ *        This is the view with data only from users who have opted in to be
+ *        testers for a given app, excluding OS beta data. (Value:
+ *        "APP_TESTERS")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_OsBeta
+ *        This is the view with just android beta data excluding released OS
+ *        version data. (Value: "OS_BETA")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_OsPublic
+ *        This is default view. Contains data from public released android
+ *        versions only. (Value: "OS_PUBLIC")
+ *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_UserCohortUnspecified
+ *        Unspecified User cohort. This will automatically choose the default
+ *        value. (Value: "USER_COHORT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userCohort;
+
+@end
+
+
+/**
+ *  Response message for QueryBitmapMemoryUsageMetricSet.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rows" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetResponse : GTLRCollectionObject
+
+/** Continuation token to fetch the next page of data. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Returned rows of data.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow *> *rows;
+
+@end
+
+
+/**
  *  Request message for QueryCrashRateMetricSet.
  */
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest : GTLRObject
@@ -1522,8 +1969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  PHONE. * `countryCode` (string): the country or region of the user's device
  *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
  *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
- *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
- *  device's primary system-on-chip, e.g., Samsung.
+ *  MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1677,9 +2124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  of error. The value should correspond to one of the possible values in
  *  ErrorType. * `issueId` (string): the id an error was assigned to. The value
  *  should correspond to the `{issue}` component of the issue name. *
- *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
- *  etc.). * `deviceSocMake` (string): Make of the device's primary
- *  system-on-chip, e.g., Samsung.
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (e.g., 1024
+ *  for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1785,8 +2232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  PHONE. * `countryCode` (string): the country or region of the user's device
  *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
  *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
- *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
- *  device's primary system-on-chip, e.g., Samsung.
+ *  MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1922,8 +2369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  PHONE. * `countryCode` (string): the country or region of the user's device
  *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
  *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
- *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
- *  device's primary system-on-chip, e.g., Samsung.
+ *  MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -2211,8 +2658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  PHONE. * `countryCode` (string): the country or region of the user's device
  *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
  *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
- *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
- *  device's primary system-on-chip, e.g., Samsung.
+ *  MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -2346,8 +2793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  PHONE. * `countryCode` (string): the country or region of the user's device
  *  based on their IP address, represented as a 2-letter ISO-3166 code (e.g. US
  *  for the United States). * `deviceRamBucket` (int64): RAM of the device, in
- *  MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string): Make of the
- *  device's primary system-on-chip, e.g., Samsung.
+ *  MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake`
+ *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -2682,9 +3129,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  form factor) of the user's device, e.g., PHONE. * `countryCode` (string):
  *  the country or region of the user's device based on their IP address,
  *  represented as a 2-letter ISO-3166 code (e.g. US for the United States). *
- *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
- *  etc.). * `deviceSocMake` (string): Make of the device's primary
- *  system-on-chip, e.g., Samsung.
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (e.g., 1024
+ *  for 1-1.5GB, 4096 for 4-6GB). * `deviceSocMake` (string): Make of the
+ *  device's primary system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -2749,8 +3196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  *  device, e.g., PHONE. * `countryCode` (string): the country or region of the
  *  user's device based on their IP address, represented as a 2-letter ISO-3166
  *  code (e.g. US for the United States). * `deviceRamBucket` (int64): RAM of
- *  the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake` (string):
- *  Make of the device's primary system-on-chip, e.g., Samsung.
+ *  the device, in MB, in buckets (e.g., 1024 for 1-1.5GB, 4096 for 4-6GB). *
+ *  `deviceSocMake` (string): Make of the device's primary system-on-chip, e.g.,
+ *  Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".

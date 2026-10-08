@@ -176,6 +176,16 @@ NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitA
 NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiTrue = @"USE_32_BIT_ABI_TRUE";
 NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiUnspecified = @"USE_32_BIT_ABI_UNSPECIFIED";
 
+// GTLRAndroidPublisher_ExternalContentLinkDetails.externalAppCategory
+NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_App = @"APP";
+NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_ExternalContentAppCategoryUnspecified = @"EXTERNAL_CONTENT_APP_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_Game = @"GAME";
+
+// GTLRAndroidPublisher_ExternalContentLinkDetails.linkType
+NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_ExternalContentLinkTypeUnspecified = @"EXTERNAL_CONTENT_LINK_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_LinkToAppDownload = @"LINK_TO_APP_DOWNLOAD";
+NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_LinkToDigitalContentOffer = @"LINK_TO_DIGITAL_CONTENT_OFFER";
+
 // GTLRAndroidPublisher_ExternalOfferDetails.installedAppCategory
 NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_App = @"APP";
 NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_ExternalOfferAppCategoryUnspecified = @"EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED";
@@ -467,6 +477,14 @@ NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_Rele
 NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateNotSentForReview = @"RELEASE_LIFECYCLE_STATE_NOT_SENT_FOR_REVIEW";
 NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStatePublished = @"RELEASE_LIFECYCLE_STATE_PUBLISHED";
 NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateUnspecified = @"RELEASE_LIFECYCLE_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_RotateAppSigningKeyRequest.keyRotationReason
+NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_CompromisedKey = @"COMPROMISED_KEY";
+NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_KeyRotationReasonUnspecified = @"KEY_ROTATION_REASON_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_Other = @"OTHER";
+NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_RoutineKeyUpgrade = @"ROUTINE_KEY_UPGRADE";
+NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_UseSameKeyForMultipleApps = @"USE_SAME_KEY_FOR_MULTIPLE_APPS";
+NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_UseStrongerKey = @"USE_STRONGER_KEY";
 
 // GTLRAndroidPublisher_ScreenDensity.densityAlias
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_DensityUnspecified = @"DENSITY_UNSPECIFIED";
@@ -945,7 +963,7 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 //
 
 @implementation GTLRAndroidPublisher_AppStoreAppActiveApkSet
-@dynamic baseApkId, splitApkId;
+@dynamic alreadyPublishedOnPlay, baseApkId, splitApkId, versionCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1846,6 +1864,36 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_CertificateHashes
+//
+
+@implementation GTLRAndroidPublisher_CertificateHashes
+@dynamic certificateHashMd5, certificateHashSha1, certificateHashSha256;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CloudKmsKey
+//
+
+@implementation GTLRAndroidPublisher_CloudKmsKey
+@dynamic cryptoKeyVersionResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CloudKmsKeyAndCert
+//
+
+@implementation GTLRAndroidPublisher_CloudKmsKeyAndCert
+@dynamic cloudKmsKey, pemCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CoarseLocation
 //
 
@@ -2401,6 +2449,46 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_EnrollAppRequest
+//
+
+@implementation GTLRAndroidPublisher_EnrollAppRequest
+@dynamic enrollExistingApp, enrollNewApp, pemUploadCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_EnrollAppResponse
+//
+
+@implementation GTLRAndroidPublisher_EnrollAppResponse
+@dynamic signingCertificate, uploadCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_EnrollExistingApp
+//
+
+@implementation GTLRAndroidPublisher_EnrollExistingApp
+@dynamic cloudKmsKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_EnrollNewApp
+//
+
+@implementation GTLRAndroidPublisher_EnrollNewApp
+@dynamic cloudKmsKeyAndCert;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ExpansionFile
 //
 
@@ -2437,6 +2525,16 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 
 @implementation GTLRAndroidPublisher_ExternalAccountIds
 @dynamic obfuscatedAccountId, obfuscatedProfileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ExternalContentLinkDetails
+//
+
+@implementation GTLRAndroidPublisher_ExternalContentLinkDetails
+@dynamic externalAppCategory, installedAppPackage, linkType;
 @end
 
 
@@ -2492,10 +2590,11 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 
 @implementation GTLRAndroidPublisher_ExternalTransaction
 @dynamic createTime, currentPreTaxAmount, currentTaxAmount,
-         externalOfferDetails, externalTransactionId, oneTimeTransaction,
-         originalPreTaxAmount, originalTaxAmount, packageName,
-         recurringTransaction, testPurchase, transactionProgramCode,
-         transactionState, transactionTime, userTaxAddress;
+         externalContentLinkDetails, externalOfferDetails,
+         externalTransactionId, oneTimeTransaction, originalPreTaxAmount,
+         originalTaxAmount, packageName, recurringTransaction, testPurchase,
+         transactionProgramCode, transactionState, transactionTime,
+         userTaxAddress;
 @end
 
 
@@ -3605,6 +3704,16 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OneTimeProductGameRewardOffer
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductGameRewardOffer
+@dynamic redemptionLimit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OneTimeProductListing
 //
 
@@ -3624,9 +3733,9 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 //
 
 @implementation GTLRAndroidPublisher_OneTimeProductOffer
-@dynamic discountedOffer, offerId, offerTags, packageName, preOrderOffer,
-         productId, purchaseOptionId, regionalPricingAndAvailabilityConfigs,
-         regionsVersion, state;
+@dynamic discountedOffer, gameRewardOffer, offerId, offerTags, packageName,
+         preOrderOffer, productId, purchaseOptionId,
+         regionalPricingAndAvailabilityConfigs, regionsVersion, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4681,6 +4790,36 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_RotateAppSigningKeyRequest
+//
+
+@implementation GTLRAndroidPublisher_RotateAppSigningKeyRequest
+@dynamic keyRotationReason, rotatedCloudKmsKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RotateAppSigningKeyResponse
+//
+
+@implementation GTLRAndroidPublisher_RotateAppSigningKeyResponse
+@dynamic rotatedKeyCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RotatedCloudKmsKey
+//
+
+@implementation GTLRAndroidPublisher_RotatedCloudKmsKey
+@dynamic cloudKmsKeyAndCert, signingCertificateLineage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SafetyLabelsUpdateRequest
 //
 
@@ -5436,6 +5575,7 @@ NSString * const kGTLRAndroidPublisher_UsesConfiguration_RequiredTouchscreenType
 //
 
 @implementation GTLRAndroidPublisher_UpdateAppStoreHostedAppResponse
+@dynamic updateId;
 @end
 
 

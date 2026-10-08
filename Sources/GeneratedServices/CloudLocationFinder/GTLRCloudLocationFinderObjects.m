@@ -13,6 +13,7 @@
 
 // GTLRCloudLocationFinder_CloudLocation.cloudLocationType
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGdccZone = @"CLOUD_LOCATION_TYPE_GDCC_ZONE";
+NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGlobal = @"CLOUD_LOCATION_TYPE_GLOBAL";
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegion = @"CLOUD_LOCATION_TYPE_REGION";
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeUnspecified = @"CLOUD_LOCATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeZone = @"CLOUD_LOCATION_TYPE_ZONE";
@@ -24,6 +25,11 @@ NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudProvider_CloudProvi
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudProvider_CloudProviderOci = @"CLOUD_PROVIDER_OCI";
 NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
 
+// GTLRCloudLocationFinder_GcpAttributes.zoneType
+NSString * const kGTLRCloudLocationFinder_GcpAttributes_ZoneType_AiZone = @"AI_ZONE";
+NSString * const kGTLRCloudLocationFinder_GcpAttributes_ZoneType_GcpZoneTypeUnspecified = @"GCP_ZONE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudLocationFinder_GcpAttributes_ZoneType_GeneralPurpose = @"GENERAL_PURPOSE";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudLocationFinder_CloudLocation
@@ -31,7 +37,18 @@ NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudProvider_CloudProvi
 
 @implementation GTLRCloudLocationFinder_CloudLocation
 @dynamic carbonFreeEnergyPercentage, cloudLocationType, cloudProvider,
-         containingCloudLocation, displayName, name, territoryCode;
+         containingCloudLocation, displayName, gcpAttributes, name,
+         territoryCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudLocationFinder_GcpAttributes
+//
+
+@implementation GTLRCloudLocationFinder_GcpAttributes
+@dynamic zoneType;
 @end
 
 

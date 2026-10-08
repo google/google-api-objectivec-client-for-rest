@@ -155,6 +155,94 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsCreate
+
+@dynamic changeStreamId, parent;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ChangeStream *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/changeStreams";
+  GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ChangeStream class];
+  query.loggingName = @"firestore.projects.databases.changeStreams.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_Empty class];
+  query.loggingName = @"firestore.projects.databases.changeStreams.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ChangeStream class];
+  query.loggingName = @"firestore.projects.databases.changeStreams.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/changeStreams";
+  GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ListChangeStreamsResponse class];
+  query.loggingName = @"firestore.projects.databases.changeStreams.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesClone
 
 @dynamic parent;
@@ -491,15 +579,21 @@
 
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsCreateDocument
 
-@dynamic collectionId, documentId, maskFieldPaths, parent;
+@dynamic collectionId, documentId, maskFieldPaths, parent,
+         requestOptionsRequestTags;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"maskFieldPaths" : @"mask.fieldPaths" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"maskFieldPaths" : @"mask.fieldPaths",
+    @"requestOptionsRequestTags" : @"requestOptions.requestTags"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"mask.fieldPaths" : [NSString class]
+    @"mask.fieldPaths" : [NSString class],
+    @"requestOptions.requestTags" : [NSString class]
   };
   return map;
 }
@@ -533,12 +627,21 @@
 
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsDelete
 
-@dynamic currentDocumentExists, currentDocumentUpdateTime, name;
+@dynamic currentDocumentExists, currentDocumentUpdateTime, name,
+         requestOptionsRequestTags;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"currentDocumentExists" : @"currentDocument.exists",
-    @"currentDocumentUpdateTime" : @"currentDocument.updateTime"
+    @"currentDocumentUpdateTime" : @"currentDocument.updateTime",
+    @"requestOptionsRequestTags" : @"requestOptions.requestTags"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestOptions.requestTags" : [NSString class]
   };
   return map;
 }
@@ -587,15 +690,20 @@
 
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsGet
 
-@dynamic maskFieldPaths, name, readTime, transaction;
+@dynamic maskFieldPaths, name, readTime, requestOptionsRequestTags, transaction;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"maskFieldPaths" : @"mask.fieldPaths" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"maskFieldPaths" : @"mask.fieldPaths",
+    @"requestOptionsRequestTags" : @"requestOptions.requestTags"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"mask.fieldPaths" : [NSString class]
+    @"mask.fieldPaths" : [NSString class],
+    @"requestOptions.requestTags" : [NSString class]
   };
   return map;
 }
@@ -618,15 +726,21 @@
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsList
 
 @dynamic collectionId, maskFieldPaths, orderBy, pageSize, pageToken, parent,
-         readTime, recursive, showMissing, transaction;
+         readTime, recursive, requestOptionsRequestTags, showMissing,
+         transaction;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"maskFieldPaths" : @"mask.fieldPaths" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"maskFieldPaths" : @"mask.fieldPaths",
+    @"requestOptionsRequestTags" : @"requestOptions.requestTags"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"mask.fieldPaths" : [NSString class]
+    @"mask.fieldPaths" : [NSString class],
+    @"requestOptions.requestTags" : [NSString class]
   };
   return map;
 }
@@ -680,15 +794,21 @@
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsListDocuments
 
 @dynamic collectionId, maskFieldPaths, orderBy, pageSize, pageToken, parent,
-         readTime, recursive, showMissing, transaction;
+         readTime, recursive, requestOptionsRequestTags, showMissing,
+         transaction;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"maskFieldPaths" : @"mask.fieldPaths" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"maskFieldPaths" : @"mask.fieldPaths",
+    @"requestOptionsRequestTags" : @"requestOptions.requestTags"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"mask.fieldPaths" : [NSString class]
+    @"mask.fieldPaths" : [NSString class],
+    @"requestOptions.requestTags" : [NSString class]
   };
   return map;
 }
@@ -769,13 +889,14 @@
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsPatch
 
 @dynamic currentDocumentExists, currentDocumentUpdateTime, maskFieldPaths, name,
-         updateMaskFieldPaths;
+         requestOptionsRequestTags, updateMaskFieldPaths;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"currentDocumentExists" : @"currentDocument.exists",
     @"currentDocumentUpdateTime" : @"currentDocument.updateTime",
     @"maskFieldPaths" : @"mask.fieldPaths",
+    @"requestOptionsRequestTags" : @"requestOptions.requestTags",
     @"updateMaskFieldPaths" : @"updateMask.fieldPaths"
   };
   return map;
@@ -784,6 +905,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"mask.fieldPaths" : [NSString class],
+    @"requestOptions.requestTags" : [NSString class],
     @"updateMask.fieldPaths" : [NSString class]
   };
   return map;

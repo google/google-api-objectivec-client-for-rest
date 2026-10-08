@@ -59,6 +59,7 @@
 @class GTLRAccessContextManager_Policy;
 @class GTLRAccessContextManager_Principal;
 @class GTLRAccessContextManager_PrivateServiceConnectEndpoint;
+@class GTLRAccessContextManager_Project;
 @class GTLRAccessContextManager_ScopedAccessSettings;
 @class GTLRAccessContextManager_ServicePattern;
 @class GTLRAccessContextManager_ServicePerimeter;
@@ -536,7 +537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatternsEnforcementScopes_GoogleApisViaPrivatePath;
 /**
- *  Default value. This can not be used.
+ *  Default value. This cannot be used.
  *
  *  Value: "SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED"
  */
@@ -986,6 +987,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /** Optional. The application that is subject to this binding's scope. */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_Application *restrictedClientApplication;
+
+/**
+ *  Optional. The Google Cloud project that is subject to this binding's scope.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_Project *restrictedProject;
 
 @end
 
@@ -1452,16 +1458,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_Principal *principal;
 
 /**
- *  Optional. Deprecated: use scoped_access_settings instead. A list of
- *  applications that are subject to this binding's restrictions. If the list is
- *  empty, the binding restrictions will universally apply to all applications.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Application *> *restrictedClientApplications GTLR_DEPRECATED;
-
-/**
  *  Optional. A list of scoped access settings that set this binding's
- *  restrictions on a subset of applications. This field cannot be set if
- *  restricted_client_applications is set.
+ *  restrictions on a subset of applications.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ScopedAccessSettings *> *scopedAccessSettings;
 
@@ -1879,6 +1877,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 
 /**
+ *  A configured service perimeter returned by Access Context Manager.
+ */
+@interface GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse : GTLRObject
+
+/**
+ *  The resource (e.g. "projects/123", "folders/456") that directly owns/is
+ *  restricted by the enforced perimeter.
+ */
+@property(nonatomic, copy, nullable) NSString *restrictedResource;
+
+/**
+ *  The resource (e.g. "projects/123", "folders/456") that directly owns/is
+ *  restricted by the dry-run perimeter.
+ */
+@property(nonatomic, copy, nullable) NSString *restrictedResourceDryRun;
+
+/**
+ *  Fully qualified name of the configured enforced perimeter. Format:
+ *  `accessPolicies/{policy_id}/servicePerimeters/{perimeter_name}` This field
+ *  is empty if no enforced perimeter applies.
+ */
+@property(nonatomic, copy, nullable) NSString *servicePerimeter;
+
+/**
+ *  Fully qualified name of the configured dry-run perimeter. Format:
+ *  `accessPolicies/{policy_id}/servicePerimeters/{perimeter_name}` This field
+ *  is empty if no dry-run perimeter configuration applies.
+ */
+@property(nonatomic, copy, nullable) NSString *servicePerimeterDryRun;
+
+@end
+
+
+/**
  *  An allowed method or permission of a service specified in ApiOperation.
  */
 @interface GTLRAccessContextManager_MethodSelector : GTLRObject
@@ -1904,7 +1936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  */
 @interface GTLRAccessContextManager_Modifier : GTLRObject
 
-/** Adds additional HTTP request headers. */
+/** Adds an additional HTTP request header. */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_AddRequestHeader *addRequestHeader;
 
 @end
@@ -2137,18 +2169,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 
 /**
  *  The comprehensive identity container supporting identities including groups,
- *  service accounts and federated identities. Only one of them can be set to
+ *  service accounts, and federated identities. Only one of them can be set to
  *  create an access binding.
  */
 @interface GTLRAccessContextManager_Principal : GTLRObject
+
+/**
+ *  Immutable. The IAM principal identifier of the federated workforce or
+ *  workload to assign the policy to. Examples include the following: * Single
+ *  principal:
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`
+ *  * All workloads in a workload identity pool:
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *` * All Workforce Pools in a Google Cloud organization:
+ *  `principalSet://cloudresourcemanager.googleapis.com/organizations/{organization_id}/type/WorkforcePool`
+ *  Bindings created for all Workforce Pools in a Google Cloud organization
+ *  support only `scoped_access_settings` with the `restricted_project` client
+ *  scope and active `session_settings`. No other configurations are allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *federatedPrincipal;
 
 /**
  *  Immutable. Service account email used to assign policies to a specific
  *  service account. If a service account is subject to multiple policies (e.g.,
  *  if there is a policy for all service accounts in a project and a policy for
  *  the service account), the closest (i.e. the most specific) dry-run policy
- *  will be used for the dry-run functionality and the closest policy will be
- *  used for the enforcement.
+ *  will be used for the dry-run functionality and the closest enforcement
+ *  policy will be used for the enforcement.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -2172,6 +2219,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
  *  `//compute.googleapis.com/projects/{PROJECT_ID}/global/forwardingRules/{FORWARDING_RULE_ID}`.
  */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+@end
+
+
+/**
+ *  A Google Cloud project which contains applications and resources that users
+ *  can access.
+ */
+@interface GTLRAccessContextManager_Project : GTLRObject
+
+/**
+ *  The Google Cloud project resource name. Format: `projects/{project_number}`.
+ *  Only the project number is supported. Example: `projects/1234567890`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2288,7 +2350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 /**
  *  URL pattern to allow. Only patterns of ".googleapis.com/ *",
  *  "www.googleapis.com// *" and "*.appspot.com/ * forms are supported, where
- *  should be alphanumerical name.
+ *  should be an alphanumeric name.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
@@ -2458,17 +2520,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_VpcAccessibleServic
 @property(nonatomic, strong, nullable) GTLRDuration *maxInactivity;
 
 /**
- *  Optional. The session length. Setting this field to zero is equal to
- *  disabling session. Also can set infinite session by flipping the enabled bit
- *  to false below. If use_oidc_max_age is true, for OIDC apps, the session
- *  length will be the minimum of this field and OIDC max_age param.
+ *  Optional. The session length. Setting this field to zero allows for sessions
+ *  that are active indefinitely. Also, setting `session_length_enabled` to
+ *  `false` disregards session limits, which means that sessions never expire.
+ *  If `use_oidc_max_age` is `true`, for OIDC apps, the session length will be
+ *  the minimum of this field and the OIDC `max_age` param. If this field is set
+ *  to zero, `session_length_enabled` must be set to `false` or left unset.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *sessionLength;
 
 /**
  *  Optional. This field enables or disables Google Cloud session length. When
  *  false, all fields set above will be disregarded and the session length is
- *  basically infinite.
+ *  basically infinite. If `session_length` is set to zero, this field must be
+ *  set to false.
  *
  *  Uses NSNumber of boolValue.
  */

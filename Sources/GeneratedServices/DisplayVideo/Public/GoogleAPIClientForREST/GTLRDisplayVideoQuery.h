@@ -623,8 +623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Updates an ad asset. Returns the updated ad asset if successful. Supports
  *  updating assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO` and
- *  `AD_ASSET_TYPE_IMAGE`. Only the `synthetic_content_attestation_status` field
- *  is mutable.
+ *  `AD_ASSET_TYPE_IMAGE`. Only the AdAsset.synthetic_content_attestation_status
+ *  field is mutable.
  *
  *  Method: displayvideo.advertisers.adAssets.patch
  *
@@ -655,8 +655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *
  *  Updates an ad asset. Returns the updated ad asset if successful. Supports
  *  updating assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO` and
- *  `AD_ASSET_TYPE_IMAGE`. Only the `synthetic_content_attestation_status` field
- *  is mutable.
+ *  `AD_ASSET_TYPE_IMAGE`. Only the AdAsset.synthetic_content_attestation_status
+ *  field is mutable.
  *
  *  @param object The @c GTLRDisplayVideo_AdAsset to include in the query.
  *  @param advertiserId Required. The ID of the advertiser this ad asset belongs
@@ -823,13 +823,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  combined by `AND` and `OR`. A sequence of restrictions implicitly uses
  *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * All
  *  fields must use the `EQUALS (=)` operator. Supported fields: * `adGroupId` *
- *  `displayName` * `entityStatus` * `adGroupAdId` Examples: * All ad group ads
- *  under an ad group: `adGroupId="1234"` * All ad group ads under an ad group
- *  with an entityStatus of `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`:
- *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
- *  entityStatus="ENTITY_STATUS_PAUSED") AND adGroupId="12345"` The length of
- *  this field should be no more than 500 characters. Reference our [filter
- *  `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more
+ *  `displayName` * `entityStatus` * `adGroupAdId` * `parentCreativeId`
+ *  Examples: * All ad group ads under an ad group: `adGroupId="1234"` * All ad
+ *  group ads under an ad group with an entityStatus of `ENTITY_STATUS_ACTIVE`
+ *  or `ENTITY_STATUS_PAUSED`: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  entityStatus="ENTITY_STATUS_PAUSED") AND adGroupId="12345"` * All ad group
+ *  ads under a parent creative: `parentCreativeId="12345"` The length of this
+ *  field should be no more than 500 characters. Reference our [filter `LIST`
+ *  requests](/display-video/api/guides/how-tos/filters) guide for more
  *  information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -8188,7 +8189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Generates a reach forecast for a given advertiser and targeting
- *  configuration.
+ *  configuration. API support for generating reach forecasts and retrieving
+ *  related metadata is in beta. This method is only available to allowlisted
+ *  users.
  *
  *  Method: displayvideo.advertisers.reachForecast.generateReachForecast
  *
@@ -8204,7 +8207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_GenerateReachForecastResponse.
  *
  *  Generates a reach forecast for a given advertiser and targeting
- *  configuration.
+ *  configuration. API support for generating reach forecasts and retrieving
+ *  related metadata is in beta. This method is only available to allowlisted
+ *  users.
  *
  *  @param object The @c GTLRDisplayVideo_GenerateReachForecastRequest to
  *    include in the query.
@@ -8219,7 +8224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Retrieves the list of countries where reach forecasting is supported.
+ *  Retrieves the list of countries where reach forecasting is supported. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.reachForecast.retrievePlannableLocations
  *
@@ -8234,7 +8241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_RetrievePlannableLocationsResponse.
  *
- *  Retrieves the list of countries where reach forecasting is supported.
+ *  Retrieves the list of countries where reach forecasting is supported. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  @param advertiserId Required. The ID of the advertiser to list plannable
  *    locations for.
@@ -8246,7 +8255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Retrieves the list of products that can be planned for a location.
+ *  Retrieves the list of products that can be planned for a location. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.reachForecast.retrievePlannableProducts
  *
@@ -8264,7 +8275,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_RetrievePlannableProductsResponse.
  *
- *  Retrieves the list of products that can be planned for a location.
+ *  Retrieves the list of products that can be planned for a location. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  @param advertiserId Required. The ID of the advertiser to list plannable
  *    products for.
@@ -8276,7 +8289,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Retrieves Google Audiences (User Interests) available for forecasting.
+ *  Retrieves Google Audiences (User Interests) available for forecasting. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.reachForecast.retrievePlannableUserInterests
  *
@@ -8306,7 +8321,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_RetrievePlannableUserInterestsResponse.
  *
- *  Retrieves Google Audiences (User Interests) available for forecasting.
+ *  Retrieves Google Audiences (User Interests) available for forecasting. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  @param advertiserId Required. The ID of the advertiser to list plannable
  *    user interests for.
@@ -8318,7 +8335,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Retrieves first and third party user lists available for forecasting.
+ *  Retrieves first and third party user lists available for forecasting. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.reachForecast.retrievePlannableUserLists
  *
@@ -8367,7 +8386,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_RetrievePlannableUserListsResponse.
  *
- *  Retrieves first and third party user lists available for forecasting.
+ *  Retrieves first and third party user lists available for forecasting. API
+ *  support for generating reach forecasts and retrieving related metadata is in
+ *  beta. This method is only available to allowlisted users.
  *
  *  @param advertiserId Required. The ID of the advertiser to retrieve plannable
  *    user lists for.

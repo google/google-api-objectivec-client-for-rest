@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: webcontentpublisher.organizations.publications.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
  */
 @interface GTLRWebContentPublisherQuery_OrganizationsPublicationsCreate : GTLRWebContentPublisherQuery
 
@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: webcontentpublisher.organizations.publications.ctas.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
  */
 @interface GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasCreate : GTLRWebContentPublisherQuery
 
@@ -118,8 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: webcontentpublisher.organizations.publications.ctas.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsReadonly
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
  */
 @interface GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasGet : GTLRWebContentPublisherQuery
 
@@ -149,8 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: webcontentpublisher.organizations.publications.ctas.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsReadonly
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
  */
 @interface GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasList : GTLRWebContentPublisherQuery
 
@@ -191,13 +189,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates a CTA.
+ *
+ *  Method: webcontentpublisher.organizations.publications.ctas.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
+ */
+@interface GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasPatch : GTLRWebContentPublisherQuery
+
+/**
+ *  Identifier. The resource name of the Cta. Format:
+ *  organizations/{organization}/publications/{publication}/ctas/{cta}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRWebContentPublisher_Cta.
+ *
+ *  Updates a CTA.
+ *
+ *  @param object The @c GTLRWebContentPublisher_Cta to include in the query.
+ *  @param name Identifier. The resource name of the Cta. Format:
+ *    organizations/{organization}/publications/{publication}/ctas/{cta}
+ *
+ *  @return GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasPatch
+ */
++ (instancetype)queryWithObject:(GTLRWebContentPublisher_Cta *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets a publication.
  *
  *  Method: webcontentpublisher.organizations.publications.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsReadonly
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
  */
 @interface GTLRWebContentPublisherQuery_OrganizationsPublicationsGet : GTLRWebContentPublisherQuery
 
@@ -227,8 +263,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: webcontentpublisher.organizations.publications.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsReadonly
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
  */
 @interface GTLRWebContentPublisherQuery_OrganizationsPublicationsList : GTLRWebContentPublisherQuery
 
@@ -249,7 +284,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent organization whose publications to list. Format:
+ *  Required. The parent organization whose publications to list, or
+ *  "organizations/-" for all organizations a user has access to. Format:
  *  `organizations/{organization}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -259,8 +295,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists publications.
  *
- *  @param parent Required. The parent organization whose publications to list.
- *    Format: `organizations/{organization}`.
+ *  @param parent Required. The parent organization whose publications to list,
+ *    or "organizations/-" for all organizations a user has access to. Format:
+ *    `organizations/{organization}`.
  *
  *  @return GTLRWebContentPublisherQuery_OrganizationsPublicationsList
  *
@@ -278,7 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: webcontentpublisher.organizations.publications.patch
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
+ *    @c kGTLRAuthScopeWebContentPublisherPublicationsManageSystem
  */
 @interface GTLRWebContentPublisherQuery_OrganizationsPublicationsPatch : GTLRWebContentPublisherQuery
 
@@ -316,10 +353,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Checks if a user is eligible for free article access.
  *
  *  Method: webcontentpublisher.publications.checkFreeAccess
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsManage
- *    @c kGTLRAuthScopeWebContentPublisherSubscribewithgooglePublicationsEntitlementsReadonly
  */
 @interface GTLRWebContentPublisherQuery_PublicationsCheckFreeAccess : GTLRWebContentPublisherQuery
 
@@ -346,6 +379,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRWebContentPublisherQuery_PublicationsCheckFreeAccess
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns user tokens mapped to their canonical domains for all publications
+ *  the authenticated user is entitled to.
+ *
+ *  Method: webcontentpublisher.users.generatePlatformSiteTokens
+ */
+@interface GTLRWebContentPublisherQuery_UsersGeneratePlatformSiteTokens : GTLRWebContentPublisherQuery
+
+/**
+ *  Required. The resource name of the user to generate tokens for. Format:
+ *  users/{user}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWebContentPublisher_GeneratePlatformSiteTokensResponse.
+ *
+ *  Returns user tokens mapped to their canonical domains for all publications
+ *  the authenticated user is entitled to.
+ *
+ *  @param object The @c
+ *    GTLRWebContentPublisher_GeneratePlatformSiteTokensRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the user to generate tokens for.
+ *    Format: users/{user}
+ *
+ *  @return GTLRWebContentPublisherQuery_UsersGeneratePlatformSiteTokens
+ */
++ (instancetype)queryWithObject:(GTLRWebContentPublisher_GeneratePlatformSiteTokensRequest *)object
+                           name:(NSString *)name;
 
 @end
 

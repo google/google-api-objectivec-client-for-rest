@@ -1278,6 +1278,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_Gateway
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AwsApiGateway;
 /**
+ *  The gateway type is Azure API Management.
+ *
+ *  Value: "AZURE_API_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AzureApiManagement;
+/**
  *  The gateway type is Cloud API Gateway.
  *
  *  Value: "CLOUD_API_GATEWAY"
@@ -1744,6 +1750,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1Addon : GTLRObject
 
+/**
+ *  Output only. The Vertex AI region where the BoostSpec Gemini model calls run
+ *  for this API Hub instance. Populated only for the SpecGen addon
+ *  (`system-spec-generation`); other addons leave this field empty.
+ *  `gemini-2.5-flash` is not available in every API Hub region, so the
+ *  effective region may differ from the API Hub instance's own region. The
+ *  value follows these semantics: - `""`: BoostSpec is disabled in this region
+ *  (the addon is not SpecGen, or the API Hub instance region has no configured
+ *  Gemini endpoint or fallback). - Equal to the API Hub instance region:
+ *  BoostSpec calls run in-region. - Differs from the API Hub instance region:
+ *  BoostSpec calls run in the specified fallback region. Callers rendering this
+ *  field can derive the three display states from this single field combined
+ *  with the API Hub instance region.
+ */
+@property(nonatomic, copy, nullable) NSString *boostSpecGeminiRegionId;
+
 /** Required. The configuration of the addon. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AddonConfig *config;
 
@@ -1872,8 +1894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  another allowed value in the same attribute resource. * If not provided, a
  *  system generated id derived from the display name will be used. In this
  *  case, the service will handle conflict resolution by adding a system
- *  generated suffix in case of duplicates. This value should be 4-63
- *  characters, and valid characters are /a-z-/.
+ *  generated suffix in case of duplicates. This value should be 3-500
+ *  characters, and valid characters are /a-z[0-9]-_/.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1897,7 +1919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Optional. The api functional requirements associated with the API resource.
- *  Carinality is 1 for this attribute. This maps to the following system
+ *  Cardinality is 1 for this attribute. This maps to the following system
  *  defined attribute:
  *  `projects/{project}/locations/{location}/attributes/system-api-functional-requirements`
  *  attribute. The value of the attribute should be a proper URI, and in case of
@@ -1908,7 +1930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Optional. The api requirement doc associated with the API resource.
- *  Carinality is 1 for this attribute. This maps to the following system
+ *  Cardinality is 1 for this attribute. This maps to the following system
  *  defined attribute:
  *  `projects/{project}/locations/{location}/attributes/system-api-requirements`
  *  attribute. The value of the attribute should be a proper URI, and in case of
@@ -1930,7 +1952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Optional. The api technical requirements associated with the API resource.
- *  Carinality is 1 for this attribute. This maps to the following system
+ *  Cardinality is 1 for this attribute. This maps to the following system
  *  defined attribute:
  *  `projects/{project}/locations/{location}/attributes/system-api-technical-requirements`
  *  attribute. The value of the attribute should be a proper URI, and in case of
@@ -2008,6 +2030,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}`
  */
 @property(nonatomic, copy, nullable) NSString *selectedVersion;
+
+/**
+ *  Optional. The type of the service. This maps to the following system defined
+ *  attribute:
+ *  `projects/{project}/locations/{location}/attributes/system-service-type`
+ *  attribute. The cardinality of this attribute is 1. All values should be from
+ *  the list of allowed values defined for the attribute.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *serviceType;
 
 /**
  *  Output only. The list of sources and metadata from the sources of the API
@@ -2398,6 +2429,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /** Output only. The time at which the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The deployments linked directly to this API operation. For
+ *  operations parsed from a spec, `UpdateApiOperation` returns
+ *  `FAILED_PRECONDITION`; link the parent spec to the deployment via
+ *  `Spec.deployments` instead. Format is
+ *  `projects/{project}/locations/{location}/deployments/{deployment}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deployments;
 
 /**
  *  Optional. Operation details. Note: Even though this field is optional, it is
@@ -3329,6 +3369,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1Deployment : GTLRObject
 
+/** Output only. The API operations linked directly to this deployment. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiOperations;
+
 /**
  *  Output only. The API versions linked to this deployment. Note: A particular
  *  deployment could be linked to multiple different API versions (of same or
@@ -3445,6 +3488,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, copy, nullable) NSString *sourceProject;
 
 /**
+ *  Optional. A revision identifier for the underlying gateway configuration
+ *  that this deployment serves. For Apigee gateway variants, this is typically
+ *  the proxy revision number populated automatically when the deployment is
+ *  discovered.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceRevision;
+
+/**
  *  Optional. The uri where additional source specific information for this
  *  deployment can be found. This maps to the following system defined
  *  attribute:
@@ -3455,6 +3506,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  point to a Cloud Storage object, not a directory.
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AttributeValues *sourceUri;
+
+/**
+ *  Output only. The specs linked directly to this deployment. Note: a
+ *  deployment could serve multiple specs (e.g., across different revisions of
+ *  the same underlying gateway configuration).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *specs;
 
 /** Output only. The time at which the deployment was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -3821,7 +3879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. Description of the external API. Max length is 2000 characters
+ *  Optional. Description of the external API. Max length is 500000 characters
  *  (Unicode Code Points).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3829,7 +3887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Display name of the external API. Max length is 63 characters
+ *  Required. Display name of the external API. Max length is 500 characters
  *  (Unicode Code Points).
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -5331,7 +5389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. The plugin description. Max length is 2000 characters (Unicode
+ *  Optional. The plugin description. Max length is 500000 characters (Unicode
  *  code points).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -5339,7 +5397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. The display name of the plugin. Max length is 50 characters
+ *  Required. The display name of the plugin. Max length is 500 characters
  *  (Unicode code points).
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -5367,6 +5425,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *        "APIGEE_X_AND_HYBRID")
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AwsApiGateway
  *        The gateway type is AWS API Gateway. (Value: "AWS_API_GATEWAY")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AzureApiManagement
+ *        The gateway type is Azure API Management. (Value:
+ *        "AZURE_API_MANAGEMENT")
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudApiGateway
  *        The gateway type is Cloud API Gateway. (Value: "CLOUD_API_GATEWAY")
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudEndpoints
@@ -5545,7 +5606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The display name for this plugin instance. Max length is 255
+ *  Required. The display name for this plugin instance. Max length is 500
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -6144,6 +6205,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 /** Output only. The time at which the spec was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Optional. The deployments linked directly to this spec. Format is
+ *  `projects/{project}/locations/{location}/deployments/{deployment}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deployments;
+
 /** Output only. Details parsed from the spec. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1SpecDetails *details;
 
@@ -6275,6 +6342,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  The metadata associated with a spec of the API version.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1SpecMetadata : GTLRObject
+
+/**
+ *  Optional. The gateway-side URIs of deployments that serve this spec. If
+ *  provided, the API Hub service creates links between this spec and the
+ *  deployments identified by these URIs. URIs that don't match any known
+ *  deployment are ignored; a subsequent ingestion cycle that includes the
+ *  missing deployment will re-establish the link. The maximum number of URIs
+ *  allowed is 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deploymentResourceUris;
 
 /** Optional. Timestamp indicating when the spec was created at the source. */
 @property(nonatomic, strong, nullable) GTLRDateTime *originalCreateTime;
@@ -6529,7 +6606,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) NSArray<NSString *> *definitions;
 
 /**
- *  Optional. The deployments linked to this API version. Note: A particular API
+ *  Optional. The deployments linked directly to this API version. Only
+ *  directly-linked deployments are returned; deployments linked to this
+ *  version's specs or operations are not included. Note: A particular API
  *  version could be deployed to multiple deployments (for dev deployment, UAT
  *  deployment, etc) Format is
  *  `projects/{project}/locations/{location}/deployments/{deployment}`

@@ -201,6 +201,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: cloudtasks.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsOperationsGet : GTLRCloudTasksQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a queue. Queues created with this method allow tasks to live for a
  *  maximum of 31 days. After a task is 31 days old, the task will be deleted
  *  regardless of whether it was dispatched or not. WARNING: Using this method
@@ -676,6 +706,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudTasks_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a batch of tasks and adds them to a queue. All tasks must be for the
+ *  same queue. A maximum of 100 tasks can be created in a single batch.
+ *
+ *  Method: cloudtasks.projects.locations.queues.tasks.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchCreate : GTLRCloudTasksQuery
+
+/**
+ *  Required. The queue name. For example:
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID` The queue must
+ *  already exist.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_Operation.
+ *
+ *  Creates a batch of tasks and adds them to a queue. All tasks must be for the
+ *  same queue. A maximum of 100 tasks can be created in a single batch.
+ *
+ *  @param object The @c GTLRCloudTasks_BatchCreateTasksRequest to include in
+ *    the query.
+ *  @param parent Required. The queue name. For example:
+ *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID` The queue must
+ *    already exist.
+ *
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudTasks_BatchCreateTasksRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a batch of tasks. This is a non-atomic operation: if deletion fails
+ *  for some tasks, it can still succeed for others. The metadata field of
+ *  google.longrunning.Operation contains details of failed deletions. A maximum
+ *  of 1000 tasks can be deleted in a batch.
+ *
+ *  Method: cloudtasks.projects.locations.queues.tasks.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTasksCloudPlatform
+ */
+@interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchDelete : GTLRCloudTasksQuery
+
+/**
+ *  Required. The queue name. For example: Format:
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudTasks_Operation.
+ *
+ *  Deletes a batch of tasks. This is a non-atomic operation: if deletion fails
+ *  for some tasks, it can still succeed for others. The metadata field of
+ *  google.longrunning.Operation contains details of failed deletions. A maximum
+ *  of 1000 tasks can be deleted in a batch.
+ *
+ *  @param object The @c GTLRCloudTasks_BatchDeleteTasksRequest to include in
+ *    the query.
+ *  @param parent Required. The queue name. For example: Format:
+ *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
+ *
+ *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRCloudTasks_BatchDeleteTasksRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

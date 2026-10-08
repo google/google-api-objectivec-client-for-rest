@@ -1788,6 +1788,16 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWalletobjects_JsonResource
+//
+
+@implementation GTLRWalletobjects_JsonResource
+@dynamic json;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWalletobjects_JwtInsertResponse
 //
 
@@ -1803,6 +1813,25 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_JwtResource
 @dynamic jwt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_JwtValidateRequest
+//
+
+@implementation GTLRWalletobjects_JwtValidateRequest
+@dynamic jsonResource, jwtResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWalletobjects_JwtValidateResponse
+//
+
+@implementation GTLRWalletobjects_JwtValidateResponse
 @end
 
 

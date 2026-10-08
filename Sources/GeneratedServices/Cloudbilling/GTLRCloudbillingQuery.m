@@ -273,6 +273,50 @@
 
 @end
 
+@implementation GTLRCloudbillingQuery_MessageSend
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_SendMessageRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/message:send";
+  GTLRCloudbillingQuery_MessageSend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudbilling_SendMessageResponse class];
+  query.loggingName = @"cloudbilling.message.send";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_MessageStream
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_SendMessageRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/message:stream";
+  GTLRCloudbillingQuery_MessageStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudbilling_StreamResponse class];
+  query.loggingName = @"cloudbilling.message.stream";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudbillingQuery_OrganizationsBillingAccountsCreate
 
 @dynamic parent;
@@ -419,6 +463,172 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudbilling_ListSkusResponse class];
   query.loggingName = @"cloudbilling.services.skus.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_TasksCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_CancelTaskRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudbillingQuery_TasksCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_Task class];
+  query.loggingName = @"cloudbilling.tasks.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_TasksGet
+
+@dynamic historyLength, name, tenant;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudbillingQuery_TasksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_Task class];
+  query.loggingName = @"cloudbilling.tasks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_TasksPushNotificationConfigsCreate
+
+@dynamic configId, parent, tenant;
+
++ (instancetype)queryWithObject:(GTLRCloudbilling_TaskPushNotificationConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}";
+  GTLRCloudbillingQuery_TasksPushNotificationConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudbilling_TaskPushNotificationConfig class];
+  query.loggingName = @"cloudbilling.tasks.pushNotificationConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_TasksPushNotificationConfigsDelete
+
+@dynamic name, tenant;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudbillingQuery_TasksPushNotificationConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_Empty class];
+  query.loggingName = @"cloudbilling.tasks.pushNotificationConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_TasksPushNotificationConfigsGet
+
+@dynamic name, tenant;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudbillingQuery_TasksPushNotificationConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_TaskPushNotificationConfig class];
+  query.loggingName = @"cloudbilling.tasks.pushNotificationConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_TasksPushNotificationConfigsList
+
+@dynamic pageSize, pageToken, parent, tenant;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pushNotificationConfigs";
+  GTLRCloudbillingQuery_TasksPushNotificationConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudbilling_ListTaskPushNotificationConfigResponse class];
+  query.loggingName = @"cloudbilling.tasks.pushNotificationConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_TasksSubscribe
+
+@dynamic name, tenant;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:subscribe";
+  GTLRCloudbillingQuery_TasksSubscribe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudbilling_StreamResponse class];
+  query.loggingName = @"cloudbilling.tasks.subscribe";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudbillingQuery_V1GetCard
+
+@dynamic tenant;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/card";
+  GTLRCloudbillingQuery_V1GetCard *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudbilling_AgentCard class];
+  query.loggingName = @"cloudbilling.getCard";
   return query;
 }
 

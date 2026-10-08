@@ -57,6 +57,7 @@ NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention = @"USER_MENTION"
 
 // GTLRHangoutsChat_AppCommandMetadata.appCommandType
 NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_AppCommandTypeUnspecified = @"APP_COMMAND_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_MessageAction = @"MESSAGE_ACTION";
 NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_QuickCommand = @"QUICK_COMMAND";
 NSString * const kGTLRHangoutsChat_AppCommandMetadata_AppCommandType_SlashCommand = @"SLASH_COMMAND";
 
@@ -506,7 +507,7 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_AccessPermissionSettings
-@dynamic discoverSpaceSetting, joinSpaceSetting;
+@dynamic discoverSpaceSetting, joinSpaceSetting, viewSpaceMembershipSetting;
 @end
 
 
@@ -1789,6 +1790,28 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_ListMessagePinsResponse
+//
+
+@implementation GTLRHangoutsChat_ListMessagePinsResponse
+@dynamic messagePins, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messagePins" : [GTLRHangoutsChat_MessagePin class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"messagePins";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_ListMessagesResponse
 //
 
@@ -2188,6 +2211,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_MessagePin
+//
+
+@implementation GTLRHangoutsChat_MessagePin
+@dynamic message, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_MessageUpdatedEventData
 //
 
@@ -2253,7 +2286,8 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 @implementation GTLRHangoutsChat_PermissionSettings
 @dynamic manageApps, manageMembersAndGroups, manageWebhooks, modifySpaceDetails,
-         postMessages, replyMessages, toggleHistory, useAtMentionAll;
+         postMessages, replyMessages, toggleHistory, useAtMentionAll,
+         viewSpaceMembership;
 @end
 
 
@@ -2807,7 +2841,7 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_User
-@dynamic displayName, domainId, isAnonymous, name, type;
+@dynamic avatarUrl, displayName, domainId, email, isAnonymous, name, type;
 @end
 
 

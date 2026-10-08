@@ -17,6 +17,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding.organizationRoles
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding_OrganizationRoles_BillingAdminRole = @"BILLING_ADMIN_ROLE";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding_OrganizationRoles_OrgAdminRole = @"ORG_ADMIN_ROLE";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding_OrganizationRoles_OrganizationRoleUnspecified = @"ORGANIZATION_ROLE_UNSPECIFIED";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding_OrganizationRoles_UserAdminRole = @"USER_ADMIN_ROLE";
+
 // GTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink.linkVerificationState
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink_LinkVerificationState_LinkVerificationStateNotVerified = @"LINK_VERIFICATION_STATE_NOT_VERIFIED";
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink_LinkVerificationState_LinkVerificationStateUnspecified = @"LINK_VERIFICATION_STATE_UNSPECIFIED";
@@ -37,6 +43,29 @@ NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelRequest_ServiceLevel_AnalyticsServiceLevel360 = @"ANALYTICS_SERVICE_LEVEL_360";
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelRequest_ServiceLevel_AnalyticsServiceLevelStandard = @"ANALYTICS_SERVICE_LEVEL_STANDARD";
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelRequest_ServiceLevel_AnalyticsServiceLevelUnspecified = @"ANALYTICS_SERVICE_LEVEL_UNSPECIFIED";
+
+// GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember.membershipRole
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_UserGroupMember_MembershipRole_MembershipRoleMember = @"MEMBERSHIP_ROLE_MEMBER";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_UserGroupMember_MembershipRole_MembershipRoleOwner = @"MEMBERSHIP_ROLE_OWNER";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_UserGroupMember_MembershipRole_MembershipRoleUnspecified = @"MEMBERSHIP_ROLE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding
+@dynamic name, organizationRoles, userEmail, userGroup;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"organizationRoles" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -117,6 +146,28 @@ NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelReq
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleMarketingPlatformAdminAPI_ListAdminAccessBindingsResponse
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_ListAdminAccessBindingsResponse
+@dynamic adminAccessBindings, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adminAccessBindings" : [GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"adminAccessBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleMarketingPlatformAdminAPI_ListAnalyticsAccountLinksResponse
 //
 
@@ -154,6 +205,50 @@ NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelReq
 
 + (NSString *)collectionItemsKey {
   return @"organizations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupMembersResponse
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupMembersResponse
+@dynamic nextPageToken, userGroupMembers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userGroupMembers" : [GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userGroupMembers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupsResponse
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupsResponse
+@dynamic nextPageToken, userGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userGroups" : [GTLRGoogleMarketingPlatformAdminAPI_UserGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userGroups";
 }
 
 @end
@@ -234,4 +329,29 @@ NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelReq
 //
 
 @implementation GTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_UserGroup
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_UserGroup
+@dynamic descriptionProperty, displayName, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember
+@dynamic membershipRole, name, userEmail, userGroup;
 @end

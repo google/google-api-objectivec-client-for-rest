@@ -25,6 +25,13 @@ NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery 
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore = @"DATAPROC_METASTORE";
 NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified = @"METASTORE_TYPE_UNSPECIFIED";
 
+// GTLRDataprocMetastore_BackfillStatus.state
+NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Pending = @"PENDING";
+NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Running = @"RUNNING";
+NSString * const kGTLRDataprocMetastore_BackfillStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Succeeded = @"SUCCEEDED";
+
 // GTLRDataprocMetastore_Backup.state
 NSString * const kGTLRDataprocMetastore_Backup_State_Active    = @"ACTIVE";
 NSString * const kGTLRDataprocMetastore_Backup_State_Creating  = @"CREATING";
@@ -32,6 +39,25 @@ NSString * const kGTLRDataprocMetastore_Backup_State_Deleting  = @"DELETING";
 NSString * const kGTLRDataprocMetastore_Backup_State_Failed    = @"FAILED";
 NSString * const kGTLRDataprocMetastore_Backup_State_Restoring = @"RESTORING";
 NSString * const kGTLRDataprocMetastore_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig.conflictPolicy
+NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_ConflictPolicyUnspecified = @"CONFLICT_POLICY_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_Overwrite = @"OVERWRITE";
+NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_Skip = @"SKIP";
+
+// GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig.mode
+NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_Mode_Backfill = @"BACKFILL";
+NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_Mode_MigrationModeUnspecified = @"MIGRATION_MODE_UNSPECIFIED";
+
+// GTLRDataprocMetastore_CatalogReport.catalogType
+NSString * const kGTLRDataprocMetastore_CatalogReport_CatalogType_CatalogTypeUnspecified = @"CATALOG_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_CatalogReport_CatalogType_Hive = @"HIVE";
+NSString * const kGTLRDataprocMetastore_CatalogReport_CatalogType_Iceberg = @"ICEBERG";
+
+// GTLRDataprocMetastore_CatalogSummary.catalogType
+NSString * const kGTLRDataprocMetastore_CatalogSummary_CatalogType_CatalogTypeUnspecified = @"CATALOG_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_CatalogSummary_CatalogType_Hive = @"HIVE";
+NSString * const kGTLRDataprocMetastore_CatalogSummary_CatalogType_Iceberg = @"ICEBERG";
 
 // GTLRDataprocMetastore_DatabaseDump.databaseType
 NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
@@ -41,6 +67,34 @@ NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_Mysql = @"MYSQ
 NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Avro = @"AVRO";
 NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Mysql = @"MYSQL";
 NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDataprocMetastore_DatabaseSummary.planAction
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Create = @"CREATE";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_DependencyFailure = @"DEPENDENCY_FAILURE";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Error = @"ERROR";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Skip = @"SKIP";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Update = @"UPDATE";
+
+// GTLRDataprocMetastore_DatabaseSummary.resultStatus
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Skipped = @"SKIPPED";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Succeeded = @"SUCCEEDED";
+
+// GTLRDataprocMetastore_ExecutionPlan.action
+NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Create = @"CREATE";
+NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_DependencyFailure = @"DEPENDENCY_FAILURE";
+NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Error = @"ERROR";
+NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Skip = @"SKIP";
+NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Update = @"UPDATE";
+
+// GTLRDataprocMetastore_ExecutionResult.state
+NSString * const kGTLRDataprocMetastore_ExecutionResult_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_ExecutionResult_State_Skipped = @"SKIPPED";
+NSString * const kGTLRDataprocMetastore_ExecutionResult_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_ExecutionResult_State_Succeeded = @"SUCCEEDED";
 
 // GTLRDataprocMetastore_ExportMetadataRequest.databaseDumpType
 NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro = @"AVRO";
@@ -111,6 +165,12 @@ NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Running = @"RUN
 NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Starting = @"STARTING";
 NSString * const kGTLRDataprocMetastore_MigrationExecution_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Succeeded = @"SUCCEEDED";
+
+// GTLRDataprocMetastore_PartitionReport.state
+NSString * const kGTLRDataprocMetastore_PartitionReport_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_PartitionReport_State_PartiallySucceeded = @"PARTIALLY_SUCCEEDED";
+NSString * const kGTLRDataprocMetastore_PartitionReport_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_PartitionReport_State_Succeeded = @"SUCCEEDED";
 
 // GTLRDataprocMetastore_Restore.state
 NSString * const kGTLRDataprocMetastore_Restore_State_Cancelled = @"CANCELLED";
@@ -299,6 +359,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_BackfillStatus
+//
+
+@implementation GTLRDataprocMetastore_BackfillStatus
+@dynamic migrationSummary, reportPath, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Backup
 //
 
@@ -317,6 +387,17 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig
+//
+
+@implementation GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig
+@dynamic backfillStatus, conflictPolicy, dryRun, hiveConfig, icebergConfig,
+         mode, reportPath;
 @end
 
 
@@ -358,33 +439,43 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_CdcConfig
+//   GTLRDataprocMetastore_CatalogReport
 //
 
-@implementation GTLRDataprocMetastore_CdcConfig
-@dynamic bucket, password, reverseProxySubnet, rootPath, subnetIpRange,
-         username, vpcNetwork;
+@implementation GTLRDataprocMetastore_CatalogReport
+@dynamic catalog, catalogType, databaseReports;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_CloudSQLConnectionConfig
+//   GTLRDataprocMetastore_CatalogReport_DatabaseReports
 //
 
-@implementation GTLRDataprocMetastore_CloudSQLConnectionConfig
-@dynamic hiveDatabaseName, instanceConnectionName, ipAddress, natSubnet,
-         password, port, proxySubnet, username;
+@implementation GTLRDataprocMetastore_CatalogReport_DatabaseReports
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_DatabaseReport class];
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_CloudSQLMigrationConfig
+//   GTLRDataprocMetastore_CatalogSummary
 //
 
-@implementation GTLRDataprocMetastore_CloudSQLMigrationConfig
-@dynamic cdcConfig, cloudSqlConnectionConfig;
+@implementation GTLRDataprocMetastore_CatalogSummary
+@dynamic catalog, catalogType, databaseSummaries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseSummaries" : [GTLRDataprocMetastore_DatabaseSummary class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -438,6 +529,40 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_DatabaseReport
+//
+
+@implementation GTLRDataprocMetastore_DatabaseReport
+@dynamic database, executionPlan, executionResult, tableReports;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_DatabaseReport_TableReports
+//
+
+@implementation GTLRDataprocMetastore_DatabaseReport_TableReports
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_TableReport class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_DatabaseSummary
+//
+
+@implementation GTLRDataprocMetastore_DatabaseSummary
+@dynamic database, planAction, resultStatus, tableSummary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_DataCatalogConfig
 //
 
@@ -486,6 +611,40 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ExecutionPlan
+//
+
+@implementation GTLRDataprocMetastore_ExecutionPlan
+@dynamic action, diffs, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ExecutionPlan_Diffs
+//
+
+@implementation GTLRDataprocMetastore_ExecutionPlan_Diffs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_ValueDiff class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ExecutionResult
+//
+
+@implementation GTLRDataprocMetastore_ExecutionResult
+@dynamic errorMessage, remediation, state;
 @end
 
 
@@ -569,6 +728,24 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_HiveConfig
+//
+
+@implementation GTLRDataprocMetastore_HiveConfig
+@dynamic catalog, databases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databases" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_HiveMetastoreConfig
 //
 
@@ -618,11 +795,47 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_IcebergConfig
+//
+
+@implementation GTLRDataprocMetastore_IcebergConfig
+@dynamic catalog, namespaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"namespaces" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_KerberosConfig
 //
 
 @implementation GTLRDataprocMetastore_KerberosConfig
 @dynamic keytab, krb5ConfigGcsUri, principal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_LakehouseProxyConfig
+//
+
+@implementation GTLRDataprocMetastore_LakehouseProxyConfig
+@dynamic catalog, namespaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"namespaces" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -944,8 +1157,44 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_MigrationExecution
-@dynamic cloudSqlMigrationConfig, createTime, endTime, name, phase, state,
-         stateMessage;
+@dynamic biglakeMetastoreMigrationConfig, createTime, endTime, name, phase,
+         state, stateMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MigrationReport
+//
+
+@implementation GTLRDataprocMetastore_MigrationReport
+@dynamic catalogReports, summary;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"catalogReports" : [GTLRDataprocMetastore_CatalogReport class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MigrationSummary
+//
+
+@implementation GTLRDataprocMetastore_MigrationSummary
+@dynamic catalogSummaries, createTime, dryRun, endTime, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"catalogSummaries" : [GTLRDataprocMetastore_CatalogSummary class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1055,6 +1304,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_PartitionReport
+//
+
+@implementation GTLRDataprocMetastore_PartitionReport
+@dynamic partitionFailedCount, partitionSuccessCount, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Policy
 //
 
@@ -1155,10 +1414,10 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 @implementation GTLRDataprocMetastore_Service
 @dynamic artifactGcsUri, createTime, databaseType, deletionProtection,
          encryptionConfig, endpointUri, hiveMetastoreConfig, labels,
-         maintenanceWindow, metadataIntegration, metadataManagementActivity,
-         name, network, networkConfig, port, releaseChannel, scalingConfig,
-         scheduledBackup, state, stateMessage, tags, telemetryConfig, tier, uid,
-         updateTime;
+         lakehouseProxyConfig, maintenanceWindow, metadataIntegration,
+         metadataManagementActivity, name, network, networkConfig, port,
+         releaseChannel, scalingConfig, scheduledBackup, state, stateMessage,
+         tags, telemetryConfig, tier, uid, updateTime;
 @end
 
 
@@ -1206,7 +1465,7 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 //
 
 @implementation GTLRDataprocMetastore_StartMigrationRequest
-@dynamic migrationExecution, requestId;
+@dynamic migrationExecution, migrationExecutionId, requestId;
 @end
 
 
@@ -1254,6 +1513,56 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_TableReport
+//
+
+@implementation GTLRDataprocMetastore_TableReport
+@dynamic executionPlan, executionResult, partitionDiscoveredCount,
+         partitionReport, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_TableSummary
+//
+
+@implementation GTLRDataprocMetastore_TableSummary
+@dynamic partitionDiscoveredCount, partitionFailedCount, partitionSuccessCount,
+         planCounts, resultCounts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_TableSummary_PlanCounts
+//
+
+@implementation GTLRDataprocMetastore_TableSummary_PlanCounts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_TableSummary_ResultCounts
+//
+
+@implementation GTLRDataprocMetastore_TableSummary_ResultCounts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_TelemetryConfig
 //
 
@@ -1295,6 +1604,16 @@ NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspe
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ValueDiff
+//
+
+@implementation GTLRDataprocMetastore_ValueDiff
+@dynamic sourceValue, targetValue;
 @end
 
 #pragma clang diagnostic pop

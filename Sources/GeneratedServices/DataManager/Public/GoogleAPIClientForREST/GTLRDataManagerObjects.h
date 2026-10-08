@@ -86,6 +86,7 @@
 @class GTLRDataManager_Status_Details_Item;
 @class GTLRDataManager_TargetNetworkInfo;
 @class GTLRDataManager_TermsOfService;
+@class GTLRDataManager_User;
 @class GTLRDataManager_UserData;
 @class GTLRDataManager_UserIdData;
 @class GTLRDataManager_UserIdentifier;
@@ -115,2813 +116,1285 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.adFormat
 
-/**
- *  AR ad.
- *
- *  Value: "AD_FORMAT_AR"
- */
+/** Value: "AD_FORMAT_AR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatAr;
-/**
- *  Audio ad.
- *
- *  Value: "AD_FORMAT_AUDIO"
- */
+/** Value: "AD_FORMAT_AUDIO" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatAudio;
-/**
- *  Banner ad.
- *
- *  Value: "AD_FORMAT_BANNER"
- */
+/** Value: "AD_FORMAT_BANNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatBanner;
-/**
- *  Bumper ad.
- *
- *  Value: "AD_FORMAT_BUMPER"
- */
+/** Value: "AD_FORMAT_BUMPER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatBumper;
-/**
- *  Carousel ad.
- *
- *  Value: "AD_FORMAT_CAROUSEL"
- */
+/** Value: "AD_FORMAT_CAROUSEL" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatCarousel;
-/**
- *  Collection ad.
- *
- *  Value: "AD_FORMAT_COLLECTION"
- */
+/** Value: "AD_FORMAT_COLLECTION" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatCollection;
-/**
- *  Image ad.
- *
- *  Value: "AD_FORMAT_IMAGE"
- */
+/** Value: "AD_FORMAT_IMAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatImage;
-/**
- *  In-feed ad.
- *
- *  Value: "AD_FORMAT_IN_FEED"
- */
+/** Value: "AD_FORMAT_IN_FEED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInFeed;
-/**
- *  In-stream ad.
- *
- *  Value: "AD_FORMAT_IN_STREAM"
- */
+/** Value: "AD_FORMAT_IN_STREAM" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStream;
-/**
- *  In-stream non-skippable ad.
- *
- *  Value: "AD_FORMAT_IN_STREAM_NON_SKIPPABLE"
- */
+/** Value: "AD_FORMAT_IN_STREAM_NON_SKIPPABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamNonSkippable;
-/**
- *  In-stream skippable ad.
- *
- *  Value: "AD_FORMAT_IN_STREAM_SKIPPABLE"
- */
+/** Value: "AD_FORMAT_IN_STREAM_SKIPPABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamSkippable;
-/**
- *  Interactive ad.
- *
- *  Value: "AD_FORMAT_INTERACTIVE"
- */
+/** Value: "AD_FORMAT_INTERACTIVE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInteractive;
-/**
- *  Interstitial ad.
- *
- *  Value: "AD_FORMAT_INTERSTITIAL"
- */
+/** Value: "AD_FORMAT_INTERSTITIAL" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatInterstitial;
-/**
- *  Native ad.
- *
- *  Value: "AD_FORMAT_NATIVE"
- */
+/** Value: "AD_FORMAT_NATIVE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatNative;
-/**
- *  Shorts ad.
- *
- *  Value: "AD_FORMAT_SHORTS"
- */
+/** Value: "AD_FORMAT_SHORTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatShorts;
-/**
- *  Sponsored ad.
- *
- *  Value: "AD_FORMAT_SPONSORED"
- */
+/** Value: "AD_FORMAT_SPONSORED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatSponsored;
-/**
- *  Story ad.
- *
- *  Value: "AD_FORMAT_STORY"
- */
+/** Value: "AD_FORMAT_STORY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatStory;
-/**
- *  Unspecified ad format.
- *
- *  Value: "AD_FORMAT_UNSPECIFIED"
- */
+/** Value: "AD_FORMAT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatUnspecified;
-/**
- *  Video ad.
- *
- *  Value: "AD_FORMAT_VIDEO"
- */
+/** Value: "AD_FORMAT_VIDEO" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdFormat_AdFormatVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.adPlacement
 
-/**
- *  Discover placement.
- *
- *  Value: "AD_PLACEMENT_DISCOVER"
- */
+/** Value: "AD_PLACEMENT_DISCOVER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementDiscover;
-/**
- *  Feed placement.
- *
- *  Value: "AD_PLACEMENT_FEED"
- */
+/** Value: "AD_PLACEMENT_FEED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFeed;
-/**
- *  Footer placement.
- *
- *  Value: "AD_PLACEMENT_FOOTER"
- */
+/** Value: "AD_PLACEMENT_FOOTER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFooter;
-/**
- *  Header placement.
- *
- *  Value: "AD_PLACEMENT_HEADER"
- */
+/** Value: "AD_PLACEMENT_HEADER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHeader;
-/**
- *  Home placement.
- *
- *  Value: "AD_PLACEMENT_HOME"
- */
+/** Value: "AD_PLACEMENT_HOME" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHome;
-/**
- *  In-content placement.
- *
- *  Value: "AD_PLACEMENT_IN_CONTENT"
- */
+/** Value: "AD_PLACEMENT_IN_CONTENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementInContent;
-/**
- *  Promoted placement.
- *
- *  Value: "AD_PLACEMENT_PROMOTED"
- */
+/** Value: "AD_PLACEMENT_PROMOTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementPromoted;
-/**
- *  Search placement.
- *
- *  Value: "AD_PLACEMENT_SEARCH"
- */
+/** Value: "AD_PLACEMENT_SEARCH" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementSearch;
-/**
- *  Story placement.
- *
- *  Value: "AD_PLACEMENT_STORY"
- */
+/** Value: "AD_PLACEMENT_STORY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementStory;
-/**
- *  Unspecified ad placement.
- *
- *  Value: "AD_PLACEMENT_UNSPECIFIED"
- */
+/** Value: "AD_PLACEMENT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdPlacement_AdPlacementUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.adType
 
-/**
- *  Audio ad.
- *
- *  Value: "AD_TYPE_AUDIO"
- */
+/** Value: "AD_TYPE_AUDIO" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeAudio;
-/**
- *  Display ad.
- *
- *  Value: "AD_TYPE_DISPLAY"
- */
+/** Value: "AD_TYPE_DISPLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeDisplay;
-/**
- *  HTML ad.
- *
- *  Value: "AD_TYPE_HTML"
- */
+/** Value: "AD_TYPE_HTML" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeHtml;
-/**
- *  Image ad.
- *
- *  Value: "AD_TYPE_IMAGE"
- */
+/** Value: "AD_TYPE_IMAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeImage;
-/**
- *  Rich media ad.
- *
- *  Value: "AD_TYPE_RICH_MEDIA"
- */
+/** Value: "AD_TYPE_RICH_MEDIA" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeRichMedia;
-/**
- *  Text ad.
- *
- *  Value: "AD_TYPE_TEXT"
- */
+/** Value: "AD_TYPE_TEXT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeText;
-/**
- *  Unspecified ad type.
- *
- *  Value: "AD_TYPE_UNSPECIFIED"
- */
+/** Value: "AD_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeUnspecified;
-/**
- *  Video ad.
- *
- *  Value: "AD_TYPE_VIDEO"
- */
+/** Value: "AD_TYPE_VIDEO" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AdType_AdTypeVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.attributionHint
 
-/**
- *  Converted status.
- *
- *  Value: "ATTRIBUTION_HINT_CONVERTED"
- */
+/** Value: "ATTRIBUTION_HINT_CONVERTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintConverted;
-/**
- *  Not converted status.
- *
- *  Value: "ATTRIBUTION_HINT_NOT_CONVERTED"
- */
+/** Value: "ATTRIBUTION_HINT_NOT_CONVERTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintNotConverted;
-/**
- *  Unknown attribution status.
- *
- *  Value: "ATTRIBUTION_HINT_UNSPECIFIED"
- */
+/** Value: "ATTRIBUTION_HINT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_AttributionHint_AttributionHintUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.eventSubtype
 
-/**
- *  Engaged view event.
- *
- *  Value: "EVENT_SUBTYPE_ENGAGED_VIEW"
- */
+/** Value: "EVENT_SUBTYPE_ENGAGED_VIEW" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeEngagedView;
-/**
- *  Impression event.
- *
- *  Value: "EVENT_SUBTYPE_IMPRESSION"
- */
+/** Value: "EVENT_SUBTYPE_IMPRESSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeImpression;
-/**
- *  Onsite click event.
- *
- *  Value: "EVENT_SUBTYPE_ONSITE_CLICK"
- */
+/** Value: "EVENT_SUBTYPE_ONSITE_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOnsiteClick;
-/**
- *  Outbound click event.
- *
- *  Value: "EVENT_SUBTYPE_OUTBOUND_CLICK"
- */
+/** Value: "EVENT_SUBTYPE_OUTBOUND_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOutboundClick;
-/**
- *  Unspecified event subtype.
- *
- *  Value: "EVENT_SUBTYPE_UNSPECIFIED"
- */
+/** Value: "EVENT_SUBTYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.eventType
 
-/**
- *  Click event.
- *
- *  Value: "EVENT_TYPE_CLICK"
- */
+/** Value: "EVENT_TYPE_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeClick;
-/**
- *  Unspecified event type.
- *
- *  Value: "EVENT_TYPE_UNSPECIFIED"
- */
+/** Value: "EVENT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeUnspecified;
-/**
- *  View event.
- *
- *  Value: "EVENT_TYPE_VIEW"
- */
+/** Value: "EVENT_TYPE_VIEW" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_EventType_EventTypeView;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.platform
 
-/**
- *  Android platform.
- *
- *  Value: "PLATFORM_ANDROID"
- */
+/** Value: "PLATFORM_ANDROID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformAndroid;
-/**
- *  iOS platform.
- *
- *  Value: "PLATFORM_IOS"
- */
+/** Value: "PLATFORM_IOS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformIos;
-/**
- *  Unspecified platform.
- *
- *  Value: "PLATFORM_UNSPECIFIED"
- */
+/** Value: "PLATFORM_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformUnspecified;
-/**
- *  Web platform.
- *
- *  Value: "PLATFORM_WEB"
- */
+/** Value: "PLATFORM_WEB" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_Platform_PlatformWeb;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.platformType
 
-/**
- *  CTV platform.
- *
- *  Value: "PLATFORM_TYPE_CTV"
- */
+/** Value: "PLATFORM_TYPE_CTV" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeCtv;
-/**
- *  Desktop platform.
- *
- *  Value: "PLATFORM_TYPE_DESKTOP"
- */
+/** Value: "PLATFORM_TYPE_DESKTOP" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeDesktop;
-/**
- *  Mobile platform.
- *
- *  Value: "PLATFORM_TYPE_MOBILE"
- */
+/** Value: "PLATFORM_TYPE_MOBILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeMobile;
-/**
- *  Phone platform.
- *
- *  Value: "PLATFORM_TYPE_PHONE"
- */
+/** Value: "PLATFORM_TYPE_PHONE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypePhone;
-/**
- *  Tablet platform.
- *
- *  Value: "PLATFORM_TYPE_TABLET"
- */
+/** Value: "PLATFORM_TYPE_TABLET" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeTablet;
-/**
- *  Unspecified platform type.
- *
- *  Value: "PLATFORM_TYPE_UNSPECIFIED"
- */
+/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_PlatformType_PlatformTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AdEvent.targetingType
 
-/**
- *  Audience targeting.
- *
- *  Value: "TARGETING_TYPE_AUDIENCE"
- */
+/** Value: "TARGETING_TYPE_AUDIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeAudience;
-/**
- *  Contextual targeting.
- *
- *  Value: "TARGETING_TYPE_CONTEXTUAL"
- */
+/** Value: "TARGETING_TYPE_CONTEXTUAL" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeContextual;
-/**
- *  Demographic targeting.
- *
- *  Value: "TARGETING_TYPE_DEMOGRAPHIC"
- */
+/** Value: "TARGETING_TYPE_DEMOGRAPHIC" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDemographic;
-/**
- *  Device targeting.
- *
- *  Value: "TARGETING_TYPE_DEVICE"
- */
+/** Value: "TARGETING_TYPE_DEVICE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDevice;
-/**
- *  Geo targeting.
- *
- *  Value: "TARGETING_TYPE_GEO"
- */
+/** Value: "TARGETING_TYPE_GEO" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeGeo;
-/**
- *  Interest targeting.
- *
- *  Value: "TARGETING_TYPE_INTEREST"
- */
+/** Value: "TARGETING_TYPE_INTEREST" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeInterest;
-/**
- *  Purchase intent targeting.
- *
- *  Value: "TARGETING_TYPE_PURCHASE_INTENT"
- */
+/** Value: "TARGETING_TYPE_PURCHASE_INTENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypePurchaseIntent;
-/**
- *  Remarketing targeting.
- *
- *  Value: "TARGETING_TYPE_REMARKETING"
- */
+/** Value: "TARGETING_TYPE_REMARKETING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeRemarketing;
-/**
- *  Unspecified targeting type.
- *
- *  Value: "TARGETING_TYPE_UNSPECIFIED"
- */
+/** Value: "TARGETING_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AdEvent_TargetingType_TargetingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_AwsWrappedKeyInfo.keyType
 
-/**
- *  Unspecified key type. Should never be used.
- *
- *  Value: "KEY_TYPE_UNSPECIFIED"
- */
+/** Value: "KEY_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_KeyTypeUnspecified;
-/**
- *  Algorithm XChaCha20-Poly1305
- *
- *  Value: "XCHACHA20_POLY1305"
- */
+/** Value: "XCHACHA20_POLY1305" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_Xchacha20Poly1305;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_Consent.adPersonalization
 
-/**
- *  Denied.
- *
- *  Value: "CONSENT_DENIED"
- */
+/** Value: "CONSENT_DENIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Consent_AdPersonalization_ConsentDenied;
-/**
- *  Granted.
- *
- *  Value: "CONSENT_GRANTED"
- */
+/** Value: "CONSENT_GRANTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Consent_AdPersonalization_ConsentGranted;
-/**
- *  Not specified.
- *
- *  Value: "CONSENT_STATUS_UNSPECIFIED"
- */
+/** Value: "CONSENT_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Consent_AdPersonalization_ConsentStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_Consent.adUserData
 
-/**
- *  Denied.
- *
- *  Value: "CONSENT_DENIED"
- */
+/** Value: "CONSENT_DENIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Consent_AdUserData_ConsentDenied;
-/**
- *  Granted.
- *
- *  Value: "CONSENT_GRANTED"
- */
+/** Value: "CONSENT_GRANTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Consent_AdUserData_ConsentGranted;
-/**
- *  Not specified.
- *
- *  Value: "CONSENT_STATUS_UNSPECIFIED"
- */
+/** Value: "CONSENT_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Consent_AdUserData_ConsentStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_ContactIdInfo.dataSourceType
 
-/**
- *  The uploaded data is first-party data.
- *
- *  Value: "DATA_SOURCE_TYPE_FIRST_PARTY"
- */
+/** Value: "DATA_SOURCE_TYPE_FIRST_PARTY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeFirstParty;
-/**
- *  The uploaded data is from a third-party credit bureau.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau;
-/**
- *  The uploaded data is third party partner data.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData;
-/**
- *  The uploaded data is from a third-party voter file.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile;
-/**
- *  Not specified.
- *
- *  Value: "DATA_SOURCE_TYPE_UNSPECIFIED"
- */
+/** Value: "DATA_SOURCE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_DataTypeCount.type
 
-/**
- *  The data is a physical address.
- *
- *  Value: "ADDRESS"
- */
+/** Value: "ADDRESS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_Address;
-/**
- *  The data type is unspecified.
- *
- *  Value: "DATA_TYPE_UNSPECIFIED"
- */
+/** Value: "DATA_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_DataTypeUnspecified;
-/**
- *  The data is an email address.
- *
- *  Value: "EMAIL"
- */
+/** Value: "EMAIL" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_Email;
-/**
- *  The data is an IP address.
- *
- *  Value: "IP_ADDRESS"
- */
+/** Value: "IP_ADDRESS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_IpAddress;
-/**
- *  The data is a phone number.
- *
- *  Value: "PHONE_NUMBER"
- */
+/** Value: "PHONE_NUMBER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_DataTypeCount_Type_PhoneNumber;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_EncryptedUserId.entityType
 
-/**
- *  Campaign Manager 360 account.
- *
- *  Value: "CAMPAIGN_MANAGER_ACCOUNT"
- */
+/** Value: "CAMPAIGN_MANAGER_ACCOUNT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAccount;
-/**
- *  Campaign Manager 360 advertiser.
- *
- *  Value: "CAMPAIGN_MANAGER_ADVERTISER"
- */
+/** Value: "CAMPAIGN_MANAGER_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAdvertiser;
-/**
- *  Display & Video 360 advertiser.
- *
- *  Value: "DISPLAY_VIDEO_ADVERTISER"
- */
+/** Value: "DISPLAY_VIDEO_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoAdvertiser;
-/**
- *  Display & Video 360 partner.
- *
- *  Value: "DISPLAY_VIDEO_PARTNER"
- */
+/** Value: "DISPLAY_VIDEO_PARTNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoPartner;
-/**
- *  Unspecified encryption entity type.
- *
- *  Value: "ENCRYPTION_ENTITY_TYPE_UNSPECIFIED"
- */
+/** Value: "ENCRYPTION_ENTITY_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_EncryptionEntityTypeUnspecified;
-/**
- *  Google Ad Manager network code.
- *
- *  Value: "GOOGLE_AD_MANAGER_NETWORK_CODE"
- */
+/** Value: "GOOGLE_AD_MANAGER_NETWORK_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdManagerNetworkCode;
-/**
- *  Google Ads customer.
- *
- *  Value: "GOOGLE_ADS_CUSTOMER"
- */
+/** Value: "GOOGLE_ADS_CUSTOMER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdsCustomer;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_EncryptedUserId.source
 
-/**
- *  Ad serving encryption source.
- *
- *  Value: "AD_SERVING"
- */
+/** Value: "AD_SERVING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_Source_AdServing;
-/**
- *  Data transfer encryption source.
- *
- *  Value: "DATA_TRANSFER"
- */
+/** Value: "DATA_TRANSFER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_Source_DataTransfer;
-/**
- *  Unspecified encryption source.
- *
- *  Value: "ENCRYPTION_SOURCE_UNSPECIFIED"
- */
+/** Value: "ENCRYPTION_SOURCE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_EncryptedUserId_Source_EncryptionSourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_ErrorCount.reason
 
-/**
- *  The user attempted to ingest events with an ad identifier that isn't from
- *  the operating account's ads.
- *
- *  Value: "PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER"
- */
+/** Value: "PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorOperatingAccountMismatchForAdIdentifier;
-/**
- *  The system failed to authenticate with AWS.
- *
- *  Value: "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED"
- */
+/** Value: "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed;
-/**
- *  A corresponding click can't be found that matches the provided attributes.
- *
- *  Value: "PROCESSING_ERROR_REASON_CLICK_NOT_FOUND"
- */
+/** Value: "PROCESSING_ERROR_REASON_CLICK_NOT_FOUND" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonClickNotFound;
-/**
- *  The event timestamp on the event was earlier than the associated click.
- *
- *  Value: "PROCESSING_ERROR_REASON_CONVERSION_PRECEDES_CLICK"
- */
+/** Value: "PROCESSING_ERROR_REASON_CONVERSION_PRECEDES_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonConversionPrecedesClick;
-/**
- *  The status of the custom variable is not enabled.
- *
- *  Value: "PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED"
- */
+/** Value: "PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonCustomVariableNotEnabled;
-/**
- *  The event has a decryption error.
- *
- *  Value: "PROCESSING_ERROR_REASON_DECRYPTION_ERROR"
- */
+/** Value: "PROCESSING_ERROR_REASON_DECRYPTION_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDecryptionError;
-/**
- *  The DEK failed to be decrypted.
- *
- *  Value: "PROCESSING_ERROR_REASON_DEK_DECRYPTION_ERROR"
- */
+/** Value: "PROCESSING_ERROR_REASON_DEK_DECRYPTION_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDekDecryptionError;
-/**
- *  The ad user data is denied, either by the user or in the advertiser default
- *  settings.
- *
- *  Value: "PROCESSING_ERROR_REASON_DENIED_CONSENT"
- */
+/** Value: "PROCESSING_ERROR_REASON_DENIED_CONSENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDeniedConsent;
 /**
- *  Enhanced conversions terms are not signed in the destination account.
- *
  *  Value: "PROCESSING_ERROR_REASON_DESTINATION_ACCOUNT_ENHANCED_CONVERSIONS_TERMS_NOT_SIGNED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDestinationAccountEnhancedConversionsTermsNotSigned;
-/**
- *  A conversion with the same GCLID and conversion time already exists in the
- *  system.
- *
- *  Value: "PROCESSING_ERROR_REASON_DUPLICATE_GCLID"
- */
+/** Value: "PROCESSING_ERROR_REASON_DESTINATION_TOO_RECENTLY_CREATED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDestinationTooRecentlyCreated;
+/** Value: "PROCESSING_ERROR_REASON_DUPLICATE_GCLID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateGclid;
-/**
- *  A conversion with the same order id and conversion action combination was
- *  already uploaded.
- *
- *  Value: "PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID"
- */
+/** Value: "PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateTransactionId;
-/**
- *  The event ID (dclid or impression ID) cannot be decoded.
- *
- *  Value: "PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR"
- */
+/** Value: "PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError;
-/**
- *  The conversion is older than max supported age.
- *
- *  Value: "PROCESSING_ERROR_REASON_EVENT_TOO_OLD"
- */
+/** Value: "PROCESSING_ERROR_REASON_EVENT_TOO_OLD" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld;
-/**
- *  External attribution data is missing. Sending events to a destination for an
- *  external attribution conversion action isn't supported.
- *
- *  Value: "PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING"
- */
+/** Value: "PROCESSING_ERROR_REASON_EXPIRED_CLICK" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredClick;
+/** Value: "PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExternalAttributionDataMissing;
-/**
- *  The matched transactions are less than the minimum threshold.
- *
- *  Value: "PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS"
- */
+/** Value: "PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientMatchedTransactions;
-/**
- *  The transactions are less than the minimum threshold.
- *
- *  Value: "PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS"
- */
+/** Value: "PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientTransactions;
-/**
- *  Internal error.
- *
- *  Value: "PROCESSING_ERROR_REASON_INTERNAL_ERROR"
- */
+/** Value: "PROCESSING_ERROR_REASON_INTERNAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError;
-/**
- *  There are ad identifiers that are invalid.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers;
-/**
- *  The event can't be attributed to a click (GCLID). This may be because the
- *  click did not come from a Google Ads campaign, for example.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_CLICK"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick;
-/**
- *  The custom variable is invalid.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCustomVariable;
-/**
- *  The event is invalid.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_EVENT"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_EVENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidEvent;
-/**
- *  The event has format error.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_FORMAT"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_FORMAT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidFormat;
-/**
- *  The gbraid could not be decoded.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_GBRAID"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_GBRAID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidGbraid;
-/**
- *  The google click ID could not be decoded.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_GCLID"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_GCLID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidGclid;
-/**
- *  The KEK cannot decrypt data because it is the wrong KEK, or it does not
- *  exist.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_KEK"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_KEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidKek;
-/**
- *  Merchant id contains non-digit characters.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_MERCHANT_ID"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_MERCHANT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMerchantId;
-/**
- *  The mobile ID format is invalid.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_MOBILE_ID_FORMAT"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_MOBILE_ID_FORMAT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMobileIdFormat;
-/**
- *  The click from the event isn't associated with the `operating_account` of
- *  the destination.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_OPERATING_ACCOUNT_FOR_CLICK"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_OPERATING_ACCOUNT_FOR_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidOperatingAccountForClick;
-/**
- *  The wbraid could not be decoded.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_WBRAID"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_WBRAID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWbraid;
-/**
- *  The WIP is formatted incorrectly or the WIP does not exist.
- *
- *  Value: "PROCESSING_ERROR_REASON_INVALID_WIP"
- */
+/** Value: "PROCESSING_ERROR_REASON_INVALID_WIP" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWip;
-/**
- *  The system did not have the permissions needed to access the KEK.
- *
- *  Value: "PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED"
- */
+/** Value: "PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonKekPermissionDenied;
-/**
- *  The match ID can not be found.
- *
- *  Value: "PROCESSING_ERROR_REASON_MATCH_ID_NOT_FOUND"
- */
+/** Value: "PROCESSING_ERROR_REASON_MATCH_ID_NOT_FOUND" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonMatchIdNotFound;
-/**
- *  Advertiser did not give 3P consent for the Ads core platform services.
- *
- *  Value: "PROCESSING_ERROR_REASON_NO_CONSENT"
- */
+/** Value: "PROCESSING_ERROR_REASON_NO_CONSENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent;
 /**
- *  One-per-click conversion actions cannot be used with BRAIDs.
- *
  *  Value: "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid;
-/**
- *  The original conversions can't be found.
- *
- *  Value: "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND"
- */
+/** Value: "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound;
-/**
- *  The click occurred too recently.
- *
- *  Value: "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK"
- */
+/** Value: "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick;
-/**
- *  The overall consent (determined from row level consent, request level
- *  consent, and account settings) could not be determined for this user
- *
- *  Value: "PROCESSING_ERROR_REASON_UNKNOWN_CONSENT"
- */
+/** Value: "PROCESSING_ERROR_REASON_UNKNOWN_CONSENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent;
-/**
- *  The processing error reason is unknown.
- *
- *  Value: "PROCESSING_ERROR_REASON_UNSPECIFIED"
- */
+/** Value: "PROCESSING_ERROR_REASON_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnspecified;
-/**
- *  Failed to decrypt the UserIdentifier data using the DEK.
- *
- *  Value: "PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR"
- */
+/** Value: "PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdentifierDecryptionError;
-/**
- *  The user ID cannot be found.
- *
- *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND"
- */
+/** Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFound;
-/**
- *  The user ID can not be found for the DCLID.
- *
- *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_DCLID"
- */
+/** Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_DCLID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForDclid;
-/**
- *  The user ID can not be found for the GCLID.
- *
- *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_GCLID"
- */
+/** Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_GCLID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForGclid;
-/**
- *  The user ID cannot be found for the given impression ID.
- *
- *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_IMPRESSION_ID"
- */
+/** Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_IMPRESSION_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForImpressionId;
-/**
- *  The user ID can not be found for the match ID.
- *
- *  Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_MATCH_ID"
- */
+/** Value: "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_MATCH_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForMatchId;
-/**
- *  The WIP could not be used because it was rejected by its attestation
- *  condition.
- *
- *  Value: "PROCESSING_ERROR_REASON_WIP_AUTH_FAILED"
- */
+/** Value: "PROCESSING_ERROR_REASON_WIP_AUTH_FAILED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonWipAuthFailed;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_Event.eventSource
 
-/**
- *  The event was generated from an app.
- *
- *  Value: "APP"
- */
+/** Value: "APP" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_App;
-/**
- *  Unspecified EventSource. Should never be used.
- *
- *  Value: "EVENT_SOURCE_UNSPECIFIED"
- */
+/** Value: "EVENT_SOURCE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_EventSourceUnspecified;
-/**
- *  The event was generated from an in-store transaction.
- *
- *  Value: "IN_STORE"
- */
+/** Value: "IN_STORE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_InStore;
-/**
- *  The event was generated from a message.
- *
- *  Value: "MESSAGE"
- */
+/** Value: "MESSAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Message;
-/**
- *  The event was generated from other sources.
- *
- *  Value: "OTHER"
- */
+/** Value: "OTHER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Other;
-/**
- *  The event was generated from a phone call.
- *
- *  Value: "PHONE"
- */
+/** Value: "PHONE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Phone;
-/**
- *  The event was generated from a web browser.
- *
- *  Value: "WEB"
- */
+/** Value: "WEB" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_FieldWarning.reason
 
-/**
- *  The `merchant_product_id` is missing in the cart item.
- *
- *  Value: "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING"
- */
+/** Value: "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing;
-/**
- *  The `unit_price` is missing in the cart item.
- *
- *  Value: "WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING"
- */
+/** Value: "WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemUnitPriceMissing;
-/**
- *  The `cart_data` is not supported with `gbraid` or `wbraid`.
- *
- *  Value: "WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID"
- */
+/** Value: "WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataNotSupportedWithGbraidOrWbraid;
-/**
- *  A custom variable in `custom_variables` is not enabled in the account.
- *
- *  Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED"
- */
+/** Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotEnabled;
-/**
- *  A custom variable value in `custom_variables` is not among the predefined
- *  allowed values configured for the custom variable on the destination
- *  account.
- *
- *  Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED"
- */
+/** Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined;
-/**
- *  Generic warning reason for issues that do not fit into other specific
- *  categories.
- *
- *  Value: "WARNING_REASON_GENERIC"
- */
+/** Value: "WARNING_REASON_GENERIC" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric;
-/**
- *  The `client_id` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_CLIENT_ID"
- */
+/** Value: "WARNING_REASON_INVALID_CLIENT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidClientId;
-/**
- *  The `continent_code` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_CONTINENT_CODE"
- */
+/** Value: "WARNING_REASON_INVALID_CONTINENT_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidContinentCode;
-/**
- *  The device `category` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_DEVICE_CATEGORY"
- */
+/** Value: "WARNING_REASON_INVALID_DEVICE_CATEGORY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceCategory;
-/**
- *  The device `screen_height` or `screen_width` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION"
- */
+/** Value: "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution;
-/**
- *  The `merchant_id` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_MERCHANT_ID"
- */
+/** Value: "WARNING_REASON_INVALID_MERCHANT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId;
-/**
- *  The `region_code` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_REGION_CODE"
- */
+/** Value: "WARNING_REASON_INVALID_REGION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode;
-/**
- *  The `subcontinent_code` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_SUBCONTINENT_CODE"
- */
+/** Value: "WARNING_REASON_INVALID_SUBCONTINENT_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode;
-/**
- *  The `subdivision_code` is invalid.
- *
- *  Value: "WARNING_REASON_INVALID_SUBDIVISION_CODE"
- */
+/** Value: "WARNING_REASON_INVALID_SUBDIVISION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode;
-/**
- *  Unspecified warning reason.
- *
- *  Value: "WARNING_REASON_UNSPECIFIED"
- */
+/** Value: "WARNING_REASON_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_GcpWrappedKeyInfo.keyType
 
-/**
- *  Unspecified key type. Should never be used.
- *
- *  Value: "KEY_TYPE_UNSPECIFIED"
- */
+/** Value: "KEY_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_GcpWrappedKeyInfo_KeyType_KeyTypeUnspecified;
-/**
- *  Algorithm XChaCha20-Poly1305
- *
- *  Value: "XCHACHA20_POLY1305"
- */
+/** Value: "XCHACHA20_POLY1305" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_GcpWrappedKeyInfo_KeyType_Xchacha20Poly1305;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_IngestAudienceMembersRequest.encoding
 
-/**
- *  Base 64 encoding.
- *
- *  Value: "BASE64"
- */
+/** Value: "BASE64" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Base64;
-/**
- *  Unspecified Encoding type. Should never be used.
- *
- *  Value: "ENCODING_UNSPECIFIED"
- */
+/** Value: "ENCODING_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_EncodingUnspecified;
-/**
- *  Hex encoding.
- *
- *  Value: "HEX"
- */
+/** Value: "HEX" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Hex;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_IngestCompositeDataStatus.uploadMatchRateRange
 
-/**
- *  The match rate range is between 20% and 30% (in the interval `[20, 31)`).
- *
- *  Value: "MATCH_RATE_RANGE_20_TO_30"
- */
+/** Value: "MATCH_RATE_RANGE_20_TO_30" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange20To30;
-/**
- *  The match rate range is between 31% and 40% (in the interval `[31, 41)`).
- *
- *  Value: "MATCH_RATE_RANGE_31_TO_40"
- */
+/** Value: "MATCH_RATE_RANGE_31_TO_40" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange31To40;
-/**
- *  The match rate range is between 41% and 50% (in the interval `[41, 51)`).
- *
- *  Value: "MATCH_RATE_RANGE_41_TO_50"
- */
+/** Value: "MATCH_RATE_RANGE_41_TO_50" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange41To50;
-/**
- *  The match rate range is between 51% and 60% (in the interval `[51, 61)`.
- *
- *  Value: "MATCH_RATE_RANGE_51_TO_60"
- */
+/** Value: "MATCH_RATE_RANGE_51_TO_60" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange51To60;
-/**
- *  The match rate range is between 61% and 70% (in the interval `[61, 71)`).
- *
- *  Value: "MATCH_RATE_RANGE_61_TO_70"
- */
+/** Value: "MATCH_RATE_RANGE_61_TO_70" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange61To70;
-/**
- *  The match rate range is between 71% and 80% (in the interval `[71, 81)`).
- *
- *  Value: "MATCH_RATE_RANGE_71_TO_80"
- */
+/** Value: "MATCH_RATE_RANGE_71_TO_80" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange71To80;
-/**
- *  The match rate range is between 81% and 90% (in the interval `[81, 91)`).
- *
- *  Value: "MATCH_RATE_RANGE_81_TO_90"
- */
+/** Value: "MATCH_RATE_RANGE_81_TO_90" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange81To90;
-/**
- *  The match rate range is between 91% and 100% (in the interval `[91, 100]`).
- *
- *  Value: "MATCH_RATE_RANGE_91_TO_100"
- */
+/** Value: "MATCH_RATE_RANGE_91_TO_100" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange91To100;
-/**
- *  The match rate range is less than 20% (in the interval `[0, 20)`).
- *
- *  Value: "MATCH_RATE_RANGE_LESS_THAN_20"
- */
+/** Value: "MATCH_RATE_RANGE_LESS_THAN_20" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeLessThan20;
-/**
- *  The match rate range is not eligible.
- *
- *  Value: "MATCH_RATE_RANGE_NOT_ELIGIBLE"
- */
+/** Value: "MATCH_RATE_RANGE_NOT_ELIGIBLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible;
-/**
- *  The match rate range is unknown.
- *
- *  Value: "MATCH_RATE_RANGE_UNKNOWN"
- */
+/** Value: "MATCH_RATE_RANGE_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_IngestedUserListInfo.uploadKeyTypes
 
-/**
- *  Customer info such as email address, phone number or physical address.
- *
- *  Value: "CONTACT_ID"
- */
+/** Value: "CONTACT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_ContactId;
-/**
- *  Mobile advertising ids.
- *
- *  Value: "MOBILE_ID"
- */
+/** Value: "MOBILE_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_MobileId;
-/**
- *  Publisher advertiser identity reconciliation ids.
- *
- *  Value: "PAIR_ID"
- */
+/** Value: "PAIR_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_PairId;
-/**
- *  Data Management Platform IDs: - Google User ID - Partner Provided ID -
- *  Publisher Provided ID - iOS IDFA - Android advertising ID - Roku ID - Amazon
- *  Fire TV ID - Xbox or Microsoft ID - Generic Device ID
- *
- *  Value: "PSEUDONYMOUS_ID"
- */
+/** Value: "PSEUDONYMOUS_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_PseudonymousId;
-/**
- *  Not specified.
- *
- *  Value: "UPLOAD_KEY_TYPE_UNSPECIFIED"
- */
+/** Value: "UPLOAD_KEY_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_UploadKeyTypeUnspecified;
-/**
- *  Third party provided user ids.
- *
- *  Value: "USER_ID"
- */
+/** Value: "USER_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_UserId;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_IngestEventsRequest.encoding
 
-/**
- *  Base 64 encoding.
- *
- *  Value: "BASE64"
- */
+/** Value: "BASE64" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestEventsRequest_Encoding_Base64;
-/**
- *  Unspecified Encoding type. Should never be used.
- *
- *  Value: "ENCODING_UNSPECIFIED"
- */
+/** Value: "ENCODING_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestEventsRequest_Encoding_EncodingUnspecified;
-/**
- *  Hex encoding.
- *
- *  Value: "HEX"
- */
+/** Value: "HEX" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestEventsRequest_Encoding_Hex;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_IngestUserDataStatus.uploadMatchRateRange
 
-/**
- *  The match rate range is between 20% and 30% (in the interval `[20, 31)`).
- *
- *  Value: "MATCH_RATE_RANGE_20_TO_30"
- */
+/** Value: "MATCH_RATE_RANGE_20_TO_30" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange20To30;
-/**
- *  The match rate range is between 31% and 40% (in the interval `[31, 41)`).
- *
- *  Value: "MATCH_RATE_RANGE_31_TO_40"
- */
+/** Value: "MATCH_RATE_RANGE_31_TO_40" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange31To40;
-/**
- *  The match rate range is between 41% and 50% (in the interval `[41, 51)`).
- *
- *  Value: "MATCH_RATE_RANGE_41_TO_50"
- */
+/** Value: "MATCH_RATE_RANGE_41_TO_50" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange41To50;
-/**
- *  The match rate range is between 51% and 60% (in the interval `[51, 61)`.
- *
- *  Value: "MATCH_RATE_RANGE_51_TO_60"
- */
+/** Value: "MATCH_RATE_RANGE_51_TO_60" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange51To60;
-/**
- *  The match rate range is between 61% and 70% (in the interval `[61, 71)`).
- *
- *  Value: "MATCH_RATE_RANGE_61_TO_70"
- */
+/** Value: "MATCH_RATE_RANGE_61_TO_70" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange61To70;
-/**
- *  The match rate range is between 71% and 80% (in the interval `[71, 81)`).
- *
- *  Value: "MATCH_RATE_RANGE_71_TO_80"
- */
+/** Value: "MATCH_RATE_RANGE_71_TO_80" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange71To80;
-/**
- *  The match rate range is between 81% and 90% (in the interval `[81, 91)`).
- *
- *  Value: "MATCH_RATE_RANGE_81_TO_90"
- */
+/** Value: "MATCH_RATE_RANGE_81_TO_90" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange81To90;
-/**
- *  The match rate range is between 91% and 100% (in the interval `[91, 100]`).
- *
- *  Value: "MATCH_RATE_RANGE_91_TO_100"
- */
+/** Value: "MATCH_RATE_RANGE_91_TO_100" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange91To100;
-/**
- *  The match rate range is less than 20% (in the interval `[0, 20)`).
- *
- *  Value: "MATCH_RATE_RANGE_LESS_THAN_20"
- */
+/** Value: "MATCH_RATE_RANGE_LESS_THAN_20" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeLessThan20;
-/**
- *  The match rate range is not eligible.
- *
- *  Value: "MATCH_RATE_RANGE_NOT_ELIGIBLE"
- */
+/** Value: "MATCH_RATE_RANGE_NOT_ELIGIBLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible;
-/**
- *  The match rate range is unknown.
- *
- *  Value: "MATCH_RATE_RANGE_UNKNOWN"
- */
+/** Value: "MATCH_RATE_RANGE_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_IngestUsersRequest.encoding
+
+/** Value: "BASE64" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUsersRequest_Encoding_Base64;
+/** Value: "ENCODING_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUsersRequest_Encoding_EncodingUnspecified;
+/** Value: "HEX" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_IngestUsersRequest_Encoding_Hex;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_MarketingDataInsight.dimension
 
-/**
- *  An Affinity UserInterest.
- *
- *  Value: "AFFINITY_USER_INTEREST"
- */
+/** Value: "AFFINITY_USER_INTEREST" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AffinityUserInterest;
-/**
- *  An age range.
- *
- *  Value: "AGE_RANGE"
- */
+/** Value: "AGE_RANGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AgeRange;
-/**
- *  The value is unknown in this version.
- *
- *  Value: "AUDIENCE_INSIGHTS_DIMENSION_UNKNOWN"
- */
+/** Value: "AUDIENCE_INSIGHTS_DIMENSION_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AudienceInsightsDimensionUnknown;
-/**
- *  Not specified.
- *
- *  Value: "AUDIENCE_INSIGHTS_DIMENSION_UNSPECIFIED"
- */
+/** Value: "AUDIENCE_INSIGHTS_DIMENSION_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AudienceInsightsDimensionUnspecified;
-/**
- *  A gender.
- *
- *  Value: "GENDER"
- */
+/** Value: "GENDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_Gender;
-/**
- *  An In-Market UserInterest.
- *
- *  Value: "IN_MARKET_USER_INTEREST"
- */
+/** Value: "IN_MARKET_USER_INTEREST" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_InMarketUserInterest;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_MarketingDataInsightsAttribute.ageRange
 
-/**
- *  Between 18 and 24 years old.
- *
- *  Value: "AGE_RANGE_18_24"
- */
+/** Value: "AGE_RANGE_18_24" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange1824;
-/**
- *  Between 25 and 34 years old.
- *
- *  Value: "AGE_RANGE_25_34"
- */
+/** Value: "AGE_RANGE_25_34" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange2534;
-/**
- *  Between 35 and 44 years old.
- *
- *  Value: "AGE_RANGE_35_44"
- */
+/** Value: "AGE_RANGE_35_44" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange3544;
-/**
- *  Between 45 and 54 years old.
- *
- *  Value: "AGE_RANGE_45_54"
- */
+/** Value: "AGE_RANGE_45_54" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange4554;
-/**
- *  Between 55 and 64 years old.
- *
- *  Value: "AGE_RANGE_55_64"
- */
+/** Value: "AGE_RANGE_55_64" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange5564;
-/**
- *  65 years old and beyond.
- *
- *  Value: "AGE_RANGE_65_UP"
- */
+/** Value: "AGE_RANGE_65_UP" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange65Up;
-/**
- *  Unknown.
- *
- *  Value: "AGE_RANGE_UNKNOWN"
- */
+/** Value: "AGE_RANGE_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRangeUnknown;
-/**
- *  Not specified.
- *
- *  Value: "AGE_RANGE_UNSPECIFIED"
- */
+/** Value: "AGE_RANGE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRangeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_MarketingDataInsightsAttribute.gender
 
-/**
- *  Female.
- *
- *  Value: "GENDER_FEMALE"
- */
+/** Value: "GENDER_FEMALE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderFemale;
-/**
- *  Male.
- *
- *  Value: "GENDER_MALE"
- */
+/** Value: "GENDER_MALE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderMale;
-/**
- *  Unknown.
- *
- *  Value: "GENDER_UNKNOWN"
- */
+/** Value: "GENDER_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderUnknown;
-/**
- *  Not specified.
- *
- *  Value: "GENDER_UNSPECIFIED"
- */
+/** Value: "GENDER_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_MobileIdInfo.dataSourceType
 
-/**
- *  The uploaded data is first-party data.
- *
- *  Value: "DATA_SOURCE_TYPE_FIRST_PARTY"
- */
+/** Value: "DATA_SOURCE_TYPE_FIRST_PARTY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeFirstParty;
-/**
- *  The uploaded data is from a third-party credit bureau.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau;
-/**
- *  The uploaded data is third party partner data.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData;
-/**
- *  The uploaded data is from a third-party voter file.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile;
-/**
- *  Not specified.
- *
- *  Value: "DATA_SOURCE_TYPE_UNSPECIFIED"
- */
+/** Value: "DATA_SOURCE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_MobileIdInfo.keySpace
 
-/**
- *  The Android keyspace.
- *
- *  Value: "ANDROID"
- */
+/** Value: "ANDROID" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_KeySpace_Android;
-/**
- *  The iOS keyspace.
- *
- *  Value: "IOS"
- */
+/** Value: "IOS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_KeySpace_Ios;
-/**
- *  Not specified.
- *
- *  Value: "KEY_SPACE_UNSPECIFIED"
- */
+/** Value: "KEY_SPACE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_MobileIdInfo_KeySpace_KeySpaceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_PartnerAudienceInfo.partnerAudienceSource
 
-/**
- *  Partner Audience source is agency/provider audience.
- *
- *  Value: "AGENCY_PROVIDER_AUDIENCE"
- */
+/** Value: "AGENCY_PROVIDER_AUDIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_AgencyProviderAudience;
-/**
- *  Partner Audience source is commerce audience.
- *
- *  Value: "COMMERCE_AUDIENCE"
- */
+/** Value: "COMMERCE_AUDIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_CommerceAudience;
-/**
- *  Partner Audience source is linear TV audience.
- *
- *  Value: "LINEAR_TV_AUDIENCE"
- */
+/** Value: "LINEAR_TV_AUDIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_LinearTvAudience;
-/**
- *  Not specified.
- *
- *  Value: "PARTNER_AUDIENCE_SOURCE_UNSPECIFIED"
- */
+/** Value: "PARTNER_AUDIENCE_SOURCE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_PartnerAudienceSourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_PartnerLink.featureSet
 
-/**
- *  Indicates a link used for ad event management.
- *
- *  Value: "FEATURE_SET_AD_EVENT_MANAGEMENT"
- */
+/** Value: "FEATURE_SET_AD_EVENT_MANAGEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAdEventManagement;
-/**
- *  Indicates a link used for audience and event management.
- *
- *  Value: "FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT"
- */
+/** Value: "FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAudienceAndEventManagement;
-/**
- *  Unspecified feature set. If unspecified, the system behavior defaults to
- *  FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT.
- *
- *  Value: "FEATURE_SET_UNSPECIFIED"
- */
+/** Value: "FEATURE_SET_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_ProductAccount.accountType
 
-/**
- *  Unspecified product. Should never be used.
- *
- *  Value: "ACCOUNT_TYPE_UNSPECIFIED"
- */
+/** Value: "ACCOUNT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_AccountTypeUnspecified;
-/**
- *  Data Partner.
- *
- *  Value: "DATA_PARTNER"
- */
+/** Value: "DATA_PARTNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_DataPartner;
-/**
- *  Display & Video 360 advertiser.
- *
- *  Value: "DISPLAY_VIDEO_ADVERTISER"
- */
+/** Value: "DISPLAY_VIDEO_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoAdvertiser;
-/**
- *  Display & Video 360 partner.
- *
- *  Value: "DISPLAY_VIDEO_PARTNER"
- */
+/** Value: "DISPLAY_VIDEO_PARTNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoPartner;
-/**
- *  Floodlight configuration.
- *
- *  Value: "FLOODLIGHT_CONFIG"
- */
+/** Value: "FLOODLIGHT_CONFIG" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_FloodlightConfig;
-/**
- *  Google Ad Manager audience link.
- *
- *  Value: "GOOGLE_AD_MANAGER_AUDIENCE_LINK"
- */
+/** Value: "GOOGLE_AD_MANAGER" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAdManager;
+/** Value: "GOOGLE_AD_MANAGER_AUDIENCE_LINK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAdManagerAudienceLink;
-/**
- *  Google Ads.
- *
- *  Value: "GOOGLE_ADS"
- */
+/** Value: "GOOGLE_ADS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAds;
-/**
- *  Google Analytics.
- *
- *  Value: "GOOGLE_ANALYTICS_PROPERTY"
- */
+/** Value: "GOOGLE_ANALYTICS_PROPERTY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAnalyticsProperty;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_ProductAccount.product
 
-/**
- *  Data Partner.
- *
- *  Value: "DATA_PARTNER"
- */
+/** Value: "DATA_PARTNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_Product_DataPartner;
-/**
- *  Display & Video 360 advertiser.
- *
- *  Value: "DISPLAY_VIDEO_ADVERTISER"
- */
+/** Value: "DISPLAY_VIDEO_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_Product_DisplayVideoAdvertiser;
-/**
- *  Display & Video 360 partner.
- *
- *  Value: "DISPLAY_VIDEO_PARTNER"
- */
+/** Value: "DISPLAY_VIDEO_PARTNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_Product_DisplayVideoPartner;
-/**
- *  Google Ads.
- *
- *  Value: "GOOGLE_ADS"
- */
+/** Value: "GOOGLE_ADS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_Product_GoogleAds;
-/**
- *  Unspecified product. Should never be used.
- *
- *  Value: "PRODUCT_UNSPECIFIED"
- */
+/** Value: "PRODUCT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_Product_ProductUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_PseudonymousIdInfo.syncStatus
 
-/**
- *  The user list has been created as a placeholder. List contents and/or
- *  metadata are still being synced. The user list is not ready for use.
- *
- *  Value: "CREATED"
- */
+/** Value: "CREATED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Created;
-/**
- *  An error has occurred syncing user list contents and/or metadata. The user
- *  list cannot be used.
- *
- *  Value: "FAILED"
- */
+/** Value: "FAILED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Failed;
-/**
- *  The user list is ready for use. Contents and cookies have been synced
- *  correctly.
- *
- *  Value: "READY_FOR_USE"
- */
+/** Value: "READY_FOR_USE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_ReadyForUse;
-/**
- *  Not specified.
- *
- *  Value: "SYNC_STATUS_UNSPECIFIED"
- */
+/** Value: "SYNC_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_SyncStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_RemoveAudienceMembersRequest.encoding
 
-/**
- *  Base 64 encoding.
- *
- *  Value: "BASE64"
- */
+/** Value: "BASE64" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_Base64;
-/**
- *  Unspecified Encoding type. Should never be used.
- *
- *  Value: "ENCODING_UNSPECIFIED"
- */
+/** Value: "ENCODING_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_EncodingUnspecified;
-/**
- *  Hex encoding.
- *
- *  Value: "HEX"
- */
+/** Value: "HEX" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_Hex;
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_RemoveUsersRequest.encoding
+
+/** Value: "BASE64" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_RemoveUsersRequest_Encoding_Base64;
+/** Value: "ENCODING_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_RemoveUsersRequest_Encoding_EncodingUnspecified;
+/** Value: "HEX" */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_RemoveUsersRequest_Encoding_Hex;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_RequestStatusPerDestination.requestStatus
 
-/**
- *  Processing failed for all records. Check the `error_info` field for error
- *  details, and check the `warning_info` field for warning details.
- *
- *  Value: "FAILED"
- */
+/** Value: "FAILED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Failed;
-/**
- *  Processing completed successfully without errors for some records, but
- *  failed with errors for other records. Check the `error_info` field for error
- *  details, and check the `warning_info` field for warning details.
- *
- *  Value: "PARTIAL_SUCCESS"
- */
+/** Value: "PARTIAL_SUCCESS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_PartialSuccess;
-/**
- *  The request is processing.
- *
- *  Value: "PROCESSING"
- */
+/** Value: "PROCESSING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Processing;
-/**
- *  The request status is unknown.
- *
- *  Value: "REQUEST_STATUS_UNKNOWN"
- */
+/** Value: "REQUEST_STATUS_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_RequestStatusUnknown;
-/**
- *  Processing succeeded for all records without any errors. However, there may
- *  be warnings in the `warning_info` field.
- *
- *  Value: "SUCCESS"
- */
+/** Value: "SUCCESS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Success;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_TermsOfService.customerMatchTermsOfServiceStatus
 
-/**
- *  Status indicating the caller has chosen to accept the terms of service.
- *
- *  Value: "ACCEPTED"
- */
+/** Value: "ACCEPTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_Accepted;
-/**
- *  Status indicating the caller has chosen to reject the terms of service.
- *
- *  Value: "REJECTED"
- */
+/** Value: "REJECTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_Rejected;
-/**
- *  Not specified.
- *
- *  Value: "TERMS_OF_SERVICE_STATUS_UNSPECIFIED"
- */
+/** Value: "TERMS_OF_SERVICE_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_TermsOfServiceStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserIdInfo.dataSourceType
 
-/**
- *  The uploaded data is first-party data.
- *
- *  Value: "DATA_SOURCE_TYPE_FIRST_PARTY"
- */
+/** Value: "DATA_SOURCE_TYPE_FIRST_PARTY" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeFirstParty;
-/**
- *  The uploaded data is from a third-party credit bureau.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau;
-/**
- *  The uploaded data is third party partner data.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData;
-/**
- *  The uploaded data is from a third-party voter file.
- *
- *  Value: "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE"
- */
+/** Value: "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile;
-/**
- *  Not specified.
- *
- *  Value: "DATA_SOURCE_TYPE_UNSPECIFIED"
- */
+/** Value: "DATA_SOURCE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserList.accessReason
 
-/**
- *  Not specified.
- *
- *  Value: "ACCESS_REASON_UNSPECIFIED"
- */
+/** Value: "ACCESS_REASON_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccessReason_AccessReasonUnspecified;
-/**
- *  The resource is accessible to the user.
- *
- *  Value: "AFFILIATED"
- */
+/** Value: "AFFILIATED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccessReason_Affiliated;
-/**
- *  The resource is licensed to the user.
- *
- *  Value: "LICENSED"
- */
+/** Value: "LICENSED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccessReason_Licensed;
-/**
- *  The resource is owned by the user.
- *
- *  Value: "OWNED"
- */
+/** Value: "OWNED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccessReason_Owned;
-/**
- *  The resource is shared to the user.
- *
- *  Value: "SHARED"
- */
+/** Value: "SHARED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccessReason_Shared;
-/**
- *  The user subscribed to the resource.
- *
- *  Value: "SUBSCRIBED"
- */
+/** Value: "SUBSCRIBED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccessReason_Subscribed;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserList.accountAccessStatus
 
-/**
- *  Not specified.
- *
- *  Value: "ACCESS_STATUS_UNSPECIFIED"
- */
+/** Value: "ACCESS_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccountAccessStatus_AccessStatusUnspecified;
-/**
- *  The access is disabled.
- *
- *  Value: "DISABLED"
- */
+/** Value: "DISABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccountAccessStatus_Disabled;
-/**
- *  The access is enabled.
- *
- *  Value: "ENABLED"
- */
+/** Value: "ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_AccountAccessStatus_Enabled;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserList.closingReason
 
-/**
- *  Not specified.
- *
- *  Value: "CLOSING_REASON_UNSPECIFIED"
- */
+/** Value: "CLOSING_REASON_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_ClosingReason_ClosingReasonUnspecified;
-/**
- *  The user list was closed because it has not been used in targeting recently.
- *  See https://support.google.com/google-ads/answer/2472738 for details.
- *
- *  Value: "UNUSED"
- */
+/** Value: "UNUSED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_ClosingReason_Unused;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserList.membershipStatus
 
-/**
- *  Closed status - No new members being added.
- *
- *  Value: "CLOSED"
- */
+/** Value: "CLOSED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_MembershipStatus_Closed;
-/**
- *  Not specified.
- *
- *  Value: "MEMBERSHIP_STATUS_UNSPECIFIED"
- */
+/** Value: "MEMBERSHIP_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_MembershipStatus_MembershipStatusUnspecified;
-/**
- *  Open status - User list is accruing members and can be targeted to.
- *
- *  Value: "OPEN"
- */
+/** Value: "OPEN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserList_MembershipStatus_Open;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListDirectLicense.clientAccountType
 
-/**
- *  Display & Video 360 advertiser.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoAdvertiser;
-/**
- *  Display & Video 360 partner.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoPartner;
 /**
- *  Google Ad Manager audience link.
- *
  *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeGoogleAdManagerAudienceLink;
-/**
- *  Google Ads customer.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeGoogleAds;
-/**
- *  Unknown.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListDirectLicense.status
 
-/**
- *  Inactive status - user list is no longer being licensed.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_DISABLED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_DISABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusDisabled;
-/**
- *  Active status - user list is still being licensed.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_ENABLED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusEnabled;
-/**
- *  Unknown.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListGlobalLicense.licenseType
 
-/**
- *  DataMart Buy Side license.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeDataMartBuySide;
-/**
- *  DataMart Sell Side license.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeDataMartSellSide;
-/**
- *  Reseller license.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeReseller;
-/**
- *  UNSPECIFIED.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListGlobalLicense.status
 
-/**
- *  Inactive status - user list is no longer being licensed.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_DISABLED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_DISABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusDisabled;
-/**
- *  Active status - user list is still being licensed.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_ENABLED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusEnabled;
-/**
- *  Unknown.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListGlobalLicenseCustomerInfo.clientAccountType
 
-/**
- *  Display & Video 360 advertiser.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoAdvertiser;
-/**
- *  Display & Video 360 partner.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoPartner;
 /**
- *  Google Ad Manager audience link.
- *
  *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeGoogleAdManagerAudienceLink;
-/**
- *  Google Ads customer.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeGoogleAds;
-/**
- *  Unknown.
- *
- *  Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN"
- */
+/** Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListGlobalLicenseCustomerInfo.licenseType
 
-/**
- *  DataMart Buy Side license.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeDataMartBuySide;
-/**
- *  DataMart Sell Side license.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeDataMartSellSide;
-/**
- *  Reseller license.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeReseller;
-/**
- *  UNSPECIFIED.
- *
- *  Value: "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED"
- */
+/** Value: "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListGlobalLicenseCustomerInfo.status
 
-/**
- *  Inactive status - user list is no longer being licensed.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_DISABLED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_DISABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusDisabled;
-/**
- *  Active status - user list is still being licensed.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_ENABLED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusEnabled;
-/**
- *  Unknown.
- *
- *  Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED"
- */
+/** Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListLicensePricing.buyerApprovalState
 
-/**
- *  User list client has accepted the pricing terms set by the user list owner.
- *
- *  Value: "APPROVED"
- */
+/** Value: "APPROVED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Approved;
-/**
- *  User list client has not yet accepted the pricing terms set by the user list
- *  owner.
- *
- *  Value: "PENDING"
- */
+/** Value: "PENDING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Pending;
-/**
- *  User list client has rejected the pricing terms set by the user list owner.
- *
- *  Value: "REJECTED"
- */
+/** Value: "REJECTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Rejected;
-/**
- *  UNSPECIFIED.
- *
- *  Value: "USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED"
- */
+/** Value: "USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_UserListPricingBuyerApprovalStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserListLicensePricing.costType
 
-/**
- *  Cost per click.
- *
- *  Value: "CPC"
- */
+/** Value: "CPC" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_CostType_Cpc;
-/**
- *  Cost per mille (thousand impressions).
- *
- *  Value: "CPM"
- */
+/** Value: "CPM" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_CostType_Cpm;
-/**
- *  Media share.
- *
- *  Value: "MEDIA_SHARE"
- */
+/** Value: "MEDIA_SHARE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_CostType_MediaShare;
-/**
- *  Unspecified.
- *
- *  Value: "USER_LIST_PRICING_COST_TYPE_UNSPECIFIED"
- */
+/** Value: "USER_LIST_PRICING_COST_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserListLicensePricing_CostType_UserListPricingCostTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserProperties.customerType
 
-/**
- *  Unspecified CustomerType. Should never be used.
- *
- *  Value: "CUSTOMER_TYPE_UNSPECIFIED"
- */
+/** Value: "CUSTOMER_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerType_CustomerTypeUnspecified;
-/**
- *  The customer is new to the advertiser.
- *
- *  Value: "NEW"
- */
+/** Value: "NEW" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerType_New;
-/**
- *  The customer has re-engaged with the advertiser.
- *
- *  Value: "REENGAGED"
- */
+/** Value: "REENGAGED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerType_Reengaged;
-/**
- *  The customer is returning to the advertiser.
- *
- *  Value: "RETURNING"
- */
+/** Value: "RETURNING" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerType_Returning;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_UserProperties.customerValueBucket
 
-/**
- *  Unspecified CustomerValueBucket. Should never be used.
- *
- *  Value: "CUSTOMER_VALUE_BUCKET_UNSPECIFIED"
- */
+/** Value: "CUSTOMER_VALUE_BUCKET_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_CustomerValueBucketUnspecified;
-/**
- *  The customer is high value.
- *
- *  Value: "HIGH"
- */
+/** Value: "HIGH" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_High;
-/**
- *  The customer is low value.
- *
- *  Value: "LOW"
- */
+/** Value: "LOW" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_Low;
-/**
- *  The customer is medium value.
- *
- *  Value: "MEDIUM"
- */
+/** Value: "MEDIUM" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_Medium;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_ViewabilityInfo.mediaQuartile
 
-/**
- *  Complete.
- *
- *  Value: "MEDIA_QUARTILE_COMPLETE"
- */
+/** Value: "MEDIA_QUARTILE_COMPLETE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileComplete;
-/**
- *  First quartile.
- *
- *  Value: "MEDIA_QUARTILE_FIRST_QUARTILE"
- */
+/** Value: "MEDIA_QUARTILE_FIRST_QUARTILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileFirstQuartile;
-/**
- *  Midpoint.
- *
- *  Value: "MEDIA_QUARTILE_MIDPOINT"
- */
+/** Value: "MEDIA_QUARTILE_MIDPOINT" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileMidpoint;
-/**
- *  Start.
- *
- *  Value: "MEDIA_QUARTILE_START"
- */
+/** Value: "MEDIA_QUARTILE_START" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileStart;
-/**
- *  Third quartile.
- *
- *  Value: "MEDIA_QUARTILE_THIRD_QUARTILE"
- */
+/** Value: "MEDIA_QUARTILE_THIRD_QUARTILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileThirdQuartile;
-/**
- *  Unspecified media quartile.
- *
- *  Value: "MEDIA_QUARTILE_UNSPECIFIED"
- */
+/** Value: "MEDIA_QUARTILE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_ViewabilityInfo.viewType
 
-/**
- *  MRC rendered.
- *
- *  Value: "VIEW_TYPE_MRC_RENDERED"
- */
+/** Value: "VIEW_TYPE_MRC_RENDERED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcRendered;
-/**
- *  MRC viewed.
- *
- *  Value: "VIEW_TYPE_MRC_VIEWED"
- */
+/** Value: "VIEW_TYPE_MRC_VIEWED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcViewed;
-/**
- *  Unspecified view type.
- *
- *  Value: "VIEW_TYPE_UNSPECIFIED"
- */
+/** Value: "VIEW_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_WarningCount.reason
 
-/**
- *  The system failed to authenticate with AWS.
- *
- *  Value: "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED"
- */
+/** Value: "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed;
-/**
- *  The event has a decryption error.
- *
- *  Value: "PROCESSING_WARNING_REASON_DECRYPTION_ERROR"
- */
+/** Value: "PROCESSING_WARNING_REASON_DECRYPTION_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError;
-/**
- *  The DEK failed to be decrypted.
- *
- *  Value: "PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR"
- */
+/** Value: "PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDekDecryptionError;
-/**
- *  Internal error.
- *
- *  Value: "PROCESSING_WARNING_REASON_INTERNAL_ERROR"
- */
+/** Value: "PROCESSING_WARNING_REASON_INTERNAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInternalError;
-/**
- *  The KEK cannot decrypt data because it is the wrong KEK, or it does not
- *  exist.
- *
- *  Value: "PROCESSING_WARNING_REASON_INVALID_KEK"
- */
+/** Value: "PROCESSING_WARNING_REASON_INVALID_KEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInvalidKek;
-/**
- *  The WIP is formatted incorrectly or the WIP does not exist.
- *
- *  Value: "PROCESSING_WARNING_REASON_INVALID_WIP"
- */
+/** Value: "PROCESSING_WARNING_REASON_INVALID_WIP" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInvalidWip;
-/**
- *  The system did not have the permissions needed to access the KEK.
- *
- *  Value: "PROCESSING_WARNING_REASON_KEK_PERMISSION_DENIED"
- */
+/** Value: "PROCESSING_WARNING_REASON_KEK_PERMISSION_DENIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonKekPermissionDenied;
-/**
- *  The processing warning reason is unknown.
- *
- *  Value: "PROCESSING_WARNING_REASON_UNSPECIFIED"
- */
+/** Value: "PROCESSING_WARNING_REASON_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonUnspecified;
-/**
- *  Failed to decrypt the UserIdentifier data using the DEK.
- *
- *  Value: "PROCESSING_WARNING_REASON_USER_IDENTIFIER_DECRYPTION_ERROR"
- */
+/** Value: "PROCESSING_WARNING_REASON_USER_IDENTIFIER_DECRYPTION_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonUserIdentifierDecryptionError;
-/**
- *  The WIP could not be used because it was rejected by its attestation
- *  condition.
- *
- *  Value: "PROCESSING_WARNING_REASON_WIP_AUTH_FAILED"
- */
+/** Value: "PROCESSING_WARNING_REASON_WIP_AUTH_FAILED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWipAuthFailed;
 
 /**
- *  Address information for the user.
+ *  GTLRDataManager_AddressInfo
  */
 @interface GTLRDataManager_AddressInfo : GTLRObject
 
-/**
- *  Optional. The street and number of the user's address. Used only for Google
- *  Analytics. This field is hashed and possibly encrypted. Normalize the value
- *  before hashing: - Remove symbol characters - Convert to lowercase - Remove
- *  leading and trailing whitespace
- */
 @property(nonatomic, copy, nullable) NSString *addressLine;
-
-/**
- *  Optional. The administrative area (state/province) of the user's address.
- *  Used only for Google Analytics. The value should be normalized as such: -
- *  Remove symbol characters - Convert to lowercase - Remove leading and
- *  trailing whitespace
- */
 @property(nonatomic, copy, nullable) NSString *administrativeArea;
-
-/**
- *  Optional. The city of the user's address. Used only for Google Analytics.
- *  The value should be normalized as such: - Remove symbol characters - Convert
- *  to lowercase - Remove leading and trailing whitespace
- */
 @property(nonatomic, copy, nullable) NSString *city;
-
-/**
- *  Required. Family (last) name of the user, all lowercase, with no
- *  punctuation, no leading or trailing whitespace, and hashed as SHA-256.
- */
 @property(nonatomic, copy, nullable) NSString *familyName;
-
-/**
- *  Required. Given (first) name of the user, all lowercase, with no
- *  punctuation, no leading or trailing whitespace, and hashed as SHA-256.
- */
 @property(nonatomic, copy, nullable) NSString *givenName;
-
-/** Required. The postal code of the user's address. */
 @property(nonatomic, copy, nullable) NSString *postalCode;
-
-/**
- *  Required. The 2-letter region code in ISO-3166-1 alpha-2 of the user's
- *  address.
- */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 @end
 
 
 /**
- *  An ad event.
+ *  GTLRDataManager_AdEvent
  */
 @interface GTLRDataManager_AdEvent : GTLRObject
 
 /**
- *  Enum value for ad format.
+ *  adFormat
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatAr AR ad. (Value:
- *        "AD_FORMAT_AR")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatAudio Audio ad. (Value:
- *        "AD_FORMAT_AUDIO")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatBanner Banner ad.
- *        (Value: "AD_FORMAT_BANNER")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatBumper Bumper ad.
- *        (Value: "AD_FORMAT_BUMPER")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatCarousel Carousel ad.
- *        (Value: "AD_FORMAT_CAROUSEL")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatCollection Collection
- *        ad. (Value: "AD_FORMAT_COLLECTION")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatImage Image ad. (Value:
- *        "AD_FORMAT_IMAGE")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInFeed In-feed ad.
- *        (Value: "AD_FORMAT_IN_FEED")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStream In-stream ad.
- *        (Value: "AD_FORMAT_IN_STREAM")
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatAr Value "AD_FORMAT_AR"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatAudio Value
+ *        "AD_FORMAT_AUDIO"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatBanner Value
+ *        "AD_FORMAT_BANNER"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatBumper Value
+ *        "AD_FORMAT_BUMPER"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatCarousel Value
+ *        "AD_FORMAT_CAROUSEL"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatCollection Value
+ *        "AD_FORMAT_COLLECTION"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatImage Value
+ *        "AD_FORMAT_IMAGE"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInFeed Value
+ *        "AD_FORMAT_IN_FEED"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStream Value
+ *        "AD_FORMAT_IN_STREAM"
  *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamNonSkippable
- *        In-stream non-skippable ad. (Value:
- *        "AD_FORMAT_IN_STREAM_NON_SKIPPABLE")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamSkippable
- *        In-stream skippable ad. (Value: "AD_FORMAT_IN_STREAM_SKIPPABLE")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInteractive Interactive
- *        ad. (Value: "AD_FORMAT_INTERACTIVE")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInterstitial
- *        Interstitial ad. (Value: "AD_FORMAT_INTERSTITIAL")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatNative Native ad.
- *        (Value: "AD_FORMAT_NATIVE")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatShorts Shorts ad.
- *        (Value: "AD_FORMAT_SHORTS")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatSponsored Sponsored ad.
- *        (Value: "AD_FORMAT_SPONSORED")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatStory Story ad. (Value:
- *        "AD_FORMAT_STORY")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatUnspecified Unspecified
- *        ad format. (Value: "AD_FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatVideo Video ad. (Value:
- *        "AD_FORMAT_VIDEO")
+ *        Value "AD_FORMAT_IN_STREAM_NON_SKIPPABLE"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInStreamSkippable Value
+ *        "AD_FORMAT_IN_STREAM_SKIPPABLE"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInteractive Value
+ *        "AD_FORMAT_INTERACTIVE"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatInterstitial Value
+ *        "AD_FORMAT_INTERSTITIAL"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatNative Value
+ *        "AD_FORMAT_NATIVE"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatShorts Value
+ *        "AD_FORMAT_SHORTS"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatSponsored Value
+ *        "AD_FORMAT_SPONSORED"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatStory Value
+ *        "AD_FORMAT_STORY"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatUnspecified Value
+ *        "AD_FORMAT_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_AdEvent_AdFormat_AdFormatVideo Value
+ *        "AD_FORMAT_VIDEO"
  */
 @property(nonatomic, copy, nullable) NSString *adFormat;
 
-/** String value for ad format. */
 @property(nonatomic, copy, nullable) NSString *adFormatString;
-
-/** Optional. The ID of the associated ad group. */
 @property(nonatomic, copy, nullable) NSString *adGroupId;
 
 /**
- *  Optional. The height of the ad in pixels.
+ *  adHeight
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adHeight;
 
-/** Optional. The ID of the associated ad within the group. */
 @property(nonatomic, copy, nullable) NSString *adId;
 
 /**
- *  Enum value for ad placement.
+ *  adPlacement
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementDiscover Discover
- *        placement. (Value: "AD_PLACEMENT_DISCOVER")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFeed Feed
- *        placement. (Value: "AD_PLACEMENT_FEED")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFooter Footer
- *        placement. (Value: "AD_PLACEMENT_FOOTER")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHeader Header
- *        placement. (Value: "AD_PLACEMENT_HEADER")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHome Home
- *        placement. (Value: "AD_PLACEMENT_HOME")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementInContent
- *        In-content placement. (Value: "AD_PLACEMENT_IN_CONTENT")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementPromoted Promoted
- *        placement. (Value: "AD_PLACEMENT_PROMOTED")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementSearch Search
- *        placement. (Value: "AD_PLACEMENT_SEARCH")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementStory Story
- *        placement. (Value: "AD_PLACEMENT_STORY")
- *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementUnspecified
- *        Unspecified ad placement. (Value: "AD_PLACEMENT_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementDiscover Value
+ *        "AD_PLACEMENT_DISCOVER"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFeed Value
+ *        "AD_PLACEMENT_FEED"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementFooter Value
+ *        "AD_PLACEMENT_FOOTER"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHeader Value
+ *        "AD_PLACEMENT_HEADER"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementHome Value
+ *        "AD_PLACEMENT_HOME"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementInContent Value
+ *        "AD_PLACEMENT_IN_CONTENT"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementPromoted Value
+ *        "AD_PLACEMENT_PROMOTED"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementSearch Value
+ *        "AD_PLACEMENT_SEARCH"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementStory Value
+ *        "AD_PLACEMENT_STORY"
+ *    @arg @c kGTLRDataManager_AdEvent_AdPlacement_AdPlacementUnspecified Value
+ *        "AD_PLACEMENT_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *adPlacement;
 
-/** String value for ad placement. */
 @property(nonatomic, copy, nullable) NSString *adPlacementString;
 
 /**
- *  Enum value for ad type.
+ *  adType
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeAudio Audio ad. (Value:
- *        "AD_TYPE_AUDIO")
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeDisplay Display ad. (Value:
- *        "AD_TYPE_DISPLAY")
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeHtml HTML ad. (Value:
- *        "AD_TYPE_HTML")
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeImage Image ad. (Value:
- *        "AD_TYPE_IMAGE")
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeRichMedia Rich media ad.
- *        (Value: "AD_TYPE_RICH_MEDIA")
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeText Text ad. (Value:
- *        "AD_TYPE_TEXT")
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeUnspecified Unspecified ad
- *        type. (Value: "AD_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeVideo Video ad. (Value:
- *        "AD_TYPE_VIDEO")
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeAudio Value "AD_TYPE_AUDIO"
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeDisplay Value
+ *        "AD_TYPE_DISPLAY"
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeHtml Value "AD_TYPE_HTML"
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeImage Value "AD_TYPE_IMAGE"
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeRichMedia Value
+ *        "AD_TYPE_RICH_MEDIA"
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeText Value "AD_TYPE_TEXT"
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeUnspecified Value
+ *        "AD_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_AdEvent_AdType_AdTypeVideo Value "AD_TYPE_VIDEO"
  */
 @property(nonatomic, copy, nullable) NSString *adType;
 
-/** String value for ad type. */
 @property(nonatomic, copy, nullable) NSString *adTypeString;
-
-/**
- *  Required. The ID of the advertiser for the ad event. This must match the ID
- *  sent in the linking flow.
- */
 @property(nonatomic, copy, nullable) NSString *advertiserId;
 
 /**
- *  Optional. The width of the ad in pixels.
+ *  adWidth
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adWidth;
 
 /**
- *  Optional. The partner-assumed attribution status for this ad event. This
- *  acts only as a signal for how the partner assumed attribution played out,
- *  and does not force an end result in final reports.
+ *  attributionHint
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_AdEvent_AttributionHint_AttributionHintConverted
- *        Converted status. (Value: "ATTRIBUTION_HINT_CONVERTED")
+ *        Value "ATTRIBUTION_HINT_CONVERTED"
  *    @arg @c kGTLRDataManager_AdEvent_AttributionHint_AttributionHintNotConverted
- *        Not converted status. (Value: "ATTRIBUTION_HINT_NOT_CONVERTED")
+ *        Value "ATTRIBUTION_HINT_NOT_CONVERTED"
  *    @arg @c kGTLRDataManager_AdEvent_AttributionHint_AttributionHintUnspecified
- *        Unknown attribution status. (Value: "ATTRIBUTION_HINT_UNSPECIFIED")
+ *        Value "ATTRIBUTION_HINT_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *attributionHint;
 
-/** Required. The ID of the associated campaign. */
 @property(nonatomic, copy, nullable) NSString *campaignId;
-
-/** Required. The name of the associated campaign. */
 @property(nonatomic, copy, nullable) NSString *campaignName;
-
-/**
- *  Required. Information gathered about the device being used when the ad event
- *  happened.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *deviceInfo;
-
-/**
- *  Optional. An ID created and managed by the caller that uniquely identifies
- *  this event. Required if you want to deduplicate ad events that are included
- *  in multiple requests. Otherwise, this field is optional.
- */
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
- *  Enum value for event subtype.
+ *  eventSubtype
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeEngagedView
- *        Engaged view event. (Value: "EVENT_SUBTYPE_ENGAGED_VIEW")
- *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeImpression
- *        Impression event. (Value: "EVENT_SUBTYPE_IMPRESSION")
+ *        Value "EVENT_SUBTYPE_ENGAGED_VIEW"
+ *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeImpression Value
+ *        "EVENT_SUBTYPE_IMPRESSION"
  *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOnsiteClick
- *        Onsite click event. (Value: "EVENT_SUBTYPE_ONSITE_CLICK")
+ *        Value "EVENT_SUBTYPE_ONSITE_CLICK"
  *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeOutboundClick
- *        Outbound click event. (Value: "EVENT_SUBTYPE_OUTBOUND_CLICK")
+ *        Value "EVENT_SUBTYPE_OUTBOUND_CLICK"
  *    @arg @c kGTLRDataManager_AdEvent_EventSubtype_EventSubtypeUnspecified
- *        Unspecified event subtype. (Value: "EVENT_SUBTYPE_UNSPECIFIED")
+ *        Value "EVENT_SUBTYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *eventSubtype;
 
-/** String value for event subtype. */
 @property(nonatomic, copy, nullable) NSString *eventSubtypeString;
 
 /**
- *  Required. The type of the event.
+ *  eventType
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeClick Click event.
- *        (Value: "EVENT_TYPE_CLICK")
- *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeUnspecified
- *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeView View event.
- *        (Value: "EVENT_TYPE_VIEW")
+ *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeClick Value
+ *        "EVENT_TYPE_CLICK"
+ *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeUnspecified Value
+ *        "EVENT_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_AdEvent_EventType_EventTypeView Value
+ *        "EVENT_TYPE_VIEW"
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
 /**
- *  Optional. Represents if the row is allowed to be used for measurement
- *  purposes, as governed by applicable privacy laws within regional
- *  jurisdiction.
+ *  measurementAllowed
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *measurementAllowed;
 
-/** Required. The medium of the ad, akin to the Google Analytics medium. */
 @property(nonatomic, copy, nullable) NSString *medium;
-
-/** Optional. The device ID of the device that the ad was served to. */
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 
 /**
- *  Enum value for platform.
+ *  platform
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformAndroid Android
- *        platform. (Value: "PLATFORM_ANDROID")
- *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformIos iOS platform.
- *        (Value: "PLATFORM_IOS")
- *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformUnspecified Unspecified
- *        platform. (Value: "PLATFORM_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformWeb Web platform.
- *        (Value: "PLATFORM_WEB")
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformAndroid Value
+ *        "PLATFORM_ANDROID"
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformIos Value "PLATFORM_IOS"
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformUnspecified Value
+ *        "PLATFORM_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_AdEvent_Platform_PlatformWeb Value "PLATFORM_WEB"
  */
 @property(nonatomic, copy, nullable) NSString *platform;
 
-/** String value for platform. */
 @property(nonatomic, copy, nullable) NSString *platformString;
 
 /**
- *  Enum value for platform type.
+ *  platformType
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeCtv CTV
- *        platform. (Value: "PLATFORM_TYPE_CTV")
- *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeDesktop Desktop
- *        platform. (Value: "PLATFORM_TYPE_DESKTOP")
- *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeMobile Mobile
- *        platform. (Value: "PLATFORM_TYPE_MOBILE")
- *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypePhone Phone
- *        platform. (Value: "PLATFORM_TYPE_PHONE")
- *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeTablet Tablet
- *        platform. (Value: "PLATFORM_TYPE_TABLET")
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeCtv Value
+ *        "PLATFORM_TYPE_CTV"
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeDesktop Value
+ *        "PLATFORM_TYPE_DESKTOP"
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeMobile Value
+ *        "PLATFORM_TYPE_MOBILE"
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypePhone Value
+ *        "PLATFORM_TYPE_PHONE"
+ *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeTablet Value
+ *        "PLATFORM_TYPE_TABLET"
  *    @arg @c kGTLRDataManager_AdEvent_PlatformType_PlatformTypeUnspecified
- *        Unspecified platform type. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ *        Value "PLATFORM_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
-/** String value for platform type. */
 @property(nonatomic, copy, nullable) NSString *platformTypeString;
-
-/** Optional. The ISO 3166-2 country plus subdivision. */
 @property(nonatomic, copy, nullable) NSString *regionCode;
-
-/**
- *  Required. The platform source of the ad, akin to the Google Analytics
- *  source.
- */
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  Enum value for targeting type.
+ *  targetingType
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeAudience
- *        Audience targeting. (Value: "TARGETING_TYPE_AUDIENCE")
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeAudience Value
+ *        "TARGETING_TYPE_AUDIENCE"
  *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeContextual
- *        Contextual targeting. (Value: "TARGETING_TYPE_CONTEXTUAL")
+ *        Value "TARGETING_TYPE_CONTEXTUAL"
  *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDemographic
- *        Demographic targeting. (Value: "TARGETING_TYPE_DEMOGRAPHIC")
- *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDevice Device
- *        targeting. (Value: "TARGETING_TYPE_DEVICE")
- *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeGeo Geo
- *        targeting. (Value: "TARGETING_TYPE_GEO")
- *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeInterest
- *        Interest targeting. (Value: "TARGETING_TYPE_INTEREST")
+ *        Value "TARGETING_TYPE_DEMOGRAPHIC"
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeDevice Value
+ *        "TARGETING_TYPE_DEVICE"
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeGeo Value
+ *        "TARGETING_TYPE_GEO"
+ *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeInterest Value
+ *        "TARGETING_TYPE_INTEREST"
  *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypePurchaseIntent
- *        Purchase intent targeting. (Value: "TARGETING_TYPE_PURCHASE_INTENT")
+ *        Value "TARGETING_TYPE_PURCHASE_INTENT"
  *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeRemarketing
- *        Remarketing targeting. (Value: "TARGETING_TYPE_REMARKETING")
+ *        Value "TARGETING_TYPE_REMARKETING"
  *    @arg @c kGTLRDataManager_AdEvent_TargetingType_TargetingTypeUnspecified
- *        Unspecified targeting type. (Value: "TARGETING_TYPE_UNSPECIFIED")
+ *        Value "TARGETING_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
-/** String value for targeting type. */
 @property(nonatomic, copy, nullable) NSString *targetingTypeString;
-
-/** Required. The time the event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
-
-/**
- *  Optional. Multiple pieces of user-provided data, representing the user the
- *  event is associated with. It is possible to provide multiple instances of
- *  the same type of data (e.g. email address). The more data provided, the more
- *  likely a match will be found.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
-
-/** Required. Details of the viewability of the ad served. */
 @property(nonatomic, strong, nullable) GTLRDataManager_ViewabilityInfo *viewabilityInfo;
 
 @end
 
 
 /**
- *  Identifiers and other information used to match the conversion event with
- *  other online activity (such as ad clicks).
+ *  GTLRDataManager_AdIdentifiers
  */
 @interface GTLRDataManager_AdIdentifiers : GTLRObject
 
-/** Optional. The display click ID associated with this event. */
 @property(nonatomic, copy, nullable) NSString *dclid;
-
-/** Optional. Any number of encrypted user IDs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_EncryptedUserId *> *encryptedUserIds;
-
-/**
- *  Optional. The click identifier for clicks associated with app events and
- *  originating from iOS devices starting with iOS14.
- */
 @property(nonatomic, copy, nullable) NSString *gbraid;
-
-/** Optional. The Google click ID (gclid) associated with this event. */
 @property(nonatomic, copy, nullable) NSString *gclid;
-
-/** Optional. The impression ID associated with this event. */
 @property(nonatomic, copy, nullable) NSString *impressionId;
-
-/**
- *  Optional. Information gathered about the device being used (if any) at the
- *  time of landing onto the advertiser’s site after interacting with the ad.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *landingPageDeviceInfo;
-
-/**
- *  Optional. The match ID field used to join this event with a previous event.
- */
 @property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Optional. The mobile identifier for advertisers. This would be IDFA on iOS,
- *  AdID on Android, or other platforms’ identifiers for advertisers.
- */
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
-
-/** Optional. Session attributes for event attribution and modeling. */
+@property(nonatomic, copy, nullable) NSString *ppid;
 @property(nonatomic, copy, nullable) NSString *sessionAttributes;
-
-/**
- *  Optional. The click identifier for clicks associated with web events and
- *  originating from iOS devices starting with iOS14.
- */
+@property(nonatomic, copy, nullable) NSString *visitorPpid;
 @property(nonatomic, copy, nullable) NSString *wbraid;
 
 @end
 
 
 /**
- *  The audience member to be operated on.
+ *  GTLRDataManager_AudienceMember
  */
 @interface GTLRDataManager_AudienceMember : GTLRObject
 
-/** Group of multiple identifier types. */
 @property(nonatomic, strong, nullable) GTLRDataManager_CompositeData *compositeData;
-
-/** Optional. The consent setting for the user. */
 @property(nonatomic, strong, nullable) GTLRDataManager_Consent *consent;
-
-/** Optional. Defines which Destination to send the audience member to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinationReferences;
-
-/** Encrypted Google User IDs. */
 @property(nonatomic, strong, nullable) GTLRDataManager_GoogleUserIdData *googleUserIdData;
-
-/** Data identifying the user's mobile devices. */
 @property(nonatomic, strong, nullable) GTLRDataManager_MobileData *mobileData;
-
-/**
- *  [Publisher Advertiser Identity Reconciliation (PAIR)
- *  IDs](//support.google.com/admanager/answer/15067908). This feature is only
- *  available to data partners.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_PairData *pairData;
-
-/** Partner-provided identifiers. */
 @property(nonatomic, strong, nullable) GTLRDataManager_PartnerProvidedIdData *partnerProvidedIdData;
-
-/**
- *  Data related to publisher provided identifiers. This feature is only
- *  available to data partners.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_PpidData *ppidData;
-
-/** User-provided data that identifies the user. */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
-
-/**
- *  Data related to unique identifiers for a user, as defined by the advertiser.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserIdData *userIdData;
 
 @end
 
 
 /**
- *  A data encryption key wrapped by an AWS KMS key.
+ *  GTLRDataManager_AwsWrappedKeyInfo
  */
 @interface GTLRDataManager_AwsWrappedKeyInfo : GTLRObject
 
-/** Required. The base64 encoded encrypted data encryption key. */
 @property(nonatomic, copy, nullable) NSString *encryptedDek;
-
-/**
- *  Required. The URI of the AWS KMS key used to decrypt the DEK. Should be in
- *  the format of `arn:{partition}:kms:{region}:{account_id}:key/{key_id}` or
- *  `aws-kms://arn:{partition}:kms:{region}:{account_id}:key/{key_id}`
- */
 @property(nonatomic, copy, nullable) NSString *kekUri;
 
 /**
- *  Required. The type of algorithm used to encrypt the data.
+ *  keyType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_AwsWrappedKeyInfo_KeyType_KeyTypeUnspecified
- *        Unspecified key type. Should never be used. (Value:
- *        "KEY_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_AwsWrappedKeyInfo_KeyType_Xchacha20Poly1305
- *        Algorithm XChaCha20-Poly1305 (Value: "XCHACHA20_POLY1305")
+ *        Value "KEY_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_AwsWrappedKeyInfo_KeyType_Xchacha20Poly1305 Value
+ *        "XCHACHA20_POLY1305"
  */
 @property(nonatomic, copy, nullable) NSString *keyType;
 
-/**
- *  Required. The Amazon Resource Name of the IAM Role to assume for KMS
- *  decryption access. Should be in the format of
- *  `arn:{partition}:iam::{account_id}:role/{role_name}`
- */
 @property(nonatomic, copy, nullable) NSString *roleArn;
 
 @end
 
 
 /**
- *  Baseline criteria against which insights are compared.
+ *  GTLRDataManager_Baseline
  */
 @interface GTLRDataManager_Baseline : GTLRObject
 
-/**
- *  The baseline location of the request. Baseline location is an OR-list of the
- *  requested regions.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_Location *baselineLocation;
 
 /**
- *  If set to true, the service will try to automatically detect the baseline
- *  location for insights.
+ *  locationAutoDetectionEnabled
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2931,46 +1404,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The cart data associated with the event.
+ *  GTLRDataManager_CartData
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
  */
 @interface GTLRDataManager_CartData : GTLRCollectionObject
 
-/**
- *  Optional. The list of coupon codes that were applied to the cart. Cart-level
- *  and item-level coupon codes are independent. If the event is for a Google
- *  Analytics destination, only provide a single coupon code. Google Analytics
- *  ignores additional coupon codes.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *couponCodes;
 
 /**
- *  Optional. The list of items associated with the event.
+ *  items
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Item *> *items;
 
-/**
- *  Optional. The Merchant Center feed label associated with the feed of the
- *  items.
- */
 @property(nonatomic, copy, nullable) NSString *merchantFeedLabel;
-
-/**
- *  Optional. The language code in ISO 639-1 associated with the Merchant Center
- *  feed of the items.where your items are uploaded.
- */
 @property(nonatomic, copy, nullable) NSString *merchantFeedLanguageCode;
-
-/** Optional. The Merchant Center ID associated with the items. */
 @property(nonatomic, copy, nullable) NSString *merchantId;
 
 /**
- *  Optional. The sum of all discounts associated with the transaction.
+ *  transactionDiscount
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2980,52 +1436,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Composite data holding identifiers and associated data for a user. At least
- *  one of `user_data` or `ip_data` is required.
+ *  GTLRDataManager_CompositeData
  */
 @interface GTLRDataManager_CompositeData : GTLRObject
 
-/**
- *  Optional. IP address data representing customer interaction used to build
- *  the audience.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_IpData *> *ipData;
-
-/** Optional. User-provided data that identifies the user. */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
 
 @end
 
 
 /**
- *  [Digital Markets Act (DMA)](//digital-markets-act.ec.europa.eu/index_en)
- *  consent settings for the user.
+ *  GTLRDataManager_Consent
  */
 @interface GTLRDataManager_Consent : GTLRObject
 
 /**
- *  Optional. Represents if the user consents to ad personalization.
+ *  adPersonalization
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_Consent_AdPersonalization_ConsentDenied Denied.
- *        (Value: "CONSENT_DENIED")
- *    @arg @c kGTLRDataManager_Consent_AdPersonalization_ConsentGranted Granted.
- *        (Value: "CONSENT_GRANTED")
+ *    @arg @c kGTLRDataManager_Consent_AdPersonalization_ConsentDenied Value
+ *        "CONSENT_DENIED"
+ *    @arg @c kGTLRDataManager_Consent_AdPersonalization_ConsentGranted Value
+ *        "CONSENT_GRANTED"
  *    @arg @c kGTLRDataManager_Consent_AdPersonalization_ConsentStatusUnspecified
- *        Not specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
+ *        Value "CONSENT_STATUS_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *adPersonalization;
 
 /**
- *  Optional. Represents if the user consents to ad user data.
+ *  adUserData
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_Consent_AdUserData_ConsentDenied Denied. (Value:
- *        "CONSENT_DENIED")
- *    @arg @c kGTLRDataManager_Consent_AdUserData_ConsentGranted Granted.
- *        (Value: "CONSENT_GRANTED")
- *    @arg @c kGTLRDataManager_Consent_AdUserData_ConsentStatusUnspecified Not
- *        specified. (Value: "CONSENT_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_Consent_AdUserData_ConsentDenied Value
+ *        "CONSENT_DENIED"
+ *    @arg @c kGTLRDataManager_Consent_AdUserData_ConsentGranted Value
+ *        "CONSENT_GRANTED"
+ *    @arg @c kGTLRDataManager_Consent_AdUserData_ConsentStatusUnspecified Value
+ *        "CONSENT_STATUS_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *adUserData;
 
@@ -3033,33 +1481,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Additional information when `CONTACT_ID` is one of the `upload_key_types`.
+ *  GTLRDataManager_ContactIdInfo
  */
 @interface GTLRDataManager_ContactIdInfo : GTLRObject
 
 /**
- *  Optional. Immutable. Source of the upload data
+ *  dataSourceType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeFirstParty
- *        The uploaded data is first-party data. (Value:
- *        "DATA_SOURCE_TYPE_FIRST_PARTY")
+ *        Value "DATA_SOURCE_TYPE_FIRST_PARTY"
  *    @arg @c kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau
- *        The uploaded data is from a third-party credit bureau. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU"
  *    @arg @c kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData
- *        The uploaded data is third party partner data. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA"
  *    @arg @c kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile
- *        The uploaded data is from a third-party voter file. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE"
  *    @arg @c kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeUnspecified
- *        Not specified. (Value: "DATA_SOURCE_TYPE_UNSPECIFIED")
+ *        Value "DATA_SOURCE_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceType;
 
 /**
- *  Output only. Match rate for customer match user lists.
+ *  matchRatePercentage
  *
  *  Uses NSNumber of intValue.
  */
@@ -3069,66 +1513,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Information about the coordinator key.
+ *  GTLRDataManager_CoordinatorKeyInfo
  */
 @interface GTLRDataManager_CoordinatorKeyInfo : GTLRObject
 
-/** Required. The ID of the chosen coordinator key. */
 @property(nonatomic, copy, nullable) NSString *keyId;
 
 @end
 
 
 /**
- *  Custom variable for ads conversions.
+ *  GTLRDataManager_CustomVariable
  */
 @interface GTLRDataManager_CustomVariable : GTLRObject
 
-/**
- *  Optional. Reference string used to determine which of the
- *  Event.destination_references the custom variable should be sent to. If
- *  empty, the Event.destination_references will be used.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinationReferences;
-
-/** Optional. The value to store for the custom variable. */
 @property(nonatomic, copy, nullable) NSString *value;
-
-/**
- *  Optional. The name of the custom variable to set. If the variable is not
- *  found for the given destination, it will be ignored.
- */
 @property(nonatomic, copy, nullable) NSString *variable;
 
 @end
 
 
 /**
- *  The count for a specific data type.
+ *  GTLRDataManager_DataTypeCount
  */
 @interface GTLRDataManager_DataTypeCount : GTLRObject
 
 /**
- *  The count for this data type.
+ *  count
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  The type of data.
+ *  type
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_DataTypeCount_Type_Address The data is a physical
- *        address. (Value: "ADDRESS")
- *    @arg @c kGTLRDataManager_DataTypeCount_Type_DataTypeUnspecified The data
- *        type is unspecified. (Value: "DATA_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_DataTypeCount_Type_Email The data is an email
- *        address. (Value: "EMAIL")
- *    @arg @c kGTLRDataManager_DataTypeCount_Type_IpAddress The data is an IP
- *        address. (Value: "IP_ADDRESS")
- *    @arg @c kGTLRDataManager_DataTypeCount_Type_PhoneNumber The data is a
- *        phone number. (Value: "PHONE_NUMBER")
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_Address Value "ADDRESS"
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_DataTypeUnspecified Value
+ *        "DATA_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_Email Value "EMAIL"
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_IpAddress Value "IP_ADDRESS"
+ *    @arg @c kGTLRDataManager_DataTypeCount_Type_PhoneNumber Value
+ *        "PHONE_NUMBER"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3136,179 +1564,105 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The Google product you're sending data to. For example, a Google Ads
- *  account.
+ *  GTLRDataManager_Destination
  */
 @interface GTLRDataManager_Destination : GTLRObject
 
-/**
- *  Optional. An account that the calling user's `login_account` has access to,
- *  through an established account link. For example, a data partner's
- *  `login_account` might have access to a client's `linked_account`. The
- *  partner might use this field to send data from the `linked_account` to
- *  another `operating_account`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_ProductAccount *linkedAccount;
-
-/**
- *  Optional. The account used to make this API call. To add or remove data from
- *  the `operating_account`, this `login_account` must have write access to the
- *  `operating_account`. For example, a manager account of the
- *  `operating_account`, or an account with an established link to the
- *  `operating_account`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_ProductAccount *loginAccount;
-
-/** Required. The account to send the data to or remove the data from. */
 @property(nonatomic, strong, nullable) GTLRDataManager_ProductAccount *operatingAccount;
-
-/**
- *  Required. The object within the product account to ingest into. For example,
- *  a Google Ads audience ID, a Display & Video 360 audience ID or a Google Ads
- *  conversion action ID.
- */
 @property(nonatomic, copy, nullable) NSString *productDestinationId;
-
-/**
- *  Optional. ID for this `Destination` resource, unique within the request. Use
- *  to reference this `Destination` in the IngestEventsRequest and
- *  IngestAudienceMembersRequest.
- */
 @property(nonatomic, copy, nullable) NSString *reference;
 
 @end
 
 
 /**
- *  Information about the device being used (if any) when the event happened.
+ *  GTLRDataManager_DeviceInfo
  */
 @interface GTLRDataManager_DeviceInfo : GTLRObject
 
-/** Optional. The brand of the device. */
 @property(nonatomic, copy, nullable) NSString *brand;
-
-/** Optional. The brand or type of the browser. */
 @property(nonatomic, copy, nullable) NSString *browser;
-
-/** Optional. The version of the browser. */
 @property(nonatomic, copy, nullable) NSString *browserVersion;
-
-/**
- *  Optional. The category of device. For example, “desktop”, “tablet”,
- *  “mobile”, “smart TV”.
- */
 @property(nonatomic, copy, nullable) NSString *category;
-
-/**
- *  Optional. The IP address of the device for the given context. Required when
- *  used in an AdEvent. **Note:** Google Ads does not support IP address
- *  matching for end users in the European Economic Area (EEA), United Kingdom
- *  (UK), or Switzerland (CH). Add logic to conditionally exclude sharing IP
- *  addresses from users from these regions and ensure that you provide users
- *  with clear and comprehensive information about the data you collect on your
- *  sites, apps, and other properties and get consent where required by law or
- *  any applicable Google policies. See the [About offline conversion
- *  imports](https://support.google.com/google-ads/answer/2998031) page for more
- *  details.
- */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
-
-/** Optional. The language the device uses in ISO 639-1 format. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
-
-/** Optional. The model of the device. */
 @property(nonatomic, copy, nullable) NSString *model;
-
-/** Optional. The operating system or platform of the device. */
 @property(nonatomic, copy, nullable) NSString *operatingSystem;
-
-/** Optional. The version of the operating system or platform. */
 @property(nonatomic, copy, nullable) NSString *operatingSystemVersion;
 
 /**
- *  Optional. The height of the screen in pixels.
+ *  screenHeight
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *screenHeight;
 
 /**
- *  Optional. The width of the screen in pixels.
+ *  screenWidth
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *screenWidth;
 
-/** Optional. The user-agent string of the device for the given context. */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 
 @end
 
 
 /**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ *  GTLRDataManager_Empty
  */
 @interface GTLRDataManager_Empty : GTLRObject
 @end
 
 
 /**
- *  A user identifier issued to be used for attribution. All fields are required
- *  if this is used.
+ *  GTLRDataManager_EncryptedUserId
  */
 @interface GTLRDataManager_EncryptedUserId : GTLRObject
 
-/** Required. The alphanumeric encrypted id. */
 @property(nonatomic, copy, nullable) NSString *encryptedId;
 
 /**
- *  Required. The encryption entity ID. This should match the encryption
- *  configuration for ad serving or Data Transfer.
+ *  entityId
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *entityId;
 
 /**
- *  Required. The encryption entity type. This should match the encryption
- *  configuration for ad serving or Data Transfer.
+ *  entityType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAccount
- *        Campaign Manager 360 account. (Value: "CAMPAIGN_MANAGER_ACCOUNT")
+ *        Value "CAMPAIGN_MANAGER_ACCOUNT"
  *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_CampaignManagerAdvertiser
- *        Campaign Manager 360 advertiser. (Value:
- *        "CAMPAIGN_MANAGER_ADVERTISER")
+ *        Value "CAMPAIGN_MANAGER_ADVERTISER"
  *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoAdvertiser
- *        Display & Video 360 advertiser. (Value: "DISPLAY_VIDEO_ADVERTISER")
+ *        Value "DISPLAY_VIDEO_ADVERTISER"
  *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_DisplayVideoPartner
- *        Display & Video 360 partner. (Value: "DISPLAY_VIDEO_PARTNER")
+ *        Value "DISPLAY_VIDEO_PARTNER"
  *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_EncryptionEntityTypeUnspecified
- *        Unspecified encryption entity type. (Value:
- *        "ENCRYPTION_ENTITY_TYPE_UNSPECIFIED")
+ *        Value "ENCRYPTION_ENTITY_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdManagerNetworkCode
- *        Google Ad Manager network code. (Value:
- *        "GOOGLE_AD_MANAGER_NETWORK_CODE")
+ *        Value "GOOGLE_AD_MANAGER_NETWORK_CODE"
  *    @arg @c kGTLRDataManager_EncryptedUserId_EntityType_GoogleAdsCustomer
- *        Google Ads customer. (Value: "GOOGLE_ADS_CUSTOMER")
+ *        Value "GOOGLE_ADS_CUSTOMER"
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
- *  Required. Describes whether the encrypted cookie was received from ad
- *  serving (the %m macro) or from Data Transfer.
+ *  source
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_EncryptedUserId_Source_AdServing Ad serving
- *        encryption source. (Value: "AD_SERVING")
- *    @arg @c kGTLRDataManager_EncryptedUserId_Source_DataTransfer Data transfer
- *        encryption source. (Value: "DATA_TRANSFER")
+ *    @arg @c kGTLRDataManager_EncryptedUserId_Source_AdServing Value
+ *        "AD_SERVING"
+ *    @arg @c kGTLRDataManager_EncryptedUserId_Source_DataTransfer Value
+ *        "DATA_TRANSFER"
  *    @arg @c kGTLRDataManager_EncryptedUserId_Source_EncryptionSourceUnspecified
- *        Unspecified encryption source. (Value:
- *        "ENCRYPTION_SOURCE_UNSPECIFIED")
+ *        Value "ENCRYPTION_SOURCE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -3316,179 +1670,127 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Encryption information for the data being ingested.
+ *  GTLRDataManager_EncryptionInfo
  */
 @interface GTLRDataManager_EncryptionInfo : GTLRObject
 
-/** Amazon Web Services wrapped key information. */
 @property(nonatomic, strong, nullable) GTLRDataManager_AwsWrappedKeyInfo *awsWrappedKeyInfo;
-
-/**
- *  Key information for the chosen coordinator key. This is not supported for
- *  the IngestEvents, IngestAudienceMembers, and RemoveAudienceMembers methods.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_CoordinatorKeyInfo *coordinatorKeyInfo;
-
-/** Google Cloud Platform wrapped key information. */
 @property(nonatomic, strong, nullable) GTLRDataManager_GcpWrappedKeyInfo *gcpWrappedKeyInfo;
 
 @end
 
 
 /**
- *  The error count for a given error reason.
+ *  GTLRDataManager_ErrorCount
  */
 @interface GTLRDataManager_ErrorCount : GTLRObject
 
 /**
- *  The error reason of the failed records.
+ *  reason
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorOperatingAccountMismatchForAdIdentifier
- *        The user attempted to ingest events with an ad identifier that isn't
- *        from the operating account's ads. (Value:
- *        "PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER")
+ *        Value "PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed
- *        The system failed to authenticate with AWS. (Value:
- *        "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED")
+ *        Value "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonClickNotFound
- *        A corresponding click can't be found that matches the provided
- *        attributes. (Value: "PROCESSING_ERROR_REASON_CLICK_NOT_FOUND")
+ *        Value "PROCESSING_ERROR_REASON_CLICK_NOT_FOUND"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonConversionPrecedesClick
- *        The event timestamp on the event was earlier than the associated
- *        click. (Value: "PROCESSING_ERROR_REASON_CONVERSION_PRECEDES_CLICK")
+ *        Value "PROCESSING_ERROR_REASON_CONVERSION_PRECEDES_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonCustomVariableNotEnabled
- *        The status of the custom variable is not enabled. (Value:
- *        "PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED")
+ *        Value "PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDecryptionError
- *        The event has a decryption error. (Value:
- *        "PROCESSING_ERROR_REASON_DECRYPTION_ERROR")
+ *        Value "PROCESSING_ERROR_REASON_DECRYPTION_ERROR"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDekDecryptionError
- *        The DEK failed to be decrypted. (Value:
- *        "PROCESSING_ERROR_REASON_DEK_DECRYPTION_ERROR")
+ *        Value "PROCESSING_ERROR_REASON_DEK_DECRYPTION_ERROR"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDeniedConsent
- *        The ad user data is denied, either by the user or in the advertiser
- *        default settings. (Value: "PROCESSING_ERROR_REASON_DENIED_CONSENT")
+ *        Value "PROCESSING_ERROR_REASON_DENIED_CONSENT"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDestinationAccountEnhancedConversionsTermsNotSigned
- *        Enhanced conversions terms are not signed in the destination account.
- *        (Value:
- *        "PROCESSING_ERROR_REASON_DESTINATION_ACCOUNT_ENHANCED_CONVERSIONS_TERMS_NOT_SIGNED")
+ *        Value
+ *        "PROCESSING_ERROR_REASON_DESTINATION_ACCOUNT_ENHANCED_CONVERSIONS_TERMS_NOT_SIGNED"
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDestinationTooRecentlyCreated
+ *        Value "PROCESSING_ERROR_REASON_DESTINATION_TOO_RECENTLY_CREATED"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateGclid
- *        A conversion with the same GCLID and conversion time already exists in
- *        the system. (Value: "PROCESSING_ERROR_REASON_DUPLICATE_GCLID")
+ *        Value "PROCESSING_ERROR_REASON_DUPLICATE_GCLID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDuplicateTransactionId
- *        A conversion with the same order id and conversion action combination
- *        was already uploaded. (Value:
- *        "PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID")
+ *        Value "PROCESSING_ERROR_REASON_DUPLICATE_TRANSACTION_ID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventIdDecodeError
- *        The event ID (dclid or impression ID) cannot be decoded. (Value:
- *        "PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR")
+ *        Value "PROCESSING_ERROR_REASON_EVENT_ID_DECODE_ERROR"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonEventTooOld
- *        The conversion is older than max supported age. (Value:
- *        "PROCESSING_ERROR_REASON_EVENT_TOO_OLD")
+ *        Value "PROCESSING_ERROR_REASON_EVENT_TOO_OLD"
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExpiredClick
+ *        Value "PROCESSING_ERROR_REASON_EXPIRED_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonExternalAttributionDataMissing
- *        External attribution data is missing. Sending events to a destination
- *        for an external attribution conversion action isn't supported. (Value:
- *        "PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING")
+ *        Value "PROCESSING_ERROR_REASON_EXTERNAL_ATTRIBUTION_DATA_MISSING"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientMatchedTransactions
- *        The matched transactions are less than the minimum threshold. (Value:
- *        "PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS")
+ *        Value "PROCESSING_ERROR_REASON_INSUFFICIENT_MATCHED_TRANSACTIONS"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInsufficientTransactions
- *        The transactions are less than the minimum threshold. (Value:
- *        "PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS")
+ *        Value "PROCESSING_ERROR_REASON_INSUFFICIENT_TRANSACTIONS"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInternalError
- *        Internal error. (Value: "PROCESSING_ERROR_REASON_INTERNAL_ERROR")
+ *        Value "PROCESSING_ERROR_REASON_INTERNAL_ERROR"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidAdIdentifiers
- *        There are ad identifiers that are invalid. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_AD_IDENTIFIERS"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidClick
- *        The event can't be attributed to a click (GCLID). This may be because
- *        the click did not come from a Google Ads campaign, for example.
- *        (Value: "PROCESSING_ERROR_REASON_INVALID_CLICK")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidCustomVariable
- *        The custom variable is invalid. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_CUSTOM_VARIABLE"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidEvent
- *        The event is invalid. (Value: "PROCESSING_ERROR_REASON_INVALID_EVENT")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_EVENT"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidFormat
- *        The event has format error. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_FORMAT")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_FORMAT"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidGbraid
- *        The gbraid could not be decoded. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_GBRAID")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_GBRAID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidGclid
- *        The google click ID could not be decoded. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_GCLID")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_GCLID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidKek
- *        The KEK cannot decrypt data because it is the wrong KEK, or it does
- *        not exist. (Value: "PROCESSING_ERROR_REASON_INVALID_KEK")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_KEK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMerchantId
- *        Merchant id contains non-digit characters. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_MERCHANT_ID")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_MERCHANT_ID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidMobileIdFormat
- *        The mobile ID format is invalid. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_MOBILE_ID_FORMAT")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_MOBILE_ID_FORMAT"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidOperatingAccountForClick
- *        The click from the event isn't associated with the `operating_account`
- *        of the destination. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_OPERATING_ACCOUNT_FOR_CLICK")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_OPERATING_ACCOUNT_FOR_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWbraid
- *        The wbraid could not be decoded. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_WBRAID")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_WBRAID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWip
- *        The WIP is formatted incorrectly or the WIP does not exist. (Value:
- *        "PROCESSING_ERROR_REASON_INVALID_WIP")
+ *        Value "PROCESSING_ERROR_REASON_INVALID_WIP"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonKekPermissionDenied
- *        The system did not have the permissions needed to access the KEK.
- *        (Value: "PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED")
+ *        Value "PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonMatchIdNotFound
- *        The match ID can not be found. (Value:
- *        "PROCESSING_ERROR_REASON_MATCH_ID_NOT_FOUND")
+ *        Value "PROCESSING_ERROR_REASON_MATCH_ID_NOT_FOUND"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent
- *        Advertiser did not give 3P consent for the Ads core platform services.
- *        (Value: "PROCESSING_ERROR_REASON_NO_CONSENT")
+ *        Value "PROCESSING_ERROR_REASON_NO_CONSENT"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid
- *        One-per-click conversion actions cannot be used with BRAIDs. (Value:
- *        "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID")
+ *        Value
+ *        "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOriginalConversionsNotFound
- *        The original conversions can't be found. (Value:
- *        "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND")
+ *        Value "PROCESSING_ERROR_REASON_ORIGINAL_CONVERSIONS_NOT_FOUND"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonTooRecentClick
- *        The click occurred too recently. (Value:
- *        "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK")
+ *        Value "PROCESSING_ERROR_REASON_TOO_RECENT_CLICK"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent
- *        The overall consent (determined from row level consent, request level
- *        consent, and account settings) could not be determined for this user
- *        (Value: "PROCESSING_ERROR_REASON_UNKNOWN_CONSENT")
+ *        Value "PROCESSING_ERROR_REASON_UNKNOWN_CONSENT"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnspecified
- *        The processing error reason is unknown. (Value:
- *        "PROCESSING_ERROR_REASON_UNSPECIFIED")
+ *        Value "PROCESSING_ERROR_REASON_UNSPECIFIED"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdentifierDecryptionError
- *        Failed to decrypt the UserIdentifier data using the DEK. (Value:
- *        "PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR")
+ *        Value "PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFound
- *        The user ID cannot be found. (Value:
- *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND")
+ *        Value "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForDclid
- *        The user ID can not be found for the DCLID. (Value:
- *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_DCLID")
+ *        Value "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_DCLID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForGclid
- *        The user ID can not be found for the GCLID. (Value:
- *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_GCLID")
+ *        Value "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_GCLID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForImpressionId
- *        The user ID cannot be found for the given impression ID. (Value:
- *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_IMPRESSION_ID")
+ *        Value "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_IMPRESSION_ID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdNotFoundForMatchId
- *        The user ID can not be found for the match ID. (Value:
- *        "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_MATCH_ID")
+ *        Value "PROCESSING_ERROR_REASON_USER_ID_NOT_FOUND_FOR_MATCH_ID"
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonWipAuthFailed
- *        The WIP could not be used because it was rejected by its attestation
- *        condition. (Value: "PROCESSING_ERROR_REASON_WIP_AUTH_FAILED")
+ *        Value "PROCESSING_ERROR_REASON_WIP_AUTH_FAILED"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  The count of records that failed to upload for a given reason.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3498,171 +1800,73 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Error counts for each type of error.
+ *  GTLRDataManager_ErrorInfo
  */
 @interface GTLRDataManager_ErrorInfo : GTLRObject
 
-/**
- *  A list of errors and counts per error reason. May not be populated in all
- *  cases.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_ErrorCount *> *errorCounts;
 
 @end
 
 
 /**
- *  An event representing a user interaction with an advertiser's website or
- *  app.
+ *  GTLRDataManager_Event
  */
 @interface GTLRDataManager_Event : GTLRObject
 
-/**
- *  Optional. A bucket of any [event
- *  parameters](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference/events)
- *  to be included within the event that were not already specified using other
- *  structured fields.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_EventParameter *> *additionalEventParameters;
-
-/**
- *  Optional. Identifiers and other information used to match the conversion
- *  event with other online activity (such as ad clicks).
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_AdIdentifiers *adIdentifiers;
-
-/**
- *  Optional. A unique identifier for the user instance of an app client for
- *  this GA4 app stream.
- */
 @property(nonatomic, copy, nullable) NSString *appInstanceId;
-
-/**
- *  Optional. Information about the transaction and items associated with the
- *  event.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_CartData *cartData;
-
-/**
- *  Optional. A unique identifier for the user instance of a web client for this
- *  GA4 web stream.
- */
 @property(nonatomic, copy, nullable) NSString *clientId;
-
-/**
- *  Optional. Information about whether the associated user has provided
- *  different types of consent.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_Consent *consent;
 
 /**
- *  Optional. The conversion quantity associated with the event, for
- *  counting-based conversions.
+ *  conversionCount
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *conversionCount;
 
 /**
- *  Optional. The conversion value associated with the event, for value-based
- *  conversions.
+ *  conversionValue
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *conversionValue;
 
-/**
- *  Optional. The currency code associated with all monetary values within this
- *  event.
- */
 @property(nonatomic, copy, nullable) NSString *currency;
-
-/**
- *  Optional. Additional key/value pair information to send to the conversion
- *  containers (conversion action or FL activity).
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_CustomVariable *> *customVariables;
-
-/**
- *  Optional. Reference string used to determine the destination. If empty, the
- *  event will be sent to all destinations in the request.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinationReferences;
-
-/**
- *  Optional. Information gathered about the device being used (if any) when the
- *  event happened.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *eventDeviceInfo;
-
-/**
- *  Optional. Information gathered about the location of the user when this
- *  event occurred.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_EventLocation *eventLocation;
-
-/** Optional. The name of the event. Required for GA4 events. */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
- *  Optional. Signal for where the event happened (web, app, in-store, etc.).
+ *  eventSource
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_Event_EventSource_App The event was generated
- *        from an app. (Value: "APP")
- *    @arg @c kGTLRDataManager_Event_EventSource_EventSourceUnspecified
- *        Unspecified EventSource. Should never be used. (Value:
- *        "EVENT_SOURCE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_Event_EventSource_InStore The event was generated
- *        from an in-store transaction. (Value: "IN_STORE")
- *    @arg @c kGTLRDataManager_Event_EventSource_Message The event was generated
- *        from a message. (Value: "MESSAGE")
- *    @arg @c kGTLRDataManager_Event_EventSource_Other The event was generated
- *        from other sources. (Value: "OTHER")
- *    @arg @c kGTLRDataManager_Event_EventSource_Phone The event was generated
- *        from a phone call. (Value: "PHONE")
- *    @arg @c kGTLRDataManager_Event_EventSource_Web The event was generated
- *        from a web browser. (Value: "WEB")
+ *    @arg @c kGTLRDataManager_Event_EventSource_App Value "APP"
+ *    @arg @c kGTLRDataManager_Event_EventSource_EventSourceUnspecified Value
+ *        "EVENT_SOURCE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_Event_EventSource_InStore Value "IN_STORE"
+ *    @arg @c kGTLRDataManager_Event_EventSource_Message Value "MESSAGE"
+ *    @arg @c kGTLRDataManager_Event_EventSource_Other Value "OTHER"
+ *    @arg @c kGTLRDataManager_Event_EventSource_Phone Value "PHONE"
+ *    @arg @c kGTLRDataManager_Event_EventSource_Web Value "WEB"
  */
 @property(nonatomic, copy, nullable) NSString *eventSource;
 
-/** Required. The time the event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTimestamp;
-
-/**
- *  Optional. A list of key/value pairs for experimental fields that may
- *  eventually be promoted to be part of the API.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_ExperimentalField *> *experimentalFields;
-
-/** Optional. The last time the event was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdatedTimestamp;
-
-/**
- *  Optional. The same type of data provided in user_data, but explicitly
- *  flagged as being provided as owned by a third-party and not first-party
- *  advertiser data.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserData *thirdPartyUserData;
-
-/**
- *  Optional. The unique identifier for this event. Required for events sent as
- *  an additional data source for tag conversions.
- */
 @property(nonatomic, copy, nullable) NSString *transactionId;
-
-/**
- *  Optional. Pieces of user provided data, representing the user the event is
- *  associated with.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
-
-/** Optional. A unique identifier for a user, as defined by the advertiser. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
- *  Optional. Advertiser-assessed information about the user at the time that
- *  the event happened.
+ *  userPropertiesProperty
  *
  *  Remapped to 'userPropertiesProperty' to avoid GTLRObject's 'userProperties'.
  */
@@ -3672,134 +1876,90 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The location where the event occurred.
+ *  GTLRDataManager_EventLocation
  */
 @interface GTLRDataManager_EventLocation : GTLRObject
 
-/** Optional. The name of the city where the event occurred. */
 @property(nonatomic, copy, nullable) NSString *city;
-
-/** Optional. The continent code in UN M49 format where the event occurred. */
 @property(nonatomic, copy, nullable) NSString *continentCode;
-
-/** Optional. The 2-letter CLDR region code of the user's address. */
 @property(nonatomic, copy, nullable) NSString *regionCode;
-
-/**
- *  Optional. Required for Store Sales. The identifier to represent a physical
- *  store where the event happened.
- */
 @property(nonatomic, copy, nullable) NSString *storeId;
-
-/**
- *  Optional. The subcontinent code in UN M49 format where the event occurred.
- */
 @property(nonatomic, copy, nullable) NSString *subcontinentCode;
-
-/** Optional. The ISO 3166-2 subdivision code where the event occurred. */
 @property(nonatomic, copy, nullable) NSString *subdivisionCode;
 
 @end
 
 
 /**
- *  Event parameter for GA4 events.
+ *  GTLRDataManager_EventParameter
  */
 @interface GTLRDataManager_EventParameter : GTLRObject
 
-/** Required. The name of the parameter to use. */
 @property(nonatomic, copy, nullable) NSString *parameterName;
-
-/**
- *  Required. The string representation of the value of the parameter to set.
- */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  Experimental field representing unofficial fields.
+ *  GTLRDataManager_ExperimentalField
  */
 @interface GTLRDataManager_ExperimentalField : GTLRObject
 
-/** Optional. The name of the field to use. */
 @property(nonatomic, copy, nullable) NSString *field;
-
-/** Optional. The value the field to set. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  Detailed row-level warning with field paths.
+ *  GTLRDataManager_FieldWarning
  */
 @interface GTLRDataManager_FieldWarning : GTLRObject
 
 /**
- *  The detailed warning message describing the issue.
+ *  descriptionProperty
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  The field path that triggered the warning. Uses the same format as
- *  google.rpc.BadRequest.FieldViolation.field.
- */
 @property(nonatomic, copy, nullable) NSString *field;
 
 /**
- *  The warning reason.
+ *  reason
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemMerchantProductIdMissing
- *        The `merchant_product_id` is missing in the cart item. (Value:
- *        "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING")
+ *        Value "WARNING_REASON_CART_DATA_ITEM_MERCHANT_PRODUCT_ID_MISSING"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataItemUnitPriceMissing
- *        The `unit_price` is missing in the cart item. (Value:
- *        "WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING")
+ *        Value "WARNING_REASON_CART_DATA_ITEM_UNIT_PRICE_MISSING"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCartDataNotSupportedWithGbraidOrWbraid
- *        The `cart_data` is not supported with `gbraid` or `wbraid`. (Value:
- *        "WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID")
+ *        Value "WARNING_REASON_CART_DATA_NOT_SUPPORTED_WITH_GBRAID_OR_WBRAID"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotEnabled
- *        A custom variable in `custom_variables` is not enabled in the account.
- *        (Value: "WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED")
+ *        Value "WARNING_REASON_CUSTOM_VARIABLE_NOT_ENABLED"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonCustomVariableNotPredefined
- *        A custom variable value in `custom_variables` is not among the
- *        predefined allowed values configured for the custom variable on the
- *        destination account. (Value:
- *        "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED")
- *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric Generic
- *        warning reason for issues that do not fit into other specific
- *        categories. (Value: "WARNING_REASON_GENERIC")
+ *        Value "WARNING_REASON_CUSTOM_VARIABLE_NOT_PREDEFINED"
+ *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonGeneric Value
+ *        "WARNING_REASON_GENERIC"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidClientId
- *        The `client_id` is invalid. (Value:
- *        "WARNING_REASON_INVALID_CLIENT_ID")
+ *        Value "WARNING_REASON_INVALID_CLIENT_ID"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidContinentCode
- *        The `continent_code` is invalid. (Value:
- *        "WARNING_REASON_INVALID_CONTINENT_CODE")
+ *        Value "WARNING_REASON_INVALID_CONTINENT_CODE"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceCategory
- *        The device `category` is invalid. (Value:
- *        "WARNING_REASON_INVALID_DEVICE_CATEGORY")
+ *        Value "WARNING_REASON_INVALID_DEVICE_CATEGORY"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidDeviceScreenResolution
- *        The device `screen_height` or `screen_width` is invalid. (Value:
- *        "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION")
+ *        Value "WARNING_REASON_INVALID_DEVICE_SCREEN_RESOLUTION"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidMerchantId
- *        The `merchant_id` is invalid. (Value:
- *        "WARNING_REASON_INVALID_MERCHANT_ID")
+ *        Value "WARNING_REASON_INVALID_MERCHANT_ID"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidRegionCode
- *        The `region_code` is invalid. (Value:
- *        "WARNING_REASON_INVALID_REGION_CODE")
+ *        Value "WARNING_REASON_INVALID_REGION_CODE"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubcontinentCode
- *        The `subcontinent_code` is invalid. (Value:
- *        "WARNING_REASON_INVALID_SUBCONTINENT_CODE")
+ *        Value "WARNING_REASON_INVALID_SUBCONTINENT_CODE"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonInvalidSubdivisionCode
- *        The `subdivision_code` is invalid. (Value:
- *        "WARNING_REASON_INVALID_SUBDIVISION_CODE")
+ *        Value "WARNING_REASON_INVALID_SUBDIVISION_CODE"
  *    @arg @c kGTLRDataManager_FieldWarning_Reason_WarningReasonUnspecified
- *        Unspecified warning reason. (Value: "WARNING_REASON_UNSPECIFIED")
+ *        Value "WARNING_REASON_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -3807,73 +1967,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Information about the Google Cloud Platform wrapped key.
+ *  GTLRDataManager_GcpWrappedKeyInfo
  */
 @interface GTLRDataManager_GcpWrappedKeyInfo : GTLRObject
 
-/** Required. The base64 encoded encrypted data encryption key. */
 @property(nonatomic, copy, nullable) NSString *encryptedDek;
-
-/**
- *  Required. Google Cloud Platform [Cloud Key Management Service resource
- *  ID](//cloud.google.com/kms/docs/getting-resource-ids). Should be in the
- *  format of
- *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}`
- *  or
- *  `gcp-kms://projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}`
- */
 @property(nonatomic, copy, nullable) NSString *kekUri;
 
 /**
- *  Required. The type of algorithm used to encrypt the data.
+ *  keyType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_GcpWrappedKeyInfo_KeyType_KeyTypeUnspecified
- *        Unspecified key type. Should never be used. (Value:
- *        "KEY_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_GcpWrappedKeyInfo_KeyType_Xchacha20Poly1305
- *        Algorithm XChaCha20-Poly1305 (Value: "XCHACHA20_POLY1305")
+ *        Value "KEY_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_GcpWrappedKeyInfo_KeyType_Xchacha20Poly1305 Value
+ *        "XCHACHA20_POLY1305"
  */
 @property(nonatomic, copy, nullable) NSString *keyType;
 
-/**
- *  Required. The [Workload
- *  Identity](//cloud.google.com/iam/docs/workload-identity-federation) pool
- *  provider required to use KEK.
- */
 @property(nonatomic, copy, nullable) NSString *wipProvider;
 
 @end
 
 
 /**
- *  Google user id data holding encrypted google user IDs. At least one google
- *  user ID is required.
+ *  GTLRDataManager_GoogleUserIdData
  */
 @interface GTLRDataManager_GoogleUserIdData : GTLRObject
 
-/** Required. The list of encrypted google user IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *googleUserIds;
 
 @end
 
 
 /**
- *  Request to upload ad events.
+ *  GTLRDataManager_IngestAdEventsRequest
  */
 @interface GTLRDataManager_IngestAdEventsRequest : GTLRObject
 
-/** Required. Required (at least 1). A list of ad events. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_AdEvent *> *adEvents;
-
-/**
- *  Required. Information about encryption keys which are used to encrypt the
- *  data.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
 
 /**
- *  Optional. If true, the request is validated, but not executed.
+ *  validateOnly
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3883,67 +2019,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response from an ad event ingestion operation.
+ *  GTLRDataManager_IngestAdEventsResponse
  */
 @interface GTLRDataManager_IngestAdEventsResponse : GTLRObject
 @end
 
 
 /**
- *  Request to upload audience members to the provided destinations. Returns an
- *  IngestAudienceMembersResponse.
+ *  GTLRDataManager_IngestAudienceMembersRequest
  */
 @interface GTLRDataManager_IngestAudienceMembersRequest : GTLRObject
 
-/**
- *  Required. The list of users to send to the specified destinations. At most
- *  10000 AudienceMember resources can be sent in a single request.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_AudienceMember *> *audienceMembers;
-
-/**
- *  Optional. Request-level consent to apply to all users in the request.
- *  User-level consent overrides request-level consent, and can be specified in
- *  each AudienceMember.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_Consent *consent;
-
-/** Required. The list of destinations to send the audience members to. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Destination *> *destinations;
 
 /**
- *  Optional. Required for UserData uploads. The encoding type of the user
- *  identifiers. For hashed user identifiers, this is the encoding type of the
- *  hashed string. For encrypted hashed user identifiers, this is the encoding
- *  type of the outer encrypted string, but not necessarily the inner hashed
- *  string, meaning the inner hashed string could be encoded in a different way
- *  than the outer encrypted string. For non `UserData` uploads, this field is
- *  ignored.
+ *  encoding
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Base64 Base
- *        64 encoding. (Value: "BASE64")
+ *    @arg @c kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Base64
+ *        Value "BASE64"
  *    @arg @c kGTLRDataManager_IngestAudienceMembersRequest_Encoding_EncodingUnspecified
- *        Unspecified Encoding type. Should never be used. (Value:
- *        "ENCODING_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Hex Hex
- *        encoding. (Value: "HEX")
+ *        Value "ENCODING_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Hex Value
+ *        "HEX"
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
-/**
- *  Optional. Encryption information for UserData uploads. If not set, it's
- *  assumed that uploaded identifying information is hashed but not encrypted.
- *  For non `UserData` uploads, this field is ignored.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
-
-/** Optional. The terms of service that the user has accepted/rejected. */
 @property(nonatomic, strong, nullable) GTLRDataManager_TermsOfService *termsOfService;
 
 /**
- *  Optional. For testing purposes. If `true`, the request is validated but not
- *  executed. Only errors are returned, not results.
+ *  validateOnly
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3953,111 +2061,73 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response from the IngestAudienceMembersRequest.
+ *  GTLRDataManager_IngestAudienceMembersResponse
  */
 @interface GTLRDataManager_IngestAudienceMembersResponse : GTLRObject
 
-/** Detailed row-level warnings with field paths. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_FieldWarning *> *fieldWarnings;
-
-/** The auto-generated ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
 
 /**
- *  The status of the ingest audience members request.
+ *  GTLRDataManager_IngestAudienceMembersStatus
  */
 @interface GTLRDataManager_IngestAudienceMembersStatus : GTLRObject
 
-/** The status of the composite data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestCompositeDataStatus *compositeDataIngestionStatus;
-
-/** The status of the google user id data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestGoogleUserIdDataStatus *googleUserIdDataIngestionStatus;
-
-/** The status of the mobile data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestMobileDataStatus *mobileDataIngestionStatus;
-
-/** The status of the pair data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestPairDataStatus *pairDataIngestionStatus;
-
-/**
- *  The status of the partner provided id data ingestion to the destination.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestPartnerProvidedIdDataStatus *partnerProvidedIdDataIngestionStatus;
-
-/** The status of the ppid data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestPpidDataStatus *ppidDataIngestionStatus;
-
-/** The status of the user data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestUserDataStatus *userDataIngestionStatus;
-
-/** The status of the user id data ingestion to the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestUserIdDataStatus *userIdDataIngestionStatus;
 
 @end
 
 
 /**
- *  The status of the composite data ingestion to the destination containing
- *  stats related to the ingestion.
+ *  GTLRDataManager_IngestCompositeDataStatus
  */
 @interface GTLRDataManager_IngestCompositeDataStatus : GTLRObject
 
-/**
- *  The total count of data types sent in the upload request for the
- *  destination, broken down by data type. Includes all data types in the
- *  request, regardless of whether they were successfully ingested or not.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_DataTypeCount *> *dataTypeCounts;
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recordCount;
 
 /**
- *  The match rate range of the upload.
+ *  uploadMatchRateRange
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange20To30
- *        The match rate range is between 20% and 30% (in the interval `[20,
- *        31)`). (Value: "MATCH_RATE_RANGE_20_TO_30")
+ *        Value "MATCH_RATE_RANGE_20_TO_30"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange31To40
- *        The match rate range is between 31% and 40% (in the interval `[31,
- *        41)`). (Value: "MATCH_RATE_RANGE_31_TO_40")
+ *        Value "MATCH_RATE_RANGE_31_TO_40"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange41To50
- *        The match rate range is between 41% and 50% (in the interval `[41,
- *        51)`). (Value: "MATCH_RATE_RANGE_41_TO_50")
+ *        Value "MATCH_RATE_RANGE_41_TO_50"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange51To60
- *        The match rate range is between 51% and 60% (in the interval `[51,
- *        61)`. (Value: "MATCH_RATE_RANGE_51_TO_60")
+ *        Value "MATCH_RATE_RANGE_51_TO_60"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange61To70
- *        The match rate range is between 61% and 70% (in the interval `[61,
- *        71)`). (Value: "MATCH_RATE_RANGE_61_TO_70")
+ *        Value "MATCH_RATE_RANGE_61_TO_70"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange71To80
- *        The match rate range is between 71% and 80% (in the interval `[71,
- *        81)`). (Value: "MATCH_RATE_RANGE_71_TO_80")
+ *        Value "MATCH_RATE_RANGE_71_TO_80"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange81To90
- *        The match rate range is between 81% and 90% (in the interval `[81,
- *        91)`). (Value: "MATCH_RATE_RANGE_81_TO_90")
+ *        Value "MATCH_RATE_RANGE_81_TO_90"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRange91To100
- *        The match rate range is between 91% and 100% (in the interval `[91,
- *        100]`). (Value: "MATCH_RATE_RANGE_91_TO_100")
+ *        Value "MATCH_RATE_RANGE_91_TO_100"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeLessThan20
- *        The match rate range is less than 20% (in the interval `[0, 20)`).
- *        (Value: "MATCH_RATE_RANGE_LESS_THAN_20")
+ *        Value "MATCH_RATE_RANGE_LESS_THAN_20"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible
- *        The match rate range is not eligible. (Value:
- *        "MATCH_RATE_RANGE_NOT_ELIGIBLE")
+ *        Value "MATCH_RATE_RANGE_NOT_ELIGIBLE"
  *    @arg @c kGTLRDataManager_IngestCompositeDataStatus_UploadMatchRateRange_MatchRateRangeUnknown
- *        The match rate range is unknown. (Value: "MATCH_RATE_RANGE_UNKNOWN")
+ *        Value "MATCH_RATE_RANGE_UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *uploadMatchRateRange;
 
@@ -4065,104 +2135,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Represents a user list that is populated by user provided data.
+ *  GTLRDataManager_IngestedUserListInfo
  */
 @interface GTLRDataManager_IngestedUserListInfo : GTLRObject
 
-/**
- *  Optional. Additional information when `CONTACT_ID` is one of the
- *  `upload_key_types`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_ContactIdInfo *contactIdInfo;
-
-/**
- *  Optional. Additional information when `MOBILE_ID` is one of the
- *  `upload_key_types`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_MobileIdInfo *mobileIdInfo;
-
-/**
- *  Optional. Additional information when `PAIR_ID` is one of the
- *  `upload_key_types`. This feature is only available to data partners.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_PairIdInfo *pairIdInfo;
-
-/**
- *  Optional. Additional information for partner audiences. This feature is only
- *  available to data partners.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_PartnerAudienceInfo *partnerAudienceInfo;
-
-/**
- *  Optional. Additional information for `PSEUDONYMOUS_ID` is one of the
- *  `upload_key_types`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_PseudonymousIdInfo *pseudonymousIdInfo;
-
-/** Required. Immutable. Upload key types of this user list. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uploadKeyTypes;
-
-/**
- *  Optional. Additional information when `USER_ID` is one of the
- *  `upload_key_types`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserIdInfo *userIdInfo;
 
 @end
 
 
 /**
- *  Request to upload audience members to the provided destinations. Returns an
- *  IngestEventsResponse.
+ *  GTLRDataManager_IngestEventsRequest
  */
 @interface GTLRDataManager_IngestEventsRequest : GTLRObject
 
-/**
- *  Optional. Request-level consent to apply to all users in the request.
- *  User-level consent overrides request-level consent, and can be specified in
- *  each Event.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_Consent *consent;
-
-/** Required. The list of destinations to send the events to. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Destination *> *destinations;
 
 /**
- *  Optional. Required for UserData uploads. The encoding type of the user
- *  identifiers. For hashed user identifiers, this is the encoding type of the
- *  hashed string. For encrypted hashed user identifiers, this is the encoding
- *  type of the outer encrypted string, but not necessarily the inner hashed
- *  string, meaning the inner hashed string could be encoded in a different way
- *  than the outer encrypted string. For non `UserData` uploads, this field is
- *  ignored.
+ *  encoding
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_IngestEventsRequest_Encoding_Base64 Base 64
- *        encoding. (Value: "BASE64")
+ *    @arg @c kGTLRDataManager_IngestEventsRequest_Encoding_Base64 Value
+ *        "BASE64"
  *    @arg @c kGTLRDataManager_IngestEventsRequest_Encoding_EncodingUnspecified
- *        Unspecified Encoding type. Should never be used. (Value:
- *        "ENCODING_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_IngestEventsRequest_Encoding_Hex Hex encoding.
- *        (Value: "HEX")
+ *        Value "ENCODING_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_IngestEventsRequest_Encoding_Hex Value "HEX"
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
-/**
- *  Optional. Encryption information for UserData uploads. If not set, it's
- *  assumed that uploaded identifying information is hashed but not encrypted.
- *  For non `UserData` uploads, this field is ignored.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
-
-/**
- *  Required. The list of events to send to the specified destinations. At most
- *  2000 Event resources can be sent in a single request.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Event *> *events;
 
 /**
- *  Optional. For testing purposes. If `true`, the request is validated but not
- *  executed. Only errors are returned, not results.
+ *  validateOnly
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4172,27 +2184,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response from the IngestEventsRequest.
+ *  GTLRDataManager_IngestEventsResponse
  */
 @interface GTLRDataManager_IngestEventsResponse : GTLRObject
 
-/** Detailed row-level warnings with field paths. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_FieldWarning *> *fieldWarnings;
-
-/** The auto-generated ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
 
 /**
- *  The status of the events ingestion to the destination.
+ *  GTLRDataManager_IngestEventsStatus
  */
 @interface GTLRDataManager_IngestEventsStatus : GTLRObject
 
 /**
- *  The total count of events sent in the upload request. Includes all events in
- *  the request, regardless of whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4202,24 +2210,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the google user id data ingestion to the destination
- *  containing stats related to the ingestion.
+ *  GTLRDataManager_IngestGoogleUserIdDataStatus
  */
 @interface GTLRDataManager_IngestGoogleUserIdDataStatus : GTLRObject
 
 /**
- *  The total count of google user ids sent in the upload request for the
- *  destination. Includes all google user ids in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  googleUserIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *googleUserIdCount;
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4229,24 +2232,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the mobile data ingestion to the destination containing stats
- *  related to the ingestion.
+ *  GTLRDataManager_IngestMobileDataStatus
  */
 @interface GTLRDataManager_IngestMobileDataStatus : GTLRObject
 
 /**
- *  The total count of mobile ids sent in the upload request for the
- *  destination. Includes all mobile ids in the request, regardless of whether
- *  they were successfully ingested or not.
+ *  mobileIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mobileIdCount;
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4256,24 +2254,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the pair data ingestion to the destination containing stats
- *  related to the ingestion.
+ *  GTLRDataManager_IngestPairDataStatus
  */
 @interface GTLRDataManager_IngestPairDataStatus : GTLRObject
 
 /**
- *  The total count of pair ids sent in the upload request for the destination.
- *  Includes all pair ids in the request, regardless of whether they were
- *  successfully ingested or not.
+ *  pairIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pairIdCount;
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4283,24 +2276,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the partner provided id data ingestion to the destination
- *  containing stats related to the ingestion.
+ *  GTLRDataManager_IngestPartnerProvidedIdDataStatus
  */
 @interface GTLRDataManager_IngestPartnerProvidedIdDataStatus : GTLRObject
 
 /**
- *  The total count of partner provided ids sent in the upload request for the
- *  destination. Includes all partner provided ids in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  partnerProvidedIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *partnerProvidedIdCount;
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4310,24 +2298,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the ppid data ingestion to the destination containing stats
- *  related to the ingestion.
+ *  GTLRDataManager_IngestPpidDataStatus
  */
 @interface GTLRDataManager_IngestPpidDataStatus : GTLRObject
 
 /**
- *  The total count of ppids sent in the upload request for the destination.
- *  Includes all ppids in the request, regardless of whether they were
- *  successfully ingested or not.
+ *  ppidCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ppidCount;
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4337,63 +2320,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the user data ingestion to the destination containing stats
- *  related to the ingestion.
+ *  GTLRDataManager_IngestUserDataStatus
  */
 @interface GTLRDataManager_IngestUserDataStatus : GTLRObject
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recordCount;
 
 /**
- *  The match rate range of the upload.
+ *  uploadMatchRateRange
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange20To30
- *        The match rate range is between 20% and 30% (in the interval `[20,
- *        31)`). (Value: "MATCH_RATE_RANGE_20_TO_30")
+ *        Value "MATCH_RATE_RANGE_20_TO_30"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange31To40
- *        The match rate range is between 31% and 40% (in the interval `[31,
- *        41)`). (Value: "MATCH_RATE_RANGE_31_TO_40")
+ *        Value "MATCH_RATE_RANGE_31_TO_40"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange41To50
- *        The match rate range is between 41% and 50% (in the interval `[41,
- *        51)`). (Value: "MATCH_RATE_RANGE_41_TO_50")
+ *        Value "MATCH_RATE_RANGE_41_TO_50"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange51To60
- *        The match rate range is between 51% and 60% (in the interval `[51,
- *        61)`. (Value: "MATCH_RATE_RANGE_51_TO_60")
+ *        Value "MATCH_RATE_RANGE_51_TO_60"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange61To70
- *        The match rate range is between 61% and 70% (in the interval `[61,
- *        71)`). (Value: "MATCH_RATE_RANGE_61_TO_70")
+ *        Value "MATCH_RATE_RANGE_61_TO_70"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange71To80
- *        The match rate range is between 71% and 80% (in the interval `[71,
- *        81)`). (Value: "MATCH_RATE_RANGE_71_TO_80")
+ *        Value "MATCH_RATE_RANGE_71_TO_80"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange81To90
- *        The match rate range is between 81% and 90% (in the interval `[81,
- *        91)`). (Value: "MATCH_RATE_RANGE_81_TO_90")
+ *        Value "MATCH_RATE_RANGE_81_TO_90"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRange91To100
- *        The match rate range is between 91% and 100% (in the interval `[91,
- *        100]`). (Value: "MATCH_RATE_RANGE_91_TO_100")
+ *        Value "MATCH_RATE_RANGE_91_TO_100"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeLessThan20
- *        The match rate range is less than 20% (in the interval `[0, 20)`).
- *        (Value: "MATCH_RATE_RANGE_LESS_THAN_20")
+ *        Value "MATCH_RATE_RANGE_LESS_THAN_20"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible
- *        The match rate range is not eligible. (Value:
- *        "MATCH_RATE_RANGE_NOT_ELIGIBLE")
+ *        Value "MATCH_RATE_RANGE_NOT_ELIGIBLE"
  *    @arg @c kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeUnknown
- *        The match rate range is unknown. (Value: "MATCH_RATE_RANGE_UNKNOWN")
+ *        Value "MATCH_RATE_RANGE_UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *uploadMatchRateRange;
 
 /**
- *  The total count of user identifiers sent in the upload request for the
- *  destination. Includes all user identifiers in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  userIdentifierCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4403,24 +2371,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the user id data ingestion to the destination containing stats
- *  related to the ingestion.
+ *  GTLRDataManager_IngestUserIdDataStatus
  */
 @interface GTLRDataManager_IngestUserIdDataStatus : GTLRObject
 
 /**
- *  The total count of audience members sent in the upload request for the
- *  destination. Includes all audience members in the request, regardless of
- *  whether they were successfully ingested or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recordCount;
 
 /**
- *  The total count of user ids sent in the upload request for the destination.
- *  Includes all user ids in the request, regardless of whether they were
- *  successfully ingested or not.
+ *  userIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4430,95 +2393,88 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  IP address information for a user. We recommend including observe_start_time
- *  and observe_end_time to help improve Customer Match match rates.
+ *  GTLRDataManager_IngestUsersRequest
+ */
+@interface GTLRDataManager_IngestUsersRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Destination *> *destinations;
+
+/**
+ *  encoding
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_IngestUsersRequest_Encoding_Base64 Value "BASE64"
+ *    @arg @c kGTLRDataManager_IngestUsersRequest_Encoding_EncodingUnspecified
+ *        Value "ENCODING_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_IngestUsersRequest_Encoding_Hex Value "HEX"
+ */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+@property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_User *> *users;
+
+/**
+ *  validateOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  GTLRDataManager_IngestUsersResponse
+ */
+@interface GTLRDataManager_IngestUsersResponse : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  GTLRDataManager_IpData
  */
 @interface GTLRDataManager_IpData : GTLRObject
 
-/**
- *  Required. IP address captured at the time of customer interaction. Accepts
- *  standard string formats for both IPv4 and IPv6.
- */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
-
-/**
- *  Optional. Last recorded interaction time from this IP address in a session.
- */
 @property(nonatomic, strong, nullable) GTLRDateTime *observeEndTime;
-
-/**
- *  Optional. First recorded interaction time from this IP address in a session.
- */
 @property(nonatomic, strong, nullable) GTLRDateTime *observeStartTime;
 
 @end
 
 
 /**
- *  Represents an item in the cart associated with the event.
+ *  GTLRDataManager_Item
  */
 @interface GTLRDataManager_Item : GTLRObject
 
-/**
- *  Optional. A bucket of any [event parameters related to an
- *  item](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference/events)
- *  to be included within the event that were not already specified using other
- *  structured fields.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_ItemParameter *> *additionalItemParameters;
 
 /**
- *  Optional. The conversion value associated with this item within the event,
- *  for cases where the conversion value is different for each item.
+ *  conversionValue
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *conversionValue;
 
-/**
- *  Optional. Additional key/value pair information to send to the conversion
- *  containers (conversion action or Floodlight activity), when tracking
- *  per-item conversions.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_ItemCustomVariable *> *customVariables;
-
-/** Optional. A unique identifier to reference the item. */
 @property(nonatomic, copy, nullable) NSString *itemId;
-
-/**
- *  Optional. The feed label of the Merchant Center feed. If countries are still
- *  being used, the 2-letter country code in ISO-3166-1 alpha-2 can be used
- *  instead. For Store Sales events this will override the value set at the cart
- *  level. This field is ignored for other events.
- */
 @property(nonatomic, copy, nullable) NSString *merchantFeedLabel;
-
-/**
- *  Optional. The language code in ISO 639-1 associated with the Merchant Center
- *  feed where your items are uploaded.
- */
 @property(nonatomic, copy, nullable) NSString *merchantFeedLanguageCode;
-
-/**
- *  Optional. The Merchant Center ID associated with the item. For Store Sales
- *  events this will override the value set at the cart level. This field is
- *  ignored for other events.
- */
 @property(nonatomic, copy, nullable) NSString *merchantId;
-
-/** Optional. The product ID within the Merchant Center account. */
 @property(nonatomic, copy, nullable) NSString *merchantProductId;
 
 /**
- *  Optional. The number of this item associated with the event.
+ *  quantity
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  Optional. The unit price excluding tax, shipping, and any transaction level
- *  discounts.
+ *  unitPrice
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4528,50 +2484,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Item-level custom variable for ads conversions.
+ *  GTLRDataManager_ItemCustomVariable
  */
 @interface GTLRDataManager_ItemCustomVariable : GTLRObject
 
-/**
- *  Optional. Reference string used to determine which of the
- *  Event.destination_references the custom variable should be sent to. If
- *  empty, the Event.destination_references will be used.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinationReferences;
-
-/** Optional. The value to store for the custom variable. */
 @property(nonatomic, copy, nullable) NSString *value;
-
-/**
- *  Optional. The name of the custom variable to set. If the variable is not
- *  found for the given destination, it will be ignored.
- */
 @property(nonatomic, copy, nullable) NSString *variable;
 
 @end
 
 
 /**
- *  A bucket of any [event parameters related to an
- *  item](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference/events)
- *  to be included within the event that were not already specified using other
- *  structured fields.
+ *  GTLRDataManager_ItemParameter
  */
 @interface GTLRDataManager_ItemParameter : GTLRObject
 
-/** Required. The name of the parameter to use. */
 @property(nonatomic, copy, nullable) NSString *parameterName;
-
-/**
- *  Required. The string representation of the value of the parameter to set.
- */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  Response from the ListUserListDirectLicensesRequest.
+ *  GTLRDataManager_ListUserListDirectLicensesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "userListDirectLicenses" property. If returned as the result of a
@@ -4580,14 +2516,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_ListUserListDirectLicensesResponse : GTLRCollectionObject
 
-/**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
- */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The licenses for the given user list in the request.
+ *  userListDirectLicenses
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4598,7 +2530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response from the ListUserListGlobalLicensesCustomerInfoRequest.
+ *  GTLRDataManager_ListUserListGlobalLicenseCustomerInfosResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "userListGlobalLicenseCustomerInfos" property. If returned as the
@@ -4607,14 +2539,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_ListUserListGlobalLicenseCustomerInfosResponse : GTLRCollectionObject
 
-/**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
- */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The customer information for the given license in the request.
+ *  userListGlobalLicenseCustomerInfos
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4625,7 +2553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response from the ListUserListGlobalLicensesRequest.
+ *  GTLRDataManager_ListUserListGlobalLicensesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "userListGlobalLicenses" property. If returned as the result of a
@@ -4634,14 +2562,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_ListUserListGlobalLicensesResponse : GTLRCollectionObject
 
-/**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
- */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The licenses for the given user list in the request.
+ *  userListGlobalLicenses
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4652,7 +2576,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response message for ListUserLists.
+ *  GTLRDataManager_ListUserListsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "userLists" property. If returned as the result of a query, it
@@ -4661,14 +2585,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_ListUserListsResponse : GTLRCollectionObject
 
-/**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
- */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The user lists from the specified account.
+ *  userLists
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4679,43 +2599,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The baseline location of the request. Baseline location is on OR-list of ISO
- *  3166-1 alpha-2 region codes of the requested regions.
+ *  GTLRDataManager_Location
  */
 @interface GTLRDataManager_Location : GTLRObject
 
-/** List of ISO 3166-1 alpha-2 region codes. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
 
 @end
 
 
 /**
- *  Insights for marketing data. This feature is only available to data
- *  partners.
+ *  GTLRDataManager_MarketingDataInsight
  */
 @interface GTLRDataManager_MarketingDataInsight : GTLRObject
 
-/** Insights for values of a given dimension. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_MarketingDataInsightsAttribute *> *attributes;
 
 /**
- *  The dimension to which the insight belongs.
+ *  dimension
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_AffinityUserInterest
- *        An Affinity UserInterest. (Value: "AFFINITY_USER_INTEREST")
- *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_AgeRange An age
- *        range. (Value: "AGE_RANGE")
+ *        Value "AFFINITY_USER_INTEREST"
+ *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_AgeRange Value
+ *        "AGE_RANGE"
  *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_AudienceInsightsDimensionUnknown
- *        The value is unknown in this version. (Value:
- *        "AUDIENCE_INSIGHTS_DIMENSION_UNKNOWN")
+ *        Value "AUDIENCE_INSIGHTS_DIMENSION_UNKNOWN"
  *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_AudienceInsightsDimensionUnspecified
- *        Not specified. (Value: "AUDIENCE_INSIGHTS_DIMENSION_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_Gender A gender.
- *        (Value: "GENDER")
+ *        Value "AUDIENCE_INSIGHTS_DIMENSION_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_Gender Value
+ *        "GENDER"
  *    @arg @c kGTLRDataManager_MarketingDataInsight_Dimension_InMarketUserInterest
- *        An In-Market UserInterest. (Value: "IN_MARKET_USER_INTEREST")
+ *        Value "IN_MARKET_USER_INTEREST"
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -4723,58 +2638,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Insights for a collection of related attributes of the same dimension.
+ *  GTLRDataManager_MarketingDataInsightsAttribute
  */
 @interface GTLRDataManager_MarketingDataInsightsAttribute : GTLRObject
 
 /**
- *  Age range of the audience for which the lift is provided.
+ *  ageRange
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange1824
- *        Between 18 and 24 years old. (Value: "AGE_RANGE_18_24")
+ *        Value "AGE_RANGE_18_24"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange2534
- *        Between 25 and 34 years old. (Value: "AGE_RANGE_25_34")
+ *        Value "AGE_RANGE_25_34"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange3544
- *        Between 35 and 44 years old. (Value: "AGE_RANGE_35_44")
+ *        Value "AGE_RANGE_35_44"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange4554
- *        Between 45 and 54 years old. (Value: "AGE_RANGE_45_54")
+ *        Value "AGE_RANGE_45_54"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange5564
- *        Between 55 and 64 years old. (Value: "AGE_RANGE_55_64")
+ *        Value "AGE_RANGE_55_64"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange65Up
- *        65 years old and beyond. (Value: "AGE_RANGE_65_UP")
+ *        Value "AGE_RANGE_65_UP"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRangeUnknown
- *        Unknown. (Value: "AGE_RANGE_UNKNOWN")
+ *        Value "AGE_RANGE_UNKNOWN"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRangeUnspecified
- *        Not specified. (Value: "AGE_RANGE_UNSPECIFIED")
+ *        Value "AGE_RANGE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *ageRange;
 
 /**
- *  Gender of the audience for which the lift is provided.
+ *  gender
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderFemale
- *        Female. (Value: "GENDER_FEMALE")
+ *        Value "GENDER_FEMALE"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderMale
- *        Male. (Value: "GENDER_MALE")
+ *        Value "GENDER_MALE"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderUnknown
- *        Unknown. (Value: "GENDER_UNKNOWN")
+ *        Value "GENDER_UNKNOWN"
  *    @arg @c kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderUnspecified
- *        Not specified. (Value: "GENDER_UNSPECIFIED")
+ *        Value "GENDER_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *gender;
 
 /**
- *  Measure of lift that the audience has for the attribute value as compared to
- *  the baseline. Range [0-1].
+ *  lift
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lift;
 
 /**
- *  The user interest ID.
+ *  userInterestId
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4784,63 +2698,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Mobile IDs for the audience. At least one mobile ID is required.
+ *  GTLRDataManager_MobileData
  */
 @interface GTLRDataManager_MobileData : GTLRObject
 
-/**
- *  Required. The list of mobile device IDs (Android advertising ID, iOS IDFA
- *  for Customer Match user lists and Android advertising ID, iOS IDFA, Xbox or
- *  Microsoft ID, Amazon Fire TV ID, Roku ID, Generic Device ID for basic user
- *  lists). At most 10 `mobileIds` can be provided in a single AudienceMember.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mobileIds;
 
 @end
 
 
 /**
- *  Additional information when `MOBILE_ID` is one of the `upload_key_types`.
+ *  GTLRDataManager_MobileIdInfo
  */
 @interface GTLRDataManager_MobileIdInfo : GTLRObject
 
-/**
- *  Required. Immutable. A string that uniquely identifies a mobile application
- *  from which the data was collected.
- */
 @property(nonatomic, copy, nullable) NSString *appId;
 
 /**
- *  Optional. Immutable. Source of the upload data.
+ *  dataSourceType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeFirstParty
- *        The uploaded data is first-party data. (Value:
- *        "DATA_SOURCE_TYPE_FIRST_PARTY")
+ *        Value "DATA_SOURCE_TYPE_FIRST_PARTY"
  *    @arg @c kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau
- *        The uploaded data is from a third-party credit bureau. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU"
  *    @arg @c kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData
- *        The uploaded data is third party partner data. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA"
  *    @arg @c kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile
- *        The uploaded data is from a third-party voter file. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE"
  *    @arg @c kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeUnspecified
- *        Not specified. (Value: "DATA_SOURCE_TYPE_UNSPECIFIED")
+ *        Value "DATA_SOURCE_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceType;
 
 /**
- *  Required. Immutable. The key space of mobile IDs.
+ *  keySpace
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_MobileIdInfo_KeySpace_Android The Android
- *        keyspace. (Value: "ANDROID")
- *    @arg @c kGTLRDataManager_MobileIdInfo_KeySpace_Ios The iOS keyspace.
- *        (Value: "IOS")
- *    @arg @c kGTLRDataManager_MobileIdInfo_KeySpace_KeySpaceUnspecified Not
- *        specified. (Value: "KEY_SPACE_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_MobileIdInfo_KeySpace_Android Value "ANDROID"
+ *    @arg @c kGTLRDataManager_MobileIdInfo_KeySpace_Ios Value "IOS"
+ *    @arg @c kGTLRDataManager_MobileIdInfo_KeySpace_KeySpaceUnspecified Value
+ *        "KEY_SPACE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *keySpace;
 
@@ -4848,100 +2746,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  [PAIR](//support.google.com/admanager/answer/15067908) IDs for the audience.
- *  At least one PAIR ID is required. This feature is only available to data
- *  partners.
+ *  GTLRDataManager_PairData
  */
 @interface GTLRDataManager_PairData : GTLRObject
 
-/**
- *  Required. Cleanroom-provided PII data, hashed with SHA256, and encrypted
- *  with an EC commutative cipher using publisher key for the
- *  [PAIR]((//support.google.com/admanager/answer/15067908)) user list. At most
- *  10 `pairIds` can be provided in a single AudienceMember.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pairIds;
 
 @end
 
 
 /**
- *  Additional information when `PAIR_ID` is one of the `upload_key_types`. This
- *  feature is only available to data partners.
+ *  GTLRDataManager_PairIdInfo
  */
 @interface GTLRDataManager_PairIdInfo : GTLRObject
 
 /**
- *  Optional. The count of the advertiser's first party data records that have
- *  been uploaded to a clean room provider. This does not signify the size of a
- *  PAIR user list.
+ *  advertiserIdentifierCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserIdentifierCount;
 
-/**
- *  Required. Immutable. Identifies a unique advertiser to publisher
- *  relationship with one clean room provider or across multiple clean room
- *  providers.
- */
 @property(nonatomic, copy, nullable) NSString *cleanRoomIdentifier;
 
 /**
- *  Required. This field denotes the percentage of membership match of this user
- *  list with the corresponding publisher's first party data. Must be between 0
- *  and 100 inclusive.
+ *  matchRatePercentage
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *matchRatePercentage;
 
 /**
- *  Required. Immutable. Identifies the publisher that the Publisher Advertiser
- *  Identity Reconciliation user list is reconciled with. This field is provided
- *  by the cleanroom provider and is only unique in the scope of that cleanroom.
- *  This cannot be used as a global identifier across multiple cleanrooms.
+ *  publisherId
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *publisherId;
 
-/**
- *  Required. Descriptive name of the publisher to be displayed in the UI for a
- *  better targeting experience.
- */
 @property(nonatomic, copy, nullable) NSString *publisherName;
 
 @end
 
 
 /**
- *  Additional information for partner audiences. This feature is only available
- *  to data partners.
+ *  GTLRDataManager_PartnerAudienceInfo
  */
 @interface GTLRDataManager_PartnerAudienceInfo : GTLRObject
 
-/**
- *  Optional. The commerce partner name. Only allowed if
- *  `partner_audience_source` is `COMMERCE_AUDIENCE`.
- */
 @property(nonatomic, copy, nullable) NSString *commercePartner;
 
 /**
- *  Required. Immutable. The source of the partner audience.
+ *  partnerAudienceSource
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_AgencyProviderAudience
- *        Partner Audience source is agency/provider audience. (Value:
- *        "AGENCY_PROVIDER_AUDIENCE")
+ *        Value "AGENCY_PROVIDER_AUDIENCE"
  *    @arg @c kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_CommerceAudience
- *        Partner Audience source is commerce audience. (Value:
- *        "COMMERCE_AUDIENCE")
+ *        Value "COMMERCE_AUDIENCE"
  *    @arg @c kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_LinearTvAudience
- *        Partner Audience source is linear TV audience. (Value:
- *        "LINEAR_TV_AUDIENCE")
+ *        Value "LINEAR_TV_AUDIENCE"
  *    @arg @c kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_PartnerAudienceSourceUnspecified
- *        Not specified. (Value: "PARTNER_AUDIENCE_SOURCE_UNSPECIFIED")
+ *        Value "PARTNER_AUDIENCE_SOURCE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *partnerAudienceSource;
 
@@ -4949,168 +2814,121 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Represents a customer account in the partner's system.
+ *  GTLRDataManager_PartnerCustomerAccount
  */
 @interface GTLRDataManager_PartnerCustomerAccount : GTLRObject
 
-/**
- *  Required. The identifier of the customer account in the partner's ID space.
- */
 @property(nonatomic, copy, nullable) NSString *accountId;
-
-/** Optional. The name of the account. */
 @property(nonatomic, copy, nullable) NSString *accountName;
-
-/**
- *  Optional. The type of the account. Can be used to distinguish between
- *  advertiser accounts and business level accounts, for example.
- */
 @property(nonatomic, copy, nullable) NSString *accountType;
 
 @end
 
 
 /**
- *  A partner link between an owning account and a partner account.
+ *  GTLRDataManager_PartnerLink
  */
 @interface GTLRDataManager_PartnerLink : GTLRObject
 
 /**
- *  Optional. Immutable. The set of features supported for the partner link. If
- *  not specified, the system behavior defaults to
- *  FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT.
+ *  featureSet
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAdEventManagement
- *        Indicates a link used for ad event management. (Value:
- *        "FEATURE_SET_AD_EVENT_MANAGEMENT")
+ *        Value "FEATURE_SET_AD_EVENT_MANAGEMENT"
  *    @arg @c kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetAudienceAndEventManagement
- *        Indicates a link used for audience and event management. (Value:
- *        "FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT")
+ *        Value "FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT"
  *    @arg @c kGTLRDataManager_PartnerLink_FeatureSet_FeatureSetUnspecified
- *        Unspecified feature set. If unspecified, the system behavior defaults
- *        to FEATURE_SET_AUDIENCE_AND_EVENT_MANAGEMENT. (Value:
- *        "FEATURE_SET_UNSPECIFIED")
+ *        Value "FEATURE_SET_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *featureSet;
 
-/**
- *  Identifier. The name of the partner link. Format:
- *  accountTypes/{account_type}/accounts/{account}/partnerLinks/{partner_link}
- */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. The owning account granting access to the partner account. */
 @property(nonatomic, strong, nullable) GTLRDataManager_ProductAccount *owningAccount;
-
-/** Required. The partner account granted access by the owning account. */
 @property(nonatomic, strong, nullable) GTLRDataManager_ProductAccount *partnerAccount;
-
-/**
- *  Optional. The customer account in the partner system. This is required for
- *  partner links with the FEATURE_SET_AD_EVENT_MANAGEMENT feature set.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_PartnerCustomerAccount *partnerCustomerAccount;
-
-/** Output only. The partner link ID. */
 @property(nonatomic, copy, nullable) NSString *partnerLinkId;
-
-/**
- *  Optional. Metadata associated with the partner link. This is optional and
- *  only accepted for partner links with the FEATURE_SET_AD_EVENT_MANAGEMENT.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_PartnerLinkMetadata *partnerLinkMetadata;
 
 @end
 
 
 /**
- *  Represents metadata associated with a partner link.
+ *  GTLRDataManager_PartnerLinkMetadata
  */
 @interface GTLRDataManager_PartnerLinkMetadata : GTLRObject
 
-/** Optional. The list of implicit accounts. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_PartnerCustomerAccount *> *implicitAccounts;
 
 @end
 
 
 /**
- *  Partner-provided data holding the partner-provided identifiers. At least one
- *  partner-provided identifier is required.
+ *  GTLRDataManager_PartnerProvidedIdData
  */
 @interface GTLRDataManager_PartnerProvidedIdData : GTLRObject
 
-/** Required. The list of partner-provided identifiers. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *partnerProvidedIds;
 
 @end
 
 
 /**
- *  Publisher provided identifiers data holding the ppids. At least one ppid is
- *  required. This feature is only available to data partners.
+ *  GTLRDataManager_PpidData
  */
 @interface GTLRDataManager_PpidData : GTLRObject
 
-/** Required. The list of publisher provided identifiers for a user. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ppids;
 
 @end
 
 
 /**
- *  Represents a specific account.
+ *  GTLRDataManager_ProductAccount
  */
 @interface GTLRDataManager_ProductAccount : GTLRObject
 
-/**
- *  Required. The ID of the account. For example, your Google Ads account ID.
- */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  Required. The type of the account. For example, `GOOGLE_ADS`. Either
- *  `account_type` or the deprecated `product` is required. If both are set, the
- *  values must match.
+ *  accountType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_AccountTypeUnspecified
- *        Unspecified product. Should never be used. (Value:
- *        "ACCOUNT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_ProductAccount_AccountType_DataPartner Data
- *        Partner. (Value: "DATA_PARTNER")
+ *        Value "ACCOUNT_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_ProductAccount_AccountType_DataPartner Value
+ *        "DATA_PARTNER"
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_DisplayVideoAdvertiser
- *        Display & Video 360 advertiser. (Value: "DISPLAY_VIDEO_ADVERTISER")
+ *        Value "DISPLAY_VIDEO_ADVERTISER"
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_DisplayVideoPartner
- *        Display & Video 360 partner. (Value: "DISPLAY_VIDEO_PARTNER")
- *    @arg @c kGTLRDataManager_ProductAccount_AccountType_FloodlightConfig
- *        Floodlight configuration. (Value: "FLOODLIGHT_CONFIG")
+ *        Value "DISPLAY_VIDEO_PARTNER"
+ *    @arg @c kGTLRDataManager_ProductAccount_AccountType_FloodlightConfig Value
+ *        "FLOODLIGHT_CONFIG"
+ *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAdManager Value
+ *        "GOOGLE_AD_MANAGER"
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAdManagerAudienceLink
- *        Google Ad Manager audience link. (Value:
- *        "GOOGLE_AD_MANAGER_AUDIENCE_LINK")
- *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAds Google Ads.
- *        (Value: "GOOGLE_ADS")
+ *        Value "GOOGLE_AD_MANAGER_AUDIENCE_LINK"
+ *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAds Value
+ *        "GOOGLE_ADS"
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAnalyticsProperty
- *        Google Analytics. (Value: "GOOGLE_ANALYTICS_PROPERTY")
+ *        Value "GOOGLE_ANALYTICS_PROPERTY"
  */
 @property(nonatomic, copy, nullable) NSString *accountType;
 
 /**
- *  Deprecated. Use `account_type` instead.
+ *  product
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_ProductAccount_Product_DataPartner Data Partner.
- *        (Value: "DATA_PARTNER")
+ *    @arg @c kGTLRDataManager_ProductAccount_Product_DataPartner Value
+ *        "DATA_PARTNER"
  *    @arg @c kGTLRDataManager_ProductAccount_Product_DisplayVideoAdvertiser
- *        Display & Video 360 advertiser. (Value: "DISPLAY_VIDEO_ADVERTISER")
- *    @arg @c kGTLRDataManager_ProductAccount_Product_DisplayVideoPartner
- *        Display & Video 360 partner. (Value: "DISPLAY_VIDEO_PARTNER")
- *    @arg @c kGTLRDataManager_ProductAccount_Product_GoogleAds Google Ads.
- *        (Value: "GOOGLE_ADS")
- *    @arg @c kGTLRDataManager_ProductAccount_Product_ProductUnspecified
- *        Unspecified product. Should never be used. (Value:
- *        "PRODUCT_UNSPECIFIED")
+ *        Value "DISPLAY_VIDEO_ADVERTISER"
+ *    @arg @c kGTLRDataManager_ProductAccount_Product_DisplayVideoPartner Value
+ *        "DISPLAY_VIDEO_PARTNER"
+ *    @arg @c kGTLRDataManager_ProductAccount_Product_GoogleAds Value
+ *        "GOOGLE_ADS"
+ *    @arg @c kGTLRDataManager_ProductAccount_Product_ProductUnspecified Value
+ *        "PRODUCT_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *product GTLR_DEPRECATED;
 
@@ -5118,35 +2936,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Additional information when `PSEUDONYMOUS_ID` is one of the
- *  `upload_key_types`.
+ *  GTLRDataManager_PseudonymousIdInfo
  */
 @interface GTLRDataManager_PseudonymousIdInfo : GTLRObject
 
 /**
- *  Optional. Immutable. The number of billable records (e.g. uploaded or
- *  matched).
+ *  billableRecordCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *billableRecordCount;
 
 /**
- *  Output only. Sync status of the user list.
+ *  syncStatus
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Created The user
- *        list has been created as a placeholder. List contents and/or metadata
- *        are still being synced. The user list is not ready for use. (Value:
- *        "CREATED")
- *    @arg @c kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Failed An error has
- *        occurred syncing user list contents and/or metadata. The user list
- *        cannot be used. (Value: "FAILED")
- *    @arg @c kGTLRDataManager_PseudonymousIdInfo_SyncStatus_ReadyForUse The
- *        user list is ready for use. Contents and cookies have been synced
- *        correctly. (Value: "READY_FOR_USE")
+ *    @arg @c kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Created Value
+ *        "CREATED"
+ *    @arg @c kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Failed Value
+ *        "FAILED"
+ *    @arg @c kGTLRDataManager_PseudonymousIdInfo_SyncStatus_ReadyForUse Value
+ *        "READY_FOR_USE"
  *    @arg @c kGTLRDataManager_PseudonymousIdInfo_SyncStatus_SyncStatusUnspecified
- *        Not specified. (Value: "SYNC_STATUS_UNSPECIFIED")
+ *        Value "SYNC_STATUS_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *syncStatus;
 
@@ -5154,24 +2966,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Request to remove all users from an audience in the provided destinations.
- *  Returns a RemoveAllAudienceMembersResponse.
+ *  GTLRDataManager_RemoveAllAudienceMembersRequest
  */
 @interface GTLRDataManager_RemoveAllAudienceMembersRequest : GTLRObject
 
-/** Required. The list of destinations to remove the users from. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Destination *> *destinations;
-
-/**
- *  Optional. The remove as of time. If set, only audience members last added
- *  before this time will be removed. If not set, it defaults to current time.
- *  The remove as of time must not be in the future.
- */
 @property(nonatomic, strong, nullable) GTLRDateTime *removeAsOfTime;
 
 /**
- *  Optional. For testing purposes. If `true`, the request is validated but not
- *  executed. Only errors are returned, not results.
+ *  validateOnly
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5181,61 +2984,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response from the RemoveAllAudienceMembersRequest.
+ *  GTLRDataManager_RemoveAllAudienceMembersResponse
  */
 @interface GTLRDataManager_RemoveAllAudienceMembersResponse : GTLRObject
 
-/** The auto-generated ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
 
 /**
- *  The status of the remove all audience members request.
+ *  GTLRDataManager_RemoveAllAudienceMembersStatus
  */
 @interface GTLRDataManager_RemoveAllAudienceMembersStatus : GTLRObject
 @end
 
 
 /**
- *  Request to remove users from an audience in the provided destinations.
- *  Returns a RemoveAudienceMembersResponse.
+ *  GTLRDataManager_RemoveAudienceMembersRequest
  */
 @interface GTLRDataManager_RemoveAudienceMembersRequest : GTLRObject
 
-/** Required. The list of users to remove. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_AudienceMember *> *audienceMembers;
-
-/** Required. The list of destinations to remove the users from. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Destination *> *destinations;
 
 /**
- *  Optional. Required for UserData uploads. The encoding type of the user
- *  identifiers. Applies to only the outer encoding for encrypted user
- *  identifiers. For non `UserData` uploads, this field is ignored.
+ *  encoding
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_Base64 Base
- *        64 encoding. (Value: "BASE64")
+ *    @arg @c kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_Base64
+ *        Value "BASE64"
  *    @arg @c kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_EncodingUnspecified
- *        Unspecified Encoding type. Should never be used. (Value:
- *        "ENCODING_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_Hex Hex
- *        encoding. (Value: "HEX")
+ *        Value "ENCODING_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_Hex Value
+ *        "HEX"
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
-/**
- *  Optional. Encryption information for UserData uploads. If not set, it's
- *  assumed that uploaded identifying information is hashed but not encrypted.
- *  For non `UserData` uploads, this field is ignored.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
 
 /**
- *  Optional. For testing purposes. If `true`, the request is validated but not
- *  executed. Only errors are returned, not results.
+ *  validateOnly
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5245,66 +3034,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Response from the RemoveAudienceMembersRequest.
+ *  GTLRDataManager_RemoveAudienceMembersResponse
  */
 @interface GTLRDataManager_RemoveAudienceMembersResponse : GTLRObject
 
-/** The auto-generated ID of the request. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
 
 /**
- *  The status of the remove audience members request.
+ *  GTLRDataManager_RemoveAudienceMembersStatus
  */
 @interface GTLRDataManager_RemoveAudienceMembersStatus : GTLRObject
 
-/** The status of the composite data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveCompositeDataStatus *compositeDataRemovalStatus;
-
-/** The status of the google user id data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveGoogleUserIdDataStatus *googleUserIdDataRemovalStatus;
-
-/** The status of the mobile data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveMobileDataStatus *mobileDataRemovalStatus;
-
-/** The status of the pair data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemovePairDataStatus *pairDataRemovalStatus;
-
-/**
- *  The status of the partner provided id data removal from the destination.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemovePartnerProvidedIdDataStatus *partnerProvidedIdDataRemovalStatus;
-
-/** The status of the ppid data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemovePpidDataStatus *ppidDataRemovalStatus;
-
-/** The status of the user data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveUserDataStatus *userDataRemovalStatus;
-
-/** The status of the user id data removal from the destination. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveUserIdDataStatus *userIdDataRemovalStatus;
 
 @end
 
 
 /**
- *  The status of the composite data removal from the destination.
+ *  GTLRDataManager_RemoveCompositeDataStatus
  */
 @interface GTLRDataManager_RemoveCompositeDataStatus : GTLRObject
 
-/**
- *  The total count of data types sent in the removal request, broken down by
- *  data type. Includes all data types in the request, regardless of whether
- *  they were successfully removed or not.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_DataTypeCount *> *dataTypeCounts;
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5314,23 +3078,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the google user id data removal from the destination.
+ *  GTLRDataManager_RemoveGoogleUserIdDataStatus
  */
 @interface GTLRDataManager_RemoveGoogleUserIdDataStatus : GTLRObject
 
 /**
- *  The total count of google user ids sent in the removal request. Includes all
- *  google user ids in the request, regardless of whether they were successfully
- *  removed or not.
+ *  googleUserIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *googleUserIdCount;
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5340,23 +3100,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the mobile data removal from the destination.
+ *  GTLRDataManager_RemoveMobileDataStatus
  */
 @interface GTLRDataManager_RemoveMobileDataStatus : GTLRObject
 
 /**
- *  The total count of mobile Ids sent in the removal request. Includes all
- *  mobile ids in the request, regardless of whether they were successfully
- *  removed or not.
+ *  mobileIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mobileIdCount;
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5366,23 +3122,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the pair data removal from the destination.
+ *  GTLRDataManager_RemovePairDataStatus
  */
 @interface GTLRDataManager_RemovePairDataStatus : GTLRObject
 
 /**
- *  The total count of pair ids sent in the removal request. Includes all pair
- *  ids in the request, regardless of whether they were successfully removed or
- *  not.
+ *  pairIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pairIdCount;
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5392,23 +3144,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the partner provided id data removal from the destination.
+ *  GTLRDataManager_RemovePartnerProvidedIdDataStatus
  */
 @interface GTLRDataManager_RemovePartnerProvidedIdDataStatus : GTLRObject
 
 /**
- *  The total count of partner provided ids sent in the removal request.
- *  Includes all partner provided ids in the request, regardless of whether they
- *  were successfully removed or not.
+ *  partnerProvidedIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *partnerProvidedIdCount;
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5418,22 +3166,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the ppid data removal from the destination.
+ *  GTLRDataManager_RemovePpidDataStatus
  */
 @interface GTLRDataManager_RemovePpidDataStatus : GTLRObject
 
 /**
- *  The total count of ppids sent in the removal request. Includes all ppids in
- *  the request, regardless of whether they were successfully removed or not.
+ *  ppidCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ppidCount;
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5443,23 +3188,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the user data removal from the destination.
+ *  GTLRDataManager_RemoveUserDataStatus
  */
 @interface GTLRDataManager_RemoveUserDataStatus : GTLRObject
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recordCount;
 
 /**
- *  The total count of user identifiers sent in the removal request. Includes
- *  all user identifiers in the request, regardless of whether they were
- *  successfully removed or not.
+ *  userIdentifierCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5469,23 +3210,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The status of the user id data removal from the destination.
+ *  GTLRDataManager_RemoveUserIdDataStatus
  */
 @interface GTLRDataManager_RemoveUserIdDataStatus : GTLRObject
 
 /**
- *  The total count of audience members sent in the removal request. Includes
- *  all audience members in the request, regardless of whether they were
- *  successfully removed or not.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recordCount;
 
 /**
- *  The total count of user ids sent in the removal request. Includes all user
- *  ids in the request, regardless of whether they were successfully removed or
- *  not.
+ *  userIdCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5495,107 +3232,113 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  A request status per destination.
+ *  GTLRDataManager_RemoveUsersRequest
+ */
+@interface GTLRDataManager_RemoveUsersRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Destination *> *destinations;
+
+/**
+ *  encoding
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_RemoveUsersRequest_Encoding_Base64 Value "BASE64"
+ *    @arg @c kGTLRDataManager_RemoveUsersRequest_Encoding_EncodingUnspecified
+ *        Value "ENCODING_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_RemoveUsersRequest_Encoding_Hex Value "HEX"
+ */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+@property(nonatomic, strong, nullable) GTLRDataManager_EncryptionInfo *encryptionInfo;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_UserData *> *userData;
+
+/**
+ *  validateOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  GTLRDataManager_RemoveUsersResponse
+ */
+@interface GTLRDataManager_RemoveUsersResponse : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  GTLRDataManager_RequestStatusPerDestination
  */
 @interface GTLRDataManager_RequestStatusPerDestination : GTLRObject
 
-/** The status of the ingest audience members request. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestAudienceMembersStatus *audienceMembersIngestionStatus;
-
-/** The status of the remove audience members request. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveAudienceMembersStatus *audienceMembersRemovalStatus;
-
-/** A destination within a DM API request. */
 @property(nonatomic, strong, nullable) GTLRDataManager_Destination *destination;
-
-/**
- *  An error info error containing the error reason and error counts related to
- *  the upload. Only populated if the `request_status` is `FAILED` or
- *  `PARTIAL_SUCCESS`. This field isn't populated while the request has
- *  `request_status` of `PROCESSING`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_ErrorInfo *errorInfo;
-
-/** The status of the ingest events request. */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestEventsStatus *eventsIngestionStatus;
-
-/** The status of the remove all audience members request. */
 @property(nonatomic, strong, nullable) GTLRDataManager_RemoveAllAudienceMembersStatus *removeAllAudienceMembersStatus;
 
 /**
- *  The request status of the destination.
+ *  requestStatus
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Failed
- *        Processing failed for all records. Check the `error_info` field for
- *        error details, and check the `warning_info` field for warning details.
- *        (Value: "FAILED")
+ *        Value "FAILED"
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_PartialSuccess
- *        Processing completed successfully without errors for some records, but
- *        failed with errors for other records. Check the `error_info` field for
- *        error details, and check the `warning_info` field for warning details.
- *        (Value: "PARTIAL_SUCCESS")
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Processing
- *        The request is processing. (Value: "PROCESSING")
+ *        Value "PROCESSING"
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_RequestStatusUnknown
- *        The request status is unknown. (Value: "REQUEST_STATUS_UNKNOWN")
+ *        Value "REQUEST_STATUS_UNKNOWN"
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Success
- *        Processing succeeded for all records without any errors. However,
- *        there may be warnings in the `warning_info` field. (Value: "SUCCESS")
+ *        Value "SUCCESS"
  */
 @property(nonatomic, copy, nullable) NSString *requestStatus;
 
-/**
- *  A warning info containing the warning reason and warning counts related to
- *  the upload. This field isn't populated while the request has
- *  `request_status` of `PROCESSING`.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_WarningInfo *warningInfo;
 
 @end
 
 
 /**
- *  Request message for DM API MarketingDataInsightsService.RetrieveInsights
+ *  GTLRDataManager_RetrieveInsightsRequest
  */
 @interface GTLRDataManager_RetrieveInsightsRequest : GTLRObject
 
-/** Required. Baseline for the insights requested. */
 @property(nonatomic, strong, nullable) GTLRDataManager_Baseline *baseline;
-
-/** Required. The user list ID for which insights are requested. */
 @property(nonatomic, copy, nullable) NSString *userListId;
 
 @end
 
 
 /**
- *  Response message for DM API MarketingDataInsightsService.RetrieveInsights
+ *  GTLRDataManager_RetrieveInsightsResponse
  */
 @interface GTLRDataManager_RetrieveInsightsResponse : GTLRObject
 
-/** Contains the insights for the marketing data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_MarketingDataInsight *> *marketingDataInsights;
 
 @end
 
 
 /**
- *  Response from the RetrieveRequestStatusRequest.
+ *  GTLRDataManager_RetrieveRequestStatusResponse
  */
 @interface GTLRDataManager_RetrieveRequestStatusResponse : GTLRObject
 
-/**
- *  A list of request statuses per destination. The order of the statuses
- *  matches the order of the destinations in the original request.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_RequestStatusPerDestination *> *requestStatusPerDestination;
 
 @end
 
 
 /**
- *  Response from the SearchPartnerLinksRequest.
+ *  GTLRDataManager_SearchPartnerLinksResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "partnerLinks" property. If returned as the result of a query, it
@@ -5604,14 +3347,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_SearchPartnerLinksResponse : GTLRCollectionObject
 
-/**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
- */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The partner links for the given account.
+ *  partnerLinks
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -5622,35 +3361,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Estimated number of members in this user list in different target networks.
+ *  GTLRDataManager_SizeInfo
  */
 @interface GTLRDataManager_SizeInfo : GTLRObject
 
 /**
- *  Output only. Estimated number of members in this user list, on the Google
- *  Display Network.
+ *  displayNetworkMembersCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *displayNetworkMembersCount;
 
 /**
- *  Output only. Estimated number of members in this user list on Gmail.
+ *  gmailMembersCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *gmailMembersCount;
 
 /**
- *  Output only. Estimated number of members in this user list in the google.com
- *  domain. These are the members available for targeting in Search campaigns.
+ *  searchNetworkMembersCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *searchNetworkMembersCount;
 
 /**
- *  Output only. Estimated number of members in this user list on YouTube.
+ *  youtubeMembersCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5660,33 +3397,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The `Status` type defines a logical error model that is suitable for
- *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details. You can
- *  find out more about this error model and how to work with it in the [API
- *  Design Guide](https://cloud.google.com/apis/design/errors).
+ *  GTLRDataManager_Status
  */
 @interface GTLRDataManager_Status : GTLRObject
 
 /**
- *  The status code, which should be an enum value of google.rpc.Code.
+ *  code
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *code;
 
-/**
- *  A list of messages that carry the error details. There is a common set of
- *  message types for APIs to use.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_Status_Details_Item *> *details;
-
-/**
- *  A developer-facing error message, which should be in English. Any
- *  user-facing error message should be localized and sent in the
- *  google.rpc.Status.details field, or localized by the client.
- */
 @property(nonatomic, copy, nullable) NSString *message;
 
 @end
@@ -5705,20 +3427,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Eligibility information for different target networks.
+ *  GTLRDataManager_TargetNetworkInfo
  */
 @interface GTLRDataManager_TargetNetworkInfo : GTLRObject
 
 /**
- *  Output only. Indicates this user list is eligible for Google Display
- *  Network.
+ *  eligibleForDisplay
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *eligibleForDisplay;
 
 /**
- *  Optional. Indicates if this user list is eligible for Google Search Network.
+ *  eligibleForSearch
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5728,25 +3449,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The terms of service that the user has accepted/rejected.
+ *  GTLRDataManager_TermsOfService
  */
 @interface GTLRDataManager_TermsOfService : GTLRObject
 
 /**
- *  Optional. The Customer Match terms of service:
- *  https://support.google.com/adspolicy/answer/6299717. This must be accepted
- *  when ingesting UserData or MobileData. This field is not required for
- *  Partner Match User list.
+ *  customerMatchTermsOfServiceStatus
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_Accepted
- *        Status indicating the caller has chosen to accept the terms of
- *        service. (Value: "ACCEPTED")
+ *        Value "ACCEPTED"
  *    @arg @c kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_Rejected
- *        Status indicating the caller has chosen to reject the terms of
- *        service. (Value: "REJECTED")
+ *        Value "REJECTED"
  *    @arg @c kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_TermsOfServiceStatusUnspecified
- *        Not specified. (Value: "TERMS_OF_SERVICE_STATUS_UNSPECIFIED")
+ *        Value "TERMS_OF_SERVICE_STATUS_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *customerMatchTermsOfServiceStatus;
 
@@ -5754,79 +3470,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Data that identifies the user. At least one identifier is required.
+ *  GTLRDataManager_User
+ */
+@interface GTLRDataManager_User : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataManager_MobileData *mobileData;
+@property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
+
+@end
+
+
+/**
+ *  GTLRDataManager_UserData
  */
 @interface GTLRDataManager_UserData : GTLRObject
 
-/**
- *  Required. The identifiers for the user. It's possible to provide multiple
- *  instances of the same type of data (for example, multiple email addresses).
- *  To increase the likelihood of a match, provide as many identifiers as
- *  possible. At most 10 `userIdentifiers` can be provided in a single
- *  AudienceMember or Event.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_UserIdentifier *> *userIdentifiers;
 
 @end
 
 
 /**
- *  User id data holding the user id.
+ *  GTLRDataManager_UserIdData
  */
 @interface GTLRDataManager_UserIdData : GTLRObject
 
-/** Required. A unique identifier for a user, as defined by the advertiser. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
 
 /**
- *  A single identifier for the user.
+ *  GTLRDataManager_UserIdentifier
  */
 @interface GTLRDataManager_UserIdentifier : GTLRObject
 
-/**
- *  The known components of a user's address. Holds a grouping of identifiers
- *  that are matched all at once.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_AddressInfo *address;
-
-/** Hashed email address using SHA-256 hash function after normalization. */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
-
-/**
- *  Hashed phone number using SHA-256 hash function after normalization (E164
- *  standard).
- */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 @end
 
 
 /**
- *  Additional information when `USER_ID` is one of the `upload_key_types`.
+ *  GTLRDataManager_UserIdInfo
  */
 @interface GTLRDataManager_UserIdInfo : GTLRObject
 
 /**
- *  Optional. Immutable. Source of the upload data.
+ *  dataSourceType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeFirstParty
- *        The uploaded data is first-party data. (Value:
- *        "DATA_SOURCE_TYPE_FIRST_PARTY")
+ *        Value "DATA_SOURCE_TYPE_FIRST_PARTY"
  *    @arg @c kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau
- *        The uploaded data is from a third-party credit bureau. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU"
  *    @arg @c kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData
- *        The uploaded data is third party partner data. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA"
  *    @arg @c kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile
- *        The uploaded data is from a third-party voter file. (Value:
- *        "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE")
+ *        Value "DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE"
  *    @arg @c kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeUnspecified
- *        Not specified. (Value: "DATA_SOURCE_TYPE_UNSPECIFIED")
+ *        Value "DATA_SOURCE_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceType;
 
@@ -5834,69 +3538,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  A user list resource.
+ *  GTLRDataManager_UserList
  */
 @interface GTLRDataManager_UserList : GTLRObject
 
 /**
- *  Output only. The reason this account has been granted access to the list.
+ *  accessReason
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_UserList_AccessReason_AccessReasonUnspecified Not
- *        specified. (Value: "ACCESS_REASON_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_UserList_AccessReason_Affiliated The resource is
- *        accessible to the user. (Value: "AFFILIATED")
- *    @arg @c kGTLRDataManager_UserList_AccessReason_Licensed The resource is
- *        licensed to the user. (Value: "LICENSED")
- *    @arg @c kGTLRDataManager_UserList_AccessReason_Owned The resource is owned
- *        by the user. (Value: "OWNED")
- *    @arg @c kGTLRDataManager_UserList_AccessReason_Shared The resource is
- *        shared to the user. (Value: "SHARED")
- *    @arg @c kGTLRDataManager_UserList_AccessReason_Subscribed The user
- *        subscribed to the resource. (Value: "SUBSCRIBED")
+ *    @arg @c kGTLRDataManager_UserList_AccessReason_AccessReasonUnspecified
+ *        Value "ACCESS_REASON_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_UserList_AccessReason_Affiliated Value
+ *        "AFFILIATED"
+ *    @arg @c kGTLRDataManager_UserList_AccessReason_Licensed Value "LICENSED"
+ *    @arg @c kGTLRDataManager_UserList_AccessReason_Owned Value "OWNED"
+ *    @arg @c kGTLRDataManager_UserList_AccessReason_Shared Value "SHARED"
+ *    @arg @c kGTLRDataManager_UserList_AccessReason_Subscribed Value
+ *        "SUBSCRIBED"
  */
 @property(nonatomic, copy, nullable) NSString *accessReason;
 
 /**
- *  Optional. Indicates if this share is still enabled. When a user list is
- *  shared with the account this field is set to `ENABLED`. Later the user list
- *  owner can decide to revoke the share and make it `DISABLED`.
+ *  accountAccessStatus
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserList_AccountAccessStatus_AccessStatusUnspecified
- *        Not specified. (Value: "ACCESS_STATUS_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_UserList_AccountAccessStatus_Disabled The access
- *        is disabled. (Value: "DISABLED")
- *    @arg @c kGTLRDataManager_UserList_AccountAccessStatus_Enabled The access
- *        is enabled. (Value: "ENABLED")
+ *        Value "ACCESS_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_UserList_AccountAccessStatus_Disabled Value
+ *        "DISABLED"
+ *    @arg @c kGTLRDataManager_UserList_AccountAccessStatus_Enabled Value
+ *        "ENABLED"
  */
 @property(nonatomic, copy, nullable) NSString *accountAccessStatus;
 
 /**
- *  Output only. The reason why this user list membership status is closed.
+ *  closingReason
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserList_ClosingReason_ClosingReasonUnspecified
- *        Not specified. (Value: "CLOSING_REASON_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_UserList_ClosingReason_Unused The user list was
- *        closed because it has not been used in targeting recently. See
- *        https://support.google.com/google-ads/answer/2472738 for details.
- *        (Value: "UNUSED")
+ *        Value "CLOSING_REASON_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_UserList_ClosingReason_Unused Value "UNUSED"
  */
 @property(nonatomic, copy, nullable) NSString *closingReason;
 
 /**
- *  Optional. A description of the user list.
+ *  descriptionProperty
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Required. The display name of the user list. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. The unique ID of the user list.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -5904,143 +3599,90 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/**
- *  Optional. Represents a user list that is populated by user ingested data.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_IngestedUserListInfo *ingestedUserListInfo;
-
-/**
- *  Optional. An ID from external system. It is used by user list sellers to
- *  correlate IDs on their systems.
- */
 @property(nonatomic, copy, nullable) NSString *integrationCode;
-
-/**
- *  Optional. The duration a user remains in the user list. Valid durations are
- *  exact multiples of 24 hours (86400 seconds). Providing a value that is not
- *  an exact multiple of 24 hours will result in an INVALID_ARGUMENT error.
- */
 @property(nonatomic, strong, nullable) GTLRDuration *membershipDuration;
 
 /**
- *  Optional. Membership status of this user list.
+ *  membershipStatus
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_UserList_MembershipStatus_Closed Closed status -
- *        No new members being added. (Value: "CLOSED")
+ *    @arg @c kGTLRDataManager_UserList_MembershipStatus_Closed Value "CLOSED"
  *    @arg @c kGTLRDataManager_UserList_MembershipStatus_MembershipStatusUnspecified
- *        Not specified. (Value: "MEMBERSHIP_STATUS_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_UserList_MembershipStatus_Open Open status - User
- *        list is accruing members and can be targeted to. (Value: "OPEN")
+ *        Value "MEMBERSHIP_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_UserList_MembershipStatus_Open Value "OPEN"
  */
 @property(nonatomic, copy, nullable) NSString *membershipStatus;
 
-/**
- *  Identifier. The resource name of the user list. Format:
- *  accountTypes/{account_type}/accounts/{account}/userLists/{user_list}
- */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. An option that indicates if a user may edit a list.
+ *  readOnly
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *readOnly;
 
-/**
- *  Output only. Estimated number of members in this user list in different
- *  target networks.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_SizeInfo *sizeInfo;
-
-/** Optional. Eligibility information for different target networks. */
 @property(nonatomic, strong, nullable) GTLRDataManager_TargetNetworkInfo *targetNetworkInfo;
 
 @end
 
 
 /**
- *  A user list direct license. This feature is only available to data partners.
+ *  GTLRDataManager_UserListDirectLicense
  */
 @interface GTLRDataManager_UserListDirectLicense : GTLRObject
 
-/**
- *  Output only. Name of client customer which the user list is being licensed
- *  to. This field is read-only.
- */
 @property(nonatomic, copy, nullable) NSString *clientAccountDisplayName;
 
 /**
- *  Immutable. ID of client customer which the user list is being licensed to.
+ *  clientAccountId
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clientAccountId;
 
 /**
- *  Immutable. Account type of client customer which the user list is being
- *  licensed to.
+ *  clientAccountType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoAdvertiser
- *        Display & Video 360 advertiser. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER"
  *    @arg @c kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoPartner
- *        Display & Video 360 partner. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER"
  *    @arg @c kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeGoogleAdManagerAudienceLink
- *        Google Ad Manager audience link. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK")
+ *        Value
+ *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK"
  *    @arg @c kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeGoogleAds
- *        Google Ads customer. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS"
  *    @arg @c kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeUnknown
- *        Unknown. (Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *clientAccountType;
 
-/**
- *  Output only. Pricing history of this user list license. This field is
- *  read-only.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_UserListLicensePricing *> *historicalPricings;
-
-/**
- *  Output only. Metrics related to this license This field is read-only and
- *  only populated if the start and end dates are set in the
- *  ListUserListDirectLicenses call
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserListLicenseMetrics *metrics;
-
-/** Identifier. The resource name of the user list direct license. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** Optional. UserListDirectLicense pricing. */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserListLicensePricing *pricing;
 
 /**
- *  Optional. Status of UserListDirectLicense - ENABLED or DISABLED.
+ *  status
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusDisabled
- *        Inactive status - user list is no longer being licensed. (Value:
- *        "USER_LIST_LICENSE_STATUS_DISABLED")
+ *        Value "USER_LIST_LICENSE_STATUS_DISABLED"
  *    @arg @c kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusEnabled
- *        Active status - user list is still being licensed. (Value:
- *        "USER_LIST_LICENSE_STATUS_ENABLED")
+ *        Value "USER_LIST_LICENSE_STATUS_ENABLED"
  *    @arg @c kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusUnspecified
- *        Unknown. (Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED")
+ *        Value "USER_LIST_LICENSE_STATUS_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/**
- *  Output only. Name of the user list being licensed. This field is read-only.
- */
 @property(nonatomic, copy, nullable) NSString *userListDisplayName;
 
 /**
- *  Immutable. ID of the user list being licensed.
+ *  userListId
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6050,69 +3692,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  A user list global license. This feature is only available to data partners.
+ *  GTLRDataManager_UserListGlobalLicense
  */
 @interface GTLRDataManager_UserListGlobalLicense : GTLRObject
 
-/**
- *  Output only. Pricing history of this user list license. This field is
- *  read-only.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_UserListLicensePricing *> *historicalPricings;
 
 /**
- *  Immutable. Product type of client customer which the user list is being
- *  licensed to.
+ *  licenseType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeDataMartBuySide
- *        DataMart Buy Side license. (Value:
- *        "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE"
  *    @arg @c kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeDataMartSellSide
- *        DataMart Sell Side license. (Value:
- *        "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE"
  *    @arg @c kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeReseller
- *        Reseller license. (Value: "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER"
  *    @arg @c kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeUnspecified
- *        UNSPECIFIED. (Value: "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *licenseType;
 
-/**
- *  Output only. Metrics related to this license This field is read-only and
- *  only populated if the start and end dates are set in the
- *  ListUserListGlobalLicenses call
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserListLicenseMetrics *metrics;
-
-/** Identifier. The resource name of the user list global license. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** Optional. UserListGlobalLicense pricing. */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserListLicensePricing *pricing;
 
 /**
- *  Optional. Status of UserListGlobalLicense - ENABLED or DISABLED.
+ *  status
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusDisabled
- *        Inactive status - user list is no longer being licensed. (Value:
- *        "USER_LIST_LICENSE_STATUS_DISABLED")
+ *        Value "USER_LIST_LICENSE_STATUS_DISABLED"
  *    @arg @c kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusEnabled
- *        Active status - user list is still being licensed. (Value:
- *        "USER_LIST_LICENSE_STATUS_ENABLED")
+ *        Value "USER_LIST_LICENSE_STATUS_ENABLED"
  *    @arg @c kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusUnspecified
- *        Unknown. (Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED")
+ *        Value "USER_LIST_LICENSE_STATUS_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/**
- *  Output only. Name of the user list being licensed. This field is read-only.
- */
 @property(nonatomic, copy, nullable) NSString *userListDisplayName;
 
 /**
- *  Immutable. ID of the user list being licensed.
+ *  userListId
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6122,101 +3743,75 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Information about a customer of a user list global license. This will
- *  automatically be created by the system when a customer purchases a global
- *  license.
+ *  GTLRDataManager_UserListGlobalLicenseCustomerInfo
  */
 @interface GTLRDataManager_UserListGlobalLicenseCustomerInfo : GTLRObject
 
-/**
- *  Output only. Name of client customer which the user list is being licensed
- *  to.
- */
 @property(nonatomic, copy, nullable) NSString *clientAccountDisplayName;
 
 /**
- *  Output only. ID of client customer which the user list is being licensed to.
+ *  clientAccountId
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clientAccountId;
 
 /**
- *  Output only. Product type of client customer which the user list is being
- *  licensed to.
+ *  clientAccountType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoAdvertiser
- *        Display & Video 360 advertiser. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoPartner
- *        Display & Video 360 partner. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeGoogleAdManagerAudienceLink
- *        Google Ad Manager audience link. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK")
+ *        Value
+ *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeGoogleAds
- *        Google Ads customer. (Value:
- *        "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeUnknown
- *        Unknown. (Value: "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN")
+ *        Value "USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *clientAccountType;
 
-/** Output only. Pricing history of this user list license. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_UserListLicensePricing *> *historicalPricings;
 
 /**
- *  Output only. Product type of client customer which the user list is being
- *  licensed to.
+ *  licenseType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeDataMartBuySide
- *        DataMart Buy Side license. (Value:
- *        "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeDataMartSellSide
- *        DataMart Sell Side license. (Value:
- *        "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeReseller
- *        Reseller license. (Value: "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeUnspecified
- *        UNSPECIFIED. (Value: "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED")
+ *        Value "USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *licenseType;
 
-/**
- *  Output only. Metrics related to this license This field is only populated if
- *  the start and end dates are set in the
- *  ListUserListGlobalLicenseCustomerInfos call.
- */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserListLicenseMetrics *metrics;
-
-/** Identifier. The resource name of the user list global license customer. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. UserListDirectLicense pricing. */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserListLicensePricing *pricing;
 
 /**
- *  Output only. Status of UserListDirectLicense - ENABLED or DISABLED.
+ *  status
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusDisabled
- *        Inactive status - user list is no longer being licensed. (Value:
- *        "USER_LIST_LICENSE_STATUS_DISABLED")
+ *        Value "USER_LIST_LICENSE_STATUS_DISABLED"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusEnabled
- *        Active status - user list is still being licensed. (Value:
- *        "USER_LIST_LICENSE_STATUS_ENABLED")
+ *        Value "USER_LIST_LICENSE_STATUS_ENABLED"
  *    @arg @c kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusUnspecified
- *        Unknown. (Value: "USER_LIST_LICENSE_STATUS_UNSPECIFIED")
+ *        Value "USER_LIST_LICENSE_STATUS_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** Output only. Name of the user list being licensed. */
 @property(nonatomic, copy, nullable) NSString *userListDisplayName;
 
 /**
- *  Output only. ID of the user list being licensed.
+ *  userListId
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6226,48 +3821,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Metrics related to a user list license.
+ *  GTLRDataManager_UserListLicenseMetrics
  */
 @interface GTLRDataManager_UserListLicenseMetrics : GTLRObject
 
 /**
- *  Output only. The number of clicks for the user list license.
+ *  clickCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clickCount;
 
 /**
- *  Output only. The end date (inclusive) of the metrics in the format YYYYMMDD.
- *  For example, 20260102 represents January 2, 2026. If `start_date` is used in
- *  the filter, `end_date` is also required. If neither `start_date` nor
- *  `end_date` are included in the filter, the UserListLicenseMetrics fields
- *  will not be populated in the response.
+ *  endDate
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endDate;
 
 /**
- *  Output only. The number of impressions for the user list license.
+ *  impressionCount
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *impressionCount;
 
 /**
- *  Output only. The revenue for the user list license in USD micros.
+ *  revenueUsdMicros
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *revenueUsdMicros;
 
 /**
- *  Output only. The start date (inclusive) of the metrics in the format
- *  YYYYMMDD. For example, 20260102 represents January 2, 2026. If `end_date` is
- *  used in the filter, `start_date` is also required. If neither `start_date`
- *  nor `end_date` are included in the filter, the UserListLicenseMetrics fields
- *  will not be populated in the response.
+ *  startDate
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6277,140 +3864,107 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  A user list license pricing.
+ *  GTLRDataManager_UserListLicensePricing
  */
 @interface GTLRDataManager_UserListLicensePricing : GTLRObject
 
 /**
- *  Output only. The buyer approval state of this pricing. This field is
- *  read-only.
+ *  buyerApprovalState
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Approved
- *        User list client has accepted the pricing terms set by the user list
- *        owner. (Value: "APPROVED")
+ *        Value "APPROVED"
  *    @arg @c kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Pending
- *        User list client has not yet accepted the pricing terms set by the
- *        user list owner. (Value: "PENDING")
+ *        Value "PENDING"
  *    @arg @c kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Rejected
- *        User list client has rejected the pricing terms set by the user list
- *        owner. (Value: "REJECTED")
+ *        Value "REJECTED"
  *    @arg @c kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_UserListPricingBuyerApprovalStateUnspecified
- *        UNSPECIFIED. (Value:
- *        "USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED")
+ *        Value "USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *buyerApprovalState;
 
 /**
- *  Optional. The cost associated with the model, in micro units (10^-6), in the
- *  currency specified by the currency_code field. For example, 2000000 means $2
- *  if `currency_code` is `USD`.
+ *  costMicros
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *costMicros;
 
 /**
- *  Immutable. The cost type of this pricing. Can be set only in the `create`
- *  operation. Can't be updated for an existing license.
+ *  costType
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_UserListLicensePricing_CostType_Cpc Cost per
- *        click. (Value: "CPC")
- *    @arg @c kGTLRDataManager_UserListLicensePricing_CostType_Cpm Cost per
- *        mille (thousand impressions). (Value: "CPM")
- *    @arg @c kGTLRDataManager_UserListLicensePricing_CostType_MediaShare Media
- *        share. (Value: "MEDIA_SHARE")
+ *    @arg @c kGTLRDataManager_UserListLicensePricing_CostType_Cpc Value "CPC"
+ *    @arg @c kGTLRDataManager_UserListLicensePricing_CostType_Cpm Value "CPM"
+ *    @arg @c kGTLRDataManager_UserListLicensePricing_CostType_MediaShare Value
+ *        "MEDIA_SHARE"
  *    @arg @c kGTLRDataManager_UserListLicensePricing_CostType_UserListPricingCostTypeUnspecified
- *        Unspecified. (Value: "USER_LIST_PRICING_COST_TYPE_UNSPECIFIED")
+ *        Value "USER_LIST_PRICING_COST_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *costType;
 
-/**
- *  Optional. The currency in which cost and max_cost is specified. Must be a
- *  three-letter currency code defined in ISO 4217.
- */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
-
-/** Optional. End time of the pricing. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Optional. The maximum CPM a commerce audience can be charged when the
- *  MEDIA_SHARE cost type is used. The value is in micro units (10^-6) and in
- *  the currency specified by the currency_code field. For example, 2000000
- *  means $2 if `currency_code` is `USD`. This is only relevant when cost_type
- *  is MEDIA_SHARE. When cost_type is not MEDIA_SHARE, and this field is set, a
- *  MAX_COST_NOT_ALLOWED error will be returned. If not set or set to`0`, there
- *  is no cap.
+ *  maxCostMicros
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxCostMicros;
 
 /**
- *  Output only. Whether this pricing is active.
+ *  pricingActive
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pricingActive;
 
 /**
- *  Output only. The ID of this pricing.
+ *  pricingId
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pricingId;
 
-/** Output only. Start time of the pricing. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
 
 /**
- *  Advertiser-assessed information about the user at the time that the event
- *  happened. See https://support.google.com/google-ads/answer/14007601 for more
- *  details.
+ *  GTLRDataManager_UserProperties
  */
 @interface GTLRDataManager_UserProperties : GTLRObject
 
-/**
- *  Optional. A bucket of any additional [user
- *  properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties)
- *  for the user associated with this event.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_UserProperty *> *additionalUserProperties;
 
 /**
- *  Optional. Type of the customer associated with the event.
+ *  customerType
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserProperties_CustomerType_CustomerTypeUnspecified
- *        Unspecified CustomerType. Should never be used. (Value:
- *        "CUSTOMER_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_UserProperties_CustomerType_New The customer is
- *        new to the advertiser. (Value: "NEW")
- *    @arg @c kGTLRDataManager_UserProperties_CustomerType_Reengaged The
- *        customer has re-engaged with the advertiser. (Value: "REENGAGED")
- *    @arg @c kGTLRDataManager_UserProperties_CustomerType_Returning The
- *        customer is returning to the advertiser. (Value: "RETURNING")
+ *        Value "CUSTOMER_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_UserProperties_CustomerType_New Value "NEW"
+ *    @arg @c kGTLRDataManager_UserProperties_CustomerType_Reengaged Value
+ *        "REENGAGED"
+ *    @arg @c kGTLRDataManager_UserProperties_CustomerType_Returning Value
+ *        "RETURNING"
  */
 @property(nonatomic, copy, nullable) NSString *customerType;
 
 /**
- *  Optional. The advertiser-assessed value of the customer.
+ *  customerValueBucket
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_UserProperties_CustomerValueBucket_CustomerValueBucketUnspecified
- *        Unspecified CustomerValueBucket. Should never be used. (Value:
- *        "CUSTOMER_VALUE_BUCKET_UNSPECIFIED")
- *    @arg @c kGTLRDataManager_UserProperties_CustomerValueBucket_High The
- *        customer is high value. (Value: "HIGH")
- *    @arg @c kGTLRDataManager_UserProperties_CustomerValueBucket_Low The
- *        customer is low value. (Value: "LOW")
- *    @arg @c kGTLRDataManager_UserProperties_CustomerValueBucket_Medium The
- *        customer is medium value. (Value: "MEDIUM")
+ *        Value "CUSTOMER_VALUE_BUCKET_UNSPECIFIED"
+ *    @arg @c kGTLRDataManager_UserProperties_CustomerValueBucket_High Value
+ *        "HIGH"
+ *    @arg @c kGTLRDataManager_UserProperties_CustomerValueBucket_Low Value
+ *        "LOW"
+ *    @arg @c kGTLRDataManager_UserProperties_CustomerValueBucket_Medium Value
+ *        "MEDIUM"
  */
 @property(nonatomic, copy, nullable) NSString *customerValueBucket;
 
@@ -6418,91 +3972,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  A bucket of any additional [user
- *  properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties)
- *  for the user associated with this event.
+ *  GTLRDataManager_UserProperty
  */
 @interface GTLRDataManager_UserProperty : GTLRObject
 
-/** Required. The name of the user property to use. */
 @property(nonatomic, copy, nullable) NSString *propertyName;
-
-/**
- *  Required. The string representation of the value of the user property to
- *  use.
- */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  Details of the viewability of the ad served.
+ *  GTLRDataManager_ViewabilityInfo
  */
 @interface GTLRDataManager_ViewabilityInfo : GTLRObject
 
-/** Optional. The duration of the ad media. */
 @property(nonatomic, strong, nullable) GTLRDuration *mediaDuration;
 
 /**
- *  Optional. The amount of the media that was played as discrete quartiles.
+ *  mediaQuartile
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileComplete
- *        Complete. (Value: "MEDIA_QUARTILE_COMPLETE")
+ *        Value "MEDIA_QUARTILE_COMPLETE"
  *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileFirstQuartile
- *        First quartile. (Value: "MEDIA_QUARTILE_FIRST_QUARTILE")
+ *        Value "MEDIA_QUARTILE_FIRST_QUARTILE"
  *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileMidpoint
- *        Midpoint. (Value: "MEDIA_QUARTILE_MIDPOINT")
+ *        Value "MEDIA_QUARTILE_MIDPOINT"
  *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileStart
- *        Start. (Value: "MEDIA_QUARTILE_START")
+ *        Value "MEDIA_QUARTILE_START"
  *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileThirdQuartile
- *        Third quartile. (Value: "MEDIA_QUARTILE_THIRD_QUARTILE")
+ *        Value "MEDIA_QUARTILE_THIRD_QUARTILE"
  *    @arg @c kGTLRDataManager_ViewabilityInfo_MediaQuartile_MediaQuartileUnspecified
- *        Unspecified media quartile. (Value: "MEDIA_QUARTILE_UNSPECIFIED")
+ *        Value "MEDIA_QUARTILE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *mediaQuartile;
 
 /**
- *  Optional. Whether the ad media was skippable or not.
+ *  mediaSkippable
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mediaSkippable;
 
 /**
- *  Optional. The numerical percent (0-100) of the volume of the media playback.
+ *  mediaVolumePercent
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mediaVolumePercent;
 
-/**
- *  Optional. The duration of playback of the ad media, regardless of whether it
- *  was viewable or not.
- */
 @property(nonatomic, strong, nullable) GTLRDuration *playbackDuration;
-
-/** Optional. The amount of time the ad was viewable for. */
 @property(nonatomic, strong, nullable) GTLRDuration *viewableDuration;
 
 /**
- *  Optional. The numerical percent (0-100) of the pixels that were viewable.
+ *  viewablePercent
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *viewablePercent;
 
 /**
- *  Required. The type of the event.
+ *  viewType
  *
  *  Likely values:
- *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcRendered MRC
- *        rendered. (Value: "VIEW_TYPE_MRC_RENDERED")
- *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcViewed MRC
- *        viewed. (Value: "VIEW_TYPE_MRC_VIEWED")
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcRendered
+ *        Value "VIEW_TYPE_MRC_RENDERED"
+ *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeMrcViewed Value
+ *        "VIEW_TYPE_MRC_VIEWED"
  *    @arg @c kGTLRDataManager_ViewabilityInfo_ViewType_ViewTypeUnspecified
- *        Unspecified view type. (Value: "VIEW_TYPE_UNSPECIFIED")
+ *        Value "VIEW_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *viewType;
 
@@ -6510,48 +4049,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  The warning count for a given warning reason.
+ *  GTLRDataManager_WarningCount
  */
 @interface GTLRDataManager_WarningCount : GTLRObject
 
 /**
- *  The warning reason.
+ *  reason
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed
- *        The system failed to authenticate with AWS. (Value:
- *        "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED")
+ *        Value "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError
- *        The event has a decryption error. (Value:
- *        "PROCESSING_WARNING_REASON_DECRYPTION_ERROR")
+ *        Value "PROCESSING_WARNING_REASON_DECRYPTION_ERROR"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDekDecryptionError
- *        The DEK failed to be decrypted. (Value:
- *        "PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR")
+ *        Value "PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInternalError
- *        Internal error. (Value: "PROCESSING_WARNING_REASON_INTERNAL_ERROR")
+ *        Value "PROCESSING_WARNING_REASON_INTERNAL_ERROR"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInvalidKek
- *        The KEK cannot decrypt data because it is the wrong KEK, or it does
- *        not exist. (Value: "PROCESSING_WARNING_REASON_INVALID_KEK")
+ *        Value "PROCESSING_WARNING_REASON_INVALID_KEK"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInvalidWip
- *        The WIP is formatted incorrectly or the WIP does not exist. (Value:
- *        "PROCESSING_WARNING_REASON_INVALID_WIP")
+ *        Value "PROCESSING_WARNING_REASON_INVALID_WIP"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonKekPermissionDenied
- *        The system did not have the permissions needed to access the KEK.
- *        (Value: "PROCESSING_WARNING_REASON_KEK_PERMISSION_DENIED")
+ *        Value "PROCESSING_WARNING_REASON_KEK_PERMISSION_DENIED"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonUnspecified
- *        The processing warning reason is unknown. (Value:
- *        "PROCESSING_WARNING_REASON_UNSPECIFIED")
+ *        Value "PROCESSING_WARNING_REASON_UNSPECIFIED"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonUserIdentifierDecryptionError
- *        Failed to decrypt the UserIdentifier data using the DEK. (Value:
- *        "PROCESSING_WARNING_REASON_USER_IDENTIFIER_DECRYPTION_ERROR")
+ *        Value "PROCESSING_WARNING_REASON_USER_IDENTIFIER_DECRYPTION_ERROR"
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWipAuthFailed
- *        The WIP could not be used because it was rejected by its attestation
- *        condition. (Value: "PROCESSING_WARNING_REASON_WIP_AUTH_FAILED")
+ *        Value "PROCESSING_WARNING_REASON_WIP_AUTH_FAILED"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  The count of records that have a warning.
+ *  recordCount
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6561,11 +4091,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
- *  Warning counts for each type of warning.
+ *  GTLRDataManager_WarningInfo
  */
 @interface GTLRDataManager_WarningInfo : GTLRObject
 
-/** A list of warnings and counts per warning reason. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_WarningCount *> *warningCounts;
 
 @end

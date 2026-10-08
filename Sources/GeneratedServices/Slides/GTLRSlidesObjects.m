@@ -28,6 +28,17 @@ NSString * const kGTLRSlides_Autofit_AutofitType_TextAutofit   = @"TEXT_AUTOFIT"
 NSString * const kGTLRSlides_AutoText_Type_SlideNumber     = @"SLIDE_NUMBER";
 NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRSlides_BatchUpdatePresentationResponse.commentUpdateState
+NSString * const kGTLRSlides_BatchUpdatePresentationResponse_CommentUpdateState_AllFailedUnknownReason = @"ALL_FAILED_UNKNOWN_REASON";
+NSString * const kGTLRSlides_BatchUpdatePresentationResponse_CommentUpdateState_AllSaved = @"ALL_SAVED";
+NSString * const kGTLRSlides_BatchUpdatePresentationResponse_CommentUpdateState_CommentUpdateStateUnspecified = @"COMMENT_UPDATE_STATE_UNSPECIFIED";
+NSString * const kGTLRSlides_BatchUpdatePresentationResponse_CommentUpdateState_NoUpdatesRequested = @"NO_UPDATES_REQUESTED";
+
+// GTLRSlides_CommentThread.status
+NSString * const kGTLRSlides_CommentThread_Status_Open         = @"OPEN";
+NSString * const kGTLRSlides_CommentThread_Status_Resolved     = @"RESOLVED";
+NSString * const kGTLRSlides_CommentThread_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRSlides_CreateLineRequest.category
 NSString * const kGTLRSlides_CreateLineRequest_Category_Bent   = @"BENT";
 NSString * const kGTLRSlides_CreateLineRequest_Category_Curved = @"CURVED";
@@ -323,6 +334,12 @@ NSString * const kGTLRSlides_Outline_PropertyState_Inherit     = @"INHERIT";
 NSString * const kGTLRSlides_Outline_PropertyState_NotRendered = @"NOT_RENDERED";
 NSString * const kGTLRSlides_Outline_PropertyState_Rendered    = @"RENDERED";
 
+// GTLRSlides_Page.commentsViewMode
+NSString * const kGTLRSlides_Page_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRSlides_Page_CommentsViewMode_CommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRSlides_Page_CommentsViewMode_CommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRSlides_Page_CommentsViewMode_CommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
+
 // GTLRSlides_Page.pageType
 NSString * const kGTLRSlides_Page_PageType_Layout      = @"LAYOUT";
 NSString * const kGTLRSlides_Page_PageType_Master      = @"MASTER";
@@ -370,6 +387,18 @@ NSString * const kGTLRSlides_Placeholder_Type_SlideNumber   = @"SLIDE_NUMBER";
 NSString * const kGTLRSlides_Placeholder_Type_Subtitle      = @"SUBTITLE";
 NSString * const kGTLRSlides_Placeholder_Type_Table         = @"TABLE";
 NSString * const kGTLRSlides_Placeholder_Type_Title         = @"TITLE";
+
+// GTLRSlides_Post.commentAction
+NSString * const kGTLRSlides_Post_CommentAction_CommentActionTypeUnspecified = @"COMMENT_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSlides_Post_CommentAction_NoCommentActionChange = @"NO_COMMENT_ACTION_CHANGE";
+NSString * const kGTLRSlides_Post_CommentAction_Reopen         = @"REOPEN";
+NSString * const kGTLRSlides_Post_CommentAction_Resolve        = @"RESOLVE";
+
+// GTLRSlides_Presentation.commentsViewMode
+NSString * const kGTLRSlides_Presentation_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRSlides_Presentation_CommentsViewMode_CommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRSlides_Presentation_CommentsViewMode_CommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRSlides_Presentation_CommentsViewMode_CommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
 
 // GTLRSlides_Range.type
 NSString * const kGTLRSlides_Range_Type_All                  = @"ALL";
@@ -682,6 +711,26 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_AddCommentReplyRequest
+//
+
+@implementation GTLRSlides_AddCommentReplyRequest
+@dynamic commentId, post;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_AddCommentReplyResponse
+//
+
+@implementation GTLRSlides_AddCommentReplyResponse
+@dynamic post;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_AffineTransform
 //
 
@@ -734,7 +783,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_BatchUpdatePresentationResponse
-@dynamic presentationId, replies, writeControl;
+@dynamic commentUpdateState, presentationId, replies, writeControl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -781,6 +830,42 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_ColorStop
 @dynamic alpha, color, position;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_CommentAnchor
+//
+
+@implementation GTLRSlides_CommentAnchor
+@dynamic anchorId, objectAnchors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"objectAnchors" : [GTLRSlides_ObjectAnchor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_CommentThread
+//
+
+@implementation GTLRSlides_CommentThread
+@dynamic anchorId, commentId, headPost, plainTextQuote, replies, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replies" : [GTLRSlides_Post class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -959,6 +1044,26 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_DeleteCommentReplyRequest
+//
+
+@implementation GTLRSlides_DeleteCommentReplyRequest
+@dynamic commentId, postId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_DeleteCommentRequest
+//
+
+@implementation GTLRSlides_DeleteCommentRequest
+@dynamic commentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_DeleteObjectRequest
 //
 
@@ -1115,6 +1220,27 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 @implementation GTLRSlides_ImageProperties
 @dynamic brightness, contrast, cropProperties, link, outline, recolor, shadow,
          transparency;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_InsertCommentRequest
+//
+
+@implementation GTLRSlides_InsertCommentRequest
+@dynamic assigneeEmailAddress, content, objectId, shapeTextAnchor, tableAnchor,
+         tableCellTextAnchor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_InsertCommentResponse
+//
+
+@implementation GTLRSlides_InsertCommentResponse
+@dynamic commentThread;
 @end
 
 
@@ -1295,6 +1421,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_ObjectAnchor
+//
+
+@implementation GTLRSlides_ObjectAnchor
+@dynamic objectId, shapeTextAnchors, tableCellAnchors;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_OpaqueColor
 //
 
@@ -1339,11 +1475,14 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Page
-@dynamic layoutProperties, masterProperties, notesProperties, objectId,
-         pageElements, pageProperties, pageType, revisionId, slideProperties;
+@dynamic commentAnchors, comments, commentsViewMode, layoutProperties,
+         masterProperties, notesProperties, objectId, pageElements,
+         pageProperties, pageType, revisionId, slideProperties;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"commentAnchors" : [GTLRSlides_CommentAnchor class],
+    @"comments" : [GTLRSlides_CommentThread class],
     @"pageElements" : [GTLRSlides_PageElement class]
   };
   return map;
@@ -1432,15 +1571,38 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_Post
+//
+
+@implementation GTLRSlides_Post
+@dynamic assigneeEmail, author, commentAction, content, contentHtml, createTime,
+         deleted, fromCopiedPresentation, fromImportedPresentation, postId,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_PostAuthor
+//
+
+@implementation GTLRSlides_PostAuthor
+@dynamic anonymous, displayName, me, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_Presentation
 //
 
 @implementation GTLRSlides_Presentation
-@dynamic layouts, locale, masters, notesMaster, pageSize, presentationId,
-         revisionId, slides, title;
+@dynamic comments, commentsViewMode, layouts, locale, masters, notesMaster,
+         pageSize, presentationId, revisionId, slides, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"comments" : [GTLRSlides_CommentThread class],
     @"layouts" : [GTLRSlides_Page class],
     @"masters" : [GTLRSlides_Page class],
     @"slides" : [GTLRSlides_Page class]
@@ -1590,15 +1752,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Request
-@dynamic createImage, createLine, createParagraphBullets, createShape,
-         createSheetsChart, createSlide, createTable, createVideo, deleteObject,
+@dynamic addCommentReply, createImage, createLine, createParagraphBullets,
+         createShape, createSheetsChart, createSlide, createTable, createVideo,
+         deleteComment, deleteCommentReply, deleteObject,
          deleteParagraphBullets, deleteTableColumn, deleteTableRow, deleteText,
-         duplicateObject, groupObjects, insertTableColumns, insertTableRows,
-         insertText, mergeTableCells, refreshSheetsChart,
+         duplicateObject, groupObjects, insertComment, insertTableColumns,
+         insertTableRows, insertText, mergeTableCells, refreshSheetsChart,
          replaceAllShapesWithImage, replaceAllShapesWithSheetsChart,
          replaceAllText, replaceImage, rerouteLine, ungroupObjects,
-         unmergeTableCells, updateImageProperties, updateLineCategory,
-         updateLineProperties, updatePageElementAltText,
+         unmergeTableCells, updateCommentPost, updateImageProperties,
+         updateLineCategory, updateLineProperties, updatePageElementAltText,
          updatePageElementsZOrder, updatePageElementTransform,
          updatePageProperties, updateParagraphStyle, updateShapeProperties,
          updateSlideProperties, updateSlidesPosition,
@@ -1624,8 +1787,9 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Response
-@dynamic createImage, createLine, createShape, createSheetsChart, createSlide,
-         createTable, createVideo, duplicateObject, groupObjects,
+@dynamic addCommentReply, createImage, createLine, createShape,
+         createSheetsChart, createSlide, createTable, createVideo,
+         duplicateObject, groupObjects, insertComment,
          replaceAllShapesWithImage, replaceAllShapesWithSheetsChart,
          replaceAllText;
 @end
@@ -1679,6 +1843,34 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_ShapeProperties
 @dynamic autofit, contentAlignment, link, outline, shadow, shapeBackgroundFill;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_ShapeTextAnchor
+//
+
+@implementation GTLRSlides_ShapeTextAnchor
+@dynamic objectId, textRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_ShapeTextAnchors
+//
+
+@implementation GTLRSlides_ShapeTextAnchors
+@dynamic ranges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ranges" : [GTLRSlides_TextRange class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1796,6 +1988,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_TableAnchor
+//
+
+@implementation GTLRSlides_TableAnchor
+@dynamic objectId, tableRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_TableBorderCell
 //
 
@@ -1854,6 +2056,24 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_TableCellAnchors
+//
+
+@implementation GTLRSlides_TableCellAnchors
+@dynamic cellRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cellRanges" : [GTLRSlides_TableCellTextRanges class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_TableCellBackgroundFill
 //
 
@@ -1879,6 +2099,34 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_TableCellProperties
 @dynamic contentAlignment, tableCellBackgroundFill;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_TableCellTextAnchor
+//
+
+@implementation GTLRSlides_TableCellTextAnchor
+@dynamic cellLocation, objectId, textRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_TableCellTextRanges
+//
+
+@implementation GTLRSlides_TableCellTextRanges
+@dynamic cellLocation, ranges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ranges" : [GTLRSlides_TextRange class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1974,6 +2222,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_TextRange
+//
+
+@implementation GTLRSlides_TextRange
+@dynamic endIndex, startIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_TextRun
 //
 
@@ -2039,6 +2297,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_UnmergeTableCellsRequest
 @dynamic objectId, tableRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_UpdateCommentPostRequest
+//
+
+@implementation GTLRSlides_UpdateCommentPostRequest
+@dynamic commentId, content, postId;
 @end
 
 

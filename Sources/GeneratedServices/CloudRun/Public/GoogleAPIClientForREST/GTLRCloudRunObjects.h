@@ -100,6 +100,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Labels;
 @class GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling;
+@class GTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ArtifactObjects;
@@ -196,6 +197,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Execu
  *  Value: "CANCELLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling;
+/**
+ *  A delayed execution exceeded the maximum runtime duration.
+ *
+ *  Value: "DELAYED_EXECUTION_EXCEEDING_DURATION_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_DelayedExecutionExceedingDurationLimit;
 /**
  *  A delayed execution is waiting for a start time.
  *
@@ -892,6 +899,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitSt
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Job.functionalType
+
+/**
+ *  Represents an AGENT functional type.
+ *
+ *  Value: "FUNCTIONAL_TYPE_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_FunctionalType_FunctionalTypeAgent;
+/**
+ *  Represents an MCP_SERVER functional type.
+ *
+ *  Value: "FUNCTIONAL_TYPE_MCP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_FunctionalType_FunctionalTypeMcpServer;
+/**
+ *  Specifies that the functional type is unspecified.
+ *
+ *  Value: "FUNCTIONAL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Job_FunctionalType_FunctionalTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Job.launchStage
 
 /**
@@ -1122,6 +1151,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplat
  *  Value: "EXECUTION_ENVIRONMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2Service.functionalType
+
+/**
+ *  Represents an AGENT functional type.
+ *
+ *  Value: "FUNCTIONAL_TYPE_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_FunctionalType_FunctionalTypeAgent;
+/**
+ *  Represents an MCP_SERVER functional type.
+ *
+ *  Value: "FUNCTIONAL_TYPE_MCP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_FunctionalType_FunctionalTypeMcpServer;
+/**
+ *  Specifies that the functional type is unspecified.
+ *
+ *  Value: "FUNCTIONAL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_FunctionalType_FunctionalTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Service.ingress
@@ -1526,6 +1577,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevis
  *  Value: "SHUTDOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_Shutdown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig.identityType
+
+/**
+ *  Agent identity.
+ *
+ *  Value: "IDENTITY_TYPE_AGENT_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig_IdentityType_IdentityTypeAgentIdentity;
+/**
+ *  Service account identity.
+ *
+ *  Value: "IDENTITY_TYPE_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig_IdentityType_IdentityTypeServiceAccount;
+/**
+ *  Unspecified
+ *
+ *  Value: "IDENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig_IdentityType_IdentityTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult.decision
@@ -2371,6 +2444,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling
  *        The execution is in the process of being cancelled. (Value:
  *        "CANCELLING")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_DelayedExecutionExceedingDurationLimit
+ *        A delayed execution exceeded the maximum runtime duration. (Value:
+ *        "DELAYED_EXECUTION_EXCEEDING_DURATION_LIMIT")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_DelayedStartPending
  *        A delayed execution is waiting for a start time. (Value:
  *        "DELAYED_START_PENDING")
@@ -2630,7 +2706,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *sandboxLauncher;
 
-/** Optional. Location of the source. */
+/**
+ *  Optional. Location of the source. This field is only supported in Cloud Run
+ *  Service.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2SourceCode *sourceCode;
 
 /**
@@ -3153,6 +3232,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Optional. Arbitrary version identifier for the API client. */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
+
+/**
+ *  Optional. If true, the system will start the execution within the next 12
+ *  hours depending on available capacity.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *delayExecution;
 
 /**
  *  Unstructured key value map that can be used to organize and categorize
@@ -3705,6 +3792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
+ *  Optional. Enables SSH access to the Instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sshEnabled;
+
+/**
  *  Output only. The Condition of this Instance, containing its readiness
  *  status, and detailed error information in case it did not reach a serving
  *  state. See comments in `reconciling` for additional information on
@@ -3900,6 +3994,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  permamently deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Optional. The functional type of the Job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_FunctionalType_FunctionalTypeAgent
+ *        Represents an AGENT functional type. (Value: "FUNCTIONAL_TYPE_AGENT")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_FunctionalType_FunctionalTypeMcpServer
+ *        Represents an MCP_SERVER functional type. (Value:
+ *        "FUNCTIONAL_TYPE_MCP_SERVER")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Job_FunctionalType_FunctionalTypeUnspecified
+ *        Specifies that the functional type is unspecified. (Value:
+ *        "FUNCTIONAL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *functionalType;
 
 /**
  *  Output only. A number that monotonically increases every time the user
@@ -4398,6 +4507,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2ContainerOverride *> *containerOverrides;
 
 /**
+ *  Optional. If true, the system will start the execution within the next 12
+ *  hours depending on available capacity.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *delayExecution;
+
+/**
  *  Optional. The desired number of tasks the execution should run. Will replace
  *  existing task_count value.
  *
@@ -4797,6 +4914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
 
+/** Optional. The Revision's workload identity settings. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig *workloadIdentityConfig;
+
 @end
 
 
@@ -5040,6 +5160,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
 
+/** Optional. The Revision's workload identity settings. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig *workloadIdentityConfig;
+
 @end
 
 
@@ -5270,6 +5393,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  permanently deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Optional. The functional type of the Service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_FunctionalType_FunctionalTypeAgent
+ *        Represents an AGENT functional type. (Value: "FUNCTIONAL_TYPE_AGENT")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_FunctionalType_FunctionalTypeMcpServer
+ *        Represents an MCP_SERVER functional type. (Value:
+ *        "FUNCTIONAL_TYPE_MCP_SERVER")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_FunctionalType_FunctionalTypeUnspecified
+ *        Specifies that the functional type is unspecified. (Value:
+ *        "FUNCTIONAL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *functionalType;
 
 /**
  *  Output only. A number that monotonically increases every time the user
@@ -5639,7 +5777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Optional. Input only. Source code inlined in the request. Cloud Run will
  *  store the inlined_source to Cloud Storage and replace the field with
- *  cloud_storage_source.
+ *  cloud_storage_source. This field is only supported in Cloud Run Service.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2InlinedSource *inlinedSource;
 
@@ -6077,6 +6215,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
 
+/** Optional. The Task's workload identity settings. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig *workloadIdentityConfig;
+
 @end
 
 
@@ -6221,6 +6362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
 
+/** Optional. The Task's workload identity settings. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig *workloadIdentityConfig;
+
 @end
 
 
@@ -6324,6 +6468,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Displays the target URI. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  The request message for the UploadSource method.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2UploadSourceRequest : GTLRObject
+
+/** The name of Cloud Run Service upload source archive will be used for. */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  The response message for the UploadSource method.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2UploadSourceResponse : GTLRObject
+
+/** The Cloud Storage object path the source archive is uploaded to. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2CloudStorageSource *cloudStorageSource;
 
 @end
 
@@ -6937,6 +7103,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Workload identity settings.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig : GTLRObject
+
+/**
+ *  Optional. The Revision's SPIFFE workload identity. Enables provisioning of
+ *  SPIFFE workload certificates.
+ */
+@property(nonatomic, copy, nullable) NSString *identity;
+
+/**
+ *  Optional. Controls whether an instance receives a MWLID certificate.
+ *  Corresponds to the intention of the original --[no-]identity-certificate
+ *  flag.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identityCertificateEnabled;
+
+/**
+ *  Optional. The type of identity to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig_IdentityType_IdentityTypeAgentIdentity
+ *        Agent identity. (Value: "IDENTITY_TYPE_AGENT_IDENTITY")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig_IdentityType_IdentityTypeServiceAccount
+ *        Service account identity. (Value: "IDENTITY_TYPE_SERVICE_ACCOUNT")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkloadIdentityConfig_IdentityType_IdentityTypeUnspecified
+ *        Unspecified (Value: "IDENTITY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *identityType;
+
+@end
+
+
+/**
  *  ApprovalConfig describes configuration for manual approval of a build.
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalConfig : GTLRObject
@@ -7530,6 +7732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *requestedVerifyOption;
 
+/** Output only. Worker release resolved from the release channel. */
+@property(nonatomic, copy, nullable) NSString *resolvedWorkerRelease;
+
 /**
  *  A list of global environment variables, which are encrypted using a Cloud
  *  Key Management Service crypto key. These values must be specified in the
@@ -7568,6 +7773,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** This field deprecated; please use `pool.name` instead. */
 @property(nonatomic, copy, nullable) NSString *workerPool GTLR_DEPRECATED;
+
+/**
+ *  Optional. Option to specify which release or release channel
+ *  (rapid|regular|stable) to use to run this build.
+ */
+@property(nonatomic, copy, nullable) NSString *workerRelease;
 
 @end
 
@@ -8030,6 +8241,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *destPath;
 
 /**
+ *  Optional. True if remote tags should be fetched too (default false). Note:
+ *  when depth is 1 (default), git fetch only retrieves tags pointing to commits
+ *  within the shallow boundary. Set depth to -1 to fetch all historical tags.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fetchTags;
+
+/**
  *  Optional. True if submodules should be fetched too (default false).
  *
  *  Uses NSNumber of boolValue.
@@ -8309,6 +8529,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  projects/{project}/locations/{location}/workerPools/{workerPoolId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. OUTPUT_ONLY. Worker release resolved from the release channel.
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedWorkerRelease;
+
+/**
+ *  Output only. OUTPUT_ONLY. The release or release channel used to run the
+ *  Build. This is set to the same value as
+ *  `PrivatePoolV1Config.WorkerConfig.worker_release` for the UI to easily
+ *  access.
+ */
+@property(nonatomic, copy, nullable) NSString *workerRelease;
 
 @end
 

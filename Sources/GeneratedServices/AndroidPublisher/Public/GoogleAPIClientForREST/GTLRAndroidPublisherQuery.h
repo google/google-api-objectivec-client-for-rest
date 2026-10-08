@@ -582,6 +582,99 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
 @end
 
 /**
+ *  Enrolls an app in Play App Signing using a self-hosted Google Cloud KMS key.
+ *  Warning: Do not use this method for standard Play App Signing enrollment. *
+ *  Standard enrollment with Google-generated or Google-managed keys cannot be
+ *  done via API. * This advanced API is strictly for enterprise organizations
+ *  with mandatory compliance, regulatory, or policy requirements to retain key
+ *  custody in an external Google Cloud KMS instance. * Prerequisites: Requires
+ *  an active, properly configured Google Cloud KMS key with appropriate IAM
+ *  permissions granted to Google Play before calling this method. See Help
+ *  Center:
+ *  https://support.google.com/googleplay/android-developer/answer/9842756
+ *
+ *  Method: androidpublisher.appsigning.enrollApp
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppsigningEnrollApp : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Either package name or app ID of the app enrolling in Play
+ *  Signing.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_EnrollAppResponse.
+ *
+ *  Enrolls an app in Play App Signing using a self-hosted Google Cloud KMS key.
+ *  Warning: Do not use this method for standard Play App Signing enrollment. *
+ *  Standard enrollment with Google-generated or Google-managed keys cannot be
+ *  done via API. * This advanced API is strictly for enterprise organizations
+ *  with mandatory compliance, regulatory, or policy requirements to retain key
+ *  custody in an external Google Cloud KMS instance. * Prerequisites: Requires
+ *  an active, properly configured Google Cloud KMS key with appropriate IAM
+ *  permissions granted to Google Play before calling this method. See Help
+ *  Center:
+ *  https://support.google.com/googleplay/android-developer/answer/9842756
+ *
+ *  @param object The @c GTLRAndroidPublisher_EnrollAppRequest to include in the
+ *    query.
+ *  @param name Required. Either package name or app ID of the app enrolling in
+ *    Play Signing.
+ *
+ *  @return GTLRAndroidPublisherQuery_AppsigningEnrollApp
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_EnrollAppRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rotates an app's signing key to a new self-hosted Google Cloud KMS key.
+ *  Warning: This method only applies to apps enrolled with self-hosted Cloud
+ *  KMS keys. For apps using standard Google-managed Play App Signing, key
+ *  rotation requests must be initiated through the Google Play Console UI. See
+ *  Help Center:
+ *  https://support.google.com/googleplay/android-developer/answer/9842756
+ *
+ *  Method: androidpublisher.appsigning.rotateAppSigningKey
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_AppsigningRotateAppSigningKey : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Either package name or app ID of the app rotating the signing key.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_RotateAppSigningKeyResponse.
+ *
+ *  Rotates an app's signing key to a new self-hosted Google Cloud KMS key.
+ *  Warning: This method only applies to apps enrolled with self-hosted Cloud
+ *  KMS keys. For apps using standard Google-managed Play App Signing, key
+ *  rotation requests must be initiated through the Google Play Console UI. See
+ *  Help Center:
+ *  https://support.google.com/googleplay/android-developer/answer/9842756
+ *
+ *  @param object The @c GTLRAndroidPublisher_RotateAppSigningKeyRequest to
+ *    include in the query.
+ *  @param name Required. Either package name or app ID of the app rotating the
+ *    signing key.
+ *
+ *  @return GTLRAndroidPublisherQuery_AppsigningRotateAppSigningKey
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_RotateAppSigningKeyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an app store hosted app. This must be called before any other RPCs
  *  for this hosted app.
  *
@@ -1277,7 +1370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Native
  *        debugging symbols file type. (Value: "nativeCode")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    1677721600. Accepted MIME type: application/octet-stream
+ *    2097152000. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
  */

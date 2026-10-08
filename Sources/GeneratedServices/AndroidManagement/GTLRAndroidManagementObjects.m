@@ -181,6 +181,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPerson
 
 // GTLRAndroidManagement_ApplicationPolicy.credentialProviderPolicy
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderAllowed = @"CREDENTIAL_PROVIDER_ALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderDisallowed = @"CREDENTIAL_PROVIDER_DISALLOWED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderPolicyUnspecified = @"CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED";
 
 // GTLRAndroidManagement_ApplicationPolicy.defaultPermissionPolicy
@@ -308,6 +309,11 @@ NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationSt
 NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUnspecified = @"NEARBY_NOTIFICATION_STREAMING_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoice = @"NEARBY_NOTIFICATION_STREAMING_USER_CHOICE";
 NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoiceSameManagedAccount = @"NEARBY_NOTIFICATION_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT";
+
+// GTLRAndroidManagement_CrossDevicePolicies.taskContinuityHandoff
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffAllowed = @"TASK_CONTINUITY_HANDOFF_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffDisallowed = @"TASK_CONTINUITY_HANDOFF_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffUnspecified = @"TASK_CONTINUITY_HANDOFF_UNSPECIFIED";
 
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileAppFunctions
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsAllowed = @"CROSS_PROFILE_APP_FUNCTIONS_ALLOWED";
@@ -677,6 +683,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode = @"MANAGEMENT_MODE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified = @"NON_COMPLIANCE_REASON_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_OsNotPermitted = @"OS_NOT_PERMITTED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending = @"PENDING";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ProjectNotPermitted = @"PROJECT_NOT_PERMITTED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Unsupported = @"UNSUPPORTED";
@@ -710,6 +717,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplian
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode = @"MANAGEMENT_MODE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified = @"NON_COMPLIANCE_REASON_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_OsNotPermitted = @"OS_NOT_PERMITTED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending = @"PENDING";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ProjectNotPermitted = @"PROJECT_NOT_PERMITTED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Unsupported = @"UNSUPPORTED";
@@ -778,6 +786,11 @@ NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Av
 NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked = @"BLOCKED";
 NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
 
+// GTLRAndroidManagement_PersonalCrossDevicePolicies.taskContinuityHandoff
+NSString * const kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffAllowed = @"TASK_CONTINUITY_HANDOFF_ALLOWED";
+NSString * const kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffDisallowed = @"TASK_CONTINUITY_HANDOFF_DISALLOWED";
+NSString * const kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffUnspecified = @"TASK_CONTINUITY_HANDOFF_UNSPECIFIED";
+
 // GTLRAndroidManagement_PersonalUsagePolicies.bluetoothSharing
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingAllowed = @"BLUETOOTH_SHARING_ALLOWED";
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingDisallowed = @"BLUETOOTH_SHARING_DISALLOWED";
@@ -826,6 +839,11 @@ NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillDisabled =
 NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillPolicyUnspecified = @"AUTOFILL_POLICY_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillUserChoice = @"AUTOFILL_USER_CHOICE";
 
+// GTLRAndroidManagement_Policy.backupService
+NSString * const kGTLRAndroidManagement_Policy_BackupService_BackupServiceDisabled = @"BACKUP_SERVICE_DISABLED";
+NSString * const kGTLRAndroidManagement_Policy_BackupService_BackupServiceUnspecified = @"BACKUP_SERVICE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_BackupService_BackupServiceUserChoice = @"BACKUP_SERVICE_USER_CHOICE";
+
 // GTLRAndroidManagement_Policy.cameraAccess
 NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessDisabled = @"CAMERA_ACCESS_DISABLED";
 NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessEnforced = @"CAMERA_ACCESS_ENFORCED";
@@ -833,6 +851,7 @@ NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUnspecif
 NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUserChoice = @"CAMERA_ACCESS_USER_CHOICE";
 
 // GTLRAndroidManagement_Policy.credentialProviderPolicyDefault
+NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultAllowed = @"CREDENTIAL_PROVIDER_DEFAULT_ALLOWED";
 NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowed = @"CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED";
 NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowedExceptSystem = @"CREDENTIAL_PROVIDER_DEFAULT_DISALLOWED_EXCEPT_SYSTEM";
 NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderPolicyDefaultUnspecified = @"CREDENTIAL_PROVIDER_POLICY_DEFAULT_UNSPECIFIED";
@@ -1693,7 +1712,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_CrossDevicePolicies
-@dynamic nearbyAppStreaming, nearbyNotificationStreaming;
+@dynamic nearbyAppStreaming, nearbyNotificationStreaming, taskContinuityHandoff;
 @end
 
 
@@ -2916,13 +2935,23 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_PersonalCrossDevicePolicies
+//
+
+@implementation GTLRAndroidManagement_PersonalCrossDevicePolicies
+@dynamic taskContinuityHandoff;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_PersonalUsagePolicies
 //
 
 @implementation GTLRAndroidManagement_PersonalUsagePolicies
 @dynamic accountTypesWithManagementDisabled, bluetoothSharing, cameraDisabled,
-         maxDaysWithWorkOff, personalApplications, personalPlayStoreMode,
-         privateSpacePolicy, screenCaptureDisabled;
+         crossDevicePolicies, maxDaysWithWorkOff, personalApplications,
+         personalPlayStoreMode, privateSpacePolicy, screenCaptureDisabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2945,19 +2974,20 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
          adjustVolumeDisabled, advancedSecurityOverrides, alwaysOnVpnPackage,
          androidDevicePolicyTracks, appAutoUpdatePolicy, appFunctions,
          applications, assistContentPolicy, autoDateAndTimeZone, autofillPolicy,
-         autoTimeRequired, blockApplicationsEnabled, bluetoothConfigDisabled,
-         bluetoothContactSharingDisabled, bluetoothDisabled, cameraAccess,
-         cameraDisabled, cellBroadcastsConfigDisabled, choosePrivateKeyRules,
-         complianceRules, createWindowsDisabled,
-         credentialProviderPolicyDefault, credentialsConfigDisabled,
-         crossDevicePolicies, crossProfilePolicies, dataRoamingDisabled,
-         debuggingFeaturesAllowed, defaultApplicationSettings,
-         defaultPermissionPolicy, deviceConnectivityManagement,
-         deviceOwnerLockScreenInfo, deviceRadioState, displaySettings,
-         encryptionPolicy, ensureVerifyAppsEnabled,
-         enterpriseDisplayNameVisibility, factoryResetDisabled, frpAdminEmails,
-         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
-         keyguardDisabled, keyguardDisabledFeatures, kioskCustomization,
+         autoTimeRequired, backupService, blockApplicationsEnabled,
+         bluetoothConfigDisabled, bluetoothContactSharingDisabled,
+         bluetoothDisabled, cameraAccess, cameraDisabled,
+         cellBroadcastsConfigDisabled, choosePrivateKeyRules, complianceRules,
+         createWindowsDisabled, credentialProviderPolicyDefault,
+         credentialsConfigDisabled, crossDevicePolicies, crossProfilePolicies,
+         dataRoamingDisabled, debuggingFeaturesAllowed,
+         defaultApplicationSettings, defaultPermissionPolicy,
+         deviceConnectivityManagement, deviceOwnerLockScreenInfo,
+         deviceRadioState, displaySettings, encryptionPolicy,
+         ensureVerifyAppsEnabled, enterpriseDisplayNameVisibility,
+         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
+         installUnknownSourcesAllowed, keyguardDisabled,
+         keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
          maximumTimeToLock, microphoneAccess, minimumApiLevel,
          mobileNetworksConfigDisabled, modifyAccountsDisabled,

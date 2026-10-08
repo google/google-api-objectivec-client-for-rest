@@ -136,6 +136,7 @@
 @class GTLRDataproc_MetastoreConfig;
 @class GTLRDataproc_Metric;
 @class GTLRDataproc_MetricConfig;
+@class GTLRDataproc_MultiZoneConfig;
 @class GTLRDataproc_NamespacedGkeDeploymentTarget;
 @class GTLRDataproc_NativeBuildInfoUiData;
 @class GTLRDataproc_NativeSqlExecutionUiData;
@@ -282,6 +283,7 @@
 @class GTLRDataproc_ValueInfo;
 @class GTLRDataproc_ValueValidation;
 @class GTLRDataproc_VirtualClusterConfig;
+@class GTLRDataproc_VirtualClusterOperationMetadata_Labels;
 @class GTLRDataproc_WorkflowGraph;
 @class GTLRDataproc_WorkflowMetadata_Parameters;
 @class GTLRDataproc_WorkflowNode;
@@ -339,31 +341,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataSta
 // GTLRDataproc_AttachedDiskConfig.diskType
 
 /**
- *  Required unspecified disk type.
+ *  Disk type is not specified.
  *
  *  Value: "DISK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_DiskTypeUnspecified;
 /**
- *  Hyperdisk Balanced disk type.
+ *  Hyperdisk Balanced.
  *
  *  Value: "HYPERDISK_BALANCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskBalanced;
 /**
- *  Hyperdisk Extreme disk type.
+ *  Hyperdisk Extreme.
  *
  *  Value: "HYPERDISK_EXTREME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskExtreme;
 /**
- *  Hyperdisk ML disk type.
+ *  Hyperdisk ML.
  *
  *  Value: "HYPERDISK_ML"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskMl;
 /**
- *  Hyperdisk Throughput disk type.
+ *  Hyperdisk Throughput.
  *
  *  Value: "HYPERDISK_THROUGHPUT"
  */
@@ -1210,6 +1212,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistor
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Yarn;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_MultiZoneConfig.targetShape
+
+/**
+ *  Instances may exist in any Zones within the Region.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_MultiZoneConfig_TargetShape_Any;
+/**
+ *  Target shape is unspecified. Setting this will cause error.
+ *
+ *  Value: "TARGET_SHAPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_MultiZoneConfig_TargetShape_TargetShapeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_NodeGroup.roles
 
 /**
@@ -1720,6 +1738,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_StateUnspeci
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_VirtualClusterOperationMetadata.operationType
+
+/**
+ *  Create VirtualCluster operation type.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Create;
+/**
+ *  Delete VirtualCluster operation type.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Delete;
+/**
+ *  Update VirtualCluster operation type.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Update;
+/**
+ *  VirtualCluster operation type is unknown.
+ *
+ *  Value: "VIRTUAL_CLUSTER_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_VirtualClusterOperationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_WorkflowMetadata.state
 
 /**
@@ -2206,6 +2252,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSNumber *durationMillis;
 
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The event log path for the application attempt. */
+@property(nonatomic, copy, nullable) NSString *eventLogPath;
+
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
 @property(nonatomic, copy, nullable) NSString *sparkUser;
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -2389,21 +2439,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
- *  Optional. Disk type.
+ *  Optional. Deprecated: Use type instead.
  *
  *  Likely values:
- *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_DiskTypeUnspecified
- *        Required unspecified disk type. (Value: "DISK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_DiskTypeUnspecified Disk
+ *        type is not specified. (Value: "DISK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskBalanced
- *        Hyperdisk Balanced disk type. (Value: "HYPERDISK_BALANCED")
+ *        Hyperdisk Balanced. (Value: "HYPERDISK_BALANCED")
  *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskExtreme
- *        Hyperdisk Extreme disk type. (Value: "HYPERDISK_EXTREME")
- *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskMl Hyperdisk ML
- *        disk type. (Value: "HYPERDISK_ML")
+ *        Hyperdisk Extreme. (Value: "HYPERDISK_EXTREME")
+ *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskMl Hyperdisk
+ *        ML. (Value: "HYPERDISK_ML")
  *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskThroughput
- *        Hyperdisk Throughput disk type. (Value: "HYPERDISK_THROUGHPUT")
+ *        Hyperdisk Throughput. (Value: "HYPERDISK_THROUGHPUT")
  */
-@property(nonatomic, copy, nullable) NSString *diskType;
+@property(nonatomic, copy, nullable) NSString *diskType GTLR_DEPRECATED;
 
 /**
  *  Optional. Indicates how many IOPS to provision for the attached disk. This
@@ -2423,6 +2473,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
+
+/**
+ *  Optional. Attached disk type. Currently only supports Hyperdisks. See
+ *  https://cloud.google.com/compute/docs/disks/hyperdisks. Note: Hyperdisk
+ *  Balanced High Availability is not supported.Allowed values are:
+ *  hyperdisk-balanced hyperdisk-extreme hyperdisk-ml hyperdisk-throughput
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3454,7 +3512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_ClusterStatus : GTLRObject
 
-/** Optional. Output only. Details of cluster's state. */
+/** Optional. Details of cluster's state. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
 /**
@@ -4789,6 +4847,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig_Metadata *metadata;
+
+/**
+ *  Optional. Controls how instances within this Cluster are allowed to exist in
+ *  multiple Zones within the Region. Only one of zone_uri or multi_zone_config
+ *  must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_MultiZoneConfig *multiZoneConfig;
 
 /**
  *  Optional. The Compute Engine network to be used for machine communications.
@@ -6269,8 +6334,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_JobStatus : GTLRObject
 
 /**
- *  Optional. Output only. Job state details, such as an error description if
- *  the state is ERROR.
+ *  Optional. Job state details, such as an error description if the state is
+ *  ERROR.
  */
 @property(nonatomic, copy, nullable) NSString *details;
 
@@ -7009,8 +7074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://cloud.google.com/dataproc/docs/guides/dataproc-metrics#custom_metrics)
  *  to collect for the metric course (for the SPARK metric source (any Spark
  *  metric (https://spark.apache.org/docs/latest/monitoring.html#metrics) can be
- *  specified).Provide metrics in the following format: METRIC_SOURCE:
- *  INSTANCE:GROUP:METRIC Use camelcase as appropriate.Examples:
+ *  specified).Provide metrics in the following format:METRIC_SOURCE:INSTANCE
+ *  :GROUP:METRIC Use camelcase as appropriate.Examples:
  *  yarn:ResourceManager:QueueMetrics:AppsCompleted
  *  spark:driver:DAGScheduler:job.allJobs
  *  sparkHistoryServer:JVM:Memory:NonHeapMemoryUsage.committed
@@ -7065,6 +7130,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Required. Metrics sources to enable. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Metric *> *metrics;
+
+@end
+
+
+/**
+ *  Configuration for multi-zonal clusters that can create instances across
+ *  multiple Zones within the Region.
+ */
+@interface GTLRDataproc_MultiZoneConfig : GTLRObject
+
+/**
+ *  Optional. The distribution shape of the nodes in the multi-zonal cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_MultiZoneConfig_TargetShape_Any Instances may exist
+ *        in any Zones within the Region. (Value: "ANY")
+ *    @arg @c kGTLRDataproc_MultiZoneConfig_TargetShape_TargetShapeUnspecified
+ *        Target shape is unspecified. Setting this will cause error. (Value:
+ *        "TARGET_SHAPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetShape;
 
 @end
 
@@ -9323,12 +9409,11 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeInfo *runtimeInfo;
 
 /**
- *  Optional. The session template used by the session.Only resource names,
- *  including project ID and location, are valid.Example: *
- *  https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]
- *  *
- *  projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]The
- *  template must be in the same project and Dataproc region as the session.
+ *  Optional. The session template used by the session.Resource names and short
+ *  template IDs are valid. Examples: *
+ *  projects/[project_id]/locations/[dataproc_region]/sessionTemplates/[template_id]
+ *  * [template_id]The template must be in the same project and Dataproc region
+ *  as the session.
  */
 @property(nonatomic, copy, nullable) NSString *sessionTemplate;
 
@@ -12618,6 +12703,67 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *stagingBucket;
 
+@end
+
+
+/**
+ *  Metadata describing the VirtualCluster operation.
+ */
+@interface GTLRDataproc_VirtualClusterOperationMetadata : GTLRObject
+
+/** Output only. The time when the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Short description of the operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
+/** Output only. Labels associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_VirtualClusterOperationMetadata_Labels *labels;
+
+/**
+ *  Output only. The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Create
+ *        Create VirtualCluster operation type. (Value: "CREATE")
+ *    @arg @c kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Delete
+ *        Delete VirtualCluster operation type. (Value: "DELETE")
+ *    @arg @c kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Update
+ *        Update VirtualCluster operation type. (Value: "UPDATE")
+ *    @arg @c kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_VirtualClusterOperationTypeUnspecified
+ *        VirtualCluster operation type is unknown. (Value:
+ *        "VIRTUAL_CLUSTER_OPERATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Output only. Name of the virtual cluster for the operation. */
+@property(nonatomic, copy, nullable) NSString *virtualCluster;
+
+/** Output only. VirtualCluster UUID for the operation. */
+@property(nonatomic, copy, nullable) NSString *virtualClusterUuid;
+
+/** Output only. Warnings encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Output only. Labels associated with the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_VirtualClusterOperationMetadata_Labels : GTLRObject
 @end
 
 

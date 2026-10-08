@@ -29,6 +29,7 @@
 @class GTLRFirebaseCloudMessaging_Message;
 @class GTLRFirebaseCloudMessaging_Message_Data;
 @class GTLRFirebaseCloudMessaging_Notification;
+@class GTLRFirebaseCloudMessaging_TopicSubscription;
 @class GTLRFirebaseCloudMessaging_WebpushConfig;
 @class GTLRFirebaseCloudMessaging_WebpushConfig_Data;
 @class GTLRFirebaseCloudMessaging_WebpushConfig_Headers;
@@ -785,6 +786,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 
 /**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRFirebaseCloudMessaging_Empty : GTLRObject
+@end
+
+
+/**
  *  Platform independent options for features provided by the FCM SDKs.
  */
 @interface GTLRFirebaseCloudMessaging_FcmOptions : GTLRObject
@@ -819,6 +830,33 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  [proto.Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration)
  */
 @property(nonatomic, strong, nullable) GTLRDuration *lightOnDuration;
+
+@end
+
+
+/**
+ *  Response message for ListTopicSubscriptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "topicSubscriptions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRFirebaseCloudMessaging_ListTopicSubscriptionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The topic subscriptions for the instance.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseCloudMessaging_TopicSubscription *> *topicSubscriptions;
 
 @end
 
@@ -861,7 +899,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_FcmOptions *fcmOptions;
 
-/** Firebase Installation ID to send a message to. */
+/**
+ *  [Firebase Installation ID
+ *  (FID)](/docs/cloud-messaging/android/get-started#access-firebase-installation-id)
+ *  to send a message to.
+ */
 @property(nonatomic, copy, nullable) NSString *fid;
 
 /**
@@ -874,9 +916,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Notification *notification;
 
 /**
- *  Deprecated: Use `fid` instead. Registration token to send a message to.
- *  During the transition period, this field also accepts a Firebase
- *  Installation ID (FID).
+ *  Deprecated: Use `fid` instead. During the transition period, this field also
+ *  accepts a Firebase Installation ID (FID). Registration token to send a
+ *  message to.
  */
 @property(nonatomic, copy, nullable) NSString *token GTLR_DEPRECATED;
 
@@ -949,6 +991,31 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Represents a subscription of a single app instance to a single FCM topic.
+ */
+@interface GTLRFirebaseCloudMessaging_TopicSubscription : GTLRObject
+
+/** Output only. Time when the subscription was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The resource name of the subscription. Format:
+ *  projects/{project}/registrations/{registration}/topicSubscriptions/{topicSubscription}
+ *  The {registration} part contains the registration ID (e.g., FID).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The ID of the TopicSubscription, which is the topic name. This
+ *  corresponds to the {topicSubscription} segment in the resource name. Topic
+ *  names match the pattern of "[a-zA-Z0-9-_.~%]{1,900}".
+ */
+@property(nonatomic, copy, nullable) NSString *topicName;
 
 @end
 

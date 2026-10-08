@@ -1199,8 +1199,18 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties
-@dynamic action, androidPackageName, createTime, hostname, invalidReason,
-         iosBundleId, valid;
+@dynamic action, androidPackageName, clientProperties, clientSignalsFailed,
+         createTime, hostname, invalidReason, iosBundleId, valid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenPropertiesClientProperties
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenPropertiesClientProperties
+@dynamic userAgent, userIpAddress;
 @end
 
 

@@ -211,6 +211,42 @@ NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEnti
 NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
 
+// GTLRDatabaseMigrationService_EntityId.parentType
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
+// GTLRDatabaseMigrationService_EntityId.type
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
 // GTLRDatabaseMigrationService_EntityIssue.entityType
 NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
 NSString * const kGTLRDatabaseMigrationService_EntityIssue_EntityType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
@@ -278,6 +314,20 @@ NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_Database
 NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
 
+// GTLRDatabaseMigrationService_EntityStatusView.draftDdlKind
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Ai = @"AI";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_DdlKindUnspecified = @"DDL_KIND_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Deterministic = @"DETERMINISTIC";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Source = @"SOURCE";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_UserEdit = @"USER_EDIT";
+
+// GTLRDatabaseMigrationService_EntityStatusView.editedDdlKind
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Ai = @"AI";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_DdlKindUnspecified = @"DDL_KIND_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Deterministic = @"DETERMINISTIC";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Source = @"SOURCE";
+NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_UserEdit = @"USER_EDIT";
+
 // GTLRDatabaseMigrationService_ImportMappingRulesRequest.rulesFormat
 NSString * const kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatHarbourBridgeSessionFile = @"IMPORT_RULES_FILE_FORMAT_HARBOUR_BRIDGE_SESSION_FILE";
 NSString * const kGTLRDatabaseMigrationService_ImportMappingRulesRequest_RulesFormat_ImportRulesFileFormatOratopgConfigFile = @"IMPORT_RULES_FILE_FORMAT_ORATOPG_CONFIG_FILE";
@@ -294,6 +344,164 @@ NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparis
 NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonIfValueSmallerEqualThan = @"VALUE_COMPARISON_IF_VALUE_SMALLER_EQUAL_THAN";
 NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonIfValueSmallerThan = @"VALUE_COMPARISON_IF_VALUE_SMALLER_THAN";
 NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonUnspecified = @"VALUE_COMPARISON_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_Issue.categoryId
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdAp00 = @"ISSUE_CATEGORY_ID_AP00";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw00 = @"ISSUE_CATEGORY_ID_CW00";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw01 = @"ISSUE_CATEGORY_ID_CW01";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw02 = @"ISSUE_CATEGORY_ID_CW02";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw03 = @"ISSUE_CATEGORY_ID_CW03";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw04 = @"ISSUE_CATEGORY_ID_CW04";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw05 = @"ISSUE_CATEGORY_ID_CW05";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw06 = @"ISSUE_CATEGORY_ID_CW06";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw07 = @"ISSUE_CATEGORY_ID_CW07";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw08 = @"ISSUE_CATEGORY_ID_CW08";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw99 = @"ISSUE_CATEGORY_ID_CW99";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdQa00 = @"ISSUE_CATEGORY_ID_QA00";
+NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdUnspecified = @"ISSUE_CATEGORY_ID_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_Issue.entityType
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
+
+// GTLRDatabaseMigrationService_Issue.groupId
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9900 = @"ISSUE_GROUP_ID_CW_AI9900";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9901 = @"ISSUE_GROUP_ID_CW_AI9901";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9902 = @"ISSUE_GROUP_ID_CW_AI9902";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAp0000 = @"ISSUE_GROUP_ID_CW_AP0000";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0000 = @"ISSUE_GROUP_ID_CW_OP0000";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0001 = @"ISSUE_GROUP_ID_CW_OP0001";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0002 = @"ISSUE_GROUP_ID_CW_OP0002";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0101 = @"ISSUE_GROUP_ID_CW_OP0101";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0102 = @"ISSUE_GROUP_ID_CW_OP0102";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0103 = @"ISSUE_GROUP_ID_CW_OP0103";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0200 = @"ISSUE_GROUP_ID_CW_OP0200";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0201 = @"ISSUE_GROUP_ID_CW_OP0201";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0202 = @"ISSUE_GROUP_ID_CW_OP0202";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0203 = @"ISSUE_GROUP_ID_CW_OP0203";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0204 = @"ISSUE_GROUP_ID_CW_OP0204";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0205 = @"ISSUE_GROUP_ID_CW_OP0205";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0206 = @"ISSUE_GROUP_ID_CW_OP0206";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0300 = @"ISSUE_GROUP_ID_CW_OP0300";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0301 = @"ISSUE_GROUP_ID_CW_OP0301";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0302 = @"ISSUE_GROUP_ID_CW_OP0302";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0303 = @"ISSUE_GROUP_ID_CW_OP0303";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0304 = @"ISSUE_GROUP_ID_CW_OP0304";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0305 = @"ISSUE_GROUP_ID_CW_OP0305";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0306 = @"ISSUE_GROUP_ID_CW_OP0306";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0307 = @"ISSUE_GROUP_ID_CW_OP0307";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0308 = @"ISSUE_GROUP_ID_CW_OP0308";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0309 = @"ISSUE_GROUP_ID_CW_OP0309";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0310 = @"ISSUE_GROUP_ID_CW_OP0310";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0311 = @"ISSUE_GROUP_ID_CW_OP0311";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0312 = @"ISSUE_GROUP_ID_CW_OP0312";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0313 = @"ISSUE_GROUP_ID_CW_OP0313";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0314 = @"ISSUE_GROUP_ID_CW_OP0314";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0315 = @"ISSUE_GROUP_ID_CW_OP0315";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0400 = @"ISSUE_GROUP_ID_CW_OP0400";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0401 = @"ISSUE_GROUP_ID_CW_OP0401";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0402 = @"ISSUE_GROUP_ID_CW_OP0402";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0403 = @"ISSUE_GROUP_ID_CW_OP0403";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0404 = @"ISSUE_GROUP_ID_CW_OP0404";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0500 = @"ISSUE_GROUP_ID_CW_OP0500";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0501 = @"ISSUE_GROUP_ID_CW_OP0501";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0502 = @"ISSUE_GROUP_ID_CW_OP0502";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0503 = @"ISSUE_GROUP_ID_CW_OP0503";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0504 = @"ISSUE_GROUP_ID_CW_OP0504";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0601 = @"ISSUE_GROUP_ID_CW_OP0601";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0602 = @"ISSUE_GROUP_ID_CW_OP0602";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0603 = @"ISSUE_GROUP_ID_CW_OP0603";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0604 = @"ISSUE_GROUP_ID_CW_OP0604";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0605 = @"ISSUE_GROUP_ID_CW_OP0605";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0606 = @"ISSUE_GROUP_ID_CW_OP0606";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0701 = @"ISSUE_GROUP_ID_CW_OP0701";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0702 = @"ISSUE_GROUP_ID_CW_OP0702";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0801 = @"ISSUE_GROUP_ID_CW_OP0801";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0802 = @"ISSUE_GROUP_ID_CW_OP0802";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0803 = @"ISSUE_GROUP_ID_CW_OP0803";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0804 = @"ISSUE_GROUP_ID_CW_OP0804";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0805 = @"ISSUE_GROUP_ID_CW_OP0805";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0806 = @"ISSUE_GROUP_ID_CW_OP0806";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0807 = @"ISSUE_GROUP_ID_CW_OP0807";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0808 = @"ISSUE_GROUP_ID_CW_OP0808";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0000 = @"ISSUE_GROUP_ID_CW_SP0000";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0001 = @"ISSUE_GROUP_ID_CW_SP0001";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0002 = @"ISSUE_GROUP_ID_CW_SP0002";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0101 = @"ISSUE_GROUP_ID_CW_SP0101";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0102 = @"ISSUE_GROUP_ID_CW_SP0102";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0103 = @"ISSUE_GROUP_ID_CW_SP0103";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0200 = @"ISSUE_GROUP_ID_CW_SP0200";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0201 = @"ISSUE_GROUP_ID_CW_SP0201";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0202 = @"ISSUE_GROUP_ID_CW_SP0202";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0203 = @"ISSUE_GROUP_ID_CW_SP0203";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0204 = @"ISSUE_GROUP_ID_CW_SP0204";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0205 = @"ISSUE_GROUP_ID_CW_SP0205";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0300 = @"ISSUE_GROUP_ID_CW_SP0300";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0302 = @"ISSUE_GROUP_ID_CW_SP0302";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0306 = @"ISSUE_GROUP_ID_CW_SP0306";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0308 = @"ISSUE_GROUP_ID_CW_SP0308";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0309 = @"ISSUE_GROUP_ID_CW_SP0309";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0310 = @"ISSUE_GROUP_ID_CW_SP0310";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0311 = @"ISSUE_GROUP_ID_CW_SP0311";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0312 = @"ISSUE_GROUP_ID_CW_SP0312";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0313 = @"ISSUE_GROUP_ID_CW_SP0313";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0314 = @"ISSUE_GROUP_ID_CW_SP0314";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0400 = @"ISSUE_GROUP_ID_CW_SP0400";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0401 = @"ISSUE_GROUP_ID_CW_SP0401";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0402 = @"ISSUE_GROUP_ID_CW_SP0402";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0403 = @"ISSUE_GROUP_ID_CW_SP0403";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0404 = @"ISSUE_GROUP_ID_CW_SP0404";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0500 = @"ISSUE_GROUP_ID_CW_SP0500";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0501 = @"ISSUE_GROUP_ID_CW_SP0501";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0502 = @"ISSUE_GROUP_ID_CW_SP0502";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0503 = @"ISSUE_GROUP_ID_CW_SP0503";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0504 = @"ISSUE_GROUP_ID_CW_SP0504";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0601 = @"ISSUE_GROUP_ID_CW_SP0601";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0602 = @"ISSUE_GROUP_ID_CW_SP0602";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0604 = @"ISSUE_GROUP_ID_CW_SP0604";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0701 = @"ISSUE_GROUP_ID_CW_SP0701";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0802 = @"ISSUE_GROUP_ID_CW_SP0802";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0807 = @"ISSUE_GROUP_ID_CW_SP0807";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdQaOp0000 = @"ISSUE_GROUP_ID_QA_OP0000";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdQaSp0000 = @"ISSUE_GROUP_ID_QA_SP0000";
+NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdUnspecified = @"ISSUE_GROUP_ID_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_Issue.issueOrigin
+NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginAi = @"ISSUE_ORIGIN_AI";
+NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginAiFromDeterministic = @"ISSUE_ORIGIN_AI_FROM_DETERMINISTIC";
+NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginDeterministic = @"ISSUE_ORIGIN_DETERMINISTIC";
+NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginUnspecified = @"ISSUE_ORIGIN_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_Issue.issueState
+NSString * const kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateOpen = @"ISSUE_STATE_OPEN";
+NSString * const kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateResolved = @"ISSUE_STATE_RESOLVED";
+NSString * const kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateUnspecified = @"ISSUE_STATE_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_Issue.severity
+NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityError = @"ISSUE_SEVERITY_ERROR";
+NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityInfo = @"ISSUE_SEVERITY_INFO";
+NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityUnspecified = @"ISSUE_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityWarning = @"ISSUE_SEVERITY_WARNING";
+
+// GTLRDatabaseMigrationService_Issue.type
+NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypeApply = @"ISSUE_TYPE_APPLY";
+NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypeConversion = @"ISSUE_TYPE_CONVERSION";
+NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypePullSchema = @"ISSUE_TYPE_PULL_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypeUnspecified = @"ISSUE_TYPE_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_MappingRule.ruleScope
 NSString * const kGTLRDatabaseMigrationService_MappingRule_RuleScope_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
@@ -327,6 +535,7 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJob_DumpType_Physical = 
 // GTLRDatabaseMigrationService_MigrationJob.phase
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_Cdc = @"CDC";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump = @"FULL_DUMP";
+NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseFailback = @"PHASE_FAILBACK";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseUnspecified = @"PHASE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PreparingTheDump = @"PREPARING_THE_DUMP";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PromoteInProgress = @"PROMOTE_IN_PROGRESS";
@@ -429,6 +638,12 @@ NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLev
 NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLevel_Min = @"MIN";
 NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLevel_Optimal = @"OPTIMAL";
 
+// GTLRDatabaseMigrationService_PerformanceConfig.loadParallelLevel
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadMax = @"LOAD_MAX";
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadMin = @"LOAD_MIN";
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadOptimal = @"LOAD_OPTIMAL";
+NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadParallelLevelUnspecified = @"LOAD_PARALLEL_LEVEL_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_PostgreSqlConnectionProfile.networkArchitecture
 NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureNewCsqlProducer = @"NETWORK_ARCHITECTURE_NEW_CSQL_PRODUCER";
 NSString * const kGTLRDatabaseMigrationService_PostgreSqlConnectionProfile_NetworkArchitecture_NetworkArchitectureOldCsqlProducer = @"NETWORK_ARCHITECTURE_OLD_CSQL_PRODUCER";
@@ -442,6 +657,38 @@ NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Deleting 
 NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_Failed = @"FAILED";
 NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_FailedToDelete = @"FAILED_TO_DELETE";
 NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRDatabaseMigrationService_SetDraftEntityDdlRequest.basedOnDdlKind
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Ai = @"AI";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_DdlKindUnspecified = @"DDL_KIND_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Deterministic = @"DETERMINISTIC";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Source = @"SOURCE";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_UserEdit = @"USER_EDIT";
+
+// GTLRDatabaseMigrationService_SetDraftEntityDdlRequest.ddlKind
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Ai = @"AI";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_DdlKindUnspecified = @"DDL_KIND_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Deterministic = @"DETERMINISTIC";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Source = @"SOURCE";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_UserEdit = @"USER_EDIT";
+
+// GTLRDatabaseMigrationService_SetDraftEntityDdlRequest.entityType
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeColumn = @"DATABASE_ENTITY_TYPE_COLUMN";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeConstraint = @"DATABASE_ENTITY_TYPE_CONSTRAINT";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeDatabase = @"DATABASE_ENTITY_TYPE_DATABASE";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeDatabasePackage = @"DATABASE_ENTITY_TYPE_DATABASE_PACKAGE";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeFunction = @"DATABASE_ENTITY_TYPE_FUNCTION";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeIndex = @"DATABASE_ENTITY_TYPE_INDEX";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeMaterializedView = @"DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSchema = @"DATABASE_ENTITY_TYPE_SCHEMA";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSequence = @"DATABASE_ENTITY_TYPE_SEQUENCE";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeStoredProcedure = @"DATABASE_ENTITY_TYPE_STORED_PROCEDURE";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSynonym = @"DATABASE_ENTITY_TYPE_SYNONYM";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeTable = @"DATABASE_ENTITY_TYPE_TABLE";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeTrigger = @"DATABASE_ENTITY_TYPE_TRIGGER";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeUdt = @"DATABASE_ENTITY_TYPE_UDT";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeUnspecified = @"DATABASE_ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeView = @"DATABASE_ENTITY_TYPE_VIEW";
 
 // GTLRDatabaseMigrationService_SourceNumericFilter.numericFilterOption
 NSString * const kGTLRDatabaseMigrationService_SourceNumericFilter_NumericFilterOption_NumericFilterOptionAll = @"NUMERIC_FILTER_OPTION_ALL";
@@ -882,8 +1129,9 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_ConversionWorkspace
 @dynamic createTime, destination, destinationProvider, displayName,
-         globalSettings, hasUncommittedChanges, latestCommitId,
-         latestCommitTime, name, source, sourceProvider, updateTime;
+         globalSettings, hasUncommittedChanges, latestApplyTime, latestCommitId,
+         latestCommitTime, latestConvertTime, name, source, sourceProvider,
+         updateTime;
 @end
 
 
@@ -1161,6 +1409,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_EntityId
+//
+
+@implementation GTLRDatabaseMigrationService_EntityId
+@dynamic parentName, parentType, shortName, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_EntityIssue
 //
 
@@ -1214,6 +1472,25 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_EntityStatusView
+//
+
+@implementation GTLRDatabaseMigrationService_EntityStatusView
+@dynamic dependencies, draftDdlKind, draftEntity, editedDdlKind, issues,
+         resolvedIssues, sourceEntity, testedEntity, wasApplied;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dependencies" : [GTLRDatabaseMigrationService_EntityId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_ErrorInfo
 //
 
@@ -1248,6 +1525,60 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FetchEntitiesStatusViewResponse
+//
+
+@implementation GTLRDatabaseMigrationService_FetchEntitiesStatusViewResponse
+@dynamic entities, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entities" : [GTLRDatabaseMigrationService_EntityStatusView class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entities";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FetchIssuesResponse
+//
+
+@implementation GTLRDatabaseMigrationService_FetchIssuesResponse
+@dynamic issues, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [GTLRDatabaseMigrationService_Issue class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"issues";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FetchIssuesResponseIssuePosition
+//
+
+@implementation GTLRDatabaseMigrationService_FetchIssuesResponseIssuePosition
+@dynamic column, length, line, offset;
 @end
 
 
@@ -1505,6 +1836,32 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_IntComparisonFilter
 @dynamic value, valueComparison;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_Issue
+//
+
+@implementation GTLRDatabaseMigrationService_Issue
+@dynamic categoryId, entityFullName, entityType, groupId, identifier,
+         issueOrigin, issueState, message, position, severity, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_IssueAggregateData
+//
+
+@implementation GTLRDatabaseMigrationService_IssueAggregateData
+@dynamic errorCount, infoCount, warningCount;
 @end
 
 
@@ -1961,7 +2318,9 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_MySqlConnectionProfile
-@dynamic cloudSqlId, host, password, passwordSet, port, ssl, username;
+@dynamic cloudSqlId, host, password, passwordSet, port, privateConnectivity,
+         privateServiceConnectConnectivity, ssl, staticServiceIpConnectivity,
+         username;
 @end
 
 
@@ -2096,7 +2455,7 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PerformanceConfig
-@dynamic dumpParallelLevel;
+@dynamic dumpParallelLevel, loadParallelLevel;
 @end
 
 
@@ -2277,7 +2636,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_PrivateConnection
 @dynamic createTime, displayName, error, labels, name, pscInterfaceConfig,
-         satisfiesPzi, satisfiesPzs, state, updateTime, vpcPeeringConfig;
+         reservedPublicIpConfig, satisfiesPzi, satisfiesPzs, state, updateTime,
+         vpcPeeringConfig;
 @end
 
 
@@ -2390,6 +2750,24 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_RequestInfo
 @dynamic requestId, servingData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ReservedPublicIpConfig
+//
+
+@implementation GTLRDatabaseMigrationService_ReservedPublicIpConfig
+@dynamic egressPublicIps, natIpsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"egressPublicIps" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2561,6 +2939,31 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SetDraftEntityDdlRequest
+//
+
+@implementation GTLRDatabaseMigrationService_SetDraftEntityDdlRequest
+@dynamic basedOnDdlKind, ddl, ddlKind, entityNameProperty, entityType,
+         explanation;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"entityNameProperty" : @"entityName" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SetDraftEntityDdlResponse
+//
+
+@implementation GTLRDatabaseMigrationService_SetDraftEntityDdlResponse
 @end
 
 

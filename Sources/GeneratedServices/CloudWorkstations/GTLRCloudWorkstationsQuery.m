@@ -737,6 +737,33 @@
 
 @end
 
+@implementation GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsSuspend
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudWorkstations_SuspendWorkstationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:suspend";
+  GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsSuspend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudWorkstations_Operation class];
+  query.loggingName = @"workstations.projects.locations.workstationClusters.workstationConfigs.workstations.suspend";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsTestIamPermissions
 
 @dynamic resource;

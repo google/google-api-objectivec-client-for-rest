@@ -25,6 +25,13 @@ NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforc
 NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted = @"FullyRestricted";
 NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted = @"NotRestricted";
 
+// GTLRStorage_ObjectFullContext.type
+NSString * const kGTLRStorage_ObjectFullContext_Type_Custom = @"CUSTOM";
+
+// GTLRStorage_RapidCachePolicy.ingestOnWrite
+NSString * const kGTLRStorage_RapidCachePolicy_IngestOnWrite_Enabled = @"enabled";
+NSString * const kGTLRStorage_RapidCachePolicy_IngestOnWrite_Unspecified = @"unspecified";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRStorage_AdvanceRelocateBucketOperationRequest
@@ -297,7 +304,7 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_Bucket_SoftDeletePolicy
-@dynamic effectiveTime, retentionDurationSeconds;
+@dynamic effectiveTime, hardDeletePause, retentionDurationSeconds;
 @end
 
 
@@ -414,6 +421,16 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 
 @implementation GTLRStorage_Bucket_Lifecycle_Rule_Item
 @dynamic action, condition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_SoftDeletePolicy_HardDeletePause
+//
+
+@implementation GTLRStorage_Bucket_SoftDeletePolicy_HardDeletePause
+@dynamic effectiveTime, enabled;
 @end
 
 
@@ -848,8 +865,8 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_ManagedFolder
-@dynamic bucket, createTime, identifier, kind, metageneration, name, selfLink,
-         updateTime;
+@dynamic bucket, createTime, identifier, kind, metageneration, name,
+         rapidCacheConfig, selfLink, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1094,7 +1111,31 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_ObjectCustomContextPayload
-@dynamic createTime, updateTime, value;
+@dynamic createTime, extendedDataTypeUrl, updateTime, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_ObjectFullContext
+//
+
+@implementation GTLRStorage_ObjectFullContext
+@dynamic createTime, extendedData, key, kind, type, updateTime, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_ObjectFullContext_ExtendedData
+//
+
+@implementation GTLRStorage_ObjectFullContext_ExtendedData
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -1150,6 +1191,79 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RapidCache
+//
+
+@implementation GTLRStorage_RapidCache
+@dynamic admissionPolicy, bucket, cacheType, createTime, identifier,
+         ingestOnWrite, kind, pendingUpdate, rapidCacheId, selfLink, state, ttl,
+         updateTime, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RapidCacheConfig
+//
+
+@implementation GTLRStorage_RapidCacheConfig
+@dynamic policies;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RapidCacheConfig_Policies
+//
+
+@implementation GTLRStorage_RapidCacheConfig_Policies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRStorage_RapidCachePolicy class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RapidCachePolicy
+//
+
+@implementation GTLRStorage_RapidCachePolicy
+@dynamic ingestOnWrite, rapidCacheId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RapidCaches
+//
+
+@implementation GTLRStorage_RapidCaches
+@dynamic items, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRStorage_RapidCache class]
   };
   return map;
 }

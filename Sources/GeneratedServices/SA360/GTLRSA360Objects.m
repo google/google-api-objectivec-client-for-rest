@@ -507,6 +507,12 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCallToActionAsset_Call
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCallToActionAsset_CallToAction_VisitSite = @"VISIT_SITE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCallToActionAsset_CallToAction_WatchNow = @"WATCH_NOW";
 
+// GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings.targetOption
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_TargetAll = @"TARGET_ALL";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_TargetSpecific = @"TARGET_SPECIFIC";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_Unknown = @"UNKNOWN";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_Unspecified = @"UNSPECIFIED";
+
 // GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignRetentionGoalSettings.targetOption
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignRetentionGoalSettings_TargetOption_TargetAll = @"TARGET_ALL";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignRetentionGoalSettings_TargetOption_TargetSpecific = @"TARGET_SPECIFIC";
@@ -2594,11 +2600,15 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignFeed
 
 // GTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode.campaignGoalConfigError
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignNotFound = @"CAMPAIGN_NOT_FOUND";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignOverrideHighLifetimeValueNotSupportedForCampaignType = @"CAMPAIGN_OVERRIDE_HIGH_LIFETIME_VALUE_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignOverrideValuesSetForNewCustomerAcquisitionTargetSpecificOption = @"CAMPAIGN_OVERRIDE_VALUES_SET_FOR_NEW_CUSTOMER_ACQUISITION_TARGET_SPECIFIC_OPTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CannotUseIncompatibleCloGoals = @"CANNOT_USE_INCOMPATIBLE_CLO_GOALS";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CustomerLifecycleOptimizationCampaignTypeNotSupported = @"CUSTOMER_LIFECYCLE_OPTIMIZATION_CAMPAIGN_TYPE_NOT_SUPPORTED";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CustomerNotAllowlistedForRetentionOnly = @"CUSTOMER_NOT_ALLOWLISTED_FOR_RETENTION_ONLY";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_GoalNotFound = @"GOAL_NOT_FOUND";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_HighLifetimeValueLessThanOrEqualToValue = @"HIGH_LIFETIME_VALUE_LESS_THAN_OR_EQUAL_TO_VALUE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_HighLifetimeValuePresentButValueAbsent = @"HIGH_LIFETIME_VALUE_PRESENT_BUT_VALUE_ABSENT";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_LoyaltyRetentionGoalInvalidMode = @"LOYALTY_RETENTION_GOAL_INVALID_MODE";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_Unspecified = @"UNSPECIFIED";
 
@@ -6705,6 +6715,8 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGeoTargetTy
 
 // GTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig.goalType
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_CustomerRetention = @"CUSTOMER_RETENTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_LoyaltyRetention = @"LOYALTY_RETENTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_NewCustomerAcquisition = @"NEW_CUSTOMER_ACQUISITION";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_Unspecified = @"UNSPECIFIED";
 
@@ -7750,6 +7762,8 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGeoTargetConstant_S
 
 // GTLRSA360_GoogleAdsSearchads360V23ResourcesGoal.goalType
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_CustomerRetention = @"CUSTOMER_RETENTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_LoyaltyRetention = @"LOYALTY_RETENTION";
+NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_NewCustomerAcquisition = @"NEW_CUSTOMER_ACQUISITION";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_Unknown = @"UNKNOWN";
 NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_Unspecified = @"UNSPECIFIED";
 
@@ -10794,6 +10808,27 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUpdateProductLinkInv
 
 @implementation GTLRSA360_GoogleAdsSearchads360V23CommonCallToActionAsset
 @dynamic callToAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignLoyaltyRetentionGoalSettings
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignLoyaltyRetentionGoalSettings
+@dynamic enableBidAdjustmentsForLoyaltyMembers,
+         showTargetedLoyaltyMemberBenefitsInPla, valueSettingsOverride;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings
+//
+
+@implementation GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings
+@dynamic targetOption, valueSettingsOverride;
 @end
 
 
@@ -16279,7 +16314,9 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUpdateProductLinkInv
 //
 
 @implementation GTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig
-@dynamic campaign, campaignRetentionSettings, goal, goalType, resourceName;
+@dynamic campaign, campaignLoyaltyRetentionSettings,
+         campaignNewCustomerAcquisitionSettings, campaignRetentionSettings,
+         goal, goalType, resourceName;
 @end
 
 
@@ -26630,9 +26667,9 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUpdateProductLinkInv
          campaignBidModifierOperation, campaignBudgetOperation,
          campaignConversionGoalOperation, campaignCriterionOperation,
          campaignCustomizerOperation, campaignDraftOperation,
-         campaignGroupOperation, campaignLabelOperation, campaignOperation,
-         campaignSharedSetOperation, conversionActionOperation,
-         conversionCustomVariableOperation,
+         campaignGoalConfigOperation, campaignGroupOperation,
+         campaignLabelOperation, campaignOperation, campaignSharedSetOperation,
+         conversionActionOperation, conversionCustomVariableOperation,
          conversionGoalCampaignConfigOperation, conversionValueRuleOperation,
          conversionValueRuleSetOperation, customConversionGoalOperation,
          customerAssetOperation, customerConversionGoalOperation,
@@ -26666,8 +26703,8 @@ NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUpdateProductLinkInv
          campaignAssetResult, campaignAssetSetResult, campaignBidModifierResult,
          campaignBudgetResult, campaignConversionGoalResult,
          campaignCriterionResult, campaignCustomizerResult, campaignDraftResult,
-         campaignGroupResult, campaignLabelResult, campaignResult,
-         campaignSharedSetResult, conversionActionResult,
+         campaignGoalConfigResult, campaignGroupResult, campaignLabelResult,
+         campaignResult, campaignSharedSetResult, conversionActionResult,
          conversionCustomVariableResult, conversionGoalCampaignConfigResult,
          conversionValueRuleResult, conversionValueRuleSetResult,
          customConversionGoalResult, customerAssetResult,

@@ -133,6 +133,14 @@ NSString * const kGTLRCloudAlloyDBAdmin_ContinuousBackupInfo_Schedule_Thursday =
 NSString * const kGTLRCloudAlloyDBAdmin_ContinuousBackupInfo_Schedule_Tuesday = @"TUESDAY";
 NSString * const kGTLRCloudAlloyDBAdmin_ContinuousBackupInfo_Schedule_Wednesday = @"WEDNESDAY";
 
+// GTLRCloudAlloyDBAdmin_DnsAutomationInfo.state
+NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_CreateFailed = @"CREATE_FAILED";
+NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_DeleteFailed = @"DELETE_FAILED";
+NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_PendingCreate = @"PENDING_CREATE";
+NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_PendingDelete = @"PENDING_DELETE";
+NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudAlloyDBAdmin_EncryptionInfo.encryptionType
 NSString * const kGTLRCloudAlloyDBAdmin_EncryptionInfo_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
 NSString * const kGTLRCloudAlloyDBAdmin_EncryptionInfo_EncryptionType_GoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
@@ -206,6 +214,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_MaintenanceWindow_Day_Wednesday = @"WEDN
 // GTLRCloudAlloyDBAdmin_MigrationSource.sourceType
 NSString * const kGTLRCloudAlloyDBAdmin_MigrationSource_SourceType_Dms = @"DMS";
 NSString * const kGTLRCloudAlloyDBAdmin_MigrationSource_SourceType_MigrationSourceTypeUnspecified = @"MIGRATION_SOURCE_TYPE_UNSPECIFIED";
+
+// GTLRCloudAlloyDBAdmin_PscInstanceConfig.pscAutoConnectionPolicyState
+NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_Disabled = @"DISABLED";
+NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_Enabled = @"ENABLED";
+NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_PscAutoConnectionPolicyStateUnspecified = @"PSC_AUTO_CONNECTION_POLICY_STATE_UNSPECIFIED";
+
+// GTLRCloudAlloyDBAdmin_PscInstanceConfig.pscAutoDnsState
+NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateDisabled = @"PSC_AUTO_DNS_STATE_DISABLED";
+NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateEnabled = @"PSC_AUTO_DNS_STATE_ENABLED";
+NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateUnspecified = @"PSC_AUTO_DNS_STATE_UNSPECIFIED";
 
 // GTLRCloudAlloyDBAdmin_SslConfig.caSource
 NSString * const kGTLRCloudAlloyDBAdmin_SslConfig_CaSource_CaSourceManaged = @"CA_SOURCE_MANAGED";
@@ -821,6 +839,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_TargetVersion_Postg
 
 // GTLRCloudAlloyDBAdmin_User.userType
 NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbBuiltIn = @"ALLOYDB_BUILT_IN";
+NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroup = @"ALLOYDB_IAM_GROUP";
+NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroupServiceAccount = @"ALLOYDB_IAM_GROUP_SERVICE_ACCOUNT";
+NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroupUser = @"ALLOYDB_IAM_GROUP_USER";
 NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamUser = @"ALLOYDB_IAM_USER";
 NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_UserTypeUnspecified = @"USER_TYPE_UNSPECIFIED";
 
@@ -1244,6 +1265,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_DnsAutomationInfo
+//
+
+@implementation GTLRCloudAlloyDBAdmin_DnsAutomationInfo
+@dynamic fullyQualifiedDomainName, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_Empty
 //
 
@@ -1440,9 +1471,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
          dataApiAccess, databaseFlags, deleteTime, displayName, ETag, gceZone,
          instanceType, ipAddress, labels, machineConfig, maintenanceVersionName,
          name, networkConfig, nodes, observabilityConfig,
-         outboundPublicIpAddresses, pscInstanceConfig, publicIpAddress,
-         queryInsightsConfig, readPoolConfig, reconciling, satisfiesPzs, state,
-         uid, updateTime, writableNode;
+         observabilityInstanceInfo, outboundPublicIpAddresses,
+         pscInstanceConfig, pscInstanceInfo, publicIpAddress,
+         queryInsightsConfig, queryInsightsInfo, readPoolConfig, reconciling,
+         satisfiesPzs, state, uid, updateTime, writableNode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1775,6 +1807,18 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_ObservabilityInstanceInfo
+//
+
+@implementation GTLRCloudAlloyDBAdmin_ObservabilityInstanceInfo
+@dynamic enabled, maxQueryStringLength, preserveComments, queryPlansPerMinute,
+         recordApplicationTags, trackActiveQueries, trackWaitEvents,
+         trackWaitEventTypes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_Operation
 //
 
@@ -1861,8 +1905,17 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_PscAutoConnectionConfig
-@dynamic consumerNetwork, consumerNetworkStatus, consumerProject, ipAddress,
-         status;
+@dynamic consumerNetwork, consumerNetworkStatus, consumerProject,
+         dnsAutomationInfos, ipAddress, serviceConnectionPolicy,
+         serviceConnectionPolicyCreationState, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsAutomationInfos" : [GTLRCloudAlloyDBAdmin_DnsAutomationInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1882,14 +1935,34 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_PscInstanceConfig
-@dynamic allowedConsumerProjects, pscAutoConnections, pscDnsName,
-         pscInterfaceConfigs, serviceAttachmentLink;
+@dynamic allowedConsumerProjects, pscAutoConnectionPolicyState,
+         pscAutoConnections, pscAutoDnsState, pscDnsName, pscInterfaceConfigs,
+         serviceAttachmentLink;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedConsumerProjects" : [NSString class],
     @"pscAutoConnections" : [GTLRCloudAlloyDBAdmin_PscAutoConnectionConfig class],
     @"pscInterfaceConfigs" : [GTLRCloudAlloyDBAdmin_PscInterfaceConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_PscInstanceInfo
+//
+
+@implementation GTLRCloudAlloyDBAdmin_PscInstanceInfo
+@dynamic effectivePscAutoConnectionPolicy, effectivePscAutoDnsEnabled,
+         pscAutoDnsNames, serviceConnectionPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pscAutoDnsNames" : [NSString class]
   };
   return map;
 }
@@ -1934,6 +2007,17 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 @implementation GTLRCloudAlloyDBAdmin_QueryInsightsInstanceConfig
 @dynamic queryPlansPerMinute, queryStringLength, recordApplicationTags,
+         recordClientAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_QueryInsightsInstanceInfo
+//
+
+@implementation GTLRCloudAlloyDBAdmin_QueryInsightsInstanceInfo
+@dynamic enabled, queryPlansPerMinute, queryStringLength, recordApplicationTags,
          recordClientAddress;
 @end
 

@@ -21,6 +21,7 @@
 @class GTLRMeet_DocsDestination;
 @class GTLRMeet_DriveDestination;
 @class GTLRMeet_GatewaySipAccess;
+@class GTLRMeet_Member;
 @class GTLRMeet_ModerationRestrictions;
 @class GTLRMeet_Participant;
 @class GTLRMeet_ParticipantSession;
@@ -35,6 +36,7 @@
 @class GTLRMeet_Transcript;
 @class GTLRMeet_TranscriptEntry;
 @class GTLRMeet_TranscriptionConfig;
+@class GTLRMeet_UpdateMemberRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -45,6 +47,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_Member.role
+
+/**
+ *  Co-host role.
+ *
+ *  Value: "COHOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_Member_Role_Cohost;
+/**
+ *  This is used to indicate the user hasn't specified any value and the user’s
+ *  role will be determined upon joining the meetings between 'contributor' and
+ *  'viewer' role depending on meeting configuration. For more information about
+ *  the viewer role, see [Assign View only roles in Google
+ *  Meet](https://support.google.com/meet/answer/13658394).
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_Member_Role_RoleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMeet_ModerationRestrictions.chatRestriction
@@ -435,6 +457,47 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 
 
 /**
+ *  Request to update members of one space within a batch.
+ */
+@interface GTLRMeet_BatchUpdateMembersRequest : GTLRObject
+
+/**
+ *  Required. The request message specifying the resources to update. A maximum
+ *  of 500 members can be modified in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMeet_UpdateMemberRequest *> *requests;
+
+/**
+ *  Optional. Top-level field mask used to specify the fields to be updated in
+ *  the member for all UpdateMemberRequests. There are 4 possible scenarios for
+ *  top-level and child field mask: 1. top-level and child field mask is absent:
+ *  All fields provided in the requests are updated, including deleting fields
+ *  not set in the requests. 2. top-level field mask is present but child field
+ *  mask is absent: The fields specified in the top-level field mask are
+ *  updated. 3. top-level and child field mask is present: The child field mask
+ *  must be the same as the top-level field mask. 4. top-level field mask is
+ *  absent but child field mask is present: It isn't supported and will return
+ *  an error.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Response of batch update members.
+ */
+@interface GTLRMeet_BatchUpdateMembersResponse : GTLRObject
+
+/** Members updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMeet_Member *> *members;
+
+@end
+
+
+/**
  *  Single instance of a meeting held in a space.
  */
 @interface GTLRMeet_ConferenceRecord : GTLRObject
@@ -576,6 +639,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 /**
  *  Token to be circulated back for further List call if current List does NOT
  *  include all the Conferences. Unset if all conferences have been returned.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response of list members.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "members" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRMeet_ListMembersResponse : GTLRCollectionObject
+
+/**
+ *  The list of members for the current page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMeet_Member *> *members;
+
+/**
+ *  Token to be circulated back for further list call if current list doesn't
+ *  include all the members. Unset if all members are returned.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -750,6 +840,39 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMeet_Transcript *> *transcripts;
+
+@end
+
+
+/**
+ *  Users who are configured to have a role in the space. These users can join
+ *  the space without knocking.
+ */
+@interface GTLRMeet_Member : GTLRObject
+
+/** Email for the member. This is required for creating the member. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Identifier. Resource name of the member. Format:
+ *  spaces/{space}/members/{member}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The meeting role assigned to the member.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_Member_Role_Cohost Co-host role. (Value: "COHOST")
+ *    @arg @c kGTLRMeet_Member_Role_RoleUnspecified This is used to indicate the
+ *        user hasn't specified any value and the user’s role will be determined
+ *        upon joining the meetings between 'contributor' and 'viewer' role
+ *        depending on meeting configuration. For more information about the
+ *        viewer role, see [Assign View only roles in Google
+ *        Meet](https://support.google.com/meet/answer/13658394). (Value:
+ *        "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -1319,6 +1442,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
  *        artifact is generated automatically. (Value: "ON")
  */
 @property(nonatomic, copy, nullable) NSString *autoTranscriptionGeneration;
+
+@end
+
+
+/**
+ *  Request to update a member.
+ */
+@interface GTLRMeet_UpdateMemberRequest : GTLRObject
+
+/** Required. The Member to update. Format: spaces/{space}/members/{member} */
+@property(nonatomic, strong, nullable) GTLRMeet_Member *member;
+
+/**
+ *  Optional. Field mask used to specify the fields to be updated in the member.
+ *  If update_mask isn't provided(not set, set with empty paths, or only has ""
+ *  as paths), it defaults to update all fields provided with values in the
+ *  request. Using "*" as update_mask will update all fields, including deleting
+ *  fields not set in the request. In case of BatchUpdate, it must be absent or
+ *  the same as the update_mask in BatchUpdateMembersRequest when
+ *  UpdateMemberRequest is built as a child request of
+ *  BatchUpdateMembersRequest.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

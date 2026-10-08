@@ -170,6 +170,72 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Describes the properties of the metric set.
  *
+ *  Method: playdeveloperreporting.vitals.anonrssandswapmemoryusage.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageGet : GTLRPlaydeveloperreportingQuery
+
+/**
+ *  Required. * The resource name. Format:
+ *  apps/{app}/anonRssAndSwapMemoryUsageMetricSet
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AnonRssAndSwapMemoryUsageMetricSet.
+ *
+ *  Describes the properties of the metric set.
+ *
+ *  @param name Required. * The resource name. Format:
+ *    apps/{app}/anonRssAndSwapMemoryUsageMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Queries the metrics in the metric set.
+ *
+ *  Method: playdeveloperreporting.vitals.anonrssandswapmemoryusage.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageQuery : GTLRPlaydeveloperreportingQuery
+
+/**
+ *  Required. * The resource name. Format:
+ *  apps/{app}/anonRssAndSwapMemoryUsageMetricSet
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetResponse.
+ *
+ *  Queries the metrics in the metric set.
+ *
+ *  @param object The @c
+ *    GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest
+ *    to include in the query.
+ *  @param name Required. * The resource name. Format:
+ *    apps/{app}/anonRssAndSwapMemoryUsageMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageQuery
+ */
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Describes the properties of the metric set.
+ *
  *  Method: playdeveloperreporting.vitals.anrrate.get
  *
  *  Authorization scope(s):
@@ -221,6 +287,70 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRPlaydeveloperreportingQuery_VitalsAnrrateQuery
  */
 + (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Describes the properties of the metric set.
+ *
+ *  Method: playdeveloperreporting.vitals.bitmapmemoryusage.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageGet : GTLRPlaydeveloperreportingQuery
+
+/**
+ *  Required. The resource name. Format: apps/{app}/bitmapMemoryUsageMetricSet
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1BitmapMemoryUsageMetricSet.
+ *
+ *  Describes the properties of the metric set.
+ *
+ *  @param name Required. The resource name. Format:
+ *    apps/{app}/bitmapMemoryUsageMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Queries the metrics in the metric set.
+ *
+ *  Method: playdeveloperreporting.vitals.bitmapmemoryusage.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageQuery : GTLRPlaydeveloperreportingQuery
+
+/**
+ *  Required. The resource name. Format: apps/{app}/bitmapMemoryUsageMetricSet
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetResponse.
+ *
+ *  Queries the metrics in the metric set.
+ *
+ *  @param object The @c
+ *    GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest
+ *    to include in the query.
+ *  @param name Required. The resource name. Format:
+ *    apps/{app}/bitmapMemoryUsageMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageQuery
+ */
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest *)object
                            name:(NSString *)name;
 
 @end

@@ -371,7 +371,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
          containerImage, dataDisks, disablePublicIp, enableIpForwarding,
          gpuDriverConfig, instanceId, machineType, metadata, minCpuPlatform,
          networkInterfaces, reservationAffinity, serviceAccounts,
-         shieldedInstanceConfig, tags, vmImage;
+         shieldedInstanceConfig, systemMetadata, tags, vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -393,6 +393,20 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_GceSetup_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_GceSetup_SystemMetadata
+//
+
+@implementation GTLRAIPlatformNotebooks_GceSetup_SystemMetadata
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -963,5 +977,5 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_VmImage
-@dynamic family, name, project;
+@dynamic family, imageDescription, name, project;
 @end

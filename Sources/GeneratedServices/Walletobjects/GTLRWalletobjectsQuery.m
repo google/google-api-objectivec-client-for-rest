@@ -1290,6 +1290,28 @@
 
 @end
 
+@implementation GTLRWalletobjectsQuery_JwtValidate
+
++ (instancetype)queryWithObject:(GTLRWalletobjects_JwtValidateRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"walletobjects/v1/jwt/validate";
+  GTLRWalletobjectsQuery_JwtValidate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRWalletobjects_JwtValidateResponse class];
+  query.loggingName = @"walletobjects.jwt.validate";
+  return query;
+}
+
+@end
+
 @implementation GTLRWalletobjectsQuery_LoyaltyclassAddmessage
 
 @dynamic resourceId;

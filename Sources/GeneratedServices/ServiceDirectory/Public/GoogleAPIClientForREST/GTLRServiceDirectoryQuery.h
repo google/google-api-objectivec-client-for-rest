@@ -348,7 +348,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesPatch : GTLRServiceDirectoryQuery
 
 /**
- *  Immutable. The resource name for the namespace in the format `projects/ *
+ *  Identifier. The resource name for the namespace in the format `projects/ *
  *  /locations/ * /namespaces/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -366,7 +366,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a namespace.
  *
  *  @param object The @c GTLRServiceDirectory_Namespace to include in the query.
- *  @param name Immutable. The resource name for the namespace in the format
+ *  @param name Identifier. The resource name for the namespace in the format
  *    `projects/ * /locations/ * /namespaces/ *`.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesPatch
@@ -622,7 +622,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsPatch : GTLRServiceDirectoryQuery
 
 /**
- *  Immutable. The resource name for the endpoint in the format `projects/ *
+ *  Identifier. The resource name for the endpoint in the format `projects/ *
  *  /locations/ * /namespaces/ * /services/ * /endpoints/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -640,7 +640,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates an endpoint.
  *
  *  @param object The @c GTLRServiceDirectory_Endpoint to include in the query.
- *  @param name Immutable. The resource name for the endpoint in the format
+ *  @param name Identifier. The resource name for the endpoint in the format
  *    `projects/ * /locations/ * /namespaces/ * /services/ * /endpoints/ *`.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsPatch
@@ -795,7 +795,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesPatch : GTLRServiceDirectoryQuery
 
 /**
- *  Immutable. The resource name for the service in the format `projects/ *
+ *  Identifier. The resource name for the service in the format `projects/ *
  *  /locations/ * /namespaces/ * /services/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -813,7 +813,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a service.
  *
  *  @param object The @c GTLRServiceDirectory_Service to include in the query.
- *  @param name Immutable. The resource name for the service in the format
+ *  @param name Identifier. The resource name for the service in the format
  *    `projects/ * /locations/ * /namespaces/ * /services/ *`.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesPatch

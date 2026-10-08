@@ -354,8 +354,8 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
 @interface GTLRParameterManagerQuery_ProjectsLocationsParametersPatch : GTLRParameterManagerQuery
 
 /**
- *  Identifier. [Output only] The resource name of the Parameter in the format
- *  `projects/ * /locations/ * /parameters/ *`.
+ *  Identifier. The resource name of the Parameter in the format `projects/ *
+ *  /locations/ * /parameters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -391,8 +391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
  *  Updates a single Parameter.
  *
  *  @param object The @c GTLRParameterManager_Parameter to include in the query.
- *  @param name Identifier. [Output only] The resource name of the Parameter in
- *    the format `projects/ * /locations/ * /parameters/ *`.
+ *  @param name Identifier. The resource name of the Parameter in the format
+ *    `projects/ * /locations/ * /parameters/ *`.
  *
  *  @return GTLRParameterManagerQuery_ProjectsLocationsParametersPatch
  */
@@ -607,8 +607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
 @interface GTLRParameterManagerQuery_ProjectsLocationsParametersVersionsPatch : GTLRParameterManagerQuery
 
 /**
- *  Identifier. [Output only] The resource name of the ParameterVersion in the
- *  format `projects/ * /locations/ * /parameters/ * /versions/ *`.
+ *  Identifier. The resource name of the ParameterVersion in the format
+ *  `projects/ * /locations/ * /parameters/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -645,9 +645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
  *
  *  @param object The @c GTLRParameterManager_ParameterVersion to include in the
  *    query.
- *  @param name Identifier. [Output only] The resource name of the
- *    ParameterVersion in the format `projects/ * /locations/ * /parameters/ *
- *    /versions/ *`.
+ *  @param name Identifier. The resource name of the ParameterVersion in the
+ *    format `projects/ * /locations/ * /parameters/ * /versions/ *`.
  *
  *  @return GTLRParameterManagerQuery_ProjectsLocationsParametersVersionsPatch
  */

@@ -45,6 +45,14 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBigQueryReservation_Assignment.jobType
 
 /**
+ *  Automated materialized view refresh jobs will use the reservation.
+ *  Reservations with this job type will take priority over a default QUERY
+ *  reservation assignment (if it exists).
+ *
+ *  Value: "AUTOMATIC_MATERIALIZED_VIEW_REFRESH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_AutomaticMaterializedViewRefresh;
+/**
  *  Background jobs that BigQuery runs for the customers in the background.
  *
  *  Value: "BACKGROUND"
@@ -514,6 +522,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, copy, nullable) NSString *assignee;
 
 /**
+ *  Optional. Common Expression Language (CEL) condition that defines the
+ *  matching criteria for this assignment. The condition must resolve to a
+ *  boolean value. Supported variables will be added later.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_Expr *condition;
+
+/**
  *  Optional. Deprecated: "Gemini in BigQuery" is now available by default for
  *  all BigQuery editions and should not be explicitly set. Controls if "Gemini
  *  in BigQuery" (https://cloud.google.com/gemini/docs/bigquery/overview)
@@ -527,6 +542,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  Optional. Which type of jobs will use the reservation.
  *
  *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_AutomaticMaterializedViewRefresh
+ *        Automated materialized view refresh jobs will use the reservation.
+ *        Reservations with this job type will take priority over a default
+ *        QUERY reservation assignment (if it exists). (Value:
+ *        "AUTOMATIC_MATERIALIZED_VIEW_REFRESH")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Background Background
  *        jobs that BigQuery runs for the customers in the background. (Value:
  *        "BACKGROUND")
@@ -574,18 +594,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Specifies the priority precedence for this assignment. Used to
+ *  resolve ambiguity when multiple assignments match a single job. Higher
+ *  numerical values represent higher priority (e.g., 20 is higher than 10). If
+ *  unspecified, it defaults to 0. Multiple assignments can share the same
+ *  precedence, but it is recommended to use unique precedence values for
+ *  assignments within the same assignee scope.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precedence;
+
+/**
  *  Optional. Represents the principal for this assignment. If not empty, jobs
- *  run by this principal will utilize the associated reservation. Otherwise,
- *  jobs will fall back to using the reservation assigned to the project,
- *  folder, or organization (in that order). If no reservation is assigned at
- *  any of these levels, on-demand capacity will be used. The supported formats
- *  are: * `principal://goog/subject/USER_EMAIL_ADDRESS` for users, *
+ *  run by this principal utilize the associated reservation. Otherwise, jobs
+ *  fall back to using the reservation assigned to the project, folder, or
+ *  organization, in that order. If no reservation is assigned at any of these
+ *  levels, on-demand capacity is used. The supported formats are: *
+ *  `principal://goog/subject/USER_EMAIL_ADDRESS` for users, *
  *  `principal://iam.googleapis.com/projects/-/serviceAccounts/SA_EMAIL_ADDRESS`
  *  for service accounts, *
  *  `principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/subject/SUBJECT_ID`
  *  for workload identity pool identities. * The special value
  *  `unknown_or_deleted_user` represents principals which cannot be read from
- *  the user info service, for example deleted users.
+ *  the user info service, for example, deleted users.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
 
@@ -1671,6 +1703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  */
 @interface GTLRBigQueryReservation_ReservationGroup : GTLRObject
 
+/** Output only. Creation time of the reservation group. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
 /**
  *  Identifier. The resource name of the reservation group, e.g., `projects/ *
  *  /locations/ * /reservationGroups/team1-prod`. The reservation_group_id must
@@ -1687,6 +1722,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  groups.
  */
 @property(nonatomic, copy, nullable) NSString *parentGroup;
+
+/**
+ *  Output only. Last update time of the reservation group via a user operation.
+ *  This timestamp is updated only when an update operation explicitly targets
+ *  this reservation group directly. It is not updated when parent or child
+ *  groups are created, updated, or deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

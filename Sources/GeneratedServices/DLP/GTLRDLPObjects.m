@@ -553,11 +553,6 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Allow = @
 NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_Block = @"BLOCK";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_ContentPolicyVerdictUnspecified = @"CONTENT_POLICY_VERDICT_UNSPECIFIED";
 
-// GTLRDLP_GooglePrivacyDlpV2PolicyRule.returnVerdict
-NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Allow = @"ALLOW";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Block = @"BLOCK";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_ContentPolicyVerdictUnspecified = @"CONTENT_POLICY_VERDICT_UNSPECIFIED";
-
 // GTLRDLP_GooglePrivacyDlpV2PubSubCondition.minimumRiskScore
 NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_High = @"HIGH";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2PubSubCondition_MinimumRiskScore_MediumOrHigh = @"MEDIUM_OR_HIGH";
@@ -1451,8 +1446,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @implementation GTLRDLP_GooglePrivacyDlpV2ContentPolicy
 @dynamic createTime, defaultAction, displayName, errors,
          failedToScanSupportedFileType, inputTooLarge, inspectConfig,
-         inspectTemplate, loggingConfigs, name, rules, unsupportedFileType,
-         updateTime;
+         loggingConfigs, name, rules, unsupportedFileType, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1500,7 +1494,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ConversationMessage
-@dynamic content, messageType, participantId;
+@dynamic content, messageParts, messageType, participantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messageParts" : [GTLRDLP_GooglePrivacyDlpV2MessagePart class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -4033,6 +4035,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2MessagePart
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2MessagePart
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression
 //
 
@@ -4262,7 +4274,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2PolicyRule
-@dynamic action, conditions, returnVerdict;
+@dynamic action, conditions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

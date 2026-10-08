@@ -80,6 +80,12 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMeta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitTypeUnspecified = @"DATASET_SPLIT_TYPE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitUnassigned = @"DATASET_SPLIT_UNASSIGNED";
 
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings.groundingType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_GroundingTypeUnspecified = @"GROUNDING_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_Hard = @"HARD";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_NoGrounding = @"NO_GROUNDING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_OcrRelaxed = @"OCR_RELAXED";
+
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3Processor.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3Processor_State_Creating = @"CREATING";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3Processor_State_Deleting = @"DELETING";
@@ -200,6 +206,12 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityT
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_OccurrenceType_OptionalOnce = @"OPTIONAL_ONCE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredMultiple = @"REQUIRED_MULTIPLE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce = @"REQUIRED_ONCE";
+
+// GTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings.groundingType
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_GroundingTypeUnspecified = @"GROUNDING_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_Hard = @"HARD";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_NoGrounding = @"NO_GROUNDING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_OcrRelaxed = @"OCR_RELAXED";
 
 // GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Error = @"ERROR";
@@ -1084,6 +1096,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings
+@dynamic groundingType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiUiv1beta3HumanReviewLabelingMetadata
 //
 
@@ -1198,9 +1220,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion
 @dynamic createTime, deploymentAllowed, deprecationInfo, displayName,
-         documentSchema, genAiModelInfo, googleManaged, kmsKeyName,
-         kmsKeyVersionName, latestEvaluation, modelType, name, satisfiesPzi,
-         satisfiesPzs, schema, state;
+         documentSchema, genAiModelInfo, googleManaged, groundingSettings,
+         kmsKeyName, kmsKeyVersionName, latestEvaluation, modelType, name,
+         satisfiesPzi, satisfiesPzs, schema, state;
 @end
 
 
@@ -2046,6 +2068,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings
+@dynamic groundingType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus
 //
 
@@ -2150,8 +2182,9 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessorVersion
 @dynamic createTime, deprecationInfo, displayName, documentSchema,
-         genAiModelInfo, googleManaged, kmsKeyName, kmsKeyVersionName,
-         latestEvaluation, modelType, name, satisfiesPzi, satisfiesPzs, state;
+         genAiModelInfo, googleManaged, groundingSettings, kmsKeyName,
+         kmsKeyVersionName, latestEvaluation, modelType, name, satisfiesPzi,
+         satisfiesPzs, state;
 @end
 
 

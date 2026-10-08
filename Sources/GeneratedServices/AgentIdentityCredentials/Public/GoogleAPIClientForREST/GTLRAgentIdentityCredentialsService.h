@@ -4,7 +4,8 @@
 // API:
 //   Agent Identity Credentials API (agentidentitycredentials/v1)
 // Description:
-//   agentidentitycredentials.googleapis.com API.
+//   The Agent Identity Credentials API retrieves and finalizes authorization
+//   credentials for auth providers.
 // Documentation:
 //   https://cloud.google.com/iam/docs/
 
@@ -39,7 +40,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAgentIdentityCredentialsCloudPl
 /**
  *  Service for executing Agent Identity Credentials API queries.
  *
- *  agentidentitycredentials.googleapis.com API.
+ *  The Agent Identity Credentials API retrieves and finalizes authorization
+ *  credentials for auth providers.
  */
 @interface GTLRAgentIdentityCredentialsService : GTLRService
 

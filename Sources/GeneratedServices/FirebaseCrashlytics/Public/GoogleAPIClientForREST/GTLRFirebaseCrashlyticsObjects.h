@@ -814,6 +814,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_T
  */
 @interface GTLRFirebaseCrashlytics_IntervalMetrics : GTLRObject
 
+/**
+ *  Mobile only. Percentage of crash-free sessions. (total_sessions_count -
+ *  impacted_sessions_count) / total_sessions_count * 100.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crashFreeSessionsPercentage;
+
+/**
+ *  Mobile only. Percentage of crash-free users. (total_users_count -
+ *  impacted_users_count) / total_users_count * 100
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crashFreeUsersPercentage;
+
 /** The end of the interval covered by the computation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -825,6 +841,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_T
 @property(nonatomic, strong, nullable) NSNumber *eventsCount;
 
 /**
+ *  The number of distinct sessions in the set of events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impactedSessionsCount;
+
+/**
  *  The number of distinct users in the set of events.
  *
  *  Uses NSNumber of longLongValue.
@@ -832,14 +855,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_T
 @property(nonatomic, strong, nullable) NSNumber *impactedUsersCount;
 
 /**
- *  The number of distinct sessions in the set of events.
+ *  Deprecated: Prefer `impacted_sessions_count`. The number of distinct
+ *  sessions in the set of events.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sessionsCount;
+@property(nonatomic, strong, nullable) NSNumber *sessionsCount GTLR_DEPRECATED;
 
 /** The start of the interval covered by the computation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The number of distinct sessions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSessionsCount;
+
+/**
+ *  The number of distinct users.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalUsersCount;
 
 @end
 

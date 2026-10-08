@@ -72,6 +72,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeResetSslModeUnspecified;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 // ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Includes basic metadata about the blue-green deployment. `BASIC` is the
+ *  default view.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewBasic;
+/**
+ *  Blue-green deployment view enumeration. This allows the caller to specify
+ *  what view they query. If unspecified
+ *  (BLUE_GREEN_DEPLOYMENT_VIEW_UNSPECIFIED), the behavior is the same as BASIC.
+ *
+ *  Value: "BLUE_GREEN_DEPLOYMENT_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewBlueGreenDeploymentViewUnspecified;
+/**
+ *  Includes basic metadata and configuration differences between source and
+ *  target instances (`database_version`, `tier`, `edition`,
+ *  `availability_type`, `data_disk_size_gb`, and `data_disk_type`).
+ *
+ *  Value: "DETAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminViewDetailed;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -455,6 +482,228 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 @end
 
 /**
+ *  Creates a blue-green deployment under a given project and location.
+ *
+ *  Method: sql.blueGreenDeployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BlueGreenDeploymentsCreate : GTLRSQLAdminQuery
+
+/**
+ *  Required. The ID to use for the blue-green deployment, which will become the
+ *  final component of the deployment's resource name. The ID must be unique
+ *  within the given project and location and between 2-63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *blueGreenDeploymentId;
+
+/**
+ *  Required. The parent resource where this blue-green deployment will be
+ *  created. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Creates a blue-green deployment under a given project and location.
+ *
+ *  @param object The @c GTLRSQLAdmin_BlueGreenDeployment to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this blue-green deployment
+ *    will be created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRSQLAdminQuery_BlueGreenDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_BlueGreenDeployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a blue-green deployment.
+ *
+ *  Method: sql.blueGreenDeployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BlueGreenDeploymentsDelete : GTLRSQLAdminQuery
+
+/**
+ *  Optional. If set to true, and the switchover is complete, this deletes the
+ *  old source instance along with the deployment.
+ */
+@property(nonatomic, assign) BOOL deleteOldSource;
+
+/**
+ *  Required. The name of the blue-green deployment to delete. Format:
+ *  projects/{project}/locations/{location}/blueGreenDeployments/{blue_green_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Deletes a blue-green deployment.
+ *
+ *  @param name Required. The name of the blue-green deployment to delete.
+ *    Format:
+ *    projects/{project}/locations/{location}/blueGreenDeployments/{blue_green_deployment}
+ *
+ *  @return GTLRSQLAdminQuery_BlueGreenDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a blue-green deployment resource under a given project and
+ *  location.
+ *
+ *  Method: sql.blueGreenDeployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BlueGreenDeploymentsGet : GTLRSQLAdminQuery
+
+/**
+ *  Required. The name of the blue-green deployment to retrieve. Format:
+ *  projects/{project}/locations/{location}/blueGreenDeployments/{blue_green_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies whether to return the basic or detailed view of the
+ *  resource in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdminViewBlueGreenDeploymentViewUnspecified Blue-green
+ *        deployment view enumeration. This allows the caller to specify what
+ *        view they query. If unspecified
+ *        (BLUE_GREEN_DEPLOYMENT_VIEW_UNSPECIFIED), the behavior is the same as
+ *        BASIC. (Value: "BLUE_GREEN_DEPLOYMENT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdminViewBasic Includes basic metadata about the
+ *        blue-green deployment. `BASIC` is the default view. (Value: "BASIC")
+ *    @arg @c kGTLRSQLAdminViewDetailed Includes basic metadata and
+ *        configuration differences between source and target instances
+ *        (`database_version`, `tier`, `edition`, `availability_type`,
+ *        `data_disk_size_gb`, and `data_disk_type`). (Value: "DETAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_BlueGreenDeployment.
+ *
+ *  Retrieves a blue-green deployment resource under a given project and
+ *  location.
+ *
+ *  @param name Required. The name of the blue-green deployment to retrieve.
+ *    Format:
+ *    projects/{project}/locations/{location}/blueGreenDeployments/{blue_green_deployment}
+ *
+ *  @return GTLRSQLAdminQuery_BlueGreenDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists blue-green deployments under a given project.
+ *
+ *  Method: sql.blueGreenDeployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BlueGreenDeploymentsList : GTLRSQLAdminQuery
+
+/** Optional. A filter expression that filters the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. A comma-separated list of fields to order the results by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of deployments to return. The service may
+ *  return fewer deployments than this value. If unspecified, at most 500
+ *  deployments are returned. The maximum value is 1000; values above 1000 are
+ *  treated as 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListBlueGreenDeployments`
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose blue-green deployments are to be listed.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_ListBlueGreenDeploymentsResponse.
+ *
+ *  Lists blue-green deployments under a given project.
+ *
+ *  @param parent Required. The parent resource whose blue-green deployments are
+ *    to be listed. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRSQLAdminQuery_BlueGreenDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Switches over to green instance for a blue-green deployment.
+ *
+ *  Method: sql.blueGreenDeployments.switchover
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BlueGreenDeploymentsSwitchover : GTLRSQLAdminQuery
+
+/**
+ *  Required. The name of the blue-green deployment to switch over. Format:
+ *  projects/{project}/locations/{location}/blueGreenDeployments/{blue_green_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Switches over to green instance for a blue-green deployment.
+ *
+ *  @param object The @c GTLRSQLAdmin_SwitchoverBlueGreenDeploymentRequest to
+ *    include in the query.
+ *  @param name Required. The name of the blue-green deployment to switch over.
+ *    Format:
+ *    projects/{project}/locations/{location}/blueGreenDeployments/{blue_green_deployment}
+ *
+ *  @return GTLRSQLAdminQuery_BlueGreenDeploymentsSwitchover
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SwitchoverBlueGreenDeploymentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Generates a short-lived X509 certificate containing the provided public key
  *  and signed by a private key specific to the target instance. Users may use
  *  the certificate to authenticate as themselves when connecting to the
@@ -585,6 +834,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -623,6 +875,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -660,6 +915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -696,6 +954,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -731,6 +992,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -772,6 +1036,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -857,6 +1124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /**
  *  Required. Project ID of the project that contains the instance (Example:
  *  project-id).
@@ -901,6 +1171,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Required. Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -942,6 +1215,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -986,6 +1262,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1026,6 +1305,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *  not include the project ID.
  */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. Project ID of the source Cloud SQL instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1079,6 +1361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance to be deleted. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1112,6 +1397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Required. Cloud SQL instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1150,6 +1438,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1186,6 +1477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Required. Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1221,6 +1515,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance to be exported. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1264,6 +1561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** ID of the project that contains the read replica. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1304,6 +1604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Required. Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1338,6 +1641,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1370,6 +1676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesInsert : GTLRSQLAdminQuery
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Project ID of the project to which the newly created Cloud SQL instances
@@ -1414,6 +1723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *  expression. However, you can include AND and OR expressions explicitly.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The maximum number of instances to return. The service may return fewer than
@@ -1466,6 +1778,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Required. Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1506,6 +1821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1548,6 +1866,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Required. Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1587,6 +1908,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1671,6 +1995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Required. Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1719,6 +2046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** ID of the project that contains the read replica. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1751,6 +2081,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1792,6 +2125,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. The project ID that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1827,6 +2163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. Reset SSL mode to use.
@@ -1876,6 +2215,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance to be restarted. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1909,6 +2251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1946,6 +2291,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Required. Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1988,6 +2336,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2028,6 +2379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Required. Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2067,6 +2421,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** ID of the project that contains the read replica. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2098,6 +2455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** ID of the project that contains the read replica. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2138,6 +2498,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** ID of the project that contains the replica. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2169,6 +2532,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the Cloud SQL project. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2205,6 +2571,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2360,6 +2729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2391,6 +2763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2430,6 +2805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2464,6 +2842,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2609,6 +2990,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the Cloud SQL project. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2833,6 +3217,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Name of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2871,6 +3258,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** User of the instance. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2908,6 +3298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2941,6 +3334,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2983,6 +3379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Name of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3024,6 +3423,212 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 + (instancetype)queryWithObject:(GTLRSQLAdmin_User *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Lists all captured workloads associated with the instance.
+ *
+ *  Method: sql.workloadCaptures.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_WorkloadCapturesList : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_WorkloadCapturesListResponse.
+ *
+ *  Lists all captured workloads associated with the instance.
+ *
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_WorkloadCapturesList
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Starts capturing the SQL queries, transactions, and other operations
+ *  executed on the primary instance. This traffic is securely stored and forms
+ *  a "captured workload". This workload can be replayed later on a different
+ *  instance to safely test performance impacts, database upgrades,
+ *  configuration changes etc. before applying them to production.
+ *
+ *  Method: sql.workloadCaptures.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_WorkloadCapturesStart : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Starts capturing the SQL queries, transactions, and other operations
+ *  executed on the primary instance. This traffic is securely stored and forms
+ *  a "captured workload". This workload can be replayed later on a different
+ *  instance to safely test performance impacts, database upgrades,
+ *  configuration changes etc. before applying them to production.
+ *
+ *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStartRequest to include
+ *    in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_WorkloadCapturesStart
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Starts executing a captured workload on a separate Cloud SQL instance
+ *  provisioned for workload replay. This target instance simulates the
+ *  production environment without affecting the primary instance.
+ *
+ *  Method: sql.workloadCaptures.startReplay
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_WorkloadCapturesStartReplay : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Required. The ID of the workload to replay. */
+@property(nonatomic, copy, nullable) NSString *workloadId;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Starts executing a captured workload on a separate Cloud SQL instance
+ *  provisioned for workload replay. This target instance simulates the
+ *  production environment without affecting the primary instance.
+ *
+ *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest to
+ *    include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *  @param workloadId Required. The ID of the workload to replay.
+ *
+ *  @return GTLRSQLAdminQuery_WorkloadCapturesStartReplay
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance
+                     workloadId:(NSString *)workloadId;
+
+@end
+
+/**
+ *  Stops capturing the query traffic and related operations executed on the
+ *  primary instance.
+ *
+ *  Method: sql.workloadCaptures.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_WorkloadCapturesStop : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Stops capturing the query traffic and related operations executed on the
+ *  primary instance.
+ *
+ *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStopRequest to include
+ *    in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_WorkloadCapturesStop
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Stops executing a captured workload on the separate Cloud SQL instance.
+ *
+ *  Method: sql.workloadCaptures.stopReplay
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_WorkloadCapturesStopReplay : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Required. The ID of the workload to replay. */
+@property(nonatomic, copy, nullable) NSString *workloadId;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Stops executing a captured workload on the separate Cloud SQL instance.
+ *
+ *  @param object The @c GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest to
+ *    include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *  @param workloadId Required. The ID of the workload to replay.
+ *
+ *  @return GTLRSQLAdminQuery_WorkloadCapturesStopReplay
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance
+                     workloadId:(NSString *)workloadId;
 
 @end
 

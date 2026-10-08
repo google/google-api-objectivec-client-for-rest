@@ -2583,7 +2583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  If a field that does not support empty values is included in the update mask
  *  and not set in the course work material object, an `INVALID_ARGUMENT` error
  *  is returned. The following fields may be specified by teachers: * `title` *
- *  `description` * `state` * `scheduled_time` * `topic_id`
+ *  `description` * `state` * `scheduled_time` * `topic_id` * `learning_goals`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2673,13 +2673,15 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  and who may change them. This request must be made by the Developer Console
  *  project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
- *  the requested course work has already been deleted. * `NOT_FOUND` if the
- *  requested course or course work does not exist.
+ *  corresponding course work item or an add-on attachment on the corresponding
+ *  course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting developer project did not create the
+ *  corresponding course work or an add-on attachment on the corresponding
+ *  course work, if the user is not permitted to make the requested modification
+ *  to the student submission, or for access errors. * `INVALID_ARGUMENT` if the
+ *  request is malformed. * `FAILED_PRECONDITION` if the requested course work
+ *  has already been deleted. * `NOT_FOUND` if the requested course or course
+ *  work does not exist.
  *
  *  Method: classroom.courses.courseWork.patch
  *
@@ -2710,7 +2712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  the `CourseWork` object, an `INVALID_ARGUMENT` error is returned. The
  *  following fields may be specified by teachers: * `title` * `description` *
  *  `state` * `due_date` * `due_time` * `max_points` * `scheduled_time` *
- *  `submission_modification_mode` * `topic_id` * `grading_period_id`
+ *  `submission_modification_mode` * `topic_id` * `grading_period_id` *
+ *  `learning_goals`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2724,13 +2727,15 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  and who may change them. This request must be made by the Developer Console
  *  project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `FAILED_PRECONDITION` if
- *  the requested course work has already been deleted. * `NOT_FOUND` if the
- *  requested course or course work does not exist.
+ *  corresponding course work item or an add-on attachment on the corresponding
+ *  course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting developer project did not create the
+ *  corresponding course work or an add-on attachment on the corresponding
+ *  course work, if the user is not permitted to make the requested modification
+ *  to the student submission, or for access errors. * `INVALID_ARGUMENT` if the
+ *  request is malformed. * `FAILED_PRECONDITION` if the requested course work
+ *  has already been deleted. * `NOT_FOUND` if the requested course or course
+ *  work does not exist.
  *
  *  @param object The @c GTLRClassroom_CourseWork to include in the query.
  *  @param courseId Identifier of the course. This identifier can be either the
@@ -3254,13 +3259,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  student submissions belonging to course work objects with a `workType` of
  *  `ASSIGNMENT`. This request must be made by the Developer Console project of
  *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
- *  to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, if the user is not
- *  permitted to modify attachments on the requested student submission, or for
- *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course, course work, or student submission does
- *  not exist.
+ *  to create the corresponding course work item or an add-on attachment on the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, if the user is not permitted to
+ *  modify attachments on the requested student submission, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course, course work, or student submission does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.modifyAttachments
  *
@@ -3293,13 +3298,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  student submissions belonging to course work objects with a `workType` of
  *  `ASSIGNMENT`. This request must be made by the Developer Console project of
  *  the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used
- *  to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, if the user is not
- *  permitted to modify attachments on the requested student submission, or for
- *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course, course work, or student submission does
- *  not exist.
+ *  to create the corresponding course work item or an add-on attachment on the
+ *  corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, if the user is not permitted to
+ *  modify attachments on the requested student submission, or for access
+ *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
+ *  the requested course, course work, or student submission does not exist.
  *
  *  @param object The @c GTLRClassroom_ModifyAttachmentsRequest to include in
  *    the query.
@@ -3323,12 +3328,15 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  updated and who may change them. This request must be made by the Developer
  *  Console project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  corresponding course work item or an add-on attachment with Grade Sync
+ *  enabled on the corresponding course work item. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting developer
+ *  project did not create the corresponding course work or an add-on attachment
+ *  on the corresponding course work with Grade Sync enabled, if the user is not
+ *  permitted to make the requested modification to the student submission, or
+ *  for access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course, course work, or student submission does
+ *  not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.patch
  *
@@ -3372,12 +3380,15 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  updated and who may change them. This request must be made by the Developer
  *  Console project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting developer project did not
- *  create the corresponding course work, if the user is not permitted to make
- *  the requested modification to the student submission, or for access errors.
- *  * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
- *  requested course, course work, or student submission does not exist.
+ *  corresponding course work item or an add-on attachment with Grade Sync
+ *  enabled on the corresponding course work item. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting developer
+ *  project did not create the corresponding course work or an add-on attachment
+ *  on the corresponding course work with Grade Sync enabled, if the user is not
+ *  permitted to make the requested modification to the student submission, or
+ *  for access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course, course work, or student submission does
+ *  not exist.
  *
  *  @param object The @c GTLRClassroom_StudentSubmission to include in the
  *    query.
@@ -3403,13 +3414,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  student submission that has been turned in. This request must be made by the
  *  Developer Console project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, unsubmit the requested student
- *  submission, or for access errors. * `FAILED_PRECONDITION` if the student
- *  submission has not been turned in. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  corresponding course work item or an add-on attachment on the corresponding
+ *  course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, unsubmit the requested student submission,
+ *  or for access errors. * `FAILED_PRECONDITION` if the student submission has
+ *  not been turned in. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course, course work, or student submission does
+ *  not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.reclaim
  *
@@ -3444,13 +3456,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  student submission that has been turned in. This request must be made by the
  *  Developer Console project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, unsubmit the requested student
- *  submission, or for access errors. * `FAILED_PRECONDITION` if the student
- *  submission has not been turned in. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  corresponding course work item or an add-on attachment on the corresponding
+ *  course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, unsubmit the requested student submission,
+ *  or for access errors. * `FAILED_PRECONDITION` if the student submission has
+ *  not been turned in. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course, course work, or student submission does
+ *  not exist.
  *
  *  @param object The @c GTLRClassroom_ReclaimStudentSubmissionRequest to
  *    include in the query.
@@ -3476,12 +3489,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  teacher of the course that contains the requested student submission may
  *  call this method. This request must be made by the Developer Console project
  *  of the [OAuth client ID](https://support.google.com/cloud/answer/6158849)
- *  used to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, return the
- *  requested student submission, or for access errors. * `INVALID_ARGUMENT` if
- *  the request is malformed. * `NOT_FOUND` if the requested course, course
- *  work, or student submission does not exist.
+ *  used to create the corresponding course work item or an add-on attachment on
+ *  the corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, return the requested student
+ *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.return
  *
@@ -3516,12 +3530,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  teacher of the course that contains the requested student submission may
  *  call this method. This request must be made by the Developer Console project
  *  of the [OAuth client ID](https://support.google.com/cloud/answer/6158849)
- *  used to create the corresponding course work item. This method returns the
- *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
- *  permitted to access the requested course or course work, return the
- *  requested student submission, or for access errors. * `INVALID_ARGUMENT` if
- *  the request is malformed. * `NOT_FOUND` if the requested course, course
- *  work, or student submission does not exist.
+ *  used to create the corresponding course work item or an add-on attachment on
+ *  the corresponding course work item. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work, return the requested student
+ *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course, course work, or student
+ *  submission does not exist.
  *
  *  @param object The @c GTLRClassroom_ReturnStudentSubmissionRequest to include
  *    in the query.
@@ -3546,12 +3561,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  specified student submission. This request must be made by the Developer
  *  Console project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, turn in the requested student
- *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  corresponding course work item or an add-on attachment on the corresponding
+ *  course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, turn in the requested student submission,
+ *  or for access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course, course work, or student submission does
+ *  not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.turnIn
  *
@@ -3585,12 +3601,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  specified student submission. This request must be made by the Developer
  *  Console project of the [OAuth client
  *  ID](https://support.google.com/cloud/answer/6158849) used to create the
- *  corresponding course work item. This method returns the following error
- *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
- *  access the requested course or course work, turn in the requested student
- *  submission, or for access errors. * `INVALID_ARGUMENT` if the request is
- *  malformed. * `NOT_FOUND` if the requested course, course work, or student
- *  submission does not exist.
+ *  corresponding course work item or an add-on attachment on the corresponding
+ *  course work item. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to access the
+ *  requested course or course work, turn in the requested student submission,
+ *  or for access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course, course work, or student submission does
+ *  not exist.
  *
  *  @param object The @c GTLRClassroom_TurnInStudentSubmissionRequest to include
  *    in the query.

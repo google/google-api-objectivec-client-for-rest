@@ -453,10 +453,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Field mask is used to specify the fields to be overwritten in the
- *  Exadata resource by the update. The fields specified in the update_mask are
- *  relative to the resource, not the full request. A field will be overwritten
- *  if it is in the mask. If the user does not provide a mask then all fields
- *  will be overwritten.
+ *  Exadata resource by the update. The fields specified in the `update_mask`
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  the service treats this as an implied field mask equivalent to all fields
+ *  that are populated (have a non-empty value). To clear or unset a field, the
+ *  field must be explicitly specified in the `update_mask`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2014,7 +2016,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. A mask specifying which fields in th VM Cluster should be updated.
  *  A field specified in the mask is overwritten. If a mask isn't provided then
- *  all the fields in the VM Cluster are overwritten.
+ *  the service treats this as an implied field mask equivalent to all fields
+ *  that are populated (have a non-empty value). To clear or unset a field, the
+ *  field must be explicitly specified in the `update_mask`.
  *
  *  String format is a comma-separated list of fields.
  */

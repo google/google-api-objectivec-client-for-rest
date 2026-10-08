@@ -4,7 +4,8 @@
 // API:
 //   Agent Identity Credentials API (agentidentitycredentials/v1)
 // Description:
-//   agentidentitycredentials.googleapis.com API.
+//   The Agent Identity Credentials API retrieves and finalizes authorization
+//   credentials for auth providers.
 // Documentation:
 //   https://cloud.google.com/iam/docs/
 
@@ -27,7 +28,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Indicates the user has rejected the permission delegation or cancelled the
+ *  Indicates the user has rejected the permission delegation or canceled the
  *  request.
  */
 @interface GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1ConsentRejected : GTLRObject
@@ -35,13 +36,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request message for FinalizeCredentials.
+ *  Request message for `FinalizeCredentials`.
  */
 @interface GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1FinalizeCredentialsRequest : GTLRObject
 
 /**
- *  Required. The same consent_nonce value that was provided during redirect in
- *  the UriConsentRequired metadata.
+ *  Required. The same `consent_nonce` value that was provided during retrieval
+ *  in the
+ *  [UriConsentRequired](https://cloud.google.com/iam/docs/reference/agentidentitycredentials/rest/v1/projects.locations.authProviders.credentials/retrieve#UriConsentRequired)
+ *  metadata.
  */
 @property(nonatomic, copy, nullable) NSString *consentNonce;
 
@@ -60,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response message for FinalizeCredentials. Intentionally empty
+ *  Response message for `FinalizeCredentials`. Intentionally empty.
  */
 @interface GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1FinalizeCredentialsResponse : GTLRObject
 @end
@@ -68,29 +71,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates that the credential retrieval is pending. The caller should retry
- *  the RetrieveCredentials request after some time.
+ *  the `RetrieveCredentials` request after some time.
  */
 @interface GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1Pending : GTLRObject
 @end
 
 
 /**
- *  Request message for RetrieveCredentials.
+ *  Request message for `RetrieveCredentials`.
  */
 @interface GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1RetrieveCredentialsRequest : GTLRObject
 
 /**
  *  Optional. The URI to redirect the user to after consent is completed. This
- *  field is required for authproviders using the 3-legged OAuth flow. For other
- *  authprovider types, this field is unused but not rejected.
+ *  field is required for auth providers using the 3-legged OAuth flow. For
+ *  other auth provider types, this field is unused but not rejected.
  */
 @property(nonatomic, copy, nullable) NSString *continueUri;
 
 /**
  *  Optional. Input only. Set this field only if the previous token was expired
  *  or invalid. This value must be the full, previously returned token string.
- *  Will trigger a refresh of the access token with a stored refresh token, if
- *  possible, or a new consent flow.
+ *  Setting this field triggers a refresh of the access token with a stored
+ *  refresh token, if possible, or a new consent flow.
  */
 @property(nonatomic, copy, nullable) NSString *forceRefreshToken;
 
@@ -104,7 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response message for RetrieveCredentials. Contains the access tokens and
+ *  Response message for `RetrieveCredentials`. Contains the access tokens and
  *  related artifacts.
  */
 @interface GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1RetrieveCredentialsResponse : GTLRObject
@@ -118,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Message indicating credentials were successfully retrieved. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1Success *success;
 
-/** Message indicating uri based consent is required. */
+/** Message indicating URI-based consent is required. */
 @property(nonatomic, strong, nullable) GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1UriConsentRequired *uriConsentRequired;
 
 @end
@@ -151,12 +154,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /**
- *  The retrieved access token or credential for the end user. On MCPTool call,
- *  for an invalid token OAuth spec says this should return 401 or 403, but
- *  MCPServers may implement this differently. If you get any flavor of
- *  `PERMISSION_DENIED`, retry your original request to RetrieveCredentials with
- *  force_refresh_token set to the expired/invalid token string, which will
- *  fetch a new token or initiate a new consent flow.
+ *  The retrieved access token or credential for the end user. On an MCP tool
+ *  call, for an invalid token the OAuth spec states that this should return
+ *  `401` or `403`, but MCP servers may implement this differently. If you get
+ *  any flavor of `PERMISSION_DENIED`, retry your original request to
+ *  `RetrieveCredentials` with force_refresh_token set to the expired/invalid
+ *  token string, which will fetch a new token or initiate a new consent flow.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
@@ -166,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Indicates that the user must visit the provided URI to consent to delegate
  *  permission to the agent to act on their behalf. The caller can either poll
- *  the `RetrieveCredentials` method, or await the /ValidateUserId callback
+ *  the `RetrieveCredentials` method, or await the /ValidateUserId callback.
  */
 @interface GTLRAgentIdentityCredentials_GoogleCloudAgentidentitycredentialsV1UriConsentRequired : GTLRObject
 
@@ -179,9 +182,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Output only. A one-time, randomly generated value that validates the entire
  *  consent flow is handled by a single user, avoiding CSRF attacks. It must be
- *  submitted with the FinalizeCredentials request to complete the OAuth
- *  exchange. This will always be present. Implemented per
- *  https://www.rfc-editor.org/rfc/rfc6819#section-5.3.5
+ *  submitted with the `FinalizeCredentials` request to complete the OAuth
+ *  exchange. This will always be present. Implemented per [RFC 6819 Section
+ *  5.3.5](https://www.rfc-editor.org/rfc/rfc6819#section-5.3.5).
  */
 @property(nonatomic, copy, nullable) NSString *consentNonce;
 

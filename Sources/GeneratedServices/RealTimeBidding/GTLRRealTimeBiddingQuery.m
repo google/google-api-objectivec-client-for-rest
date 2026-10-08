@@ -597,6 +597,33 @@ NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly   = @"SERVING_DECIS
 
 @end
 
+@implementation GTLRRealTimeBiddingQuery_BuyersCreativesAddDeals
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_AddDealsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:addDeals";
+  GTLRRealTimeBiddingQuery_BuyersCreativesAddDeals *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_Creative class];
+  query.loggingName = @"realtimebidding.buyers.creatives.addDeals";
+  return query;
+}
+
+@end
+
 @implementation GTLRRealTimeBiddingQuery_BuyersCreativesCreate
 
 @dynamic parent;

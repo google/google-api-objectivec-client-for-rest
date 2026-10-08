@@ -37,6 +37,17 @@
 @class GTLRNetworkServices_EndpointPolicy;
 @class GTLRNetworkServices_EndpointPolicy_Labels;
 @class GTLRNetworkServices_Expr;
+@class GTLRNetworkServices_ExtensionBinding;
+@class GTLRNetworkServices_ExtensionBinding_Labels;
+@class GTLRNetworkServices_ExtensionBinding_ProducerMetadata;
+@class GTLRNetworkServices_ExtensionBindingMatchCondition;
+@class GTLRNetworkServices_ExtensionBindingMatchConditionHeaderMatch;
+@class GTLRNetworkServices_ExtensionBindingMatchConditionStringMatch;
+@class GTLRNetworkServices_ExtensionBindingMatchConditionTo;
+@class GTLRNetworkServices_ExtensionBindingMatchConditionToDestination;
+@class GTLRNetworkServices_ExtensionBindingMatchConditionToDestinationHeaderSet;
+@class GTLRNetworkServices_ExtensionBindingTarget;
+@class GTLRNetworkServices_ExtensionBindingTargetScope;
 @class GTLRNetworkServices_ExtensionChain;
 @class GTLRNetworkServices_ExtensionChainExtension;
 @class GTLRNetworkServices_ExtensionChainExtension_Metadata;
@@ -103,6 +114,9 @@
 @class GTLRNetworkServices_Operation_Metadata;
 @class GTLRNetworkServices_Operation_Response;
 @class GTLRNetworkServices_Policy;
+@class GTLRNetworkServices_ProducerExtension;
+@class GTLRNetworkServices_ProducerExtension_Labels;
+@class GTLRNetworkServices_ProducerExtensionExtensionSettings;
 @class GTLRNetworkServices_ServiceBinding;
 @class GTLRNetworkServices_ServiceBinding_Labels;
 @class GTLRNetworkServices_ServiceLbPolicy;
@@ -188,6 +202,62 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplat
  *  Value: "PUBLIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AccessTypes_Public;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_AgentConnectivityTemplate.agentCompute
+
+/**
+ *  Unspecified compute type.
+ *
+ *  Value: "AGENT_COMPUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_AgentComputeUnspecified;
+/**
+ *  Google Borg (for 1P producers).
+ *
+ *  Value: "BORG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_Borg;
+/**
+ *  Google Cloud Run.
+ *
+ *  Value: "CLOUD_RUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_CloudRun;
+/**
+ *  Google Compute Engine VM.
+ *
+ *  Value: "GCE_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_GceVm;
+/**
+ *  Google Kubernetes Engine.
+ *
+ *  Value: "GKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_Gke;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_AgentConnectivityTemplate.deploymentModel
+
+/**
+ *  Ambient deployment.
+ *
+ *  Value: "AMBIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_DeploymentModel_Ambient;
+/**
+ *  Centralized deployment.
+ *
+ *  Value: "CENTRALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_DeploymentModel_Centralized;
+/**
+ *  Unspecified deployment model.
+ *
+ *  Value: "DEPLOYMENT_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AgentConnectivityTemplate_DeploymentModel_DeploymentModelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_AgentGateway.protocols
@@ -393,6 +463,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Grpc
  *  Value: "SIDECAR_PROXY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ExtensionBindingTargetScope.resourceTypes
+
+/**
+ *  Agent Gateway resources.
+ *
+ *  Value: "AGENT_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionBindingTargetScope_ResourceTypes_AgentGateway;
+/**
+ *  AI Application resources.
+ *
+ *  Value: "AI_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionBindingTargetScope_ResourceTypes_AiApplication;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionBindingTargetScope_ResourceTypes_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_ExtensionChainExtension.requestBodySendMode
@@ -948,6 +1040,80 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_MulticastResourceState_S
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_MulticastResourceState_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkServices_ProducerExtension.phase
+
+/**
+ *  The `ProducerExtension` will be executed during the authorization phase.
+ *
+ *  Value: "AUTHZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtension_Phase_Authz;
+/**
+ *  Unspecified phase.
+ *
+ *  Value: "PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtension_Phase_PhaseUnspecified;
+/**
+ *  The `ProducerExtension` will be executed during the traffic phase.
+ *
+ *  Value: "TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtension_Phase_Traffic;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ProducerExtensionExtensionSettings.supportedEvents
+
+/**
+ *  Unspecified value. Do not use.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtensionExtensionSettings_SupportedEvents_EventTypeUnspecified;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  request body arrives.
+ *
+ *  Value: "REQUEST_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtensionExtensionSettings_SupportedEvents_RequestBody;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  request headers arrive.
+ *
+ *  Value: "REQUEST_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtensionExtensionSettings_SupportedEvents_RequestHeaders;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  request trailers arrives.
+ *
+ *  Value: "REQUEST_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtensionExtensionSettings_SupportedEvents_RequestTrailers;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  response body arrives.
+ *
+ *  Value: "RESPONSE_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtensionExtensionSettings_SupportedEvents_ResponseBody;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  response headers arrive.
+ *
+ *  Value: "RESPONSE_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtensionExtensionSettings_SupportedEvents_ResponseHeaders;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  response trailers arrives.
+ *
+ *  Value: "RESPONSE_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ProducerExtensionExtensionSettings_SupportedEvents_ResponseTrailers;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkServices_ServiceLbPolicy.loadBalancingAlgorithm
 
 /**
@@ -1101,8 +1267,39 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessTypes;
 
+/**
+ *  Optional. The compute environment where the agent is hosted. Exactly one
+ *  type of compute must be chosen.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_AgentComputeUnspecified
+ *        Unspecified compute type. (Value: "AGENT_COMPUTE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_Borg
+ *        Google Borg (for 1P producers). (Value: "BORG")
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_CloudRun
+ *        Google Cloud Run. (Value: "CLOUD_RUN")
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_GceVm
+ *        Google Compute Engine VM. (Value: "GCE_VM")
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_AgentCompute_Gke
+ *        Google Kubernetes Engine. (Value: "GKE")
+ */
+@property(nonatomic, copy, nullable) NSString *agentCompute;
+
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The deployment model for the gateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_DeploymentModel_Ambient
+ *        Ambient deployment. (Value: "AMBIENT")
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_DeploymentModel_Centralized
+ *        Centralized deployment. (Value: "CENTRALIZED")
+ *    @arg @c kGTLRNetworkServices_AgentConnectivityTemplate_DeploymentModel_DeploymentModelUnspecified
+ *        Unspecified deployment model. (Value: "DEPLOYMENT_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentModel;
 
 /**
  *  Optional. A free-text description of the resource. Max length 1024
@@ -1157,6 +1354,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  AgentGateway represents the agent gateway resource.
  */
 @interface GTLRNetworkServices_AgentGateway : GTLRObject
+
+/**
+ *  Optional. The resource name of the AgentConnectivityTemplate. Format:
+ *  projects/{project}/locations/{location}/agentConnectivityTemplates/{template}
+ */
+@property(nonatomic, copy, nullable) NSString *agentConnectivityTemplate;
 
 /** Output only. Field for populated AgentGateway card. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_AgentGatewayAgentGatewayOutputCard *agentGatewayCard;
@@ -1705,8 +1908,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  */
 @interface GTLRNetworkServices_DnsPeeringConfig : GTLRObject
 
-/** Optional. The domain to peer. */
-@property(nonatomic, copy, nullable) NSString *domain;
+/** Optional. Deprecated: Use `domains` instead. The domain to peer. */
+@property(nonatomic, copy, nullable) NSString *domain GTLR_DEPRECATED;
+
+/** Optional. The domains to peer. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
 
 /**
  *  Optional. The target network resource name for DNS peering. Format:
@@ -1718,7 +1924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  GTLRNetworkServices_EgressNetworkConfig
+ *  Egress network config
  */
 @interface GTLRNetworkServices_EgressNetworkConfig : GTLRObject
 
@@ -1735,10 +1941,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) GTLRNetworkServices_EgressNetworkConfigTlsConfig *tlsConfig;
 
 /**
- *  Optional. The trust config resource name. Format:
+ *  Optional. Deprecated: Use tls_config instead. The trust config resource
+ *  name. Format:
  *  projects/{project}/locations/{location}/trustConfigs/{trust_config}
  */
-@property(nonatomic, copy, nullable) NSString *trustConfig;
+@property(nonatomic, copy, nullable) NSString *trustConfig GTLR_DEPRECATED;
 
 /**
  *  Optional. The VPC egress setting.
@@ -2023,6 +2230,327 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
+ *  `ExtensionBinding` is a resource representing the attachment of an extension
+ *  to a service.
+ */
+@interface GTLRNetworkServices_ExtensionBinding : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Etag of the resource. If provided, it must match the server's
+ *  etag. If the provided etag does not match the server's etag, the request
+ *  will fail with a 409 ABORTED error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Determines the behavior of the extension binding when the call to
+ *  the extension fails or times out. Default value is `FALSE`. When set to
+ *  `TRUE`, failures of the extension are silently ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failOpen;
+
+/**
+ *  Optional. Set of labels associated with the `ExtensionBinding` resource. The
+ *  format must comply with [the following
+ *  requirements](https://cloud.google.com/compute/docs/labeling-resources#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBinding_Labels *labels;
+
+/**
+ *  Optional. A list of match conditions to evaluate against the incoming
+ *  request. The extension is invoked if the request matches at least one
+ *  condition, or if no match conditions are specified. A request matches a
+ *  condition only if it matches every field that is set in that condition.
+ *  Limited to 5 conditions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionBindingMatchCondition *> *matchConditions;
+
+/**
+ *  Identifier. Name of the `ExtensionBinding` resource in the following format:
+ *  `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Priority of the extension binding. Lower numbers indicate higher
+ *  priority. The priority determines the order in which extension bindings are
+ *  applied to a request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  Required. The name of the extension that this binding should attach to
+ *  target resources. Format: For Google-provided extensions, specify the
+ *  service endpoint, for example `modelarmor.us-central1.rep.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *producerExtension;
+
+/**
+ *  Optional. Additional metadata that should be passed to the attached
+ *  extension with each request. This field is subject to the following
+ *  limitations: * The total size of the metadata must be less than 1 KiB. * The
+ *  total number of keys must be less than 16. * The length of each key must be
+ *  less than 64 characters. * The length of each value must be less than 1024
+ *  characters.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBinding_ProducerMetadata *producerMetadata;
+
+/**
+ *  Required. Specifies a target to which this `ExtensionBinding` should be
+ *  attached.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBindingTarget *target;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `ExtensionBinding` resource. The
+ *  format must comply with [the following
+ *  requirements](https://cloud.google.com/compute/docs/labeling-resources#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_ExtensionBinding_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Additional metadata that should be passed to the attached
+ *  extension with each request. This field is subject to the following
+ *  limitations: * The total size of the metadata must be less than 1 KiB. * The
+ *  total number of keys must be less than 16. * The length of each key must be
+ *  less than 64 characters. * The length of each value must be less than 1024
+ *  characters.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_ExtensionBinding_ProducerMetadata : GTLRObject
+@end
+
+
+/**
+ *  Conditions to match against the incoming request.
+ */
+@interface GTLRNetworkServices_ExtensionBindingMatchCondition : GTLRObject
+
+/**
+ *  Optional. Describes properties of a destination of a request. If specified,
+ *  the extension will only be invoked on requests to destinations that match
+ *  the specified criteria.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBindingMatchConditionTo *to;
+
+@end
+
+
+/**
+ *  Determines how an HTTP header should be matched.
+ */
+@interface GTLRNetworkServices_ExtensionBindingMatchConditionHeaderMatch : GTLRObject
+
+/** Required. Specifies the name of the header in the request. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Specifies how the header match will be performed. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBindingMatchConditionStringMatch *value;
+
+@end
+
+
+/**
+ *  Specifies matching logic for string values.
+ */
+@interface GTLRNetworkServices_ExtensionBindingMatchConditionStringMatch : GTLRObject
+
+/**
+ *  Optional. The input string must contain the substring specified here. An
+ *  empty substring is not allowed. Examples: * `abc` matches the value
+ *  `xyz.abc.def`.
+ */
+@property(nonatomic, copy, nullable) NSString *contains;
+
+/**
+ *  Optional. The input string must match exactly the string specified here.
+ *  Examples: * `abc` only matches the value `abc`.
+ */
+@property(nonatomic, copy, nullable) NSString *exact;
+
+/**
+ *  Optional. If true, the `exact`, `prefix`, `suffix`, or `contains` match is
+ *  case insensitive. For example, the matcher `data` matches both `Data` and
+ *  `data` when set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreCase;
+
+/**
+ *  Optional. The input string must have the prefix specified here. An empty
+ *  prefix is not allowed. Examples: * `abc` matches the value `abc.xyz`.
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+/**
+ *  Optional. The input string must have the suffix specified here. An empty
+ *  suffix is not allowed. Examples: * `abc` matches the value `xyz.abc`.
+ */
+@property(nonatomic, copy, nullable) NSString *suffix;
+
+@end
+
+
+/**
+ *  Describes properties of one or more destinations of a request.
+ */
+@interface GTLRNetworkServices_ExtensionBindingMatchConditionTo : GTLRObject
+
+/**
+ *  Optional. Describes properties of the destination of a request. A request
+ *  matches the destination only if it matches every field that is set. Fields
+ *  that are not set are always considered a match. For example, if only `hosts`
+ *  and `paths` are set, a request matches when any host matches and any path
+ *  matches. At least one of `destination` or `not_destination` must be
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBindingMatchConditionToDestination *destination;
+
+/**
+ *  Optional. Describes the negated properties of the request destination.
+ *  Extension will not be invoked on requests that match the criteria specified
+ *  in this field. At least one of destination or not_destination must be
+ *  specified.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBindingMatchConditionToDestination *notDestination;
+
+@end
+
+
+/**
+ *  Describes properties of a single destination.
+ */
+@interface GTLRNetworkServices_ExtensionBindingMatchConditionToDestination : GTLRObject
+
+/**
+ *  Optional. A set of HTTP headers to match against. If not specified, requests
+ *  with any headers are matched.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBindingMatchConditionToDestinationHeaderSet *headerSet;
+
+/**
+ *  Optional. A list of HTTP Hosts to match against. Limited to 10 hosts. If not
+ *  specified, any host is allowed. If specified, a match occurs if any of the
+ *  hosts matches the host value in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionBindingMatchConditionStringMatch *> *hosts;
+
+/**
+ *  Optional. A list of paths to match against. Limited to 10 paths. If not
+ *  specified, any path is allowed. Note that this path match includes the query
+ *  parameters. For gRPC services, this should be a fully-qualified name of the
+ *  form /package.service/method.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionBindingMatchConditionStringMatch *> *paths;
+
+/**
+ *  Optional. A list of non-empty strings whose value is matched against the
+ *  resource to which a request is sent (e.g., an Agent in AiApplication). If
+ *  not specified, any resource is allowed. If specified, a match occurs if any
+ *  of the resources matches the resource value in the request. Limited to 5
+ *  resources. When matching against resources in the AgentRegistry, use the
+ *  URNs of the registry resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionBindingMatchConditionStringMatch *> *resources;
+
+@end
+
+
+/**
+ *  Describes a set of HTTP headers to match against.
+ */
+@interface GTLRNetworkServices_ExtensionBindingMatchConditionToDestinationHeaderSet : GTLRObject
+
+/**
+ *  Required. A list of HTTP headers to match against. If multiple header
+ *  matches are provided, they are evaluated as an AND, meaning that all header
+ *  matches must match for the request to match. Limited to 10 headers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionBindingMatchConditionHeaderMatch *> *headers;
+
+@end
+
+
+/**
+ *  Specifies a list of targets to which this `ExtensionBinding` should attach.
+ */
+@interface GTLRNetworkServices_ExtensionBindingTarget : GTLRObject
+
+/**
+ *  Optional. The references to the target resources to which this binding
+ *  should attach. Exactly one of `resources` or `scope` must be set. For AI
+ *  Application resources, specify the full resource name in the format:
+ *  `projects/{project}/locations/{location}/applications/{application}`.
+ *  Limited to 1 resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  Optional. Specifies the scope of resources to which this binding should
+ *  attach. Exactly one of `resources` or `scope` must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionBindingTargetScope *scope;
+
+@end
+
+
+/**
+ *  Specifies the scope of resources to which this binding should attach.
+ */
+@interface GTLRNetworkServices_ExtensionBindingTargetScope : GTLRObject
+
+/**
+ *  Required. The parent resource that defines the scope, in the format
+ *  `projects/{project_number}`. When the scope is a project, the binding
+ *  applies to the resources that meet all of the following conditions: * The
+ *  resource belongs to the specified project. * The resource is in the same
+ *  location as the `ExtensionBinding`. * The resource type is listed in
+ *  `resource_types`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The types of resources to which the binding should attach. Limited
+ *  to 1 resource type.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
+@end
+
+
+/**
  *  A single extension chain wrapper that contains the match conditions and
  *  extensions to execute.
  */
@@ -2031,8 +2559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Required. A set of extensions to execute for the matching request. At least
  *  one extension is required. Up to 3 extensions can be defined for each
- *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension` and
- *  `LbEdgeExtension` chains are limited to 1 extension per extension chain.
+ *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension`,
+ *  `LbEdgeExtension`, and `LbTcpExtension` chains are limited to 1 extension
+ *  per extension chain.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChainExtension *> *extensions;
 
@@ -2230,7 +2759,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  `LbEdgeExtension` resource, this field is required and must only contain
  *  `REQUEST_HEADERS` event. For the `AuthzExtension` resource, this field is
  *  optional. `REQUEST_HEADERS` is the only supported event. If unspecified,
- *  `REQUEST_HEADERS` event is assumed as supported.
+ *  `REQUEST_HEADERS` event is assumed as supported. For the `CdnEdgeExtension`
+ *  resource, this field is optional. Eligible values are `REQUEST_HEADERS` and
+ *  `RESPONSE_HEADERS`. If unspecified, both are assumed as supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
 
@@ -4176,6 +4707,42 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
+ *  Response returned by the `ListExtensionBindings` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "extensionBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkServices_ListExtensionBindingsResponse : GTLRCollectionObject
+
+/**
+ *  List of `ExtensionBinding` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionBinding *> *extensionBindings;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request attempts
+ *  to list all resources across all supported locations, while some locations
+ *  are temporarily unavailable. The resource names are in the format
+ *  `projects/{project}/locations/{location}/extensionBindings/{extension_binding}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response returned by the ListGatewayRouteViews method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4564,6 +5131,42 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  `ListOperationsRequest.return_partial_success` and reads across collections.
  *  For example, when attempting to list all resources across all supported
  *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response returned by the `ListProducerExtensions` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "producerExtensions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkServices_ListProducerExtensionsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of `ProducerExtension` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ProducerExtension *> *producerExtensions;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request attempts
+ *  to list all resources across all supported locations, while some locations
+ *  are temporarily unavailable. The resource names are in the format:
+ *  `projects/{project}/locations/{location}/producerExtensions/{producer_extension}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -5013,7 +5616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Optional. Labels as key-value pairs */
+/** Optional. Labels as key-value pairs. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_MulticastConsumerAssociation_Labels *labels;
 
 /**
@@ -5067,8 +5670,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Output only. [Output only] The Google-generated UUID for the resource. This
  *  value is unique across all multicast consumer association resources. If a
- *  consumer association is deleted and another with the same name is created,
- *  the new consumer association is assigned a different unique_id.
+ *  multicast consumer association is deleted and another with the same name is
+ *  created, the new multicast consumer association is assigned a different
+ *  unique_id.
  */
 @property(nonatomic, copy, nullable) NSString *uniqueId;
 
@@ -5082,7 +5686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  Optional. Labels as key-value pairs
+ *  Optional. Labels as key-value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5112,7 +5716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Optional. Labels as key-value pairs */
+/** Optional. Labels as key-value pairs. */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_MulticastGroupConsumerActivation_Labels *labels;
 
 /**
@@ -5132,7 +5736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. The resource name of the multicast group created by the admin in
  *  the same zone as this multicast group consumer activation. Use the following
- *  format: // `projects/ * /locations/ * /multicastGroups/ *`. This field is
+ *  format: `projects/ * /locations/ * /multicastGroups/ *`. This field is
  *  deprecated. Use multicast_group_range_activation instead.
  */
 @property(nonatomic, copy, nullable) NSString *multicastGroup GTLR_DEPRECATED;
@@ -5140,7 +5744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Required. The resource name of the multicast group range activation created
  *  by the admin in the same zone as this multicast group consumer activation.
- *  Use the following format: // `projects/ * /locations/ *
+ *  Use the following format: `projects/ * /locations/ *
  *  /multicastGroupRangeActivations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *multicastGroupRangeActivation;
@@ -5174,9 +5778,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Output only. [Output only] The Google-generated UUID for the resource. This
  *  value is unique across all multicast group consumer activation resources. If
- *  a group consumer activation is deleted and another with the same name is
- *  created, the new group consumer activation is assigned a different
- *  unique_id.
+ *  a multicast group consumer activation is deleted and another with the same
+ *  name is created, the new multicast group consumer activation is assigned a
+ *  different unique_id.
  */
 @property(nonatomic, copy, nullable) NSString *uniqueId;
 
@@ -5190,7 +5794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
- *  Optional. Labels as key-value pairs
+ *  Optional. Labels as key-value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5457,6 +6061,111 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  `ProducerExtension` is a resource representing producer defined
+ *  configuration for their service extension.
+ */
+@interface GTLRNetworkServices_ProducerExtension : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Etag of the resource. If this is provided, it must match the
+ *  server's etag. If the provided etag does not match the server's etag, the
+ *  request will fail with a 409 ABORTED error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The configuration for the service that this `ProducerExtension`
+ *  offers.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ProducerExtensionExtensionSettings *extensionSettings;
+
+/**
+ *  Optional. Set of labels associated with the `ProducerExtension` resource.
+ *  The format must comply with [the following
+ *  requirements](https://cloud.google.com/compute/docs/labeling-resources#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ProducerExtension_Labels *labels;
+
+/**
+ *  Identifier. Name of the `ProducerExtension` resource in the following
+ *  format:
+ *  `projects/{project}/locations/{location}/producerExtensions/{producer_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The phase in which this `ProducerExtension` should execute.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ProducerExtension_Phase_Authz The
+ *        `ProducerExtension` will be executed during the authorization phase.
+ *        (Value: "AUTHZ")
+ *    @arg @c kGTLRNetworkServices_ProducerExtension_Phase_PhaseUnspecified
+ *        Unspecified phase. (Value: "PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_ProducerExtension_Phase_Traffic The
+ *        `ProducerExtension` will be executed during the traffic phase. (Value:
+ *        "TRAFFIC")
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `ProducerExtension` resource.
+ *  The format must comply with [the following
+ *  requirements](https://cloud.google.com/compute/docs/labeling-resources#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_ProducerExtension_Labels : GTLRObject
+@end
+
+
+/**
+ *  The configuration for the service that this `ProducerExtension` offers.
+ */
+@interface GTLRNetworkServices_ProducerExtensionExtensionSettings : GTLRObject
+
+/**
+ *  Optional. The `:authority` header in the request sent to the extension
+ *  service.
+ */
+@property(nonatomic, copy, nullable) NSString *authority;
+
+/**
+ *  Optional. Whether the extension should function in observability mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *observabilityMode;
+
+/** Required. URI of the PSC attachment. */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/** Required. The event types supported by the extension. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
 
 @end
 
@@ -6277,11 +6986,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) NSNumber *enable;
 
 /**
- *  Non-empty default. Specifies the lowest level of the plugin logs that are
- *  exported to Cloud Logging. This setting relates to the logs generated by
- *  using logging statements in your Wasm code. This field is can be set only if
- *  logging is enabled for the plugin. If the field is not provided when logging
- *  is enabled, it is set to `INFO` by default.
+ *  Optional. Non-empty default. Specifies the lowest level of the plugin logs
+ *  that are exported to Cloud Logging. This setting relates to the logs
+ *  generated by using logging statements in your Wasm code. This field is can
+ *  be set only if logging is enabled for the plugin. If the field is not
+ *  provided when logging is enabled, it is set to `INFO` by default.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Critical
@@ -6303,13 +7012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, copy, nullable) NSString *minLogLevel;
 
 /**
- *  Non-empty default. Configures the sampling rate of activity logs, where
- *  `1.0` means all logged activity is reported and `0.0` means no activity is
- *  reported. A floating point value between `0.0` and `1.0` indicates that a
- *  percentage of log messages is stored. The default value when logging is
- *  enabled is `1.0`. The value of the field must be between `0` and `1`
- *  (inclusive). This field can be specified only if logging is enabled for this
- *  plugin.
+ *  Optional. Non-empty default. Configures the sampling rate of activity logs,
+ *  where `1.0` means all logged activity is reported and `0.0` means no
+ *  activity is reported. A floating point value between `0.0` and `1.0`
+ *  indicates that a percentage of log messages is stored. The default value
+ *  when logging is enabled is `1.0`. The value of the field must be between `0`
+ *  and `1` (inclusive). This field can be specified only if logging is enabled
+ *  for this plugin.
  *
  *  Uses NSNumber of floatValue.
  */

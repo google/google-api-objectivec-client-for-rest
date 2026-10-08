@@ -88,6 +88,7 @@
 @class GTLRNetworkManagement_Step;
 @class GTLRNetworkManagement_StorageBucketInfo;
 @class GTLRNetworkManagement_Trace;
+@class GTLRNetworkManagement_ViewerPermissionMissingInfo;
 @class GTLRNetworkManagement_VpcConnectorInfo;
 @class GTLRNetworkManagement_VpcFlowLogsConfig;
 @class GTLRNetworkManagement_VpcFlowLogsConfig_Labels;
@@ -114,6 +115,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "CAUSE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified;
+/**
+ *  Aborted because Cloud Run destination resource is not connected to the VPC
+ *  network.
+ *
+ *  Value: "CLOUD_RUN_RESOURCE_NOT_CONNECTED_TO_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CloudRunResourceNotConnectedToVpc;
+/**
+ *  Aborted because revisions of Cloud Run Services are not supported as
+ *  destinations.
+ *
+ *  Value: "DESTINATION_CLOUD_RUN_SERVICE_REVISION_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationCloudRunServiceRevisionUnsupported;
+/**
+ *  Aborted because serverless endpoints having Cloud Run VPC connectors
+ *  configured are not supported as destinations.
+ *
+ *  Value: "DESTINATION_CLOUD_RUN_VPC_CONNECTOR_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationCloudRunVpcConnectorUnsupported;
 /**
  *  Aborted because the destination endpoint could not be found. Deprecated, not
  *  used in the new tests.
@@ -1445,6 +1467,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsCo
  *  Value: "INTERVAL_5_SEC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval5Sec;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.connectionLogging
+
+/**
+ *  Do not include connection logs.
+ *
+ *  Value: "CONNECTION_LOGGING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingDisabled;
+/**
+ *  Include connection logs.
+ *
+ *  Value: "CONNECTION_LOGGING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingEnabled;
+/**
+ *  If not specified, will default to CONNECTION_LOGGING_DISABLED.
+ *
+ *  Value: "CONNECTION_LOGGING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.crossProjectMetadata
@@ -3316,6 +3360,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StateUnspec
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_ViewerPermissionMissingInfo.resourceTypes
+
+/**
+ *  Firewall rule.
+ *
+ *  Value: "FIREWALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_Firewall;
+/**
+ *  Forwarding rule.
+ *
+ *  Value: "FORWARDING_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_ForwardingRule;
+/**
+ *  Instance.
+ *
+ *  Value: "INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_Instance;
+/**
+ *  Resource type is unspecified.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_VpcFlowLogsConfig.aggregationInterval
 
 /**
@@ -3360,6 +3432,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Aggr
  *  Value: "INTERVAL_5_SEC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Sec;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_VpcFlowLogsConfig.connectionLogging
+
+/**
+ *  Do not include connection logs.
+ *
+ *  Value: "CONNECTION_LOGGING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingDisabled;
+/**
+ *  Include connection logs.
+ *
+ *  Value: "CONNECTION_LOGGING_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingEnabled;
+/**
+ *  If not specified, will default to CONNECTION_LOGGING_DISABLED.
+ *
+ *  Value: "CONNECTION_LOGGING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_VpcFlowLogsConfig.crossProjectMetadata
@@ -3552,6 +3646,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_CloudRunResourceNotConnectedToVpc
+ *        Aborted because Cloud Run destination resource is not connected to the
+ *        VPC network. (Value: "CLOUD_RUN_RESOURCE_NOT_CONNECTED_TO_VPC")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_DestinationCloudRunServiceRevisionUnsupported
+ *        Aborted because revisions of Cloud Run Services are not supported as
+ *        destinations. (Value:
+ *        "DESTINATION_CLOUD_RUN_SERVICE_REVISION_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_DestinationCloudRunVpcConnectorUnsupported
+ *        Aborted because serverless endpoints having Cloud Run VPC connectors
+ *        configured are not supported as destinations. (Value:
+ *        "DESTINATION_CLOUD_RUN_VPC_CONNECTOR_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound
  *        Aborted because the destination endpoint could not be found.
  *        Deprecated, not used in the new tests. (Value:
@@ -3989,7 +4094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /**
  *  Output only. The URI of the Cloud Run service that the revision belongs to.
- *  The format is: projects/{project}/locations/{location}/services/{service}
+ *  The format is: projects/{project}/locations/{location}/services/{service}.
+ *  Mutually exclusive with worker_pool_uri.
  */
 @property(nonatomic, copy, nullable) NSString *serviceUri;
 
@@ -4000,6 +4106,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *  projects/{project}/locations/{location}/revisions/{revision}
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Output only. The URI of the worker pool that the revision belongs to. The
+ *  format is: projects/{project}/locations/{location}/workerPools/{workerPool}.
+ *  Mutually exclusive with service_uri.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPoolUri;
 
 @end
 
@@ -4012,12 +4125,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Name of a Cloud Run revision. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/**
+ *  IP address of a Cloud Run revision. If the Cloud Run revision is in
+ *  dual-stack subnetwork, this is the IP address relevant to the trace.
+ *  Populated for `ARRIVE_AT_CLOUD_RUN_REVISION` steps.
+ */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
 /** Location in which this revision is deployed. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  URI of Cloud Run service this revision belongs to. Format:
- *  `projects/{project_id}/locations/{location}/services/{service_id}`
+ *  `projects/{project_id}/locations/{location}/services/{service_id}` Mutually
+ *  exclusive with `worker_pool_uri`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceUri;
 
@@ -4026,6 +4147,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *  `projects/{project_id}/locations/{location}/revisions/{revision_id}`
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  URI of Cloud Run worker pool this revision belongs to. Format:
+ *  `projects/{project_id}/locations/{location}/workerPools/{worker_pool_id}`
+ *  Mutually exclusive with `service_uri`.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPoolUri;
 
 @end
 
@@ -4809,6 +4937,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        Aggregate logs in 5s intervals. (Value: "INTERVAL_5_SEC")
  */
 @property(nonatomic, copy, nullable) NSString *aggregationInterval;
+
+/**
+ *  Optional. Configures whether connection logging is enabled for VPC Flow
+ *  Logs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingDisabled
+ *        Do not include connection logs. (Value: "CONNECTION_LOGGING_DISABLED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingEnabled
+ *        Include connection logs. (Value: "CONNECTION_LOGGING_ENABLED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingUnspecified
+ *        If not specified, will default to CONNECTION_LOGGING_DISABLED. (Value:
+ *        "CONNECTION_LOGGING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionLogging;
 
 /**
  *  Determines whether to include cross project annotations in the logs. This
@@ -8383,6 +8526,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Display information of a Storage Bucket. Used only for return traces. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_StorageBucketInfo *storageBucket;
 
+/**
+ *  Display information of a step that is redacted due to missing permissions.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_ViewerPermissionMissingInfo *viewerPermissionMissingInfo;
+
 /** Display information of a VPC connector. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_VpcConnectorInfo *vpcConnector;
 
@@ -8475,6 +8623,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 
 /**
+ *  For display only. Metadata associated with a step that was redacted due to
+ *  missing permissions.
+ */
+@interface GTLRNetworkManagement_ViewerPermissionMissingInfo : GTLRObject
+
+/** Types of the resources that the user does not have permission to view. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with a VPC connector.
  */
 @interface GTLRNetworkManagement_VpcConnectorInfo : GTLRObject
@@ -8521,6 +8681,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        Aggregate logs in 5s intervals. (Value: "INTERVAL_5_SEC")
  */
 @property(nonatomic, copy, nullable) NSString *aggregationInterval;
+
+/**
+ *  Optional. Configures whether connection logging is enabled for VPC Flow
+ *  Logs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingDisabled
+ *        Do not include connection logs. (Value: "CONNECTION_LOGGING_DISABLED")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingEnabled
+ *        Include connection logs. (Value: "CONNECTION_LOGGING_ENABLED")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingUnspecified
+ *        If not specified, will default to CONNECTION_LOGGING_DISABLED. (Value:
+ *        "CONNECTION_LOGGING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionLogging;
 
 /** Output only. The time the config was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

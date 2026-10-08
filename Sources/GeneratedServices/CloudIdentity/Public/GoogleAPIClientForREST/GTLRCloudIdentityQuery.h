@@ -100,6 +100,134 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
+ *  Adds a domain to the allowlist.
+ *
+ *  Method: cloudidentity.allowlistedDomains.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomains
+ */
+@interface GTLRCloudIdentityQuery_AllowlistedDomainsCreate : GTLRCloudIdentityQuery
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Adds a domain to the allowlist.
+ *
+ *  @param object The @c GTLRCloudIdentity_AllowlistedDomain to include in the
+ *    query.
+ *
+ *  @return GTLRCloudIdentityQuery_AllowlistedDomainsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_AllowlistedDomain *)object;
+
+@end
+
+/**
+ *  Removes a domain from the allowlist.
+ *
+ *  Method: cloudidentity.allowlistedDomains.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomains
+ */
+@interface GTLRCloudIdentityQuery_AllowlistedDomainsDelete : GTLRCloudIdentityQuery
+
+/**
+ *  Required. Specifies the [resource name](https://google.aip.dev/122) of the
+ *  domain to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Removes a domain from the allowlist.
+ *
+ *  @param name Required. Specifies the [resource
+ *    name](https://google.aip.dev/122) of the domain to delete.
+ *
+ *  @return GTLRCloudIdentityQuery_AllowlistedDomainsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a specific domain from the allowlist.
+ *
+ *  Method: cloudidentity.allowlistedDomains.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomains
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomainsReadonly
+ */
+@interface GTLRCloudIdentityQuery_AllowlistedDomainsGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. Specifies the [resource name](https://google.aip.dev/122) of the
+ *  domain to retrieve.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_AllowlistedDomain.
+ *
+ *  Retrieves a specific domain from the allowlist.
+ *
+ *  @param name Required. Specifies the [resource
+ *    name](https://google.aip.dev/122) of the domain to retrieve.
+ *
+ *  @return GTLRCloudIdentityQuery_AllowlistedDomainsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the domains in the allowlist.
+ *
+ *  Method: cloudidentity.allowlistedDomains.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomains
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomainsReadonly
+ */
+@interface GTLRCloudIdentityQuery_AllowlistedDomainsList : GTLRCloudIdentityQuery
+
+/**
+ *  Optional. Provides an optional filter for list results. Currently, only
+ *  exact matches on the domain are supported, such as "domain = 'google.com'",
+ *  with no composite conditions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the requested page size. If unspecified, the service
+ *  returns at most 5000 domains. The maximum value is 5000; values above 5000
+ *  coerce to 5000. The limits can change over time.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Identifies a token from a previous page of results, if any. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListAllowlistedDomainsResponse.
+ *
+ *  Lists the domains in the allowlist.
+ *
+ *  @return GTLRCloudIdentityQuery_AllowlistedDomainsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Cancels a UserInvitation that was already sent.
  *
  *  Method: cloudidentity.customers.userinvitations.cancel
@@ -2209,11 +2337,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  Required. The search query. * Must be specified in [Common Expression
- *  Language](https://opensource.google/projects/cel). * Must contain equality
- *  operators on the parent, e.g. `parent == 'customers/{customer_id}'`. The
- *  `customer_id` must begin with "C" (for example, 'C046psxkn'). [Find your
- *  customer ID.] (https://support.google.com/cloudidentity/answer/10070793) *
- *  Can contain optional inclusion operators on `labels` such as
+ *  Language](https://opensource.google/projects/cel). See [CEL
+ *  Introduction](https://github.com/google/cel-spec/blob/master/doc/intro.md)
+ *  for CEL syntax usage and examples. * Must contain equality operators on the
+ *  parent, e.g. `parent == 'customers/{customer_id}'`. The `customer_id` must
+ *  begin with "C" (for example, 'C046psxkn'). [Find your customer ID.]
+ *  (https://support.google.com/cloudidentity/answer/10070793) * Can contain
+ *  optional inclusion operators on `labels` such as
  *  `'cloudidentity.googleapis.com/groups.discussion_forum' in labels`). * Can
  *  contain an optional equality operator on `domain_name`. e.g. `domain_name ==
  *  'examplepetstore.com'` * Can contain optional `startsWith/contains/equality`
@@ -2221,7 +2351,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  `group_key.contains('dev'), group_key == 'dev\@examplepetstore.com'` * Can
  *  contain optional `startsWith/contains/equality` operators on `display_name`,
  *  such as `display_name.startsWith('dev')` , `display_name.contains('dev')`,
- *  `display_name == 'dev'`
+ *  `display_name == 'dev'` Examples: * Search for all discussion forums under a
+ *  customer: `parent == 'customers/C046psxkn' &&
+ *  'cloudidentity.googleapis.com/groups.discussion_forum' in labels` * Search
+ *  for groups with key starting with 'sales': `parent == 'customers/C046psxkn'
+ *  && group_key.startsWith('sales')` * Search for groups with display name
+ *  containing 'test': `parent == 'customers/C046psxkn' &&
+ *  display_name.contains('test')`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

@@ -41,7 +41,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBus
  *
  *  Value: "BUSINESS_CONVERSATIONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessConversations;
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessConversations GTLR_DEPRECATED;
 /**
  *  The number of times a direction request was requested to the business
  *  location.
@@ -127,7 +127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBu
  *
  *  Value: "BUSINESS_CONVERSATIONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessConversations;
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessConversations GTLR_DEPRECATED;
 /**
  *  The number of times a direction request was requested to the business
  *  location.

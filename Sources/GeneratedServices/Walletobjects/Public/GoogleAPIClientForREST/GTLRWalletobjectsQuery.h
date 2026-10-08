@@ -1962,6 +1962,32 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Checks that the JWT or JSON string in the request represents a valid pass to
+ *  be saved.
+ *
+ *  Method: walletobjects.jwt.validate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWalletobjectsWalletObjectIssuer
+ */
+@interface GTLRWalletobjectsQuery_JwtValidate : GTLRWalletobjectsQuery
+
+/**
+ *  Fetches a @c GTLRWalletobjects_JwtValidateResponse.
+ *
+ *  Checks that the JWT or JSON string in the request represents a valid pass to
+ *  be saved.
+ *
+ *  @param object The @c GTLRWalletobjects_JwtValidateRequest to include in the
+ *    query.
+ *
+ *  @return GTLRWalletobjectsQuery_JwtValidate
+ */
++ (instancetype)queryWithObject:(GTLRWalletobjects_JwtValidateRequest *)object;
+
+@end
+
+/**
  *  Adds a message to the loyalty class referenced by the given class ID.
  *
  *  Method: walletobjects.loyaltyclass.addmessage

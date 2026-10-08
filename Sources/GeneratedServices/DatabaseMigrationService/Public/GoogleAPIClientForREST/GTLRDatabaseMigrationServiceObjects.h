@@ -55,12 +55,15 @@
 @class GTLRDatabaseMigrationService_Empty;
 @class GTLRDatabaseMigrationService_EncryptionConfig;
 @class GTLRDatabaseMigrationService_EntityDdl;
+@class GTLRDatabaseMigrationService_EntityId;
 @class GTLRDatabaseMigrationService_EntityIssue;
 @class GTLRDatabaseMigrationService_EntityMapping;
 @class GTLRDatabaseMigrationService_EntityMappingLogEntry;
 @class GTLRDatabaseMigrationService_EntityMove;
+@class GTLRDatabaseMigrationService_EntityStatusView;
 @class GTLRDatabaseMigrationService_ErrorInfo_Metadata;
 @class GTLRDatabaseMigrationService_Expr;
+@class GTLRDatabaseMigrationService_FetchIssuesResponseIssuePosition;
 @class GTLRDatabaseMigrationService_FieldViolation;
 @class GTLRDatabaseMigrationService_FilterTableColumns;
 @class GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity;
@@ -73,6 +76,8 @@
 @class GTLRDatabaseMigrationService_IndexEntity_CustomFeatures;
 @class GTLRDatabaseMigrationService_InstanceNetworkConfig;
 @class GTLRDatabaseMigrationService_IntComparisonFilter;
+@class GTLRDatabaseMigrationService_Issue;
+@class GTLRDatabaseMigrationService_IssueAggregateData;
 @class GTLRDatabaseMigrationService_Link;
 @class GTLRDatabaseMigrationService_LocalizedMessage;
 @class GTLRDatabaseMigrationService_Location;
@@ -123,6 +128,7 @@
 @class GTLRDatabaseMigrationService_PscInterfaceConfig;
 @class GTLRDatabaseMigrationService_QuotaFailureViolation;
 @class GTLRDatabaseMigrationService_QuotaFailureViolation_QuotaDimensions;
+@class GTLRDatabaseMigrationService_ReservedPublicIpConfig;
 @class GTLRDatabaseMigrationService_ReverseSshConnectivity;
 @class GTLRDatabaseMigrationService_RoundToScale;
 @class GTLRDatabaseMigrationService_RulesFile;
@@ -1197,6 +1203,206 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_Entit
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityDdl_EntityType_DatabaseEntityTypeView;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityId.parentType
+
+/**
+ *  Column.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeColumn;
+/**
+ *  Constraint.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeConstraint;
+/**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeDatabase;
+/**
+ *  Package.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeDatabasePackage;
+/**
+ *  Function.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeFunction;
+/**
+ *  Index.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeIndex;
+/**
+ *  Materialized View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeMaterializedView;
+/**
+ *  Schema.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSchema;
+/**
+ *  Sequence.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSequence;
+/**
+ *  Stored Procedure.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeStoredProcedure;
+/**
+ *  Synonym.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSynonym;
+/**
+ *  Table.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeTable;
+/**
+ *  Trigger.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeTrigger;
+/**
+ *  UDT.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UDT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeUdt;
+/**
+ *  Unspecified database entity type.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeUnspecified;
+/**
+ *  View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeView;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityId.type
+
+/**
+ *  Column.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeColumn;
+/**
+ *  Constraint.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeConstraint;
+/**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeDatabase;
+/**
+ *  Package.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeDatabasePackage;
+/**
+ *  Function.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeFunction;
+/**
+ *  Index.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeIndex;
+/**
+ *  Materialized View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeMaterializedView;
+/**
+ *  Schema.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSchema;
+/**
+ *  Sequence.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSequence;
+/**
+ *  Stored Procedure.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeStoredProcedure;
+/**
+ *  Synonym.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSynonym;
+/**
+ *  Table.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeTable;
+/**
+ *  Trigger.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeTrigger;
+/**
+ *  UDT.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UDT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeUdt;
+/**
+ *  Unspecified database entity type.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeUnspecified;
+/**
+ *  View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeView;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_EntityIssue.entityType
 
 /**
@@ -1559,6 +1765,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_S
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityMapping_SourceType_DatabaseEntityTypeView;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityStatusView.draftDdlKind
+
+/**
+ *  Gemini AI converted DDL
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Ai;
+/**
+ *  The kind of the DDL is unknown.
+ *
+ *  Value: "DDL_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_DdlKindUnspecified;
+/**
+ *  Deterministic converted DDL
+ *
+ *  Value: "DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Deterministic;
+/**
+ *  DDL of the source entity
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Source;
+/**
+ *  User edited DDL
+ *
+ *  Value: "USER_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_UserEdit;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_EntityStatusView.editedDdlKind
+
+/**
+ *  Gemini AI converted DDL
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Ai;
+/**
+ *  The kind of the DDL is unknown.
+ *
+ *  Value: "DDL_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_DdlKindUnspecified;
+/**
+ *  Deterministic converted DDL
+ *
+ *  Value: "DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Deterministic;
+/**
+ *  DDL of the source entity
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Source;
+/**
+ *  User edited DDL
+ *
+ *  Value: "USER_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_UserEdit;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_ImportMappingRulesRequest.rulesFormat
 
 /**
@@ -1635,6 +1909,898 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_IntComparisonFi
  *  Value: "VALUE_COMPARISON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_IntComparisonFilter_ValueComparison_ValueComparisonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_Issue.categoryId
+
+/**
+ *  General apply issues.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_AP00"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdAp00;
+/**
+ *  General conversion issues.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW00"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw00;
+/**
+ *  Input issues.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW01"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw01;
+/**
+ *  Source functionality not supported.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW02"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw02;
+/**
+ *  Source feature not supported.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW03"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw03;
+/**
+ *  Unsupported syntax.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW04"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw04;
+/**
+ *  Data types and conversion.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW05"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw05;
+/**
+ *  Potential functional nuances.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW06"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw06;
+/**
+ *  Functional review recommended.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW07"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw07;
+/**
+ *  Refactoring required.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW08"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw08;
+/**
+ *  Gemini review recommendations.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_CW99"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw99;
+/**
+ *  Quality assessment findings.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_QA00"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdQa00;
+/**
+ *  Unspecified issue category ID.
+ *
+ *  Value: "ISSUE_CATEGORY_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_Issue.entityType
+
+/**
+ *  Column.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeColumn;
+/**
+ *  Constraint.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeConstraint;
+/**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeDatabase;
+/**
+ *  Package.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeDatabasePackage;
+/**
+ *  Function.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeFunction;
+/**
+ *  Index.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeIndex;
+/**
+ *  Materialized View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeMaterializedView;
+/**
+ *  Schema.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSchema;
+/**
+ *  Sequence.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSequence;
+/**
+ *  Stored Procedure.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeStoredProcedure;
+/**
+ *  Synonym.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSynonym;
+/**
+ *  Table.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeTable;
+/**
+ *  Trigger.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeTrigger;
+/**
+ *  UDT.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UDT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeUdt;
+/**
+ *  Unspecified database entity type.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeUnspecified;
+/**
+ *  View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeView;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_Issue.groupId
+
+/**
+ *  Review Gemini suggestions.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_AI9900"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9900;
+/**
+ *  Review AI-augmented code.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_AI9901"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9901;
+/**
+ *  Citations for AI-augmented code.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_AI9902"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9902;
+/**
+ *  General apply issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_AP0000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAp0000;
+/**
+ *  General conversion issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0000;
+/**
+ *  Metadata conversion issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0001"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0001;
+/**
+ *  Contact your support team.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0002"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0002;
+/**
+ *  Invalid source code.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0101"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0101;
+/**
+ *  Missing referenced objects.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0102"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0102;
+/**
+ *  Missing primary key.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0103"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0103;
+/**
+ *  Source functionality not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0200"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0200;
+/**
+ *  SQLCODE not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0201"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0201;
+/**
+ *  Oracle data dictionary object not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0202"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0202;
+/**
+ *  Oracle SQL function not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0203"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0203;
+/**
+ *  Oracle PL/SQL package not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0204"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0204;
+/**
+ *  Data type not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0205"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0205;
+/**
+ *  Naming conflict.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0206"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0206;
+/**
+ *  Source feature not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0300"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0300;
+/**
+ *  Schema objects or attributes not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0301"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0301;
+/**
+ *  PL/SQL feature not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0302"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0302;
+/**
+ *  Bulk binding not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0303"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0303;
+/**
+ *  Collections not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0304"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0304;
+/**
+ *  Pipelined functions not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0305"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0305;
+/**
+ *  Dynamic SQL not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0306"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0306;
+/**
+ *  CONNECT BY option not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0307"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0307;
+/**
+ *  Locking and transactions issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0308"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0308;
+/**
+ *  JSON not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0309"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0309;
+/**
+ *  XML not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0310"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0310;
+/**
+ *  MERGE not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0311"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0311;
+/**
+ *  PIVOT not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0312"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0312;
+/**
+ *  ALTER statement option not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0313"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0313;
+/**
+ *  SQL feature not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0314"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0314;
+/**
+ *  Synonyms not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0315"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0315;
+/**
+ *  Unsupported syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0400"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0400;
+/**
+ *  Unsupported SQL syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0401"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0401;
+/**
+ *  Unsupported PL/SQL syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0402"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0402;
+/**
+ *  Unsupported date and timestamp syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0403"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0403;
+/**
+ *  Unsupported exceptions syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0404"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0404;
+/**
+ *  Data types and conversion issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0500"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0500;
+/**
+ *  Date format model issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0501"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0501;
+/**
+ *  Numeric format model issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0502"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0502;
+/**
+ *  Casting issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0503"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0503;
+/**
+ *  Comparison issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0504"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0504;
+/**
+ *  Review date format model.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0601"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0601;
+/**
+ *  Review numeric format model.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0602"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0602;
+/**
+ *  Review exception code.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0603"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0603;
+/**
+ *  Review exception message.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0604"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0604;
+/**
+ *  Review Oracle built-in function emulation.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0605"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0605;
+/**
+ *  Review foreign key column data type.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0606"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0606;
+/**
+ *  Functional review recommended.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0701"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0701;
+/**
+ *  Review Oracle built-in function emulation.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0702"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0702;
+/**
+ *  Autonomous transactions refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0801"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0801;
+/**
+ *  Database links refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0802"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0802;
+/**
+ *  Advanced queuing refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0803"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0803;
+/**
+ *  Database email refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0804"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0804;
+/**
+ *  Jobs and scheduling refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0805"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0805;
+/**
+ *  File I/O refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0806"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0806;
+/**
+ *  Synonyms refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0807"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0807;
+/**
+ *  Global temporary tables refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_OP0808"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0808;
+/**
+ *  General conversion issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0000;
+/**
+ *  Metadata conversion issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0001"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0001;
+/**
+ *  Contact your support team.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0002"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0002;
+/**
+ *  Invalid source code.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0101"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0101;
+/**
+ *  Missing referenced objects.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0102"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0102;
+/**
+ *  Missing primary key.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0103"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0103;
+/**
+ *  Source functionality not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0200"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0200;
+/**
+ *  SQL Server system view not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0201"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0201;
+/**
+ *  SQL Server SQL function not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0202"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0202;
+/**
+ *  SQL Server T-SQL object not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0203"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0203;
+/**
+ *  Missing SQL Server system View
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0204"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0204;
+/**
+ *  Naming conflict.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0205"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0205;
+/**
+ *  Source feature not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0300"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0300;
+/**
+ *  T-SQL feature not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0302"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0302;
+/**
+ *  Dynamic SQL not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0306"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0306;
+/**
+ *  JSON not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0308"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0308;
+/**
+ *  Locking and transactions issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0309"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0309;
+/**
+ *  XML not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0310"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0310;
+/**
+ *  MERGE not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0311"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0311;
+/**
+ *  PIVOT not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0312"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0312;
+/**
+ *  ALTER statement option not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0313"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0313;
+/**
+ *  SQL feature not supported.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0314"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0314;
+/**
+ *  Unsupported syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0400"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0400;
+/**
+ *  Unsupported SQL syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0401"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0401;
+/**
+ *  Unsupported T-SQL syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0402"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0402;
+/**
+ *  Unsupported date and timestamp syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0403"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0403;
+/**
+ *  Unsupported exceptions syntax.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0404"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0404;
+/**
+ *  Data types and conversion issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0500"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0500;
+/**
+ *  Date format model issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0501"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0501;
+/**
+ *  Numeric format model issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0502"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0502;
+/**
+ *  Casting issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0503"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0503;
+/**
+ *  Comparison issues.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0504"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0504;
+/**
+ *  Review date format model.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0601"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0601;
+/**
+ *  Review numeric format model.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0602"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0602;
+/**
+ *  Review exception message.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0604"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0604;
+/**
+ *  Functional review recommended.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0701"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0701;
+/**
+ *  Database links refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0802"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0802;
+/**
+ *  Synonyms refactoring required.
+ *
+ *  Value: "ISSUE_GROUP_ID_CW_SP0807"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0807;
+/**
+ *  Functional equivalence assessment findings.
+ *
+ *  Value: "ISSUE_GROUP_ID_QA_OP0000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdQaOp0000;
+/**
+ *  Functional equivalence assessment findings.
+ *
+ *  Value: "ISSUE_GROUP_ID_QA_SP0000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdQaSp0000;
+/**
+ *  Unspecified issue group ID.
+ *
+ *  Value: "ISSUE_GROUP_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_Issue.issueOrigin
+
+/**
+ *  Issue originated from the AI conversion engine.
+ *
+ *  Value: "ISSUE_ORIGIN_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginAi;
+/**
+ *  CODE_CONVERSION/CST issues that were carried over to the Gemini conversion,
+ *
+ *  Value: "ISSUE_ORIGIN_AI_FROM_DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginAiFromDeterministic;
+/**
+ *  Issue originated from the deterministic conversion engine.
+ *
+ *  Value: "ISSUE_ORIGIN_DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginDeterministic;
+/**
+ *  Unspecified issue origin.
+ *
+ *  Value: "ISSUE_ORIGIN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_Issue.issueState
+
+/**
+ *  Issue is open.
+ *
+ *  Value: "ISSUE_STATE_OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateOpen;
+/**
+ *  Issue is resolved.
+ *
+ *  Value: "ISSUE_STATE_RESOLVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateResolved;
+/**
+ *  Unspecified issue state.
+ *
+ *  Value: "ISSUE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_Issue.severity
+
+/**
+ *  Error.
+ *
+ *  Value: "ISSUE_SEVERITY_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityError;
+/**
+ *  Info.
+ *
+ *  Value: "ISSUE_SEVERITY_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityInfo;
+/**
+ *  Unspecified issue severity.
+ *
+ *  Value: "ISSUE_SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityUnspecified;
+/**
+ *  Warning.
+ *
+ *  Value: "ISSUE_SEVERITY_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityWarning;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_Issue.type
+
+/**
+ *  Issue originated from the apply process.
+ *
+ *  Value: "ISSUE_TYPE_APPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypeApply;
+/**
+ *  Issue originated from the conversion process.
+ *
+ *  Value: "ISSUE_TYPE_CONVERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypeConversion;
+/**
+ *  Issue originated from the pull schema process.
+ *
+ *  Value: "ISSUE_TYPE_PULL_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypePullSchema;
+/**
+ *  Unspecified issue type.
+ *
+ *  Value: "ISSUE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_Issue_Type_IssueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_MappingRule.ruleScope
@@ -1802,6 +2968,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Ph
  *  Value: "FULL_DUMP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump;
+/**
+ *  The migration job is in the failback phase. This phase is currently used
+ *  only for SQL Server Distributed Availability Group (DAG) migrations.
+ *
+ *  Value: "PHASE_FAILBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseFailback;
 /**
  *  The phase of the migration job is unknown.
  *
@@ -2355,6 +3528,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PerformanceConf
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_DumpParallelLevel_Optimal;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_PerformanceConfig.loadParallelLevel
+
+/**
+ *  Maximum parallel level.
+ *
+ *  Value: "LOAD_MAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadMax;
+/**
+ *  Minimal parallel level.
+ *
+ *  Value: "LOAD_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadMin;
+/**
+ *  Optimal parallel level.
+ *
+ *  Value: "LOAD_OPTIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadOptimal;
+/**
+ *  Unknown load parallel level.
+ *
+ *  Value: "LOAD_PARALLEL_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadParallelLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_PostgreSqlConnectionProfile.networkArchitecture
 
 /**
@@ -2413,6 +3614,174 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PrivateConnecti
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_FailedToDelete;
 /** Value: "STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_PrivateConnection_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_SetDraftEntityDdlRequest.basedOnDdlKind
+
+/**
+ *  Gemini AI converted DDL
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Ai;
+/**
+ *  The kind of the DDL is unknown.
+ *
+ *  Value: "DDL_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_DdlKindUnspecified;
+/**
+ *  Deterministic converted DDL
+ *
+ *  Value: "DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Deterministic;
+/**
+ *  DDL of the source entity
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Source;
+/**
+ *  User edited DDL
+ *
+ *  Value: "USER_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_UserEdit;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_SetDraftEntityDdlRequest.ddlKind
+
+/**
+ *  Gemini AI converted DDL
+ *
+ *  Value: "AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Ai;
+/**
+ *  The kind of the DDL is unknown.
+ *
+ *  Value: "DDL_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_DdlKindUnspecified;
+/**
+ *  Deterministic converted DDL
+ *
+ *  Value: "DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Deterministic;
+/**
+ *  DDL of the source entity
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Source;
+/**
+ *  User edited DDL
+ *
+ *  Value: "USER_EDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_UserEdit;
+
+// ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_SetDraftEntityDdlRequest.entityType
+
+/**
+ *  Column.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_COLUMN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeColumn;
+/**
+ *  Constraint.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_CONSTRAINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeConstraint;
+/**
+ *  Database.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeDatabase;
+/**
+ *  Package.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeDatabasePackage;
+/**
+ *  Function.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeFunction;
+/**
+ *  Index.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeIndex;
+/**
+ *  Materialized View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeMaterializedView;
+/**
+ *  Schema.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SCHEMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSchema;
+/**
+ *  Sequence.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSequence;
+/**
+ *  Stored Procedure.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeStoredProcedure;
+/**
+ *  Synonym.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_SYNONYM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSynonym;
+/**
+ *  Table.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeTable;
+/**
+ *  Trigger.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_TRIGGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeTrigger;
+/**
+ *  UDT.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UDT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeUdt;
+/**
+ *  Unspecified database entity type.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeUnspecified;
+/**
+ *  View.
+ *
+ *  Value: "DATABASE_ENTITY_TYPE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeView;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_SourceNumericFilter.numericFilterOption
@@ -3861,11 +5230,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) NSNumber *hasUncommittedChanges;
 
+/**
+ *  Optional. Output only. The timestamp when the workspace was last applied.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestApplyTime;
+
 /** Output only. The latest commit ID. */
 @property(nonatomic, copy, nullable) NSString *latestCommitId;
 
 /** Output only. The timestamp when the workspace was committed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *latestCommitTime;
+
+/**
+ *  Optional. Output only. The timestamp when the workspace was last converted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestConvertTime;
 
 /**
  *  Full name of the workspace resource, in the form of:
@@ -4486,6 +5865,100 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  An entity identifier.
+ */
+@interface GTLRDatabaseMigrationService_EntityId : GTLRObject
+
+/** The parent entity full name. */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/**
+ *  The type of the database entity (schema, table, view, ...).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeColumn
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeConstraint
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeDatabasePackage
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeFunction
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeIndex
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSchema
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSequence
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeStoredProcedure
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeSynonym
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeTable
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeTrigger
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeUdt
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeUnspecified
+ *        Unspecified database entity type. (Value:
+ *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_ParentType_DatabaseEntityTypeView
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *parentType;
+
+/** The short name (e.g. table name) of the entity. */
+@property(nonatomic, copy, nullable) NSString *shortName;
+
+/**
+ *  The type of the database entity (schema, table, view, index, ...).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeColumn
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeConstraint
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeDatabasePackage
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeFunction
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeIndex
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSchema
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSequence
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeStoredProcedure
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeSynonym
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeTable
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeTrigger
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeUdt
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeUnspecified
+ *        Unspecified database entity type. (Value:
+ *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityId_Type_DatabaseEntityTypeView
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Issue related to the entity.
  */
 @interface GTLRDatabaseMigrationService_EntityIssue : GTLRObject
@@ -4727,6 +6200,87 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  A single entity for the UI view.
+ */
+@interface GTLRDatabaseMigrationService_EntityStatusView : GTLRObject
+
+/**
+ *  Optional. The set of entities that this entity directly depends on, i.e., it
+ *  does not include transitive dependencies. Provided only for
+ *  FULL_WITH_DEPENDENCIES view. Dependencies are provided according to the
+ *  request tree type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_EntityId *> *dependencies;
+
+/**
+ *  The DDL Kind selected for apply. If UNSPECIFIED, the entity wasn't converted
+ *  yet. For SUMMARY view, this rolls up from descendants with the logic of
+ *  UNSPECIFIED < DETERMINISTIC < AI. USER_EDIT is not propagated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Ai
+ *        Gemini AI converted DDL (Value: "AI")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_DdlKindUnspecified
+ *        The kind of the DDL is unknown. (Value: "DDL_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Deterministic
+ *        Deterministic converted DDL (Value: "DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_Source
+ *        DDL of the source entity (Value: "SOURCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_DraftDdlKind_UserEdit
+ *        User edited DDL (Value: "USER_EDIT")
+ */
+@property(nonatomic, copy, nullable) NSString *draftDdlKind;
+
+/** The entity short name and type from the DRAFT tree. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_EntityId *draftEntity;
+
+/**
+ *  If ddl_kind is USER_EDIT, this holds the DDL kind of the original content -
+ *  DETERMINISTIC or AI. Otherwise, this is DDL_KIND_UNSPECIFIED. Relevant only
+ *  for FULL view.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Ai
+ *        Gemini AI converted DDL (Value: "AI")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_DdlKindUnspecified
+ *        The kind of the DDL is unknown. (Value: "DDL_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Deterministic
+ *        Deterministic converted DDL (Value: "DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_Source
+ *        DDL of the source entity (Value: "SOURCE")
+ *    @arg @c kGTLRDatabaseMigrationService_EntityStatusView_EditedDdlKind_UserEdit
+ *        User edited DDL (Value: "USER_EDIT")
+ */
+@property(nonatomic, copy, nullable) NSString *editedDdlKind;
+
+/** Unresolved issues information according to the current Draft DdlKind. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_IssueAggregateData *issues;
+
+/** Resolved issues information according to the current Draft DdlKind. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_IssueAggregateData *resolvedIssues;
+
+/** The entity short name and type from the SOURCE tree. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_EntityId *sourceEntity;
+
+/**
+ *  Optional. Whether the entity has successfully generated and executed
+ *  validation tests.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *testedEntity;
+
+/**
+ *  Was the entity applied on the destination. Relevant only for FULL view.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wasApplied;
+
+@end
+
+
+/**
  *  Describes the cause of the error with structured details. Example of an
  *  error when contacting the "pubsub.googleapis.com" API when it is not
  *  enabled: { "reason": "API_DISABLED" "domain": "googleapis.com" "metadata": {
@@ -4834,6 +6388,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Response message for DataMigrationService.FetchEntitiesStatusView.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entities" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDatabaseMigrationService_FetchEntitiesStatusViewResponse : GTLRCollectionObject
+
+/**
+ *  A list of the entities matching the request, sorted by their full name
+ *  (source name if requested the SOURCE tree, draft name if requested the DRAFT
+ *  tree). Sub-entities (such as indexes) always appear immediately after their
+ *  parent element.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_EntityStatusView *> *entities;
+
+/**
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for fetching issues of a conversion workspace.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "issues" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDatabaseMigrationService_FetchIssuesResponse : GTLRCollectionObject
+
+/**
+ *  The list of issues for the conversion workspace.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_Issue *> *issues;
+
+/**
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Issue position.
+ */
+@interface GTLRDatabaseMigrationService_FetchIssuesResponseIssuePosition : GTLRObject
+
+/**
+ *  Issue column number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *column;
+
+/**
+ *  Issue length.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *length;
+
+/**
+ *  Issue line number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *line;
+
+/**
+ *  Issue offset.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *offset;
 
 @end
 
@@ -5293,6 +6940,428 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        Value comparison unspecified. (Value: "VALUE_COMPARISON_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueComparison;
+
+@end
+
+
+/**
+ *  Issue related to the entity.
+ */
+@interface GTLRDatabaseMigrationService_Issue : GTLRObject
+
+/**
+ *  The category ID.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdAp00
+ *        General apply issues. (Value: "ISSUE_CATEGORY_ID_AP00")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw00
+ *        General conversion issues. (Value: "ISSUE_CATEGORY_ID_CW00")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw01
+ *        Input issues. (Value: "ISSUE_CATEGORY_ID_CW01")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw02
+ *        Source functionality not supported. (Value: "ISSUE_CATEGORY_ID_CW02")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw03
+ *        Source feature not supported. (Value: "ISSUE_CATEGORY_ID_CW03")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw04
+ *        Unsupported syntax. (Value: "ISSUE_CATEGORY_ID_CW04")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw05
+ *        Data types and conversion. (Value: "ISSUE_CATEGORY_ID_CW05")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw06
+ *        Potential functional nuances. (Value: "ISSUE_CATEGORY_ID_CW06")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw07
+ *        Functional review recommended. (Value: "ISSUE_CATEGORY_ID_CW07")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw08
+ *        Refactoring required. (Value: "ISSUE_CATEGORY_ID_CW08")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdCw99
+ *        Gemini review recommendations. (Value: "ISSUE_CATEGORY_ID_CW99")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdQa00
+ *        Quality assessment findings. (Value: "ISSUE_CATEGORY_ID_QA00")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_CategoryId_IssueCategoryIdUnspecified
+ *        Unspecified issue category ID. (Value:
+ *        "ISSUE_CATEGORY_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *categoryId;
+
+/** Entity full name. */
+@property(nonatomic, copy, nullable) NSString *entityFullName;
+
+/**
+ *  The entity type (if the DDL is for a sub entity).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeColumn
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeConstraint
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeDatabasePackage
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeFunction
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeIndex
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSchema
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSequence
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeStoredProcedure
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeSynonym
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeTable
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeTrigger
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeUdt
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeUnspecified
+ *        Unspecified database entity type. (Value:
+ *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_EntityType_DatabaseEntityTypeView
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/**
+ *  The group ID.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9900
+ *        Review Gemini suggestions. (Value: "ISSUE_GROUP_ID_CW_AI9900")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9901
+ *        Review AI-augmented code. (Value: "ISSUE_GROUP_ID_CW_AI9901")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAi9902
+ *        Citations for AI-augmented code. (Value: "ISSUE_GROUP_ID_CW_AI9902")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwAp0000
+ *        General apply issues. (Value: "ISSUE_GROUP_ID_CW_AP0000")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0000
+ *        General conversion issues. (Value: "ISSUE_GROUP_ID_CW_OP0000")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0001
+ *        Metadata conversion issues. (Value: "ISSUE_GROUP_ID_CW_OP0001")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0002
+ *        Contact your support team. (Value: "ISSUE_GROUP_ID_CW_OP0002")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0101
+ *        Invalid source code. (Value: "ISSUE_GROUP_ID_CW_OP0101")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0102
+ *        Missing referenced objects. (Value: "ISSUE_GROUP_ID_CW_OP0102")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0103
+ *        Missing primary key. (Value: "ISSUE_GROUP_ID_CW_OP0103")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0200
+ *        Source functionality not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0200")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0201
+ *        SQLCODE not supported. (Value: "ISSUE_GROUP_ID_CW_OP0201")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0202
+ *        Oracle data dictionary object not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0202")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0203
+ *        Oracle SQL function not supported. (Value: "ISSUE_GROUP_ID_CW_OP0203")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0204
+ *        Oracle PL/SQL package not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0204")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0205
+ *        Data type not supported. (Value: "ISSUE_GROUP_ID_CW_OP0205")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0206
+ *        Naming conflict. (Value: "ISSUE_GROUP_ID_CW_OP0206")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0300
+ *        Source feature not supported. (Value: "ISSUE_GROUP_ID_CW_OP0300")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0301
+ *        Schema objects or attributes not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0301")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0302
+ *        PL/SQL feature not supported. (Value: "ISSUE_GROUP_ID_CW_OP0302")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0303
+ *        Bulk binding not supported. (Value: "ISSUE_GROUP_ID_CW_OP0303")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0304
+ *        Collections not supported. (Value: "ISSUE_GROUP_ID_CW_OP0304")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0305
+ *        Pipelined functions not supported. (Value: "ISSUE_GROUP_ID_CW_OP0305")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0306
+ *        Dynamic SQL not supported. (Value: "ISSUE_GROUP_ID_CW_OP0306")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0307
+ *        CONNECT BY option not supported. (Value: "ISSUE_GROUP_ID_CW_OP0307")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0308
+ *        Locking and transactions issues. (Value: "ISSUE_GROUP_ID_CW_OP0308")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0309
+ *        JSON not supported. (Value: "ISSUE_GROUP_ID_CW_OP0309")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0310
+ *        XML not supported. (Value: "ISSUE_GROUP_ID_CW_OP0310")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0311
+ *        MERGE not supported. (Value: "ISSUE_GROUP_ID_CW_OP0311")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0312
+ *        PIVOT not supported. (Value: "ISSUE_GROUP_ID_CW_OP0312")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0313
+ *        ALTER statement option not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0313")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0314
+ *        SQL feature not supported. (Value: "ISSUE_GROUP_ID_CW_OP0314")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0315
+ *        Synonyms not supported. (Value: "ISSUE_GROUP_ID_CW_OP0315")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0400
+ *        Unsupported syntax. (Value: "ISSUE_GROUP_ID_CW_OP0400")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0401
+ *        Unsupported SQL syntax. (Value: "ISSUE_GROUP_ID_CW_OP0401")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0402
+ *        Unsupported PL/SQL syntax. (Value: "ISSUE_GROUP_ID_CW_OP0402")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0403
+ *        Unsupported date and timestamp syntax. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0403")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0404
+ *        Unsupported exceptions syntax. (Value: "ISSUE_GROUP_ID_CW_OP0404")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0500
+ *        Data types and conversion issues. (Value: "ISSUE_GROUP_ID_CW_OP0500")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0501
+ *        Date format model issues. (Value: "ISSUE_GROUP_ID_CW_OP0501")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0502
+ *        Numeric format model issues. (Value: "ISSUE_GROUP_ID_CW_OP0502")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0503
+ *        Casting issues. (Value: "ISSUE_GROUP_ID_CW_OP0503")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0504
+ *        Comparison issues. (Value: "ISSUE_GROUP_ID_CW_OP0504")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0601
+ *        Review date format model. (Value: "ISSUE_GROUP_ID_CW_OP0601")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0602
+ *        Review numeric format model. (Value: "ISSUE_GROUP_ID_CW_OP0602")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0603
+ *        Review exception code. (Value: "ISSUE_GROUP_ID_CW_OP0603")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0604
+ *        Review exception message. (Value: "ISSUE_GROUP_ID_CW_OP0604")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0605
+ *        Review Oracle built-in function emulation. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0605")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0606
+ *        Review foreign key column data type. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0606")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0701
+ *        Functional review recommended. (Value: "ISSUE_GROUP_ID_CW_OP0701")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0702
+ *        Review Oracle built-in function emulation. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0702")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0801
+ *        Autonomous transactions refactoring required. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0801")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0802
+ *        Database links refactoring required. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0802")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0803
+ *        Advanced queuing refactoring required. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0803")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0804
+ *        Database email refactoring required. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0804")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0805
+ *        Jobs and scheduling refactoring required. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0805")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0806
+ *        File I/O refactoring required. (Value: "ISSUE_GROUP_ID_CW_OP0806")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0807
+ *        Synonyms refactoring required. (Value: "ISSUE_GROUP_ID_CW_OP0807")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwOp0808
+ *        Global temporary tables refactoring required. (Value:
+ *        "ISSUE_GROUP_ID_CW_OP0808")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0000
+ *        General conversion issues. (Value: "ISSUE_GROUP_ID_CW_SP0000")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0001
+ *        Metadata conversion issues. (Value: "ISSUE_GROUP_ID_CW_SP0001")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0002
+ *        Contact your support team. (Value: "ISSUE_GROUP_ID_CW_SP0002")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0101
+ *        Invalid source code. (Value: "ISSUE_GROUP_ID_CW_SP0101")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0102
+ *        Missing referenced objects. (Value: "ISSUE_GROUP_ID_CW_SP0102")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0103
+ *        Missing primary key. (Value: "ISSUE_GROUP_ID_CW_SP0103")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0200
+ *        Source functionality not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_SP0200")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0201
+ *        SQL Server system view not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_SP0201")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0202
+ *        SQL Server SQL function not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_SP0202")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0203
+ *        SQL Server T-SQL object not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_SP0203")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0204
+ *        Missing SQL Server system View (Value: "ISSUE_GROUP_ID_CW_SP0204")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0205
+ *        Naming conflict. (Value: "ISSUE_GROUP_ID_CW_SP0205")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0300
+ *        Source feature not supported. (Value: "ISSUE_GROUP_ID_CW_SP0300")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0302
+ *        T-SQL feature not supported. (Value: "ISSUE_GROUP_ID_CW_SP0302")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0306
+ *        Dynamic SQL not supported. (Value: "ISSUE_GROUP_ID_CW_SP0306")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0308
+ *        JSON not supported. (Value: "ISSUE_GROUP_ID_CW_SP0308")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0309
+ *        Locking and transactions issues. (Value: "ISSUE_GROUP_ID_CW_SP0309")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0310
+ *        XML not supported. (Value: "ISSUE_GROUP_ID_CW_SP0310")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0311
+ *        MERGE not supported. (Value: "ISSUE_GROUP_ID_CW_SP0311")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0312
+ *        PIVOT not supported. (Value: "ISSUE_GROUP_ID_CW_SP0312")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0313
+ *        ALTER statement option not supported. (Value:
+ *        "ISSUE_GROUP_ID_CW_SP0313")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0314
+ *        SQL feature not supported. (Value: "ISSUE_GROUP_ID_CW_SP0314")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0400
+ *        Unsupported syntax. (Value: "ISSUE_GROUP_ID_CW_SP0400")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0401
+ *        Unsupported SQL syntax. (Value: "ISSUE_GROUP_ID_CW_SP0401")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0402
+ *        Unsupported T-SQL syntax. (Value: "ISSUE_GROUP_ID_CW_SP0402")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0403
+ *        Unsupported date and timestamp syntax. (Value:
+ *        "ISSUE_GROUP_ID_CW_SP0403")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0404
+ *        Unsupported exceptions syntax. (Value: "ISSUE_GROUP_ID_CW_SP0404")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0500
+ *        Data types and conversion issues. (Value: "ISSUE_GROUP_ID_CW_SP0500")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0501
+ *        Date format model issues. (Value: "ISSUE_GROUP_ID_CW_SP0501")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0502
+ *        Numeric format model issues. (Value: "ISSUE_GROUP_ID_CW_SP0502")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0503
+ *        Casting issues. (Value: "ISSUE_GROUP_ID_CW_SP0503")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0504
+ *        Comparison issues. (Value: "ISSUE_GROUP_ID_CW_SP0504")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0601
+ *        Review date format model. (Value: "ISSUE_GROUP_ID_CW_SP0601")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0602
+ *        Review numeric format model. (Value: "ISSUE_GROUP_ID_CW_SP0602")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0604
+ *        Review exception message. (Value: "ISSUE_GROUP_ID_CW_SP0604")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0701
+ *        Functional review recommended. (Value: "ISSUE_GROUP_ID_CW_SP0701")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0802
+ *        Database links refactoring required. (Value:
+ *        "ISSUE_GROUP_ID_CW_SP0802")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdCwSp0807
+ *        Synonyms refactoring required. (Value: "ISSUE_GROUP_ID_CW_SP0807")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdQaOp0000
+ *        Functional equivalence assessment findings. (Value:
+ *        "ISSUE_GROUP_ID_QA_OP0000")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdQaSp0000
+ *        Functional equivalence assessment findings. (Value:
+ *        "ISSUE_GROUP_ID_QA_SP0000")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_GroupId_IssueGroupIdUnspecified
+ *        Unspecified issue group ID. (Value: "ISSUE_GROUP_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/**
+ *  Unique Issue ID. Use this ID when referencing a specific issue in other API
+ *  calls, such as DataMigrationService.SetIssuesState.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The source of the issue (deterministic, gemini, etc).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginAi
+ *        Issue originated from the AI conversion engine. (Value:
+ *        "ISSUE_ORIGIN_AI")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginAiFromDeterministic
+ *        CODE_CONVERSION/CST issues that were carried over to the Gemini
+ *        conversion, (Value: "ISSUE_ORIGIN_AI_FROM_DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginDeterministic
+ *        Issue originated from the deterministic conversion engine. (Value:
+ *        "ISSUE_ORIGIN_DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_IssueOrigin_IssueOriginUnspecified
+ *        Unspecified issue origin. (Value: "ISSUE_ORIGIN_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *issueOrigin;
+
+/**
+ *  Output only. The state of the issue (open, resolved, etc).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateOpen
+ *        Issue is open. (Value: "ISSUE_STATE_OPEN")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateResolved
+ *        Issue is resolved. (Value: "ISSUE_STATE_RESOLVED")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_IssueState_IssueStateUnspecified
+ *        Unspecified issue state. (Value: "ISSUE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *issueState;
+
+/** Issue detailed message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** The position of the issue found, if relevant. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_FetchIssuesResponseIssuePosition *position;
+
+/**
+ *  Severity of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityError
+ *        Error. (Value: "ISSUE_SEVERITY_ERROR")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityInfo
+ *        Info. (Value: "ISSUE_SEVERITY_INFO")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityUnspecified
+ *        Unspecified issue severity. (Value: "ISSUE_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Severity_IssueSeverityWarning
+ *        Warning. (Value: "ISSUE_SEVERITY_WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  The type of the issue.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Type_IssueTypeApply Issue
+ *        originated from the apply process. (Value: "ISSUE_TYPE_APPLY")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Type_IssueTypeConversion Issue
+ *        originated from the conversion process. (Value:
+ *        "ISSUE_TYPE_CONVERSION")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Type_IssueTypePullSchema Issue
+ *        originated from the pull schema process. (Value:
+ *        "ISSUE_TYPE_PULL_SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_Issue_Type_IssueTypeUnspecified
+ *        Unspecified issue type. (Value: "ISSUE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Aggregate issue information.
+ */
+@interface GTLRDatabaseMigrationService_IssueAggregateData : GTLRObject
+
+/**
+ *  Number of error issues.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCount;
+
+/**
+ *  Number of info issues.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *infoCount;
+
+/**
+ *  Number of warning issues.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *warningCount;
 
 @end
 
@@ -6021,7 +8090,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *originalMigrationName;
 
-/** Optional. Data dump parallelism settings used by the migration. */
+/**
+ *  Optional. Data dump and load parallelism settings used by the migration.
+ */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PerformanceConfig *performanceConfig;
 
 /**
@@ -6032,6 +8103,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        job is CDC phase. (Value: "CDC")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_FullDump The
  *        migration job is in the full dump phase. (Value: "FULL_DUMP")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseFailback The
+ *        migration job is in the failback phase. This phase is currently used
+ *        only for SQL Server Distributed Availability Group (DAG) migrations.
+ *        (Value: "PHASE_FAILBACK")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Phase_PhaseUnspecified
  *        The phase of the migration job is unknown. (Value:
  *        "PHASE_UNSPECIFIED")
@@ -6566,10 +8641,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
+/** Private connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateConnectivity *privateConnectivity;
+
+/** Private Service Connect connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity *privateServiceConnectConnectivity;
+
 /**
  *  SSL configuration for the destination to connect to the source database.
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SslConfig *ssl;
+
+/** Static Service IP connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_StaticServiceIpConnectivity *staticServiceIpConnectivity;
 
 /**
  *  Required. The username that Database Migration Service will use to connect
@@ -6895,6 +8979,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *dumpParallelLevel;
 
+/**
+ *  Optional. Initial load parallelism level.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadMax
+ *        Maximum parallel level. (Value: "LOAD_MAX")
+ *    @arg @c kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadMin
+ *        Minimal parallel level. (Value: "LOAD_MIN")
+ *    @arg @c kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadOptimal
+ *        Optimal parallel level. (Value: "LOAD_OPTIMAL")
+ *    @arg @c kGTLRDatabaseMigrationService_PerformanceConfig_LoadParallelLevel_LoadParallelLevelUnspecified
+ *        Unknown load parallel level. (Value:
+ *        "LOAD_PARALLEL_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadParallelLevel;
+
 @end
 
 
@@ -7143,7 +9243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /** Private connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateConnectivity *privateConnectivity;
 
-/** Private service connect connectivity. */
+/** Private Service Connect connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity *privateServiceConnectConnectivity;
 
 /**
@@ -7339,6 +9439,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** PSC Interface configuration. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PscInterfaceConfig *pscInterfaceConfig;
+
+/** Reserved Public IP configuration. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ReservedPublicIpConfig *reservedPublicIpConfig;
 
 /**
  *  Output only. Reserved for future use.
@@ -7600,6 +9703,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  stack trace that can be sent back to the service provider for debugging.
  */
 @property(nonatomic, copy, nullable) NSString *servingData;
+
+@end
+
+
+/**
+ *  Reserved Public IP configuration.
+ */
+@interface GTLRDatabaseMigrationService_ReservedPublicIpConfig : GTLRObject
+
+/** Output only. The reserved public IPs. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *egressPublicIps;
+
+/**
+ *  Optional. Number of static public IP addresses to reserve.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *natIpsCount;
 
 @end
 
@@ -7922,6 +10043,111 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDatabaseMigrationService_SequenceEntity_CustomFeatures : GTLRObject
+@end
+
+
+/**
+ *  Request message for DataMigrationService.SetDraftEntityDdl.
+ */
+@interface GTLRDatabaseMigrationService_SetDraftEntityDdlRequest : GTLRObject
+
+/**
+ *  Optional. Which DDL (Deterministic/AI) the updated DDL is based on. Defaults
+ *  to DETERMINISTIC if not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Ai
+ *        Gemini AI converted DDL (Value: "AI")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_DdlKindUnspecified
+ *        The kind of the DDL is unknown. (Value: "DDL_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Deterministic
+ *        Deterministic converted DDL (Value: "DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_Source
+ *        DDL of the source entity (Value: "SOURCE")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_BasedOnDdlKind_UserEdit
+ *        User edited DDL (Value: "USER_EDIT")
+ */
+@property(nonatomic, copy, nullable) NSString *basedOnDdlKind;
+
+/** Required. The DDL to set. */
+@property(nonatomic, copy, nullable) NSString *ddl;
+
+/**
+ *  Optional. The updated DDL Kind. Can be either USER_EDIT (default) or AI.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Ai
+ *        Gemini AI converted DDL (Value: "AI")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_DdlKindUnspecified
+ *        The kind of the DDL is unknown. (Value: "DDL_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Deterministic
+ *        Deterministic converted DDL (Value: "DETERMINISTIC")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_Source
+ *        DDL of the source entity (Value: "SOURCE")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_DdlKind_UserEdit
+ *        User edited DDL (Value: "USER_EDIT")
+ */
+@property(nonatomic, copy, nullable) NSString *ddlKind;
+
+/**
+ *  Required. The draft entity full name from the tree. .
+ *
+ *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
+ */
+@property(nonatomic, copy, nullable) NSString *entityNameProperty;
+
+/**
+ *  Required. The type of the database entity (table, view, index, ...).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeColumn
+ *        Column. (Value: "DATABASE_ENTITY_TYPE_COLUMN")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeConstraint
+ *        Constraint. (Value: "DATABASE_ENTITY_TYPE_CONSTRAINT")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeDatabase
+ *        Database. (Value: "DATABASE_ENTITY_TYPE_DATABASE")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeDatabasePackage
+ *        Package. (Value: "DATABASE_ENTITY_TYPE_DATABASE_PACKAGE")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeFunction
+ *        Function. (Value: "DATABASE_ENTITY_TYPE_FUNCTION")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeIndex
+ *        Index. (Value: "DATABASE_ENTITY_TYPE_INDEX")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeMaterializedView
+ *        Materialized View. (Value: "DATABASE_ENTITY_TYPE_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSchema
+ *        Schema. (Value: "DATABASE_ENTITY_TYPE_SCHEMA")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSequence
+ *        Sequence. (Value: "DATABASE_ENTITY_TYPE_SEQUENCE")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeStoredProcedure
+ *        Stored Procedure. (Value: "DATABASE_ENTITY_TYPE_STORED_PROCEDURE")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeSynonym
+ *        Synonym. (Value: "DATABASE_ENTITY_TYPE_SYNONYM")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeTable
+ *        Table. (Value: "DATABASE_ENTITY_TYPE_TABLE")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeTrigger
+ *        Trigger. (Value: "DATABASE_ENTITY_TYPE_TRIGGER")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeUdt
+ *        UDT. (Value: "DATABASE_ENTITY_TYPE_UDT")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeUnspecified
+ *        Unspecified database entity type. (Value:
+ *        "DATABASE_ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_SetDraftEntityDdlRequest_EntityType_DatabaseEntityTypeView
+ *        View. (Value: "DATABASE_ENTITY_TYPE_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/**
+ *  Optional. An optional explanation of the generated DDL if ddl_kind is AI.
+ */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+@end
+
+
+/**
+ *  Response message for DataMigrationService.SetDraftEntityDdl.
+ */
+@interface GTLRDatabaseMigrationService_SetDraftEntityDdlResponse : GTLRObject
 @end
 
 

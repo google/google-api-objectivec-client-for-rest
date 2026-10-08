@@ -163,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Endpoint_Annotations *annotations;
 
 /**
- *  Immutable. The resource name for the endpoint in the format `projects/ *
+ *  Identifier. The resource name for the endpoint in the format `projects/ *
  *  /locations/ * /namespaces/ * /services/ * /endpoints/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -484,7 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Namespace_Labels *labels;
 
 /**
- *  Immutable. The resource name for the namespace in the format `projects/ *
+ *  Identifier. The resource name for the namespace in the format `projects/ *
  *  /locations/ * /namespaces/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -685,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceDirectory_Endpoint *> *endpoints;
 
 /**
- *  Immutable. The resource name for the service in the format `projects/ *
+ *  Identifier. The resource name for the service in the format `projects/ *
  *  /locations/ * /namespaces/ * /services/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

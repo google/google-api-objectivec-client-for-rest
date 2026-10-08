@@ -31,6 +31,18 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_Credi
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeAllCredits = @"INCLUDE_ALL_CREDITS";
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeSpecifiedCredits = @"INCLUDE_SPECIFIED_CREDITS";
 
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap.inputState
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_AwaitingNextPeriod = @"AWAITING_NEXT_PERIOD";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_Configured = @"CONFIGURED";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_Enforced = @"ENFORCED";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap.outputState
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_AwaitingNextPeriod = @"AWAITING_NEXT_PERIOD";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_Configured = @"CONFIGURED";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_Enforced = @"ENFORCED";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule.spendBasis
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_BasisUnspecified = @"BASIS_UNSPECIFIED";
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_CurrentSpend = @"CURRENT_SPEND";
@@ -43,7 +55,7 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRul
 
 @implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget
 @dynamic amount, budgetFilter, displayName, ETag, name, notificationsRule,
-         ownershipScope, thresholdRules;
+         ownershipScope, spendCap, thresholdRules;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -163,6 +175,16 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRul
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap
+@dynamic inputState, outputState, reconciling;
 @end
 
 

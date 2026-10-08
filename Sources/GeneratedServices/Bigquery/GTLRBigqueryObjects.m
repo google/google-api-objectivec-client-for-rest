@@ -454,6 +454,7 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Struct = @"STRUCT";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Time = @"TIME";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Timestamp = @"TIMESTAMP";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified = @"TYPE_KIND_UNSPECIFIED";
+NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Uuid = @"UUID";
 
 // GTLRBigquery_StoredColumnsUnusedReason.code
 NSString * const kGTLRBigquery_StoredColumnsUnusedReason_Code_BaseTableHasCls = @"BASE_TABLE_HAS_CLS";
@@ -1902,7 +1903,15 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_ExternalRuntimeOptions
 @dynamic containerCpu, containerMemory, containerRequestConcurrency,
-         maxBatchingRows, runtimeConnection, runtimeVersion;
+         maxBatchingRows, runtimeConnection, runtimeVersion, volumeMounts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"volumeMounts" : [GTLRBigquery_ExternalVolumeMount class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1914,6 +1923,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 @implementation GTLRBigquery_ExternalServiceCost
 @dynamic billingMethod, bytesBilled, bytesProcessed, externalService,
          reservedSlotCount, slotMs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ExternalVolumeMount
+//
+
+@implementation GTLRBigquery_ExternalVolumeMount
+@dynamic mountPath, sourcePath;
 @end
 
 
@@ -2395,8 +2414,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobConfigurationExtract
 @dynamic compression, destinationFormat, destinationUri, destinationUris,
-         fieldDelimiter, modelExtractOptions, printHeader, sourceModel,
-         sourceTable, useAvroLogicalTypes;
+         fieldDelimiter, modelExtractOptions, nativeGeographyExportEnabled,
+         printHeader, sourceModel, sourceTable, useAvroLogicalTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2455,8 +2474,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          destinationEncryptionConfiguration, destinationTable, flattenResults,
          maximumBillingTier, maximumBytesBilled, parameterMode, preserveNulls,
          priority, query, queryParameters, rangePartitioning,
-         schemaUpdateOptions, scriptOptions, systemVariables, tableDefinitions,
-         timePartitioning, useLegacySql, useQueryCache,
+         schemaUpdateOptions, scriptOptions, secureContext, systemVariables,
+         tableDefinitions, timePartitioning, useLegacySql, useQueryCache,
          userDefinedFunctionResources, writeDisposition,
          writeIncrementalResults;
 
@@ -2642,18 +2661,19 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows,
          objectStorageStats, performanceInsights, queryInfo, queryPlan,
-         referencedPropertyGraphs, referencedRoutines, referencedTables,
-         reservationUsage, schema, searchStatistics, sparkStatistics,
-         statementType, timeline, totalBytesBilled, totalBytesProcessed,
-         totalBytesProcessedAccuracy, totalPartitionsProcessed,
-         totalServicesSkuSlotMs, totalSlotMs, transferredBytes,
-         undeclaredQueryParameters, vectorSearchStatistics;
+         referencedLogicalViews, referencedPropertyGraphs, referencedRoutines,
+         referencedTables, reservationUsage, schema, searchStatistics,
+         sparkStatistics, statementType, timeline, totalBytesBilled,
+         totalBytesProcessed, totalBytesProcessedAccuracy,
+         totalPartitionsProcessed, totalServicesSkuSlotMs, totalSlotMs,
+         transferredBytes, undeclaredQueryParameters, vectorSearchStatistics;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"externalServiceCosts" : [GTLRBigquery_ExternalServiceCost class],
     @"objectStorageStats" : [GTLRBigquery_ObjectStorageStats class],
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
+    @"referencedLogicalViews" : [GTLRBigquery_TableReference class],
     @"referencedPropertyGraphs" : [GTLRBigquery_PropertyGraphReference class],
     @"referencedRoutines" : [GTLRBigquery_RoutineReference class],
     @"referencedTables" : [GTLRBigquery_TableReference class],
@@ -3459,7 +3479,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          dryRun, formatOptions, jobCreationMode, jobTimeoutMs, kind, labels,
          location, maximumBytesBilled, maxResults, maxSlots, parameterMode,
          preserveNulls, query, queryParameters, queryResultsFormat, requestId,
-         reservation, timeoutMs, useLegacySql, useQueryCache,
+         reservation, secureContext, timeoutMs, useLegacySql, useQueryCache,
          writeIncrementalResults;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -3496,8 +3516,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 @dynamic arrowRecordBatch, arrowSchema, cacheHit, creationTime, dmlStats,
          endTime, errors, jobComplete, jobCreationReason, jobReference, kind,
          location, numDmlAffectedRows, pageRowCount, pageToken, queryId, rows,
-         schema, sessionInfo, startTime, totalBytesBilled, totalBytesProcessed,
-         totalRows, totalSlotMs;
+         schema, sessionInfo, startTime, statementType, totalBytesBilled,
+         totalBytesProcessed, totalRows, totalSlotMs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3790,6 +3810,30 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_SecureContext
+//
+
+@implementation GTLRBigquery_SecureContext
+@dynamic secureParameterEntries;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SecureContext_SecureParameterEntries
+//
+
+@implementation GTLRBigquery_SecureContext_SecureParameterEntries
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_SerDeInfo
 //
 
@@ -3838,7 +3882,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_SkewSource
-@dynamic stageId;
+@dynamic outputBytesMax, outputBytesMedian, outputBytesP95, stageId;
 @end
 
 

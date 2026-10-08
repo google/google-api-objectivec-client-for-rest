@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single AccessSummary.
+ *  Gets details of a single access summary.
  *
  *  Method: agentidentity.projects.locations.accessSummaries.get
  *
@@ -41,15 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAccessSummariesGet : GTLRAgentIdentityQuery
 
-/** Required. Name of the resource */
+/** Required. The resource name of the access summary. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAgentIdentity_AccessSummary.
  *
- *  Gets details of a single AccessSummary.
+ *  Gets details of a single access summary.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The resource name of the access summary.
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAccessSummariesGet
  */
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists AccessSummaries in a given project and location. Supported Filters: -
+ *  Lists access summaries in a given project and location. Supported filters: -
  *  `workload_id`: Filter by the SPIFFE ID of the agent. Example:
  *  `workload_id="spiffe://example.com/ns/default/sa/my-agent"`
  *
@@ -85,7 +85,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  If unspecified, server will pick an appropriate default. The maximum page
+ *  size is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -103,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_ListAccessSummariesResponse.
  *
- *  Lists AccessSummaries in a given project and location. Supported Filters: -
+ *  Lists access summaries in a given project and location. Supported filters: -
  *  `workload_id`: Filter by the SPIFFE ID of the agent. Example:
  *  `workload_id="spiffe://example.com/ns/default/sa/my-agent"`
  *
@@ -121,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single Authorization.
+ *  Deletes a single authorization.
  *
  *  Method: agentidentity.projects.locations.authProviders.authorizations.delete
  *
@@ -131,7 +132,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsDelete : GTLRAgentIdentityQuery
 
 /**
- *  Required. The name of the Authorization to delete. Format:
+ *  Required. The resource name of the authorization to delete. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}/authorizations/{authorization}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -154,9 +155,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_Empty.
  *
- *  Deletes a single Authorization.
+ *  Deletes a single authorization.
  *
- *  @param name Required. The name of the Authorization to delete. Format:
+ *  @param name Required. The resource name of the authorization to delete.
+ *    Format:
  *    projects/{project}/locations/{location}/authProviders/{auth_provider}/authorizations/{authorization}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsDelete
@@ -166,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single Authorization.
+ *  Gets details of a single authorization.
  *
  *  Method: agentidentity.projects.locations.authProviders.authorizations.get
  *
@@ -175,15 +177,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsGet : GTLRAgentIdentityQuery
 
-/** Required. Name of the resource */
+/** Required. The resource name of the authorization. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAgentIdentity_Authorization.
  *
- *  Gets details of a single Authorization.
+ *  Gets details of a single authorization.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The resource name of the authorization.
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsGet
  */
@@ -192,7 +194,56 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Authorizations in a given project and location.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: agentidentity.projects.locations.authProviders.authorizations.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentIdentityCloudPlatform
+ */
+@interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsGetIamPolicy : GTLRAgentIdentityQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAgentIdentity_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists authorizations in a given project and location.
  *
  *  Method: agentidentity.projects.locations.authProviders.authorizations.list
  *
@@ -215,7 +266,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  If unspecified, server will pick an appropriate default. The maximum page
+ *  size is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -236,7 +288,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_ListAuthorizationsResponse.
  *
- *  Lists Authorizations in a given project and location.
+ *  Lists authorizations in a given project and location.
  *
  *  @param parent Required. The parent resource where the search is performed.
  *    Format:
@@ -253,7 +305,91 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new AuthProvider in a given project and location.
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: agentidentity.projects.locations.authProviders.authorizations.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentIdentityCloudPlatform
+ */
+@interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsSetIamPolicy : GTLRAgentIdentityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAgentIdentity_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAgentIdentity_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAgentIdentity_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: agentidentity.projects.locations.authProviders.authorizations.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAgentIdentityCloudPlatform
+ */
+@interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsTestIamPermissions : GTLRAgentIdentityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAgentIdentity_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRAgentIdentity_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRAgentIdentity_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new auth provider in a given project and location.
  *
  *  Method: agentidentity.projects.locations.authProviders.create
  *
@@ -263,8 +399,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersCreate : GTLRAgentIdentityQuery
 
 /**
- *  Required. The ID to use for the AuthProvider, which will become the final
- *  segment of the AuthProvider's resource name. This value should be 1-63
+ *  Required. The ID to use for the auth provider, which will become the final
+ *  segment of the auth provider's resource name. This value should be 1-63
  *  characters, and valid characters are /a-z-/. The first character must be a
  *  lowercase letter, and the last character must be a lowercase letter or a
  *  number.
@@ -272,7 +408,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *authProviderId;
 
 /**
- *  Required. The parent resource where the AuthProvider is created. Format:
+ *  Required. The parent resource where the auth provider is created. Format:
  *  projects/{project}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -295,10 +431,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_AuthProvider.
  *
- *  Creates a new AuthProvider in a given project and location.
+ *  Creates a new auth provider in a given project and location.
  *
  *  @param object The @c GTLRAgentIdentity_AuthProvider to include in the query.
- *  @param parent Required. The parent resource where the AuthProvider is
+ *  @param parent Required. The parent resource where the auth provider is
  *    created. Format: projects/{project}/locations/{location}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersCreate
@@ -309,7 +445,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single AuthProvider.
+ *  Deletes a single auth provider.
  *
  *  Method: agentidentity.projects.locations.authProviders.delete
  *
@@ -318,7 +454,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersDelete : GTLRAgentIdentityQuery
 
-/** Required. Name of the resource */
+/** Required. The resource name of the auth provider. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -339,9 +475,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_Empty.
  *
- *  Deletes a single AuthProvider.
+ *  Deletes a single auth provider.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The resource name of the auth provider.
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersDelete
  */
@@ -350,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disables a single AuthProvider.
+ *  Disables a single auth provider.
  *
  *  Method: agentidentity.projects.locations.authProviders.disable
  *
@@ -360,7 +496,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersDisable : GTLRAgentIdentityQuery
 
 /**
- *  Required. Name of the resource Format:
+ *  Required. The resource name of the auth provider. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -368,11 +504,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_AuthProvider.
  *
- *  Disables a single AuthProvider.
+ *  Disables a single auth provider.
  *
  *  @param object The @c GTLRAgentIdentity_DisableAuthProviderRequest to include
  *    in the query.
- *  @param name Required. Name of the resource Format:
+ *  @param name Required. The resource name of the auth provider. Format:
  *    projects/{project}/locations/{location}/authProviders/{auth_provider}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersDisable
@@ -383,7 +519,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enables a single AuthProvider.
+ *  Enables a single auth provider.
  *
  *  Method: agentidentity.projects.locations.authProviders.enable
  *
@@ -393,7 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersEnable : GTLRAgentIdentityQuery
 
 /**
- *  Required. Name of the resource Format:
+ *  Required. The resource name of the auth provider. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -401,11 +537,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_AuthProvider.
  *
- *  Enables a single AuthProvider.
+ *  Enables a single auth provider.
  *
  *  @param object The @c GTLRAgentIdentity_EnableAuthProviderRequest to include
  *    in the query.
- *  @param name Required. Name of the resource Format:
+ *  @param name Required. The resource name of the auth provider. Format:
  *    projects/{project}/locations/{location}/authProviders/{auth_provider}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersEnable
@@ -416,7 +552,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single AuthProvider.
+ *  Gets details of a single auth provider.
  *
  *  Method: agentidentity.projects.locations.authProviders.get
  *
@@ -425,15 +561,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersGet : GTLRAgentIdentityQuery
 
-/** Required. Name of the resource */
+/** Required. The resource name of the auth provider. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAgentIdentity_AuthProvider.
  *
- *  Gets details of a single AuthProvider.
+ *  Gets details of a single auth provider.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. The resource name of the auth provider.
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersGet
  */
@@ -491,7 +627,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists AuthProviders in a given project and location.
+ *  Lists auth providers in a given project and location.
  *
  *  Method: agentidentity.projects.locations.authProviders.list
  *
@@ -511,7 +647,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  If unspecified, server will pick an appropriate default. The maximum page
+ *  size is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -528,8 +665,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Deleted auth_providers will be kept with a soft-delete for 30 days
- *  before being purged. If this field is set to true, deleted auth_providers
+ *  Optional. Deleted auth providers will be kept with a soft-delete for 30 days
+ *  before being purged. If this field is set to `true`, deleted auth providers
  *  will also be returned.
  */
 @property(nonatomic, assign) BOOL showDeleted;
@@ -537,7 +674,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_ListAuthProvidersResponse.
  *
- *  Lists AuthProviders in a given project and location.
+ *  Lists auth providers in a given project and location.
  *
  *  @param parent Required. The parent resource where the search is performed.
  *    Format: projects/{project}/locations/{location}
@@ -553,7 +690,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single AuthProvider.
+ *  Updates the parameters of a single auth provider.
  *
  *  Method: agentidentity.projects.locations.authProviders.patch
  *
@@ -563,7 +700,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersPatch : GTLRAgentIdentityQuery
 
 /**
- *  Identifier. The full resource name of the auth_provider. Format:
+ *  Identifier. The full resource name of the auth provider. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -585,10 +722,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Field mask is used to specify the fields to be overwritten in the
- *  AuthProvider resource by the update. The fields specified in the update_mask
- *  are relative to the resource, not the full request. A field will be
- *  overwritten if it is in the mask. If the user does not provide a mask then
- *  all fields present in the request will be overwritten.
+ *  auth provider resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields present in the request will be overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -597,10 +734,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_AuthProvider.
  *
- *  Updates the parameters of a single AuthProvider.
+ *  Updates the parameters of a single auth provider.
  *
  *  @param object The @c GTLRAgentIdentity_AuthProvider to include in the query.
- *  @param name Identifier. The full resource name of the auth_provider. Format:
+ *  @param name Identifier. The full resource name of the auth provider. Format:
  *    projects/{project}/locations/{location}/authProviders/{auth_provider}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersPatch
@@ -611,7 +748,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Queries what all auth_providers are used by a given workload_id.
+ *  Queries which auth providers are used by a given workload ID.
  *
  *  Method: agentidentity.projects.locations.authProviders.query
  *
@@ -648,7 +785,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_QueryAuthProvidersResponse.
  *
- *  Queries what all auth_providers are used by a given workload_id.
+ *  Queries which auth providers are used by a given workload ID.
  *
  *  @param parent Required. The parent resource where the search is performed.
  *    Format: projects/{project}/locations/{location}
@@ -660,7 +797,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Queries what all workloads are using a given auth_provider.
+ *  Queries which workloads are using a given auth provider.
  *
  *  Method: agentidentity.projects.locations.authProviders.queryWorkloads
  *
@@ -670,31 +807,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersQueryWorkloads : GTLRAgentIdentityQuery
 
 /**
- *  Required. The name of the auth_provider to query. Format:
+ *  Required. The name of the auth provider to query. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  If unspecified, server will pick an appropriate default. The maximum page
+ *  size is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. A token, which can be sent as `page_token` to retrieve the next
- *  page. When paginating, all other parameters provided to QueryWorkloads must
- *  match the call that provided the page token. If this field is omitted, the
- *  first page is returned.
+ *  page. When paginating, all other parameters provided to `QueryWorkloads`
+ *  must match the call that provided the page token. If this field is omitted,
+ *  the first page is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAgentIdentity_QueryWorkloadsResponse.
  *
- *  Queries what all workloads are using a given auth_provider.
+ *  Queries which workloads are using a given auth provider.
  *
- *  @param name Required. The name of the auth_provider to query. Format:
+ *  @param name Required. The name of the auth provider to query. Format:
  *    projects/{project}/locations/{location}/authProviders/{auth_provider}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersQueryWorkloads
@@ -704,9 +842,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Revokes all authorizations for a specific user on an AuthProvider. This
- *  deletes all authorization records associated with the user and AuthProvider,
- *  effectively revoking access across all agents.
+ *  Revokes all authorizations for a specific user on an auth provider. This
+ *  deletes all authorization records associated with the user and auth
+ *  provider, effectively revoking access across all agents.
  *
  *  Method: agentidentity.projects.locations.authProviders.revokeAuthorization
  *
@@ -716,7 +854,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersRevokeAuthorization : GTLRAgentIdentityQuery
 
 /**
- *  Required. The resource name of the AuthProvider. Format:
+ *  Required. The resource name of the auth provider. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -724,13 +862,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_RevokeAuthorizationResponse.
  *
- *  Revokes all authorizations for a specific user on an AuthProvider. This
- *  deletes all authorization records associated with the user and AuthProvider,
- *  effectively revoking access across all agents.
+ *  Revokes all authorizations for a specific user on an auth provider. This
+ *  deletes all authorization records associated with the user and auth
+ *  provider, effectively revoking access across all agents.
  *
  *  @param object The @c GTLRAgentIdentity_RevokeAuthorizationRequest to include
  *    in the query.
- *  @param name Required. The resource name of the AuthProvider. Format:
+ *  @param name Required. The resource name of the auth provider. Format:
  *    projects/{project}/locations/{location}/authProviders/{auth_provider}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersRevokeAuthorization
@@ -825,7 +963,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Undeletes a single AuthProvider.
+ *  Undeletes a single auth provider.
  *
  *  Method: agentidentity.projects.locations.authProviders.undelete
  *
@@ -835,7 +973,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersUndelete : GTLRAgentIdentityQuery
 
 /**
- *  Required. Name of the resource Format:
+ *  Required. The resource name of the auth provider. Format:
  *  projects/{project}/locations/{location}/authProviders/{auth_provider}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -843,11 +981,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAgentIdentity_AuthProvider.
  *
- *  Undeletes a single AuthProvider.
+ *  Undeletes a single auth provider.
  *
  *  @param object The @c GTLRAgentIdentity_UndeleteAuthProviderRequest to
  *    include in the query.
- *  @param name Required. Name of the resource Format:
+ *  @param name Required. The resource name of the auth provider. Format:
  *    projects/{project}/locations/{location}/authProviders/{auth_provider}
  *
  *  @return GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersUndelete

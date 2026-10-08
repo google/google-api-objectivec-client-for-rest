@@ -2342,6 +2342,53 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Updates a managed folder using patch semantics.
+ *
+ *  Method: storage.managedFolders.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ManagedFoldersUpdate : GTLRStorageQuery
+
+/** The name of the bucket containing the managed folder. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Makes the operation conditional on whether the metageneration of the managed
+ *  folder matches the specified value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the metageneration of the managed
+ *  folder doesn't match the specified value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/** The name of the managed folder. */
+@property(nonatomic, copy, nullable) NSString *managedFolder;
+
+/**
+ *  Fetches a @c GTLRStorage_ManagedFolder.
+ *
+ *  Updates a managed folder using patch semantics.
+ *
+ *  @param object The @c GTLRStorage_ManagedFolder to include in the query.
+ *  @param bucket The name of the bucket containing the managed folder.
+ *  @param managedFolder The name of the managed folder.
+ *
+ *  @return GTLRStorageQuery_ManagedFoldersUpdate
+ */
++ (instancetype)queryWithObject:(GTLRStorage_ManagedFolder *)object
+                         bucket:(NSString *)bucket
+                  managedFolder:(NSString *)managedFolder;
+
+@end
+
+/**
  *  Permanently deletes a notification subscription.
  *
  *  Method: storage.notifications.delete
@@ -2927,8 +2974,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
 
 /**
- *  Specifies which groups of Object Contexts from the source object(s) should
- *  be dropped from the destination object.
+ *  Specifies which object context groups to drop from the source object(s)
+ *  during a compose operation. The accepted value is 'custom'.
+ *  Destination contexts behave as follows:
+ *  - When request body contexts are provided, they override all source
+ *  contexts.
+ *  - When no request body contexts are provided, source contexts are preserved
+ *  unless 'dropContextGroups' contains 'custom', in which case all contexts are
+ *  dropped.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dropContextGroups;
 
@@ -4073,8 +4126,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
 
 /**
- *  Specifies which groups of Object Contexts from the source object should be
- *  dropped from the destination object.
+ *  Specifies which object context groups to drop from the source object during
+ *  a copy operation. The accepted value is 'custom'.
+ *  Destination contexts behave as follows:
+ *  - When request body contexts are provided, they override all source
+ *  contexts.
+ *  - When no request body contexts are provided, source contexts are preserved
+ *  unless 'dropContextGroups' contains 'custom', in which case all contexts are
+ *  dropped.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dropContextGroups;
 
@@ -4439,6 +4498,66 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                          bucket:(NSString *)bucket
                          object:(NSString *)object_param;
+
+@end
+
+/**
+ *  Retrieves a specific object context with its extended data for a given
+ *  object.
+ *
+ *  Method: storage.objects.viewFullContext
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ObjectsViewFullContext : GTLRStorageQuery
+
+/** Name of the bucket in which the object resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Key identifying the object context to retrieve. */
+@property(nonatomic, copy, nullable) NSString *contextKey;
+
+/**
+ *  If present, selects a specific revision of this object (as opposed to the
+ *  latest version, the default).
+ */
+@property(nonatomic, assign) long long generation;
+
+/**
+ *  Name of the object. For information about how to URL encode object names to
+ *  be path safe, see [Encoding URI Path
+ *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_ObjectFullContext.
+ *
+ *  Retrieves a specific object context with its extended data for a given
+ *  object.
+ *
+ *  @param bucket Name of the bucket in which the object resides.
+ *  @param object Name of the object. For information about how to URL encode
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ *  @param contextKey Key identifying the object context to retrieve.
+ *
+ *  @return GTLRStorageQuery_ObjectsViewFullContext
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         object:(NSString *)object
+                     contextKey:(NSString *)contextKey;
 
 @end
 
@@ -4854,6 +4973,182 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @return GTLRStorageQuery_ProjectsServiceAccountGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
+ *  Disables a Rapid Cache instance.
+ *
+ *  Method: storage.rapidCaches.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_RapidCachesDisable : GTLRStorageQuery
+
+/** Name of the parent bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The ID of the requested Rapid Cache instance. */
+@property(nonatomic, copy, nullable) NSString *rapidCacheId;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Disables a Rapid Cache instance.
+ *
+ *  @param bucket Name of the parent bucket.
+ *  @param rapidCacheId The ID of the requested Rapid Cache instance.
+ *
+ *  @return GTLRStorageQuery_RapidCachesDisable
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   rapidCacheId:(NSString *)rapidCacheId;
+
+@end
+
+/**
+ *  Returns the metadata of a Rapid Cache instance.
+ *
+ *  Method: storage.rapidCaches.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_RapidCachesGet : GTLRStorageQuery
+
+/** Name of the parent bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The ID of the requested Rapid Cache instance. */
+@property(nonatomic, copy, nullable) NSString *rapidCacheId;
+
+/**
+ *  Fetches a @c GTLRStorage_RapidCache.
+ *
+ *  Returns the metadata of a Rapid Cache instance.
+ *
+ *  @param bucket Name of the parent bucket.
+ *  @param rapidCacheId The ID of the requested Rapid Cache instance.
+ *
+ *  @return GTLRStorageQuery_RapidCachesGet
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   rapidCacheId:(NSString *)rapidCacheId;
+
+@end
+
+/**
+ *  Creates a Rapid Cache instance.
+ *
+ *  Method: storage.rapidCaches.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_RapidCachesInsert : GTLRStorageQuery
+
+/** Name of the parent bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Creates a Rapid Cache instance.
+ *
+ *  @param object The @c GTLRStorage_RapidCache to include in the query.
+ *  @param bucket Name of the parent bucket.
+ *
+ *  @return GTLRStorageQuery_RapidCachesInsert
+ */
++ (instancetype)queryWithObject:(GTLRStorage_RapidCache *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Returns a list of Rapid Cache instances of the bucket.
+ *
+ *  Method: storage.rapidCaches.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_RapidCachesList : GTLRStorageQuery
+
+/** Name of the parent bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Maximum number of items to return in a single page of responses. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previously-returned page token representing part of the larger set of
+ *  results to view.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRStorage_RapidCaches.
+ *
+ *  Returns a list of Rapid Cache instances of the bucket.
+ *
+ *  @param bucket Name of the parent bucket.
+ *
+ *  @return GTLRStorageQuery_RapidCachesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Updates the configuration of a Rapid Cache instance.
+ *
+ *  Method: storage.rapidCaches.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_RapidCachesUpdate : GTLRStorageQuery
+
+/** Name of the parent bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The ID of the requested Rapid Cache instance. */
+@property(nonatomic, copy, nullable) NSString *rapidCacheId;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Updates the configuration of a Rapid Cache instance.
+ *
+ *  @param object The @c GTLRStorage_RapidCache to include in the query.
+ *  @param bucket Name of the parent bucket.
+ *  @param rapidCacheId The ID of the requested Rapid Cache instance.
+ *
+ *  @return GTLRStorageQuery_RapidCachesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRStorage_RapidCache *)object
+                         bucket:(NSString *)bucket
+                   rapidCacheId:(NSString *)rapidCacheId;
 
 @end
 

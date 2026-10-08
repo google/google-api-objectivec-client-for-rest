@@ -2128,6 +2128,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SqlServerChangeTables
+@dynamic ddlConfig;
 @end
 
 
@@ -2139,6 +2140,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_SqlServerColumn
 @dynamic column, dataType, length, nullable, ordinalPosition, precision,
          primaryKey, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerDdlConfig
+//
+
+@implementation GTLRDatastream_SqlServerDdlConfig
+@dynamic autoCreateNewCaptureInstanceOnDdl, autoDeleteOldCaptureInstance;
 @end
 
 

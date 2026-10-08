@@ -85,6 +85,7 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_Compr
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_DeviceType_Android = @"ANDROID";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_DeviceType_ChromeOs = @"CHROME_OS";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_DeviceType_Googlebook = @"GOOGLEBOOK";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_DeviceType_GoogleSync = @"GOOGLE_SYNC";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_DeviceType_Ios = @"IOS";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device_DeviceType_Linux = @"LINUX";
@@ -214,6 +215,16 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_AddIdpCredentialRequest
 @dynamic pemData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_AllowlistedDomain
+//
+
+@implementation GTLRCloudIdentity_AllowlistedDomain
+@dynamic domain, name;
 @end
 
 
@@ -411,6 +422,25 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_ExpiryDetail
 @dynamic expireTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ExternalId
+//
+
+@implementation GTLRCloudIdentity_ExternalId
+@dynamic identifier, namespaceProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"namespaceProperty" : @"namespace"
+  };
+  return map;
+}
+
 @end
 
 
@@ -952,7 +982,8 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_Group
 @dynamic additionalGroupKeys, createTime, descriptionProperty, displayName,
-         dynamicGroupMetadata, groupKey, labels, name, parent, updateTime;
+         dynamicGroupMetadata, externalIds, groupKey, labels, name, parent,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -960,7 +991,8 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalGroupKeys" : [GTLRCloudIdentity_EntityKey class]
+    @"additionalGroupKeys" : [GTLRCloudIdentity_EntityKey class],
+    @"externalIds" : [GTLRCloudIdentity_ExternalId class]
   };
   return map;
 }
@@ -1062,6 +1094,28 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_IsInvitableUserResponse
 @dynamic isInvitableUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListAllowlistedDomainsResponse
+//
+
+@implementation GTLRCloudIdentity_ListAllowlistedDomainsResponse
+@dynamic allowlistedDomains, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowlistedDomains" : [GTLRCloudIdentity_AllowlistedDomain class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"allowlistedDomains";
+}
+
 @end
 
 

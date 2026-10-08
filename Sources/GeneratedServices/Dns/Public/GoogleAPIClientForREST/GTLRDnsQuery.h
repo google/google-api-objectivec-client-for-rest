@@ -340,6 +340,113 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
+ *  Gets information about a location.
+ *
+ *  Method: dns.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_LocationsGet : GTLRDnsQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDns_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRDnsQuery_LocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service. This
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
+ *
+ *  Method: dns.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_LocationsList : GTLRDnsQuery
+
+/**
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDns_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service. This
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRDnsQuery_LocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Fetches the representation of an existing Operation.
  *
  *  Method: dns.managedZoneOperations.get
@@ -847,6 +954,392 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: dns.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OperationsCancel : GTLRDnsQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDns_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRDnsQuery_OperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: dns.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OperationsDelete : GTLRDnsQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDns_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRDnsQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: dns.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OperationsGet : GTLRDnsQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDnsQuery_OperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: dns.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OperationsList : GTLRDnsQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDnsQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new Outbound Endpoint.
+ *
+ *  Method: dns.outboundEndpoints.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OutboundEndpointsCreate : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/**
+ *  Required. The ID to use for the OutboundEndpoint, which will become the
+ *  final component of the OutboundEndpoint's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *outboundEndpointId;
+
+/**
+ *  Required. The parent project and location where this OutboundEndpoint will
+ *  be created. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. An optional request ID to identify requests. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleLongrunningOperation.
+ *
+ *  Creates a new Outbound Endpoint.
+ *
+ *  @param object The @c GTLRDns_OutboundEndpoint to include in the query.
+ *  @param parent Required. The parent project and location where this
+ *    OutboundEndpoint will be created. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRDnsQuery_OutboundEndpointsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDns_OutboundEndpoint *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a previously created Outbound Endpoint.
+ *
+ *  Method: dns.outboundEndpoints.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OutboundEndpointsDelete : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/**
+ *  Required. The name of the OutboundEndpoint to delete. Format:
+ *  projects/{project}/locations/{location}/outboundEndpoints/{outboundEndpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. An optional request ID to identify requests. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleLongrunningOperation.
+ *
+ *  Deletes a previously created Outbound Endpoint.
+ *
+ *  @param name Required. The name of the OutboundEndpoint to delete. Format:
+ *    projects/{project}/locations/{location}/outboundEndpoints/{outboundEndpoint}
+ *
+ *  @return GTLRDnsQuery_OutboundEndpointsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches the representation of an existing Outbound Endpoint.
+ *
+ *  Method: dns.outboundEndpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OutboundEndpointsGet : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/**
+ *  Required. The name of the OutboundEndpoint to retrieve. Format:
+ *  projects/{project}/locations/{location}/outboundEndpoints/{outboundEndpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDns_OutboundEndpoint.
+ *
+ *  Fetches the representation of an existing Outbound Endpoint.
+ *
+ *  @param name Required. The name of the OutboundEndpoint to retrieve. Format:
+ *    projects/{project}/locations/{location}/outboundEndpoints/{outboundEndpoint}
+ *
+ *  @return GTLRDnsQuery_OutboundEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Enumerates all Outbound Endpoints associated with a project.
+ *
+ *  Method: dns.outboundEndpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OutboundEndpointsList : GTLRDnsQuery
+
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Optional. The maximum number of results to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. A page token received from a previous List call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent project and location from which to list resources.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDns_ListOutboundEndpointsResponse.
+ *
+ *  Enumerates all Outbound Endpoints associated with a project.
+ *
+ *  @param parent Required. The parent project and location from which to list
+ *    resources. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRDnsQuery_OutboundEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing Outbound Endpoint.
+ *
+ *  Method: dns.outboundEndpoints.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_OutboundEndpointsPatch : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/**
+ *  Identifier. The resource name of the OutboundEndpoint. Format:
+ *  `projects/{project}/locations/{location}/outboundEndpoints/{outboundEndpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. An optional request ID to identify requests. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDns_GoogleLongrunningOperation.
+ *
+ *  Updates an existing Outbound Endpoint.
+ *
+ *  @param object The @c GTLRDns_OutboundEndpoint to include in the query.
+ *  @param name Identifier. The resource name of the OutboundEndpoint. Format:
+ *    `projects/{project}/locations/{location}/outboundEndpoints/{outboundEndpoint}`
+ *
+ *  @return GTLRDnsQuery_OutboundEndpointsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDns_OutboundEndpoint *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new policy.
  *
  *  Method: dns.policies.create
@@ -1108,13 +1601,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ProjectsGet : GTLRDnsQuery
-
-/**
- *  For mutating operation requests only. An optional identifier specified by
- *  the client. Must be unique for operation resources in the Operations
- *  collection.
- */
-@property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;

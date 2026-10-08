@@ -174,6 +174,11 @@ NSString * const kGTLRServiceManagement_Publishing_Organization_Photos = @"PHOTO
 NSString * const kGTLRServiceManagement_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceManagement_Publishing_Organization_StreetView = @"STREET_VIEW";
 
+// GTLRServiceManagement_QuotaLimit.trafficSource
+NSString * const kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceAgentic = @"TRAFFIC_SOURCE_AGENTIC";
+NSString * const kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceNonagentic = @"TRAFFIC_SOURCE_NONAGENTIC";
+NSString * const kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceUnspecified = @"TRAFFIC_SOURCE_UNSPECIFIED";
+
 // GTLRServiceManagement_Rollout.status
 NSString * const kGTLRServiceManagement_Rollout_Status_Cancelled = @"CANCELLED";
 NSString * const kGTLRServiceManagement_Rollout_Status_Failed  = @"FAILED";
@@ -1474,7 +1479,21 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_MetricRule
-@dynamic metricCosts, selector;
+@dynamic agenticMetricCosts, metricCosts, nonagenticMetricCosts, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_MetricRule_AgenticMetricCosts
+//
+
+@implementation GTLRServiceManagement_MetricRule_AgenticMetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -1484,6 +1503,20 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_MetricRule_MetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_MetricRule_NonagenticMetricCosts
+//
+
+@implementation GTLRServiceManagement_MetricRule_NonagenticMetricCosts
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
@@ -1782,7 +1815,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_QuotaLimit
 @dynamic defaultLimit, descriptionProperty, displayName, duration, freeTier,
-         maxLimit, metric, name, unit, values;
+         maxLimit, metric, name, trafficSource, unit, values;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

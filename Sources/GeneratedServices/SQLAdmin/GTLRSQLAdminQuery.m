@@ -23,6 +23,11 @@ NSString * const kGTLRSQLAdminModeAll                     = @"ALL";
 NSString * const kGTLRSQLAdminModeResetSslModeUnspecified = @"RESET_SSL_MODE_UNSPECIFIED";
 NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY";
 
+// view
+NSString * const kGTLRSQLAdminViewBasic                        = @"BASIC";
+NSString * const kGTLRSQLAdminViewBlueGreenDeploymentViewUnspecified = @"BLUE_GREEN_DEPLOYMENT_VIEW_UNSPECIFIED";
+NSString * const kGTLRSQLAdminViewDetailed                     = @"DETAILED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -256,6 +261,117 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @end
 
+@implementation GTLRSQLAdminQuery_BlueGreenDeploymentsCreate
+
+@dynamic blueGreenDeploymentId, parent;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_BlueGreenDeployment *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/blueGreenDeployments";
+  GTLRSQLAdminQuery_BlueGreenDeploymentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.blueGreenDeployments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BlueGreenDeploymentsDelete
+
+@dynamic deleteOldSource, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BlueGreenDeploymentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.blueGreenDeployments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BlueGreenDeploymentsGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BlueGreenDeploymentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_BlueGreenDeployment class];
+  query.loggingName = @"sql.blueGreenDeployments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BlueGreenDeploymentsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/blueGreenDeployments";
+  GTLRSQLAdminQuery_BlueGreenDeploymentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_ListBlueGreenDeploymentsResponse class];
+  query.loggingName = @"sql.blueGreenDeployments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BlueGreenDeploymentsSwitchover
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SwitchoverBlueGreenDeploymentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:switchover";
+  GTLRSQLAdminQuery_BlueGreenDeploymentsSwitchover *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.blueGreenDeployments.switchover";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_ConnectGenerateEphemeralCert
 
 @dynamic instance, project;
@@ -335,7 +451,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_DatabasesDelete
 
-@dynamic database, instance, project;
+@dynamic database, instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance
@@ -360,7 +476,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_DatabasesGet
 
-@dynamic database, instance, project;
+@dynamic database, instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance
@@ -385,7 +501,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_DatabasesInsert
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_Database *)object
                         project:(NSString *)project
@@ -416,7 +532,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_DatabasesList
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -439,7 +555,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_DatabasesPatch
 
-@dynamic database, instance, project;
+@dynamic database, instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_Database *)object
                         project:(NSString *)project
@@ -472,7 +588,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_DatabasesUpdate
 
-@dynamic database, instance, project;
+@dynamic database, instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_Database *)object
                         project:(NSString *)project
@@ -522,7 +638,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesAcquireSsrsLease
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest *)object
                         project:(NSString *)project
@@ -553,7 +669,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesAddEntraIdCertificate
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -576,7 +692,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesAddServerCa
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -599,7 +715,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesAddServerCertificate
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -622,7 +738,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesClone
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesCloneRequest *)object
                         project:(NSString *)project
@@ -654,7 +770,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 @implementation GTLRSQLAdminQuery_InstancesDelete
 
 @dynamic enableFinalBackup, finalBackupDescription, finalBackupExpiryTime,
-         finalBackupTtlDays, instance, project;
+         finalBackupTtlDays, instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -677,7 +793,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesDemote
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesDemoteRequest *)object
                         project:(NSString *)project
@@ -708,7 +824,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesDemoteMaster
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesDemoteMasterRequest *)object
                         project:(NSString *)project
@@ -739,7 +855,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesExecuteSql
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_ExecuteSqlPayload *)object
                         project:(NSString *)project
@@ -770,7 +886,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesExport
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesExportRequest *)object
                         project:(NSString *)project
@@ -801,7 +917,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesFailover
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesFailoverRequest *)object
                         project:(NSString *)project
@@ -832,7 +948,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesGet
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -855,7 +971,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesImport
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesImportRequest *)object
                         project:(NSString *)project
@@ -886,7 +1002,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesInsert
 
-@dynamic project;
+@dynamic location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_DatabaseInstance *)object
                         project:(NSString *)project {
@@ -913,7 +1029,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesList
 
-@dynamic filter, maxResults, pageToken, project;
+@dynamic filter, location, maxResults, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -932,7 +1048,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesListEntraIdCertificates
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -955,7 +1071,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesListServerCas
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -978,7 +1094,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesListServerCertificates
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1001,7 +1117,8 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesPatch
 
-@dynamic instance, project, reconcilePscNetworking, reconcilePscNetworkingForce;
+@dynamic instance, location, project, reconcilePscNetworking,
+         reconcilePscNetworkingForce;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_DatabaseInstance *)object
                         project:(NSString *)project
@@ -1059,7 +1176,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesPreCheckMajorVersionUpgrade
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesPreCheckMajorVersionUpgradeRequest *)object
                         project:(NSString *)project
@@ -1090,7 +1207,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesPromoteReplica
 
-@dynamic failover, instance, project;
+@dynamic failover, instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1113,7 +1230,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesReencrypt
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesReencryptRequest *)object
                         project:(NSString *)project
@@ -1144,7 +1261,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesReleaseSsrsLease
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1167,7 +1284,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesResetSslConfig
 
-@dynamic instance, mode, project;
+@dynamic instance, location, mode, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1190,7 +1307,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesRestart
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1213,7 +1330,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesRestoreBackup
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRestoreBackupRequest *)object
                         project:(NSString *)project
@@ -1244,7 +1361,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesRotateEntraIdCertificate
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateEntraIdCertificateRequest *)object
                         project:(NSString *)project
@@ -1275,7 +1392,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesRotateServerCa
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCaRequest *)object
                         project:(NSString *)project
@@ -1306,7 +1423,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesRotateServerCertificate
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCertificateRequest *)object
                         project:(NSString *)project
@@ -1337,7 +1454,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesStartReplica
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1360,7 +1477,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesStopReplica
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1383,7 +1500,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesSwitchover
 
-@dynamic dbTimeout, instance, project;
+@dynamic dbTimeout, instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1406,7 +1523,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesTruncateLog
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesTruncateLogRequest *)object
                         project:(NSString *)project
@@ -1437,7 +1554,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_InstancesUpdate
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_DatabaseInstance *)object
                         project:(NSString *)project
@@ -1533,7 +1650,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesGetDiskShrinkConfig
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1556,7 +1673,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesGetLatestRecoveryTime
 
-@dynamic instance, project, sourceInstanceDeletionTime;
+@dynamic instance, location, project, sourceInstanceDeletionTime;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1579,7 +1696,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesPerformDiskShrink
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_PerformDiskShrinkContext *)object
                         project:(NSString *)project
@@ -1610,7 +1727,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesRescheduleMaintenance
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody *)object
                         project:(NSString *)project
@@ -1734,7 +1851,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_SslCertsCreateEphemeral
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_SslCertsCreateEphemeralRequest *)object
                         project:(NSString *)project
@@ -1888,7 +2005,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersDelete
 
-@dynamic host, instance, name, project;
+@dynamic host, instance, location, name, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1911,7 +2028,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersGet
 
-@dynamic host, instance, name, project;
+@dynamic host, instance, location, name, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance
@@ -1936,7 +2053,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersInsert
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_User *)object
                         project:(NSString *)project
@@ -1967,7 +2084,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersList
 
-@dynamic instance, project;
+@dynamic instance, location, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -1990,8 +2107,8 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersUpdate
 
-@dynamic databaseRoles, host, instance, name, project, revokeExistingRoles,
-         revokeExistingServerRoles, serverRoles;
+@dynamic databaseRoles, host, instance, location, name, project,
+         revokeExistingRoles, revokeExistingServerRoles, serverRoles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2023,6 +2140,157 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.users.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_WorkloadCapturesList
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/workloadCaptures";
+  GTLRSQLAdminQuery_WorkloadCapturesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_WorkloadCapturesListResponse class];
+  query.loggingName = @"sql.workloadCaptures.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_WorkloadCapturesStart
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/workloadCaptures:start";
+  GTLRSQLAdminQuery_WorkloadCapturesStart *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.workloadCaptures.start";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_WorkloadCapturesStartReplay
+
+@dynamic instance, project, workloadId;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance
+                     workloadId:(NSString *)workloadId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"workloadId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/workloadCaptures/{workloadId}:startReplay";
+  GTLRSQLAdminQuery_WorkloadCapturesStartReplay *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.workloadId = workloadId;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.workloadCaptures.startReplay";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_WorkloadCapturesStop
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/workloadCaptures:stop";
+  GTLRSQLAdminQuery_WorkloadCapturesStop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.workloadCaptures.stop";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_WorkloadCapturesStopReplay
+
+@dynamic instance, project, workloadId;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance
+                     workloadId:(NSString *)workloadId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project", @"workloadId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/workloadCaptures/{workloadId}:stopReplay";
+  GTLRSQLAdminQuery_WorkloadCapturesStopReplay *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.workloadId = workloadId;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.workloadCaptures.stopReplay";
   return query;
 }
 

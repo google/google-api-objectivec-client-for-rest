@@ -281,15 +281,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -453,15 +444,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -599,15 +581,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -875,15 +848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_AddressList.
  *
  *  Retrieves a list of addresses contained within
@@ -1098,6 +1062,80 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @end
 
 /**
+ *  Advice on making real-time decisions (such as choosing zone or
+ *  machine types) during deployment to maximize your chances of obtaining
+ *  capacity.
+ *
+ *  Method: compute.advice.capacity
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_AdviceCapacity : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_CapacityAdviceResponse.
+ *
+ *  Advice on making real-time decisions (such as choosing zone or
+ *  machine types) during deployment to maximize your chances of obtaining
+ *  capacity.
+ *
+ *  @param object The @c GTLRCompute_CapacityAdviceRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_AdviceCapacity
+ */
++ (instancetype)queryWithObject:(GTLRCompute_CapacityAdviceRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Gets the capacity history.
+ *
+ *  Method: compute.advice.capacityHistory
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_AdviceCapacityHistory : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_CapacityHistoryResponse.
+ *
+ *  Gets the capacity history.
+ *
+ *  @param object The @c GTLRCompute_CapacityHistoryRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_AdviceCapacityHistory
+ */
++ (instancetype)queryWithObject:(GTLRCompute_CapacityHistoryRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
  *  Retrieves an aggregated list of autoscalers.
  *  To prevent failure, it is recommended that you set the
  *  `returnPartialSuccess` parameter to `true`.
@@ -1208,15 +1246,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -1491,15 +1520,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name of the zone for this request.
@@ -1863,15 +1883,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -2217,15 +2228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_BackendBucketList.
  *
  *  Retrieves the list of BackendBucket resources available to the specified
@@ -2341,15 +2343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendBucketListUsable.
@@ -2770,15 +2763,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -3210,15 +3194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_BackendServiceList.
  *
  *  Retrieves the list of BackendService resources available to the specified
@@ -3337,15 +3312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendServiceListUsable.
@@ -3895,15 +3861,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_CrossSiteNetworkList.
  *
  *  Lists the cross-site networks for a project in the given scope.
@@ -4160,15 +4117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -4694,15 +4642,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -5425,15 +5364,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -5595,15 +5525,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -5859,15 +5780,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ExternalVpnGatewayList.
@@ -6421,15 +6333,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  parent is an organization.
  */
 @property(nonatomic, copy, nullable) NSString *parentId;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_FirewallPolicyList.
@@ -7003,15 +6906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_FirewallList.
  *
  *  Retrieves the list of firewall rules available to the specified
@@ -7288,15 +7182,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -7571,15 +7456,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleList.
@@ -7890,15 +7766,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -8242,15 +8109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Name of the zone for this request. Name should conform to RFC1035.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -8569,15 +8427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_AddressList.
@@ -8961,15 +8810,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_ForwardingRuleList.
  *
  *  Retrieves a list of GlobalForwardingRule resources available to the
@@ -9132,6 +8972,74 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 + (instancetype)queryWithObject:(GTLRCompute_TargetReference *)object
                         project:(NSString *)project
                  forwardingRule:(NSString *)forwardingRule;
+
+@end
+
+/**
+ *  Gets the Global Frontend Billing Bundle Settings for a project.
+ *
+ *  Method: compute.globalFrontendSettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalFrontendSettingsGet : GTLRComputeQuery
+
+/** Required. Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_GlobalFrontendSettings.
+ *
+ *  Gets the Global Frontend Billing Bundle Settings for a project.
+ *
+ *  @param project Required. Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_GlobalFrontendSettingsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Updates the Global Frontend Billing Bundle Settings for a project.
+ *
+ *  Method: compute.globalFrontendSettings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalFrontendSettingsPatch : GTLRComputeQuery
+
+/** Required. Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** An optional request ID to identify requests. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Field mask to support patch. E.g., "type".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_GlobalFrontendSettingsPatchResponse.
+ *
+ *  Updates the Global Frontend Billing Bundle Settings for a project.
+ *
+ *  @param object The @c GTLRCompute_GlobalFrontendSettings to include in the
+ *    query.
+ *  @param project Required. Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_GlobalFrontendSettingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalFrontendSettings *)object
+                        project:(NSString *)project;
 
 @end
 
@@ -9507,15 +9415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
  *
  *  Retrieves the list of network endpoint groups that are located in the
@@ -9637,15 +9536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints.
@@ -9779,15 +9669,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -9985,15 +9866,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_OperationList.
@@ -10252,15 +10124,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_OperationList.
  *
  *  Retrieves a list of Operation resources contained within the specified
@@ -10505,15 +10368,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_PublicDelegatedPrefixList.
  *
  *  Lists the global PublicDelegatedPrefixes for a project.
@@ -10699,15 +10553,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -10972,15 +10817,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_GlobalVmExtensionPolicyList.
  *
  *  Lists global VM extension policies.
@@ -11160,15 +10996,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -11417,15 +11244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HealthCheckList.
@@ -11827,15 +11645,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request, formatted as RFC1035.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -12094,15 +11903,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HttpHealthCheckList.
@@ -12489,15 +12289,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HttpsHealthCheckList.
@@ -13069,15 +12860,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_ImageList.
  *
  *  Retrieves the list of custom images
@@ -13260,6 +13042,169 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 + (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the specified global ImageView resource, with a regional
+ *  context.
+ *
+ *  Method: compute.imageViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ImageViewsGet : GTLRComputeQuery
+
+/** Required. Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Required. Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the image resource to return. */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Fetches a @c GTLRCompute_ImageView.
+ *
+ *  Returns the specified global ImageView resource, with a regional
+ *  context.
+ *
+ *  @param project Required. Project ID for this request.
+ *  @param region Required. Name of the region for this request.
+ *  @param resourceId Name of the image resource to return.
+ *
+ *  @return GTLRComputeQuery_ImageViewsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                      resourceId:(NSString *)resourceId;
+
+@end
+
+/**
+ *  Returns a list of global ImageView resources, with a regional
+ *  context.
+ *
+ *  Method: compute.imageViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ImageViewsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Required. Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_ImageViewsListResponse.
+ *
+ *  Returns a list of global ImageView resources, with a regional
+ *  context.
+ *
+ *  @param project Required. Project ID for this request.
+ *  @param region Required. Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_ImageViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
 
 @end
 
@@ -13651,15 +13596,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of thezone where the managed
  *  instance group is located. The name should conform to RFC1035.
  *
@@ -13892,15 +13828,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -14496,15 +14423,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of thezone where the managed
  *  instance group is located.
  *
@@ -14641,15 +14559,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of thezone where the managed
@@ -14799,15 +14708,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of thezone where the managed
  *  instance group is located.
  *
@@ -14947,15 +14847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of thezone
@@ -16151,15 +16042,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -16457,15 +16339,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of thezone
  *  where the instance group is located.
  *
@@ -16604,15 +16477,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone
@@ -17138,15 +17002,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -18184,15 +18039,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -18327,15 +18173,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -20453,15 +20290,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -20756,15 +20584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceTemplateList.
@@ -21161,15 +20980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -21398,15 +21208,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -21738,15 +21539,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -22237,15 +22029,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_InterconnectAttachmentGroupsListResponse.
  *
  *  Lists the InterconnectAttachmentGroups for a project in the given scope.
@@ -22511,15 +22294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -22789,15 +22563,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InterconnectAttachmentList.
@@ -23277,15 +23042,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_InterconnectGroupsListResponse.
  *
  *  Lists the InterconnectGroups for a project in the given scope.
@@ -23574,15 +23330,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_InterconnectLocationList.
  *
  *  Retrieves the list of interconnect locations available to the specified
@@ -23735,15 +23482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InterconnectRemoteLocationList.
@@ -24073,15 +23811,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_InterconnectList.
  *
  *  Retrieves the list of Interconnects available to the specified project.
@@ -24189,6 +23918,56 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 + (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets name of an interconnect.
+ *
+ *  Method: compute.interconnects.setName
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectsSetName : GTLRComputeQuery
+
+/** Name of the interconnect to update. */
+@property(nonatomic, copy, nullable) NSString *interconnect;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID
+ *  so that if you must retry your request, the server will know to ignore
+ *  the request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets name of an interconnect.
+ *
+ *  @param object The @c GTLRCompute_InterconnectsSetNameRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param interconnect Name of the interconnect to update.
+ *
+ *  @return GTLRComputeQuery_InterconnectsSetName
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectsSetNameRequest *)object
+                        project:(NSString *)project
+                   interconnect:(NSString *)interconnect;
 
 @end
 
@@ -24660,15 +24439,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_LicensesListResponse.
  *
  *  Retrieves the list of licenses
@@ -25118,15 +24888,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_MachineImageList.
  *
  *  Retrieves a list of machine images that are contained within
@@ -25369,15 +25130,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -25541,15 +25293,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -25573,6 +25316,155 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Gets the details for the specified managed ruleset name.
+ *
+ *  Method: compute.managedRulesets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ManagedRulesetsGet : GTLRComputeQuery
+
+/** Name of the managed ruleset to return. */
+@property(nonatomic, copy, nullable) NSString *managedRuleset;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_ManagedRuleset.
+ *
+ *  Gets the details for the specified managed ruleset name.
+ *
+ *  @param project Project ID for this request.
+ *  @param managedRuleset Name of the managed ruleset to return.
+ *
+ *  @return GTLRComputeQuery_ManagedRulesetsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  managedRuleset:(NSString *)managedRuleset;
+
+@end
+
+/**
+ *  Retrieves the list of all the managed rulesets available.
+ *
+ *  Method: compute.managedRulesets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ManagedRulesetsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_ManagedRulesetList.
+ *
+ *  Retrieves the list of all the managed rulesets available.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_ManagedRulesetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 
@@ -25688,15 +25580,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -26009,15 +25892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NetworkAttachmentList.
  *
  *  Lists the NetworkAttachments for a project in the given scope.
@@ -26292,15 +26166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -26647,15 +26512,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -27111,15 +26967,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of thezone
  *  where the network endpoint group is located. It should comply with RFC1035.
  *
@@ -27253,15 +27100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone where
@@ -27639,15 +27477,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -28095,15 +27924,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_FirewallPolicyList.
@@ -28632,15 +28452,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NetworkProfilesListResponse.
  *
  *  Retrieves a list of network profiles available to the specified
@@ -29021,15 +28832,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NetworkList.
  *
  *  Retrieves the list of networks available to the specified project.
@@ -29169,15 +28971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  static routes and dynamic routes in the region.
  */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ExchangedPeeringRoutesList.
@@ -29626,15 +29419,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -30027,15 +29811,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -30163,15 +29938,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -30646,15 +30412,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -30963,15 +30720,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NodeTemplateList.
  *
  *  Retrieves a list of node templates available to the specified
@@ -31187,15 +30935,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -31357,15 +31096,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -31881,15 +31611,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_SecurityPolicyList.
  *
  *  List all the policies that have been configured for the specified
@@ -32045,15 +31766,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Parent ID for this request. */
 @property(nonatomic, copy, nullable) NSString *parentId;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c
@@ -32443,15 +32155,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -32717,15 +32420,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_PacketMirroringList.
  *
  *  Retrieves a list of PacketMirroring resources available to the specified
@@ -32977,15 +32671,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_PreviewFeatureList.
@@ -33406,15 +33091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_ProjectsGetXpnResources.
  *
  *  Gets service resources (a.k.a service project) associated with this host
@@ -33529,15 +33205,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_XpnHostList.
@@ -33881,6 +33548,57 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Returns the specified global ProjectViews resource, with a regional
+ *  context.
+ *  This regional API endpoint reads resource metadata from regional
+ *  read-only replicas. Because changes are copied to these regional replicas
+ *  asynchronously, for real-time resource reads or any write operations
+ *  (creating, updating, or deleting resources), use the global
+ *  [projects.get](https://cloud.google.com/compute/docs/reference/rest/v1/projects/get)
+ *  endpoint.
+ *
+ *  Method: compute.projectViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ProjectViewsGet : GTLRComputeQuery
+
+/** Required. Project ID for this request. This is part of the URL path. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Required. Name of the region for this request. This is part of the URL path.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_ProjectView.
+ *
+ *  Returns the specified global ProjectViews resource, with a regional
+ *  context.
+ *  This regional API endpoint reads resource metadata from regional
+ *  read-only replicas. Because changes are copied to these regional replicas
+ *  asynchronously, for real-time resource reads or any write operations
+ *  (creating, updating, or deleting resources), use the global
+ *  [projects.get](https://cloud.google.com/compute/docs/reference/rest/v1/projects/get)
+ *  endpoint.
+ *
+ *  @param project Required. Project ID for this request. This is part of the
+ *    URL path.
+ *  @param region Required. Name of the region for this request. This is part of
+ *    the URL path.
+ *
+ *  @return GTLRComputeQuery_ProjectViewsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
  *  Announces the specified PublicAdvertisedPrefix
  *
  *  Method: compute.publicAdvertisedPrefixes.announce
@@ -34159,15 +33877,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_PublicAdvertisedPrefixList.
  *
  *  Lists the PublicAdvertisedPrefixes for a project.
@@ -34403,15 +34112,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -34737,15 +34437,6 @@ GTLR_DEPRECATED
 
 /** Name of the region of this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_PublicDelegatedPrefixList.
@@ -35128,15 +34819,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionAutoscalerList.
@@ -35600,15 +35282,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_BackendBucketList.
  *
  *  Retrieves the list of BackendBucket resources available to the specified
@@ -35733,15 +35406,6 @@ GTLR_DEPRECATED
  *  It must be a string that meets the requirements in RFC1035.
  */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendBucketListUsable.
@@ -36241,15 +35905,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_BackendServiceList.
  *
  *  Retrieves the list of regional BackendService resources available to the
@@ -36376,15 +36031,6 @@ GTLR_DEPRECATED
  *  It must be a string that meets the requirements in RFC1035.
  */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendServiceListUsable.
@@ -36791,15 +36437,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -37013,15 +36650,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_CommitmentList.
  *
  *  Retrieves a list of commitments contained within
@@ -37220,15 +36848,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -37538,15 +37157,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_CompositeHealthCheckList.
@@ -38140,15 +37750,6 @@ GTLR_DEPRECATED
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_DiskList.
@@ -38849,15 +38450,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RegionDiskTypeList.
  *
  *  Retrieves a list of regional disk types available to the specified project.
@@ -38988,15 +38580,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -39265,15 +38848,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HealthAggregationPolicyList.
@@ -39567,15 +39141,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -39848,15 +39413,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HealthCheckServicesList.
@@ -40176,15 +39732,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_HealthCheckList.
  *
  *  Retrieves the list of HealthCheck resources available to the specified
@@ -40473,15 +40020,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -40787,15 +40325,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HealthSourceList.
@@ -41300,15 +40829,6 @@ GTLR_DEPRECATED
  *  scoping this request. Name should conform to RFC1035.
  */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c
@@ -41946,15 +41466,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagerList.
  *
  *  Retrieves the list of managed instance groups that are contained
@@ -42088,15 +41599,6 @@ GTLR_DEPRECATED
  *  This should conform to RFC1035.
  */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListErrorsResponse.
@@ -42236,15 +41738,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListInstancesResponse.
  *
  *  Lists the instances in the managed instance group and instances that are
@@ -42375,15 +41868,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request, should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp.
@@ -43434,15 +42918,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupList.
  *
  *  Retrieves the list of instance group resources contained within
@@ -43572,15 +43047,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupsListInstances.
@@ -44009,15 +43475,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_InstanceTemplateList.
  *
  *  Retrieves a list of instance templates that are contained within the
@@ -44329,15 +43786,6 @@ GTLR_DEPRECATED
 
 /** The name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ListInstantSnapshotGroups.
@@ -44738,15 +44186,6 @@ GTLR_DEPRECATED
 
 /** The name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InstantSnapshotList.
@@ -45340,15 +44779,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
  *
  *  Retrieves the list of regional network endpoint groups available to the
@@ -45482,15 +44912,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints.
  *
  *  Lists the network endpoints in the specified network endpoint group.
@@ -45525,6 +44946,13 @@ GTLR_DEPRECATED
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionNetworkFirewallPoliciesAddAssociation : GTLRComputeQuery
+
+/**
+ *  Name of the firewall policy associated with the target network to swap
+ *  association with. This field is mutually exclusive with
+ *  'replace_existing_association'.
+ */
+@property(nonatomic, copy, nullable) NSString *associatedPolicyToBeReplaced;
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -46109,15 +45537,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_FirewallPolicyList.
  *
  *  Lists all the network firewall policies that have been configured
@@ -46185,6 +45604,61 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Updates an association for the specified network firewall policy.
+ *
+ *  Method: compute.regionNetworkFirewallPolicies.patchAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchAssociation : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates an association for the specified network firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyAssociation to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchAssociation
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
                         project:(NSString *)project
                          region:(NSString *)region
                  firewallPolicy:(NSString *)firewallPolicy;
@@ -46553,15 +46027,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -46828,15 +46293,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_NotificationEndpointList.
  *
  *  Lists the NotificationEndpoints for a project in the given region.
@@ -47084,15 +46540,6 @@ GTLR_DEPRECATED
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_OperationList.
@@ -47511,15 +46958,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SecurityPolicyList.
@@ -47942,15 +47380,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RegionList.
  *
  *  Retrieves the list of region resources available to the specified project.
@@ -48370,15 +47799,6 @@ GTLR_DEPRECATED
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SnapshotList.
@@ -48849,15 +48269,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_SslCertificateList.
  *
  *  Retrieves the list of SslCertificate resources available to the specified
@@ -49136,15 +48547,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_SslPoliciesList.
  *
  *  Lists all the SSL policies that have been configured for the specified
@@ -49266,15 +48668,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SslPoliciesListAvailableFeaturesResponse.
@@ -49596,15 +48989,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_TargetHttpProxyList.
  *
  *  Retrieves the list of TargetHttpProxy resources available
@@ -49921,15 +49305,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxyList.
@@ -50370,15 +49745,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_TargetTcpProxyList.
  *
  *  Retrieves a list of TargetTcpProxy resources
@@ -50623,15 +49989,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_UrlMapList.
@@ -50899,15 +50256,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_ZoneList.
  *
  *  Retrieves the list of Zone resources under the specific region available to
@@ -51058,15 +50406,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ReliabilityRisksListResponse.
@@ -51312,15 +50651,6 @@ GTLR_DEPRECATED
  *  Name should conform to RFC1035 or be a resource ID.
  */
 @property(nonatomic, copy, nullable) NSString *reservation;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name of the zone for this request. Zone name should conform to RFC1035.
@@ -51639,15 +50969,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -51971,15 +51292,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -52056,6 +51368,67 @@ GTLR_DEPRECATED
  *    number.
  *
  *  @return GTLRComputeQuery_ReservationSlotsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName
+                 reservationSlot:(NSString *)reservationSlot;
+
+@end
+
+/**
+ *  Get health info on a reservation slot.
+ *
+ *  Method: compute.reservationSlots.getHealth
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationSlotsGetHealth : GTLRComputeQuery
+
+/**
+ *  The name of the parent reservation, parent block and parent sub-block. In
+ *  the format of
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** An optional request ID to identify requests. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation slot.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationSlot;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Get health info on a reservation slot.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param parentName The name of the parent reservation, parent block and
+ *    parent sub-block. In
+ *    the format of
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ *  @param reservationSlot The name of the reservation slot.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationSlotsGetHealth
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -52242,15 +51615,6 @@ GTLR_DEPRECATED
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request, formatted as RFC1035.
@@ -52862,15 +52226,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Name of the zone for this request. Zone name should conform to RFC1035.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -53329,15 +52684,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -53642,15 +52988,6 @@ GTLR_DEPRECATED
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ResourcePolicyList.
@@ -54040,15 +53377,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RolloutPlansListResponse.
  *
  *  Lists RolloutPlans in a given project and location.
@@ -54351,15 +53679,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RolloutsListResponse.
  *
  *  Lists Rollouts in a given project and location.
@@ -54595,15 +53914,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -55032,15 +54342,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Name of the Router resource to query for Nat Mapping information of
  *  VM endpoints.
  */
@@ -55307,15 +54608,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RouterList.
  *
  *  Retrieves a list of Router resources available to the specified project.
@@ -55468,15 +54760,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Name or id of the resource for this request.
  *  Name should conform to RFC1035.
  */
@@ -55623,15 +54906,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Name or id of the resource for this request.
  *  Name should conform to RFC1035.
  */
@@ -55762,15 +55036,6 @@ GTLR_DEPRECATED
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name or id of the resource for this request.
@@ -56407,15 +55672,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_RouteList.
  *
  *  Retrieves the list of Route resources available to the specified project.
@@ -56617,15 +55873,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -56915,15 +56162,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_SecurityPolicyList.
  *
  *  List all the policies that have been configured for the specified project.
@@ -57039,15 +56277,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c
@@ -57365,15 +56594,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -57683,15 +56903,6 @@ GTLR_DEPRECATED
 
 /** Name of the region of this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ServiceAttachmentList.
@@ -58222,15 +57433,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_SnapshotList.
  *
  *  Retrieves the list of Snapshot resources contained within
@@ -58525,15 +57727,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -58782,15 +57975,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_SslCertificateList.
  *
  *  Retrieves the list of SslCertificate resources available to the specified
@@ -58920,15 +58104,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -59191,15 +58366,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_SslPoliciesList.
  *
  *  Lists all the SSL policies that have been configured for the specified
@@ -59316,15 +58482,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SslPoliciesListAvailableFeaturesResponse.
@@ -59505,15 +58662,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -59847,15 +58995,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -59980,15 +59119,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /** Name of the storage pool to list disks of. */
 @property(nonatomic, copy, nullable) NSString *storagePool;
@@ -60298,15 +59428,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -60470,15 +59591,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -60616,15 +59728,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -61016,15 +60119,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Defines the extra views returned back in the subnetwork resource.
  *  Supported values:
  *  - WITH_UTILIZATION: Utilization data is included in the
@@ -61155,15 +60249,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The project id or project number in which the subnetwork is intended to be
@@ -61630,15 +60715,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_TargetGrpcProxyList.
  *
  *  Lists the TargetGrpcProxies for a project in the given scope.
@@ -61822,15 +60898,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -62081,15 +61148,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_TargetHttpProxyList.
  *
  *  Retrieves the list of TargetHttpProxy resources available
@@ -62323,15 +61381,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -62580,15 +61629,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxyList.
@@ -63054,15 +62094,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -63335,15 +62366,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name of the zone scoping this request.
@@ -63708,15 +62730,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -64023,15 +63036,6 @@ GTLR_DEPRECATED
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetPoolList.
@@ -64552,15 +63556,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_TargetSslProxyList.
  *
  *  Retrieves the list of TargetSslProxy resources
@@ -65004,15 +63999,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -65259,15 +64245,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetTcpProxyList.
@@ -65542,15 +64519,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -65816,15 +64784,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_TargetVpnGatewayList.
  *
  *  Retrieves a list of target VPN gateways available to the specified
@@ -66015,15 +64974,6 @@ GTLR_DEPRECATED
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -66328,15 +65278,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_UrlMapList.
@@ -66650,15 +65591,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  The Shared VPC service project id or service project number for which
  *  aggregated list request is invoked for subnetworks list-usable api.
  */
@@ -66962,15 +65894,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_VpnGatewayList.
  *
  *  Retrieves a list of VPN gateways available to the specified
@@ -67201,15 +66124,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The Shared VPC service project id or service project number for which
@@ -67475,15 +66389,6 @@ GTLR_DEPRECATED
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_VpnTunnelList.
@@ -67807,15 +66712,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRCompute_WireGroupList.
  *
  *  Lists the wire groups for a project in the given scope.
@@ -68099,15 +66995,6 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Name of the zone for request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -68338,15 +67225,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ZoneList.
@@ -68614,15 +67492,6 @@ GTLR_DEPRECATED
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
- *  For example, when partial success behavior is enabled, aggregatedList for a
- *  single zone scope either returns all resources in the zone or no resources,
- *  with an error code.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name of the zone for this request.

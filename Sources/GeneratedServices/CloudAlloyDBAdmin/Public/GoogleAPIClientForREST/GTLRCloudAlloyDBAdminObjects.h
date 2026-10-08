@@ -52,6 +52,7 @@
 @class GTLRCloudAlloyDBAdmin_CsvImportOptions;
 @class GTLRCloudAlloyDBAdmin_DataplexConfig;
 @class GTLRCloudAlloyDBAdmin_DenyMaintenancePeriod;
+@class GTLRCloudAlloyDBAdmin_DnsAutomationInfo;
 @class GTLRCloudAlloyDBAdmin_EncryptionConfig;
 @class GTLRCloudAlloyDBAdmin_EncryptionInfo;
 @class GTLRCloudAlloyDBAdmin_GcsDestination;
@@ -75,6 +76,7 @@
 @class GTLRCloudAlloyDBAdmin_NetworkConfig;
 @class GTLRCloudAlloyDBAdmin_Node;
 @class GTLRCloudAlloyDBAdmin_ObservabilityInstanceConfig;
+@class GTLRCloudAlloyDBAdmin_ObservabilityInstanceInfo;
 @class GTLRCloudAlloyDBAdmin_Operation;
 @class GTLRCloudAlloyDBAdmin_Operation_Metadata;
 @class GTLRCloudAlloyDBAdmin_Operation_Response;
@@ -82,10 +84,12 @@
 @class GTLRCloudAlloyDBAdmin_PscAutoConnectionConfig;
 @class GTLRCloudAlloyDBAdmin_PscConfig;
 @class GTLRCloudAlloyDBAdmin_PscInstanceConfig;
+@class GTLRCloudAlloyDBAdmin_PscInstanceInfo;
 @class GTLRCloudAlloyDBAdmin_PscInterfaceConfig;
 @class GTLRCloudAlloyDBAdmin_QuantityBasedExpiry;
 @class GTLRCloudAlloyDBAdmin_QuantityBasedRetention;
 @class GTLRCloudAlloyDBAdmin_QueryInsightsInstanceConfig;
+@class GTLRCloudAlloyDBAdmin_QueryInsightsInstanceInfo;
 @class GTLRCloudAlloyDBAdmin_ReadPoolConfig;
 @class GTLRCloudAlloyDBAdmin_ReadPoolInstancesUpgradeStageStatus;
 @class GTLRCloudAlloyDBAdmin_SecondaryConfig;
@@ -712,6 +716,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ContinuousBackupInfo_S
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ContinuousBackupInfo_Schedule_Wednesday;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_DnsAutomationInfo.state
+
+/**
+ *  DNS record is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_Active;
+/**
+ *  DNS record creation failed.
+ *
+ *  Value: "CREATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_CreateFailed;
+/**
+ *  DNS record deletion failed.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_DeleteFailed;
+/**
+ *  DNS record creation is pending.
+ *
+ *  Value: "PENDING_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_PendingCreate;
+/**
+ *  DNS record deletion is pending.
+ *
+ *  Value: "PENDING_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_PendingDelete;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_EncryptionInfo.encryptionType
 
 /**
@@ -1083,6 +1127,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MigrationSource_Source
  *  Value: "MIGRATION_SOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_MigrationSource_SourceType_MigrationSourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_PscInstanceConfig.pscAutoConnectionPolicyState
+
+/**
+ *  Disables the PSC auto connection for the instance.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_Disabled;
+/**
+ *  Enables the PSC auto connection for the instance.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_Enabled;
+/**
+ *  The state is unspecified. For old instances, this means the PSC auto
+ *  connection is disabled. For new instances, this means the PSC auto
+ *  connection is enabled by default.
+ *
+ *  Value: "PSC_AUTO_CONNECTION_POLICY_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_PscAutoConnectionPolicyStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_PscInstanceConfig.pscAutoDnsState
+
+/**
+ *  Disables the PSC auto DNS for the instance.
+ *
+ *  Value: "PSC_AUTO_DNS_STATE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateDisabled;
+/**
+ *  Enables the PSC auto DNS for the instance.
+ *
+ *  Value: "PSC_AUTO_DNS_STATE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateEnabled;
+/**
+ *  The state is unspecified. For old instances, this means the PSC auto DNS is
+ *  disabled. For new instances, this means the PSC auto DNS is enabled by
+ *  default. Use `effective_psc_auto_dns_enabled` to check the effective state
+ *  of the PSC auto DNS.
+ *
+ *  Value: "PSC_AUTO_DNS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_SslConfig.caSource
@@ -4500,6 +4593,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbBuiltIn;
 /**
+ *  Database user that represents an IAM group whose members can authenticate
+ *  via IAM group-based authentication.
+ *
+ *  Value: "ALLOYDB_IAM_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroup;
+/**
+ *  Represents a service account that belongs to an IAM group.
+ *
+ *  Value: "ALLOYDB_IAM_GROUP_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroupServiceAccount;
+/**
+ *  Represents a user that belongs to an IAM group.
+ *
+ *  Value: "ALLOYDB_IAM_GROUP_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroupUser;
+/**
  *  Database user that can authenticate via IAM-Based authentication.
  *
  *  Value: "ALLOYDB_IAM_USER"
@@ -5808,6 +5920,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  DnsAutomationInfo contains information about the DNS automation for the
+ *  instance.
+ */
+@interface GTLRCloudAlloyDBAdmin_DnsAutomationInfo : GTLRObject
+
+/**
+ *  Output only. The fully qualified domain name of the instance for DNS
+ *  automation. Example: "...alloydb.goog.". Note: The AUDIT directive is
+ *  intentionally omitted because this field contains sensitive network topology
+ *  information.
+ */
+@property(nonatomic, copy, nullable) NSString *fullyQualifiedDomainName;
+
+/**
+ *  Output only. The state of the DNS automation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_Active DNS record
+ *        is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_CreateFailed DNS
+ *        record creation failed. (Value: "CREATE_FAILED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_DeleteFailed DNS
+ *        record deletion failed. (Value: "DELETE_FAILED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_PendingCreate DNS
+ *        record creation is pending. (Value: "PENDING_CREATE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_PendingDelete DNS
+ *        record deletion is pending. (Value: "PENDING_DELETE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_DnsAutomationInfo_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -6396,6 +6544,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_ObservabilityInstanceConfig *observabilityConfig;
 
 /**
+ *  Output only. Instance level observability information, contains the
+ *  effective values of observability settings for this instance, by merging
+ *  customer's provided `ObservabilityInstanceConfig` with the Observability
+ *  defaults.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_ObservabilityInstanceInfo *observabilityInstanceInfo;
+
+/**
  *  Output only. All outbound public IP addresses configured for the instance.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outboundPublicIpAddresses;
@@ -6407,6 +6563,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_PscInstanceConfig *pscInstanceConfig;
 
 /**
+ *  Output only. Information about the Private Service Connect (PSC) for the
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_PscInstanceInfo *pscInstanceInfo;
+
+/**
  *  Output only. The public IP addresses for the Instance. This is available
  *  ONLY when enable_public_ip is set. This is the connection endpoint for an
  *  end-user application.
@@ -6415,6 +6577,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Configuration for query insights. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_QueryInsightsInstanceConfig *queryInsightsConfig;
+
+/**
+ *  Output only. Instance level Query Insights information, which is read-only
+ *  and available in the output only. Contains the effective query insights
+ *  settings for this instance, by merging customer's provided
+ *  `QueryInsightsInstanceConfig` with the Query Insights defaults.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_QueryInsightsInstanceInfo *queryInsightsInfo;
 
 /**
  *  Read pool instance configuration. This is required if the value of
@@ -7094,6 +7264,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  GTLRCloudAlloyDBAdmin_ObservabilityInstanceInfo
+ */
+@interface GTLRCloudAlloyDBAdmin_ObservabilityInstanceInfo : GTLRObject
+
+/**
+ *  Output only. Observability feature status for an instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. Query string length. The default value is 10k.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxQueryStringLength;
+
+/**
+ *  Output only. Preserve comments in query string for an instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preserveComments;
+
+/**
+ *  Output only. Number of query execution plans captured by Insights per minute
+ *  for all queries combined.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queryPlansPerMinute;
+
+/**
+ *  Output only. Record application tags for an instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordApplicationTags;
+
+/**
+ *  Output only. Track actively running queries on the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackActiveQueries;
+
+/**
+ *  Output only. Track wait events during query execution for an instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackWaitEvents;
+
+/**
+ *  Output only. Track wait event types during query execution for an instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackWaitEventTypes;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -7301,8 +7536,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *consumerProject;
 
+/** Output only. List of DNS automation info for the PSC auto connection. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_DnsAutomationInfo *> *dnsAutomationInfos;
+
 /** Output only. The IP address of the PSC service automation endpoint. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  Output only. The PSC service connection policy name. The format is
+ *  "projects//regions//serviceConnectionPolicies/"
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionPolicy;
+
+/**
+ *  Output only. The creation state or result of the connection policy. Possible
+ *  values include: - `ACTIVE`: The policy was created successfully. -
+ *  `PERMISSION_DENIED`: Sufficient permissions were not provided. Note that
+ *  this field is an unstructured output and customers should not rely on the
+ *  specific string value or error message directly.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionPolicyCreationState;
 
 /**
  *  Output only. The status of the PSC service automation connection. Possible
@@ -7354,8 +7607,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjects;
 
+/**
+ *  Optional. Configuration for setting up PSC auto connection for the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_Disabled
+ *        Disables the PSC auto connection for the instance. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_Enabled
+ *        Enables the PSC auto connection for the instance. (Value: "ENABLED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoConnectionPolicyState_PscAutoConnectionPolicyStateUnspecified
+ *        The state is unspecified. For old instances, this means the PSC auto
+ *        connection is disabled. For new instances, this means the PSC auto
+ *        connection is enabled by default. (Value:
+ *        "PSC_AUTO_CONNECTION_POLICY_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *pscAutoConnectionPolicyState;
+
 /** Optional. Configurations for setting up PSC service automation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_PscAutoConnectionConfig *> *pscAutoConnections;
+
+/**
+ *  Optional. Configuration for setting up PSC auto DNS for the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateDisabled
+ *        Disables the PSC auto DNS for the instance. (Value:
+ *        "PSC_AUTO_DNS_STATE_DISABLED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateEnabled
+ *        Enables the PSC auto DNS for the instance. (Value:
+ *        "PSC_AUTO_DNS_STATE_ENABLED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_PscInstanceConfig_PscAutoDnsState_PscAutoDnsStateUnspecified
+ *        The state is unspecified. For old instances, this means the PSC auto
+ *        DNS is disabled. For new instances, this means the PSC auto DNS is
+ *        enabled by default. Use `effective_psc_auto_dns_enabled` to check the
+ *        effective state of the PSC auto DNS. (Value:
+ *        "PSC_AUTO_DNS_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *pscAutoDnsState;
 
 /**
  *  Output only. The DNS name of the instance for PSC connectivity. Name
@@ -7377,6 +7665,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  format of `projects//regions//serviceAttachments/`
  */
 @property(nonatomic, copy, nullable) NSString *serviceAttachmentLink;
+
+@end
+
+
+/**
+ *  Information about the Private Service Connect (PSC) for the instance.
+ */
+@interface GTLRCloudAlloyDBAdmin_PscInstanceInfo : GTLRObject
+
+/**
+ *  Output only. Indicates if the PSC auto connection policy is enabled for the
+ *  instance. For older instances, this will be off by default, but for newer
+ *  instances, this will be auto-enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectivePscAutoConnectionPolicy;
+
+/**
+ *  Output only. The effective state of the PSC auto DNS for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectivePscAutoDnsEnabled;
+
+/** Output only. Specifies the auto DNS names for the instance. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pscAutoDnsNames;
+
+/**
+ *  Output only. The PSC service connection policy name. The format is
+ *  "projects//regions//serviceConnectionPolicies/"
+ */
+@property(nonatomic, copy, nullable) NSString *serviceConnectionPolicy;
 
 @end
 
@@ -7479,6 +7800,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /**
  *  Record client address for an instance. Client address is PII information.
  *  This flag is turned "on" by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordClientAddress;
+
+@end
+
+
+/**
+ *  Instance level Query Insights information, which is read-only and available
+ *  in the output only.
+ */
+@interface GTLRCloudAlloyDBAdmin_QueryInsightsInstanceInfo : GTLRObject
+
+/**
+ *  Output only. Whether Query Insights is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. Number of query execution plans captured per minute.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queryPlansPerMinute;
+
+/**
+ *  Output only. Maximum query string length.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queryStringLength;
+
+/**
+ *  Output only. Whether to record application tags.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordApplicationTags;
+
+/**
+ *  Output only. Whether to record client address.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10582,6 +10947,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbBuiltIn The default
  *        user type that authenticates via password-based authentication.
  *        (Value: "ALLOYDB_BUILT_IN")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroup Database user
+ *        that represents an IAM group whose members can authenticate via IAM
+ *        group-based authentication. (Value: "ALLOYDB_IAM_GROUP")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroupServiceAccount
+ *        Represents a service account that belongs to an IAM group. (Value:
+ *        "ALLOYDB_IAM_GROUP_SERVICE_ACCOUNT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamGroupUser
+ *        Represents a user that belongs to an IAM group. (Value:
+ *        "ALLOYDB_IAM_GROUP_USER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_User_UserType_AlloydbIamUser Database user
  *        that can authenticate via IAM-Based authentication. (Value:
  *        "ALLOYDB_IAM_USER")

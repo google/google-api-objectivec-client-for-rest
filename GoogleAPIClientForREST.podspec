@@ -115,6 +115,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Advisorynotifications/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Advisorynotifications/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'AgenciesAndBrands' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AgenciesAndBrands/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AgenciesAndBrands/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'AgentIdentity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AgentIdentity/**/*.{h,m}'
@@ -164,6 +169,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AnalyticsHub/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AnalyticsHub/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'AndroidDeveloperIDStatus' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AndroidDeveloperIDStatus/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AndroidDeveloperIDStatus/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'AndroidEnterprise' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -390,6 +400,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudAsset/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudAsset/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudAuditManager' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudAuditManager/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudAuditManager/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CloudBatch' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudBatch/**/*.{h,m}'
@@ -454,6 +469,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudFilestore/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudFilestore/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'CloudFTP' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudFTP/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudFTP/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'CloudFunctions' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -640,6 +660,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Css/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Css/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CurationPartners' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CurationPartners/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CurationPartners/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CustomerEngagementSuite' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CustomerEngagementSuite/**/*.{h,m}'
@@ -739,6 +764,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/DeveloperKnowledge/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/DeveloperKnowledge/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'DeviceRun' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DeviceRun/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DeviceRun/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Dfareporting' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

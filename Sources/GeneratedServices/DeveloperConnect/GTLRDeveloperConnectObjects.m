@@ -44,7 +44,13 @@ NSString * const kGTLRDeveloperConnect_InstallationState_Stage_PendingInstallApp
 NSString * const kGTLRDeveloperConnect_InstallationState_Stage_PendingUserOauth = @"PENDING_USER_OAUTH";
 NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified = @"STAGE_UNSPECIFIED";
 
+// GTLRDeveloperConnect_McpToolVisibility.visibilityEnforcementStrategy
+NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_Combine = @"COMBINE";
+NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_Override = @"OVERRIDE";
+NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_VisibilityEnforcementStrategyUnspecified = @"VISIBILITY_ENFORCEMENT_STRATEGY_UNSPECIFIED";
+
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
+NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_BitbucketCloud = @"BITBUCKET_CLOUD";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax = @"DATASTAX";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace = @"DYNATRACE";
 NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Github = @"GITHUB";
@@ -61,6 +67,7 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_StateUnspecified = @"
 NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED";
 
 // GTLRDeveloperConnect_StartOAuthResponse.systemProviderId
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_BitbucketCloud = @"BITBUCKET_CLOUD";
 NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax = @"DATASTAX";
 NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace = @"DYNATRACE";
 NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Github = @"GITHUB";
@@ -482,6 +489,16 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
   return @"userRepos";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FieldVisibility
+//
+
+@implementation GTLRDeveloperConnect_FieldVisibility
+@dynamic restriction, selector;
 @end
 
 
@@ -975,6 +992,24 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_McpToolVisibility
+//
+
+@implementation GTLRDeveloperConnect_McpToolVisibility
+@dynamic fieldVisibility, visibilityEnforcementStrategy, visibilityRestriction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldVisibility" : [GTLRDeveloperConnect_FieldVisibility class]
+  };
+  return map;
 }
 
 @end

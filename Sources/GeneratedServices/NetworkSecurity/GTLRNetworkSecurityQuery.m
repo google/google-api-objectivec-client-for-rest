@@ -254,7 +254,7 @@
 
 @implementation GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsCreate
 
-@dynamic firewallEndpointId, parent, requestId;
+@dynamic firewallEndpointId, parent, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
                          parent:(NSString *)parent {
@@ -358,6 +358,71 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
   query.loggingName = @"networksecurity.organizations.locations.firewallEndpoints.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_WildfireVerdictChangeRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/wildfireVerdictChangeRequests";
+  GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_WildfireVerdictChangeRequest class];
+  query.loggingName = @"networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_WildfireVerdictChangeRequest class];
+  query.loggingName = @"networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/wildfireVerdictChangeRequests";
+  GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse class];
+  query.loggingName = @"networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.list";
   return query;
 }
 
@@ -1913,7 +1978,7 @@
 
 @implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsCreate
 
-@dynamic firewallEndpointId, parent, requestId;
+@dynamic firewallEndpointId, parent, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
                          parent:(NSString *)parent {
@@ -2017,6 +2082,71 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
   query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_WildfireVerdictChangeRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/wildfireVerdictChangeRequests";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_WildfireVerdictChangeRequest class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_WildfireVerdictChangeRequest class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/wildfireVerdictChangeRequests";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.list";
   return query;
 }
 

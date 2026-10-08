@@ -1884,6 +1884,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination *gcsDestination;
 
 /**
+ *  Optional. Specifies the Cloud Storage source data location containing the
+ *  list of resource IDs to delete. Each file inside `gcs_source` must contain
+ *  newline-delimited strings in the format `{resourceType}/{resourceId}`. This
+ *  field is mutually exclusive with filter parameters such as `type` and
+ *  `until`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource *gcsSource;
+
+/**
  *  Optional. String of comma-delimited FHIR resource types. If provided, only
  *  resources of the specified resource type(s) will be deleted.
  */
@@ -1898,10 +1907,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *until;
 
 /**
- *  Optional. If set to true, the request will only perform a dry run. By
- *  default (once the behavior change is fully rolled out), this will default to
- *  true. During the transition period, the default depends on the Mendel flag
- *  status for the project.
+ *  Optional. If set to `true`, the request will only perform a dry run. By
+ *  default this will default to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3393,6 +3400,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination *bigqueryDestination;
 
+/** Specifies the filter configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomFilterConfig *filterConfig;
+
 /**
  *  The Cloud Storage output destination. The Cloud Healthcare Service Agent
  *  requires the `roles/storage.objectAdmin` Cloud IAM roles on the Cloud
@@ -4423,14 +4433,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource : GTLRObject
 
 /**
- *  Points to a Cloud Storage URI containing file(s) to import. The URI must be
- *  in the following format: `gs://{bucket_id}/{object_id}`. The URI can include
- *  wildcards in `object_id` and thus identify multiple files. Supported
- *  wildcards: * `*` to match 0 or more non-separator characters * `**` to match
- *  0 or more characters (including separators). Must be used at the end of a
- *  path and with no other wildcards in the path. Can also be used with a file
- *  extension (such as .ndjson), which imports all files with the extension in
- *  the specified directory and its sub-directories. For example,
+ *  Required. Points to a Cloud Storage URI containing file(s) to import. The
+ *  URI must be in the following format: `gs://{bucket_id}/{object_id}`. The URI
+ *  can include wildcards in `object_id` and thus identify multiple files.
+ *  Supported wildcards: * `*` to match 0 or more non-separator characters *
+ *  `**` to match 0 or more characters (including separators). Must be used at
+ *  the end of a path and with no other wildcards in the path. Can also be used
+ *  with a file extension (such as .ndjson), which imports all files with the
+ *  extension in the specified directory and its sub-directories. For example,
  *  `gs://my-bucket/my-directory/ **.ndjson` imports all files with `.ndjson`
  *  extensions in `my-directory/` and its sub-directories. * `?` to match 1
  *  character Files matching the wildcard are expected to contain content only,

@@ -1040,6 +1040,63 @@ NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUnspecified = @"URL_V
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersReportsFindSaasUsage
+
+@dynamic customer, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:findSaasUsage";
+  GTLRChromeManagementQuery_CustomersReportsFindSaasUsage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageReportsResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.findSaasUsage";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsFindSaasUsageBrowsers
+
+@dynamic app, customer, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:findSaasUsageBrowsers";
+  GTLRChromeManagementQuery_CustomersReportsFindSaasUsageBrowsers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageBrowsersResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.findSaasUsageBrowsers";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsFindSaasUsageProfiles
+
+@dynamic app, customer, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:findSaasUsageProfiles";
+  GTLRChromeManagementQuery_CustomersReportsFindSaasUsageProfiles *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageProfilesResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.findSaasUsageProfiles";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersTelemetryDevicesGet
 
 @dynamic name, readMask;

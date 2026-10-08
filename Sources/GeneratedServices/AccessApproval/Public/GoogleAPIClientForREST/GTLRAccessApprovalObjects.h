@@ -305,6 +305,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512;
 /**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemEcdhP384;
+/**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
  *
@@ -1122,6 +1136,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemEcdhP256
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemEcdhP384
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemXwing
  *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:

@@ -48,6 +48,7 @@
 @class GTLRReports_OwnerIdentity;
 @class GTLRReports_Reason;
 @class GTLRReports_ResourceDetails;
+@class GTLRReports_SharedDriveIdentity;
 @class GTLRReports_UsageReport;
 @class GTLRReports_UsageReport_Entity;
 @class GTLRReports_UsageReport_Parameters_Item;
@@ -154,7 +155,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Details of the resource on which the action was performed. */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_ResourceDetails *> *resourceDetails;
 
-/** Device details of the user doing the action. */
+/**
+ *  Device details of the user doing the action. This field is only exposed for
+ *  the `contacts`, `gemini_in_workspace_apps`, `keep`, `meet_hardware`, `meet`,
+ *  `chat`, `chrome`, `directory_sync`, `drive`, `groups`, `rules`,
+ *  `data_studio`, `saml` applications.
+ */
 @property(nonatomic, strong, nullable) GTLRReports_ActivityUserDeviceInfo *userDeviceInfo;
 
 @end
@@ -922,6 +928,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Identity of the group who owns the resource. */
 @property(nonatomic, strong, nullable) GTLRReports_GroupIdentity *groupIdentity;
 
+/** Identity of the shared drive who owns the resource. */
+@property(nonatomic, strong, nullable) GTLRReports_SharedDriveIdentity *sharedDriveIdentity;
+
 /** Identity of the user who owns the resource. */
 @property(nonatomic, strong, nullable) GTLRReports_UserIdentity *userIdentity;
 
@@ -971,6 +980,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Type of the resource - document, email, chat message */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Identity of the shared drive who owns the resource.
+ */
+@interface GTLRReports_SharedDriveIdentity : GTLRObject
+
+/**
+ *  Shared drive gaia id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Shared drive name. */
+@property(nonatomic, copy, nullable) NSString *sharedDriveName;
 
 @end
 

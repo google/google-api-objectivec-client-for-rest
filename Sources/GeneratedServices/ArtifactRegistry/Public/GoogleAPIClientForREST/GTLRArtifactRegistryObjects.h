@@ -76,6 +76,7 @@
 @class GTLRArtifactRegistry_Status;
 @class GTLRArtifactRegistry_Status_Details_Item;
 @class GTLRArtifactRegistry_Tag;
+@class GTLRArtifactRegistry_UploadGenericArtifactRequest_VersionAnnotations;
 @class GTLRArtifactRegistry_UpstreamCredentials;
 @class GTLRArtifactRegistry_UpstreamPolicy;
 @class GTLRArtifactRegistry_UsernamePasswordCredentials;
@@ -528,6 +529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PythonRepository_Public
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Apt;
 /**
+ *  Conda package format.
+ *
+ *  Value: "CONDA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Conda;
+/**
  *  Docker package format.
  *
  *  Value: "DOCKER"
@@ -635,6 +642,22 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_Standar
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_VirtualRepository;
 
 // ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_UploadFileRequest.fileType
+
+/**
+ *  Facade specific artifact file.
+ *
+ *  Value: "ARTIFACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_UploadFileRequest_FileType_Artifact;
+/**
+ *  Attachment file. Default value.
+ *
+ *  Value: "ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_UploadFileRequest_FileType_Attachment;
+
+// ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_VPCSCConfig.vpcscPolicy
 
 /**
@@ -664,20 +687,19 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy
 // GTLRArtifactRegistry_VulnerabilityScanningConfig.enablementConfig
 
 /**
- *  No automatic vulnerability scanning will be performed for this repository.
+ *  Disables the feature for this repository.
  *
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled;
 /**
- *  Not set. This will be treated as INHERITED for Docker repositories and
- *  DISABLED for non-Docker repositories.
+ *  Unspecified enablement configuration.
  *
  *  Value: "ENABLEMENT_CONFIG_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified;
 /**
- *  Scanning is Enabled, but dependent on API enablement.
+ *  Enables the feature, but is dependent on parent API enablement.
  *
  *  Value: "INHERITED"
  */
@@ -1521,7 +1543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryCustomRepository : GTLRObject
 
 /**
- *  An http/https uri reference to the upstream remote repository, for ex:
+ *  An https uri reference to the upstream remote repository, for ex:
  *  "https://my.apt.registry/".
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -1562,7 +1584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigDockerRepositoryCustomRepository : GTLRObject
 
 /**
- *  An http/https uri reference to the custom remote repository, for ex:
+ *  An https uri reference to the custom remote repository, for ex:
  *  "https://registry-1.docker.io".
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -1576,7 +1598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigMavenRepositoryCustomRepository : GTLRObject
 
 /**
- *  An http/https uri reference to the upstream remote repository, for ex:
+ *  An https uri reference to the upstream remote repository, for ex:
  *  "https://my.maven.registry/".
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -1590,7 +1612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigNpmRepositoryCustomRepository : GTLRObject
 
 /**
- *  An http/https uri reference to the upstream remote repository, for ex:
+ *  An https uri reference to the upstream remote repository, for ex:
  *  "https://my.npm.registry/".
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -1604,7 +1626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigPythonRepositoryCustomRepository : GTLRObject
 
 /**
- *  An http/https uri reference to the upstream remote repository, for ex:
+ *  An https uri reference to the upstream remote repository, for ex:
  *  "https://my.python.registry/".
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -1618,7 +1640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryCustomRepository : GTLRObject
 
 /**
- *  An http/https uri reference to the upstream remote repository, for ex:
+ *  An https uri reference to the upstream remote repository, for ex:
  *  "https://my.yum.registry/".
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -3205,6 +3227,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Likely values:
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Apt APT package format.
  *        (Value: "APT")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Conda Conda package
+ *        format. (Value: "CONDA")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Docker Docker package
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
@@ -3533,6 +3557,18 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
+/**
+ *  Optional. The type of the file to upload. Defaulting to ATTACHMENT if not
+ *  specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_UploadFileRequest_FileType_Artifact Facade
+ *        specific artifact file. (Value: "ARTIFACT")
+ *    @arg @c kGTLRArtifactRegistry_UploadFileRequest_FileType_Attachment
+ *        Attachment file. Default value. (Value: "ATTACHMENT")
+ */
+@property(nonatomic, copy, nullable) NSString *fileType;
+
 @end
 
 
@@ -3578,6 +3614,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, copy, nullable) NSString *packageId;
 
 /**
+ *  Optional. Client specified annotations to attach to the version upon
+ *  creation. This field is only applied if the Version is created during this
+ *  upload. If the Version already exists and this field is set, the request
+ *  will fail.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_UploadGenericArtifactRequest_VersionAnnotations *versionAnnotations;
+
+/**
  *  The ID of the version of the generic artifact. If the version does not
  *  exist, a new version will be created. The version_id must start and end with
  *  a letter or number, can only contain lowercase letters, numbers, the
@@ -3586,6 +3630,21 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, copy, nullable) NSString *versionId;
 
+@end
+
+
+/**
+ *  Optional. Client specified annotations to attach to the version upon
+ *  creation. This field is only applied if the Version is created during this
+ *  upload. If the Version already exists and this field is set, the request
+ *  will fail.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_UploadGenericArtifactRequest_VersionAnnotations : GTLRObject
 @end
 
 
@@ -3915,19 +3974,18 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  Optional. Config for whether this repository has vulnerability scanning
- *  disabled.
+ *  disabled. When unset (ENABLEMENT_CONFIG_UNSPECIFIED), this is treated as
+ *  INHERITED for Docker repositories and DISABLED for non-Docker repositories.
  *
  *  Likely values:
  *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled
- *        No automatic vulnerability scanning will be performed for this
- *        repository. (Value: "DISABLED")
+ *        Disables the feature for this repository. (Value: "DISABLED")
  *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified
- *        Not set. This will be treated as INHERITED for Docker repositories and
- *        DISABLED for non-Docker repositories. (Value:
+ *        Unspecified enablement configuration. (Value:
  *        "ENABLEMENT_CONFIG_UNSPECIFIED")
  *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Inherited
- *        Scanning is Enabled, but dependent on API enablement. (Value:
- *        "INHERITED")
+ *        Enables the feature, but is dependent on parent API enablement.
+ *        (Value: "INHERITED")
  */
 @property(nonatomic, copy, nullable) NSString *enablementConfig;
 

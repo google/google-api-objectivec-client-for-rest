@@ -367,6 +367,33 @@
 
 @end
 
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsCreate
+
+@dynamic bucketId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_Bucket *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/buckets";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.projects.locations.buckets.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsGet
 
 @dynamic name;
@@ -587,6 +614,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudObservability_ListBucketsResponse class];
   query.loggingName = @"observability.projects.locations.buckets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_Bucket *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.projects.locations.buckets.patch";
   return query;
 }
 

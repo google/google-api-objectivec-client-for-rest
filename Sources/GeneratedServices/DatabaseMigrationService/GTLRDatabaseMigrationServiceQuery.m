@@ -13,10 +13,18 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// fetchView
+NSString * const kGTLRDatabaseMigrationServiceFetchViewFetchViewUnspecified = @"FETCH_VIEW_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationServiceFetchViewFull    = @"FULL";
+NSString * const kGTLRDatabaseMigrationServiceFetchViewFullWithDependencies = @"FULL_WITH_DEPENDENCIES";
+NSString * const kGTLRDatabaseMigrationServiceFetchViewSummary = @"SUMMARY";
+
 // tree
 NSString * const kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified = @"DB_TREE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationServiceTreeDestinationTree = @"DESTINATION_TREE";
+NSString * const kGTLRDatabaseMigrationServiceTreeDraft        = @"DRAFT";
 NSString * const kGTLRDatabaseMigrationServiceTreeDraftTree    = @"DRAFT_TREE";
+NSString * const kGTLRDatabaseMigrationServiceTreeSource       = @"SOURCE";
 NSString * const kGTLRDatabaseMigrationServiceTreeSourceTree   = @"SOURCE_TREE";
 
 // view
@@ -390,6 +398,44 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
 
 @end
 
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchEntitiesStatusView
+
+@dynamic conversionWorkspace, fetchView, filter, pageSize, pageToken, tree;
+
++ (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace {
+  NSArray *pathParams = @[ @"conversionWorkspace" ];
+  NSString *pathURITemplate = @"v1/{+conversionWorkspace}:fetchEntitiesStatusView";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchEntitiesStatusView *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.conversionWorkspace = conversionWorkspace;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_FetchEntitiesStatusViewResponse class];
+  query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.fetchEntitiesStatusView";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchIssues
+
+@dynamic allIssues, conversionWorkspace, filter, pageSize, pageToken, tree;
+
++ (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace {
+  NSArray *pathParams = @[ @"conversionWorkspace" ];
+  NSString *pathURITemplate = @"v1/{+conversionWorkspace}:fetchIssues";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchIssues *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.conversionWorkspace = conversionWorkspace;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_FetchIssuesResponse class];
+  query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.fetchIssues";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesGet
 
 @dynamic name;
@@ -663,6 +709,33 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
 
 @end
 
+@implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSetDraftEntityDdl
+
+@dynamic conversionWorkspace;
+
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_SetDraftEntityDdlRequest *)object
+            conversionWorkspace:(NSString *)conversionWorkspace {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"conversionWorkspace" ];
+  NSString *pathURITemplate = @"v1/{+conversionWorkspace}:setDraftEntityDdl";
+  GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSetDraftEntityDdl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.conversionWorkspace = conversionWorkspace;
+  query.expectedObjectClass = [GTLRDatabaseMigrationService_SetDraftEntityDdlResponse class];
+  query.loggingName = @"datamigration.projects.locations.conversionWorkspaces.setDraftEntityDdl";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSetIamPolicy
 
 @dynamic resource;
@@ -719,7 +792,7 @@ NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewUnspecified 
 
 @implementation GTLRDatabaseMigrationServiceQuery_ProjectsLocationsFetchStaticIps
 
-@dynamic name, pageSize, pageToken;
+@dynamic fetchReservedPublicIps, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

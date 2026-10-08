@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis ACL policy resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
- *  where `location_id` refers to a GCP region.
+ *  where `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Redis ACL policy resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesDelete
  */
@@ -142,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis ACL policy resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
- *  where `location_id` refers to a GCP region.
+ *  where `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Redis ACL policy resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesGet
  */
@@ -289,7 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis ACL policy revision resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}/revisions/{revision_id}`
- *  where `location_id` refers to a GCP region.
+ *  where `location_id` refers to a Google Cloud region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -301,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Redis ACL policy revision resource name using the
  *    form:
  *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}/revisions/{revision_id}`
- *    where `location_id` refers to a GCP region.
+ *    where `location_id` refers to a Google Cloud region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesRevisionsGet
  */

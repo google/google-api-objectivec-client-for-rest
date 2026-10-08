@@ -73,6 +73,7 @@
 @class GTLRGoogleHealthAPI_HeartRateMetadata;
 @class GTLRGoogleHealthAPI_HeartRateRollupValue;
 @class GTLRGoogleHealthAPI_HeartRateVariability;
+@class GTLRGoogleHealthAPI_HeartRateVariabilityMetadata;
 @class GTLRGoogleHealthAPI_HeartRateVariabilityPersonalRangeRollupValue;
 @class GTLRGoogleHealthAPI_HeartRateZone;
 @class GTLRGoogleHealthAPI_Height;
@@ -2413,6 +2414,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Content;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Curious;
 /**
+ *  Depressed.
+ *
+ *  Value: "DEPRESSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Depressed;
+/**
  *  Disappointed.
  *
  *  Value: "DISAPPOINTED"
@@ -2472,6 +2479,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Fatigued;
  *  Value: "FRUSTRATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Frustrated;
+/**
+ *  Good.
+ *
+ *  Value: "GOOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Good;
 /**
  *  Grateful.
  *
@@ -2557,6 +2570,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Longing;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Loving;
 /**
+ *  Low energy.
+ *
+ *  Value: "LOW_ENERGY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_LowEnergy;
+/**
  *  Unspecified mood.
  *
  *  Value: "MOOD_UNSPECIFIED"
@@ -2569,11 +2588,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_MoodUnspecif
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Neutral;
 /**
+ *  Obsessive thoughts.
+ *
+ *  Value: "OBSESSIVE_THOUGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_ObsessiveThoughts;
+/**
  *  Overwhelmed.
  *
  *  Value: "OVERWHELMED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Overwhelmed;
+/**
+ *  Panic.
+ *
+ *  Value: "PANIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Panic;
 /**
  *  Passionate.
  *
@@ -2586,6 +2617,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Passionate;
  *  Value: "PEACEFUL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Peaceful;
+/**
+ *  Playful.
+ *
+ *  Value: "PLAYFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Playful;
+/**
+ *  Pleased.
+ *
+ *  Value: "PLEASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Pleased;
 /**
  *  Proud.
  *
@@ -2617,6 +2660,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Satisfied;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Scared;
 /**
+ *  Sensitive.
+ *
+ *  Value: "SENSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Sensitive;
+/**
+ *  Sleepy.
+ *
+ *  Value: "SLEEPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Sleepy;
+/**
  *  Stressed.
  *
  *  Value: "STRESSED"
@@ -2629,11 +2684,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Stressed;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Surprised;
 /**
+ *  Mood swings.
+ *
+ *  Value: "SWINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Swings;
+/**
+ *  Unhappy.
+ *
+ *  Value: "UNHAPPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_Unhappy;
+/**
  *  Very calm.
  *
  *  Value: "VERY_CALM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_VeryCalm;
+/**
+ *  Very self-critical.
+ *
+ *  Value: "VERY_SELF_CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Moods_Moods_VerySelfCritical;
 /**
  *  Very stressed.
  *
@@ -3828,6 +3901,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_SwimLengthsData_SwimStro
 // GTLRGoogleHealthAPI_Symptoms.symptoms
 
 /**
+ *  Abdominal pain.
+ *
+ *  Value: "ABDOMINAL_PAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_AbdominalPain;
+/**
  *  Acne.
  *
  *  Value: "ACNE"
@@ -3846,6 +3925,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Anxiet
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BackPain;
 /**
+ *  Bladder leaks.
+ *
+ *  Value: "BLADDER_LEAKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BladderLeaks;
+/**
+ *  Bleeding gums.
+ *
+ *  Value: "BLEEDING_GUMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BleedingGums;
+/**
  *  Bloating or abdominal swelling.
  *
  *  Value: "BLOATED"
@@ -3857,6 +3948,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Bloate
  *  Value: "BLURRED_VISION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BlurredVision;
+/**
+ *  Brain fog.
+ *
+ *  Value: "BRAIN_FOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BrainFog;
+/**
+ *  Burning mouth.
+ *
+ *  Value: "BURNING_MOUTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_BurningMouth;
 /**
  *  Chest pain or discomfort.
  *
@@ -3870,6 +3973,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_ChestP
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Confusion;
 /**
+ *  Constipation.
+ *
+ *  Value: "CONSTIPATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Constipation;
+/**
  *  Coughing.
  *
  *  Value: "COUGH"
@@ -3881,6 +3990,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Cough;
  *  Value: "CRAMPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Cramps;
+/**
+ *  Food cravings.
+ *
+ *  Value: "CRAVINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Cravings;
+/**
+ *  Decreased appetite.
+ *
+ *  Value: "DECREASED_APPETITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_DecreasedAppetite;
+/**
+ *  Diarrhea.
+ *
+ *  Value: "DIARRHEA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Diarrhea;
 /**
  *  Difficulty breathing or shortness of breath.
  *
@@ -3894,6 +4021,36 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Diffic
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Dizziness;
 /**
+ *  Drawing pain.
+ *
+ *  Value: "DRAWING_PAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_DrawingPain;
+/**
+ *  Dry eyes.
+ *
+ *  Value: "DRY_EYES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_DryEyes;
+/**
+ *  Dry hair.
+ *
+ *  Value: "DRY_HAIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_DryHair;
+/**
+ *  Dry skin.
+ *
+ *  Value: "DRY_SKIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_DrySkin;
+/**
+ *  Exhaustion.
+ *
+ *  Value: "EXHAUSTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Exhaustion;
+/**
  *  Fainting or loss of consciousness.
  *
  *  Value: "FAINTING"
@@ -3906,11 +4063,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fainti
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fatigue;
 /**
+ *  Feeling good or well.
+ *
+ *  Value: "FEEL_GOOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_FeelGood;
+/**
  *  Fever or elevated body temperature.
  *
  *  Value: "FEVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fever;
+/**
+ *  Food aversions.
+ *
+ *  Value: "FOOD_AVERSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_FoodAversions;
 /**
  *  Frequent urination.
  *
@@ -3918,11 +4087,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Fever;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_FrequentUrination;
 /**
+ *  Hair loss.
+ *
+ *  Value: "HAIR_LOSS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_HairLoss;
+/**
  *  Headache.
  *
  *  Value: "HEADACHE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Headache;
+/**
+ *  Heartburn.
+ *
+ *  Value: "HEARTBURN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Heartburn;
 /**
  *  Heart palpitations or racing heart.
  *
@@ -3942,11 +4123,83 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_HotFla
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Hunger;
 /**
+ *  Hyperpigmentation.
+ *
+ *  Value: "HYPERPIGMENTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Hyperpigmentation;
+/**
+ *  Increased appetite.
+ *
+ *  Value: "INCREASED_APPETITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_IncreasedAppetite;
+/**
+ *  Increased appetite V2.
+ *
+ *  Value: "INCREASED_APPETITE_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_IncreasedAppetiteV2;
+/**
+ *  Insomnia or difficulty sleeping.
+ *
+ *  Value: "INSOMNIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Insomnia;
+/**
+ *  Joint pain.
+ *
+ *  Value: "JOINT_PAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_JointPain;
+/**
+ *  Leg cramps.
+ *
+ *  Value: "LEG_CRAMPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_LegCramps;
+/**
+ *  Milky nipple discharge.
+ *
+ *  Value: "MILKY_NIPPLE_DISCHARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_MilkyNippleDischarge;
+/**
+ *  Nausea.
+ *
+ *  Value: "NAUSEA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Nausea;
+/**
+ *  Night sweats.
+ *
+ *  Value: "NIGHT_SWEATS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_NightSweats;
+/**
+ *  Normal digestion.
+ *
+ *  Value: "NORMAL_DIGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_NormalDigestion;
+/**
+ *  Normal stool.
+ *
+ *  Value: "NORMAL_STOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_NormalStool;
+/**
  *  Other symptoms.
  *
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Other;
+/**
+ *  Perineum pain.
+ *
+ *  Value: "PERINEUM_PAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_PerineumPain;
 /**
  *  Premenstrual syndrome symptoms.
  *
@@ -3984,11 +4237,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Shakin
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Sick;
 /**
+ *  Sleepiness or drowsiness.
+ *
+ *  Value: "SLEEPINESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Sleepiness;
+/**
+ *  Stretch marks.
+ *
+ *  Value: "STRETCH_MARKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_StretchMarks;
+/**
  *  Excessive sweating.
  *
  *  Value: "SWEATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Sweating;
+/**
+ *  Swelling.
+ *
+ *  Value: "SWELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Swelling;
 /**
  *  Unspecified symptom value.
  *
@@ -4007,6 +4278,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Tender
  *  Value: "THIRST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Thirst;
+/**
+ *  Vaginal dryness.
+ *
+ *  Value: "VAGINAL_DRYNESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_VaginalDryness;
+/**
+ *  Vaginal itching.
+ *
+ *  Value: "VAGINAL_ITCHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_VaginalItching;
+/**
+ *  Vomiting.
+ *
+ *  Value: "VOMITING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_Symptoms_Symptoms_Vomiting;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleHealthAPI_TimeInHeartRateZone.heartRateZoneType
@@ -4400,7 +4689,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationTimeInterval *interval;
 
 /**
- *  Required. Energy burned during an activity, measured in kilocalories.
+ *  Required. Energy burned during an activity, measured in kilocalories. Must
+ *  be in the range `[0, 1000000]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4713,7 +5003,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_Altitude : GTLRObject
 
 /**
- *  Required. Altitude gain in millimeters over the observed interval.
+ *  Required. Altitude gain in millimeters over the observed interval. Must be
+ *  in the range `[-1000000000, 1000000000]`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4816,7 +5107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_BloodGlucose : GTLRObject
 
 /**
- *  Required. Blood glucose level concentration in mg/dL.
+ *  Required. Blood glucose level concentration in mg/dL. Must be in the range
+ *  `[0, 900]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4932,7 +5224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_BodyFat : GTLRObject
 
 /**
- *  Required. Body fat percentage, in range [0, 100].
+ *  Required. Body fat percentage. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5098,7 +5390,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationSampleTime *sampleTime;
 
 /**
- *  Required. The core body temperature in Celsius.
+ *  Required. The core body temperature in Celsius. Must be in the range `[0,
+ *  100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5256,7 +5549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Required. The average value of the oxygen saturation samples during the
- *  sleep.
+ *  sleep. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5269,7 +5562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Required. The lower bound of the confidence interval of oxygen saturation
- *  samples during sleep.
+ *  samples during sleep. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5285,7 +5578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Required. The upper bound of the confidence interval of oxygen saturation
- *  samples during sleep.
+ *  samples during sleep. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5543,10 +5836,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 /**
  *  Optional. The data source family name to roll up. If empty, data points from
  *  all available data sources will be rolled up. Format:
- *  `users/me/dataSourceFamilies/{data_source_family}` The supported values are:
- *  - `users/me/dataSourceFamilies/all-sources` - default value -
- *  `users/me/dataSourceFamilies/google-wearables` - tracker devices -
- *  `users/me/dataSourceFamilies/google-sources` - Google first party sources
+ *  `users/{user}/dataSourceFamilies/{data_source_family}` The `{user}` can be
+ *  either the alias `me` or the authenticated user's numeric Health User ID,
+ *  retrieved via GetIdentity (e.g. `users/me/dataSourceFamilies/...` or
+ *  `users/1234567890/dataSourceFamilies/...`). The supported values are: -
+ *  `users/{user}/dataSourceFamilies/all-sources` - Default value. Includes data
+ *  from all available data sources. -
+ *  `users/{user}/dataSourceFamilies/google-wearables` - Includes data from
+ *  Google and Fitbit tracker devices (such as Fitbit trackers and Pixel Watch).
+ *  Excludes manually logged data. -
+ *  `users/{user}/dataSourceFamilies/google-sources` - Includes first-party
+ *  Google data, such as data from tracker devices, manually logged data, and
+ *  Health Connect. - `users/{user}/dataSourceFamilies/self-sources` - Includes
+ *  only the data the calling client wrote through this API, that is, data
+ *  points whose data source was registered through this API with the same OAuth
+ *  client ID as the caller. Callers that were only granted write scopes for the
+ *  requested data type may only read the data they wrote themselves: their
+ *  requests are implicitly restricted to `self-sources`, and requesting any
+ *  other data source family fails with `PERMISSION_DENIED`. If no data point
+ *  matches the requested data source family, the response is an empty list
+ *  rather than an error.
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceFamily;
 
@@ -5560,7 +5869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  Optional. The `next_page_token` from a previous request, if any. All other
+ *  Optional. The next_page_token from a previous request, if any. All other
  *  request fields need to be the same as in the initial request when the page
  *  token is specified.
  */
@@ -5577,7 +5886,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Optional. Aggregation window size, in number of days. Defaults to 1 if not
- *  specified.
+ *  specified. If the requested range is not an exact multiple of
+ *  `window_size_days`, the final bucket chronologically will be truncated at
+ *  the upper endpoint of the range and will cover a duration shorter than
+ *  `window_size_days`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5588,10 +5900,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Response containing the list of rolled up data points.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rollupDataPoints" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
  */
-@interface GTLRGoogleHealthAPI_DailyRollUpDataPointsResponse : GTLRObject
+@interface GTLRGoogleHealthAPI_DailyRollUpDataPointsResponse : GTLRCollectionObject
 
-/** Values for each aggregation time window. */
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Values for each aggregation time window.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleHealthAPI_DailyRollupDataPoint *> *rollupDataPoints;
 
 @end
@@ -5676,7 +6004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Required. Daily VO2 max value measured as in ml consumed oxygen / kg of body
- *  weight / min.
+ *  weight / min. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -5859,10 +6187,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  Identifier. Data point name, only supported for the subset of identifiable
  *  data types. For the majority of the data types, individual data points do
  *  not need to be identified and this field would be empty. Format:
- *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` Example:
- *  `users/abcd1234/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
- *  The `{user}` ID is a system-generated identifier, as described in
- *  Identity.health_user_id. The `{data_type}` ID corresponds to the kebab-case
+ *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` ## Examples: ##
+ *  `users/me/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  `users/1234567890/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  The `{user}` can be either the alias `me` or the authenticated user's
+ *  numeric Health User ID, which can be retrieved by calling GetIdentity (see
+ *  Identity.health_user_id). The `{data_type}` ID corresponds to the kebab-case
  *  version of the field names in the DataPoint data union field, e.g.
  *  `heart-rate` for the `heart_rate` field. The `{data_point}` ID can be
  *  client-provided or system-generated. If client-provided, it must be a string
@@ -6186,7 +6516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationTimeInterval *interval;
 
 /**
- *  Required. Distance in millimeters over the observed interval.
+ *  Required. Distance in millimeters over the observed interval. Must be in the
+ *  range `[0, 1000000000]`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6353,7 +6684,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_EnergyQuantity : GTLRObject
 
 /**
- *  Required. The energy value in kilocalories.
+ *  Required. The energy value in kilocalories. Must be in the range `[0,
+ *  100000]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -6927,7 +7259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_Floors : GTLRObject
 
 /**
- *  Required. Number of floors in the recorded interval
+ *  Required. Number of floors in the recorded interval. Must be in the range
+ *  `[0, 1000000]`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7135,12 +7468,67 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  given type. Clients currently do not need to interact with this resource
  *  directly.
  */
+@interface GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4betaDataType : GTLRObject
+
+/**
+ *  Identifier. The resource name of the data type. Format:
+ *  `users/{user}/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
+ *  `users/1234567890/dataTypes/steps` The `{user}` can be either the alias `me`
+ *  or the authenticated user's numeric Health User ID (retrieved via
+ *  GetIdentity). See DataPoint.name for examples and possible values.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents a user in the Google Health API. It matches the parent resource
+ *  of collections owned by the user. Clients currently do not need to interact
+ *  with this resource directly.
+ */
+@interface GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4betaUser : GTLRObject
+
+/**
+ *  Identifier. The resource name of the user. The `{user}` ID is a
+ *  system-generated identifier, as described in Identity.health_user_id.
+ *  Format: `users/{user}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Log message for a webhook notification sent by the Google Health API to a
+ *  subscriber's endpoint. Includes the HTTP response received from the
+ *  endpoint.
+ */
+@interface GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4betaWebhookNotificationCloudLog : GTLRObject
+
+/**
+ *  Required. Represents the HTTP response. This message includes the status
+ *  code, reason phrase, headers, and body.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_HttpResponse *httpResponse;
+
+@end
+
+
+/**
+ *  Represents a type of health data a user can have data points recorded for.
+ *  It matches the parent resource of collection containing data points of the
+ *  given type. Clients currently do not need to interact with this resource
+ *  directly.
+ */
 @interface GTLRGoogleHealthAPI_GoogleDevicesandservicesHealthV4DataType : GTLRObject
 
 /**
  *  Identifier. The resource name of the data type. Format:
- *  `users/{user}/dataTypes/{data_type}` See DataPoint.name for examples and
- *  possible values.
+ *  `users/{user}/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
+ *  `users/1234567890/dataTypes/steps` The `{user}` can be either the alias `me`
+ *  or the authenticated user's numeric Health User ID (retrieved via
+ *  GetIdentity). See DataPoint.name for examples and possible values.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7218,7 +7606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_HeartRate : GTLRObject
 
 /**
- *  Required. The heart rate value in beats per minute.
+ *  Required. The heart rate value in beats per minute. Must be in the range
+ *  `[1, 300]`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7315,9 +7704,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_HeartRateVariability : GTLRObject
 
 /**
+ *  Optional. Additional information about the heart rate variability
+ *  measurement.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_HeartRateVariabilityMetadata *metadata;
+
+/**
  *  Optional. The root mean square of successive differences between normal
  *  heartbeats. This is a measure of heart rate variability used by Google
- *  Health.
+ *  Health. Must be in the range `[1, 200]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -7332,6 +7727,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *standardDeviationMilliseconds;
+
+@end
+
+
+/**
+ *  Metadata for HeartRateVariability.
+ */
+@interface GTLRGoogleHealthAPI_HeartRateVariabilityMetadata : GTLRObject
+
+/**
+ *  Optional. The power in interbeat interval fluctuations within the high
+ *  frequency band (0.15 Hz - 0.4 Hz).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *highFrequencyPower;
+
+/**
+ *  Optional. The power in interbeat interval fluctuations within the low
+ *  frequency band (0.04 Hz - 0.15 Hz).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lowFrequencyPower;
 
 @end
 
@@ -7405,7 +7824,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_Height : GTLRObject
 
 /**
- *  Required. Height of the user in millimeters.
+ *  Required. Height of the user in millimeters. Must be in the range `[0,
+ *  3000]`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8515,7 +8935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_OxygenSaturation : GTLRObject
 
 /**
- *  Required. The oxygen saturation percentage. Valid values are from 0 to 100.
+ *  Required. The oxygen saturation percentage. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8648,10 +9068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Output only. The automatically calculated running stride length, in
- *  millimeters. The user must consent to one of the following access scopes to
- *  access this field: -
+ *  millimeters. The user must consent to the following access scope to access
+ *  this field: -
  *  `https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly`
- *  - `https://www.googleapis.com/auth/googlehealth.activity_and_fitness`
  *
  *  Uses NSNumber of intValue.
  */
@@ -8659,10 +9078,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Output only. The automatically calculated walking stride length, in
- *  millimeters. The user must consent to one of the following access scopes to
- *  access this field: -
+ *  millimeters. The user must consent to the following access scope to access
+ *  this field: -
  *  `https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly`
- *  - `https://www.googleapis.com/auth/googlehealth.activity_and_fitness`
  *
  *  Uses NSNumber of intValue.
  */
@@ -8680,16 +9098,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  `users/me/profile` The {user} ID is a system-generated Google Health API
  *  user ID, a string of 1-63 characters consisting of lowercase and uppercase
  *  letters, numbers, and hyphens. The literal `me` can also be used to refer to
- *  the authenticated user.
+ *  the authenticated user. This field is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The user's user configured running stride length, in millimeters.
- *  The user must consent to one of the following access scopes to access this
- *  field: -
+ *  The user must consent to the following access scope to access this field: -
  *  `https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly`
- *  - `https://www.googleapis.com/auth/googlehealth.activity_and_fitness`
  *
  *  Uses NSNumber of intValue.
  */
@@ -8697,10 +9113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Optional. The user's user configured walking stride length, in millimeters.
- *  The user must consent to one of the following access scopes to access this
- *  field: -
+ *  The user must consent to the following access scope to access this field: -
  *  `https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly`
- *  - `https://www.googleapis.com/auth/googlehealth.activity_and_fitness`
  *
  *  Uses NSNumber of intValue.
  */
@@ -8814,10 +9228,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  Identifier. Data point name, only supported for the subset of identifiable
  *  data types. For the majority of the data types, individual data points do
  *  not need to be identified and this field would be empty. Format:
- *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` Example:
- *  `users/abcd1234/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
- *  The `{user}` ID is a system-generated identifier, as described in
- *  Identity.health_user_id. The `{data_type}` ID corresponds to the kebab-case
+ *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` ## Examples: ##
+ *  `users/me/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  `users/1234567890/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  The `{user}` can be either the alias `me` or the authenticated user's
+ *  numeric Health User ID, which can be retrieved by calling GetIdentity (see
+ *  Identity.health_user_id). The `{data_type}` ID corresponds to the kebab-case
  *  version of the field names in the DataPoint data union field, e.g.
  *  `heart-rate` for the `heart_rate` field. The `{data_point}` ID can be
  *  client-provided or system-generated. If client-provided, it must be a string
@@ -9136,10 +9552,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 /**
  *  Optional. The data source family name to roll up. If empty, data points from
  *  all available data sources will be rolled up. Format:
- *  `users/me/dataSourceFamilies/{data_source_family}` The supported values are:
- *  - `users/me/dataSourceFamilies/all-sources` - default value -
- *  `users/me/dataSourceFamilies/google-wearables` - tracker devices -
- *  `users/me/dataSourceFamilies/google-sources` - Google first party sources
+ *  `users/{user}/dataSourceFamilies/{data_source_family}` The `{user}` can be
+ *  either the alias `me` or the authenticated user's numeric Health User ID,
+ *  retrieved via GetIdentity (e.g. `users/me/dataSourceFamilies/...` or
+ *  `users/1234567890/dataSourceFamilies/...`). The supported values are: -
+ *  `users/{user}/dataSourceFamilies/all-sources` - Default value. Includes data
+ *  from all available data sources. -
+ *  `users/{user}/dataSourceFamilies/google-wearables` - Includes data from
+ *  Google and Fitbit tracker devices (such as Fitbit trackers and Pixel Watch).
+ *  Excludes manually logged data. -
+ *  `users/{user}/dataSourceFamilies/google-sources` - Includes first-party
+ *  Google data, such as data from tracker devices, manually logged data, and
+ *  Health Connect. - `users/{user}/dataSourceFamilies/self-sources` - Includes
+ *  only the data the calling client wrote through this API, that is, data
+ *  points whose data source was registered through this API with the same OAuth
+ *  client ID as the caller. Callers that were only granted write scopes for the
+ *  requested data type may only read the data they wrote themselves: their
+ *  requests are implicitly restricted to `self-sources`, and requesting any
+ *  other data source family fails with `PERMISSION_DENIED`. If no data point
+ *  matches the requested data source family, the response is an empty list
+ *  rather than an error.
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceFamily;
 
@@ -9169,7 +9601,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Required. The size of the time window to group data points into before
- *  applying the aggregation functions. Must be at least 1 second.
+ *  applying the aggregation functions. Must be at least 1 second. If the
+ *  requested range is not an exact multiple of `window_size`, the final bucket
+ *  chronologically will be truncated at the upper endpoint of the range and
+ *  will cover a duration shorter than `window_size`.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *windowSize;
 
@@ -9210,7 +9645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_RunVO2Max : GTLRObject
 
 /**
- *  Required. Run VO2 max value in ml/kg/min.
+ *  Required. Run VO2 max value in ml/kg/min. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9354,7 +9789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Optional. The measurement unit defined in the user's account settings.
- *  Updates to this field are currently not supported.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleHealthAPI_Settings_DistanceUnit_DistanceUnitKilometers
@@ -9413,7 +9847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
  *  `users/me/settings` The {user} ID is a system-generated Google Health API
  *  user ID, a string of 1-63 characters consisting of lowercase and uppercase
  *  letters, numbers, and hyphens. The literal `me` can also be used to refer to
- *  the authenticated user.
+ *  the authenticated user. This field is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -9549,6 +9983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /** Optional. “Out of bed” segments that can overlap with sleep stages. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleHealthAPI_OutOfBedSegment *> *outOfBedSegments;
+
+/**
+ *  Output only. List of short awake segments (under a set threshold) that are
+ *  part of the sleep session. These can overlap with sleep stages.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleHealthAPI_SleepStage *> *shortAwakenings;
 
 /**
  *  Optional. List of non-overlapping contiguous sleep stage segments that cover
@@ -9906,7 +10346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_Steps : GTLRObject
 
 /**
- *  Required. Number of steps in the recorded interval.
+ *  Required. Number of steps in the recorded interval. Must be in the range
+ *  `[0, 1000000]`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -10368,7 +10809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 
 /**
  *  Required. VO2 max value measured as in ml consumed oxygen / kg of body
- *  weight / min.
+ *  weight / min. Must be in the range `[0, 100]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -10383,7 +10824,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_VolumeQuantity : GTLRObject
 
 /**
- *  Required. Value representing the volume in milliliters.
+ *  Required. Value representing the volume in milliliters. Must be in the range
+ *  `[0, 100000]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -10471,7 +10913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @property(nonatomic, strong, nullable) GTLRGoogleHealthAPI_ObservationSampleTime *sampleTime;
 
 /**
- *  Required. Weight of a user in grams.
+ *  Required. Weight of a user in grams. Must be in the range `[0, 1000000]`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -10486,7 +10928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleHealthAPI_WeightQuantityRollup_Use
 @interface GTLRGoogleHealthAPI_WeightQuantity : GTLRObject
 
 /**
- *  Required. The weight value in grams.
+ *  Required. The weight value in grams. Must be in the range `[0, 100000]`.
  *
  *  Uses NSNumber of doubleValue.
  */

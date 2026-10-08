@@ -79,6 +79,8 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha224 = @"HMAC_SH
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemXwing = @"KEM_XWING";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_MlKem1024 = @"ML_KEM_1024";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_MlKem768 = @"ML_KEM_768";
@@ -150,6 +152,8 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha224 = @
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemXwing = @"KEM_XWING";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_MlKem1024 = @"ML_KEM_1024";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_MlKem768 = @"ML_KEM_768";
@@ -245,6 +249,8 @@ NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha22
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemXwing = @"KEM_XWING";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_MlKem1024 = @"ML_KEM_1024";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_MlKem768 = @"ML_KEM_768";
@@ -328,6 +334,8 @@ NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Al
 NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemXwing = @"KEM_XWING";
 NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_MlKem1024 = @"ML_KEM_1024";
 NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_MlKem768 = @"ML_KEM_768";
@@ -375,6 +383,7 @@ NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReason
 // GTLRCloudKMS_KeyOperationAttestation.format
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatUnspecified = @"ATTESTATION_FORMAT_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed = @"CAVIUM_V1_COMPRESSED";
+NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV209 = @"CAVIUM_V209";
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed = @"CAVIUM_V2_COMPRESSED";
 
 // GTLRCloudKMS_MacSignResponse.protectionLevel
@@ -413,6 +422,8 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha224  = @"HMAC_SHA224";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256  = @"HMAC_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha384  = @"HMAC_SHA384";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512  = @"HMAC_SHA512";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_KemXwing    = @"KEM_XWING";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_MlKem1024   = @"ML_KEM_1024";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_MlKem768    = @"ML_KEM_768";

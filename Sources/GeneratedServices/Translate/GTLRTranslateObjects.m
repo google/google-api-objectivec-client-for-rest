@@ -47,7 +47,7 @@
 //
 
 @implementation GTLRTranslate_AdaptiveMtTranslateRequest
-@dynamic content, dataset, glossaryConfig, referenceSentenceConfig;
+@dynamic content, dataset, glossaryConfig, mimeType, referenceSentenceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

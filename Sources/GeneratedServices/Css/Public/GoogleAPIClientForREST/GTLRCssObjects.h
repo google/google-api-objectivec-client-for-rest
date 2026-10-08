@@ -419,16 +419,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
 @property(nonatomic, copy, nullable) NSString *material;
 
 /**
- *  Maximum rating score of the product. Required if `rating` is provided. This
- *  field is for an upcoming feature and is not yet used.
+ *  Maximum rating score of the product. Required if `rating` is provided.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxRating;
 
 /**
- *  Minimum rating score of the product. Required if `rating` is provided. This
- *  field is for an upcoming feature and is not yet used.
+ *  Minimum rating score of the product. Required if `rating` is provided.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -501,15 +499,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period
  *  [`min_rating`, `max_rating`], inclusive. When displayed on the product page,
  *  this rating is normalized to a scale of [1, 5] with one decimal place. If
  *  provided, `review_count`, `min_rating`, and `max_rating` are also required.
- *  This field is for an upcoming feature and is not yet used.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rating;
 
 /**
- *  Number of reviews of the product. Required if `rating` is provided. This
- *  field is for an upcoming feature and is not yet used.
+ *  Number of reviews of the product. Required if `rating` is provided.
  *
  *  Uses NSNumber of longLongValue.
  */

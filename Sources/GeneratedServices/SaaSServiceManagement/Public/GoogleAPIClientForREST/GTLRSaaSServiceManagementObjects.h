@@ -221,11 +221,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateFa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateRunning;
 /**
- *  State type is unspecified.
+ *  State type is unspecified. Deprecated: Use STATE_UNSPECIFIED instead.
  *
  *  Value: "STATE_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateTypeUnspecified GTLR_DEPRECATED;
+/**
+ *  State is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_SaasCondition.status
@@ -562,7 +568,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperation_Stat
  *  Value: "UNIT_OPERATION_STATE_SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperation_State_UnitOperationStateSucceeded;
-/** Value: "UNIT_OPERATION_STATE_UNKNOWN" */
+/**
+ *  Unit operation state is unknown.
+ *
+ *  Value: "UNIT_OPERATION_STATE_UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperation_State_UnitOperationStateUnknown;
 
 // ----------------------------------------------------------------------------
@@ -711,15 +721,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 /**
  *  Blueprints are OCI Images that contain all of the artifacts needed to
  *  provision a unit. Metadata such as, type of the engine used to actuate the
- *  blueprint (e.g. terraform, helm etc) and version will come from the image
+ *  blueprint (Terraform, for example) and version will come from the image
  *  manifest. If the hostname is omitted, it will be assumed to be the regional
  *  path to Artifact Registry (eg. us-east1-docker.pkg.dev).
  */
 @interface GTLRSaaSServiceManagement_Blueprint : GTLRObject
 
 /**
- *  Output only. Type of the engine used to actuate the blueprint. e.g.
- *  terraform, helm etc.
+ *  Output only. Type of the engine used to actuate the blueprint. (Terraform,
+ *  for example)
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
@@ -1251,8 +1261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /**
  *  A new version to be propagated and deployed to units. This includes pointers
- *  to packaged blueprints for actuation (e.g Helm or Terraform configuration
- *  packages) via artifact registry.
+ *  to packaged blueprints for actuation via Artifact Registry.
  */
 @interface GTLRSaaSServiceManagement_Release : GTLRObject
 
@@ -1708,7 +1717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *uid;
 
 /**
- *  Optional. CEL(https://github.com/google/cel-spec) formatted filter string
+ *  Optional. [CEL](https://github.com/google/cel-spec) formatted filter string
  *  against Unit. The filter will be applied to determine the eligible unit
  *  population. This filter can only reduce, but not expand the scope of the
  *  rollout.
@@ -1716,7 +1725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *unitFilter;
 
 /**
- *  Required. Immutable. UnitKind that this rollout kind corresponds to.
+ *  Optional. Immutable. UnitKind that this rollout kind corresponds to.
  *  Rollouts stemming from this rollout kind will target the units of this unit
  *  kind. In other words, this defines the population of target units to be
  *  upgraded by rollouts.
@@ -1894,7 +1903,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *        of importing, synchronizing or replicating ApplicationTemplates
  *        (Value: "STATE_RUNNING")
  *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateTypeUnspecified State
- *        type is unspecified. (Value: "STATE_TYPE_UNSPECIFIED")
+ *        type is unspecified. Deprecated: Use STATE_UNSPECIFIED instead.
+ *        (Value: "STATE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateUnspecified State is
+ *        unspecified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2181,7 +2193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /**
  *  A unit of deployment that has its lifecycle via a CRUD API using an
- *  actuation engine under the hood (e.g. based on Terraform, Helm or a custom
+ *  actuation engine under the hood (e.g. based on Terraform, or a custom
  *  implementation provided by a service producer). A building block of a SaaS
  *  Tenant.
  */
@@ -2276,8 +2288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 /**
  *  Optional. Output only. Set of key/value pairs corresponding to output
  *  variables from execution of actuation templates. The variables are declared
- *  in actuation configs (e.g in helm chart or terraform) and the values are
- *  fetched and returned by the actuation engine upon completion of execution.
+ *  in actuation configs (in Terraform for example) and the values are fetched
+ *  and returned by the actuation engine upon completion of execution.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_UnitVariable *> *outputVariables;
 
@@ -2547,6 +2559,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *defaultRelease;
 
 /**
+ *  Output only. The timestamp when the resource was marked for deletion
+ *  (deletion is an asynchronous operation).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
  *  Optional. Immutable. List of other unit kinds that this release will depend
  *  on. Dependencies will be automatically provisioned if not found. Maximum 10.
  */
@@ -2782,7 +2800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *        Unit operation has completed successfully. (Value:
  *        "UNIT_OPERATION_STATE_SUCCEEDED")
  *    @arg @c kGTLRSaaSServiceManagement_UnitOperation_State_UnitOperationStateUnknown
- *        Value "UNIT_OPERATION_STATE_UNKNOWN"
+ *        Unit operation state is unknown. (Value:
+ *        "UNIT_OPERATION_STATE_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

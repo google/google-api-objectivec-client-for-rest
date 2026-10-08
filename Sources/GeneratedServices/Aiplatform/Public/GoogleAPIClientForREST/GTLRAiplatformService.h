@@ -25,6 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Vertex AI data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/aiplatform"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAiplatform;
+/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *

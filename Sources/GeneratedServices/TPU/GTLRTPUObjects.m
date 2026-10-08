@@ -41,6 +41,11 @@ NSString * const kGTLRTPU_Node_Health_Timeout              = @"TIMEOUT";
 NSString * const kGTLRTPU_Node_Health_UnhealthyMaintenance = @"UNHEALTHY_MAINTENANCE";
 NSString * const kGTLRTPU_Node_Health_UnhealthyTensorflow  = @"UNHEALTHY_TENSORFLOW";
 
+// GTLRTPU_Node.protectionTier
+NSString * const kGTLRTPU_Node_ProtectionTier_CapacityOptimized = @"CAPACITY_OPTIMIZED";
+NSString * const kGTLRTPU_Node_ProtectionTier_ProtectionTierUnspecified = @"PROTECTION_TIER_UNSPECIFIED";
+NSString * const kGTLRTPU_Node_ProtectionTier_Standard         = @"STANDARD";
+
 // GTLRTPU_Node.state
 NSString * const kGTLRTPU_Node_State_Creating         = @"CREATING";
 NSString * const kGTLRTPU_Node_State_Deleting         = @"DELETING";
@@ -550,8 +555,8 @@ NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled = @"UNSCHEDULED";
 @dynamic acceleratorConfig, acceleratorType, apiVersion, bootDiskConfig,
          cidrBlock, createTime, dataDisks, descriptionProperty, health,
          healthDescription, identifier, labels, metadata, multisliceNode, name,
-         networkConfig, networkConfigs, networkEndpoints, queuedResource,
-         runtimeVersion, schedulingConfig, serviceAccount,
+         networkConfig, networkConfigs, networkEndpoints, protectionTier,
+         queuedResource, runtimeVersion, schedulingConfig, serviceAccount,
          shieldedInstanceConfig, state, symptoms, tags, upcomingMaintenance;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

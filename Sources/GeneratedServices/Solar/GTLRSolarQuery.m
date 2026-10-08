@@ -18,10 +18,12 @@
 // additionalInsights
 NSString * const kGTLRSolarAdditionalInsightsAdditionalInsightsUnspecified = @"ADDITIONAL_INSIGHTS_UNSPECIFIED";
 NSString * const kGTLRSolarAdditionalInsightsDetectedArrays    = @"DETECTED_ARRAYS";
+NSString * const kGTLRSolarAdditionalInsightsRoofGeometry      = @"ROOF_GEOMETRY";
 
 // experiments
 NSString * const kGTLRSolarExperimentsExpandedCoverage      = @"EXPANDED_COVERAGE";
 NSString * const kGTLRSolarExperimentsExperimentUnspecified = @"EXPERIMENT_UNSPECIFIED";
+NSString * const kGTLRSolarExperimentsRoofGeometryInsights  = @"ROOF_GEOMETRY_INSIGHTS";
 
 // requiredQuality
 NSString * const kGTLRSolarRequiredQualityBase                 = @"BASE";

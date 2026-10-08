@@ -4158,11 +4158,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Modifies a `PrivateCloud` resource. Only the following fields can be
- *  updated: `description`. Only fields specified in `updateMask` are applied.
- *  During operation processing, the resource is temporarily in the `ACTIVE`
- *  state before the operation fully completes. For that period of time, you
- *  can't update the resource. Use the operation status to determine when the
- *  processing fully completes.
+ *  updated: `description`, `encryption_config`. If `updateMask` is provided,
+ *  only fields specified in it are applied. If `updateMask` is not provided,
+ *  the default behavior is to update the `description`. It is advised to
+ *  provide an `updateMask` to avoid confusion. During operation processing, the
+ *  resource is temporarily in the `ACTIVE` state before the operation fully
+ *  completes. For that period of time, you can't update the resource. Use the
+ *  operation status to determine when the processing fully completes.
  *
  *  Method: vmwareengine.projects.locations.privateClouds.patch
  *
@@ -4190,7 +4192,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `PrivateCloud` resource by the update. The fields specified in `updateMask`
  *  are relative to the resource, not the full request. A field will be
  *  overwritten if it is in the mask. If the user does not provide a mask then
- *  all fields will be overwritten.
+ *  only the description field will be overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -4206,11 +4208,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Modifies a `PrivateCloud` resource. Only the following fields can be
- *  updated: `description`. Only fields specified in `updateMask` are applied.
- *  During operation processing, the resource is temporarily in the `ACTIVE`
- *  state before the operation fully completes. For that period of time, you
- *  can't update the resource. Use the operation status to determine when the
- *  processing fully completes.
+ *  updated: `description`, `encryption_config`. If `updateMask` is provided,
+ *  only fields specified in it are applied. If `updateMask` is not provided,
+ *  the default behavior is to update the `description`. It is advised to
+ *  provide an `updateMask` to avoid confusion. During operation processing, the
+ *  resource is temporarily in the `ACTIVE` state before the operation fully
+ *  completes. For that period of time, you can't update the resource. Use the
+ *  operation status to determine when the processing fully completes.
  *
  *  @param object The @c GTLRVMwareEngine_PrivateCloud to include in the query.
  *  @param name Output only. Identifier. The resource name of this private

@@ -52,12 +52,15 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSource;
+@class GTLRFirestore_GoogleFirestoreAdminV1ChangeStream;
 @class GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags;
 @class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
+@class GTLRFirestore_GoogleFirestoreAdminV1CollectionGroupScope;
 @class GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database_Tags;
+@class GTLRFirestore_GoogleFirestoreAdminV1DatabaseScope;
 @class GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1FlatIndex;
@@ -102,6 +105,7 @@
 @class GTLRFirestore_QueryTarget;
 @class GTLRFirestore_ReadOnly;
 @class GTLRFirestore_ReadWrite;
+@class GTLRFirestore_RequestOptions;
 @class GTLRFirestore_Stage;
 @class GTLRFirestore_Stage_Options;
 @class GTLRFirestore_Status;
@@ -466,7 +470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 /**
  *  Use optimistic concurrency control by default. This mode is available for
  *  Cloud Firestore databases. This is the default setting for Cloud Firestore
- *  Enterprise Edition databases.
+ *  Enterprise edition databases.
  *
  *  Value: "OPTIMISTIC"
  */
@@ -483,7 +487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 /**
  *  Use pessimistic concurrency control by default. This mode is available for
  *  Cloud Firestore databases. This is the default setting for Cloud Firestore
- *  Standard Edition databases.
+ *  Standard edition databases.
  *
  *  Value: "PESSIMISTIC"
  */
@@ -838,7 +842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Ap
 
 /**
  *  An index entry will exist regardless of if the fields are present or not.
- *  This is the default density for an Enterprise Edition database. The index
+ *  This is the default density for an Enterprise edition database. The index
  *  will store `unset` values for fields that are not present in the document.
  *
  *  Value: "DENSE"
@@ -852,7 +856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_De
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_DensityUnspecified;
 /**
  *  An index entry will only exist if ALL fields are present in the document.
- *  This is both the default and only allowed value for Standard Edition
+ *  This is both the default and only allowed value for Standard edition
  *  databases (for both Cloud Firestore `ANY_API` and Cloud Datastore
  *  `DATASTORE_MODE_API`). Take for example the following document: ``` {
  *  "__name__": "...", "a": 1, "b": 2, "c": 3 } ``` an index on `(a ASC, b ASC,
@@ -868,7 +872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_De
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAll;
 /**
  *  An index entry will exist if ANY field are present in the document. This is
- *  used as the definition of a sparse index for Enterprise Edition databases.
+ *  used as the definition of a sparse index for Enterprise edition databases.
  *  Take for example the following document: ``` { "__name__": "...", "a": 1,
  *  "b": 2, "c": 3 } ``` an index on `(a ASC, d ASC)` will generate an index
  *  entry for this document since `a` is present, and will fill in an `unset`
@@ -1208,6 +1212,60 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfi
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata.state
+
+/**
+ *  Request has finished being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Cancelled;
+/**
+ *  Request is in the process of being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation on the operation.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Cancelling;
+/**
+ *  Request has finished being processed, but encountered an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Failed;
+/**
+ *  Request has been processed and is in its finalization stage.
+ *
+ *  Value: "FINALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Finalizing;
+/**
+ *  Request is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Initializing;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_OperationStateUnspecified;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Processing;
+/**
+ *  Request has completed successfully.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Successful;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1UserCreds.state
 
 /**
@@ -1535,6 +1593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
+
 /**
  *  Reads documents in a transaction.
  *
@@ -1588,6 +1649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /** Labels associated with this batch write. */
 @property(nonatomic, strong, nullable) GTLRFirestore_BatchWriteRequest_Labels *labels;
 
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
+
 /**
  *  The writes to apply. Method does not apply writes atomically and does not
  *  guarantee ordering. Each write succeeds or fails independently. You cannot
@@ -1637,6 +1701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** The options for the transaction. Defaults to a read-write transaction. */
 @property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *options;
+
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
 
 @end
 
@@ -1742,6 +1809,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The request for Firestore.Commit.
  */
 @interface GTLRFirestore_CommitRequest : GTLRObject
+
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
 
 /**
  *  If set, applies all writes in this transaction, and commits it.
@@ -2097,6 +2167,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
+
 /** A pipelined operation. */
 @property(nonatomic, strong, nullable) GTLRFirestore_StructuredPipeline *structuredPipeline;
 
@@ -2113,7 +2186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for Firestore.Execute.
+ *  The response for Firestore.ExecutePipeline.
  */
 @interface GTLRFirestore_ExecutePipelineResponse : GTLRObject
 
@@ -2823,6 +2896,50 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  A Change Stream is a resource that allows users to receive change
+ *  notifications from a Firestore database.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ChangeStream : GTLRObject
+
+/** If set, the change stream is scoped to a collection group. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CollectionGroupScope *collectionGroupScope;
+
+/** Output only. The time the Change Stream was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** If set, the change stream is scoped to the entire database. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1DatabaseScope *databaseScope;
+
+/**
+ *  Optional. An etag used to determine which version of the configuration is
+ *  being edited.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The external resource name of the change stream. Format
+ *  `projects/{project}/databases/{database}/changeStreams/{change_stream}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The retention period of the change stream. This is the amount of
+ *  time a change event is available on the change stream. Must be from 1 to 7
+ *  days, inclusive. The retention_period must be in day granularity, i.e. it
+ *  must be a multiple of 24 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *retentionPeriod;
+
+/** Output only. The time the Change Stream started recording events. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** Output only. The time the Change Stream was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Metadata for the long-running operation from the CloneDatabase request.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata : GTLRObject
@@ -2959,6 +3076,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The change stream is scoped to a collection group. Only events associated
+ *  with the given collection group are visible to the Change Stream. Only a
+ *  single change stream can be enabled per collection group.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CollectionGroupScope : GTLRObject
+
+/** Required. The collection group name. */
+@property(nonatomic, copy, nullable) NSString *collectionGroupId;
+
+@end
+
+
+/**
  *  Metadata related to the create database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1CreateDatabaseMetadata : GTLRObject
@@ -3033,7 +3163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic
  *        Use optimistic concurrency control by default. This mode is available
  *        for Cloud Firestore databases. This is the default setting for Cloud
- *        Firestore Enterprise Edition databases. (Value: "OPTIMISTIC")
+ *        Firestore Enterprise edition databases. (Value: "OPTIMISTIC")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups
  *        Use optimistic concurrency control with entity groups by default. This
  *        mode is enabled for some databases that were automatically upgraded
@@ -3043,7 +3173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic
  *        Use pessimistic concurrency control by default. This mode is available
  *        for Cloud Firestore databases. This is the default setting for Cloud
- *        Firestore Standard Edition databases. (Value: "PESSIMISTIC")
+ *        Firestore Standard edition databases. (Value: "PESSIMISTIC")
  */
 @property(nonatomic, copy, nullable) NSString *concurrencyMode;
 
@@ -3108,8 +3238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  Optional. The Firestore API data access mode to use for this database. If
  *  not set on write: - the default value is DATA_ACCESS_MODE_DISABLED for
- *  Enterprise Edition. - the default value is DATA_ACCESS_MODE_ENABLED for
- *  Standard Edition.
+ *  Enterprise edition. - the default value is DATA_ACCESS_MODE_ENABLED for
+ *  Standard edition.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeDisabled
@@ -3155,8 +3285,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  Optional. The MongoDB compatible API data access mode to use for this
  *  database. If not set on write, the default value is DATA_ACCESS_MODE_ENABLED
- *  for Enterprise Edition. The value is always DATA_ACCESS_MODE_DISABLED for
- *  Standard Edition.
+ *  for Enterprise edition. The value is always DATA_ACCESS_MODE_DISABLED for
+ *  Standard edition.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeDisabled
@@ -3276,6 +3406,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        fetch them all at once.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Database_Tags : GTLRObject
+@end
+
+
+/**
+ *  The change stream is scoped to the entire database. All events in the
+ *  database are visible to the Change Stream. One Database scope Change Stream
+ *  is allowed per database.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1DatabaseScope : GTLRObject
 @end
 
 
@@ -3665,7 +3804,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Cloud Firestore indexes enable simple and complex queries against documents
- *  in a database.
+ *  in a database. In Standard edition databases, single-field indexes are
+ *  managed using the google.firestore.admin.v1.Field resource, and composite
+ *  indexes are managed using the google.firestore.admin.v1.Index resource. In
+ *  Enterprise edition databases, both single-field and composite indexes are
+ *  managed using the google.firestore.admin.v1.Index resource.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Index : GTLRObject
 
@@ -3691,7 +3834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_Dense An index
  *        entry will exist regardless of if the fields are present or not. This
- *        is the default density for an Enterprise Edition database. The index
+ *        is the default density for an Enterprise edition database. The index
  *        will store `unset` values for fields that are not present in the
  *        document. (Value: "DENSE")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_DensityUnspecified
@@ -3699,7 +3842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        only. (Value: "DENSITY_UNSPECIFIED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAll An
  *        index entry will only exist if ALL fields are present in the document.
- *        This is both the default and only allowed value for Standard Edition
+ *        This is both the default and only allowed value for Standard edition
  *        databases (for both Cloud Firestore `ANY_API` and Cloud Datastore
  *        `DATASTORE_MODE_API`). Take for example the following document: ``` {
  *        "__name__": "...", "a": 1, "b": 2, "c": 3 } ``` an index on `(a ASC, b
@@ -3712,7 +3855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        present. (Value: "SPARSE_ALL")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAny An
  *        index entry will exist if ANY field are present in the document. This
- *        is used as the definition of a sparse index for Enterprise Edition
+ *        is used as the definition of a sparse index for Enterprise edition
  *        databases. Take for example the following document: ``` { "__name__":
  *        "...", "a": 1, "b": 2, "c": 3 } ``` an index on `(a ASC, d ASC)` will
  *        generate an index entry for this document since `a` is present, and
@@ -3725,14 +3868,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *density;
 
 /**
- *  The fields supported by this index. For composite indexes, this requires a
- *  minimum of 2 and a maximum of 100 fields. The last field entry is always for
- *  the field path `__name__`. If, on creation, `__name__` was not specified as
- *  the last field, it will be added automatically with the same direction as
- *  that of the last field defined. If the final field in a composite index is
- *  not directional, the `__name__` will be ordered ASCENDING (unless explicitly
- *  specified). For single field indexes, this will always be exactly one entry
- *  with a field path equal to the field path of the associated field.
+ *  The fields supported by this index. At most 100 fields may be specified. In
+ *  Standard edition databases only: - At least 2 fields must be specified. -
+ *  The last field entry is always for the field path `__name__`. If, on
+ *  creation, `__name__` was not specified as the last field, it will be added
+ *  automatically with the same direction as that of the last field defined. If
+ *  the final field in the index is not directional, the `__name__` will be
+ *  ordered ASCENDING (unless explicitly specified).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1IndexField *> *fields;
 
@@ -3750,10 +3892,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *multikey;
 
 /**
- *  Output only. A server defined name for this index. The form of this name for
- *  composite indexes will be:
- *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{composite_index_id}`
- *  For single field indexes, this field will be empty.
+ *  A server-defined name for this index. Output only. When used in the
+ *  google.firestore.admin.v1.Index resource, the value is of the form:
+ *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{index_id}`
+ *  When used in the google.firestore.admin.v1.Field resource, the value is
+ *  empty.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3792,7 +3935,46 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SearchIndexOptions *searchIndexOptions;
 
 /**
- *  Optional. The number of shards for the index.
+ *  Optional. The number of physical shards for the index. In Cloud Firestore,
+ *  data and index entries are stored in contiguous, ordered key ranges called
+ *  splits. While document keys within a collection are hashed to distribute
+ *  write traffic across splits, secondary index entries are ordered
+ *  lexicographically by their indexed field values. When an index contains
+ *  fields with sequential or monotonically increasing or decreasing values
+ *  (such as timestamps or auto-incrementing IDs), every incoming index write
+ *  targets the boundary of the index keyspace on a single split. Because
+ *  sequential writes continuously advance to the newest split at the edge of
+ *  the range, automatic load-based splitting cannot divide the write traffic
+ *  across storage servers. Under high write rates, this concentration creates
+ *  an append hotspot on that single split, resulting in elevated write latency,
+ *  contention errors, and transaction aborts. Sharded indexes solve this write
+ *  bottleneck by hash partitioning the secondary index keyspace. When
+ *  `shard_count` is configured to N, Firestore automatically prepends a virtual
+ *  computed shard field (with values from 0 to N-1) as the leading field of the
+ *  index. This splits a single sequential key range into N independent key
+ *  ranges, uniformly scattering adjacent writes across distinct splits and
+ *  storage servers to enable linear write scaling. Query trade-offs: Hash
+ *  partitioning trades query performance for write throughput. Because matching
+ *  index entries are scattered across all shards, queries executing against a
+ *  sharded index cannot read from a single contiguous range. The query engine
+ *  must fan out parallel seeks across all N shards and merge the ordered
+ *  results. Even index point lookups and queries with `LIMIT 1` must seek
+ *  across all N shards. Sizing and best practices: - Indexes cannot be updated
+ *  in-place. `shard_count` is immutable once an index is created; to "reshard"
+ *  an index, create a new index with the desired `shard_count` and delete the
+ *  original index. - Use sharded indexes only for indexes experiencing write
+ *  bottlenecks (typically exceeding 500-1,000 writes/sec) on sequential or
+ *  timestamp fields. - Do not shard indexes on uniformly distributed fields
+ *  (such as UUIDs or hash tokens), where writes naturally spread across splits
+ *  without sharding. Sharding uniform indexes adds query overhead without
+ *  improving write throughput. - Do not shard read-heavy or low-write
+ *  collections. - Size `shard_count` based on expected peak write throughput.
+ *  Because a single split sustains roughly 500-1,000 writes/sec on sequential
+ *  keys, estimate `shard_count ≈ ceil(peak_write_qps / 500)`. - e.g., 4 for up
+ *  to ~2,000-4,000 writes/sec, 16 for up to ~10,000+ writes/sec. - Setting an
+ *  excessively high shard count produces diminishing write returns while
+ *  needlessly increasing read latency and seek costs. If <= 1, the index is
+ *  unsharded (1 physical shard).
  *
  *  Uses NSNumber of intValue.
  */
@@ -4033,6 +4215,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  single location to get a concrete error.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response to FirestoreAdmin.ListChangeStreams.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ListChangeStreamsResponse : GTLRObject
+
+/** The list of change streams. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1ChangeStream *> *changeStreams;
 
 @end
 
@@ -4338,7 +4531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Optional. Disables geoJSON indexing for the field. By default, geoJSON
- *  points are indexed.
+ *  points are indexed. Firestore GeoPoints are indexed regardless of the value
+ *  of this field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4560,6 +4754,44 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Metadata related to the update database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata : GTLRObject
+
+/**
+ *  The time this operation completed. Will be unset if operation still in
+ *  progress.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The time this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The state of the operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Cancelled
+ *        Request has finished being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Cancelling
+ *        Request is in the process of being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Failed
+ *        Request has finished being processed, but encountered an error.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Finalizing
+ *        Request has been processed and is in its finalization stage. (Value:
+ *        "FINALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Initializing
+ *        Request is being prepared for processing. (Value: "INITIALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_OperationStateUnspecified
+ *        Unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Successful
+ *        Request has completed successfully. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -4825,6 +5057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
+
 @end
 
 
@@ -4886,6 +5121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *removeTarget;
+
+/** Optional. The request options for the request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
 
 @end
 
@@ -5121,6 +5359,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
+/** Optional. The request options for the request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
+
 /**
  *  A structured query. Query must specify collection with all descendants and
  *  be ordered by name ascending. Other filters, order bys, limits, offsets, and
@@ -5313,9 +5554,45 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Options for a request.
+ */
+@interface GTLRFirestore_RequestOptions : GTLRObject
+
+/**
+ *  Optional. The request tags for the request. Request tags are user-provided
+ *  strings used for usage monitoring, cost management, and observability.
+ *  Callers can associate custom application context (such as component,
+ *  microservice, feature name, or operation type) with database requests. These
+ *  tags are collected and aggregated in usage and monitoring reports, allowing
+ *  billable operations and usage metrics to be sliced and analyzed by tag.
+ *  These tags *only* show up in monitoring and are visible in administrative
+ *  operations (such as usage reports). They do not affect data storage, query
+ *  semantics, or request execution. Cardinality and Best Practices: - Request
+ *  tags are most effective when using a bounded set of distinct values (e.g.,
+ *  fewer than 100 distinct tags across an entire database). Using a large
+ *  number of distinct tags may result in tags being omitted from top usage
+ *  dashboards. - Use structured identifiers (for example: `app=cart`,
+ *  `env=prod`, `service=checkout`) and avoid high-cardinality values such as
+ *  UUIDs, request IDs, timestamps, user IDs, or document keys. - Do not include
+ *  sensitive data or personally identifiable information (PII) in request tags,
+ *  as they show up in administrative monitoring. The tags are processed as
+ *  follows: - Leading and trailing whitespace is trimmed. - Empty tags (after
+ *  trimming) are filtered out. - Truncated to a maximum of 510 characters. -
+ *  Deduplicated within the same request. - Limited to a maximum of 50 tags per
+ *  request (excess tags are silently discarded).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestTags;
+
+@end
+
+
+/**
  *  The request for Firestore.Rollback.
  */
 @interface GTLRFirestore_RollbackRequest : GTLRObject
+
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
 
 /**
  *  Required. The transaction to roll back.
@@ -5352,6 +5629,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/** Optional. The request options for the request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
 
 /** An aggregation query. */
 @property(nonatomic, strong, nullable) GTLRFirestore_StructuredAggregationQuery *structuredAggregationQuery;
@@ -5432,6 +5712,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/** Optional. The request options for this request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
 
 /** A structured query. */
 @property(nonatomic, strong, nullable) GTLRFirestore_StructuredQuery *structuredQuery;
@@ -5934,8 +6217,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_Value : GTLRObject
 
 /**
- *  An array value. Cannot directly contain another array value, though can
- *  contain a map which contains another array.
+ *  An array value. In Standard edition databases, an array value cannot
+ *  directly contain another array value, though it can contain a map which
+ *  contains another array. In Enterprise edition databases, an array value can
+ *  contain another array value.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *arrayValue;
 
@@ -5947,8 +6232,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *booleanValue;
 
 /**
- *  A bytes value. Must not exceed 1 MiB - 89 bytes. Only the first 1,500 bytes
- *  are considered by queries.
+ *  A bytes value. In Standard edition databases: * The value must not exceed 1
+ *  MiB - 89 bytes. * Only the first 1,500 bytes are considered by queries. In
+ *  Enterprise edition databases, there is no limit on the size of the value.
+ *  However, it is still subject to document and index entry size limits.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -6011,9 +6298,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *referenceValue;
 
 /**
- *  A string value. The string, represented as UTF-8, must not exceed 1 MiB - 89
- *  bytes. Only the first 1,500 bytes of the UTF-8 representation are considered
- *  by queries.
+ *  A string value. In Standard edition databases: * The string, represented as
+ *  UTF-8, must not exceed 1 MiB - 89 bytes. * Only the first 1,500 bytes of the
+ *  UTF-8 representation are considered by queries. In Enterprise edition
+ *  databases, there is no limit on the size of the value. However, it is still
+ *  subject to document and index entry size limits.
  */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
@@ -6092,6 +6381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /** Labels associated with this write request. */
 @property(nonatomic, strong, nullable) GTLRFirestore_WriteRequest_Labels *labels;
+
+/** Optional. The request options for the request. */
+@property(nonatomic, strong, nullable) GTLRFirestore_RequestOptions *requestOptions;
 
 /**
  *  The ID of the write stream to resume. This may only be set in the first

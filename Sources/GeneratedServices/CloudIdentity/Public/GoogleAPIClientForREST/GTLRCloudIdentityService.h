@@ -25,6 +25,20 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See and edit allowlisted domains in your Cloud Identity
+ *  Organization
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.allowlisteddomains"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomains;
+/**
+ *  Authorization scope: See allowlisted domains in your Cloud Identity
+ *  Organization
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.allowlisteddomains.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityAllowlisteddomainsReadonly;
+/**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/cloud-identity.devices
  *

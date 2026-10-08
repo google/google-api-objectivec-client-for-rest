@@ -4,7 +4,8 @@
 // API:
 //   Cloud Product Registry API (cloudproductregistry/v1)
 // Description:
-//   cloudproductregistry.googleapis.com API.
+//   Cloud Product Registry API provides capabilities to access all first Google
+//   Cloud products.
 // Documentation:
 //   https://docs.cloud.google.com/product-registry
 
@@ -24,7 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service for executing Cloud Product Registry API queries.
  *
- *  cloudproductregistry.googleapis.com API.
+ *  Cloud Product Registry API provides capabilities to access all first Google
+ *  Cloud products.
  */
 @interface GTLRCloudProductRegistryService : GTLRService
 

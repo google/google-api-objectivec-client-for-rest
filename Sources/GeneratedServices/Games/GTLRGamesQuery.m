@@ -360,6 +360,33 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @end
 
+@implementation GTLRGamesQuery_GameStatsBatchRecordEvents
+
+@dynamic playerId;
+
++ (instancetype)queryWithObject:(GTLRGames_BatchRecordEventsRequest *)object
+                       playerId:(NSString *)playerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"playerId" ];
+  NSString *pathURITemplate = @"games/v1/players/{playerId}/gameStats:batchRecordEvents";
+  GTLRGamesQuery_GameStatsBatchRecordEvents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.playerId = playerId;
+  query.expectedObjectClass = [GTLRGames_BatchRecordEventsResponse class];
+  query.loggingName = @"games.gameStats.batchRecordEvents";
+  return query;
+}
+
+@end
+
 @implementation GTLRGamesQuery_LeaderboardsGet
 
 @dynamic language, leaderboardId;

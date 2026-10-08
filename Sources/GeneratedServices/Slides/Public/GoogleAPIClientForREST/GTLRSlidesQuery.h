@@ -27,6 +27,39 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// commentsViewMode
+
+/**
+ *  The CommentsViewMode applied to the returned presentation depends on the
+ *  user's current access level. If the user only has view access,
+ *  COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *  COMMENTS_VIEW_MODE_INCLUDED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeDefaultForCurrentAccess;
+/**
+ *  The returned presentation has comments included. Requests to retrieve a
+ *  presentation using this mode will return a 403 error if the user does not
+ *  have permission to view comments.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeIncluded;
+/**
+ *  The returned presentation has comments omitted.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_OMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeOmitted;
+/**
+ *  The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // thumbnailPropertiesMimeType
 
 /**
@@ -191,6 +224,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeWi
  */
 @interface GTLRSlidesQuery_PresentationsGet : GTLRSlidesQuery
 
+/**
+ *  The comments view mode to apply to the presentation. This allows viewing the
+ *  presentation with comments omitted or included. If one is not specified,
+ *  COMMENTS_VIEW_MODE_OMITTED is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeUnspecified The
+ *        CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is
+ *        applied. (Value: "COMMENTS_VIEW_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeDefaultForCurrentAccess
+ *        The CommentsViewMode applied to the returned presentation depends on
+ *        the user's current access level. If the user only has view access,
+ *        COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *        COMMENTS_VIEW_MODE_INCLUDED is applied. (Value:
+ *        "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeOmitted The returned
+ *        presentation has comments omitted. (Value:
+ *        "COMMENTS_VIEW_MODE_OMITTED")
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeIncluded The returned
+ *        presentation has comments included. Requests to retrieve a
+ *        presentation using this mode will return a 403 error if the user does
+ *        not have permission to view comments. (Value:
+ *        "COMMENTS_VIEW_MODE_INCLUDED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentsViewMode;
+
 /** The ID of the presentation to retrieve. */
 @property(nonatomic, copy, nullable) NSString *presentationId;
 
@@ -220,6 +279,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeWi
  *    @c kGTLRAuthScopeSlidesPresentationsReadonly
  */
 @interface GTLRSlidesQuery_PresentationsPagesGet : GTLRSlidesQuery
+
+/**
+ *  The comments view mode to apply to the page. This allows viewing the page
+ *  with comments omitted or included. If one is not specified,
+ *  COMMENTS_VIEW_MODE_OMITTED is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeUnspecified The
+ *        CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is
+ *        applied. (Value: "COMMENTS_VIEW_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeDefaultForCurrentAccess
+ *        The CommentsViewMode applied to the returned presentation depends on
+ *        the user's current access level. If the user only has view access,
+ *        COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *        COMMENTS_VIEW_MODE_INCLUDED is applied. (Value:
+ *        "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeOmitted The returned
+ *        presentation has comments omitted. (Value:
+ *        "COMMENTS_VIEW_MODE_OMITTED")
+ *    @arg @c kGTLRSlidesCommentsViewModeCommentsViewModeIncluded The returned
+ *        presentation has comments included. Requests to retrieve a
+ *        presentation using this mode will return a 403 error if the user does
+ *        not have permission to view comments. (Value:
+ *        "COMMENTS_VIEW_MODE_INCLUDED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentsViewMode;
 
 /** The object ID of the page to retrieve. */
 @property(nonatomic, copy, nullable) NSString *pageObjectId;

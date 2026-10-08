@@ -4932,9 +4932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
- *  the scope of the request (project or organization): + Projects scope:
- *  `projects/{project_id}/locations/{location_id}` + Organizations scope:
- *  `organizations/{org_id}/locations/{location_id}`
+ *  the scope of the request (project): + Projects scope:
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4946,9 +4945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateContentPolicyRequest to
  *    include in the query.
  *  @param parent Required. Parent resource name. The format of this value
- *    varies depending on the scope of the request (project or organization): +
- *    Projects scope: `projects/{project_id}/locations/{location_id}` +
- *    Organizations scope: `organizations/{org_id}/locations/{location_id}`
+ *    varies depending on the scope of the request (project): + Projects scope:
+ *    `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentPoliciesCreate
  */
@@ -5038,8 +5036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Resource name of the organization or project, for example,
- *  `organizations/433245324/locations/europe` or
+ *  Required. Resource name of the project, for example,
  *  `projects/project-id/locations/asia`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -5049,8 +5046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Lists ContentPolicies in a parent.
  *
- *  @param parent Required. Resource name of the organization or project, for
- *    example, `organizations/433245324/locations/europe` or
+ *  @param parent Required. Resource name of the project, for example,
  *    `projects/project-id/locations/asia`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentPoliciesList

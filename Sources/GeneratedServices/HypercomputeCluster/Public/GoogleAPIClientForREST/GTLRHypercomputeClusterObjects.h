@@ -146,6 +146,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_NewBucketConfig_Stor
  */
 FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Nearline;
 /**
+ *  Storage class optimized for I/O intensive workloads.
+ *
+ *  Value: "RAPID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Rapid;
+/**
  *  Best for data that is frequently accessed.
  *
  *  Value: "STANDARD"
@@ -379,6 +385,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
  *  (lower-case, alphanumeric, and at most 63 characters).
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_Cluster_StorageResources *storageResources;
+
+/** Output only. The globally unique identifier for this Cluster. */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 /** Output only. Time that the cluster was most recently updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1162,6 +1171,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
  *    @arg @c kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Nearline
  *        Low-cost storage for data that is accessed less frequently. (Value:
  *        "NEARLINE")
+ *    @arg @c kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Rapid
+ *        Storage class optimized for I/O intensive workloads. (Value: "RAPID")
  *    @arg @c kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_Standard
  *        Best for data that is frequently accessed. (Value: "STANDARD")
  *    @arg @c kGTLRHypercomputeCluster_NewBucketConfig_StorageClass_StorageClassUnspecified

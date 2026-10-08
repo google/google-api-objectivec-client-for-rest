@@ -90,6 +90,29 @@
 
 @end
 
+@implementation GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentIdentity_Policy class];
+  query.loggingName = @"agentidentity.projects.locations.authProviders.authorizations.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -104,6 +127,60 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAgentIdentity_ListAuthorizationsResponse class];
   query.loggingName = @"agentidentity.projects.locations.authProviders.authorizations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAgentIdentity_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentIdentity_Policy class];
+  query.loggingName = @"agentidentity.projects.locations.authProviders.authorizations.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAgentIdentity_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAgentIdentityQuery_ProjectsLocationsAuthProvidersAuthorizationsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentIdentity_TestIamPermissionsResponse class];
+  query.loggingName = @"agentidentity.projects.locations.authProviders.authorizations.testIamPermissions";
   return query;
 }
 

@@ -786,6 +786,38 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
+ *  Records a batch of player game events for a specific player. This method
+ *  allows sending multiple events in a single request.
+ *
+ *  Method: games.gameStats.batchRecordEvents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGames
+ */
+@interface GTLRGamesQuery_GameStatsBatchRecordEvents : GTLRGamesQuery
+
+/** Required. The player ID of the player that performed the events. */
+@property(nonatomic, copy, nullable) NSString *playerId;
+
+/**
+ *  Fetches a @c GTLRGames_BatchRecordEventsResponse.
+ *
+ *  Records a batch of player game events for a specific player. This method
+ *  allows sending multiple events in a single request.
+ *
+ *  @param object The @c GTLRGames_BatchRecordEventsRequest to include in the
+ *    query.
+ *  @param playerId Required. The player ID of the player that performed the
+ *    events.
+ *
+ *  @return GTLRGamesQuery_GameStatsBatchRecordEvents
+ */
++ (instancetype)queryWithObject:(GTLRGames_BatchRecordEventsRequest *)object
+                       playerId:(NSString *)playerId;
+
+@end
+
+/**
  *  Retrieves the metadata of the leaderboard with the given ID.
  *
  *  Method: games.leaderboards.get

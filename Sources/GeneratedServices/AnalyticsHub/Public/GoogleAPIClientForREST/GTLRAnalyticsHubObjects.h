@@ -23,16 +23,19 @@
 @class GTLRAnalyticsHub_BigtableConfig;
 @class GTLRAnalyticsHub_Binding;
 @class GTLRAnalyticsHub_CloudStorageConfig;
+@class GTLRAnalyticsHub_ColumnFamilyMapping;
 @class GTLRAnalyticsHub_Compression;
 @class GTLRAnalyticsHub_DataExchange;
 @class GTLRAnalyticsHub_DataProvider;
 @class GTLRAnalyticsHub_DcrExchangeConfig;
 @class GTLRAnalyticsHub_DeadLetterPolicy;
 @class GTLRAnalyticsHub_DefaultExchangeConfig;
+@class GTLRAnalyticsHub_DelimitedKey;
 @class GTLRAnalyticsHub_DestinationDataset;
 @class GTLRAnalyticsHub_DestinationDataset_Labels;
 @class GTLRAnalyticsHub_DestinationDatasetReference;
 @class GTLRAnalyticsHub_DestinationPubSubSubscription;
+@class GTLRAnalyticsHub_EncryptionConfig;
 @class GTLRAnalyticsHub_ExpirationPolicy;
 @class GTLRAnalyticsHub_Expr;
 @class GTLRAnalyticsHub_GetPolicyOptions;
@@ -63,6 +66,7 @@
 @class GTLRAnalyticsHub_RestrictedExportPolicy;
 @class GTLRAnalyticsHub_RetryPolicy;
 @class GTLRAnalyticsHub_Routine;
+@class GTLRAnalyticsHub_RowKeySchema;
 @class GTLRAnalyticsHub_SelectedResource;
 @class GTLRAnalyticsHub_SharingEnvironmentConfig;
 @class GTLRAnalyticsHub_Status;
@@ -475,7 +479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  endpoints. The resource creator or updater that specifies this field must
  *  have `iam.serviceAccounts.actAs` permission on the service account. If not
  *  specified, the Pub/Sub [service
- *  agent]({$universe.dns_names.final_documentation_domain}/iam/docs/service-agents),
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
  *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
@@ -696,11 +700,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
- *  Configuration for a Bigtable subscription. The Pub/Sub message will be
- *  written to a Bigtable row as follows: - row key: subscription name, message
- *  ID hash, and message ID delimited by `#`. - columns: message bytes written
- *  to a single column family `data` with an empty-string column qualifier. -
- *  cell timestamp: the message publish timestamp.
+ *  Configuration for a Bigtable subscription, which will write a Pub/Sub
+ *  message to a Bigtable row. See the ColumnFamilyMapping documentation below
+ *  for details on how the row keys and columns will be written.
  */
 @interface GTLRAnalyticsHub_BigtableConfig : GTLRObject
 
@@ -712,11 +714,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, copy, nullable) NSString *appProfileId;
 
 /**
+ *  Optional. Configuration that allows writing row keys and/or columns based on
+ *  fields in the input message. The input message format must be JSON if this
+ *  field is set.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_ColumnFamilyMapping *columnFamilyMapping;
+
+/**
  *  Optional. The service account to use to write to Bigtable. The subscription
  *  creator or updater that specifies this field must have
  *  `iam.serviceAccounts.actAs` permission on the service account. If not
  *  specified, the Pub/Sub [service
- *  agent]({$universe.dns_names.final_documentation_domain}/iam/docs/service-agents),
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
  *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
@@ -909,6 +918,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  format.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_TextConfig *textConfig;
+
+@end
+
+
+/**
+ *  Configuration for writing a Pub/Sub message to a Bigtable row with a
+ *  user-defined key and writing to column families. If this field is set: - The
+ *  subscription messages must be formatted as JSON. - The row key mapping is
+ *  configured in the `key_definition` section. - The top-level fields will be
+ *  written either: - By default, they will be written to the `data` column
+ *  family with the field name as the column qualifier. - But if the field name
+ *  matches an existing column family (except for the default `data` column),
+ *  then that field will be written to that column family, either as a scalar or
+ *  its next level nested fields if it's a JSON object. - The cell timestamp
+ *  will be the message publish timestamp. If the field is not set, the default
+ *  behavior is to write: - row key: subscription name, message ID hash, and
+ *  message ID delimited by `#`. - columns: message bytes written to a single
+ *  column family `data` with an empty-string column qualifier. - cell
+ *  timestamp: the message publish timestamp.
+ */
+@interface GTLRAnalyticsHub_ColumnFamilyMapping : GTLRObject
+
+/**
+ *  Optional. If set, the row key is constructed from the given key fields and
+ *  delimiter. All key fields must be present in the message; otherwise, the
+ *  message remains in the subscription backlog.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_DelimitedKey *delimitedKey;
+
+/**
+ *  Optional. If set, the row key is constructed from the field names of the
+ *  table's [structured row
+ *  key](https://cloud.google.com/bigtable/docs/manage-row-key-schemas). Note
+ *  that if the field is nullable in the structured row key, then it need not be
+ *  present in the message; `null` will be used instead.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_RowKeySchema *rowKeySchema;
 
 @end
 
@@ -1128,6 +1174,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 
 /**
+ *  Row key definition based on fields from the message.
+ */
+@interface GTLRAnalyticsHub_DelimitedKey : GTLRObject
+
+/**
+ *  Optional. Byte sequence used to delimit concatenated fields. Must be
+ *  specified if multiple key fields are used. The delimiter must contain at
+ *  least 1 character and at most 50 characters.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *delimiter;
+
+/**
+ *  Optional. The key fields to construct from the row key. The fields must be
+ *  present in the message as a top-level field, i.e. JSON path expressions will
+ *  not traverse into nested objects.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keyFields;
+
+@end
+
+
+/**
  *  Defines the destination bigquery dataset.
  */
 @interface GTLRAnalyticsHub_DestinationDataset : GTLRObject
@@ -1222,6 +1293,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRAnalyticsHub_Empty : GTLRObject
+@end
+
+
+/**
+ *  Encryption configuration for the query template.
+ */
+@interface GTLRAnalyticsHub_EncryptionConfig : GTLRObject
+
+/**
+ *  Optional. The KMS key used to encrypt the query template. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 @end
 
 
@@ -1570,9 +1655,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing" See
- *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
- *  for more information on using tags with Pub/Sub resources.
+ *  "marketing" See [Create and manage
+ *  tags](https://cloud.google.com/pubsub/docs/tags) for more information on
+ *  using tags with Pub/Sub resources.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_GooglePubsubV1Subscription_Tags *tags;
 
@@ -1595,9 +1680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing" See
- *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
- *  for more information on using tags with Pub/Sub resources.
+ *  "marketing" See [Create and manage
+ *  tags](https://cloud.google.com/pubsub/docs/tags) for more information on
+ *  using tags with Pub/Sub resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2405,6 +2490,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, copy, nullable) NSString *documentation;
 
 /**
+ *  Optional. Encryption configuration for the query template. If set, the
+ *  customer-managed KMS key is used to encrypt the query template definition
+ *  body.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_EncryptionConfig *encryptionConfiguration;
+
+/**
  *  Output only. The resource name of the QueryTemplate. e.g.
  *  `projects/myproject/locations/us/dataExchanges/123/queryTemplates/456`
  */
@@ -2644,6 +2736,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @property(nonatomic, copy, nullable) NSString *routineType;
 
+@end
+
+
+/**
+ *  Row key definition that reads the input message fields based on the field
+ *  names of the table's [structured row
+ *  key](https://cloud.google.com/bigtable/docs/manage-row-key-schemas). Note
+ *  that if the field is nullable in the structured row key, then it need not be
+ *  present in the message; `null` will be used instead.
+ */
+@interface GTLRAnalyticsHub_RowKeySchema : GTLRObject
 @end
 
 

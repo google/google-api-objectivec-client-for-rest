@@ -130,6 +130,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarFreebusy;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarReadonly;
 /**
+ *  Authorization scope: View and edit your Calendar settings
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.settings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarSettings;
+/**
  *  Authorization scope: View your Calendar settings
  *
  *  Value "https://www.googleapis.com/auth/calendar.settings.readonly"

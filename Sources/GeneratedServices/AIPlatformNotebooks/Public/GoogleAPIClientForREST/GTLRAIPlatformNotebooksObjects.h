@@ -29,6 +29,7 @@
 @class GTLRAIPlatformNotebooks_Expr;
 @class GTLRAIPlatformNotebooks_GceSetup;
 @class GTLRAIPlatformNotebooks_GceSetup_Metadata;
+@class GTLRAIPlatformNotebooks_GceSetup_SystemMetadata;
 @class GTLRAIPlatformNotebooks_GPUDriverConfig;
 @class GTLRAIPlatformNotebooks_ImageRelease;
 @class GTLRAIPlatformNotebooks_Instance;
@@ -1370,6 +1371,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
+ *  Output only. Represents system-managed metadata for this instance: the
+ *  subset of `metadata` whose keys are recognized Workbench system keys.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_GceSetup_SystemMetadata *systemMetadata;
+
+/**
  *  Optional. The Compute Engine network tags to add to runtime (see [Add
  *  network tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
  */
@@ -1390,6 +1397,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        fetch them all at once.
  */
 @interface GTLRAIPlatformNotebooks_GceSetup_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Output only. Represents system-managed metadata for this instance: the
+ *  subset of `metadata` whose keys are recognized Workbench system keys.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_GceSetup_SystemMetadata : GTLRObject
 @end
 
 
@@ -2495,6 +2515,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  this family will be used.
  */
 @property(nonatomic, copy, nullable) NSString *family;
+
+/**
+ *  Output only. A human-readable description of the image running on the
+ *  instance (for example, "Debian 11, Python 3.10"), derived at read time from
+ *  the image release configuration (the source of truth). Set to "Custom" for
+ *  unrecognized boot-disk images.
+ */
+@property(nonatomic, copy, nullable) NSString *imageDescription;
 
 /** Optional. Use VM image name to find the image. */
 @property(nonatomic, copy, nullable) NSString *name;

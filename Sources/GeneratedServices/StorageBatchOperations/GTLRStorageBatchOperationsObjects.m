@@ -70,6 +70,11 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_HoldSta
 NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Set = @"SET";
 NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset = @"UNSET";
 
+// GTLRStorageBatchOperations_ReconciliationOperationMetadata.exclusiveAction
+NSString * const kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
+NSString * const kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
+NSString * const kGTLRStorageBatchOperations_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
 // GTLRStorageBatchOperations_RewriteObject.storageClass
 NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_Archive = @"ARCHIVE";
 NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_Coldline = @"COLDLINE";
@@ -611,6 +616,16 @@ NSString * const kGTLRStorageBatchOperations_RewriteObject_StorageClass_StorageC
 
 @implementation GTLRStorageBatchOperations_PutObjectHold
 @dynamic eventBasedHold, temporaryHold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_ReconciliationOperationMetadata
+//
+
+@implementation GTLRStorageBatchOperations_ReconciliationOperationMetadata
+@dynamic deleteResource, exclusiveAction;
 @end
 
 

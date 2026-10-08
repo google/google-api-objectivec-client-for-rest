@@ -149,6 +149,11 @@ NSString * const kGTLRServiceNetworking_Publishing_Organization_Photos = @"PHOTO
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_StreetView = @"STREET_VIEW";
 
+// GTLRServiceNetworking_QuotaLimit.trafficSource
+NSString * const kGTLRServiceNetworking_QuotaLimit_TrafficSource_TrafficSourceAgentic = @"TRAFFIC_SOURCE_AGENTIC";
+NSString * const kGTLRServiceNetworking_QuotaLimit_TrafficSource_TrafficSourceNonagentic = @"TRAFFIC_SOURCE_NONAGENTIC";
+NSString * const kGTLRServiceNetworking_QuotaLimit_TrafficSource_TrafficSourceUnspecified = @"TRAFFIC_SOURCE_UNSPECIFIED";
+
 // GTLRServiceNetworking_Type.syntax
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -1520,7 +1525,21 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_MetricRule
-@dynamic metricCosts, selector;
+@dynamic agenticMetricCosts, metricCosts, nonagenticMetricCosts, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_MetricRule_AgenticMetricCosts
+//
+
+@implementation GTLRServiceNetworking_MetricRule_AgenticMetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -1530,6 +1549,20 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_MetricRule_MetricCosts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_MetricRule_NonagenticMetricCosts
+//
+
+@implementation GTLRServiceNetworking_MetricRule_NonagenticMetricCosts
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
@@ -1814,7 +1847,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_QuotaLimit
 @dynamic defaultLimit, descriptionProperty, displayName, duration, freeTier,
-         maxLimit, metric, name, unit, values;
+         maxLimit, metric, name, trafficSource, unit, values;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

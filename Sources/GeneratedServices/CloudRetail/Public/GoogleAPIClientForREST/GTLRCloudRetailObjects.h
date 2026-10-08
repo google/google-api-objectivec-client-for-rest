@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Vertex AI Search for commerce API (retail/v2)
+//   AI Commerce Search API (retail/v2)
 // Description:
-//   Vertex AI Search for commerce API is made up of Retail Search, Browse and
+//   The AI Commerce Search API is made up of Retail Search, Browse and
 //   Recommendations. These discovery AI solutions help you implement
 //   personalized search, browse and recommendations, based on machine learning
 //   models, across your websites and mobile applications.

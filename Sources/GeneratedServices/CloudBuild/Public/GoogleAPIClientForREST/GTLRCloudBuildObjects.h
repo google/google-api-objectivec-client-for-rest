@@ -33,6 +33,8 @@
 @class GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition;
 @class GTLRCloudBuild_GoogleDevtoolsCloudbuildV2GitHubEnterpriseConfig;
 @class GTLRCloudBuild_GoogleDevtoolsCloudbuildV2GitLabConfig;
+@class GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_Annotations;
+@class GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_GcbParams;
 @class GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig;
 @class GTLRCloudBuild_HttpBody_Extensions_Item;
 @class GTLRCloudBuild_InstallationState;
@@ -48,8 +50,6 @@
 @class GTLRCloudBuild_ParamValue_ObjectVal;
 @class GTLRCloudBuild_PipelineRef;
 @class GTLRCloudBuild_PipelineResult;
-@class GTLRCloudBuild_PipelineRun_Annotations;
-@class GTLRCloudBuild_PipelineRun_GcbParams;
 @class GTLRCloudBuild_PipelineRunResult;
 @class GTLRCloudBuild_PipelineSpec;
 @class GTLRCloudBuild_PipelineTask;
@@ -183,6 +183,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Con
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Status_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun.pipelineRunStatus
+
+/**
+ *  Cancelled status.
+ *
+ *  Value: "PIPELINE_RUN_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_PipelineRunStatus_PipelineRunCancelled;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "PIPELINE_RUN_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_InstallationState.stage
@@ -342,22 +358,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_String;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_TypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudBuild_PipelineRun.pipelineRunStatus
-
-/**
- *  Cancelled status.
- *
- *  Value: "PIPELINE_RUN_CANCELLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunCancelled;
-/**
- *  Default enum type; should not be used.
- *
- *  Value: "PIPELINE_RUN_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_PropertySpec.type
@@ -1496,6 +1496,170 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  Message describing PipelineRun object
+ */
+@interface GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun : GTLRObject
+
+/** User annotations. See https://google.aip.dev/128#annotations */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_Annotations *annotations;
+
+/**
+ *  Output only. List of TaskRun and Run names and PipelineTask names for
+ *  children of this PipelineRun.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_ChildStatusReference *> *childReferences;
+
+/** Output only. Time the pipeline completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/**
+ *  Output only. Kubernetes Conditions convention for PipelineRun status and
+ *  error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition *> *conditions;
+
+/**
+ *  Output only. Time at which the request to create the `PipelineRun` was
+ *  received.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Needed for declarative-friendly resources. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. FinallyStartTime is when all non-finally tasks have been
+ *  completed and only finally tasks are being executed. +optional
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *finallyStartTime;
+
+/** Output only. GCB default params. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_GcbParams *gcbParams;
+
+/**
+ *  Output only. The `PipelineRun` name with format
+ *  `projects/{project}/locations/{location}/pipelineRuns/{pipeline_run}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Params is a list of parameter names and values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Param *> *params;
+
+/** PipelineRef refer to a specific instance of a Pipeline. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineRef *pipelineRef;
+
+/**
+ *  Pipelinerun status the user can provide. Used for cancellation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_PipelineRunStatus_PipelineRunCancelled
+ *        Cancelled status. (Value: "PIPELINE_RUN_CANCELLED")
+ *    @arg @c kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified
+ *        Default enum type; should not be used. (Value:
+ *        "PIPELINE_RUN_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *pipelineRunStatus;
+
+/** PipelineSpec defines the desired state of Pipeline. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *pipelineSpec;
+
+/**
+ *  Output only. Inline pipelineSpec yaml string, used by workflow run requests.
+ */
+@property(nonatomic, copy, nullable) NSString *pipelineSpecYaml;
+
+/** Optional. Provenance configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Provenance *provenance;
+
+/**
+ *  Output only. The `Record` of this `PipelineRun`. Format:
+ *  `projects/{project}/locations/{location}/results/{result_id}/records/{record_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *record;
+
+/** Output only. The exact PipelineSpec used to instantiate the run. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *resolvedPipelineSpec;
+
+/**
+ *  Optional. Output only. List of results written out by the pipeline's
+ *  containers
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineRunResult *> *results;
+
+/** Optional. Security configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Security *security;
+
+/**
+ *  Service account used in the Pipeline. Deprecated; please use
+ *  security.service_account instead.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
+
+/**
+ *  Output only. List of tasks that were skipped due to when expressions
+ *  evaluating to false.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_SkippedTask *> *skippedTasks;
+
+/** Output only. Time the pipeline is actually started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Time after which the Pipeline times out. Currently three keys are accepted
+ *  in the map pipeline, tasks and finally with Timeouts.pipeline >=
+ *  Timeouts.tasks + Timeouts.finally
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeoutFields *timeouts;
+
+/** Output only. A unique identifier for the `PipelineRun`. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. Time at which the request to update the `PipelineRun` was
+ *  received.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Optional. Worker configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Worker *worker;
+
+/** Output only. The WorkerPool used to run this PipelineRun. */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
+/** Output only. The Workflow used to create this PipelineRun. */
+@property(nonatomic, copy, nullable) NSString *workflow;
+
+/** Workspaces is a list of WorkspaceBindings from volumes to workspaces. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_WorkspaceBinding *> *workspaces;
+
+@end
+
+
+/**
+ *  User annotations. See https://google.aip.dev/128#annotations
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Output only. GCB default params.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_GcbParams : GTLRObject
+@end
+
+
+/**
  *  ServiceDirectoryConfig represents Service Directory configuration for a
  *  connection.
  */
@@ -2052,170 +2216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Output only. Value of the result. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_ResultValue *value;
 
-@end
-
-
-/**
- *  Message describing PipelineRun object
- */
-@interface GTLRCloudBuild_PipelineRun : GTLRObject
-
-/** User annotations. See https://google.aip.dev/128#annotations */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineRun_Annotations *annotations;
-
-/**
- *  Output only. List of TaskRun and Run names and PipelineTask names for
- *  children of this PipelineRun.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_ChildStatusReference *> *childReferences;
-
-/** Output only. Time the pipeline completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
-
-/**
- *  Output only. Kubernetes Conditions convention for PipelineRun status and
- *  error.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition *> *conditions;
-
-/**
- *  Output only. Time at which the request to create the `PipelineRun` was
- *  received.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Needed for declarative-friendly resources. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Output only. FinallyStartTime is when all non-finally tasks have been
- *  completed and only finally tasks are being executed. +optional
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *finallyStartTime;
-
-/** Output only. GCB default params. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineRun_GcbParams *gcbParams;
-
-/**
- *  Output only. The `PipelineRun` name with format
- *  `projects/{project}/locations/{location}/pipelineRuns/{pipeline_run}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Params is a list of parameter names and values. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Param *> *params;
-
-/** PipelineRef refer to a specific instance of a Pipeline. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineRef *pipelineRef;
-
-/**
- *  Pipelinerun status the user can provide. Used for cancellation.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunCancelled
- *        Cancelled status. (Value: "PIPELINE_RUN_CANCELLED")
- *    @arg @c kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified
- *        Default enum type; should not be used. (Value:
- *        "PIPELINE_RUN_STATUS_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *pipelineRunStatus;
-
-/** PipelineSpec defines the desired state of Pipeline. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *pipelineSpec;
-
-/**
- *  Output only. Inline pipelineSpec yaml string, used by workflow run requests.
- */
-@property(nonatomic, copy, nullable) NSString *pipelineSpecYaml;
-
-/** Optional. Provenance configuration. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Provenance *provenance;
-
-/**
- *  Output only. The `Record` of this `PipelineRun`. Format:
- *  `projects/{project}/locations/{location}/results/{result_id}/records/{record_id}`
- */
-@property(nonatomic, copy, nullable) NSString *record;
-
-/** Output only. The exact PipelineSpec used to instantiate the run. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *resolvedPipelineSpec;
-
-/**
- *  Optional. Output only. List of results written out by the pipeline's
- *  containers
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineRunResult *> *results;
-
-/** Optional. Security configuration. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Security *security;
-
-/**
- *  Service account used in the Pipeline. Deprecated; please use
- *  security.service_account instead.
- */
-@property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
-
-/**
- *  Output only. List of tasks that were skipped due to when expressions
- *  evaluating to false.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_SkippedTask *> *skippedTasks;
-
-/** Output only. Time the pipeline is actually started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  Time after which the Pipeline times out. Currently three keys are accepted
- *  in the map pipeline, tasks and finally with Timeouts.pipeline >=
- *  Timeouts.tasks + Timeouts.finally
- */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_TimeoutFields *timeouts;
-
-/** Output only. A unique identifier for the `PipelineRun`. */
-@property(nonatomic, copy, nullable) NSString *uid;
-
-/**
- *  Output only. Time at which the request to update the `PipelineRun` was
- *  received.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/** Optional. Worker configuration. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Worker *worker;
-
-/** Output only. The WorkerPool used to run this PipelineRun. */
-@property(nonatomic, copy, nullable) NSString *workerPool;
-
-/** Output only. The Workflow used to create this PipelineRun. */
-@property(nonatomic, copy, nullable) NSString *workflow;
-
-/** Workspaces is a list of WorkspaceBindings from volumes to workspaces. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_WorkspaceBinding *> *workspaces;
-
-@end
-
-
-/**
- *  User annotations. See https://google.aip.dev/128#annotations
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudBuild_PipelineRun_Annotations : GTLRObject
-@end
-
-
-/**
- *  Output only. GCB default params.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudBuild_PipelineRun_GcbParams : GTLRObject
 @end
 
 

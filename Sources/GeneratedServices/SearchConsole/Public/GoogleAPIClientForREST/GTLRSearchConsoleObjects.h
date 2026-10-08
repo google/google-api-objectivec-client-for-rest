@@ -1243,17 +1243,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
 
 
 /**
- *  A set of dimension value filters to test against each row. Only rows that
+ *  A set of `dimension` value filters to test against each row. Only rows that
  *  pass all filter groups will be returned. All results within a filter group
  *  are either AND'ed or OR'ed together, depending on the group type selected.
  *  All filter groups are AND'ed together.
  */
 @interface GTLRSearchConsole_ApiDimensionFilterGroup : GTLRObject
 
+/** Optional. A list of single-value filters in this group. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSearchConsole_ApiDimensionFilter *> *filters;
 
 /**
- *  groupType
+ *  Optional. The logic operator between filters of the same group.
  *
  *  Likely values:
  *    @arg @c kGTLRSearchConsole_ApiDimensionFilterGroup_GroupType_And Value

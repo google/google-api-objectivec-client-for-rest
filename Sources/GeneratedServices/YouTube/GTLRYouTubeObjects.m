@@ -20,8 +20,6 @@ NSString * const kGTLRYouTube_ActivityContentDetailsPromotedItem_CtaType_VisitAd
 
 // GTLRYouTube_ActivityContentDetailsRecommendation.reason
 NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_ReasonUnspecified = @"reasonUnspecified";
-NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoFavorited = @"videoFavorited";
-NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoLiked = @"videoLiked";
 NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoWatched = @"videoWatched";
 
 // GTLRYouTube_ActivityContentDetailsSocial.type
@@ -34,8 +32,6 @@ NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified = @"
 NSString * const kGTLRYouTube_ActivitySnippet_Type_Bulletin    = @"bulletin";
 NSString * const kGTLRYouTube_ActivitySnippet_Type_ChannelItem = @"channelItem";
 NSString * const kGTLRYouTube_ActivitySnippet_Type_Comment     = @"comment";
-NSString * const kGTLRYouTube_ActivitySnippet_Type_Favorite    = @"favorite";
-NSString * const kGTLRYouTube_ActivitySnippet_Type_Like        = @"like";
 NSString * const kGTLRYouTube_ActivitySnippet_Type_PlaylistItem = @"playlistItem";
 NSString * const kGTLRYouTube_ActivitySnippet_Type_PromotedItem = @"promotedItem";
 NSString * const kGTLRYouTube_ActivitySnippet_Type_Recommendation = @"recommendation";
@@ -1301,8 +1297,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ActivityContentDetails
-@dynamic bulletin, channelItem, comment, favorite, like, playlistItem,
-         promotedItem, recommendation, social, subscription, upload;
+@dynamic bulletin, channelItem, comment, playlistItem, promotedItem,
+         recommendation, social, subscription, upload;
 @end
 
 
@@ -1332,26 +1328,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ActivityContentDetailsComment
-@dynamic resourceId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_ActivityContentDetailsFavorite
-//
-
-@implementation GTLRYouTube_ActivityContentDetailsFavorite
-@dynamic resourceId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_ActivityContentDetailsLike
-//
-
-@implementation GTLRYouTube_ActivityContentDetailsLike
 @dynamic resourceId;
 @end
 
@@ -1463,6 +1439,62 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_AvailabilityConfig
+//
+
+@implementation GTLRYouTube_AvailabilityConfig
+@dynamic globalConfig, regionsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_AvailabilityConfigGlobalConfig
+//
+
+@implementation GTLRYouTube_AvailabilityConfigGlobalConfig
+@dynamic excludedRegionCodes, interval;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedRegionCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_AvailabilityConfigRegionsConfig
+//
+
+@implementation GTLRYouTube_AvailabilityConfigRegionsConfig
+@dynamic regionIntervals;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionIntervals" : [GTLRYouTube_AvailabilityConfigRegionsConfigRegionInterval class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_AvailabilityConfigRegionsConfigRegionInterval
+//
+
+@implementation GTLRYouTube_AvailabilityConfigRegionsConfigRegionInterval
+@dynamic interval, regionCode;
 @end
 
 
@@ -2033,9 +2065,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_CommentSnippet
 @dynamic authorChannelId, authorChannelUrl, authorDisplayName,
-         authorProfileImageUrl, canRate, channelId, likeCount, moderationStatus,
-         parentId, postId, publishedAt, textDisplay, textOriginal, updatedAt,
-         videoId, viewerRating;
+         authorProfileImageUrl, canRate, channelId, imageUrl, likeCount,
+         moderationStatus, parentId, publishedAt, textDisplay, textOriginal,
+         updatedAt, videoId, viewerRating;
 @end
 
 
@@ -2115,8 +2147,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_CommentThreadSnippet
-@dynamic canReply, channelId, isPublic, postId, topLevelComment,
-         totalReplyCount, videoId;
+@dynamic canReply, channelId, isPublic, topLevelComment, totalReplyCount,
+         videoId;
 @end
 
 
@@ -2341,6 +2373,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_Interval
+//
+
+@implementation GTLRYouTube_Interval
+@dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_InvideoBranding
 //
 
@@ -2415,11 +2457,11 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveBroadcastContentDetails
-@dynamic boundStreamId, boundStreamLastUpdateTimeMs, closedCaptionsType,
-         enableAutoStart, enableAutoStop, enableClosedCaptions,
-         enableContentEncryption, enableDvr, enableEmbed, enableLowLatency,
-         latencyPreference, mesh, monitorStream, projection, recordFromStart,
-         startWithSlate, stereoLayout;
+@dynamic availabilityConfig, boundStreamId, boundStreamLastUpdateTimeMs,
+         closedCaptionsType, enableAutoStart, enableAutoStop,
+         enableClosedCaptions, enableContentEncryption, enableDvr, enableEmbed,
+         enableLowLatency, latencyPreference, mesh, monitorStream, projection,
+         recordFromStart, startWithSlate, stereoLayout;
 @end
 
 
@@ -2462,9 +2504,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveBroadcastSnippet
-@dynamic actualEndTime, actualStartTime, channelId, descriptionProperty,
-         isDefaultBroadcast, liveChatId, publishedAt, scheduledEndTime,
-         scheduledStartTime, thumbnails, title;
+@dynamic actualEndTime, actualStartTime, categoryId, channelId,
+         descriptionProperty, isDefaultBroadcast, liveChatId, publishedAt,
+         scheduledEndTime, scheduledStartTime, thumbnails, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3695,7 +3737,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ThumbnailDetails
-@dynamic defaultProperty, high, maxres, medium, standard;
+@dynamic defaultProperty, fhd, high, maxres, medium, qhd, standard, uhd;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"defaultProperty" : @"default" };

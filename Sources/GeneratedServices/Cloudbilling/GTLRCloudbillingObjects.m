@@ -36,6 +36,194 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_MultiRegional = @"MULTI_REGI
 NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_Regional   = @"REGIONAL";
 NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudbilling_Message.role
+NSString * const kGTLRCloudbilling_Message_Role_RoleAgent      = @"ROLE_AGENT";
+NSString * const kGTLRCloudbilling_Message_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+NSString * const kGTLRCloudbilling_Message_Role_RoleUser       = @"ROLE_USER";
+
+// GTLRCloudbilling_TaskStatus.state
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateAuthRequired = @"TASK_STATE_AUTH_REQUIRED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateCancelled = @"TASK_STATE_CANCELLED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateCompleted = @"TASK_STATE_COMPLETED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateFailed = @"TASK_STATE_FAILED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateInputRequired = @"TASK_STATE_INPUT_REQUIRED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateRejected = @"TASK_STATE_REJECTED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateSubmitted = @"TASK_STATE_SUBMITTED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateUnspecified = @"TASK_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudbilling_TaskStatus_State_TaskStateWorking = @"TASK_STATE_WORKING";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentCapabilities
+//
+
+@implementation GTLRCloudbilling_AgentCapabilities
+@dynamic extensions, pushNotifications, streaming;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRCloudbilling_AgentExtension class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentCard
+//
+
+@implementation GTLRCloudbilling_AgentCard
+@dynamic additionalInterfaces, capabilities, defaultInputModes,
+         defaultOutputModes, descriptionProperty, documentationUrl, iconUrl,
+         name, preferredTransport, protocolVersion, provider, security,
+         securitySchemes, signatures, skills, supportsAuthenticatedExtendedCard,
+         url, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalInterfaces" : [GTLRCloudbilling_AgentInterface class],
+    @"defaultInputModes" : [NSString class],
+    @"defaultOutputModes" : [NSString class],
+    @"security" : [GTLRCloudbilling_Security class],
+    @"signatures" : [GTLRCloudbilling_AgentCardSignature class],
+    @"skills" : [GTLRCloudbilling_AgentSkill class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentCard_SecuritySchemes
+//
+
+@implementation GTLRCloudbilling_AgentCard_SecuritySchemes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudbilling_SecurityScheme class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentCardSignature
+//
+
+@implementation GTLRCloudbilling_AgentCardSignature
+@dynamic header, protectedProperty, signature;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"protectedProperty" : @"protected" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentCardSignature_Header
+//
+
+@implementation GTLRCloudbilling_AgentCardSignature_Header
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentExtension
+//
+
+@implementation GTLRCloudbilling_AgentExtension
+@dynamic descriptionProperty, params, required, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentExtension_Params
+//
+
+@implementation GTLRCloudbilling_AgentExtension_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentInterface
+//
+
+@implementation GTLRCloudbilling_AgentInterface
+@dynamic tenant, transport, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentProvider
+//
+
+@implementation GTLRCloudbilling_AgentProvider
+@dynamic organization, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AgentSkill
+//
+
+@implementation GTLRCloudbilling_AgentSkill
+@dynamic descriptionProperty, examples, identifier, inputModes, name,
+         outputModes, security, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"examples" : [NSString class],
+    @"inputModes" : [NSString class],
+    @"outputModes" : [NSString class],
+    @"security" : [GTLRCloudbilling_Security class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudbilling_AggregationInfo
@@ -43,6 +231,58 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 @implementation GTLRCloudbilling_AggregationInfo
 @dynamic aggregationCount, aggregationInterval, aggregationLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_APIKeySecurityScheme
+//
+
+@implementation GTLRCloudbilling_APIKeySecurityScheme
+@dynamic descriptionProperty, location, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Artifact
+//
+
+@implementation GTLRCloudbilling_Artifact
+@dynamic artifactId, descriptionProperty, extensions, metadata, name, parts;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [NSString class],
+    @"parts" : [GTLRCloudbilling_Part class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Artifact_Metadata
+//
+
+@implementation GTLRCloudbilling_Artifact_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -84,6 +324,48 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_AuthenticationInfo
+//
+
+@implementation GTLRCloudbilling_AuthenticationInfo
+@dynamic credentials, schemes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AuthorizationCodeOAuthFlow
+//
+
+@implementation GTLRCloudbilling_AuthorizationCodeOAuthFlow
+@dynamic authorizationUrl, refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_AuthorizationCodeOAuthFlow_Scopes
+//
+
+@implementation GTLRCloudbilling_AuthorizationCodeOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_BillingAccount
 //
 
@@ -112,11 +394,78 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_CancelTaskRequest
+//
+
+@implementation GTLRCloudbilling_CancelTaskRequest
+@dynamic tenant;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_Category
 //
 
 @implementation GTLRCloudbilling_Category
 @dynamic resourceFamily, resourceGroup, serviceDisplayName, usageType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_ClientCredentialsOAuthFlow
+//
+
+@implementation GTLRCloudbilling_ClientCredentialsOAuthFlow
+@dynamic refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_ClientCredentialsOAuthFlow_Scopes
+//
+
+@implementation GTLRCloudbilling_ClientCredentialsOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_DataPart
+//
+
+@implementation GTLRCloudbilling_DataPart
+@dynamic data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_DataPart_Data
+//
+
+@implementation GTLRCloudbilling_DataPart_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Empty
+//
+
+@implementation GTLRCloudbilling_Empty
 @end
 
 
@@ -137,6 +486,16 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_FilePart
+//
+
+@implementation GTLRCloudbilling_FilePart
+@dynamic fileWithBytes, fileWithUri, mimeType, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_GeoTaxonomy
 //
 
@@ -148,6 +507,45 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
     @"regions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_HTTPAuthSecurityScheme
+//
+
+@implementation GTLRCloudbilling_HTTPAuthSecurityScheme
+@dynamic bearerFormat, descriptionProperty, scheme;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_ImplicitOAuthFlow
+//
+
+@implementation GTLRCloudbilling_ImplicitOAuthFlow
+@dynamic authorizationUrl, refreshUrl, scopes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_ImplicitOAuthFlow_Scopes
+//
+
+@implementation GTLRCloudbilling_ImplicitOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -243,6 +641,61 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_ListTaskPushNotificationConfigResponse
+//
+
+@implementation GTLRCloudbilling_ListTaskPushNotificationConfigResponse
+@dynamic configs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRCloudbilling_TaskPushNotificationConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"configs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Message
+//
+
+@implementation GTLRCloudbilling_Message
+@dynamic content, contextId, extensions, messageId, metadata, role, taskId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"content" : [GTLRCloudbilling_Part class],
+    @"extensions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Message_Metadata
+//
+
+@implementation GTLRCloudbilling_Message_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_Money
 //
 
@@ -258,6 +711,109 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 @implementation GTLRCloudbilling_MoveBillingAccountRequest
 @dynamic destinationParent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_MutualTlsSecurityScheme
+//
+
+@implementation GTLRCloudbilling_MutualTlsSecurityScheme
+@dynamic descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_OAuth2SecurityScheme
+//
+
+@implementation GTLRCloudbilling_OAuth2SecurityScheme
+@dynamic descriptionProperty, flows, oauth2MetadataUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_OAuthFlows
+//
+
+@implementation GTLRCloudbilling_OAuthFlows
+@dynamic authorizationCode, clientCredentials, implicit, password;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_OpenIdConnectSecurityScheme
+//
+
+@implementation GTLRCloudbilling_OpenIdConnectSecurityScheme
+@dynamic descriptionProperty, openIdConnectUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Part
+//
+
+@implementation GTLRCloudbilling_Part
+@dynamic data, file, metadata, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Part_Metadata
+//
+
+@implementation GTLRCloudbilling_Part_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_PasswordOAuthFlow
+//
+
+@implementation GTLRCloudbilling_PasswordOAuthFlow
+@dynamic refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_PasswordOAuthFlow_Scopes
+//
+
+@implementation GTLRCloudbilling_PasswordOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -326,6 +882,108 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudbilling_PushNotificationConfig
+//
+
+@implementation GTLRCloudbilling_PushNotificationConfig
+@dynamic authentication, identifier, token, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Security
+//
+
+@implementation GTLRCloudbilling_Security
+@dynamic schemes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Security_Schemes
+//
+
+@implementation GTLRCloudbilling_Security_Schemes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudbilling_StringList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_SecurityScheme
+//
+
+@implementation GTLRCloudbilling_SecurityScheme
+@dynamic apiKeySecurityScheme, httpAuthSecurityScheme, mtlsSecurityScheme,
+         oauth2SecurityScheme, openIdConnectSecurityScheme;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_SendMessageConfiguration
+//
+
+@implementation GTLRCloudbilling_SendMessageConfiguration
+@dynamic acceptedOutputModes, blocking, historyLength, pushNotification;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceptedOutputModes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_SendMessageRequest
+//
+
+@implementation GTLRCloudbilling_SendMessageRequest
+@dynamic configuration, message, metadata, tenant;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_SendMessageRequest_Metadata
+//
+
+@implementation GTLRCloudbilling_SendMessageRequest_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_SendMessageResponse
+//
+
+@implementation GTLRCloudbilling_SendMessageResponse
+@dynamic message, task;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudbilling_Service
 //
 
@@ -363,6 +1021,139 @@ NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNS
     @"serviceRegions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_StreamResponse
+//
+
+@implementation GTLRCloudbilling_StreamResponse
+@dynamic artifactUpdate, message, statusUpdate, task;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_StringList
+//
+
+@implementation GTLRCloudbilling_StringList
+@dynamic list;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"list" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Task
+//
+
+@implementation GTLRCloudbilling_Task
+@dynamic artifacts, contextId, history, identifier, metadata, status;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"artifacts" : [GTLRCloudbilling_Artifact class],
+    @"history" : [GTLRCloudbilling_Message class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_Task_Metadata
+//
+
+@implementation GTLRCloudbilling_Task_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TaskArtifactUpdateEvent
+//
+
+@implementation GTLRCloudbilling_TaskArtifactUpdateEvent
+@dynamic append, artifact, contextId, lastChunk, metadata, taskId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TaskArtifactUpdateEvent_Metadata
+//
+
+@implementation GTLRCloudbilling_TaskArtifactUpdateEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TaskPushNotificationConfig
+//
+
+@implementation GTLRCloudbilling_TaskPushNotificationConfig
+@dynamic name, pushNotificationConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TaskStatus
+//
+
+@implementation GTLRCloudbilling_TaskStatus
+@dynamic message, state, timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TaskStatusUpdateEvent
+//
+
+@implementation GTLRCloudbilling_TaskStatusUpdateEvent
+@dynamic contextId, final, metadata, status, taskId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_TaskStatusUpdateEvent_Metadata
+//
+
+@implementation GTLRCloudbilling_TaskStatusUpdateEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

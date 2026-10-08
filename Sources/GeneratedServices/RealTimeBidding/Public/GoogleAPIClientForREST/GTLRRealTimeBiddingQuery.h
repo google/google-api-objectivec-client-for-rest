@@ -1043,6 +1043,38 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Adds a list of deals to a creative, which submits the creative for publisher
+ *  review. Returns the updated creative.
+ *
+ *  Method: realtimebidding.buyers.creatives.addDeals
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BuyersCreativesAddDeals : GTLRRealTimeBiddingQuery
+
+/** Required. Name of the creative to add the deals to. See creative.name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Creative.
+ *
+ *  Adds a list of deals to a creative, which submits the creative for publisher
+ *  review. Returns the updated creative.
+ *
+ *  @param object The @c GTLRRealTimeBidding_AddDealsRequest to include in the
+ *    query.
+ *  @param name Required. Name of the creative to add the deals to. See
+ *    creative.name.
+ *
+ *  @return GTLRRealTimeBiddingQuery_BuyersCreativesAddDeals
+ */
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_AddDealsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a creative.
  *
  *  Method: realtimebidding.buyers.creatives.create

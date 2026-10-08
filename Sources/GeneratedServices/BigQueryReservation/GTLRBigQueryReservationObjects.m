@@ -14,6 +14,7 @@
 // Constants
 
 // GTLRBigQueryReservation_Assignment.jobType
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_AutomaticMaterializedViewRefresh = @"AUTOMATIC_MATERIALIZED_VIEW_REFRESH";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background = @"BACKGROUND";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundChangeDataCapture = @"BACKGROUND_CHANGE_DATA_CAPTURE";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundColumnMetadataIndex = @"BACKGROUND_COLUMN_METADATA_INDEX";
@@ -94,8 +95,8 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_Assignment
-@dynamic assignee, enableGeminiInBigquery, jobType, name, principal,
-         schedulingPolicy, state;
+@dynamic assignee, condition, enableGeminiInBigquery, jobType, name, precedence,
+         principal, schedulingPolicy, state;
 @end
 
 
@@ -418,7 +419,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_ReservationGroup
-@dynamic name, parentGroup;
+@dynamic creationTime, name, parentGroup, updateTime;
 @end
 
 

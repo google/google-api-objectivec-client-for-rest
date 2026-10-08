@@ -203,6 +203,7 @@
 @class GTLRContainer_ReleaseChannel;
 @class GTLRContainer_ReleaseChannelConfig;
 @class GTLRContainer_ReservationAffinity;
+@class GTLRContainer_ReservedResourcesConfig;
 @class GTLRContainer_ResourceLabels;
 @class GTLRContainer_ResourceLabels_Labels;
 @class GTLRContainer_ResourceLimit;
@@ -2573,6 +2574,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_RollbackSafeUpgradeStatus_Mode
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor;
 /**
+ *  Run sandbox using MicroVM.
+ *
+ *  Value: "MICROVM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Microvm;
+/**
  *  Default value. This should not be used.
  *
  *  Value: "UNSPECIFIED"
@@ -3476,8 +3483,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Optional. Configuration for NodeReadinessController add-on. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeReadinessConfig *nodeReadinessConfig;
 
-/** Configuration for the Cloud Storage Parallelstore CSI driver. */
-@property(nonatomic, strong, nullable) GTLRContainer_ParallelstoreCsiDriverConfig *parallelstoreCsiDriverConfig;
+/**
+ *  Deprecated: The Parallelstore CSI driver is no longer supported.
+ *  Configuration for the Cloud Storage Parallelstore CSI driver.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ParallelstoreCsiDriverConfig *parallelstoreCsiDriverConfig GTLR_DEPRECATED;
 
 /** Optional. Configuration for the Pod Snapshot feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_PodSnapshotConfig *podSnapshotConfig;
@@ -4310,7 +4320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for all cluster's control plane endpoints. */
 @property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEndpointsConfig *controlPlaneEndpointsConfig;
 
-/** Configuration for the fine-grained cost management feature. */
+/** Configuration for the fine-grained cost allocation feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_CostManagementConfig *costManagementConfig;
 
 /**
@@ -4974,7 +4984,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Control plane endpoints configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEndpointsConfig *desiredControlPlaneEndpointsConfig;
 
-/** The desired configuration for the fine-grained cost management feature. */
+/** The desired configuration for the fine-grained cost allocation feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_CostManagementConfig *desiredCostManagementConfig;
 
 /** Configuration of etcd encryption. */
@@ -5614,7 +5624,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Configuration for fine-grained cost management feature.
+ *  Configuration for fine-grained cost allocation feature.
  */
 @interface GTLRContainer_CostManagementConfig : GTLRObject
 
@@ -8582,7 +8592,9 @@ GTLR_DEPRECATED
 
 /**
  *  Size of the disk attached to each node, specified in GB. The smallest
- *  allowed disk size is 10GB. If unspecified, the default disk size is 100GB.
+ *  allowed disk size is 15 GB for node pools running GKE versions
+ *  1.36.3-gke.1480000 or later. Or, for earlier versions, the smallest allowed
+ *  disk size is 12 GB. If unspecified, the default disk size is 100GB.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9216,6 +9228,12 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *podPidsLimit;
+
+/**
+ *  Optional. Controls the reserved resources on the node. Only included if any
+ *  fields are specified.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ReservedResourcesConfig *reservedResourcesConfig;
 
 /**
  *  Optional. shutdown_grace_period_critical_pods_seconds is the maximum allowed
@@ -10136,8 +10154,10 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Deprecated: The Parallelstore CSI driver is no longer supported.
  *  Configuration for the Cloud Storage Parallelstore CSI driver.
  */
+GTLR_DEPRECATED
 @interface GTLRContainer_ParallelstoreCsiDriverConfig : GTLRObject
 
 /**
@@ -10729,6 +10749,9 @@ GTLR_DEPRECATED
 /** The default version for newly created clusters on the channel. */
 @property(nonatomic, copy, nullable) NSString *defaultVersion;
 
+/** Output only. List of preview versions for the channel. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *previewVersions;
+
 /** The auto upgrade target version for clusters on the channel. */
 @property(nonatomic, copy, nullable) NSString *upgradeTargetVersion;
 
@@ -10775,6 +10798,51 @@ GTLR_DEPRECATED
 
 /** Corresponds to the label value(s) of reservation resource(s). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  ReservedResourcesConfig contains the configuration for the reserved
+ *  resources on the node.
+ */
+@interface GTLRContainer_ReservedResourcesConfig : GTLRObject
+
+/**
+ *  Optional. The amount of CPU to reserve for system daemons. This is a
+ *  user-specified value. If unspecified, GKE decides the default based on node
+ *  version using different formula.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuReservedMillicore;
+
+/**
+ *  Output only. The effective amount of CPU reserved for system daemons. If
+ *  `cpu_reserved_millicore` is specified, user-specified value is used.
+ *  Otherwise the GKE default is applied.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveCpuReservedMillicore;
+
+/**
+ *  Output only. The effective amount of memory reserved for system daemons. If
+ *  `memory_reserved_mib` is specified, the user-specified value is used.
+ *  Otherwise the GKE default is applied.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveMemoryReservedMib;
+
+/**
+ *  Optional. The amount of memory to reserve for system daemons (in MiB). This
+ *  is a user-specified value. If unspecified, GKE decides the default based on
+ *  node version using different formula.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryReservedMib;
 
 @end
 
@@ -11019,6 +11087,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRContainer_SandboxConfig_Type_Gvisor Run sandbox using gvisor.
  *        (Value: "GVISOR")
+ *    @arg @c kGTLRContainer_SandboxConfig_Type_Microvm Run sandbox using
+ *        MicroVM. (Value: "MICROVM")
  *    @arg @c kGTLRContainer_SandboxConfig_Type_Unspecified Default value. This
  *        should not be used. (Value: "UNSPECIFIED")
  */

@@ -33,6 +33,10 @@ NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Status_Fals
 NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Status_True = @"TRUE";
 NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition_Status_Unknown = @"UNKNOWN";
 
+// GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun.pipelineRunStatus
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_PipelineRunStatus_PipelineRunCancelled = @"PIPELINE_RUN_CANCELLED";
+NSString * const kGTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified = @"PIPELINE_RUN_STATUS_UNSPECIFIED";
+
 // GTLRCloudBuild_InstallationState.stage
 NSString * const kGTLRCloudBuild_InstallationState_Stage_Complete = @"COMPLETE";
 NSString * const kGTLRCloudBuild_InstallationState_Stage_PendingCreateApp = @"PENDING_CREATE_APP";
@@ -65,10 +69,6 @@ NSString * const kGTLRCloudBuild_PipelineResult_Type_Array     = @"ARRAY";
 NSString * const kGTLRCloudBuild_PipelineResult_Type_Object    = @"OBJECT";
 NSString * const kGTLRCloudBuild_PipelineResult_Type_String    = @"STRING";
 NSString * const kGTLRCloudBuild_PipelineResult_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRCloudBuild_PipelineRun.pipelineRunStatus
-NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunCancelled = @"PIPELINE_RUN_CANCELLED";
-NSString * const kGTLRCloudBuild_PipelineRun_PipelineRunStatus_PipelineRunStatusUnspecified = @"PIPELINE_RUN_STATUS_UNSPECIFIED";
 
 // GTLRCloudBuild_PropertySpec.type
 NSString * const kGTLRCloudBuild_PropertySpec_Type_String      = @"STRING";
@@ -536,6 +536,66 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun
+@dynamic annotations, childReferences, completionTime, conditions, createTime,
+         ETag, finallyStartTime, gcbParams, name, params, pipelineRef,
+         pipelineRunStatus, pipelineSpec, pipelineSpecYaml, provenance, record,
+         resolvedPipelineSpec, results, security, serviceAccount, skippedTasks,
+         startTime, timeouts, uid, updateTime, worker, workerPool, workflow,
+         workspaces;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childReferences" : [GTLRCloudBuild_ChildStatusReference class],
+    @"conditions" : [GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition class],
+    @"params" : [GTLRCloudBuild_Param class],
+    @"results" : [GTLRCloudBuild_PipelineRunResult class],
+    @"skippedTasks" : [GTLRCloudBuild_SkippedTask class],
+    @"workspaces" : [GTLRCloudBuild_WorkspaceBinding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_Annotations
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_GcbParams
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2PipelineRun_GcbParams
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig
 //
 
@@ -840,66 +900,6 @@ NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOperator_NotIn = @"NOT
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_PipelineRun
-//
-
-@implementation GTLRCloudBuild_PipelineRun
-@dynamic annotations, childReferences, completionTime, conditions, createTime,
-         ETag, finallyStartTime, gcbParams, name, params, pipelineRef,
-         pipelineRunStatus, pipelineSpec, pipelineSpecYaml, provenance, record,
-         resolvedPipelineSpec, results, security, serviceAccount, skippedTasks,
-         startTime, timeouts, uid, updateTime, worker, workerPool, workflow,
-         workspaces;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"childReferences" : [GTLRCloudBuild_ChildStatusReference class],
-    @"conditions" : [GTLRCloudBuild_GoogleDevtoolsCloudbuildV2Condition class],
-    @"params" : [GTLRCloudBuild_Param class],
-    @"results" : [GTLRCloudBuild_PipelineRunResult class],
-    @"skippedTasks" : [GTLRCloudBuild_SkippedTask class],
-    @"workspaces" : [GTLRCloudBuild_WorkspaceBinding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_PipelineRun_Annotations
-//
-
-@implementation GTLRCloudBuild_PipelineRun_Annotations
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_PipelineRun_GcbParams
-//
-
-@implementation GTLRCloudBuild_PipelineRun_GcbParams
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
 }
 
 @end

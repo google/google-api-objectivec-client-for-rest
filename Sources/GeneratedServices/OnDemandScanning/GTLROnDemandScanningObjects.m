@@ -190,6 +190,36 @@ NSString * const kGTLROnDemandScanning_Justification_JustificationType_Vulnerabl
 NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotInExecutePath = @"VULNERABLE_CODE_NOT_IN_EXECUTE_PATH";
 NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotPresent = @"VULNERABLE_CODE_NOT_PRESENT";
 
+// GTLROnDemandScanning_MaliciousContentLLMResult.maxSeverity
+NSString * const kGTLROnDemandScanning_MaliciousContentLLMResult_MaxSeverity_Critical = @"CRITICAL";
+NSString * const kGTLROnDemandScanning_MaliciousContentLLMResult_MaxSeverity_High = @"HIGH";
+NSString * const kGTLROnDemandScanning_MaliciousContentLLMResult_MaxSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLROnDemandScanning_MaliciousContentLLMResult.scanStatus
+NSString * const kGTLROnDemandScanning_MaliciousContentLLMResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLROnDemandScanning_MaliciousContentLLMResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLROnDemandScanning_MaliciousContentLLMResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLROnDemandScanning_MaliciousContentStaticResult.maxSeverity
+NSString * const kGTLROnDemandScanning_MaliciousContentStaticResult_MaxSeverity_Critical = @"CRITICAL";
+NSString * const kGTLROnDemandScanning_MaliciousContentStaticResult_MaxSeverity_High = @"HIGH";
+NSString * const kGTLROnDemandScanning_MaliciousContentStaticResult_MaxSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLROnDemandScanning_MaliciousContentStaticResult.scanStatus
+NSString * const kGTLROnDemandScanning_MaliciousContentStaticResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLROnDemandScanning_MaliciousContentStaticResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLROnDemandScanning_MaliciousContentStaticResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLROnDemandScanning_MalwareScanResult.scanStatus
+NSString * const kGTLROnDemandScanning_MalwareScanResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLROnDemandScanning_MalwareScanResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLROnDemandScanning_MalwareScanResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLROnDemandScanning_MalwareScanResult.verdict
+NSString * const kGTLROnDemandScanning_MalwareScanResult_Verdict_Failed = @"FAILED";
+NSString * const kGTLROnDemandScanning_MalwareScanResult_Verdict_Passed = @"PASSED";
+NSString * const kGTLROnDemandScanning_MalwareScanResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
 // GTLROnDemandScanning_Occurrence.kind
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_AiSkillAnalysis = @"AI_SKILL_ANALYSIS";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Attestation = @"ATTESTATION";
@@ -313,13 +343,23 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Medium =
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Minimal = @"MINIMAL";
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLROnDemandScanning_WorkspacePolicyResult.scanStatus
+NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLROnDemandScanning_WorkspacePolicyResult.verdict
+NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_Failed = @"FAILED";
+NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_Passed = @"PASSED";
+NSString * const kGTLROnDemandScanning_WorkspacePolicyResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLROnDemandScanning_AISkillAnalysisOccurrence
 //
 
 @implementation GTLROnDemandScanning_AISkillAnalysisOccurrence
-@dynamic findings, maxSeverity, skillName;
+@dynamic findings, maxSeverity, perScannerVerdict, skillName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1335,6 +1375,36 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_MaliciousContentLLMResult
+//
+
+@implementation GTLROnDemandScanning_MaliciousContentLLMResult
+@dynamic maxSeverity, modelId, scanStatus, tokenUsage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_MaliciousContentStaticResult
+//
+
+@implementation GTLROnDemandScanning_MaliciousContentStaticResult
+@dynamic maxSeverity, scanStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_MalwareScanResult
+//
+
+@implementation GTLROnDemandScanning_MalwareScanResult
+@dynamic scanStatus, verdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Material
 //
 
@@ -1515,6 +1585,17 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_PerScannerVerdict
+//
+
+@implementation GTLROnDemandScanning_PerScannerVerdict
+@dynamic maliciousContentLlmResult, maliciousContentStaticResult, malwareScan,
+         workspacePolicy;
 @end
 
 
@@ -2084,6 +2165,17 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_TokenUsage
+//
+
+@implementation GTLROnDemandScanning_TokenUsage
+@dynamic cacheCount, candidateCount, promptCount, thinkingCount,
+         toolUsePromptCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_UpgradeDistribution
 //
 
@@ -2190,4 +2282,14 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_WorkspacePolicyResult
+//
+
+@implementation GTLROnDemandScanning_WorkspacePolicyResult
+@dynamic scanStatus, verdict;
 @end

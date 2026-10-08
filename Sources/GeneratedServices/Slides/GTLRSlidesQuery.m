@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// commentsViewMode
+NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRSlidesCommentsViewModeCommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
+
 // thumbnailPropertiesMimeType
 NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng = @"PNG";
 
@@ -84,7 +90,7 @@ NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeWidth2000Px = @"WIDT
 
 @implementation GTLRSlidesQuery_PresentationsGet
 
-@dynamic presentationId;
+@dynamic commentsViewMode, presentationId;
 
 + (instancetype)queryWithPresentationId:(NSString *)presentationId {
   NSArray *pathParams = @[ @"presentationId" ];
@@ -103,7 +109,7 @@ NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeWidth2000Px = @"WIDT
 
 @implementation GTLRSlidesQuery_PresentationsPagesGet
 
-@dynamic pageObjectId, presentationId;
+@dynamic commentsViewMode, pageObjectId, presentationId;
 
 + (instancetype)queryWithPresentationId:(NSString *)presentationId
                            pageObjectId:(NSString *)pageObjectId {

@@ -24,8 +24,33 @@ NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_LogTypeUnspecifie
 // GTLRDeploymentManager_BulkInsertOperationStatus.status
 NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Creating = @"CREATING";
 NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Done = @"DONE";
+NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Pending = @"PENDING";
 NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_RollingBack = @"ROLLING_BACK";
 NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.availabilitySloStatus
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusInSlo = @"AVAILABILITY_SLO_STATUS_IN_SLO";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusOutOfSlo = @"AVAILABILITY_SLO_STATUS_OUT_OF_SLO";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusSloUnknown = @"AVAILABILITY_SLO_STATUS_SLO_UNKNOWN";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusUnspecified = @"AVAILABILITY_SLO_STATUS_UNSPECIFIED";
+
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.healthStatus
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusHealthy = @"HEALTH_STATUS_HEALTHY";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusUnhealthy = @"HEALTH_STATUS_UNHEALTHY";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusUnspecified = @"HEALTH_STATUS_UNSPECIFIED";
+
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.repairCategory
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryCriticalFailure = @"REPAIR_CATEGORY_CRITICAL_FAILURE";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryEmergentMaintenance = @"REPAIR_CATEGORY_EMERGENT_MAINTENANCE";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryPlannedMaintenance = @"REPAIR_CATEGORY_PLANNED_MAINTENANCE";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryUnspecified = @"REPAIR_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryUserReportedFault = @"REPAIR_CATEGORY_USER_REPORTED_FAULT";
+
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.unhealthyReason
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonPendingUserApproval = @"UNHEALTHY_REASON_PENDING_USER_APPROVAL";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonRepairing = @"UNHEALTHY_REASON_REPAIRING";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonUnschedulable = @"UNHEALTHY_REASON_UNSCHEDULABLE";
+NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonUnspecified = @"UNHEALTHY_REASON_UNSPECIFIED";
 
 // GTLRDeploymentManager_Operation.status
 NSString * const kGTLRDeploymentManager_Operation_Status_Done  = @"DONE";
@@ -443,6 +468,27 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_GetHealthOperationMetadata
+//
+
+@implementation GTLRDeploymentManager_GetHealthOperationMetadata
+@dynamic healthInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo
+//
+
+@implementation GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo
+@dynamic availabilitySloStatus, healthStatus, repairCategory, unhealthyReason,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_GetVersionOperationMetadata
 //
 
@@ -580,6 +626,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_InstancesTroubleshootOperationMetadata
+//
+
+@implementation GTLRDeploymentManager_InstancesTroubleshootOperationMetadata
+@dynamic troubleshootOutput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_LocalizedMessage
 //
 
@@ -639,12 +695,14 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 //
 
 @implementation GTLRDeploymentManager_Operation
-@dynamic clientOperationId, creationTimestamp, descriptionProperty, endTime,
-         error, firewallPolicyRuleOperationMetadata,
-         getVersionOperationMetadata, httpErrorMessage, httpErrorStatusCode,
-         identifier, insertTime, instancesBulkInsertOperationMetadata, kind,
-         name, operationGroupId, operationType, progress, region, selfLink,
-         selfLinkWithId, setAutoscalerLinkOperationMetadata,
+@dynamic clientOperationId, creationTimestamp, descriptionProperty, details,
+         endTime, error, firewallPolicyRuleOperationMetadata,
+         getHealthOperationMetadata, getVersionOperationMetadata,
+         httpErrorMessage, httpErrorStatusCode, identifier, insertTime,
+         instancesBulkInsertOperationMetadata,
+         instancesTroubleshootOperationMetadata, kind, name, operationGroupId,
+         operationType, progress, region, selfLink, selfLinkWithId,
+         setAutoscalerLinkOperationMetadata,
          setCommonInstanceMetadataOperationMetadata, startTime, status,
          statusMessage, targetId, targetLink, user, warnings, zoneProperty;
 
@@ -739,6 +797,30 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 @implementation GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item
 @dynamic errorInfo, help, localizedMessage, quotaInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_OperationDetails
+//
+
+@implementation GTLRDeploymentManager_OperationDetails
+@dynamic data, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_OperationDetails_Data
+//
+
+@implementation GTLRDeploymentManager_OperationDetails_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

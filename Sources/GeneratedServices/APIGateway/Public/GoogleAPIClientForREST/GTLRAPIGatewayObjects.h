@@ -162,6 +162,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_AuditLogConfig_LogType_DataWr
 FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAPIGateway_Gateway.effectiveStreamingMode
+
+/**
+ *  The gateway does not support response streaming.
+ *
+ *  Value: "EFFECTIVE_STREAMING_MODE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeDisabled;
+/**
+ *  The gateway supports response streaming.
+ *
+ *  Value: "EFFECTIVE_STREAMING_MODE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeEnabled;
+/**
+ *  The service has not resolved a mode. Every gateway returned by `GetGateway`
+ *  and `ListGateways` carries a resolved mode, so this value should not be
+ *  returned under normal circumstances.
+ *
+ *  Value: "EFFECTIVE_STREAMING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAPIGateway_Gateway.state
 
 /**
@@ -200,6 +224,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_StateUnspecifie
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIGateway_Gateway.streamingMode
+
+/**
+ *  Streaming is enabled. The gateway supports response streaming: server-sent
+ *  events, HTTP chunked transfer, WebSockets, and gRPC/HTTP2 bidirectional
+ *  streaming.
+ *
+ *  Value: "STREAMING_MODE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeEnabled;
+/**
+ *  The service selects the streaming mode.
+ *
+ *  Value: "STREAMING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeUnspecified;
 
 /**
  *  An API that can be served by one or more Gateways.
@@ -669,14 +711,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
 /** Output only. Created time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/**
- *  Output only. The default API Gateway host name of the form
- *  `{gateway_id}-{hash}.{region_code}.gateway.dev`.
- */
+/** Output only. The default hostname that serves traffic for this Gateway. */
 @property(nonatomic, copy, nullable) NSString *defaultHostname;
 
 /** Optional. Display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The streaming mode this gateway is actually served with, which
+ *  the service resolves at creation from `streaming_mode`, the referenced API
+ *  Config, and the platform default at the time. Read this rather than
+ *  `streaming_mode` to determine whether a gateway supports response streaming.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeDisabled
+ *        The gateway does not support response streaming. (Value:
+ *        "EFFECTIVE_STREAMING_MODE_DISABLED")
+ *    @arg @c kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeEnabled
+ *        The gateway supports response streaming. (Value:
+ *        "EFFECTIVE_STREAMING_MODE_ENABLED")
+ *    @arg @c kGTLRAPIGateway_Gateway_EffectiveStreamingMode_EffectiveStreamingModeUnspecified
+ *        The service has not resolved a mode. Every gateway returned by
+ *        `GetGateway` and `ListGateways` carries a resolved mode, so this value
+ *        should not be returned under normal circumstances. (Value:
+ *        "EFFECTIVE_STREAMING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveStreamingMode;
 
 /**
  *  Optional. Resource labels to represent user-provided metadata. Refer to
@@ -709,6 +769,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
  *        (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. Immutable. Requests response streaming for a new gateway. An
+ *  attempt to change it on update is rejected. If unset, the service selects
+ *  the mode. This field records only what was requested and is never modified
+ *  by the service; read `effective_streaming_mode` for the mode the gateway is
+ *  served with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeEnabled
+ *        Streaming is enabled. The gateway supports response streaming:
+ *        server-sent events, HTTP chunked transfer, WebSockets, and gRPC/HTTP2
+ *        bidirectional streaming. (Value: "STREAMING_MODE_ENABLED")
+ *    @arg @c kGTLRAPIGateway_Gateway_StreamingMode_StreamingModeUnspecified The
+ *        service selects the streaming mode. (Value:
+ *        "STREAMING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *streamingMode;
 
 /** Output only. Updated time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

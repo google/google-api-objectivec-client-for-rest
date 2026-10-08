@@ -59,6 +59,8 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha224
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemXwing = @"KEM_XWING";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem1024 = @"ML_KEM_1024";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem768 = @"ML_KEM_768";

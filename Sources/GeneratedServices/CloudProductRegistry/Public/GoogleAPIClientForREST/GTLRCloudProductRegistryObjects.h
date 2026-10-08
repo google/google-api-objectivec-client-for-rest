@@ -4,7 +4,8 @@
 // API:
 //   Cloud Product Registry API (cloudproductregistry/v1)
 // Description:
-//   cloudproductregistry.googleapis.com API.
+//   Cloud Product Registry API provides capabilities to access all first Google
+//   Cloud products.
 // Documentation:
 //   https://docs.cloud.google.com/product-registry
 
@@ -46,12 +47,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProduct_Life
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProduct_LifecycleState_LifecycleStateGa;
 /**
- *  The entity is in Private General Availability. It is fully supported and
- *  stable, but only available to a select group of customers.
+ *  Deprecated: Private General Availability entities are not exposed. The
+ *  entity is in Private General Availability. It is fully supported and stable,
+ *  but only available to a select group of customers.
  *
  *  Value: "LIFECYCLE_STATE_PRIVATE_GA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProduct_LifecycleState_LifecycleStatePrivateGa;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProduct_LifecycleState_LifecycleStatePrivateGa GTLR_DEPRECATED;
 /**
  *  The entity is in Public Preview. It is available to all customers, but may
  *  not be feature-complete or have full support guarantees.
@@ -84,12 +86,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProductVaria
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProductVariant_LifecycleState_LifecycleStateGa;
 /**
- *  The entity is in Private General Availability. It is fully supported and
- *  stable, but only available to a select group of customers.
+ *  Deprecated: Private General Availability entities are not exposed. The
+ *  entity is in Private General Availability. It is fully supported and stable,
+ *  but only available to a select group of customers.
  *
  *  Value: "LIFECYCLE_STATE_PRIVATE_GA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProductVariant_LifecycleState_LifecycleStatePrivateGa;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProductVariant_LifecycleState_LifecycleStatePrivateGa GTLR_DEPRECATED;
 /**
  *  The entity is in Public Preview. It is available to all customers, but may
  *  not be feature-complete or have full support guarantees.
@@ -202,8 +205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProductVaria
  *        The entity is Generally Available. It is fully supported, stable, and
  *        available to all customers. (Value: "LIFECYCLE_STATE_GA")
  *    @arg @c kGTLRCloudProductRegistry_LogicalProduct_LifecycleState_LifecycleStatePrivateGa
- *        The entity is in Private General Availability. It is fully supported
- *        and stable, but only available to a select group of customers. (Value:
+ *        Deprecated: Private General Availability entities are not exposed. The
+ *        entity is in Private General Availability. It is fully supported and
+ *        stable, but only available to a select group of customers. (Value:
  *        "LIFECYCLE_STATE_PRIVATE_GA")
  *    @arg @c kGTLRCloudProductRegistry_LogicalProduct_LifecycleState_LifecycleStatePublicPreview
  *        The entity is in Public Preview. It is available to all customers, but
@@ -276,8 +280,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProductRegistry_LogicalProductVaria
  *        The entity is Generally Available. It is fully supported, stable, and
  *        available to all customers. (Value: "LIFECYCLE_STATE_GA")
  *    @arg @c kGTLRCloudProductRegistry_LogicalProductVariant_LifecycleState_LifecycleStatePrivateGa
- *        The entity is in Private General Availability. It is fully supported
- *        and stable, but only available to a select group of customers. (Value:
+ *        Deprecated: Private General Availability entities are not exposed. The
+ *        entity is in Private General Availability. It is fully supported and
+ *        stable, but only available to a select group of customers. (Value:
  *        "LIFECYCLE_STATE_PRIVATE_GA")
  *    @arg @c kGTLRCloudProductRegistry_LogicalProductVariant_LifecycleState_LifecycleStatePublicPreview
  *        The entity is in Public Preview. It is available to all customers, but

@@ -499,6 +499,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonUserDelinquency;
 
 // ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_SubscriptionLineItem.planType
+
+/**
+ *  The line item is an add-on to the subscription.
+ *
+ *  Value: "LINE_ITEM_PLAN_TYPE_ADDON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeAddon;
+/**
+ *  The line item is the base plan in the subscription.
+ *
+ *  Value: "LINE_ITEM_PLAN_TYPE_BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeBase;
+/**
+ *  The line item plan type is unspecified.
+ *
+ *  Value: "LINE_ITEM_PLAN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_SubscriptionLineItem.recurrenceType
 
 /**
@@ -1910,6 +1932,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_SubscriptionLineItemOneTimeRecurrenceDetails *oneTimeRecurrenceDetails;
 
 /**
+ *  Optional. Output only. The plan type of the line item.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeAddon
+ *        The line item is an add-on to the subscription. (Value:
+ *        "LINE_ITEM_PLAN_TYPE_ADDON")
+ *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeBase
+ *        The line item is the base plan in the subscription. (Value:
+ *        "LINE_ITEM_PLAN_TYPE_BASE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeUnspecified
+ *        The line item plan type is unspecified. (Value:
+ *        "LINE_ITEM_PLAN_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *planType;
+
+/**
  *  Required. Product resource name that identifies the product associated with
  *  this line item. The format is 'partners/{partner_id}/products/{product_id}'.
  */
@@ -2013,6 +2051,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *  Describes the details of the migrated subscription.
  */
 @interface GTLRPaymentsResellerSubscription_SubscriptionMigrationDetails : GTLRObject
+
+/**
+ *  Output only. The creation time of the migrated subscription in the legacy
+ *  system.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *legacyCreationTime;
 
 /** Output only. The migrated subscription id in the legacy system. */
 @property(nonatomic, copy, nullable) NSString *migratedSubscriptionId;

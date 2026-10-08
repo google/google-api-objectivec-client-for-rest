@@ -129,6 +129,7 @@
 @class GTLRAndroidManagement_PermissionGrant;
 @class GTLRAndroidManagement_PersistentPreferredActivity;
 @class GTLRAndroidManagement_PersonalApplicationPolicy;
+@class GTLRAndroidManagement_PersonalCrossDevicePolicies;
 @class GTLRAndroidManagement_PersonalUsagePolicies;
 @class GTLRAndroidManagement_Policy;
 @class GTLRAndroidManagement_Policy_OpenNetworkConfiguration;
@@ -1098,6 +1099,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Conn
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderAllowed;
 /**
+ *  App is not allowed to act as a credential provider.
+ *
+ *  Value: "CREDENTIAL_PROVIDER_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderDisallowed;
+/**
  *  Unspecified. The behaviour is governed by credentialProviderPolicyDefault.
  *
  *  Value: "CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED"
@@ -1643,10 +1650,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordF
 /**
  *  Adds an eSIM profile to the device. This is supported on Android 15 and
  *  above. See also addEsimParams. To remove an eSIM profile, use the
- *  REMOVE_ESIM command. To determine what happens to the eSIM profile when a
- *  device is wiped, set wipeDataFlags in the policy. Note: To provision
- *  multiple eSIMs on a single device, it is recommended to introduce a delay of
- *  a few minutes between successive executions of the command.
+ *  REMOVE_ESIM command. Note that REMOVE_ESIM is not supported on company-owned
+ *  devices with a work profile running Android 16 QPR2 or Android 16 QPR3. To
+ *  determine what happens to the eSIM profile when a device is wiped, set
+ *  wipeDataFlags in the policy. Note: To provision multiple eSIMs on a single
+ *  device, it is recommended to introduce a delay of a few minutes between
+ *  successive executions of the command.
  *
  *  Value: "ADD_ESIM"
  */
@@ -1693,7 +1702,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Reboot;
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RelinquishOwnership;
 /**
  *  Removes an eSIM profile from the device. This is supported on Android 15 and
- *  above. See also removeEsimParams.
+ *  above. This command is not supported on company-owned devices with a work
+ *  profile running Android 16 QPR2 or Android 16 QPR3. See also
+ *  removeEsimParams.
  *
  *  Value: "REMOVE_ESIM"
  */
@@ -1857,6 +1868,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_Ne
  *  Value: "NEARBY_NOTIFICATION_STREAMING_USER_CHOICE_SAME_MANAGED_ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_NearbyNotificationStreaming_NearbyNotificationStreamingUserChoiceSameManagedAccount;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossDevicePolicies.taskContinuityHandoff
+
+/**
+ *  Allows the user to enable or disable the task continuity handoff feature in
+ *  settings. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is lower than Android 17 QPR1.
+ *
+ *  Value: "TASK_CONTINUITY_HANDOFF_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffAllowed;
+/**
+ *  The task continuity handoff feature is disallowed. A NonComplianceDetail
+ *  with API_LEVEL is reported if the Android version is lower than Android 17
+ *  QPR1.
+ *
+ *  Value: "TASK_CONTINUITY_HANDOFF_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffDisallowed;
+/**
+ *  Defaults to TASK_CONTINUITY_HANDOFF_ALLOWED.
+ *
+ *  Value: "TASK_CONTINUITY_HANDOFF_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileAppFunctions
@@ -3970,6 +4007,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified;
 /**
+ *  This OS version is not permitted by the policy
+ *
+ *  Value: "OS_NOT_PERMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_OsNotPermitted;
+/**
  *  The setting hasn't been applied at the time of the report, but is expected
  *  to be applied shortly.
  *
@@ -4189,6 +4232,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
  *  Value: "NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified;
+/**
+ *  This OS version is not permitted by the policy
+ *
+ *  Value: "OS_NOT_PERMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_OsNotPermitted;
 /**
  *  The setting hasn't been applied at the time of the report, but is expected
  *  to be applied shortly.
@@ -4587,6 +4636,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPol
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PersonalCrossDevicePolicies.taskContinuityHandoff
+
+/**
+ *  Allows the user to enable or disable the task continuity handoff feature in
+ *  settings. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is lower than Android 17 QPR1.
+ *
+ *  Value: "TASK_CONTINUITY_HANDOFF_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffAllowed;
+/**
+ *  The task continuity handoff feature is disallowed. A NonComplianceDetail
+ *  with API_LEVEL is reported if the Android version is lower than Android 17
+ *  QPR1.
+ *
+ *  Value: "TASK_CONTINUITY_HANDOFF_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffDisallowed;
+/**
+ *  Defaults to TASK_CONTINUITY_HANDOFF_ALLOWED.
+ *
+ *  Value: "TASK_CONTINUITY_HANDOFF_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PersonalUsagePolicies.bluetoothSharing
 
 /**
@@ -4821,6 +4896,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillUserChoice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.backupService
+
+/**
+ *  Backup service is disabled. The user is not allowed to change this setting.
+ *  A NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 8 on a fully managed device.
+ *
+ *  Value: "BACKUP_SERVICE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_BackupService_BackupServiceDisabled;
+/**
+ *  Unspecified. Defaults to BACKUP_SERVICE_DISABLED.
+ *
+ *  Value: "BACKUP_SERVICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_BackupService_BackupServiceUnspecified;
+/**
+ *  The user can enable or disable the backup service. A NonComplianceDetail
+ *  with API_LEVEL is reported if the Android version is less than 8 on a fully
+ *  managed device.
+ *
+ *  Value: "BACKUP_SERVICE_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_BackupService_BackupServiceUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.cameraAccess
 
 /**
@@ -4864,6 +4965,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_Ca
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.credentialProviderPolicyDefault
 
+/**
+ *  Apps with credentialProviderPolicy unspecified are allowed to act as a
+ *  credential provider.
+ *
+ *  Value: "CREDENTIAL_PROVIDER_DEFAULT_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultAllowed;
 /**
  *  Apps with credentialProviderPolicy unspecified are not allowed to act as a
  *  credential provider.
@@ -6642,8 +6750,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig
 @interface GTLRAndroidManagement_AdvancedSecurityOverrides : GTLRObject
 
 /**
- *  Controls Common Criteria Mode—security standards defined in the Common
- *  Criteria for Information Technology Security Evaluation
+ *  Optional. Controls Common Criteria Mode—security standards defined in the
+ *  Common Criteria for Information Technology Security Evaluation
  *  (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode
  *  increases certain security components on a device, see CommonCriteriaMode
  *  for details.Warning: Common Criteria Mode enforces a strict security model
@@ -6692,8 +6800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig
 @property(nonatomic, copy, nullable) NSString *contentProtectionPolicy;
 
 /**
- *  Controls access to developer settings: developer options and safe boot.
- *  Replaces safeBootDisabled (deprecated) and debuggingFeaturesAllowed
+ *  Optional. Controls access to developer settings: developer options and safe
+ *  boot. Replaces safeBootDisabled (deprecated) and debuggingFeaturesAllowed
  *  (deprecated). On personally-owned devices with a work profile, setting this
  *  policy will not disable safe boot. In this case, a NonComplianceDetail with
  *  MANAGEMENT_MODE is reported.
@@ -6712,7 +6820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig
 @property(nonatomic, copy, nullable) NSString *developerSettings;
 
 /**
- *  Whether Google Play Protect verification
+ *  Optional. Whether Google Play Protect verification
  *  (https://support.google.com/accounts/answer/2812853) is enforced. Replaces
  *  ensureVerifyAppsEnabled (deprecated).
  *
@@ -6764,7 +6872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig
 @property(nonatomic, copy, nullable) NSString *mtePolicy;
 
 /**
- *  Personal apps that can read work profile notifications using a
+ *  Optional. Personal apps that can read work profile notifications using a
  *  NotificationListenerService
  *  (https://developer.android.com/reference/android/service/notification/NotificationListenerService).
  *  By default, no personal apps (aside from system apps) can read work
@@ -6773,8 +6881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig
 @property(nonatomic, strong, nullable) NSArray<NSString *> *personalAppsThatCanReadWorkNotifications;
 
 /**
- *  The policy for untrusted apps (apps from unknown sources) enforced on the
- *  device. Replaces install_unknown_sources_allowed (deprecated).
+ *  Optional. The policy for untrusted apps (apps from unknown sources) enforced
+ *  on the device. Replaces install_unknown_sources_allowed (deprecated).
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide
@@ -7402,6 +7510,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderAllowed
  *        App is allowed to act as a credential provider. (Value:
  *        "CREDENTIAL_PROVIDER_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderDisallowed
+ *        App is not allowed to act as a credential provider. (Value:
+ *        "CREDENTIAL_PROVIDER_DISALLOWED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_CredentialProviderPolicy_CredentialProviderPolicyUnspecified
  *        Unspecified. The behaviour is governed by
  *        credentialProviderPolicyDefault. (Value:
@@ -8417,11 +8528,12 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_Command_Type_AddEsim Adds an eSIM profile
  *        to the device. This is supported on Android 15 and above. See also
  *        addEsimParams. To remove an eSIM profile, use the REMOVE_ESIM command.
- *        To determine what happens to the eSIM profile when a device is wiped,
- *        set wipeDataFlags in the policy. Note: To provision multiple eSIMs on
- *        a single device, it is recommended to introduce a delay of a few
- *        minutes between successive executions of the command. (Value:
- *        "ADD_ESIM")
+ *        Note that REMOVE_ESIM is not supported on company-owned devices with a
+ *        work profile running Android 16 QPR2 or Android 16 QPR3. To determine
+ *        what happens to the eSIM profile when a device is wiped, set
+ *        wipeDataFlags in the policy. Note: To provision multiple eSIMs on a
+ *        single device, it is recommended to introduce a delay of a few minutes
+ *        between successive executions of the command. (Value: "ADD_ESIM")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ClearAppData Clears the
  *        application data of specified apps. This is supported on Android 9 and
  *        above. Note that an application can store data outside of its
@@ -8445,7 +8557,9 @@ GTLR_DEPRECATED
  *        "RELINQUISH_OWNERSHIP")
  *    @arg @c kGTLRAndroidManagement_Command_Type_RemoveEsim Removes an eSIM
  *        profile from the device. This is supported on Android 15 and above.
- *        See also removeEsimParams. (Value: "REMOVE_ESIM")
+ *        This command is not supported on company-owned devices with a work
+ *        profile running Android 16 QPR2 or Android 16 QPR3. See also
+ *        removeEsimParams. (Value: "REMOVE_ESIM")
  *    @arg @c kGTLRAndroidManagement_Command_Type_RequestDeviceInfo Request
  *        information related to the device. (Value: "REQUEST_DEVICE_INFO")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ResetPassword Reset the user's
@@ -8713,6 +8827,30 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *nearbyNotificationStreaming;
 
+/**
+ *  Optional. Controls the task continuity handoff
+ *  (https://developer.android.com/partners/android-17/features#handoff)
+ *  feature. This policy applies to the entire device for fully managed devices,
+ *  and to the work profile for devices with a work profile. Requires Android 17
+ *  QPR1 or higher.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffAllowed
+ *        Allows the user to enable or disable the task continuity handoff
+ *        feature in settings. A NonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is lower than Android 17 QPR1. (Value:
+ *        "TASK_CONTINUITY_HANDOFF_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffDisallowed
+ *        The task continuity handoff feature is disallowed. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is lower than Android 17 QPR1. (Value:
+ *        "TASK_CONTINUITY_HANDOFF_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffUnspecified
+ *        Defaults to TASK_CONTINUITY_HANDOFF_ALLOWED. (Value:
+ *        "TASK_CONTINUITY_HANDOFF_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *taskContinuityHandoff;
+
 @end
 
 
@@ -8747,8 +8885,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *crossProfileAppFunctions;
 
 /**
- *  Whether text copied from one profile (personal or work) can be pasted in the
- *  other profile.
+ *  Optional. Whether text copied from one profile (personal or work) can be
+ *  pasted in the other profile.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed
@@ -8767,11 +8905,11 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *crossProfileCopyPaste;
 
 /**
- *  Whether data from one profile (personal or work) can be shared with apps in
- *  the other profile. Specifically controls simple data sharing via intents.
- *  Management of other cross-profile communication channels, such as contact
- *  search, copy/paste, or connected work & personal apps, are configured
- *  separately.
+ *  Optional. Whether data from one profile (personal or work) can be shared
+ *  with apps in the other profile. Specifically controls simple data sharing
+ *  via intents. Management of other cross-profile communication channels, such
+ *  as contact search, copy/paste, or connected work & personal apps, are
+ *  configured separately.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingAllowed
@@ -8793,10 +8931,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *crossProfileDataSharing;
 
 /**
- *  List of apps which are excluded from the ShowWorkContactsInPersonalProfile
- *  setting. For this to be set, ShowWorkContactsInPersonalProfile must be set
- *  to one of the following values:
- *  SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED. In this case, these
+ *  Optional. List of apps which are excluded from the
+ *  ShowWorkContactsInPersonalProfile setting. For this to be set,
+ *  ShowWorkContactsInPersonalProfile must be set to one of the following
+ *  values: SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED. In this case, these
  *  exemptions act as a blocklist.
  *  SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED. In this case, these
  *  exemptions act as an allowlist.
@@ -8809,8 +8947,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PackageNameList *exemptionsToShowWorkContactsInPersonalProfile;
 
 /**
- *  Whether personal apps can access contacts stored in the work profile.See
- *  also exemptions_to_show_work_contacts_in_personal_profile.
+ *  Optional. Whether personal apps can access contacts stored in the work
+ *  profile.See also exemptions_to_show_work_contacts_in_personal_profile.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed
@@ -8853,9 +8991,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *showWorkContactsInPersonalProfile;
 
 /**
- *  Specifies the default behaviour for work profile widgets. If the policy does
- *  not specify work_profile_widgets for a specific application, it will behave
- *  according to the value specified here.
+ *  Optional. Specifies the default behaviour for work profile widgets. If the
+ *  policy does not specify work_profile_widgets for a specific application, it
+ *  will behave according to the value specified here.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultAllowed
@@ -9727,7 +9865,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_DeviceRadioState : GTLRObject
 
 /**
- *  Controls whether airplane mode can be toggled by the user or not.
+ *  Optional. Controls whether airplane mode can be toggled by the user or not.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled
@@ -9744,7 +9882,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *airplaneModeState;
 
 /**
- *  Controls whether cellular 2G setting can be toggled by the user or not.
+ *  Optional. Controls whether cellular 2G setting can be toggled by the user or
+ *  not.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGDisabled
@@ -9762,8 +9901,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *cellularTwoGState;
 
 /**
- *  The minimum required security level of Wi-Fi networks that the device can
- *  connect to.
+ *  Optional. The minimum required security level of Wi-Fi networks that the
+ *  device can connect to.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseBit192NetworkSecurity
@@ -9795,8 +9934,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *minimumWifiSecurityLevel;
 
 /**
- *  Controls the state of the ultra wideband setting and whether the user can
- *  toggle it on or off.
+ *  Optional. Controls the state of the ultra wideband setting and whether the
+ *  user can toggle it on or off.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandDisabled
@@ -9831,7 +9970,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *userInitiatedAddEsimSettings;
 
 /**
- *  Controls current state of Wi-Fi and if user can change its state.
+ *  Optional. Controls current state of Wi-Fi and if user can change its state.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled
@@ -11281,7 +11420,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_KioskCustomization : GTLRObject
 
 /**
- *  Specifies whether the Settings app is allowed in kiosk mode.
+ *  Optional. Specifies whether the Settings app is allowed in kiosk mode.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_DeviceSettings_DeviceSettingsUnspecified
@@ -11297,8 +11436,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *deviceSettings;
 
 /**
- *  Sets the behavior of a device in kiosk mode when a user presses and holds
- *  (long-presses) the Power button.
+ *  Optional. Sets the behavior of a device in kiosk mode when a user presses
+ *  and holds (long-presses) the Power button.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonActionsUnspecified
@@ -11317,7 +11456,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *powerButtonActions;
 
 /**
- *  Specifies whether system info and notifications are disabled in kiosk mode.
+ *  Optional. Specifies whether system info and notifications are disabled in
+ *  kiosk mode.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoDisabled
@@ -11338,9 +11478,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *statusBar;
 
 /**
- *  Specifies whether system error dialogs for crashed or unresponsive apps are
- *  blocked in kiosk mode. When blocked, the system will force-stop the app as
- *  if the user chooses the "close app" option on the UI.
+ *  Optional. Specifies whether system error dialogs for crashed or unresponsive
+ *  apps are blocked in kiosk mode. When blocked, the system will force-stop the
+ *  app as if the user chooses the "close app" option on the UI.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_ErrorAndWarningsEnabled
@@ -11357,8 +11497,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *systemErrorWarnings;
 
 /**
- *  Specifies which navigation features are enabled (e.g. Home, Overview
- *  buttons) in kiosk mode.
+ *  Optional. Specifies which navigation features are enabled (e.g. Home,
+ *  Overview buttons) in kiosk mode.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_SystemNavigation_HomeButtonOnly
@@ -12120,6 +12260,9 @@ GTLR_DEPRECATED
  *        support the setting. (Value: "MANAGEMENT_MODE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified
  *        This value is not used. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_OsNotPermitted
+ *        This OS version is not permitted by the policy (Value:
+ *        "OS_NOT_PERMITTED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
@@ -12280,6 +12423,9 @@ GTLR_DEPRECATED
  *        support the setting. (Value: "MANAGEMENT_MODE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified
  *        This value is not used. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_OsNotPermitted
+ *        This OS version is not permitted by the policy (Value:
+ *        "OS_NOT_PERMITTED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
@@ -12507,28 +12653,28 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_PasswordRequirements : GTLRObject
 
 /**
- *  Number of incorrect device-unlock passwords that can be entered before a
- *  device is wiped. A value of 0 means there is no restriction.
+ *  Optional. Number of incorrect device-unlock passwords that can be entered
+ *  before a device is wiped. A value of 0 means there is no restriction.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maximumFailedPasswordsForWipe;
 
-/** Password expiration timeout. */
+/** Optional. Password expiration timeout. */
 @property(nonatomic, strong, nullable) GTLRDuration *passwordExpirationTimeout;
 
 /**
- *  The length of the password history. After setting this field, the user won't
- *  be able to enter a new password that is the same as any password in the
- *  history. A value of 0 means there is no restriction.
+ *  Optional. The length of the password history. After setting this field, the
+ *  user won't be able to enter a new password that is the same as any password
+ *  in the history. A value of 0 means there is no restriction.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordHistoryLength;
 
 /**
- *  The minimum allowed password length. A value of 0 means there is no
- *  restriction. Only enforced when password_quality is NUMERIC,
+ *  Optional. The minimum allowed password length. A value of 0 means there is
+ *  no restriction. Only enforced when password_quality is NUMERIC,
  *  NUMERIC_COMPLEX, ALPHABETIC, ALPHANUMERIC, or COMPLEX.
  *
  *  Uses NSNumber of intValue.
@@ -12536,55 +12682,56 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumLength;
 
 /**
- *  Minimum number of letters required in the password. Only enforced when
- *  password_quality is COMPLEX.
+ *  Optional. Minimum number of letters required in the password. Only enforced
+ *  when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumLetters;
 
 /**
- *  Minimum number of lower case letters required in the password. Only enforced
- *  when password_quality is COMPLEX.
+ *  Optional. Minimum number of lower case letters required in the password.
+ *  Only enforced when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumLowerCase;
 
 /**
- *  Minimum number of non-letter characters (numerical digits or symbols)
- *  required in the password. Only enforced when password_quality is COMPLEX.
+ *  Optional. Minimum number of non-letter characters (numerical digits or
+ *  symbols) required in the password. Only enforced when password_quality is
+ *  COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumNonLetter;
 
 /**
- *  Minimum number of numerical digits required in the password. Only enforced
- *  when password_quality is COMPLEX.
+ *  Optional. Minimum number of numerical digits required in the password. Only
+ *  enforced when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumNumeric;
 
 /**
- *  Minimum number of symbols required in the password. Only enforced when
- *  password_quality is COMPLEX.
+ *  Optional. Minimum number of symbols required in the password. Only enforced
+ *  when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumSymbols;
 
 /**
- *  Minimum number of upper case letters required in the password. Only enforced
- *  when password_quality is COMPLEX.
+ *  Optional. Minimum number of upper case letters required in the password.
+ *  Only enforced when password_quality is COMPLEX.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *passwordMinimumUpperCase;
 
 /**
- *  The required password quality.
+ *  Optional. The required password quality.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic
@@ -12660,7 +12807,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *passwordQuality;
 
 /**
- *  The scope that the password requirement applies to.
+ *  Optional. The scope that the password requirement applies to.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeDevice
@@ -12677,10 +12824,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *passwordScope;
 
 /**
- *  The length of time after a device or work profile is unlocked using a strong
- *  form of authentication (password, PIN, pattern) that it can be unlocked
- *  using any other authentication method (e.g. fingerprint, trust agents,
- *  face). After the specified time period elapses, only strong forms of
+ *  Optional. The length of time after a device or work profile is unlocked
+ *  using a strong form of authentication (password, PIN, pattern) that it can
+ *  be unlocked using any other authentication method (e.g. fingerprint, trust
+ *  agents, face). After the specified time period elapses, only strong forms of
  *  authentication can be used to unlock the device or work profile.
  *
  *  Likely values:
@@ -12696,11 +12843,11 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *requirePasswordUnlock;
 
 /**
- *  Controls whether a unified lock is allowed for the device and the work
- *  profile, on devices running Android 9 and above with a work profile. This
- *  can be set only if password_scope is set to SCOPE_PROFILE, the policy will
- *  be rejected otherwise. If user has not set a separate work lock and this
- *  field is set to REQUIRE_SEPARATE_WORK_LOCK, a NonComplianceDetail is
+ *  Optional. Controls whether a unified lock is allowed for the device and the
+ *  work profile, on devices running Android 9 and above with a work profile.
+ *  This can be set only if password_scope is set to SCOPE_PROFILE, the policy
+ *  will be rejected otherwise. If user has not set a separate work lock and
+ *  this field is set to REQUIRE_SEPARATE_WORK_LOCK, a NonComplianceDetail is
  *  reported with nonComplianceReason set to USER_ACTION.
  *
  *  Likely values:
@@ -12860,6 +13007,39 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Policies controlling cross-device communication in the personal profile.
+ */
+@interface GTLRAndroidManagement_PersonalCrossDevicePolicies : GTLRObject
+
+/**
+ *  Optional. Controls the task continuity handoff
+ *  (https://developer.android.com/partners/android-17/features#handoff) feature
+ *  for the personal profile on company-owned devices with a work profile. To
+ *  disable Handoff device-wide on a company-owned device, both
+ *  crossDevicePolicies.taskContinuityHandoff and this policy should be set to
+ *  TASK_CONTINUITY_HANDOFF_DISALLOWED. Requires Android 17 QPR1 or higher.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffAllowed
+ *        Allows the user to enable or disable the task continuity handoff
+ *        feature in settings. A NonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is lower than Android 17 QPR1. (Value:
+ *        "TASK_CONTINUITY_HANDOFF_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffDisallowed
+ *        The task continuity handoff feature is disallowed. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is lower than Android 17 QPR1. (Value:
+ *        "TASK_CONTINUITY_HANDOFF_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalCrossDevicePolicies_TaskContinuityHandoff_TaskContinuityHandoffUnspecified
+ *        Defaults to TASK_CONTINUITY_HANDOFF_ALLOWED. (Value:
+ *        "TASK_CONTINUITY_HANDOFF_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *taskContinuityHandoff;
+
+@end
+
+
+/**
  *  Policies controlling personal usage on a company-owned device with a work
  *  profile.
  */
@@ -12895,6 +13075,12 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cameraDisabled;
+
+/**
+ *  Optional. Policies controlling cross-device communication in the personal
+ *  profile.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PersonalCrossDevicePolicies *crossDevicePolicies;
 
 /**
  *  Controls how long the work profile can stay off. The minimum duration must
@@ -12988,7 +13174,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *adjustVolumeDisabled;
 
-/** Advanced security settings. In most cases, setting these is not needed. */
+/**
+ *  Optional. Advanced security settings. In most cases, setting these is not
+ *  needed.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AdvancedSecurityOverrides *advancedSecurityOverrides;
 
 /**
@@ -13112,6 +13301,27 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *autoTimeRequired GTLR_DEPRECATED;
 
 /**
+ *  Optional. Controls whether the backup service is disabled. Supported only on
+ *  fully managed devices running Android 8 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_BackupService_BackupServiceDisabled
+ *        Backup service is disabled. The user is not allowed to change this
+ *        setting. A NonComplianceDetail with API_LEVEL is reported if the
+ *        Android version is less than 8 on a fully managed device. (Value:
+ *        "BACKUP_SERVICE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Policy_BackupService_BackupServiceUnspecified
+ *        Unspecified. Defaults to BACKUP_SERVICE_DISABLED. (Value:
+ *        "BACKUP_SERVICE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_BackupService_BackupServiceUserChoice
+ *        The user can enable or disable the backup service. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 8 on a fully managed device. (Value:
+ *        "BACKUP_SERVICE_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *backupService;
+
+/**
  *  This field has no effect.
  *
  *  Uses NSNumber of boolValue.
@@ -13222,6 +13432,9 @@ GTLR_DEPRECATED
  *  for details. See also credentialProviderPolicy.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultAllowed
+ *        Apps with credentialProviderPolicy unspecified are allowed to act as a
+ *        credential provider. (Value: "CREDENTIAL_PROVIDER_DEFAULT_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_Policy_CredentialProviderPolicyDefault_CredentialProviderDefaultDisallowed
  *        Apps with credentialProviderPolicy unspecified are not allowed to act
  *        as a credential provider. (Value:
@@ -13248,7 +13461,7 @@ GTLR_DEPRECATED
 /** Optional. Policies controlling cross-device communication. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_CrossDevicePolicies *crossDevicePolicies;
 
-/** Cross-profile policies applied on the device. */
+/** Optional. Cross-profile policies applied on the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_CrossProfilePolicies *crossProfilePolicies;
 
 /**
@@ -13322,7 +13535,10 @@ GTLR_DEPRECATED
 /** The device owner information to be shown on the lock screen. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *deviceOwnerLockScreenInfo;
 
-/** Covers controls for radio state such as Wi-Fi, bluetooth, and more. */
+/**
+ *  Optional. Covers controls for radio state such as Wi-Fi, bluetooth, and
+ *  more.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceRadioState *deviceRadioState;
 
 /** Optional. Controls for the display settings. */
@@ -13423,9 +13639,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *keyguardDisabledFeatures;
 
 /**
- *  Settings controlling the behavior of a device in kiosk mode. To enable kiosk
- *  mode, set kioskCustomLauncherEnabled to true or specify an app in the policy
- *  with installType KIOSK.
+ *  Optional. Settings controlling the behavior of a device in kiosk mode. To
+ *  enable kiosk mode, set kioskCustomLauncherEnabled to true or specify an app
+ *  in the policy with installType KIOSK.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_KioskCustomization *kioskCustomization;
 
@@ -13523,7 +13739,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *microphoneAccess;
 
 /**
- *  The minimum allowed Android API level.
+ *  The minimum allowed Android API level. A NonComplianceDetail with
+ *  OS_NOT_PERMITTED is reported if the Android API level of the device is lower
+ *  than this value.
  *
  *  Uses NSNumber of intValue.
  */
@@ -13607,9 +13825,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *outgoingCallsDisabled;
 
 /**
- *  Password requirement policies. Different policies can be set for work
- *  profile or fully managed devices by setting the password_scope field in the
- *  policy.
+ *  Optional. Password requirement policies. Different policies can be set for
+ *  work profile or fully managed devices by setting the password_scope field in
+ *  the policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PasswordRequirements *> *passwordPolicies;
 
@@ -13877,7 +14095,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *unmuteMicrophoneDisabled GTLR_DEPRECATED;
 
-/** Configuration of device activity logging. */
+/** Optional. Configuration of device activity logging. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UsageLog *usageLog;
 
 /**
@@ -15408,14 +15626,15 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_UsageLog : GTLRObject
 
 /**
- *  Specifies which log types are enabled. Note that users will receive
- *  on-device messaging when usage logging is enabled.
+ *  Optional. Specifies which log types are enabled. Note that users will
+ *  receive on-device messaging when usage logging is enabled.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledLogTypes;
 
 /**
- *  Specifies which of the enabled log types can be uploaded over mobile data.
- *  By default logs are queued for upload when the device connects to WiFi.
+ *  Optional. Specifies which of the enabled log types can be uploaded over
+ *  mobile data. By default logs are queued for upload when the device connects
+ *  to WiFi.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uploadOnCellularAllowed;
 
@@ -15965,7 +16184,8 @@ GTLR_DEPRECATED
 
 /**
  *  Whether the factory-reset protection data is preserved on the device. This
- *  setting doesn’t apply to work profiles.
+ *  setting applies to fully managed devices and work profiles on company-owned
+ *  devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -16036,7 +16256,8 @@ GTLR_DEPRECATED
  *  field is only relevant if authenticationType is GOOGLE_AUTHENTICATED. This
  *  must be an enterprise account and not a consumer account. Once set and a
  *  Google authenticated account is added to the device, changing this field
- *  will have no effect, and thus recommended to be set only once.
+ *  will have no effect, and thus recommended to be set only once. The email
+ *  address must be all lowercase.
  */
 @property(nonatomic, copy, nullable) NSString *requiredAccountEmail;
 

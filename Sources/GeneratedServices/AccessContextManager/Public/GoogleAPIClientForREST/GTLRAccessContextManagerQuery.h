@@ -60,6 +60,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatCel
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified;
 
 // ----------------------------------------------------------------------------
+// deletedPrincipalSyntax
+
+/**
+ *  Deleted principal syntax is disabled and no identities in the request or
+ *  response will contain deleted principal syntax.
+ *
+ *  Value: "DELETED_PRINCIPAL_SYNTAX_SUPPORT_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportDisabled;
+/**
+ *  The request and response can contain identities with deleted IAM principal
+ *  syntax.
+ *
+ *  Value: "DELETED_PRINCIPAL_SYNTAX_SUPPORT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportEnabled;
+/**
+ *  Deleted principal syntax support was not specified.
+ *
+ *  Value: "DELETED_PRINCIPAL_SYNTAX_SUPPORT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -959,6 +983,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersGet : GTLRAccessContextManagerQuery
 
 /**
+ *  Optional. If true, the response will contain the deleted principal syntax
+ *  for identities that support it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportUnspecified
+ *        Deleted principal syntax support was not specified. (Value:
+ *        "DELETED_PRINCIPAL_SYNTAX_SUPPORT_UNSPECIFIED")
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportDisabled
+ *        Deleted principal syntax is disabled and no identities in the request
+ *        or response will contain deleted principal syntax. (Value:
+ *        "DELETED_PRINCIPAL_SYNTAX_SUPPORT_DISABLED")
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportEnabled
+ *        The request and response can contain identities with deleted IAM
+ *        principal syntax. (Value: "DELETED_PRINCIPAL_SYNTAX_SUPPORT_ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *deletedPrincipalSyntax;
+
+/**
  *  Required. Resource name for the Service Perimeter. Format:
  *  `accessPolicies/{policy_id}/servicePerimeters/{service_perimeters_id}`
  */
@@ -987,6 +1029,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersList : GTLRAccessContextManagerQuery
+
+/**
+ *  Optional. If true, the response will contain the deleted principal syntax
+ *  for identities that support it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportUnspecified
+ *        Deleted principal syntax support was not specified. (Value:
+ *        "DELETED_PRINCIPAL_SYNTAX_SUPPORT_UNSPECIFIED")
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportDisabled
+ *        Deleted principal syntax is disabled and no identities in the request
+ *        or response will contain deleted principal syntax. (Value:
+ *        "DELETED_PRINCIPAL_SYNTAX_SUPPORT_DISABLED")
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportEnabled
+ *        The request and response can contain identities with deleted IAM
+ *        principal syntax. (Value: "DELETED_PRINCIPAL_SYNTAX_SUPPORT_ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *deletedPrincipalSyntax;
 
 /** Number of Service Perimeters to include in the list. Default 100. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1033,6 +1093,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch : GTLRAccessContextManagerQuery
+
+/**
+ *  Optional. If true, the response will contain the deleted principal syntax
+ *  for identities that support it and the request can contain identities with
+ *  deleted principal syntax.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportUnspecified
+ *        Deleted principal syntax support was not specified. (Value:
+ *        "DELETED_PRINCIPAL_SYNTAX_SUPPORT_UNSPECIFIED")
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportDisabled
+ *        Deleted principal syntax is disabled and no identities in the request
+ *        or response will contain deleted principal syntax. (Value:
+ *        "DELETED_PRINCIPAL_SYNTAX_SUPPORT_DISABLED")
+ *    @arg @c kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportEnabled
+ *        The request and response can contain identities with deleted IAM
+ *        principal syntax. (Value: "DELETED_PRINCIPAL_SYNTAX_SUPPORT_ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *deletedPrincipalSyntax;
 
 /**
  *  Identifier. Resource name for the `ServicePerimeter`. Format:
@@ -1250,6 +1329,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  */
 + (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Looks up the configured service perimeter for a given resource Format:
+ *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *
+ *  Method: accesscontextmanager.folders.lookupConfiguredServicePerimeter
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_FoldersLookupConfiguredServicePerimeter : GTLRAccessContextManagerQuery
+
+/** Required. The Resource to resolve (e.g. "projects/123", "folders/456"). */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse.
+ *
+ *  Looks up the configured service perimeter for a given resource Format:
+ *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *
+ *  @param resource Required. The Resource to resolve (e.g. "projects/123",
+ *    "folders/456").
+ *
+ *  @return GTLRAccessContextManagerQuery_FoldersLookupConfiguredServicePerimeter
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -1522,6 +1631,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList : GTLRAccessContextManagerQuery
 
 /**
+ *  Optional. The literal filter to apply to the results returned. See
+ *  https://google.aip.dev/160 for more details. Accepts values: *
+ *  `principal:group_key` * `principal:service_account` OR
+ *  `principal:service_account_project_number`. If this field is empty or not
+ *  one of the above, the default value is `"principal:group_key"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. Maximum number of items to return. The server may return fewer
  *  items. If left blank, the server may return any number of items.
  */
@@ -1653,6 +1771,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  @return GTLRAccessContextManagerQuery_PermissionsList
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Looks up the configured service perimeter for a given resource Format:
+ *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *
+ *  Method: accesscontextmanager.projects.lookupConfiguredServicePerimeter
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_ProjectsLookupConfiguredServicePerimeter : GTLRAccessContextManagerQuery
+
+/** Required. The Resource to resolve (e.g. "projects/123", "folders/456"). */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse.
+ *
+ *  Looks up the configured service perimeter for a given resource Format:
+ *  ['projects/{projectNumber}', 'folders/{folderNumber}'].
+ *
+ *  @param resource Required. The Resource to resolve (e.g. "projects/123",
+ *    "folders/456").
+ *
+ *  @return GTLRAccessContextManagerQuery_ProjectsLookupConfiguredServicePerimeter
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 

@@ -321,6 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
+GTLR_DEPRECATED
 @interface GTLRTagManagerQuery_AccountsContainersCombine : GTLRTagManagerQuery
 
 /**
@@ -792,6 +793,7 @@ GTLR_DEPRECATED
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
+GTLR_DEPRECATED
 @interface GTLRTagManagerQuery_AccountsContainersMoveTagId : GTLRTagManagerQuery
 
 /**

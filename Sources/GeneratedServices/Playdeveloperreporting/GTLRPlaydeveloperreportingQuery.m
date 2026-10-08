@@ -69,6 +69,52 @@
 
 @end
 
+@implementation GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AnonRssAndSwapMemoryUsageMetricSet class];
+  query.loggingName = @"playdeveloperreporting.vitals.anonrssandswapmemoryusage.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:query";
+  GTLRPlaydeveloperreportingQuery_VitalsAnonrssandswapmemoryusageQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.anonrssandswapmemoryusage.query";
+  return query;
+}
+
+@end
+
 @implementation GTLRPlaydeveloperreportingQuery_VitalsAnrrateGet
 
 @dynamic name;
@@ -110,6 +156,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetResponse class];
   query.loggingName = @"playdeveloperreporting.vitals.anrrate.query";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1BitmapMemoryUsageMetricSet class];
+  query.loggingName = @"playdeveloperreporting.vitals.bitmapmemoryusage.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:query";
+  GTLRPlaydeveloperreportingQuery_VitalsBitmapmemoryusageQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.bitmapmemoryusage.query";
   return query;
 }
 

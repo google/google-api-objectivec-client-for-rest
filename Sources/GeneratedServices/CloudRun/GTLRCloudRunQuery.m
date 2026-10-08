@@ -1104,6 +1104,35 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsLocationsSourceUploadsUpload
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2UploadSourceRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}:uploadSource";
+  GTLRCloudRunQuery_ProjectsLocationsSourceUploadsUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2UploadSourceResponse class];
+  query.loggingName = @"run.projects.locations.sourceUploads.upload";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsCreate
 
 @dynamic parent, validateOnly, workerPoolId;

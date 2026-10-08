@@ -589,6 +589,62 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Send a message to the agent. This is a blocking call that will return the
+ *  task once it is completed, or a LRO if requested.
+ *
+ *  Method: cloudbilling.message.send
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_MessageSend : GTLRCloudbillingQuery
+
+/**
+ *  Fetches a @c GTLRCloudbilling_SendMessageResponse.
+ *
+ *  Send a message to the agent. This is a blocking call that will return the
+ *  task once it is completed, or a LRO if requested.
+ *
+ *  @param object The @c GTLRCloudbilling_SendMessageRequest to include in the
+ *    query.
+ *
+ *  @return GTLRCloudbillingQuery_MessageSend
+ */
++ (instancetype)queryWithObject:(GTLRCloudbilling_SendMessageRequest *)object;
+
+@end
+
+/**
+ *  SendStreamingMessage is a streaming call that will return a stream of task
+ *  update events until the Task is in an interrupted or terminal state.
+ *
+ *  Method: cloudbilling.message.stream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_MessageStream : GTLRCloudbillingQuery
+
+/**
+ *  Fetches a @c GTLRCloudbilling_StreamResponse.
+ *
+ *  SendStreamingMessage is a streaming call that will return a stream of task
+ *  update events until the Task is in an interrupted or terminal state.
+ *
+ *  @param object The @c GTLRCloudbilling_SendMessageRequest to include in the
+ *    query.
+ *
+ *  @return GTLRCloudbillingQuery_MessageStream
+ */
++ (instancetype)queryWithObject:(GTLRCloudbilling_SendMessageRequest *)object;
+
+@end
+
+/**
  *  This method creates [billing
  *  subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts).
  *  Google Cloud resellers should use the Channel Services APIs,
@@ -981,6 +1037,318 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Cancel a task from the agent. If supported one should expect no more task
+ *  updates for the task.
+ *
+ *  Method: cloudbilling.tasks.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_TasksCancel : GTLRCloudbillingQuery
+
+/** The resource name of the task to cancel. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_Task.
+ *
+ *  Cancel a task from the agent. If supported one should expect no more task
+ *  updates for the task.
+ *
+ *  @param object The @c GTLRCloudbilling_CancelTaskRequest to include in the
+ *    query.
+ *  @param name The resource name of the task to cancel. Format: tasks/{task_id}
+ *
+ *  @return GTLRCloudbillingQuery_TasksCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudbilling_CancelTaskRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get the current state of a task from the agent.
+ *
+ *  Method: cloudbilling.tasks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_TasksGet : GTLRCloudbillingQuery
+
+/** The number of most recent messages from the task's history to retrieve. */
+@property(nonatomic, assign) NSInteger historyLength;
+
+/** Required. The resource name of the task. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_Task.
+ *
+ *  Get the current state of a task from the agent.
+ *
+ *  @param name Required. The resource name of the task. Format: tasks/{task_id}
+ *
+ *  @return GTLRCloudbillingQuery_TasksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Set a push notification config for a task.
+ *
+ *  Method: cloudbilling.tasks.pushNotificationConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_TasksPushNotificationConfigsCreate : GTLRCloudbillingQuery
+
+/** Required. The ID for the new config. */
+@property(nonatomic, copy, nullable) NSString *configId;
+
+/**
+ *  Required. The parent task resource for this config. Format: tasks/{task_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_TaskPushNotificationConfig.
+ *
+ *  Set a push notification config for a task.
+ *
+ *  @param object The @c GTLRCloudbilling_TaskPushNotificationConfig to include
+ *    in the query.
+ *  @param parent Required. The parent task resource for this config. Format:
+ *    tasks/{task_id}
+ *
+ *  @return GTLRCloudbillingQuery_TasksPushNotificationConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudbilling_TaskPushNotificationConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a push notification config for a task.
+ *
+ *  Method: cloudbilling.tasks.pushNotificationConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_TasksPushNotificationConfigsDelete : GTLRCloudbillingQuery
+
+/**
+ *  The resource name of the config to delete. Format:
+ *  tasks/{task_id}/pushNotificationConfigs/{config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_Empty.
+ *
+ *  Delete a push notification config for a task.
+ *
+ *  @param name The resource name of the config to delete. Format:
+ *    tasks/{task_id}/pushNotificationConfigs/{config_id}
+ *
+ *  @return GTLRCloudbillingQuery_TasksPushNotificationConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a push notification config for a task.
+ *
+ *  Method: cloudbilling.tasks.pushNotificationConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_TasksPushNotificationConfigsGet : GTLRCloudbillingQuery
+
+/**
+ *  The resource name of the config to retrieve. Format:
+ *  tasks/{task_id}/pushNotificationConfigs/{config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_TaskPushNotificationConfig.
+ *
+ *  Get a push notification config for a task.
+ *
+ *  @param name The resource name of the config to retrieve. Format:
+ *    tasks/{task_id}/pushNotificationConfigs/{config_id}
+ *
+ *  @return GTLRCloudbillingQuery_TasksPushNotificationConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a list of push notifications configured for a task.
+ *
+ *  Method: cloudbilling.tasks.pushNotificationConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_TasksPushNotificationConfigsList : GTLRCloudbillingQuery
+
+/**
+ *  For AIP-158 these fields are present. Usually not used/needed. The maximum
+ *  number of configurations to return. If unspecified, all configs will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from a previous ListTaskPushNotificationConfigRequest
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListTaskPushNotificationConfigRequest` must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The parent task resource. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_ListTaskPushNotificationConfigResponse.
+ *
+ *  Get a list of push notifications configured for a task.
+ *
+ *  @param parent The parent task resource. Format: tasks/{task_id}
+ *
+ *  @return GTLRCloudbillingQuery_TasksPushNotificationConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  TaskSubscription is a streaming call that will return a stream of task
+ *  update events. This attaches the stream to an existing in process task. If
+ *  the task is complete the stream will return the completed task (like
+ *  GetTask) and close the stream.
+ *
+ *  Method: cloudbilling.tasks.subscribe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_TasksSubscribe : GTLRCloudbillingQuery
+
+/** The resource name of the task to subscribe to. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_StreamResponse.
+ *
+ *  TaskSubscription is a streaming call that will return a stream of task
+ *  update events. This attaches the stream to an existing in process task. If
+ *  the task is complete the stream will return the completed task (like
+ *  GetTask) and close the stream.
+ *
+ *  @param name The resource name of the task to subscribe to. Format:
+ *    tasks/{task_id}
+ *
+ *  @return GTLRCloudbillingQuery_TasksSubscribe
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  GetAgentCard returns the agent card for the agent.
+ *
+ *  Method: cloudbilling.getCard
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
+ *    @c kGTLRAuthScopeCloudbillingCloudPlatform
+ */
+@interface GTLRCloudbillingQuery_V1GetCard : GTLRCloudbillingQuery
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCloudbilling_AgentCard.
+ *
+ *  GetAgentCard returns the agent card for the agent.
+ *
+ *  @return GTLRCloudbillingQuery_V1GetCard
+ */
++ (instancetype)query;
 
 @end
 

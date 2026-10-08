@@ -109,6 +109,33 @@
 
 @end
 
+@implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRWebContentPublisher_Cta *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWebContentPublisherQuery_OrganizationsPublicationsCtasPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWebContentPublisher_Cta class];
+  query.loggingName = @"webcontentpublisher.organizations.publications.ctas.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRWebContentPublisherQuery_OrganizationsPublicationsGet
 
 @dynamic name;
@@ -188,6 +215,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRWebContentPublisher_CheckFreeAccessResponse class];
   query.loggingName = @"webcontentpublisher.publications.checkFreeAccess";
+  return query;
+}
+
+@end
+
+@implementation GTLRWebContentPublisherQuery_UsersGeneratePlatformSiteTokens
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRWebContentPublisher_GeneratePlatformSiteTokensRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generatePlatformSiteTokens";
+  GTLRWebContentPublisherQuery_UsersGeneratePlatformSiteTokens *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWebContentPublisher_GeneratePlatformSiteTokensResponse class];
+  query.loggingName = @"webcontentpublisher.users.generatePlatformSiteTokens";
   return query;
 }
 

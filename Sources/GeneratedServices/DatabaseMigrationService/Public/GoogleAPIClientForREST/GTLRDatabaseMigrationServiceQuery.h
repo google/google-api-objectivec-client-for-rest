@@ -27,6 +27,37 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// fetchView
+
+/**
+ *  Unspecified view. Defaults to FULL.
+ *
+ *  Value: "FETCH_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceFetchViewFetchViewUnspecified;
+/**
+ *  Get all entities matching the filter.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceFetchViewFull;
+/**
+ *  Same as FULL plus dependency information.
+ *
+ *  Value: "FULL_WITH_DEPENDENCIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceFetchViewFullWithDependencies;
+/**
+ *  Each schema will have one entity per (non sub) type with a dummy name that
+ *  will contain the aggregated information for all entities of that type.
+ *  Counters like number of statements and issues will be aggregated
+ *  accordingly.
+ *
+ *  Value: "SUMMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceFetchViewSummary;
+
+// ----------------------------------------------------------------------------
 // tree
 
 /**
@@ -42,11 +73,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDbTreeTypeUn
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDestinationTree;
 /**
+ *  Returns apply issues.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDraft;
+/**
  *  The draft database tree.
  *
  *  Value: "DRAFT_TREE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeDraftTree;
+/**
+ *  Returns seed and conversion issues
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceTreeSource;
 /**
  *  The source database tree.
  *
@@ -833,6 +876,178 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @end
 
 /**
+ *  An internal, RPC only method that returns a list of the (filtered) entities
+ *  with minimal information required for the entities tree view.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.fetchEntitiesStatusView
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchEntitiesStatusView : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. Name of the conversion workspace resource whose database entities
+ *  are described. Must be in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionWorkspace;
+
+/**
+ *  Optional. The view to fetch. If not specified, FULL is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationServiceFetchViewFetchViewUnspecified
+ *        Unspecified view. Defaults to FULL. (Value: "FETCH_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationServiceFetchViewFull Get all entities
+ *        matching the filter. (Value: "FULL")
+ *    @arg @c kGTLRDatabaseMigrationServiceFetchViewSummary Each schema will
+ *        have one entity per (non sub) type with a dummy name that will contain
+ *        the aggregated information for all entities of that type. Counters
+ *        like number of statements and issues will be aggregated accordingly.
+ *        (Value: "SUMMARY")
+ *    @arg @c kGTLRDatabaseMigrationServiceFetchViewFullWithDependencies Same as
+ *        FULL plus dependency information. (Value: "FULL_WITH_DEPENDENCIES")
+ */
+@property(nonatomic, copy, nullable) NSString *fetchView;
+
+/** Optional. Filter the returned entities based on AIP-160 standard. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of entities to return. The service may return
+ *  fewer entities than the value specifies. Default is 100000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The nextPageToken value received in the previous call to
+ *  conversionWorkspace.FetchEntitiesStatusView, used in the subsequent request
+ *  to retrieve the next page of results. On first call this should be left
+ *  blank. When paginating, all other parameters provided to
+ *  conversionWorkspace.FetchEntitiesStatusView must match the call that
+ *  provided the page token, except for the page_size parameter.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The tree to fetch.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified Unspecified
+ *        tree type. (Value: "DB_TREE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeSourceTree The source database
+ *        tree. (Value: "SOURCE_TREE")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDraftTree The draft database
+ *        tree. (Value: "DRAFT_TREE")
+ */
+@property(nonatomic, copy, nullable) NSString *tree;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_FetchEntitiesStatusViewResponse.
+ *
+ *  An internal, RPC only method that returns a list of the (filtered) entities
+ *  with minimal information required for the entities tree view.
+ *
+ *  @param conversionWorkspace Required. Name of the conversion workspace
+ *    resource whose database entities are described. Must be in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchEntitiesStatusView
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace;
+
+@end
+
+/**
+ *  List issues of conversion workspace operations e.g. conversion.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.fetchIssues
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchIssues : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Optional. If 'true', gets all issues matching the filter. Otherwise, for
+ *  each entity only the issues matching the DdlKind chosen for application on
+ *  the destination are returned.
+ */
+@property(nonatomic, assign) BOOL allIssues;
+
+/**
+ *  Required. Conversion workspace with issues to fetch. Must be in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionWorkspace;
+
+/**
+ *  Optional. AIP-160 standard filter. Supporting both entity and issue fields.
+ *  Supported fields: - `name` / `fullname`: The entity full name. - `type`: The
+ *  entity type (e.g. `TABLE`, `VIEW`, `INDEX`, `TRIGGER`). - `ddlkind`: The
+ *  kind of DDL (e.g. `DDL_KIND_SOURCE`, `DDL_KIND_AI`,
+ *  `DDL_KIND_DETERMINISTIC`). - `issue.severity`: The severity of the issue
+ *  (e.g. `INFO`, `WARNING`, `ERROR`). - `issue.state`: The state of the issue
+ *  (e.g. `OPEN`, `RESOLVED`). - `issue.origin`: The origin of the issue (e.g.
+ *  `DETERMINISTIC`, `AI`). - `issue.category_id`: The category ID of the issue.
+ *  - `issue.group_id`: The group ID of the issue.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of issues to return. The service may return
+ *  fewer issues than the value specifies.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The FetchIssuesResponse.next_page_token value received in the
+ *  previous call to FetchIssues, used in the subsequent request to retrieve the
+ *  next page of results. On first call this should be left blank. When
+ *  paginating, all other parameters provided to FetchIssues must match the call
+ *  that provided the page token, except for the page_size parameter.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The tree to fetch issues from. If not specified, source tree is
+ *  assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDbTreeTypeUnspecified Unspecified
+ *        tree type. (Value: "DB_TREE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeSource Returns seed and
+ *        conversion issues (Value: "SOURCE")
+ *    @arg @c kGTLRDatabaseMigrationServiceTreeDraft Returns apply issues.
+ *        (Value: "DRAFT")
+ */
+@property(nonatomic, copy, nullable) NSString *tree;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_FetchIssuesResponse.
+ *
+ *  List issues of conversion workspace operations e.g. conversion.
+ *
+ *  @param conversionWorkspace Required. Conversion workspace with issues to
+ *    fetch. Must be in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesFetchIssues
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithConversionWorkspace:(NSString *)conversionWorkspace;
+
+@end
+
+/**
  *  Gets details of a single conversion workspace.
  *
  *  Method: datamigration.projects.locations.conversionWorkspaces.get
@@ -1344,6 +1559,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @end
 
 /**
+ *  Updates the draft DDL of an entity.
+ *
+ *  Method: datamigration.projects.locations.conversionWorkspaces.setDraftEntityDdl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSetDraftEntityDdl : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. Name of the conversion workspace resource in the form of:
+ *  projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ */
+@property(nonatomic, copy, nullable) NSString *conversionWorkspace;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_SetDraftEntityDdlResponse.
+ *
+ *  Updates the draft DDL of an entity.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_SetDraftEntityDdlRequest
+ *    to include in the query.
+ *  @param conversionWorkspace Required. Name of the conversion workspace
+ *    resource in the form of:
+ *    projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesSetDraftEntityDdl
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_SetDraftEntityDdlRequest *)object
+            conversionWorkspace:(NSString *)conversionWorkspace;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
@@ -1437,6 +1686,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsFetchStaticIps : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Optional. Indicates whether to fetch the reserved public IP addresses
+ *  allocated for private connections in this location. If false or not set,
+ *  fetches the shared external static IP addresses instead.
+ */
+@property(nonatomic, assign) BOOL fetchReservedPublicIps;
 
 /**
  *  Required. The resource name for the location for which static IPs should be

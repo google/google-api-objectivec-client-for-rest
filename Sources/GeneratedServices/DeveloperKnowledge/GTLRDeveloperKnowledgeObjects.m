@@ -63,7 +63,7 @@ NSString * const kGTLRDeveloperKnowledge_Document_View_DocumentViewUnspecified =
 //
 
 @implementation GTLRDeveloperKnowledge_AnswerQueryRequest
-@dynamic query;
+@dynamic filter, query;
 @end
 
 
@@ -137,7 +137,7 @@ NSString * const kGTLRDeveloperKnowledge_Document_View_DocumentViewUnspecified =
 //
 
 @implementation GTLRDeveloperKnowledge_DocumentChunk
-@dynamic content, document, identifier, parent;
+@dynamic content, document, identifier, parent, relevanceScore;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

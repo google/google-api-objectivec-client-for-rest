@@ -232,6 +232,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAndroidDeveloperConsoleAccountNotFound;
 /**
+ *  The package was not found in the Android Developer Console.
+ *
+ *  Value: "PLAY_ANDROID_DEVELOPER_CONSOLE_PACKAGE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAndroidDeveloperConsolePackageNotFound;
+/**
  *  Play in-app sharing terms not accepted.
  *
  *  Value: "PLAY_IAS_TERMS_NOT_ACCEPTED"
@@ -1053,6 +1059,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *        The linked Play developer account was not found or is not fully set up
  *        in Android Developer Console. (Value:
  *        "PLAY_ANDROID_DEVELOPER_CONSOLE_ACCOUNT_NOT_FOUND")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAndroidDeveloperConsolePackageNotFound
+ *        The package was not found in the Android Developer Console. (Value:
+ *        "PLAY_ANDROID_DEVELOPER_CONSOLE_PACKAGE_NOT_FOUND")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayIasTermsNotAccepted
  *        Play in-app sharing terms not accepted. (Value:
  *        "PLAY_IAS_TERMS_NOT_ACCEPTED")

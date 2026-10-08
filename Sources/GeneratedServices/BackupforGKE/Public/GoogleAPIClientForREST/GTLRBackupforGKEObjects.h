@@ -1740,9 +1740,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Log entry for Backup and Restore Job for resources using BackupPlan based
- *  protection. Next Id: 26
+ *  protection. Next Id: 28
  */
 @interface GTLRBackupforGKE_BDRBackupRestoreJobLog : GTLRObject
+
+/** The auto-protection policy that created the backup. */
+@property(nonatomic, copy, nullable) NSString *autoProtectionPolicy;
+
+/** The auto-protection policy binding that created the backup. */
+@property(nonatomic, copy, nullable) NSString *autoProtectionPolicyBinding;
 
 /** Backup consistency time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *backupConsistencyTime;

@@ -35,6 +35,28 @@ NSString * const kGTLRCustomerEngagementSuite_App_ToolExecutionMode_Parallel = @
 NSString * const kGTLRCustomerEngagementSuite_App_ToolExecutionMode_Sequential = @"SEQUENTIAL";
 NSString * const kGTLRCustomerEngagementSuite_App_ToolExecutionMode_ToolExecutionModeUnspecified = @"TOOL_EXECUTION_MODE_UNSPECIFIED";
 
+// GTLRCustomerEngagementSuite_ArtifactChunk.state
+NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Closed = @"CLOSED";
+NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Delta = @"DELTA";
+NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Failed = @"FAILED";
+NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Finalized = @"FINALIZED";
+NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Started = @"STARTED";
+NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCustomerEngagementSuite_AssistantSuggestion.icon
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Build = @"BUILD";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Deploy = @"DEPLOY";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Evaluate = @"EVALUATE";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Explore = @"EXPLORE";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Fix = @"FIX";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_IconUnspecified = @"ICON_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Resume = @"RESUME";
+
+// GTLRCustomerEngagementSuite_AssistantSuggestion.source
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_LlmRanked = @"LLM_RANKED";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_Rule = @"RULE";
+NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
+
 // GTLRCustomerEngagementSuite_ChannelProfile.channelType
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Api = @"API";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAService = @"CONTACT_CENTER_AS_A_SERVICE";
@@ -87,6 +109,16 @@ NSString * const kGTLRCustomerEngagementSuite_Conversation_Source_Eval = @"EVAL"
 NSString * const kGTLRCustomerEngagementSuite_Conversation_Source_Live = @"LIVE";
 NSString * const kGTLRCustomerEngagementSuite_Conversation_Source_Simulator = @"SIMULATOR";
 NSString * const kGTLRCustomerEngagementSuite_Conversation_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
+
+// GTLRCustomerEngagementSuite_CustomVoiceSample.voiceInstructionMode
+NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_CustomInstruction = @"CUSTOM_INSTRUCTION";
+NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_GenerateInstruction = @"GENERATE_INSTRUCTION";
+NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_NoInstruction = @"NO_INSTRUCTION";
+NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_VoiceInstructionModeUnspecified = @"VOICE_INSTRUCTION_MODE_UNSPECIFIED";
+
+// GTLRCustomerEngagementSuite_CustomVoiceSampleWarning.type
+NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSampleWarning_Type_LowAudioLevel = @"LOW_AUDIO_LEVEL";
+NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSampleWarning_Type_WarningTypeUnspecified = @"WARNING_TYPE_UNSPECIFIED";
 
 // GTLRCustomerEngagementSuite_DataStore.documentProcessingMode
 NSString * const kGTLRCustomerEngagementSuite_DataStore_DocumentProcessingMode_Chunks = @"CHUNKS";
@@ -183,6 +215,12 @@ NSString * const kGTLRCustomerEngagementSuite_FileSearchTool_CorpusType_CorpusTy
 NSString * const kGTLRCustomerEngagementSuite_FileSearchTool_CorpusType_FullyManaged = @"FULLY_MANAGED";
 NSString * const kGTLRCustomerEngagementSuite_FileSearchTool_CorpusType_UserOwned = @"USER_OWNED";
 
+// GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse.userProfile
+NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_Exploring = @"EXPLORING";
+NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_New = @"NEW";
+NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_Returning = @"RETURNING";
+NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_UserProfileUnspecified = @"USER_PROFILE_UNSPECIFIED";
+
 // GTLRCustomerEngagementSuite_GuardrailContentFilter.matchType
 NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailContentFilter_MatchType_RegexpMatch = @"REGEXP_MATCH";
@@ -199,7 +237,9 @@ NSString * const kGTLRCustomerEngagementSuite_GuardrailLlmPolicy_PolicyScope_Use
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryHateSpeech = @"HARM_CATEGORY_HATE_SPEECH";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryProfanity = @"HARM_CATEGORY_PROFANITY";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategorySexuallyExplicit = @"HARM_CATEGORY_SEXUALLY_EXPLICIT";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryToxic = @"HARM_CATEGORY_TOXIC";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryUnspecified = @"HARM_CATEGORY_UNSPECIFIED";
 
 // GTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting.threshold
@@ -209,6 +249,22 @@ NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Threshold_BlockOnlyHigh = @"BLOCK_ONLY_HIGH";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Threshold_HarmBlockThresholdUnspecified = @"HARM_BLOCK_THRESHOLD_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Threshold_Off = @"OFF";
+
+// GTLRCustomerEngagementSuite_GuardrailSupervisor.detectionMode
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_Blocking = @"BLOCKING";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_DetectionModeUnspecified = @"DETECTION_MODE_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_NonBlocking = @"NON_BLOCKING";
+
+// GTLRCustomerEngagementSuite_GuardrailSupervisor.type
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_AudioMismatch = @"AUDIO_MISMATCH";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_ChoppyAudio = @"CHOPPY_AUDIO";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_Custom = @"CUSTOM";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_InvalidText = @"INVALID_TEXT";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_LanguageShift = @"LANGUAGE_SHIFT";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_MissingToolCall = @"MISSING_TOOL_CALL";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_Profanity = @"PROFANITY";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_SpeakerShift = @"SPEAKER_SHIFT";
+NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCustomerEngagementSuite_ImportAppRequestImportOptions.conflictResolutionStrategy
 NSString * const kGTLRCustomerEngagementSuite_ImportAppRequestImportOptions_ConflictResolutionStrategy_ConflictResolutionStrategyUnspecified = @"CONFLICT_RESOLUTION_STRATEGY_UNSPECIFIED";
@@ -248,6 +304,13 @@ NSString * const kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavi
 NSString * const kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_PassThrough = @"PASS_THROUGH";
 NSString * const kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_UnmatchedToolCallBehaviorUnspecified = @"UNMATCHED_TOOL_CALL_BEHAVIOR_UNSPECIFIED";
 
+// GTLRCustomerEngagementSuite_ModelSettings.thinkingLevel
+NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Default = @"DEFAULT";
+NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_High = @"HIGH";
+NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Low = @"LOW";
+NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Medium = @"MEDIUM";
+NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_ThinkingLevelUnspecified = @"THINKING_LEVEL_UNSPECIFIED";
+
 // GTLRCustomerEngagementSuite_OAuthConfig.oauthGrantType
 NSString * const kGTLRCustomerEngagementSuite_OAuthConfig_OauthGrantType_ClientCredential = @"CLIENT_CREDENTIAL";
 NSString * const kGTLRCustomerEngagementSuite_OAuthConfig_OauthGrantType_OauthGrantTypeUnspecified = @"OAUTH_GRANT_TYPE_UNSPECIFIED";
@@ -267,6 +330,11 @@ NSString * const kGTLRCustomerEngagementSuite_Schema_Type_Object = @"OBJECT";
 NSString * const kGTLRCustomerEngagementSuite_Schema_Type_String = @"STRING";
 NSString * const kGTLRCustomerEngagementSuite_Schema_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest.clientCapabilities
+NSString * const kGTLRCustomerEngagementSuite_StreamChatAiAssistantRequest_ClientCapabilities_ClientCapabilityUnspecified = @"CLIENT_CAPABILITY_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_StreamChatAiAssistantRequest_ClientCapabilities_ClientManagedLro = @"CLIENT_MANAGED_LRO";
+NSString * const kGTLRCustomerEngagementSuite_StreamChatAiAssistantRequest_ClientCapabilities_ConfirmationCards = @"CONFIRMATION_CARDS";
+
 // GTLRCustomerEngagementSuite_Tool.executionType
 NSString * const kGTLRCustomerEngagementSuite_Tool_ExecutionType_Asynchronous = @"ASYNCHRONOUS";
 NSString * const kGTLRCustomerEngagementSuite_Tool_ExecutionType_ExecutionTypeUnspecified = @"EXECUTION_TYPE_UNSPECIFIED";
@@ -281,6 +349,21 @@ NSString * const kGTLRCustomerEngagementSuite_Toolset_ExecutionType_Synchronous 
 NSString * const kGTLRCustomerEngagementSuite_TransferRule_Direction_ChildToParent = @"CHILD_TO_PARENT";
 NSString * const kGTLRCustomerEngagementSuite_TransferRule_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_TransferRule_Direction_ParentToChild = @"PARENT_TO_CHILD";
+
+// GTLRCustomerEngagementSuite_TurnCompletedEvent.reason
+NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_Abandoned = @"ABANDONED";
+NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_Completed = @"COMPLETED";
+NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_ResumeUnavailable = @"RESUME_UNAVAILABLE";
+
+// GTLRCustomerEngagementSuite_TurnHandoffEvent.reason
+NSString * const kGTLRCustomerEngagementSuite_TurnHandoffEvent_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_TurnHandoffEvent_Reason_ServerRestart = @"SERVER_RESTART";
+
+// GTLRCustomerEngagementSuite_TurnMetadata.contractStreamingPhase
+NSString * const kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_ContractStreamingPhaseUnspecified = @"CONTRACT_STREAMING_PHASE_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_Drafting = @"DRAFTING";
+NSString * const kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_Revising = @"REVISING";
 
 // GTLRCustomerEngagementSuite_WidgetTool.widgetType
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AdvancedProductDetails = @"ADVANCED_PRODUCT_DETAILS";
@@ -347,8 +430,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
          beforeAgentCallbacks, beforeModelCallbacks, beforeToolCallbacks,
          childAgents, createTime, descriptionProperty, displayName, ETag,
          generatedSummary, guardrails, instruction, llmAgent, modelSettings,
-         name, remoteDialogflowAgent, tools, toolsets, transferRules,
-         updateTime, validationErrors;
+         name, remoteA2aAgent, remoteDialogflowAgent, tools, toolsets,
+         transferRules, updateTime, validationErrors;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -436,6 +519,26 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_AgentLlmAgent
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_AgentRegistryDeployment
+//
+
+@implementation GTLRCustomerEngagementSuite_AgentRegistryDeployment
+@dynamic agentRegistryServiceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_AgentRemoteA2aAgent
+//
+
+@implementation GTLRCustomerEngagementSuite_AgentRemoteA2aAgent
+@dynamic a2aConfig;
 @end
 
 
@@ -572,13 +675,14 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_App
 @dynamic audioProcessingConfig, clientCertificateSettings, createTime,
-         dataStoreSettings, defaultChannelProfile, deploymentCount,
-         descriptionProperty, displayName, errorHandlingSettings, ETag,
-         evaluationMetricsThresholds, globalInstruction, guardrails,
-         languageSettings, locked, loggingSettings, metadata, modelSettings,
-         name, pinned, predefinedVariableDeclarations, rootAgent,
-         timeZoneSettings, toolExecutionMode, updateTime, validationErrors,
-         variableDeclarations, vpcScSettings;
+         dashboardSettings, dataStoreSettings, defaultChannelProfile,
+         deploymentCount, descriptionProperty, displayName,
+         errorHandlingSettings, ETag, evaluationMetricsThresholds,
+         globalInstruction, guardrails, languageSettings, locked,
+         loggingSettings, metadata, modelSettings, name, pinned,
+         predefinedVariableDeclarations, rootAgent, timeZoneSettings,
+         toolExecutionMode, updateTime, validationErrors, variableDeclarations,
+         vpcScSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -659,7 +763,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_AppVersion
 @dynamic createTime, creator, descriptionProperty, displayName, ETag, name,
-         snapshot;
+         snapshot, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -674,12 +778,80 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_ArtifactChunk
+//
+
+@implementation GTLRCustomerEngagementSuite_ArtifactChunk
+@dynamic artifactId, contentDelta, displayName, gcsUri, mimeType, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_AssistantConfirmationRequest
+//
+
+@implementation GTLRCustomerEngagementSuite_AssistantConfirmationRequest
+@dynamic agentName, confirmationId, context, expireTime, negativeLabel,
+         positiveLabel, questions, tool;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"questions" : [GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_AssistantConfirmationResponse
+//
+
+@implementation GTLRCustomerEngagementSuite_AssistantConfirmationResponse
+@dynamic answerText, confirmationId, confirmed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_AssistantSuggestion
+//
+
+@implementation GTLRCustomerEngagementSuite_AssistantSuggestion
+@dynamic candidateType, icon, label, loadSession, rationale, seedPrompt,
+         sendMessage, source, suggestionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_AssistantSuggestionLoadSession
+//
+
+@implementation GTLRCustomerEngagementSuite_AssistantSuggestionLoadSession
+@dynamic assistantSessionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_AudioProcessingConfig
 //
 
 @implementation GTLRCustomerEngagementSuite_AudioProcessingConfig
-@dynamic ambientSoundConfig, bargeInConfig, inactivityTimeout,
-         synthesizeSpeechConfigs;
+@dynamic ambientSoundConfig, bargeInConfig, customVoiceSamples,
+         inactivityTimeout, synthesizeSpeechConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customVoiceSamples" : [GTLRCustomerEngagementSuite_CustomVoiceSample class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -777,6 +949,26 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_CancelAssistantTurnRequest
+//
+
+@implementation GTLRCustomerEngagementSuite_CancelAssistantTurnRequest
+@dynamic turnId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_CancelAssistantTurnResponse
+//
+
+@implementation GTLRCustomerEngagementSuite_CancelAssistantTurnResponse
+@dynamic cancelled;
 @end
 
 
@@ -995,11 +1187,12 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_Citations
-@dynamic citedChunks;
+@dynamic citedChunks, inlineCitations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"citedChunks" : [GTLRCustomerEngagementSuite_CitationsCitedChunk class]
+    @"citedChunks" : [GTLRCustomerEngagementSuite_CitationsCitedChunk class],
+    @"inlineCitations" : [GTLRCustomerEngagementSuite_CitationsInlineCitation class]
   };
   return map;
 }
@@ -1014,6 +1207,24 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_CitationsCitedChunk
 @dynamic requiresAttribution, text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_CitationsInlineCitation
+//
+
+@implementation GTLRCustomerEngagementSuite_CitationsInlineCitation
+@dynamic citedChunkIndices, endIndex, startIndex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citedChunkIndices" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1141,6 +1352,45 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_CustomVoiceSample
+//
+
+@implementation GTLRCustomerEngagementSuite_CustomVoiceSample
+@dynamic consentAudioGcsUri, name, previewAudioContent, previewText,
+         voiceInstruction, voiceInstructionMode, voiceSampleGcsUri, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [GTLRCustomerEngagementSuite_CustomVoiceSampleWarning class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_CustomVoiceSampleWarning
+//
+
+@implementation GTLRCustomerEngagementSuite_CustomVoiceSampleWarning
+@dynamic message, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_DashboardSettings
+//
+
+@implementation GTLRCustomerEngagementSuite_DashboardSettings
+@dynamic defaultDashboard;
 @end
 
 
@@ -1357,7 +1607,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_DataStoreToolSnippetsConfig
-@dynamic enableSnippets;
+@dynamic enableSnippets, maxSnippets;
 @end
 
 
@@ -1373,13 +1623,23 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_DeployChannelResponse
+//
+
+@implementation GTLRCustomerEngagementSuite_DeployChannelResponse
+@dynamic deployment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_Deployment
 //
 
 @implementation GTLRCustomerEngagementSuite_Deployment
-@dynamic appVersion, channelProfile, createTime, displayName, ETag,
-         experimentConfig, instagramCredentials, modality, modelSettings, name,
-         updateTime, whatsappCredentials;
+@dynamic agentRegistryDeployment, appVersion, channelProfile, createTime,
+         displayName, ETag, experimentConfig, instagramCredentials, modality,
+         modelSettings, name, updateTime, whatsappCredentials;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1572,7 +1832,21 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_Event
-@dynamic event;
+@dynamic event, variables;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_Event_Variables
+//
+
+@implementation GTLRCustomerEngagementSuite_Event_Variables
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -1804,6 +2078,34 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRequest
+//
+
+@implementation GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRequest
+@dynamic maxSuggestions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse
+//
+
+@implementation GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse
+@dynamic contextToken, suggestions, userProfile;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestions" : [GTLRCustomerEngagementSuite_AssistantSuggestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_GoogleSearchSuggestions
 //
 
@@ -1864,7 +2166,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 @implementation GTLRCustomerEngagementSuite_Guardrail
 @dynamic action, codeCallback, contentFilter, createTime, descriptionProperty,
          displayName, enabled, ETag, llmPolicy, llmPromptSecurity, modelSafety,
-         name, updateTime;
+         name, supervisor, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1970,11 +2272,21 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_GuardrailSupervisor
+//
+
+@implementation GTLRCustomerEngagementSuite_GuardrailSupervisor
+@dynamic detectionMode, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_Image
 //
 
 @implementation GTLRCustomerEngagementSuite_Image
-@dynamic data, mimeType;
+@dynamic altText, data, mimeType;
 @end
 
 
@@ -1984,7 +2296,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ImportAppRequest
-@dynamic appContent, appId, displayName, gcsUri, ignoreAppLock, importOptions;
+@dynamic appContent, appId, displayName, gcsUri, ignoreAppLock, importOptions,
+         jsonPatchContent, jsonPatchGcsUri;
 @end
 
 
@@ -2627,6 +2940,16 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_LfA2aV1StreamResponse
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1StreamResponse
+@dynamic artifactUpdate, message, statusUpdate, task;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_LfA2aV1StringList
 //
 
@@ -2682,6 +3005,30 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent
+@dynamic append, artifact, contextId, lastChunk, metadata, taskId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent_Metadata
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_LfA2aV1TaskPushNotificationConfig
 //
 
@@ -2702,6 +3049,30 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_LfA2aV1TaskStatus
 @dynamic message, state, timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent
+@dynamic contextId, metadata, status, taskId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent_Metadata
+//
+
+@implementation GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -3201,7 +3572,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ModelSettings
-@dynamic model, temperature;
+@dynamic model, temperature, thinkingLevel;
 @end
 
 
@@ -3290,11 +3661,82 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_OperationCompletedEvent
+//
+
+@implementation GTLRCustomerEngagementSuite_OperationCompletedEvent
+@dynamic deduplicationToken, error, metadata, operationName, operationType,
+         status, targetResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_OperationCompletedEvent_Metadata
+//
+
+@implementation GTLRCustomerEngagementSuite_OperationCompletedEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_OperationMetadata
 //
 
 @implementation GTLRCustomerEngagementSuite_OperationMetadata
 @dynamic createTime, endTime, requestedCancellation, statusMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_OptionQuestionsChunk
+//
+
+@implementation GTLRCustomerEngagementSuite_OptionQuestionsChunk
+@dynamic questions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"questions" : [GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_OptionQuestionsChunkOption
+//
+
+@implementation GTLRCustomerEngagementSuite_OptionQuestionsChunkOption
+@dynamic details, submitText, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion
+//
+
+@implementation GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion
+@dynamic options, question;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"options" : [GTLRCustomerEngagementSuite_OptionQuestionsChunkOption class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3345,14 +3787,82 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_RemoteA2aConfig
+//
+
+@implementation GTLRCustomerEngagementSuite_RemoteA2aConfig
+@dynamic agentCard, agentRegistry, apiAuthentication, contextId,
+         inputVariableMapping, outputVariableMapping, streamingEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_RemoteA2aConfig_InputVariableMapping
+//
+
+@implementation GTLRCustomerEngagementSuite_RemoteA2aConfig_InputVariableMapping
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_RemoteA2aConfig_OutputVariableMapping
+//
+
+@implementation GTLRCustomerEngagementSuite_RemoteA2aConfig_OutputVariableMapping
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_RemoteAgentTool
 //
 
 @implementation GTLRCustomerEngagementSuite_RemoteAgentTool
-@dynamic agentCard, descriptionProperty, name;
+@dynamic agentCard, apiAuthentication, descriptionProperty,
+         inputVariableMapping, name, outputVariableMapping, statefulAgent;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_RemoteAgentTool_InputVariableMapping
+//
+
+@implementation GTLRCustomerEngagementSuite_RemoteAgentTool_InputVariableMapping
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_RemoteAgentTool_OutputVariableMapping
+//
+
+@implementation GTLRCustomerEngagementSuite_RemoteAgentTool_OutputVariableMapping
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -3575,6 +4085,16 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_SessionCheckpoint
+//
+
+@implementation GTLRCustomerEngagementSuite_SessionCheckpoint
+@dynamic userIntent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_SessionConfig
 //
 
@@ -3676,31 +4196,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_SessionOutput
-@dynamic audio, citations, context, diagnosticInfo, endSession,
-         googleSearchSuggestions, payload, text, toolCalls, turnCompleted,
-         turnIndex;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"context" : [GTLRCustomerEngagementSuite_SessionOutput_Context_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCustomerEngagementSuite_SessionOutput_Context_Item
-//
-
-@implementation GTLRCustomerEngagementSuite_SessionOutput_Context_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
+@dynamic audio, citations, diagnosticInfo, endSession, googleSearchSuggestions,
+         image, payload, progress, text, toolCalls, turnCompleted, turnIndex;
 @end
 
 
@@ -3802,12 +4299,45 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest
+//
+
+@implementation GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest
+@dynamic attachedGcsUris, attachOnly, clientCapabilities, confirmationResponse,
+         contextToken, message, operationCompletedEvent,
+         resumeFromSequenceNumber;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachedGcsUris" : [NSString class],
+    @"clientCapabilities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse
+//
+
+@implementation GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse
+@dynamic artifactChunk, confirmationRequest, eventId, eventTime, handoff,
+         optionQuestionsChunk, resumeSnapshot, sequenceNumber,
+         sessionCheckpoint, status, textChunk, thoughtChunk, toolCall,
+         toolResponse, turnCompleted, turnInProgress, turnMetadata, uiEvent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_SynthesizeSpeechConfig
 //
 
 @implementation GTLRCustomerEngagementSuite_SynthesizeSpeechConfig
-@dynamic consentAudioGcsUri, instruction, model, speakingRate, voice,
-         voiceSampleGcsUri;
+@dynamic instruction, model, speakingRate, voice;
 @end
 
 
@@ -3872,7 +4402,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 @implementation GTLRCustomerEngagementSuite_Tool
 @dynamic agentTool, clientFunction, connectorTool, createTime, dataStoreTool,
          displayName, ETag, executionType, fileSearchTool, generatedSummary,
-         googleSearchTool, mcpTool, name, openApiTool, pythonFunction,
+         googleSearchTool, mcpTool, name, openApiTool, pythonFunction, readOnly,
          remoteAgentTool, systemTool, timeout, toolFakeConfig, updateTime,
          widgetTool;
 
@@ -3889,7 +4419,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ToolCall
-@dynamic args, displayName, identifier, tool, toolsetTool;
+@dynamic agentName, args, displayName, identifier, parentToolCallId, tool,
+         toolsetTool;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -3946,7 +4477,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 //
 
 @implementation GTLRCustomerEngagementSuite_ToolResponse
-@dynamic displayName, identifier, response, tool, toolsetTool;
+@dynamic agentName, displayName, identifier, parentToolCallId, response, tool,
+         toolsetTool;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -4103,6 +4635,65 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_
 
 @implementation GTLRCustomerEngagementSuite_TriggerActionTransferAgent
 @dynamic agent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_TurnCompletedEvent
+//
+
+@implementation GTLRCustomerEngagementSuite_TurnCompletedEvent
+@dynamic finalSequenceNumber, reason, turnId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_TurnHandoffEvent
+//
+
+@implementation GTLRCustomerEngagementSuite_TurnHandoffEvent
+@dynamic reason, turnId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_TurnMetadata
+//
+
+@implementation GTLRCustomerEngagementSuite_TurnMetadata
+@dynamic contractDraftComplete, contractFinalized, contractRelated,
+         contractStreamingPhase;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_TurnResumeSnapshot
+//
+
+@implementation GTLRCustomerEngagementSuite_TurnResumeSnapshot
+@dynamic events, orphanDeadlineTime, resolvedSequenceNumber, turnId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"events" : [GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_UiEvent
+//
+
+@implementation GTLRCustomerEngagementSuite_UiEvent
+@dynamic jsonPayload, mimeType;
 @end
 
 

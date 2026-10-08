@@ -25,6 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud API
+ *  Keys data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/apikeys"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeApiKeysService;
+/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *
@@ -38,6 +45,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeApiKeysServiceCloudPlatform;
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeApiKeysServiceCloudPlatformReadOnly;
+/**
+ *  Authorization scope: See your Google Cloud API Keys data and the email
+ *  address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/apikeys.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeApiKeysServiceReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRApiKeysServiceService

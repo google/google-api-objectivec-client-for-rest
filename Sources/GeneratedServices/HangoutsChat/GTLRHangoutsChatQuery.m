@@ -437,6 +437,71 @@ NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_U
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesMessagePinsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MessagePin *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/messagePins";
+  GTLRHangoutsChatQuery_SpacesMessagePinsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_MessagePin class];
+  query.loggingName = @"chat.spaces.messagePins.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMessagePinsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesMessagePinsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Empty class];
+  query.loggingName = @"chat.spaces.messagePins.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMessagePinsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/messagePins";
+  GTLRHangoutsChatQuery_SpacesMessagePinsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_ListMessagePinsResponse class];
+  query.loggingName = @"chat.spaces.messagePins.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet
 
 @dynamic name;

@@ -28,6 +28,174 @@ NSString * const kGTLRCloudNumberRegistryViewRegistryBookViewUnspecified = @"REG
 
 @end
 
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudNumberRegistry_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}:cancel";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_Empty class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_Empty class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_Operation class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}/operations";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_ListOperationsResponse class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesCreate
+
+@dynamic orgNumberRegistryId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRCloudNumberRegistry_OrgNumberRegistry *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/orgNumberRegistries";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_Operation class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.orgNumberRegistries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_Operation class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.orgNumberRegistries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_OrgNumberRegistry class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.orgNumberRegistries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/orgNumberRegistries";
+  GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudNumberRegistry_ListOrgNumberRegistriesResponse class];
+  query.loggingName = @"cloudnumberregistry.organizations.locations.orgNumberRegistries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudNumberRegistryQuery_ProjectsLocationsCustomRangesCreate
 
 @dynamic customRangeId, parent, requestId;

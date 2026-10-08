@@ -13,8 +13,10 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeApiKeysService                  = @"https://www.googleapis.com/auth/apikeys";
 NSString * const kGTLRAuthScopeApiKeysServiceCloudPlatform     = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeApiKeysServiceCloudPlatformReadOnly = @"https://www.googleapis.com/auth/cloud-platform.read-only";
+NSString * const kGTLRAuthScopeApiKeysServiceReadonly          = @"https://www.googleapis.com/auth/apikeys.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRApiKeysServiceService

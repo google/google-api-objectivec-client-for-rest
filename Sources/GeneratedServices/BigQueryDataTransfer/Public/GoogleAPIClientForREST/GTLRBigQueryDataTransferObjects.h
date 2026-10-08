@@ -27,6 +27,7 @@
 @class GTLRBigQueryDataTransfer_Location_Metadata;
 @class GTLRBigQueryDataTransfer_ManualSchedule;
 @class GTLRBigQueryDataTransfer_MetadataDestination;
+@class GTLRBigQueryDataTransfer_ParameterConfig;
 @class GTLRBigQueryDataTransfer_PartitionDetail;
 @class GTLRBigQueryDataTransfer_ScheduleOptions;
 @class GTLRBigQueryDataTransfer_ScheduleOptionsV2;
@@ -732,6 +733,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSumma
 @property(nonatomic, strong, nullable) NSNumber *required;
 
 /**
+ *  Output only. If true, the parameter value can be provided through Secret
+ *  Manager.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *secretManagerAllowed;
+
+/**
  *  Parameter type.
  *
  *  Likely values:
@@ -1089,6 +1098,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSumma
 
 /** The Dataplex Universal Catalog configuration. */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_DataplexConfiguration *dataplexConfiguration;
+
+@end
+
+
+/**
+ *  Configuration for data source parameters.
+ */
+@interface GTLRBigQueryDataTransfer_ParameterConfig : GTLRObject
+
+/**
+ *  Optional. The list of parameters that are stored in Secret Manager. The
+ *  value of a parameter included in this list will be interpreted as a Secret
+ *  Manager key version resource name instead of a raw value. The raw value will
+ *  be retrieved from Secret Manager upon execution.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secretManagerManagedParams;
 
 @end
 
@@ -1468,6 +1493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSumma
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_UserInfo *ownerInfo;
 
+/** Optional. The config for values in `params`. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_ParameterConfig *paramConfig;
+
 /**
  *  Parameters specific to each data source. For more information see the bq tab
  *  in the 'Setting up a data transfer' section for each data source. For
@@ -1721,6 +1749,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSumma
  *  `projects/{project_id}/topics/{topic_id}`
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
+
+/** Output only. The parameter config of the transfer run. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_ParameterConfig *parameterConfig;
 
 /**
  *  Output only. Parameters specific to each data source. For more information

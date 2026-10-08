@@ -13,6 +13,7 @@
 #endif
 
 @class GTLRCloudLocationFinder_CloudLocation;
+@class GTLRCloudLocationFinder_GcpAttributes;
 @class GTLRCloudLocationFinder_Location;
 @class GTLRCloudLocationFinder_Location_Labels;
 @class GTLRCloudLocationFinder_Location_Metadata;
@@ -36,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "CLOUD_LOCATION_TYPE_GDCC_ZONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGdccZone;
+/**
+ *  CloudLocation type for global.
+ *
+ *  Value: "CLOUD_LOCATION_TYPE_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGlobal;
 /**
  *  CloudLocation type for region.
  *
@@ -89,6 +96,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudProvider_CloudProviderUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudLocationFinder_GcpAttributes.zoneType
+
+/**
+ *  AI zone type.
+ *
+ *  Value: "AI_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_GcpAttributes_ZoneType_AiZone;
+/**
+ *  Default value. Unspecified zone type.
+ *
+ *  Value: "GCP_ZONE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_GcpAttributes_ZoneType_GcpZoneTypeUnspecified;
+/**
+ *  General purpose zone type.
+ *
+ *  Value: "GENERAL_PURPOSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_GcpAttributes_ZoneType_GeneralPurpose;
+
 /**
  *  Represents resource cloud locations.
  */
@@ -114,6 +143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudP
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGdccZone
  *        CloudLocation type for Google Distributed Cloud Connected Zone.
  *        (Value: "CLOUD_LOCATION_TYPE_GDCC_ZONE")
+ *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeGlobal
+ *        CloudLocation type for global. (Value: "CLOUD_LOCATION_TYPE_GLOBAL")
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeRegion
  *        CloudLocation type for region. (Value: "CLOUD_LOCATION_TYPE_REGION")
  *    @arg @c kGTLRCloudLocationFinder_CloudLocation_CloudLocationType_CloudLocationTypeUnspecified
@@ -153,6 +184,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudP
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Optional. GCP-specific attributes. */
+@property(nonatomic, strong, nullable) GTLRCloudLocationFinder_GcpAttributes *gcpAttributes;
+
 /**
  *  Identifier. Name of the cloud location. Unique name of the cloud location
  *  including project and location using the form:
@@ -165,6 +199,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLocationFinder_CloudLocation_CloudP
  *  Examples: US, JP, KR.
  */
 @property(nonatomic, copy, nullable) NSString *territoryCode;
+
+@end
+
+
+/**
+ *  GCP-specific attributes.
+ */
+@interface GTLRCloudLocationFinder_GcpAttributes : GTLRObject
+
+/**
+ *  Optional. The type of the cloud zone.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudLocationFinder_GcpAttributes_ZoneType_AiZone AI zone
+ *        type. (Value: "AI_ZONE")
+ *    @arg @c kGTLRCloudLocationFinder_GcpAttributes_ZoneType_GcpZoneTypeUnspecified
+ *        Default value. Unspecified zone type. (Value:
+ *        "GCP_ZONE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudLocationFinder_GcpAttributes_ZoneType_GeneralPurpose
+ *        General purpose zone type. (Value: "GENERAL_PURPOSE")
+ */
+@property(nonatomic, copy, nullable) NSString *zoneType;
 
 @end
 

@@ -35,7 +35,11 @@
 @class GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationSecret;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationTls;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationTlsPrivatePki;
+@class GTLRBigQueryConnectionService_ConnectorConfigurationTlsWebPki;
 @class GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword;
+@class GTLRBigQueryConnectionService_CrossCloudCacheOptions;
 @class GTLRBigQueryConnectionService_Expr;
 @class GTLRBigQueryConnectionService_GetPolicyOptions;
 @class GTLRBigQueryConnectionService_MetastoreServiceConfig;
@@ -111,6 +115,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_Plaintext;
 /** Value: "SECRET_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_SecretTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryConnectionService_ConnectorConfigurationTls.mode
+
+/**
+ *  TLS is disabled.
+ *
+ *  Value: "DISABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_Disable;
+/**
+ *  Encryption is enabled, and server certificate is verified.
+ *
+ *  Value: "ENCRYPT_VERIFY_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyCa;
+/**
+ *  Encryption is enabled, and server certificate and host are verified.
+ *
+ *  Value: "ENCRYPT_VERIFY_CA_AND_HOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyCaAndHost;
+/**
+ *  Encryption is enabled, but server certificate is not verified.
+ *
+ *  Value: "ENCRYPT_VERIFY_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyNone;
+/**
+ *  TLS mode unspecified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_ModeUnspecified;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -210,6 +248,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_AwsAccessRole *accessRole;
 
+/**
+ *  Optional. Configuration options for cross-cloud caching of data and metadata
+ *  files.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CrossCloudCacheOptions *crossCloudCacheOptions;
+
 @end
 
 
@@ -223,6 +267,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 
 /** Output only. The client id of the Azure Active Directory Application. */
 @property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Optional. Configuration options for cross-cloud caching of data and metadata
+ *  files.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CrossCloudCacheOptions *crossCloudCacheOptions;
 
 /** The id of customer's directory that host the data. */
 @property(nonatomic, copy, nullable) NSString *customerTenantId;
@@ -575,27 +625,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationNetwork *network;
 
 /**
- *  Optional. A map of name-value pairs for connector-specific parameters. Extra
- *  configuration parameters, that are not standardized in configuration
- *  sections. To update a single parameter value call
+ *  Optional. A map of name-value pairs for connector-specific parameters. These
+ *  extra configuration parameters aren't standardized in the configuration
+ *  sections. To update a single parameter value, call
  *  ConnectionService.UpdateConnection with `update_mask` set to
- *  `configuration.parameters.parameter_id`. If parameter id does not fit
- *  `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for example
- *  ``configuration.parameters.`parameter id` ``.
+ *  `configuration.parameters.parameter_id`. If ``parameter_id`` doesn't fit the
+ *  `[a-zA-Z0-9_]+` pattern, ``parameter_id`` should be escaped with
+ *  backticks—for example, ``configuration.parameters.`parameter id` ``.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfiguration_Parameters *parameters;
+
+/** Optional. TLS configuration options. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationTls *tls;
 
 @end
 
 
 /**
- *  Optional. A map of name-value pairs for connector-specific parameters. Extra
- *  configuration parameters, that are not standardized in configuration
- *  sections. To update a single parameter value call
+ *  Optional. A map of name-value pairs for connector-specific parameters. These
+ *  extra configuration parameters aren't standardized in the configuration
+ *  sections. To update a single parameter value, call
  *  ConnectionService.UpdateConnection with `update_mask` set to
- *  `configuration.parameters.parameter_id`. If parameter id does not fit
- *  `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for example
- *  ``configuration.parameters.`parameter id` ``.
+ *  `configuration.parameters.parameter_id`. If ``parameter_id`` doesn't fit the
+ *  `[a-zA-Z0-9_]+` pattern, ``parameter_id`` should be escaped with
+ *  backticks—for example, ``configuration.parameters.`parameter id` ``.
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue.
@@ -632,13 +685,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 @interface GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication : GTLRObject
 
 /**
- *  Optional. A map of name-value pairs for authentication-specific parameters.
- *  Extra configuration parameters, that are not standardized in authentication.
- *  To update a single parameter value call ConnectionService.UpdateConnection
- *  with `update_mask` set to
- *  `configuration.authentication.parameters.parameter_id`. If parameter id does
- *  not fit `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for
- *  example ``configuration.authentication.parameters.`parameter id` ``.
+ *  Optional. A map of name-value pairs for connector-specific parameters. These
+ *  extra configuration parameters aren't standardized in the configuration
+ *  sections. To update a single parameter value, call
+ *  ConnectionService.UpdateConnection with `update_mask` set to
+ *  `configuration.parameters.parameter_id`. If ``parameter_id`` doesn't fit the
+ *  `[a-zA-Z0-9_]+` pattern, ``parameter_id`` should be escaped with
+ *  backticks—for example, ``configuration.parameters.`parameter id` ``.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication_Parameters *parameters;
 
@@ -658,13 +711,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 
 
 /**
- *  Optional. A map of name-value pairs for authentication-specific parameters.
- *  Extra configuration parameters, that are not standardized in authentication.
- *  To update a single parameter value call ConnectionService.UpdateConnection
- *  with `update_mask` set to
- *  `configuration.authentication.parameters.parameter_id`. If parameter id does
- *  not fit `[a-zA-Z0-9_]+` pattern, it should be escaped with backticks - for
- *  example ``configuration.authentication.parameters.`parameter id` ``.
+ *  Optional. A map of name-value pairs for connector-specific parameters. These
+ *  extra configuration parameters aren't standardized in the configuration
+ *  sections. To update a single parameter value, call
+ *  ConnectionService.UpdateConnection with `update_mask` set to
+ *  `configuration.parameters.parameter_id`. If ``parameter_id`` doesn't fit the
+ *  `[a-zA-Z0-9_]+` pattern, ``parameter_id`` should be escaped with
+ *  backticks—for example, ``configuration.parameters.`parameter id` ``.
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigQueryConnectionService_ConnectorConfigurationParameterValue.
@@ -775,6 +828,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 
 
 /**
+ *  TLS configuration options.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationTls : GTLRObject
+
+/**
+ *  Optional. The mode of TLS configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_Disable
+ *        TLS is disabled. (Value: "DISABLE")
+ *    @arg @c kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyCa
+ *        Encryption is enabled, and server certificate is verified. (Value:
+ *        "ENCRYPT_VERIFY_CA")
+ *    @arg @c kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyCaAndHost
+ *        Encryption is enabled, and server certificate and host are verified.
+ *        (Value: "ENCRYPT_VERIFY_CA_AND_HOST")
+ *    @arg @c kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyNone
+ *        Encryption is enabled, but server certificate is not verified. (Value:
+ *        "ENCRYPT_VERIFY_NONE")
+ *    @arg @c kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_ModeUnspecified
+ *        TLS mode unspecified. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/** Optional. Private PKI. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationTlsPrivatePki *privatePki;
+
+/** Optional. Web PKI. */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_ConnectorConfigurationTlsWebPki *webPki;
+
+@end
+
+
+/**
+ *  Private PKI.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationTlsPrivatePki : GTLRObject
+
+/** Optional. a PEM-encoded list of certificates to trust */
+@property(nonatomic, copy, nullable) NSString *trustedCertificatesPem;
+
+@end
+
+
+/**
+ *  Web PKI.
+ */
+@interface GTLRBigQueryConnectionService_ConnectorConfigurationTlsWebPki : GTLRObject
+@end
+
+
+/**
  *  Username and Password authentication.
  */
 @interface GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword : GTLRObject
@@ -784,6 +889,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
 
 /** Required. Username. */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Options for caching cross-cloud data and metadata files.
+ */
+@interface GTLRBigQueryConnectionService_CrossCloudCacheOptions : GTLRObject
+
+/**
+ *  Optional. Whether cross-cloud caching is enabled. This only affects queries
+ *  through BigQuery. If this value is `true`, read data and metadata are stored
+ *  in a cache, which can increase performance and decrease network egress costs
+ *  for cross-cloud queries. If this value is `false`, cross-cloud caching is
+ *  disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1019,6 +1143,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_ConnectorConfi
  *  use only by Salesforce partner projects.
  */
 @interface GTLRBigQueryConnectionService_SalesforceDataCloudProperties : GTLRObject
+
+/**
+ *  Optional. Configuration options for cross-cloud caching of data and metadata
+ *  files.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryConnectionService_CrossCloudCacheOptions *crossCloudCacheOptions;
 
 /**
  *  Output only. A unique Google-owned and Google-generated service account

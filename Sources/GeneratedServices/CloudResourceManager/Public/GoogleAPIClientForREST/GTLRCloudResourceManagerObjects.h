@@ -18,6 +18,7 @@
 @class GTLRCloudResourceManager_AuditConfig;
 @class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
+@class GTLRCloudResourceManager_CapabilityConfig;
 @class GTLRCloudResourceManager_EffectiveTag;
 @class GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags;
 @class GTLRCloudResourceManager_Expr;
@@ -79,6 +80,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogT
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_CapabilityConfig.state
+
+/**
+ *  CapabilityConfig is operational, and the management project is fully active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_CapabilityConfig_State_Active;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_CapabilityConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_CapabilityConfig.types
+
+/**
+ *  For Agent Registry.
+ *
+ *  Value: "AGENT_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_CapabilityConfig_Types_AgentManagement;
+/**
+ *  For AppHub applications.
+ *
+ *  Value: "APP_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_CapabilityConfig_Types_AppManagement;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_CapabilityConfig_Types_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_Folder.state
@@ -491,6 +530,91 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  A CapabilityConfig allows managing experiences like applications and agents
+ *  on a logical administrative perimeter of Projects (Boundary).
+ */
+@interface GTLRCloudResourceManager_CapabilityConfig : GTLRObject
+
+/**
+ *  Optional. The list of Boundaries associated with this CapabilityConfig.
+ *  Format: `organizations/{organization}/boundaries/{boundary}` or,
+ *  `folders/{folder}/boundaries/{boundary}` or,
+ *  `projects/{project}/boundaries/{boundary}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *boundaries;
+
+/** Output only. The creation time of the CapabilityConfig. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Human-readable non-unique display name of the CapabilityConfig.
+ *  When present it must be between 4 to 30 characters. Allowed characters are:
+ *  lowercase and uppercase letters, numbers, hyphen, single-quote,
+ *  double-quote, space, and exclamation point. Example: `My CapabilityConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Immutable. The Management Project associated with this
+ *  CapabilityConfig. If not provided during creation, a management project will
+ *  be automatically created. Cannot be modified after creation. Format:
+ *  `projects/{project_number}` Example: `projects/123456789012`
+ */
+@property(nonatomic, copy, nullable) NSString *managementProject;
+
+/**
+ *  Identifier. The unique resource name of the CapabilityConfig. Format:
+ *  `organizations/{organization}/capabilityConfigs/{capabilityConfig}` or,
+ *  `folders/{folder}/capabilityConfigs/{capabilityConfig}` or,
+ *  `projects/{project}/capabilityConfigs/{capabilityConfig}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The lifecycle state of the CapabilityConfig.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_CapabilityConfig_State_Active
+ *        CapabilityConfig is operational, and the management project is fully
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudResourceManager_CapabilityConfig_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Required. The CapabilityConfig types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *types;
+
+/** Output only. The most recent time this CapabilityConfig was modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by CreateBoundary. Currently empty.
+ */
+@interface GTLRCloudResourceManager_CreateBoundaryMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by CreateCapabilityConfig. Currently empty.
+ */
+@interface GTLRCloudResourceManager_CreateCapabilityConfigMetadata : GTLRObject
+@end
+
+
+/**
  *  Metadata pertaining to the Folder creation process.
  */
 @interface GTLRCloudResourceManager_CreateFolderMetadata : GTLRObject
@@ -554,6 +678,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  Runtime operation information for creating a TagValue.
  */
 @interface GTLRCloudResourceManager_CreateTagValueMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteBoundary. Currently empty.
+ */
+@interface GTLRCloudResourceManager_DeleteBoundaryMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteCapabilityConfig. Currently empty.
+ */
+@interface GTLRCloudResourceManager_DeleteCapabilityConfigMetadata : GTLRObject
 @end
 
 
@@ -1126,6 +1266,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  A page of the response received from the ListCapabilityConfigs method. A
+ *  paginated response where more pages are available has `next_page_token` set.
+ *  This token can be used in a subsequent request to retrieve the next page.
+ *  NOTE: A response may contain fewer elements than the request `page_size` and
+ *  still have a `next_page_token`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "capabilityConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudResourceManager_ListCapabilityConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The list of CapabilityConfigs under the parent. This list can be paginated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_CapabilityConfig *> *capabilityConfigs;
+
+/**
+ *  Pagination token. If the result set is too large to fit in a single
+ *  response, this token is returned. It encodes the position of the current
+ *  result cursor. Feeding this value into a new list request with the
+ *  `page_token` parameter gives the next page of the results. When
+ *  `next_page_token` is not filled in, there is no next page and the list
+ *  returned is the last page in the result set.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response of ListEffectiveTags.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1687,6 +1862,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  ensure the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. If `true`, this project is a Management Project. A Management
+ *  Project manages dedicated project groups for specific purposes (e.g., agent
+ *  management or app management).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isManagementProject;
 
 /**
  *  Optional. The labels associated with this project. Label keys must be
@@ -2330,6 +2514,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  The request sent to the UndeleteProject method.
  */
 @interface GTLRCloudResourceManager_UndeleteProjectRequest : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UpdateBoundaryConfig. Currently empty.
+ */
+@interface GTLRCloudResourceManager_UpdateBoundaryConfigMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UpdateBoundary. Currently empty.
+ */
+@interface GTLRCloudResourceManager_UpdateBoundaryMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UpdateCapabilityConfig. Currently empty.
+ */
+@interface GTLRCloudResourceManager_UpdateCapabilityConfigMetadata : GTLRObject
 @end
 
 

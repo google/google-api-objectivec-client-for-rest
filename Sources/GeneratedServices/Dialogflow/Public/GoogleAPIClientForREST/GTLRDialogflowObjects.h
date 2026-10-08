@@ -383,6 +383,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedMessagePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidance;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidanceKnowledgeSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1DialogflowAssistAnswer;
@@ -396,10 +399,18 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FreeFormSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateCompanionSuggestionsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponseGeneratorSuggestionAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunk;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkRetrievedContext;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkWeb;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingSupport;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstructionAction;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1InitializeEncryptionSpecRequest;
@@ -485,6 +496,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageMixedAudioSegment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageTelephonyTransferCall;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ResponseMessageText;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SearchEntryPoint;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1Segment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ServiceLatency;
@@ -506,7 +519,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResultError;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidance;
+@class GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidanceKnowledgeSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EncryptionSpec;
@@ -519,10 +536,18 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FreeFormSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GenerateCompanionSuggestionsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponseGeneratorSuggestionAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunk;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkRetrievedContext;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkWeb;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GroundingMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GroundingSupport;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstructionAction;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecRequest;
@@ -583,6 +608,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_WebhookPayload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint;
+@class GTLRDialogflow_GoogleCloudDialogflowV2Segment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Sentiment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ServiceLatency;
@@ -603,6 +630,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ToolCallSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals;
 @class GTLRDialogflow_GoogleCloudLocationLocation;
@@ -1790,6 +1818,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1E
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction.triggerEvent
+
+/** Value: "AGENT_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_AgentMessage;
+/** Value: "CUSTOMER_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_CustomerMessage;
+/** Value: "END_OF_UTTERANCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_EndOfUtterance;
+/** Value: "TRIGGER_EVENT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_TriggerEventUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo.ingestionStatus
 
 /** Value: "INGESTION_STATUS_CONTEXT_NOT_AVAILABLE" */
@@ -2294,6 +2334,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Entity
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp;
 /** Value: "KIND_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction.triggerEvent
+
+/** Value: "AGENT_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_AgentMessage;
+/** Value: "CUSTOMER_MESSAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_CustomerMessage;
+/** Value: "END_OF_UTTERANCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_EndOfUtterance;
+/** Value: "TRIGGER_EVENT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_TriggerEventUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo.ingestionStatus
@@ -3625,6 +3677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Fulfillment : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AdvancedSettings *advancedSettings;
+@property(nonatomic, copy, nullable) NSString *codeBlockFunction;
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentConditionalCases *> *conditionalCases;
 
 /**
@@ -6651,6 +6704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Fulfillment : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings *advancedSettings;
+@property(nonatomic, copy, nullable) NSString *codeBlockFunction;
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentConditionalCases *> *conditionalCases;
 
 /**
@@ -11455,6 +11509,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestion
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestion : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidance *> *guidances;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidance
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidance : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *explanation;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingMetadata *groundingMetadata;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction *instructionSource;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidanceKnowledgeSource *> *knowledgeSources;
+@property(nonatomic, copy, nullable) NSString *suggestedAction;
+@property(nonatomic, copy, nullable) NSString *suggestedReply;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallSuggestion *> *toolCalls;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *triggeringToolCallAnswerRecords;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidanceKnowledgeSource
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestionGuidanceKnowledgeSource : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *knowledgeArticleTitle;
+@property(nonatomic, copy, nullable) NSString *knowledgeArticleUrl;
+@property(nonatomic, copy, nullable) NSString *knowledgeSnippet;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowV2beta1Context
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Context : GTLRObject
@@ -11706,6 +11799,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateCompanionSuggestionsResponse
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateCompanionSuggestionsResponse : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1CompanionSuggestion *companionSuggestion;
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+/**
+ *  suggestionIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionIndex;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse : GTLRObject
@@ -11748,6 +11860,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall *toolCall;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult *toolCallResult;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunk
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunk : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkRetrievedContext *retrievedContext;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkWeb *web;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkRetrievedContext
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkRetrievedContext : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkWeb
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunkWeb : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingMetadata
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingChunk *> *groundingChunks;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingSupport *> *groundingSupports;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SearchEntryPoint *searchEntryPoint;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *webSearchQueries;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingSupport
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GroundingSupport : GTLRObject
+
+/**
+ *  groundingChunkIndices
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *groundingChunkIndices;
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Segment *segment;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstructionAction *> *actions;
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  disableSuggestedReply
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableSuggestedReply;
+
+@property(nonatomic, copy, nullable) NSString *displayDetails;
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  triggerEvent
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_AgentMessage
+ *        Value "AGENT_MESSAGE"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_CustomerMessage
+ *        Value "CUSTOMER_MESSAGE"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_EndOfUtterance
+ *        Value "END_OF_UTTERANCE"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstruction_TriggerEvent_TriggerEventUnspecified
+ *        Value "TRIGGER_EVENT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *triggerEvent;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstructionAction
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GuidanceInstructionAction : GTLRObject
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @end
 
@@ -13157,6 +13385,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *promptTokenCount;
 
 /**
+ *  similarityToLastQuery
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityToLastQuery;
+
+/**
+ *  similarityToLastQueryThreshold
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityToLastQueryThreshold;
+
+/**
+ *  thinkingBudgetTokens
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thinkingBudgetTokens;
+
+@property(nonatomic, copy, nullable) NSString *thinkingLevel;
+
+/**
  *  totalTokenCount
  *
  *  Uses NSNumber of intValue.
@@ -13470,6 +13721,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1SearchEntryPoint
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SearchEntryPoint : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *renderedContent;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1Segment
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Segment : GTLRObject
+
+/**
+ *  endIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  startIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment : GTLRObject
@@ -13763,6 +14048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateCompanionSuggestionsResponse *generateCompanionSuggestionsResponse;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GenerateSuggestionsResponse *generateSuggestionsResponse;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse *suggestArticlesResponse;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestDialogflowAssistsResponse *suggestDialogflowAssistsResponse;
@@ -13922,6 +14208,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, copy, nullable) NSString *message;
 
+/**
+ *  retryable
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retryable;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallSuggestion
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallSuggestion : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *textUpdate;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestionToolCallInfo *toolCallInfo;
+
 @end
 
 
@@ -14025,6 +14329,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Value "TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *suggestionFeatureType;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestion
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestion : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidance *> *guidances;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidance
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidance : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *explanation;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GroundingMetadata *groundingMetadata;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction *instructionSource;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidanceKnowledgeSource *> *knowledgeSources;
+@property(nonatomic, copy, nullable) NSString *suggestedAction;
+@property(nonatomic, copy, nullable) NSString *suggestedReply;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2ToolCallSuggestion *> *toolCalls;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *triggeringToolCallAnswerRecords;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidanceKnowledgeSource
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestionGuidanceKnowledgeSource : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *knowledgeArticleTitle;
+@property(nonatomic, copy, nullable) NSString *knowledgeArticleUrl;
+@property(nonatomic, copy, nullable) NSString *knowledgeSnippet;
 
 @end
 
@@ -14430,6 +14773,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GenerateCompanionSuggestionsResponse
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GenerateCompanionSuggestionsResponse : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2CompanionSuggestion *companionSuggestion;
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+/**
+ *  suggestionIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionIndex;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse : GTLRObject
@@ -14472,6 +14834,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCall *toolCall;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult *toolCallResult;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunk
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunk : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkRetrievedContext *retrievedContext;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkWeb *web;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkRetrievedContext
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkRetrievedContext : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *text;
+@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkWeb
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunkWeb : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *domain;
+@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GroundingMetadata
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GroundingMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2GroundingChunk *> *groundingChunks;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2GroundingSupport *> *groundingSupports;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint *searchEntryPoint;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *webSearchQueries;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GroundingSupport
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GroundingSupport : GTLRObject
+
+/**
+ *  groundingChunkIndices
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *groundingChunkIndices;
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Segment *segment;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstructionAction *> *actions;
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  disableSuggestedReply
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableSuggestedReply;
+
+@property(nonatomic, copy, nullable) NSString *displayDetails;
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  triggerEvent
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_AgentMessage
+ *        Value "AGENT_MESSAGE"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_CustomerMessage
+ *        Value "CUSTOMER_MESSAGE"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_EndOfUtterance
+ *        Value "END_OF_UTTERANCE"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstruction_TriggerEvent_TriggerEventUnspecified
+ *        Value "TRIGGER_EVENT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *triggerEvent;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstructionAction
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GuidanceInstructionAction : GTLRObject
+
+/**
+ *  descriptionProperty
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @end
 
@@ -15632,6 +16110,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *promptTokenCount;
 
 /**
+ *  similarityToLastQuery
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityToLastQuery;
+
+/**
+ *  similarityToLastQueryThreshold
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityToLastQueryThreshold;
+
+/**
+ *  thinkingBudgetTokens
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thinkingBudgetTokens;
+
+@property(nonatomic, copy, nullable) NSString *thinkingLevel;
+
+/**
  *  totalTokenCount
  *
  *  Uses NSNumber of intValue.
@@ -15827,6 +16328,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_WebhookPayload : GTLRObject
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SearchEntryPoint : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *renderedContent;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2Segment
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2Segment : GTLRObject
+
+/**
+ *  endIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  startIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@property(nonatomic, copy, nullable) NSString *text;
+
 @end
 
 
@@ -16115,6 +16650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GenerateCompanionSuggestionsResponse *generateCompanionSuggestionsResponse;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GenerateSuggestionsResponse *generateSuggestionsResponse;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse *suggestArticlesResponse;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
@@ -16261,6 +16797,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  retryable
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retryable;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ToolCallSuggestion
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ToolCallSuggestion : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *textUpdate;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestionToolCallInfo *toolCallInfo;
 
 @end
 

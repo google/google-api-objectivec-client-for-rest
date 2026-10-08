@@ -518,7 +518,7 @@
 //
 
 @implementation GTLRReports_OwnerIdentity
-@dynamic customerIdentity, groupIdentity, userIdentity;
+@dynamic customerIdentity, groupIdentity, sharedDriveIdentity, userIdentity;
 @end
 
 
@@ -549,6 +549,21 @@
     @"appliedLabels" : [GTLRReports_AppliedLabel class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_SharedDriveIdentity
+//
+
+@implementation GTLRReports_SharedDriveIdentity
+@dynamic identifier, sharedDriveName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end
