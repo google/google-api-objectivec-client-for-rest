@@ -111,6 +111,7 @@ NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityMedium = 
 NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
 
 // GTLRBigtableAdmin_Table.granularity
+NSString * const kGTLRBigtableAdmin_Table_Granularity_Micros   = @"MICROS";
 NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis   = @"MILLIS";
 NSString * const kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified = @"TIMESTAMP_GRANULARITY_UNSPECIFIED";
 
@@ -232,6 +233,24 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_AutoscalingTargets
 @dynamic cpuUtilizationPercent, storageUtilizationGibPerNode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_AvroSchema
+//
+
+@implementation GTLRBigtableAdmin_AvroSchema
+@dynamic jsonSchemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jsonSchemas" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1813,7 +1832,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_SchemaBundle
-@dynamic ETag, name, protoSchema;
+@dynamic avroSchema, ETag, name, protoSchema;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

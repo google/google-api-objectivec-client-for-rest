@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// commentsViewMode
+NSString * const kGTLRDocsCommentsViewModeCommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRDocsCommentsViewModeCommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRDocsCommentsViewModeCommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRDocsCommentsViewModeCommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
+
 // suggestionsViewMode
 NSString * const kGTLRDocsSuggestionsViewModeDefaultForCurrentAccess = @"DEFAULT_FOR_CURRENT_ACCESS";
 NSString * const kGTLRDocsSuggestionsViewModePreviewSuggestionsAccepted = @"PREVIEW_SUGGESTIONS_ACCEPTED";
@@ -80,7 +86,7 @@ NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline = @"SUGGESTIONS_I
 
 @implementation GTLRDocsQuery_DocumentsGet
 
-@dynamic documentId, includeTabsContent, suggestionsViewMode;
+@dynamic commentsViewMode, documentId, includeTabsContent, suggestionsViewMode;
 
 + (instancetype)queryWithDocumentId:(NSString *)documentId {
   NSArray *pathParams = @[ @"documentId" ];

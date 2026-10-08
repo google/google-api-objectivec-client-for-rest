@@ -29,12 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // checkExistingUsage
 
-/**
- *  If set, existing usage is checked when updating the key. If the key has
- *  usage in the last 7 days, the request returns a FAILED_PRECONDITION error.
- *
- *  Value: "CHECK"
- */
+/** Value: "CHECK" */
 FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageCheck;
 /**
  *  When unset, the default behavior is used, which is SKIP.
@@ -42,11 +37,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageCheck;
  *  Value: "CHECK_EXISTING_USAGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageCheckExistingUsageUnspecified;
-/**
- *  If set, skip checking existing usage when updating a key.
- *
- *  Value: "SKIP"
- */
+/** Value: "SKIP" */
 FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
 
 // ----------------------------------------------------------------------------
@@ -72,8 +63,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.keys.lookupKey
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeApiKeysServiceReadonly
  */
 @interface GTLRApiKeysServiceQuery_KeysLookupKey : GTLRApiKeysServiceQuery
 
@@ -102,8 +95,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeApiKeysServiceReadonly
  */
 @interface GTLRApiKeysServiceQuery_OperationsGet : GTLRApiKeysServiceQuery
 
@@ -132,6 +127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.projects.locations.keys.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysCreate : GTLRApiKeysServiceQuery
@@ -177,9 +173,27 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.projects.locations.keys.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysDelete : GTLRApiKeysServiceQuery
+
+/**
+ *  Optional. Defines the behavior for checking existing usage when deleting a
+ *  key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApiKeysServiceCheckExistingUsageCheckExistingUsageUnspecified
+ *        When unset, the default behavior is used, which is SKIP. (Value:
+ *        "CHECK_EXISTING_USAGE_UNSPECIFIED")
+ *    @arg @c kGTLRApiKeysServiceCheckExistingUsageSkip If set, skip checking
+ *        existing usage when deleting a key. (Value: "SKIP")
+ *    @arg @c kGTLRApiKeysServiceCheckExistingUsageCheck If set, existing usage
+ *        is checked when deleting the key. If the key has usage in the last 7
+ *        days, the request returns a FAILED_PRECONDITION error. (Value:
+ *        "CHECK")
+ */
+@property(nonatomic, copy, nullable) NSString *checkExistingUsage;
 
 /**
  *  Optional. The etag known to the client for the expected state of the key.
@@ -213,8 +227,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.projects.locations.keys.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeApiKeysServiceReadonly
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysGet : GTLRApiKeysServiceQuery
 
@@ -243,8 +259,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.projects.locations.keys.getKeyString
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeApiKeysServiceReadonly
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysGetKeyString : GTLRApiKeysServiceQuery
 
@@ -273,8 +291,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.projects.locations.keys.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeApiKeysServiceReadonly
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysList : GTLRApiKeysServiceQuery
 
@@ -326,6 +346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.projects.locations.keys.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysPatch : GTLRApiKeysServiceQuery
@@ -396,6 +417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip;
  *  Method: apikeys.projects.locations.keys.undelete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApiKeysService
  *    @c kGTLRAuthScopeApiKeysServiceCloudPlatform
  */
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysUndelete : GTLRApiKeysServiceQuery

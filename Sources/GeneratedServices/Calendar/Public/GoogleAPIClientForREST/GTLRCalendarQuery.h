@@ -1183,6 +1183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEventsPublicReadonly
  *    @c kGTLRAuthScopeCalendarEventsReadonly
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettings
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_ChannelsStop : GTLRCalendarQuery
@@ -2464,6 +2465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettings
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsGet : GTLRCalendarQuery
@@ -2492,6 +2494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettings
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsList : GTLRCalendarQuery
@@ -2541,6 +2544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCalendar
  *    @c kGTLRAuthScopeCalendarReadonly
+ *    @c kGTLRAuthScopeCalendarSettings
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsWatch : GTLRCalendarQuery

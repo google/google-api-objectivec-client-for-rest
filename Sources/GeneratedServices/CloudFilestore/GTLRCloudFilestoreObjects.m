@@ -931,7 +931,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_PscConfig
-@dynamic endpointProject;
+@dynamic endpointProject, requestedIpAddress;
 @end
 
 

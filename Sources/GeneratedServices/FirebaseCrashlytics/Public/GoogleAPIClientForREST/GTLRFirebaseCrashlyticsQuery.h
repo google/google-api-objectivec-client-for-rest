@@ -215,6 +215,53 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranul
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranularityUnspecified;
 
 // ----------------------------------------------------------------------------
+// metricsMode
+
+/**
+ *  Web only. Estimated event counts based on the per-session sampling rate
+ *  recorded on each event.
+ *
+ *  Value: "METRICS_MODE_EXTRAPOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsMetricsModeMetricsModeExtrapolated;
+/**
+ *  Raw counts of the events, sessions, and users that were actually collected.
+ *
+ *  Value: "METRICS_MODE_OBSERVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsMetricsModeMetricsModeObserved;
+/**
+ *  Unknown.
+ *
+ *  Value: "METRICS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsMetricsModeMetricsModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Only includes the report `display_name` and optional `usage`. This is the
+ *  default view for `ListReports`.
+ *
+ *  Value: "REPORT_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewBasic;
+/**
+ *  Includes all fields on report. This is the default view for `GetReport`.
+ *
+ *  Value: "REPORT_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewFull;
+/**
+ *  The default / unset value. The API will default to `REPORT_VIEW_BASIC` view
+ *  for `ListReports` and `REPORT_VIEW_FULL` for `GetReport`.
+ *
+ *  Value: "REPORT_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -447,6 +494,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranul
  *  (456)".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filterVersionDisplayNames;
+
+/**
+ *  Optional. Filters events by custom keys
+ *  (https://firebase.google.com/docs/crashlytics/customize-crash-reports#add-keys).
+ *  Supported forms: * Equality: `custom_keys.level = "vip"` or
+ *  `custom_keys.level:"vip"` * Presence: `custom_keys.level:*` * OR across
+ *  values of one key: `custom_keys.level = "vip" OR custom_keys.level =
+ *  "enterprise"` * AND across different keys: `custom_keys.level = "vip" AND
+ *  custom_keys.region = "us"` Keys are case-sensitive. Keys and values
+ *  containing spaces must be double-quoted, for example `custom_keys."app
+ *  state" = "background"`. OR across different keys, repeating a key within an
+ *  AND, NOT, and comparators other than `=` and `:` are rejected with
+ *  INVALID_ARGUMENT. Wildcards are not supported in values; use
+ *  `custom_keys.:*` to match events that set a key to any value. This filter
+ *  expression applies in addition to the `filter` field above. The syntax is a
+ *  subset of AIP-160 (https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filterExpression;
 
 /**
  *  Optional. The maximum number of events per page. If omitted, defaults to 10.
@@ -899,6 +964,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranul
 @property(nonatomic, copy, nullable) NSString *granularity;
 
 /**
+ *  Optional. Controls whether metrics are raw observed values (mobile and web)
+ *  or extrapolated values (web only). If omitted, defaults to OBSERVED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseCrashlyticsMetricsModeMetricsModeUnspecified Unknown.
+ *        (Value: "METRICS_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseCrashlyticsMetricsModeMetricsModeObserved Raw counts
+ *        of the events, sessions, and users that were actually collected.
+ *        (Value: "METRICS_MODE_OBSERVED")
+ *    @arg @c kGTLRFirebaseCrashlyticsMetricsModeMetricsModeExtrapolated Web
+ *        only. Estimated event counts based on the per-session sampling rate
+ *        recorded on each event. (Value: "METRICS_MODE_EXTRAPOLATED")
+ */
+@property(nonatomic, copy, nullable) NSString *metricsMode;
+
+/**
  *  Required. The report name. Format:
  *  "projects/{project}/apps/{app_id}/reports/{report}".
  */
@@ -917,6 +998,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranul
  *  request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Response view. If not set, defaults to `REPORT_VIEW_FULL`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseCrashlyticsViewReportViewUnspecified The default /
+ *        unset value. The API will default to `REPORT_VIEW_BASIC` view for
+ *        `ListReports` and `REPORT_VIEW_FULL` for `GetReport`. (Value:
+ *        "REPORT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseCrashlyticsViewReportViewBasic Only includes the
+ *        report `display_name` and optional `usage`. This is the default view
+ *        for `ListReports`. (Value: "REPORT_VIEW_BASIC")
+ *    @arg @c kGTLRFirebaseCrashlyticsViewReportViewFull Includes all fields on
+ *        report. This is the default view for `GetReport`. (Value:
+ *        "REPORT_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRFirebaseCrashlytics_Report.
@@ -952,6 +1050,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranul
  *  "projects/{project}/apps/{app_id}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Response view. If not set, defaults to `REPORT_VIEW_BASIC`.
+ *  `REPORT_VIEW_FULL` is not supported for list operations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseCrashlyticsViewReportViewUnspecified The default /
+ *        unset value. The API will default to `REPORT_VIEW_BASIC` view for
+ *        `ListReports` and `REPORT_VIEW_FULL` for `GetReport`. (Value:
+ *        "REPORT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseCrashlyticsViewReportViewBasic Only includes the
+ *        report `display_name` and optional `usage`. This is the default view
+ *        for `ListReports`. (Value: "REPORT_VIEW_BASIC")
+ *    @arg @c kGTLRFirebaseCrashlyticsViewReportViewFull Includes all fields on
+ *        report. This is the default view for `GetReport`. (Value:
+ *        "REPORT_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRFirebaseCrashlytics_ListReportsResponse.

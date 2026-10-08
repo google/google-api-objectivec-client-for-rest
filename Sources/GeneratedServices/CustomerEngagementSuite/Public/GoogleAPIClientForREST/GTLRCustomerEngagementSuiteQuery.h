@@ -313,6 +313,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
+ *  Cancels the assistant session's in-flight turn, if any: the explicit user
+ *  stop for a turn running detached from any stream. A cancel landing on a task
+ *  that does not host the turn preempts it through the session turn epoch
+ *  instead, ending it within one lease renewal.
+ *
+ *  Method: ces.projects.locations.apps.assistantSessions.cancelAssistantTurn
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsCancelAssistantTurn : GTLRCustomerEngagementSuiteQuery
+
+/** Required. The assistant session whose in-flight turn to cancel. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_CancelAssistantTurnResponse.
+ *
+ *  Cancels the assistant session's in-flight turn, if any: the explicit user
+ *  stop for a turn running detached from any stream. A cancel landing on a task
+ *  that does not host the turn preempts it through the session turn epoch
+ *  instead, ending it within one lease renewal.
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_CancelAssistantTurnRequest
+ *    to include in the query.
+ *  @param name Required. The assistant session whose in-flight turn to cancel.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsCancelAssistantTurn
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_CancelAssistantTurnRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Runs the Chat AI assistant agent for the specified assistant session in a
+ *  streaming fashion.
+ *
+ *  Method: ces.projects.locations.apps.assistantSessions.streamChatAiAssistant
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsStreamChatAiAssistant : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Required. The assistant session to be used to run the assistant. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}/assistantSessions/{assistant_session}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse.
+ *
+ *  Runs the Chat AI assistant agent for the specified assistant session in a
+ *  streaming fashion.
+ *
+ *  @param object The @c
+ *    GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest to include in the
+ *    query.
+ *  @param name Required. The assistant session to be used to run the assistant.
+ *    Format:
+ *    `projects/{project}/locations/{location}/apps/{app}/assistantSessions/{assistant_session}`
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsStreamChatAiAssistant
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the specified changelog.
  *
  *  Method: ces.projects.locations.apps.changelogs.get
@@ -930,6 +1004,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
+ *  Sends a streaming message to an agent, allowing for real-time interaction
+ *  and status updates. Streaming version of `SendMessage`
+ *
+ *  Method: ces.projects.locations.apps.deployments.message.stream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageStream : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1StreamResponse.
+ *
+ *  Sends a streaming message to an agent, allowing for real-time interaction
+ *  and status updates. Streaming version of `SendMessage`
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest
+ *    to include in the query.
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageStream
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
+
+@end
+
+/**
  *  Updates the specified deployment.
  *
  *  Method: ces.projects.locations.apps.deployments.patch
@@ -1227,6 +1338,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsExportApp
  */
 + (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_ExportAppRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Generates personalized onboarding suggestions for the AI assistant zero
+ *  state: classifies the requesting user (new / exploring / returning) from
+ *  their assistant-session history in the app and returns suggestion chips
+ *  (resume a session, continue work, or start something new) to render before
+ *  any message is sent.
+ *
+ *  Method: ces.projects.locations.apps.generateOnboardingSuggestions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGenerateOnboardingSuggestions : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Required. The app whose zero state is being rendered. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse.
+ *
+ *  Generates personalized onboarding suggestions for the AI assistant zero
+ *  state: classifies the requesting user (new / exploring / returning) from
+ *  their assistant-session history in the app and returns suggestion chips
+ *  (resume a session, continue work, or start something new) to render before
+ *  any message is sent.
+ *
+ *  @param object The @c
+ *    GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRequest to
+ *    include in the query.
+ *  @param name Required. The app whose zero state is being rendered. Format:
+ *    `projects/{project}/locations/{location}/apps/{app}`
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGenerateOnboardingSuggestions
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1614,6 +1769,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *    is set.
  *
  *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageSend
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
+
+@end
+
+/**
+ *  Sends a streaming message to an agent, allowing for real-time interaction
+ *  and status updates. Streaming version of `SendMessage`
+ *
+ *  Method: ces.projects.locations.apps.message.stream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageStream : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1StreamResponse.
+ *
+ *  Sends a streaming message to an agent, allowing for real-time interaction
+ *  and status updates. Streaming version of `SendMessage`
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest
+ *    to include in the query.
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageStream
  */
 + (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
                          tenant:(NSString *)tenant;
@@ -2486,6 +2678,85 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  */
 + (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
                          tenant:(NSString *)tenant;
+
+@end
+
+/**
+ *  Sends a streaming message to an agent, allowing for real-time interaction
+ *  and status updates. Streaming version of `SendMessage`
+ *
+ *  Method: ces.projects.locations.apps.versions.message.stream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageStream : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Optional. Opaque routing identifier. Must match the `tenant` value from the
+ *  selected `AgentInterface` in the Agent Card when that field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_LfA2aV1StreamResponse.
+ *
+ *  Sends a streaming message to an agent, allowing for real-time interaction
+ *  and status updates. Streaming version of `SendMessage`
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest
+ *    to include in the query.
+ *  @param tenant Optional. Opaque routing identifier. Must match the `tenant`
+ *    value from the selected `AgentInterface` in the Agent Card when that field
+ *    is set.
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageStream
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
+
+@end
+
+/**
+ *  Updates the specified app version.
+ *
+ *  Method: ces.projects.locations.apps.versions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsPatch : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Identifier. The unique identifier of the app version. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. If empty, fields `display_name` and
+ *  `description` will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_AppVersion.
+ *
+ *  Updates the specified app version.
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_AppVersion to include in
+ *    the query.
+ *  @param name Identifier. The unique identifier of the app version. Format:
+ *    `projects/{project}/locations/{location}/apps/{app}/versions/{version}`
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_AppVersion *)object
+                           name:(NSString *)name;
 
 @end
 

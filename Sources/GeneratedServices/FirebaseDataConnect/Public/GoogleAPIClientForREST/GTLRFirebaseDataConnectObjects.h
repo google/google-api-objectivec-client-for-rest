@@ -38,6 +38,7 @@
 @class GTLRFirebaseDataConnect_GraphqlRequestExtensions;
 @class GTLRFirebaseDataConnect_GraphqlResponse_Data;
 @class GTLRFirebaseDataConnect_GraphqlResponseExtensions;
+@class GTLRFirebaseDataConnect_HttpBody_Extensions_Item;
 @class GTLRFirebaseDataConnect_HttpGraphql;
 @class GTLRFirebaseDataConnect_ImpersonateRequest_Variables;
 @class GTLRFirebaseDataConnect_Impersonation;
@@ -45,6 +46,7 @@
 @class GTLRFirebaseDataConnect_Location;
 @class GTLRFirebaseDataConnect_Location_Labels;
 @class GTLRFirebaseDataConnect_Location_Metadata;
+@class GTLRFirebaseDataConnect_MigrationStep;
 @class GTLRFirebaseDataConnect_Operation;
 @class GTLRFirebaseDataConnect_Operation_Metadata;
 @class GTLRFirebaseDataConnect_Operation_Response;
@@ -326,6 +328,39 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensio
  *  Value: "WARNING_LEVEL_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_WarningLevelUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseDataConnect_MigrateSchemaRequest.executionMode
+
+/**
+ *  Standard execution: executes DDL statements against the database catalog and
+ *  records completed steps in `firebasesql.schema_migrations`.
+ *
+ *  Value: "EXECUTE_AND_RECORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecuteAndRecord;
+/**
+ *  Applies DDL statements against the database catalog without writing to the
+ *  ledger. Used for maintenance scripts, temporary schema objects, and the
+ *  internal declarative flow.
+ *
+ *  Value: "EXECUTE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecuteOnly;
+/**
+ *  Default behavior. Evaluates to EXECUTE_AND_RECORD.
+ *
+ *  Value: "EXECUTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecutionModeUnspecified;
+/**
+ *  Records steps into `firebasesql.schema_migrations` without executing their
+ *  DDL statements. Used for baselining pre-existing schemas or manual
+ *  out-of-band changes (e.g. ledger-only).
+ *
+ *  Value: "RECORD_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_RecordOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDataConnect_PostgreSql.schemaMigration
@@ -1168,6 +1203,61 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
+ *  Message that represents an arbitrary HTTP body. It should only be used for
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
+ */
+@interface GTLRFirebaseDataConnect_HttpBody : GTLRObject
+
+/**
+ *  The HTTP Content-Type header value specifying the content type of the body.
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  The HTTP request/response body as raw binary.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Application specific response metadata. Must be set in the first response
+ *  for streaming APIs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_HttpBody_Extensions_Item *> *extensions;
+
+@end
+
+
+/**
+ *  GTLRFirebaseDataConnect_HttpBody_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirebaseDataConnect_HttpBody_Extensions_Item : GTLRObject
+@end
+
+
+/**
  *  Settings for HTTP GraphQL server webhook.
  */
 @interface GTLRFirebaseDataConnect_HttpGraphql : GTLRObject
@@ -1470,6 +1560,95 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRFirebaseDataConnect_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Request message for `MigrateSchema`. Next tag: 7
+ */
+@interface GTLRFirebaseDataConnect_MigrateSchemaRequest : GTLRObject
+
+/**
+ *  Optional. Execution mode controlling DDL execution and ledger recording.
+ *  Defaults to EXECUTE_AND_RECORD.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecuteAndRecord
+ *        Standard execution: executes DDL statements against the database
+ *        catalog and records completed steps in
+ *        `firebasesql.schema_migrations`. (Value: "EXECUTE_AND_RECORD")
+ *    @arg @c kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecuteOnly
+ *        Applies DDL statements against the database catalog without writing to
+ *        the ledger. Used for maintenance scripts, temporary schema objects,
+ *        and the internal declarative flow. (Value: "EXECUTE_ONLY")
+ *    @arg @c kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecutionModeUnspecified
+ *        Default behavior. Evaluates to EXECUTE_AND_RECORD. (Value:
+ *        "EXECUTION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_RecordOnly
+ *        Records steps into `firebasesql.schema_migrations` without executing
+ *        their DDL statements. Used for baselining pre-existing schemas or
+ *        manual out-of-band changes (e.g. ledger-only). (Value: "RECORD_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *executionMode;
+
+/**
+ *  Required. Ordered migration steps from `./sql/migrations/` (or a single
+ *  ad-hoc step). Backend compares submitted versions against
+ *  `firebasesql.schema_migrations`: already-applied steps are verified for SQL
+ *  immutability and skipped, while unapplied steps (`version >
+ *  MAX(applied_version)`) are executed. All unapplied transactional steps in a
+ *  single request execute atomically within one database transaction (BEGIN ...
+ *  COMMIT): either every unapplied step commits and is recorded in the ledger,
+ *  or the entire request rolls back. An unapplied step containing CREATE INDEX
+ *  CONCURRENTLY or DROP INDEX CONCURRENTLY cannot be mixed with other unapplied
+ *  steps and must be the sole unapplied step executed in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_MigrationStep *> *migrationSteps;
+
+/**
+ *  Optional. When true, runs preflight validation (syntax, applied-step
+ *  immutability, sequence ordering, CONCURRENTLY isolation, and SAVEPOINT
+ *  catalog checks) without committing mutations to the database.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  An individual unit of migration work. Next tag: 4
+ */
+@interface GTLRFirebaseDataConnect_MigrationStep : GTLRObject
+
+/**
+ *  Optional. Descriptive migration label (e.g. "create_accounts_table"). If
+ *  omitted, defaults to "adhoc".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Raw multi-statement SQL script. The backend splits it into
+ *  individual statements before execution; callers do not pre-split. Required
+ *  whenever the request executes or records DDL, which is every publicly
+ *  available execution mode; omitting it returns INVALID_ARGUMENT.
+ */
+@property(nonatomic, copy, nullable) NSString *sql;
+
+/**
+ *  Optional. Monotonic 14-digit UTC timestamp (YYYYMMDDHHMMSS), matching the
+ *  timestamp prefix of the developer's migration filename. Constrained to
+ *  `^[0-9]{14}$`. - When specified (file migrations): If `version` is already
+ *  recorded in `firebasesql.schema_migrations`, the backend verifies that `sql`
+ *  matches the recorded statements and skips execution. If `version` is
+ *  unapplied, the backend validates `version > MAX(applied_version)` and
+ *  records the value unchanged, so the ledger row and the on-disk filename stay
+ *  identical. - When omitted (Console/ad-hoc): Backend auto-generates a
+ *  14-digit UTC timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 

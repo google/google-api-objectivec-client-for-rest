@@ -18,6 +18,8 @@
 @class GTLRSheets_AddBandingResponse;
 @class GTLRSheets_AddChartRequest;
 @class GTLRSheets_AddChartResponse;
+@class GTLRSheets_AddCommentReplyRequest;
+@class GTLRSheets_AddCommentReplyResponse;
 @class GTLRSheets_AddConditionalFormatRuleRequest;
 @class GTLRSheets_AddDataSourceRequest;
 @class GTLRSheets_AddDataSourceResponse;
@@ -79,6 +81,8 @@
 @class GTLRSheets_ClearBasicFilterRequest;
 @class GTLRSheets_Color;
 @class GTLRSheets_ColorStyle;
+@class GTLRSheets_CommentAnchor;
+@class GTLRSheets_CommentThread;
 @class GTLRSheets_ConditionalFormatRule;
 @class GTLRSheets_ConditionValue;
 @class GTLRSheets_CopyPasteRequest;
@@ -108,6 +112,8 @@
 @class GTLRSheets_DataValidationRule;
 @class GTLRSheets_DateTimeRule;
 @class GTLRSheets_DeleteBandingRequest;
+@class GTLRSheets_DeleteCommentReplyRequest;
+@class GTLRSheets_DeleteCommentRequest;
 @class GTLRSheets_DeleteConditionalFormatRuleRequest;
 @class GTLRSheets_DeleteConditionalFormatRuleResponse;
 @class GTLRSheets_DeleteDataSourceRequest;
@@ -155,6 +161,8 @@
 @class GTLRSheets_HistogramChartSpec;
 @class GTLRSheets_HistogramRule;
 @class GTLRSheets_HistogramSeries;
+@class GTLRSheets_InsertCommentRequest;
+@class GTLRSheets_InsertCommentResponse;
 @class GTLRSheets_InsertDimensionRequest;
 @class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
@@ -189,6 +197,8 @@
 @class GTLRSheets_PivotTable_Criteria;
 @class GTLRSheets_PivotValue;
 @class GTLRSheets_PointStyle;
+@class GTLRSheets_Post;
+@class GTLRSheets_PostAuthor;
 @class GTLRSheets_ProtectedRange;
 @class GTLRSheets_RandomizeRangeRequest;
 @class GTLRSheets_RefreshCancellationStatus;
@@ -233,6 +243,7 @@
 @class GTLRSheets_UpdateBordersRequest;
 @class GTLRSheets_UpdateCellsRequest;
 @class GTLRSheets_UpdateChartSpecRequest;
+@class GTLRSheets_UpdateCommentPostRequest;
 @class GTLRSheets_UpdateConditionalFormatRuleRequest;
 @class GTLRSheets_UpdateConditionalFormatRuleResponse;
 @class GTLRSheets_UpdateDataSourceRequest;
@@ -651,6 +662,67 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest
  *  Value: "UNFORMATTED_VALUE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchUpdateSpreadsheetRequest.commentsViewMode
+
+/**
+ *  The CommentsViewMode applied to the returned spreadsheet depends on the
+ *  user's current access level. If the user only has view access,
+ *  COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *  COMMENTS_VIEW_MODE_INCLUDED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess;
+/**
+ *  The returned spreadsheet has comments included. Requests to retrieve a
+ *  spreadsheet using this mode will return a 403 error if the user does not
+ *  have permission to view comments.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeIncluded;
+/**
+ *  The returned spreadsheet has comments omitted.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_OMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeOmitted;
+/**
+ *  The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BatchUpdateSpreadsheetResponse.commentUpdateState
+
+/**
+ *  All requested comment updates failed.
+ *
+ *  Value: "ALL_FAILED_UNKNOWN_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_AllFailedUnknownReason;
+/**
+ *  All requested comment updates were applied in the batch request.
+ *
+ *  Value: "ALL_SAVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_AllSaved;
+/**
+ *  The status of comment updates is unspecified.
+ *
+ *  Value: "COMMENT_UPDATE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_CommentUpdateStateUnspecified;
+/**
+ *  No comment updates were requested in the batch request.
+ *
+ *  Value: "NO_UPDATES_REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_NoUpdatesRequested;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesByDataFilterRequest.responseDateTimeRenderOption
@@ -1611,6 +1683,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Text;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_CommentThread.status
+
+/**
+ *  The comment thread is open.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CommentThread_Status_Open;
+/**
+ *  The comment thread is resolved.
+ *
+ *  Value: "RESOLVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CommentThread_Status_Resolved;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CommentThread_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_ConditionValue.relativeDate
 
 /**
@@ -2497,6 +2591,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Ref;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Value;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_GetSpreadsheetByDataFilterRequest.commentsViewMode
+
+/**
+ *  The CommentsViewMode applied to the returned spreadsheet depends on the
+ *  user's current access level. If the user only has view access,
+ *  COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *  COMMENTS_VIEW_MODE_INCLUDED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess;
+/**
+ *  The returned spreadsheet has comments included. Requests to retrieve a
+ *  spreadsheet using this mode will return a 403 error if the user does not
+ *  have permission to view comments.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeIncluded;
+/**
+ *  The returned spreadsheet has comments omitted.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_OMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeOmitted;
+/**
+ *  The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_HistogramChartSpec.legendPosition
 
 /**
@@ -3128,6 +3255,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Triangle;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_XMark;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_Post.commentAction
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "COMMENT_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Post_CommentAction_CommentActionTypeUnspecified;
+/**
+ *  No action change in this post.
+ *
+ *  Value: "NO_COMMENT_ACTION_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Post_CommentAction_NoCommentActionChange;
+/**
+ *  This post reopens the thread.
+ *
+ *  Value: "REOPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Post_CommentAction_Reopen;
+/**
+ *  This post resolves the thread.
+ *
+ *  Value: "RESOLVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Post_CommentAction_Resolve;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_RefreshCancellationStatus.errorCode
 
 /**
@@ -3359,6 +3514,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_Di
  *  Value: "ROWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_Rows;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_Spreadsheet.commentsViewMode
+
+/**
+ *  The CommentsViewMode applied to the returned spreadsheet depends on the
+ *  user's current access level. If the user only has view access,
+ *  COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *  COMMENTS_VIEW_MODE_INCLUDED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess;
+/**
+ *  The returned spreadsheet has comments included. Requests to retrieve a
+ *  spreadsheet using this mode will return a 403 error if the user does not
+ *  have permission to view comments.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeIncluded;
+/**
+ *  The returned spreadsheet has comments omitted.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_OMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeOmitted;
+/**
+ *  The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_SpreadsheetProperties.autoRecalc
@@ -3714,6 +3902,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /** The newly added chart. */
 @property(nonatomic, strong, nullable) GTLRSheets_EmbeddedChart *chart;
+
+@end
+
+
+/**
+ *  Inserts a reply Post into a CommentThread.
+ */
+@interface GTLRSheets_AddCommentReplyRequest : GTLRObject
+
+/** The ID of the CommentThread to add the reply to. */
+@property(nonatomic, copy, nullable) NSString *commentId;
+
+/** The Post representing the reply. */
+@property(nonatomic, strong, nullable) GTLRSheets_Post *post;
+
+@end
+
+
+/**
+ *  The result of creating a reply.
+ */
+@interface GTLRSheets_AddCommentReplyResponse : GTLRObject
+
+/** The newly-inserted reply Post. */
+@property(nonatomic, strong, nullable) GTLRSheets_Post *post;
 
 @end
 
@@ -4854,6 +5067,33 @@ GTLR_DEPRECATED
 @interface GTLRSheets_BatchUpdateSpreadsheetRequest : GTLRObject
 
 /**
+ *  The comments view mode to apply to the spreadsheet. This allows viewing the
+ *  spreadsheet with comments omitted or included. If one is not specified,
+ *  COMMENTS_VIEW_MODE_OMITTED is used. Meaningful only if
+ *  include_spreadsheet_in_response is 'true'.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess
+ *        The CommentsViewMode applied to the returned spreadsheet depends on
+ *        the user's current access level. If the user only has view access,
+ *        COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *        COMMENTS_VIEW_MODE_INCLUDED is applied. (Value:
+ *        "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeIncluded
+ *        The returned spreadsheet has comments included. Requests to retrieve a
+ *        spreadsheet using this mode will return a 403 error if the user does
+ *        not have permission to view comments. (Value:
+ *        "COMMENTS_VIEW_MODE_INCLUDED")
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeOmitted
+ *        The returned spreadsheet has comments omitted. (Value:
+ *        "COMMENTS_VIEW_MODE_OMITTED")
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeUnspecified
+ *        The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is
+ *        applied. (Value: "COMMENTS_VIEW_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentsViewMode;
+
+/**
  *  Determines if the update response should include the spreadsheet resource.
  *
  *  Uses NSNumber of boolValue.
@@ -4889,6 +5129,25 @@ GTLR_DEPRECATED
  *  The reply for batch updating a spreadsheet.
  */
 @interface GTLRSheets_BatchUpdateSpreadsheetResponse : GTLRObject
+
+/**
+ *  Whether comment updates were applied in the batch request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_AllFailedUnknownReason
+ *        All requested comment updates failed. (Value:
+ *        "ALL_FAILED_UNKNOWN_REASON")
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_AllSaved
+ *        All requested comment updates were applied in the batch request.
+ *        (Value: "ALL_SAVED")
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_CommentUpdateStateUnspecified
+ *        The status of comment updates is unspecified. (Value:
+ *        "COMMENT_UPDATE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_NoUpdatesRequested
+ *        No comment updates were requested in the batch request. (Value:
+ *        "NO_UPDATES_REQUESTED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentUpdateState;
 
 /**
  *  The reply of the updates. This maps 1:1 with the updates, although replies
@@ -6544,6 +6803,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A location in the spreadsheet that is tied to a CommentThread with the same
+ *  anchorId. Note: Multiple anchors may refer to the same location.
+ */
+@interface GTLRSheets_CommentAnchor : GTLRObject
+
+/** The unique ID of the comment anchor. Output only. */
+@property(nonatomic, copy, nullable) NSString *anchorId;
+
+/** The coordinate range inside the sheet where this comment is anchored. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
+
+@end
+
+
+/**
+ *  Represents a single comment thread inside a spreadsheet.
+ */
+@interface GTLRSheets_CommentThread : GTLRObject
+
+/** The ID of the CommentAnchor in the sheet that this thread is tied to. */
+@property(nonatomic, copy, nullable) NSString *anchorId;
+
+/** The unique ID of the comment thread. */
+@property(nonatomic, copy, nullable) NSString *commentId;
+
+/** The first post in the thread. */
+@property(nonatomic, strong, nullable) GTLRSheets_Post *headPost;
+
+/**
+ *  The quoted text from the spreadsheet when the comment was created, formatted
+ *  as plain-text.
+ */
+@property(nonatomic, copy, nullable) NSString *plainTextQuote;
+
+/** Replies to the head post. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_Post *> *replies;
+
+/**
+ *  Whether the thread is open or resolved.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_CommentThread_Status_Open The comment thread is open.
+ *        (Value: "OPEN")
+ *    @arg @c kGTLRSheets_CommentThread_Status_Resolved The comment thread is
+ *        resolved. (Value: "RESOLVED")
+ *    @arg @c kGTLRSheets_CommentThread_Status_StatusUnspecified Default value.
+ *        This value is unused. (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  A rule describing a conditional format.
  */
 @interface GTLRSheets_ConditionalFormatRule : GTLRObject
@@ -7417,6 +7730,34 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bandedRangeId;
+
+@end
+
+
+/**
+ *  Deletes a reply Post from a CommentThread. Returns a 400 bad request error
+ *  if: - The requesting user is not the author of the post. - The reply post
+ *  contains a comment action. - The reply post contains an assignee.
+ */
+@interface GTLRSheets_DeleteCommentReplyRequest : GTLRObject
+
+/** The ID of the CommentThread which the post belongs to. */
+@property(nonatomic, copy, nullable) NSString *commentId;
+
+/** The ID of the reply Post being deleted. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+@end
+
+
+/**
+ *  Deletes a CommentThread. Returns a 400 bad request error if the requesting
+ *  user is not the author of the headPost.
+ */
+@interface GTLRSheets_DeleteCommentRequest : GTLRObject
+
+/** The ID of the CommentThread that is being deleted. */
+@property(nonatomic, copy, nullable) NSString *commentId;
 
 @end
 
@@ -8508,6 +8849,32 @@ GTLR_DEPRECATED
 @interface GTLRSheets_GetSpreadsheetByDataFilterRequest : GTLRObject
 
 /**
+ *  The comments view mode to apply to the spreadsheet. This allows viewing the
+ *  spreadsheet with comments omitted or included. If one is not specified,
+ *  COMMENTS_VIEW_MODE_OMITTED is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess
+ *        The CommentsViewMode applied to the returned spreadsheet depends on
+ *        the user's current access level. If the user only has view access,
+ *        COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *        COMMENTS_VIEW_MODE_INCLUDED is applied. (Value:
+ *        "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeIncluded
+ *        The returned spreadsheet has comments included. Requests to retrieve a
+ *        spreadsheet using this mode will return a 403 error if the user does
+ *        not have permission to view comments. (Value:
+ *        "COMMENTS_VIEW_MODE_INCLUDED")
+ *    @arg @c kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeOmitted
+ *        The returned spreadsheet has comments omitted. (Value:
+ *        "COMMENTS_VIEW_MODE_OMITTED")
+ *    @arg @c kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeUnspecified
+ *        The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is
+ *        applied. (Value: "COMMENTS_VIEW_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentsViewMode;
+
+/**
  *  The DataFilters used to select which ranges to retrieve from the
  *  spreadsheet.
  */
@@ -8870,6 +9237,42 @@ GTLR_DEPRECATED
 
 /** The data for this histogram series. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
+
+@end
+
+
+/**
+ *  Inserts a CommentThread into the spreadsheet.
+ */
+@interface GTLRSheets_InsertCommentRequest : GTLRObject
+
+/**
+ *  Optional. The email address of the assignee of the comment. Leave empty for
+ *  a non-assigned comment. May not exceed 2048 UTF-8 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *assigneeEmailAddress;
+
+/**
+ *  The text of the comment, as plain text. This text content will be handled
+ *  similarly to comments created in the Sheets editor. It will have similar
+ *  behaviors for formatting, notifications, etc. This field cannot be empty,
+ *  and must not exceed 2048 UTF-8 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** The GridCoordinate in the sheet that is tied to this comment. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridCoordinate *coordinate;
+
+@end
+
+
+/**
+ *  The result of creating a comment.
+ */
+@interface GTLRSheets_InsertCommentResponse : GTLRObject
+
+/** The newly-inserted comment thread. */
+@property(nonatomic, strong, nullable) GTLRSheets_CommentThread *commentThread;
 
 @end
 
@@ -10040,6 +10443,120 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents a single post in a comment thread.
+ */
+@interface GTLRSheets_Post : GTLRObject
+
+/**
+ *  Optional. The email of the user who is being newly assigned to the thread as
+ *  part of this post. Returns a 400 bad request error if: - The parent thread
+ *  is a CommentThread whose headPost does not have an assignee. - commentAction
+ *  is specified as `RESOLVE` or `REOPEN`. - `assignee_email` exceeds 2048 UTF-8
+ *  code units.
+ */
+@property(nonatomic, copy, nullable) NSString *assigneeEmail;
+
+/** Output only. The user who created the post. */
+@property(nonatomic, strong, nullable) GTLRSheets_PostAuthor *author;
+
+/**
+ *  Action taken as part of creating the post.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_Post_CommentAction_CommentActionTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "COMMENT_ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_Post_CommentAction_NoCommentActionChange No action
+ *        change in this post. (Value: "NO_COMMENT_ACTION_CHANGE")
+ *    @arg @c kGTLRSheets_Post_CommentAction_Reopen This post reopens the
+ *        thread. (Value: "REOPEN")
+ *    @arg @c kGTLRSheets_Post_CommentAction_Resolve This post resolves the
+ *        thread. (Value: "RESOLVE")
+ */
+@property(nonatomic, copy, nullable) NSString *commentAction;
+
+/**
+ *  The content of the post. Required to be non-empty if comment_action is not
+ *  `RESOLVE` or `REOPEN`. This text content will be handled similarly to
+ *  comments created in the Sheets editor. It will have similar behaviors for
+ *  formatting, notifications, etc. May not exceed 2048 UTF-8 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Output only. The content of the post as HTML. */
+@property(nonatomic, copy, nullable) NSString *contentHtml;
+
+/** Output only. The time the post was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Whether the post is deleted. If `true`, content and author
+ *  fields will be empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleted;
+
+/**
+ *  Output only. Whether the post is from a copied spreadsheet. This field
+ *  cannot be set directly by callers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fromCopiedSpreadsheet;
+
+/**
+ *  Output only. Whether the post is from an imported spreadsheet. This field
+ *  cannot be set directly by callers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fromImportedSpreadsheet;
+
+/** Output only. The unique ID of the post. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
+/** Output only. The time the post was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents a user who authored a comment post.
+ */
+@interface GTLRSheets_PostAuthor : GTLRObject
+
+/**
+ *  Whether the user is anonymous.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *anonymous;
+
+/** The display name of the user. May be absent if the author is anonymous. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Whether the user is the authenticated user making the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *me;
+
+/**
+ *  The resource name of the post author user, which can also be used to
+ *  identify the user in the [Google People
+ *  API](https://developers.google.com/people/api/rest/v1/people). Format:
+ *  `users/{user}`. Will not be populated if the anonymous field is `true` or if
+ *  the post is from an imported spreadsheet.
+ */
+@property(nonatomic, copy, nullable) NSString *user;
+
+@end
+
+
+/**
  *  A protected range.
  */
 @interface GTLRSheets_ProtectedRange : GTLRObject
@@ -10284,6 +10801,9 @@ GTLR_DEPRECATED
 /** Adds a chart. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddChartRequest *addChart;
 
+/** Adds a reply to a CommentThread. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddCommentReplyRequest *addCommentReply;
+
 /** Adds a new conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddConditionalFormatRuleRequest *addConditionalFormatRule;
 
@@ -10346,6 +10866,12 @@ GTLR_DEPRECATED
 /** Removes a banded range */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteBandingRequest *deleteBanding;
 
+/** Deletes a CommentThread. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteCommentRequest *deleteComment;
+
+/** Deletes a reply Post from a CommentThread */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteCommentReplyRequest *deleteCommentReply;
+
 /** Deletes an existing conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteConditionalFormatRuleRequest *deleteConditionalFormatRule;
 
@@ -10396,6 +10922,9 @@ GTLR_DEPRECATED
 
 /** Finds and replaces occurrences of some text with other text. */
 @property(nonatomic, strong, nullable) GTLRSheets_FindReplaceRequest *findReplace;
+
+/** Inserts a CommentThread into the spreadsheet. */
+@property(nonatomic, strong, nullable) GTLRSheets_InsertCommentRequest *insertComment;
 
 /** Inserts new rows or columns in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_InsertDimensionRequest *insertDimension;
@@ -10450,6 +10979,9 @@ GTLR_DEPRECATED
 
 /** Updates a chart's specifications. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateChartSpecRequest *updateChartSpec;
+
+/** Updates an existing post (head post or reply) of a CommentThread. */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateCommentPostRequest *updateCommentPost;
 
 /** Updates an existing conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateConditionalFormatRuleRequest *updateConditionalFormatRule;
@@ -10507,6 +11039,9 @@ GTLR_DEPRECATED
 /** A reply from adding a chart. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddChartResponse *addChart;
 
+/** The result of creating a reply. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddCommentReplyResponse *addCommentReply;
+
 /** A reply from adding a data source. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddDataSourceResponse *addDataSource;
 
@@ -10557,6 +11092,9 @@ GTLR_DEPRECATED
 
 /** A reply from doing a find/replace. */
 @property(nonatomic, strong, nullable) GTLRSheets_FindReplaceResponse *findReplace;
+
+/** The result of creating a comment. */
+@property(nonatomic, strong, nullable) GTLRSheets_InsertCommentResponse *insertComment;
 
 /** A reply from refreshing data source objects. */
 @property(nonatomic, strong, nullable) GTLRSheets_RefreshDataSourceResponse *refreshDataSource;
@@ -10778,6 +11316,9 @@ GTLR_DEPRECATED
  *  then by group depth.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionGroup *> *columnGroups;
+
+/** The comment anchors on this sheet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_CommentAnchor *> *commentAnchors;
 
 /** The conditional format rules in this sheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_ConditionalFormatRule *> *conditionalFormats;
@@ -11118,6 +11659,33 @@ GTLR_DEPRECATED
  *  Resource that represents a spreadsheet.
  */
 @interface GTLRSheets_Spreadsheet : GTLRObject
+
+/** The comment threads associated with the spreadsheet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_CommentThread *> *comments;
+
+/**
+ *  Output only. The comments view mode applied to the spreadsheet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess
+ *        The CommentsViewMode applied to the returned spreadsheet depends on
+ *        the user's current access level. If the user only has view access,
+ *        COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *        COMMENTS_VIEW_MODE_INCLUDED is applied. (Value:
+ *        "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeIncluded
+ *        The returned spreadsheet has comments included. Requests to retrieve a
+ *        spreadsheet using this mode will return a 403 error if the user does
+ *        not have permission to view comments. (Value:
+ *        "COMMENTS_VIEW_MODE_INCLUDED")
+ *    @arg @c kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeOmitted
+ *        The returned spreadsheet has comments omitted. (Value:
+ *        "COMMENTS_VIEW_MODE_OMITTED")
+ *    @arg @c kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeUnspecified
+ *        The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is
+ *        applied. (Value: "COMMENTS_VIEW_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentsViewMode;
 
 /** A list of external data sources connected with the spreadsheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataSource *> *dataSources;
@@ -11944,6 +12512,29 @@ GTLR_DEPRECATED
 
 /** The specification to apply to the chart. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartSpec *spec;
+
+@end
+
+
+/**
+ *  Updates a Post in a CommentThread. Returns a 400 bad request error if: - The
+ *  requesting user is not the author of the post.
+ */
+@interface GTLRSheets_UpdateCommentPostRequest : GTLRObject
+
+/** The ID of the CommentThread which the post belongs to. */
+@property(nonatomic, copy, nullable) NSString *commentId;
+
+/**
+ *  The new text of the comment, as plain text. This text content will be
+ *  handled similarly to comments created in the Sheets editor. It will have
+ *  similar behaviors for formatting, notifications, etc. This field cannot be
+ *  empty, and must not exceed 2048 UTF-8 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** The ID of the post being updated. */
+@property(nonatomic, copy, nullable) NSString *postId;
 
 @end
 

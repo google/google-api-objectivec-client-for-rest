@@ -35,7 +35,14 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateRunning = @"STATE
 NSString * const kGTLRCloudWorkstations_Workstation_State_StateStarting = @"STATE_STARTING";
 NSString * const kGTLRCloudWorkstations_Workstation_State_StateStopped = @"STATE_STOPPED";
 NSString * const kGTLRCloudWorkstations_Workstation_State_StateStopping = @"STATE_STOPPING";
+NSString * const kGTLRCloudWorkstations_Workstation_State_StateSuspended = @"STATE_SUSPENDED";
+NSString * const kGTLRCloudWorkstations_Workstation_State_StateSuspending = @"STATE_SUSPENDING";
 NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudWorkstations_WorkstationConfig.idleAction
+NSString * const kGTLRCloudWorkstations_WorkstationConfig_IdleAction_IdleActionUnspecified = @"IDLE_ACTION_UNSPECIFIED";
+NSString * const kGTLRCloudWorkstations_WorkstationConfig_IdleAction_Stop = @"STOP";
+NSString * const kGTLRCloudWorkstations_WorkstationConfig_IdleAction_Suspend = @"SUSPEND";
 
 // ----------------------------------------------------------------------------
 //
@@ -786,6 +793,21 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_SuspendWorkstationRequest
+//
+
+@implementation GTLRCloudWorkstations_SuspendWorkstationRequest
+@dynamic ETag, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_TestIamPermissionsRequest
 //
 
@@ -962,9 +984,10 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 @dynamic allowedPorts, annotations, conditions, container, createTime, degraded,
          deleteTime, disableTcpConnections, displayName, enableAuditAgent,
          encryptionKey, ephemeralDirectories, ETag,
-         grantWorkstationAdminRoleOnCreate, host, idleTimeout, labels,
-         maxUsableWorkstations, name, persistentDirectories, readinessChecks,
-         reconciling, replicaZones, runningTimeout, uid, updateTime;
+         grantWorkstationAdminRoleOnCreate, host, idleAction, idleTimeout,
+         labels, maxUsableWorkstations, name, persistentDirectories,
+         readinessChecks, reconciling, replicaZones, runningTimeout, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

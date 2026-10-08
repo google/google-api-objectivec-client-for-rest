@@ -162,8 +162,8 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 @implementation GTLRBigQueryDataTransfer_DataSourceParameter
 @dynamic allowedValues, deprecated, descriptionProperty, displayName, fields,
          immutable, maxListSize, maxValue, minValue, paramId, recurse, repeated,
-         required, type, validationDescription, validationHelpUrl,
-         validationRegex;
+         required, secretManagerAllowed, type, validationDescription,
+         validationHelpUrl, validationRegex;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -438,6 +438,24 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_ParameterConfig
+//
+
+@implementation GTLRBigQueryDataTransfer_ParameterConfig
+@dynamic secretManagerManagedParams;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secretManagerManagedParams" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_PartitionDetail
 //
 
@@ -593,9 +611,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
          destinationDatasetId, disabled, displayName, emailPreferences,
          encryptionConfiguration, error, managedTableType, metadataDestination,
-         name, nextRunTime, notificationPubsubTopic, ownerInfo, params,
-         schedule, scheduleOptions, scheduleOptionsV2, state, updateTime,
-         userId;
+         name, nextRunTime, notificationPubsubTopic, ownerInfo, paramConfig,
+         params, schedule, scheduleOptions, scheduleOptionsV2, state,
+         updateTime, userId;
 @end
 
 
@@ -651,8 +669,8 @@ NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_Tr
 
 @implementation GTLRBigQueryDataTransfer_TransferRun
 @dynamic dataSourceId, destinationDatasetId, emailPreferences, endTime,
-         errorStatus, name, notificationPubsubTopic, params, runTime, schedule,
-         scheduleTime, startTime, state, updateTime, userId;
+         errorStatus, name, notificationPubsubTopic, parameterConfig, params,
+         runTime, schedule, scheduleTime, startTime, state, updateTime, userId;
 @end
 
 

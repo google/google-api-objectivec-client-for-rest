@@ -549,3 +549,47 @@
 }
 
 @end
+
+@implementation GTLRDataManagerQuery_UsersIngest
+
++ (instancetype)queryWithObject:(GTLRDataManager_IngestUsersRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/users:ingest";
+  GTLRDataManagerQuery_UsersIngest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDataManager_IngestUsersResponse class];
+  query.loggingName = @"datamanager.users.ingest";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_UsersRemove
+
++ (instancetype)queryWithObject:(GTLRDataManager_RemoveUsersRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/users:remove";
+  GTLRDataManagerQuery_UsersRemove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDataManager_RemoveUsersResponse class];
+  query.loggingName = @"datamanager.users.remove";
+  return query;
+}
+
+@end

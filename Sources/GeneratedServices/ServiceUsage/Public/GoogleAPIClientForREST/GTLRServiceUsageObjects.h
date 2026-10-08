@@ -371,40 +371,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_DisableServiceRequest_Check
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_Skip;
 
 // ----------------------------------------------------------------------------
-// GTLRServiceUsage_EnableRule.enableType
-
-/**
- *  Enable all clients under the CRM node specified by `ConsumerPolicy.name` to
- *  use the listed services. A client can be an API key, an OAuth client, or a
- *  service account.
- *
- *  Value: "CLIENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_Client;
-/**
- *  Unspecified enable type, which means enabled as both client and resource
- *  project.
- *
- *  Value: "ENABLE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_EnableTypeUnspecified;
-/**
- *  Enable resources in the list services to be created and used under the CRM
- *  node specified by the `ConsumerPolicy.name`.
- *
- *  Value: "RESOURCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_Resource;
-/**
- *  Activation made by Service Usage v1 API. This will be how consumers
- *  differentiate between policy changes made by v1 and v2 clients and
- *  understand what is actually possible based on those different policies.
- *
- *  Value: "V1_COMPATIBLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_EnableRule_EnableType_V1Compatible;
-
-// ----------------------------------------------------------------------------
 // GTLRServiceUsage_Enum.syntax
 
 /**
@@ -2740,31 +2706,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  The consumer policy rule that defines enabled services and groups.
+ *  The consumer policy rule that defines enabled services and catalogs.
  */
 @interface GTLRServiceUsage_EnableRule : GTLRObject
 
 /**
- *  Client and resource project enable type.
- *
- *  Likely values:
- *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_Client Enable all clients
- *        under the CRM node specified by `ConsumerPolicy.name` to use the
- *        listed services. A client can be an API key, an OAuth client, or a
- *        service account. (Value: "CLIENT")
- *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_EnableTypeUnspecified
- *        Unspecified enable type, which means enabled as both client and
- *        resource project. (Value: "ENABLE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_Resource Enable resources
- *        in the list services to be created and used under the CRM node
- *        specified by the `ConsumerPolicy.name`. (Value: "RESOURCE")
- *    @arg @c kGTLRServiceUsage_EnableRule_EnableType_V1Compatible Activation
- *        made by Service Usage v1 API. This will be how consumers differentiate
- *        between policy changes made by v1 and v2 clients and understand what
- *        is actually possible based on those different policies. (Value:
- *        "V1_COMPATIBLE")
+ *  The names of the catalogs that are enabled. Example:
+ *  `catalogs/default-cloud-services`.
  */
-@property(nonatomic, copy, nullable) NSString *enableType;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *catalogs;
 
 /**
  *  The names of the services that are enabled. Example:
@@ -3803,6 +3753,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  categories.
  */
 @interface GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule : GTLRObject
+
+/**
+ *  The names of the catalogs that are enabled. Example:
+ *  `catalogs/default-cloud-services`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *catalogs;
 
 /**
  *  The names of the services that are enabled. Example:
@@ -5897,7 +5853,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The values removed from the parent consumer policy. */
+/**
+ *  Deprecated: This field is no longer populated. Use GetConsumerPolicy to
+ *  verify the remaining enabled values.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *removedValues GTLR_DEPRECATED;
 
 @end

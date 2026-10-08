@@ -381,7 +381,7 @@
 
 @implementation GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic dataSourceFamily, filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

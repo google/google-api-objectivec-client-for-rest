@@ -242,7 +242,8 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_BigtableConfig
-@dynamic appProfileId, serviceAccountEmail, state, table, writeMetadata;
+@dynamic appProfileId, columnFamilyMapping, serviceAccountEmail, state, table,
+         writeMetadata;
 @end
 
 
@@ -261,6 +262,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ClientTelemetry
+//
+
+@implementation GTLRPubsub_ClientTelemetry
+@dynamic publishOperation;
 @end
 
 
@@ -289,11 +300,31 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_ColumnFamilyMapping
+//
+
+@implementation GTLRPubsub_ColumnFamilyMapping
+@dynamic delimitedKey, rowKeySchema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_CommitSchemaRequest
 //
 
 @implementation GTLRPubsub_CommitSchemaRequest
 @dynamic schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_CompiledProtoSchema
+//
+
+@implementation GTLRPubsub_CompiledProtoSchema
+@dynamic compiledBytes, rootMessage;
 @end
 
 
@@ -363,6 +394,24 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_DeadLetterPolicy
 @dynamic deadLetterTopic, maxDeliveryAttempts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_DelimitedKey
+//
+
+@implementation GTLRPubsub_DelimitedKey
+@dynamic delimiter, keyFields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyFields" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -710,6 +759,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_PublishOperation
+//
+
+@implementation GTLRPubsub_PublishOperation
+@dynamic hedgedAttemptCount, publishStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_PublishRequest
 //
 
@@ -828,11 +887,21 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_RowKeySchema
+//
+
+@implementation GTLRPubsub_RowKeySchema
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Schema
 //
 
 @implementation GTLRPubsub_Schema
-@dynamic definition, name, revisionCreateTime, revisionId, type;
+@dynamic compiledProtoSchema, definition, name, revisionCreateTime, revisionId,
+         type;
 @end
 
 

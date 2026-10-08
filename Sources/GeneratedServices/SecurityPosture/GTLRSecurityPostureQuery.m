@@ -19,6 +19,51 @@
 
 @end
 
+@implementation GTLRSecurityPostureQuery_OrganizationsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityPostureQuery_OrganizationsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityPosture_Location class];
+  query.loggingName = @"securityposture.organizations.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityPostureQuery_OrganizationsLocationsList
+
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRSecurityPostureQuery_OrganizationsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityPosture_ListLocationsResponse class];
+  query.loggingName = @"securityposture.organizations.locations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityPostureQuery_OrganizationsLocationsOperationsCancel
 
 @dynamic name;
@@ -477,51 +522,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRSecurityPosture_ListReportsResponse class];
   query.loggingName = @"securityposture.organizations.locations.reports.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRSecurityPostureQuery_ProjectsLocationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRSecurityPostureQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRSecurityPosture_Location class];
-  query.loggingName = @"securityposture.projects.locations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRSecurityPostureQuery_ProjectsLocationsList
-
-@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extraLocationTypes" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/locations";
-  GTLRSecurityPostureQuery_ProjectsLocationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRSecurityPosture_ListLocationsResponse class];
-  query.loggingName = @"securityposture.projects.locations.list";
   return query;
 }
 

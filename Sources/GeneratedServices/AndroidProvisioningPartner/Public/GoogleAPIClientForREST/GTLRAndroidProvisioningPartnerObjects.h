@@ -140,7 +140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_S
 // GTLRAndroidProvisioningPartner_DeviceIdentifier.deviceType
 
 /**
- *  Android device
+ *  Android mobile and Desktop except Googlebooks and Chromebooks
  *
  *  Value: "DEVICE_TYPE_ANDROID"
  */
@@ -526,15 +526,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
 
 /**
- *  Input only. If set to true, welcome email will not be sent to the customer.
- *  It is recommended to skip the welcome email if devices will be claimed with
- *  additional DEVICE_PROTECTION service, as the customer will receive separate
- *  emails at device claim time. This field is ignored if this is not a
- *  Zero-touch customer.
+ *  Input only. Deprecated: This field is no longer supported and is ignored by
+ *  the server.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *skipWelcomeEmail;
+@property(nonatomic, strong, nullable) NSNumber *skipWelcomeEmail GTLR_DEPRECATED;
 
 /**
  *  Output only. Whether any user from the company has accepted the latest Terms
@@ -922,7 +919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeAndroid
- *        Android device (Value: "DEVICE_TYPE_ANDROID")
+ *        Android mobile and Desktop except Googlebooks and Chromebooks (Value:
+ *        "DEVICE_TYPE_ANDROID")
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeChromeOs
  *        Chrome OS device (Value: "DEVICE_TYPE_CHROME_OS")
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceIdentifier_DeviceType_DeviceTypeUnspecified

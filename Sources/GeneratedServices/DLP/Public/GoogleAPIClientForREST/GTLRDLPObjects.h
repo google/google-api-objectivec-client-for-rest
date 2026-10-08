@@ -231,6 +231,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2LoggingConfig;
 @class GTLRDLP_GooglePrivacyDlpV2LogToBigQuery;
 @class GTLRDLP_GooglePrivacyDlpV2Manual;
+@class GTLRDLP_GooglePrivacyDlpV2MessagePart;
 @class GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression;
 @class GTLRDLP_GooglePrivacyDlpV2MetadataLocation;
 @class GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing;
@@ -413,7 +414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindi
 /**
  *  Full match. - Dictionary: join of Dictionary results matched the complete
  *  finding quote - Regex: all regex matches fill a finding quote from start to
- *  end - Exclude infoType: completely inside affecting infoTypes findings
+ *  end - Exclude infoType: completely inside affecting infoTypes findings -
+ *  Exclude by prompt: finding matches the prompt definition
  *
  *  Value: "MATCHING_TYPE_FULL_MATCH"
  */
@@ -421,7 +423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingIn
 /**
  *  Inverse match. - Dictionary: no tokens in the finding match the dictionary -
  *  Regex: finding doesn't match the regex - Exclude infoType: no intersection
- *  with affecting infoTypes findings
+ *  with affecting infoTypes findings - Exclude by prompt: finding does not
+ *  match the prompt definition
  *
  *  Value: "MATCHING_TYPE_INVERSE_MATCH"
  */
@@ -429,7 +432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingIn
 /**
  *  Partial match. - Dictionary: at least one of the tokens in the finding
  *  matches - Regex: substring of the finding matches - Exclude infoType:
- *  intersects with affecting infoTypes findings
+ *  intersects with affecting infoTypes findings - Exclude by prompt: not
+ *  supported
  *
  *  Value: "MATCHING_TYPE_PARTIAL_MATCH"
  */
@@ -440,7 +444,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingIn
  *  string comparison (e.g., image containment). This matching type can only be
  *  used with the `ExcludeByImageFindings` rule. - Exclude by image findings:
  *  The matching logic is defined within `ExcludeByImageFindings` based on
- *  spatial relationships between bounding boxes.
+ *  spatial relationships between bounding boxes. - Exclude by prompt: not
+ *  supported
  *
  *  Value: "MATCHING_TYPE_RULE_SPECIFIC"
  */
@@ -2210,7 +2215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_Im
 /**
  *  Full match. - Dictionary: join of Dictionary results matched the complete
  *  finding quote - Regex: all regex matches fill a finding quote from start to
- *  end - Exclude infoType: completely inside affecting infoTypes findings
+ *  end - Exclude infoType: completely inside affecting infoTypes findings -
+ *  Exclude by prompt: finding matches the prompt definition
  *
  *  Value: "MATCHING_TYPE_FULL_MATCH"
  */
@@ -2218,7 +2224,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_Matc
 /**
  *  Inverse match. - Dictionary: no tokens in the finding match the dictionary -
  *  Regex: finding doesn't match the regex - Exclude infoType: no intersection
- *  with affecting infoTypes findings
+ *  with affecting infoTypes findings - Exclude by prompt: finding does not
+ *  match the prompt definition
  *
  *  Value: "MATCHING_TYPE_INVERSE_MATCH"
  */
@@ -2226,7 +2233,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_Matc
 /**
  *  Partial match. - Dictionary: at least one of the tokens in the finding
  *  matches - Regex: substring of the finding matches - Exclude infoType:
- *  intersects with affecting infoTypes findings
+ *  intersects with affecting infoTypes findings - Exclude by prompt: not
+ *  supported
  *
  *  Value: "MATCHING_TYPE_PARTIAL_MATCH"
  */
@@ -2237,7 +2245,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_Matc
  *  string comparison (e.g., image containment). This matching type can only be
  *  used with the `ExcludeByImageFindings` rule. - Exclude by image findings:
  *  The matching logic is defined within `ExcludeByImageFindings` based on
- *  spatial relationships between bounding boxes.
+ *  spatial relationships between bounding boxes. - Exclude by prompt: not
+ *  supported
  *
  *  Value: "MATCHING_TYPE_RULE_SPECIFIC"
  */
@@ -3177,30 +3186,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_Retur
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyAction_ReturnVerdict_ContentPolicyVerdictUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDLP_GooglePrivacyDlpV2PolicyRule.returnVerdict
-
-/**
- *  The policy allows the provided content to be used.
- *
- *  Value: "ALLOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Allow;
-/**
- *  The policy prevents the provided content from being used. This should result
- *  in a blocked file upload, exclusion from training dataset, or other similar
- *  block action. (specific action will depend on the caller).
- *
- *  Value: "BLOCK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Block;
-/**
- *  Not used.
- *
- *  Value: "CONTENT_POLICY_VERDICT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_ContentPolicyVerdictUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2PubSubCondition.minimumRiskScore
 
 /**
@@ -3978,17 +3963,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Full match. - Dictionary: join of Dictionary results matched the
  *        complete finding quote - Regex: all regex matches fill a finding quote
  *        from start to end - Exclude infoType: completely inside affecting
- *        infoTypes findings (Value: "MATCHING_TYPE_FULL_MATCH")
+ *        infoTypes findings - Exclude by prompt: finding matches the prompt
+ *        definition (Value: "MATCHING_TYPE_FULL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeInverseMatch
  *        Inverse match. - Dictionary: no tokens in the finding match the
  *        dictionary - Regex: finding doesn't match the regex - Exclude
- *        infoType: no intersection with affecting infoTypes findings (Value:
+ *        infoType: no intersection with affecting infoTypes findings - Exclude
+ *        by prompt: finding does not match the prompt definition (Value:
  *        "MATCHING_TYPE_INVERSE_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypePartialMatch
  *        Partial match. - Dictionary: at least one of the tokens in the finding
  *        matches - Regex: substring of the finding matches - Exclude infoType:
- *        intersects with affecting infoTypes findings (Value:
- *        "MATCHING_TYPE_PARTIAL_MATCH")
+ *        intersects with affecting infoTypes findings - Exclude by prompt: not
+ *        supported (Value: "MATCHING_TYPE_PARTIAL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeRuleSpecific
  *        Rule-specific match. The matching logic is based on the specific rule
  *        being used. This is required for rules where the matching behavior is
@@ -3996,7 +3983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        matching type can only be used with the `ExcludeByImageFindings` rule.
  *        - Exclude by image findings: The matching logic is defined within
  *        `ExcludeByImageFindings` based on spatial relationships between
- *        bounding boxes. (Value: "MATCHING_TYPE_RULE_SPECIFIC")
+ *        bounding boxes. - Exclude by prompt: not supported (Value:
+ *        "MATCHING_TYPE_RULE_SPECIFIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeUnspecified
  *        Invalid. (Value: "MATCHING_TYPE_UNSPECIFIED")
  */
@@ -4501,7 +4489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Bounding box encompassing detected text within an image.
+ *  Bounding box encompassing detected text within an image. Coordinates are in
+ *  pixels and strictly within the image or frame bounds.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BoundingBox : GTLRObject
 
@@ -5620,12 +5609,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Optional. InspectTemplate to use to produce findings. Deprecated: use
- *  inspect_config instead.
- */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *inspectTemplate GTLR_DEPRECATED;
-
-/**
  *  Optional. Log the actions taken by the content policy to external systems.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2LoggingConfig *> *loggingConfigs;
@@ -5693,8 +5676,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ConversationMessage : GTLRObject
 
-/** The contents of this message. */
-@property(nonatomic, copy, nullable) NSString *content;
+/**
+ *  Deprecated: Use `message_parts` instead. The contents of this message. Only
+ *  one of `content` and `message_parts` can be set.
+ */
+@property(nonatomic, copy, nullable) NSString *content GTLR_DEPRECATED;
+
+/**
+ *  Optional. The parts of the message. Restricted to being at most a single
+ *  text item. Only one of `content` and `message_parts` can be set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2MessagePart *> *messageParts;
 
 /**
  *  The type of message.
@@ -8192,17 +8184,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Full match. - Dictionary: join of Dictionary results matched the
  *        complete finding quote - Regex: all regex matches fill a finding quote
  *        from start to end - Exclude infoType: completely inside affecting
- *        infoTypes findings (Value: "MATCHING_TYPE_FULL_MATCH")
+ *        infoTypes findings - Exclude by prompt: finding matches the prompt
+ *        definition (Value: "MATCHING_TYPE_FULL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch
  *        Inverse match. - Dictionary: no tokens in the finding match the
  *        dictionary - Regex: finding doesn't match the regex - Exclude
- *        infoType: no intersection with affecting infoTypes findings (Value:
+ *        infoType: no intersection with affecting infoTypes findings - Exclude
+ *        by prompt: finding does not match the prompt definition (Value:
  *        "MATCHING_TYPE_INVERSE_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch
  *        Partial match. - Dictionary: at least one of the tokens in the finding
  *        matches - Regex: substring of the finding matches - Exclude infoType:
- *        intersects with affecting infoTypes findings (Value:
- *        "MATCHING_TYPE_PARTIAL_MATCH")
+ *        intersects with affecting infoTypes findings - Exclude by prompt: not
+ *        supported (Value: "MATCHING_TYPE_PARTIAL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeRuleSpecific
  *        Rule-specific match. The matching logic is based on the specific rule
  *        being used. This is required for rules where the matching behavior is
@@ -8210,7 +8204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        matching type can only be used with the `ExcludeByImageFindings` rule.
  *        - Exclude by image findings: The matching logic is defined within
  *        `ExcludeByImageFindings` based on spatial relationships between
- *        bounding boxes. (Value: "MATCHING_TYPE_RULE_SPECIFIC")
+ *        bounding boxes. - Exclude by prompt: not supported (Value:
+ *        "MATCHING_TYPE_RULE_SPECIFIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified
  *        Invalid. (Value: "MATCHING_TYPE_UNSPECIFIED")
  */
@@ -11135,6 +11130,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  A part of a conversation message.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2MessagePart : GTLRObject
+
+/** String content for text-based messages. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  Configuration for a custom infoType that detects key-value pairs in the
  *  metadata matching the specified regular expressions.
  */
@@ -11561,23 +11567,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  must match (`AND`). For `OR` conditions, use multiple rules.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2PolicyCondition *> *conditions;
-
-/**
- *  If set, the verdict will be returned to the user. Deprecated: Use `action`
- *  instead.
- *
- *  Likely values:
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Allow The
- *        policy allows the provided content to be used. (Value: "ALLOW")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_Block The
- *        policy prevents the provided content from being used. This should
- *        result in a blocked file upload, exclusion from training dataset, or
- *        other similar block action. (specific action will depend on the
- *        caller). (Value: "BLOCK")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2PolicyRule_ReturnVerdict_ContentPolicyVerdictUnspecified
- *        Not used. (Value: "CONTENT_POLICY_VERDICT_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *returnVerdict GTLR_DEPRECATED;
 
 @end
 

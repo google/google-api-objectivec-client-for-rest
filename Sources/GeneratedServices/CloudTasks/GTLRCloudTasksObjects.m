@@ -120,6 +120,42 @@ NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_UriOverrideE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_BatchCreateTasksRequest
+//
+
+@implementation GTLRCloudTasks_BatchCreateTasksRequest
+@dynamic requestId, requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRCloudTasks_CreateTaskRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_BatchDeleteTasksRequest
+//
+
+@implementation GTLRCloudTasks_BatchDeleteTasksRequest
+@dynamic names, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_Binding
 //
 
@@ -172,7 +208,7 @@ NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_UriOverrideE
 //
 
 @implementation GTLRCloudTasks_CreateTaskRequest
-@dynamic responseView, task;
+@dynamic parent, responseView, task;
 @end
 
 
@@ -440,6 +476,44 @@ NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_UriOverrideE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_Operation
+//
+
+@implementation GTLRCloudTasks_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_Operation_Metadata
+//
+
+@implementation GTLRCloudTasks_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_Operation_Response
+//
+
+@implementation GTLRCloudTasks_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_PathOverride
 //
 
@@ -608,7 +682,7 @@ NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforceMode_UriOverrideE
 @implementation GTLRCloudTasks_Task
 @dynamic appEngineHttpRequest, createTime, dispatchCount, dispatchDeadline,
          firstAttempt, httpRequest, lastAttempt, name, responseCount,
-         scheduleTime, view;
+         retryConfig, scheduleTime, view;
 @end
 
 

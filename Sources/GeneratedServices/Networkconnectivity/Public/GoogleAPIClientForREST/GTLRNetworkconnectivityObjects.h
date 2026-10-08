@@ -978,6 +978,67 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peerin
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_PeeringUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_InternalRange.purpose
+
+/**
+ *  The internal range is used exclusively for allocating individual IP
+ *  addresses (e.g., for global PSC endpoints). Child ranges or subnetworks
+ *  cannot be created from a range with this purpose.
+ *
+ *  Value: "INTERNAL_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Purpose_InternalAddress;
+/**
+ *  If purpose is left unspecified in CreateInternalRange or
+ *  UpdateInternalRange, it will be defaulted to VPC_SUBNET.
+ *
+ *  Value: "PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Purpose_PurposeUnspecified;
+/**
+ *  The internal range is used for VPC subnetworks.
+ *
+ *  Value: "VPC_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_Purpose_VpcSubnet;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_InternalRange.rangeStatus
+
+/**
+ *  Ranges with ACTIVE status will reserve the CIDR block from the given VPC.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Active;
+/**
+ *  The resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Deleting;
+/**
+ *  A range becomes OBSOLETE if its VPC network is deleted. An OBSOLETE range is
+ *  inactive, doesn't reserve any CIDR blocks, and can only be deleted or have
+ *  its labels and description updated.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Obsolete;
+/**
+ *  Unspecified status is the default value for an Internal Range.
+ *
+ *  Value: "RANGE_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_RangeStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_InternalRange.usage
 
 /**
@@ -4187,6 +4248,48 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSNumber *prefixLength;
 
 /**
+ *  Optional. The purpose of this internal range. Defines the intended use of
+ *  the range and any restrictions associated with it. If not specified, it
+ *  defaults to VPC_SUBNET.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Purpose_InternalAddress The
+ *        internal range is used exclusively for allocating individual IP
+ *        addresses (e.g., for global PSC endpoints). Child ranges or
+ *        subnetworks cannot be created from a range with this purpose. (Value:
+ *        "INTERNAL_ADDRESS")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Purpose_PurposeUnspecified
+ *        If purpose is left unspecified in CreateInternalRange or
+ *        UpdateInternalRange, it will be defaulted to VPC_SUBNET. (Value:
+ *        "PURPOSE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_Purpose_VpcSubnet The
+ *        internal range is used for VPC subnetworks. (Value: "VPC_SUBNET")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
+
+/**
+ *  Output only. Status of the Internal Range.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_RangeStatus_Active Ranges
+ *        with ACTIVE status will reserve the CIDR block from the given VPC.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_RangeStatus_Creating The
+ *        resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_RangeStatus_Deleting The
+ *        resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_RangeStatus_Obsolete A
+ *        range becomes OBSOLETE if its VPC network is deleted. An OBSOLETE
+ *        range is inactive, doesn't reserve any CIDR blocks, and can only be
+ *        deleted or have its labels and description updated. (Value:
+ *        "OBSOLETE")
+ *    @arg @c kGTLRNetworkconnectivity_InternalRange_RangeStatus_RangeStatusUnspecified
+ *        Unspecified status is the default value for an Internal Range. (Value:
+ *        "RANGE_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *rangeStatus;
+
+/**
  *  Optional. Can be set to narrow down or pick a different address space while
  *  searching for a free range. If not set, defaults to the ["10.0.0.0/8",
  *  "172.16.0.0/12", "192.168.0.0/16"] address space (for auto-mode networks,
@@ -7041,7 +7144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Optional. The list of fields waiting for hub administrator's approval. */
+/**
+ *  Output only. The list of fields waiting for hub administrator's approval.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fieldPathsPendingUpdate;
 
 /**
@@ -7462,6 +7567,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *advertisedRoutes;
 
 /**
+ *  Optional. Immutable. Controls whether resources proposed by the Transport
+ *  are automatically accepted on behalf of the user. List of actions that can
+ *  be automatically accepted are: 1. VPC Peering creation 2. Routing VPC Spoke
+ *  creation 3. Hybrid Spoke creation
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoAccept;
+
+/**
  *  Optional. Bandwidth of the Transport. This must be one of the supported
  *  bandwidths for the remote profile, and must be set when no activation key is
  *  being provided.
@@ -7517,6 +7632,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *generatedActivationKey;
 
+/**
+ *  Optional. Immutable. The NCC Hub that the Transport should attach to. The
+ *  hub must be in the same project as the Transport. Format: `{hub}` or
+ *  `projects/{project}/locations/global/hubs/{hub}`
+ */
+@property(nonatomic, copy, nullable) NSString *hub;
+
 /** Optional. Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Transport_Labels *labels;
 
@@ -7551,6 +7673,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  key flow and the resource is in the PENDING_KEY state.
  */
 @property(nonatomic, copy, nullable) NSString *providedActivationKey;
+
+/**
+ *  Optional. Immutable. Controls whether a Routing VPC Spoke should be created
+ *  and attached to the NCC Hub. This will provide Private Service Connect (PSC)
+ *  connectivity through NCC. This can only be set when the Transport is first
+ *  created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscRoutingEnabled;
 
 /**
  *  Optional. Immutable. The user supplied account id for the CSP associated

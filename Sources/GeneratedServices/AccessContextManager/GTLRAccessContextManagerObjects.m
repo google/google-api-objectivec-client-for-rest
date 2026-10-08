@@ -322,7 +322,7 @@ NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatterns
 //
 
 @implementation GTLRAccessContextManager_ClientScope
-@dynamic restrictedClientApplication;
+@dynamic restrictedClientApplication, restrictedProject;
 @end
 
 
@@ -505,13 +505,12 @@ NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatterns
 
 @implementation GTLRAccessContextManager_GcpUserAccessBinding
 @dynamic accessLevels, dryRunAccessLevels, groupKey, name, principal,
-         restrictedClientApplications, scopedAccessSettings, sessionSettings;
+         scopedAccessSettings, sessionSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
     @"dryRunAccessLevels" : [NSString class],
-    @"restrictedClientApplications" : [GTLRAccessContextManager_Application class],
     @"scopedAccessSettings" : [GTLRAccessContextManager_ScopedAccessSettings class]
   };
   return map;
@@ -783,6 +782,17 @@ NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatterns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse
+//
+
+@implementation GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse
+@dynamic restrictedResource, restrictedResourceDryRun, servicePerimeter,
+         servicePerimeterDryRun;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_MethodSelector
 //
 
@@ -887,7 +897,7 @@ NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatterns
 //
 
 @implementation GTLRAccessContextManager_Principal
-@dynamic serviceAccount, serviceAccountProjectNumber;
+@dynamic federatedPrincipal, serviceAccount, serviceAccountProjectNumber;
 @end
 
 
@@ -898,6 +908,16 @@ NSString * const kGTLRAccessContextManager_VpcAccessibleServices_ServicePatterns
 
 @implementation GTLRAccessContextManager_PrivateServiceConnectEndpoint
 @dynamic forwardingRule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_Project
+//
+
+@implementation GTLRAccessContextManager_Project
+@dynamic name;
 @end
 
 

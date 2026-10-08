@@ -91,6 +91,33 @@ NSString * const kGTLRWebContentPublisher_Publication_PublicationType_Publicatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWebContentPublisher_GeneratePlatformSiteTokensRequest
+//
+
+@implementation GTLRWebContentPublisher_GeneratePlatformSiteTokensRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebContentPublisher_GeneratePlatformSiteTokensResponse
+//
+
+@implementation GTLRWebContentPublisher_GeneratePlatformSiteTokensResponse
+@dynamic siteTokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"siteTokens" : [GTLRWebContentPublisher_SiteToken class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWebContentPublisher_ListCtasResponse
 //
 
@@ -139,7 +166,7 @@ NSString * const kGTLRWebContentPublisher_Publication_PublicationType_Publicatio
 //
 
 @implementation GTLRWebContentPublisher_NewsletterConfig
-@dynamic customConsentText, customMessage, nameRequired, title;
+@dynamic customConsentText, customMessage, nameRequired, optInRequired, title;
 @end
 
 
@@ -177,6 +204,16 @@ NSString * const kGTLRWebContentPublisher_Publication_PublicationType_Publicatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWebContentPublisher_SiteToken
+//
+
+@implementation GTLRWebContentPublisher_SiteToken
+@dynamic domain, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWebContentPublisher_SlProduct
 //
 
@@ -191,5 +228,5 @@ NSString * const kGTLRWebContentPublisher_Publication_PublicationType_Publicatio
 //
 
 @implementation GTLRWebContentPublisher_TosAcceptance
-@dynamic emailOptIn, signer, signerTitle, userAccepted;
+@dynamic emailOptIn, userAccepted;
 @end

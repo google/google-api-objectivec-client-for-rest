@@ -34,7 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a conference record by conference ID.
+ *  Gets a conference record by conference ID. For more information, see [Work
+ *  with
+ *  conferences](https://developers.google.com/workspace/meet/api/guides/conferences).
  *
  *  Method: meet.conferenceRecords.get
  *
@@ -50,7 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_ConferenceRecord.
  *
- *  Gets a conference record by conference ID.
+ *  Gets a conference record by conference ID. For more information, see [Work
+ *  with
+ *  conferences](https://developers.google.com/workspace/meet/api/guides/conferences).
  *
  *  @param name Required. Resource name of the conference.
  *
@@ -62,7 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the conference records. By default, ordered by start time and in
- *  descending order.
+ *  descending order. For more information, see [Work with
+ *  conferences](https://developers.google.com/workspace/meet/api/guides/conferences).
  *
  *  Method: meet.conferenceRecords.list
  *
@@ -98,7 +103,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_ListConferenceRecordsResponse.
  *
  *  Lists the conference records. By default, ordered by start time and in
- *  descending order.
+ *  descending order. For more information, see [Work with
+ *  conferences](https://developers.google.com/workspace/meet/api/guides/conferences).
  *
  *  @return GTLRMeetQuery_ConferenceRecordsList
  *
@@ -111,7 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a participant by participant ID.
+ *  Gets a participant by participant ID. For more information, see [Work with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  Method: meet.conferenceRecords.participants.get
  *
@@ -127,7 +134,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Participant.
  *
- *  Gets a participant by participant ID.
+ *  Gets a participant by participant ID. For more information, see [Work with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  @param name Required. Resource name of the participant.
  *
@@ -142,7 +150,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  time and in descending order. This API supports `fields` as standard
  *  parameters like every other API. However, when the `fields` request
  *  parameter is omitted, this API defaults to `'participants/ *,
- *  next_page_token'`.
+ *  next_page_token'`. For more information, see [Work with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  Method: meet.conferenceRecords.participants.list
  *
@@ -182,7 +191,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  time and in descending order. This API supports `fields` as standard
  *  parameters like every other API. However, when the `fields` request
  *  parameter is omitted, this API defaults to `'participants/ *,
- *  next_page_token'`.
+ *  next_page_token'`. For more information, see [Work with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  @param parent Required. Format: `conferenceRecords/{conference_record}`
  *
@@ -197,7 +207,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a participant session by participant session ID.
+ *  Gets a participant session by participant session ID. For more information,
+ *  see [Work with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  Method: meet.conferenceRecords.participants.participantSessions.get
  *
@@ -213,7 +225,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_ParticipantSession.
  *
- *  Gets a participant session by participant session ID.
+ *  Gets a participant session by participant session ID. For more information,
+ *  see [Work with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  @param name Required. Resource name of the participant.
  *
@@ -228,7 +242,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  default, ordered by join time and in descending order. This API supports
  *  `fields` as standard parameters like every other API. However, when the
  *  `fields` request parameter is omitted this API defaults to
- *  `'participantsessions/ *, next_page_token'`.
+ *  `'participantsessions/ *, next_page_token'`. For more information, see [Work
+ *  with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  Method: meet.conferenceRecords.participants.participantSessions.list
  *
@@ -271,7 +287,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  default, ordered by join time and in descending order. This API supports
  *  `fields` as standard parameters like every other API. However, when the
  *  `fields` request parameter is omitted this API defaults to
- *  `'participantsessions/ *, next_page_token'`.
+ *  `'participantsessions/ *, next_page_token'`. For more information, see [Work
+ *  with
+ *  participants](https://developers.google.com/workspace/meet/api/guides/participants).
  *
  *  @param parent Required. Format:
  *    `conferenceRecords/{conference_record}/participants/{participant}`
@@ -287,7 +305,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a recording by recording ID.
+ *  Gets a recording by recording ID. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  Method: meet.conferenceRecords.recordings.get
  *
@@ -303,7 +322,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Recording.
  *
- *  Gets a recording by recording ID.
+ *  Gets a recording by recording ID. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  @param name Required. Resource name of the recording.
  *
@@ -315,7 +335,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the recording resources from the conference record. By default,
- *  ordered by start time and in ascending order.
+ *  ordered by start time and in ascending order. For more information, see
+ *  [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  Method: meet.conferenceRecords.recordings.list
  *
@@ -343,7 +365,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_ListRecordingsResponse.
  *
  *  Lists the recording resources from the conference record. By default,
- *  ordered by start time and in ascending order.
+ *  ordered by start time and in ascending order. For more information, see
+ *  [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  @param parent Required. Format: `conferenceRecords/{conference_record}`
  *
@@ -358,7 +382,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets smart notes by smart note ID.
+ *  Gets smart notes by smart note ID. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  Method: meet.conferenceRecords.smartNotes.get
  *
@@ -377,7 +402,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_SmartNote.
  *
- *  Gets smart notes by smart note ID.
+ *  Gets smart notes by smart note ID. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  @param name Required. Resource name of the smart note. Format:
  *    conferenceRecords/{conference_record}/smartNotes/{smart_note}
@@ -390,7 +416,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the set of smart notes from the conference record. By default, ordered
- *  by start time and in ascending order.
+ *  by start time and in ascending order. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  Method: meet.conferenceRecords.smartNotes.list
  *
@@ -418,7 +445,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_ListSmartNotesResponse.
  *
  *  Lists the set of smart notes from the conference record. By default, ordered
- *  by start time and in ascending order.
+ *  by start time and in ascending order. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  @param parent Required. Format: `conferenceRecords/{conference_record}`
  *
@@ -433,11 +461,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a `TranscriptEntry` resource by entry ID. Note: The transcript entries
- *  returned by the Google Meet API might not match the transcription found in
- *  the Google Docs transcript file. This can occur when 1) we have interleaved
- *  speakers within milliseconds, or 2) the Google Docs transcript file is
- *  modified after generation.
+ *  Gets a `TranscriptEntry` resource by entry ID. For more information, see
+ *  [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
+ *  Note: The transcript entries returned by the Google Meet API might not match
+ *  the transcription found in the Google Docs transcript file. This can occur
+ *  when 1) we have interleaved speakers within milliseconds, or 2) the Google
+ *  Docs transcript file is modified after generation.
  *
  *  Method: meet.conferenceRecords.transcripts.entries.get
  *
@@ -453,11 +483,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_TranscriptEntry.
  *
- *  Gets a `TranscriptEntry` resource by entry ID. Note: The transcript entries
- *  returned by the Google Meet API might not match the transcription found in
- *  the Google Docs transcript file. This can occur when 1) we have interleaved
- *  speakers within milliseconds, or 2) the Google Docs transcript file is
- *  modified after generation.
+ *  Gets a `TranscriptEntry` resource by entry ID. For more information, see
+ *  [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
+ *  Note: The transcript entries returned by the Google Meet API might not match
+ *  the transcription found in the Google Docs transcript file. This can occur
+ *  when 1) we have interleaved speakers within milliseconds, or 2) the Google
+ *  Docs transcript file is modified after generation.
  *
  *  @param name Required. Resource name of the `TranscriptEntry`.
  *
@@ -469,11 +501,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the structured transcript entries per transcript. By default, ordered
- *  by start time and in ascending order. Note: The transcript entries returned
- *  by the Google Meet API might not match the transcription found in the Google
- *  Docs transcript file. This can occur when 1) we have interleaved speakers
- *  within milliseconds, or 2) the Google Docs transcript file is modified after
- *  generation.
+ *  by start time and in ascending order. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
+ *  Note: The transcript entries returned by the Google Meet API might not match
+ *  the transcription found in the Google Docs transcript file. This can occur
+ *  when 1) we have interleaved speakers within milliseconds, or 2) the Google
+ *  Docs transcript file is modified after generation.
  *
  *  Method: meet.conferenceRecords.transcripts.entries.list
  *
@@ -504,11 +537,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_ListTranscriptEntriesResponse.
  *
  *  Lists the structured transcript entries per transcript. By default, ordered
- *  by start time and in ascending order. Note: The transcript entries returned
- *  by the Google Meet API might not match the transcription found in the Google
- *  Docs transcript file. This can occur when 1) we have interleaved speakers
- *  within milliseconds, or 2) the Google Docs transcript file is modified after
- *  generation.
+ *  by start time and in ascending order. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
+ *  Note: The transcript entries returned by the Google Meet API might not match
+ *  the transcription found in the Google Docs transcript file. This can occur
+ *  when 1) we have interleaved speakers within milliseconds, or 2) the Google
+ *  Docs transcript file is modified after generation.
  *
  *  @param parent Required. Format:
  *    `conferenceRecords/{conference_record}/transcripts/{transcript}`
@@ -524,7 +558,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a transcript by transcript ID.
+ *  Gets a transcript by transcript ID. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  Method: meet.conferenceRecords.transcripts.get
  *
@@ -540,7 +575,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Transcript.
  *
- *  Gets a transcript by transcript ID.
+ *  Gets a transcript by transcript ID. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  @param name Required. Resource name of the transcript.
  *
@@ -552,7 +588,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the set of transcripts from the conference record. By default, ordered
- *  by start time and in ascending order.
+ *  by start time and in ascending order. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  Method: meet.conferenceRecords.transcripts.list
  *
@@ -580,7 +617,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRMeet_ListTranscriptsResponse.
  *
  *  Lists the set of transcripts from the conference record. By default, ordered
- *  by start time and in ascending order.
+ *  by start time and in ascending order. For more information, see [Work with
+ *  artifacts](https://developers.google.com/workspace/meet/api/guides/artifacts).
  *
  *  @param parent Required. Format: `conferenceRecords/{conference_record}`
  *
@@ -595,7 +633,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a space.
+ *  Creates a space. For more information, see [Manage meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
  *
  *  Method: meet.spaces.create
  *
@@ -607,7 +646,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Space.
  *
- *  Creates a space.
+ *  Creates a space. For more information, see [Manage meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
  *
  *  @param object The @c GTLRMeet_Space to include in the query.
  *
@@ -618,8 +658,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Ends an active conference (if there's one). For an example, see [End active
- *  conference](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#end-active-conference).
+ *  Ends an active conference (if there's one). For more information, see
+ *  [Manage meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
  *
  *  Method: meet.spaces.endActiveConference
  *
@@ -640,8 +681,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Empty.
  *
- *  Ends an active conference (if there's one). For an example, see [End active
- *  conference](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#end-active-conference).
+ *  Ends an active conference (if there's one). For more information, see
+ *  [Manage meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
  *
  *  @param object The @c GTLRMeet_EndActiveConferenceRequest to include in the
  *    query.
@@ -659,7 +701,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details about a meeting space. For an example, see [Get a meeting
+ *  Gets details about a meeting space. For more information, see [Manage
+ *  meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
+ *  For an example, see [Get a meeting
  *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#get-meeting-space).
  *
  *  Method: meet.spaces.get
@@ -691,7 +736,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Space.
  *
- *  Gets details about a meeting space. For an example, see [Get a meeting
+ *  Gets details about a meeting space. For more information, see [Manage
+ *  meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
+ *  For an example, see [Get a meeting
  *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#get-meeting-space).
  *
  *  @param name Required. Resource name of the space. Format: `spaces/{space}`
@@ -715,8 +763,251 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates details about a meeting space. For an example, see [Update a meeting
- *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#update-meeting-space).
+ *  Updates members of one space within a batch. For more information, see
+ *  [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *
+ *  Method: meet.spaces.members.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ */
+@interface GTLRMeetQuery_SpacesMembersBatchUpdate : GTLRMeetQuery
+
+/**
+ *  Required. The parent resource shared by all Members being updated. Format:
+ *  spaces/{space}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMeet_BatchUpdateMembersResponse.
+ *
+ *  Updates members of one space within a batch. For more information, see
+ *  [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *
+ *  @param object The @c GTLRMeet_BatchUpdateMembersRequest to include in the
+ *    query.
+ *  @param parent Required. The parent resource shared by all Members being
+ *    updated. Format: spaces/{space}
+ *
+ *  @return GTLRMeetQuery_SpacesMembersBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRMeet_BatchUpdateMembersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a member. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *  This API supports the `fields` parameter in
+ *  [SystemParameterContext](https://cloud.google.com/apis/docs/system-parameters).
+ *  When the `fields` parameter is omitted, this API response will default to
+ *  "name,email,role,user".
+ *
+ *  Method: meet.spaces.members.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ */
+@interface GTLRMeetQuery_SpacesMembersCreate : GTLRMeetQuery
+
+/** Required. Format: spaces/{space} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMeet_Member.
+ *
+ *  Creates a member. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *  This API supports the `fields` parameter in
+ *  [SystemParameterContext](https://cloud.google.com/apis/docs/system-parameters).
+ *  When the `fields` parameter is omitted, this API response will default to
+ *  "name,email,role,user".
+ *
+ *  @param object The @c GTLRMeet_Member to include in the query.
+ *  @param parent Required. Format: spaces/{space}
+ *
+ *  @return GTLRMeetQuery_SpacesMembersCreate
+ */
++ (instancetype)queryWithObject:(GTLRMeet_Member *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the member who was previously assigned roles in the space. For more
+ *  information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *
+ *  Method: meet.spaces.members.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ */
+@interface GTLRMeetQuery_SpacesMembersDelete : GTLRMeetQuery
+
+/** Required. Format: “spaces/{space}/members/{member}” */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMeet_Empty.
+ *
+ *  Deletes the member who was previously assigned roles in the space. For more
+ *  information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *
+ *  @param name Required. Format: “spaces/{space}/members/{member}”
+ *
+ *  @return GTLRMeetQuery_SpacesMembersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a member. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *  This API supports the `fields` parameter in
+ *  [SystemParameterContext](https://cloud.google.com/apis/docs/system-parameters).
+ *  When the `fields` parameter is omitted, this API response will default to
+ *  "name,email,role,user".
+ *
+ *  Method: meet.spaces.members.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceReadonly
+ */
+@interface GTLRMeetQuery_SpacesMembersGet : GTLRMeetQuery
+
+/** Required. Format: “spaces/{space}/members/{member}” */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMeet_Member.
+ *
+ *  Gets a member. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *  This API supports the `fields` parameter in
+ *  [SystemParameterContext](https://cloud.google.com/apis/docs/system-parameters).
+ *  When the `fields` parameter is omitted, this API response will default to
+ *  "name,email,role,user".
+ *
+ *  @param name Required. Format: “spaces/{space}/members/{member}”
+ *
+ *  @return GTLRMeetQuery_SpacesMembersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists members. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *  This API supports the `fields` parameter in
+ *  [SystemParameterContext](https://cloud.google.com/apis/docs/system-parameters).
+ *  When the `fields` parameter is omitted this API response will default to
+ *  "name,email,role,user".
+ *
+ *  Method: meet.spaces.members.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceReadonly
+ */
+@interface GTLRMeetQuery_SpacesMembersList : GTLRMeetQuery
+
+/**
+ *  Optional. Maximum number of members to return. The service might return
+ *  fewer than this value. If unspecified or set to 0, at most 250 members are
+ *  returned. The maximum value is 500; values above 500 are coerced to 500.
+ *  Maximum might change in the future.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page token returned from previous List Call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: spaces/{space} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMeet_ListMembersResponse.
+ *
+ *  Lists members. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *  This API supports the `fields` parameter in
+ *  [SystemParameterContext](https://cloud.google.com/apis/docs/system-parameters).
+ *  When the `fields` parameter is omitted this API response will default to
+ *  "name,email,role,user".
+ *
+ *  @param parent Required. Format: spaces/{space}
+ *
+ *  @return GTLRMeetQuery_SpacesMembersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a member. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *
+ *  Method: meet.spaces.members.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ */
+@interface GTLRMeetQuery_SpacesMembersPatch : GTLRMeetQuery
+
+/**
+ *  Identifier. Resource name of the member. Format:
+ *  spaces/{space}/members/{member}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask used to specify the fields to be updated in the member.
+ *  If update_mask isn't provided(not set, set with empty paths, or only has ""
+ *  as paths), it defaults to update all fields provided with values in the
+ *  request. Using "*" as update_mask will update all fields, including deleting
+ *  fields not set in the request. In case of BatchUpdate, it must be absent or
+ *  the same as the update_mask in BatchUpdateMembersRequest when
+ *  UpdateMemberRequest is built as a child request of
+ *  BatchUpdateMembersRequest.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRMeet_Member.
+ *
+ *  Updates a member. For more information, see [Manage meeting space
+ *  members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members).
+ *
+ *  @param object The @c GTLRMeet_Member to include in the query.
+ *  @param name Identifier. Resource name of the member. Format:
+ *    spaces/{space}/members/{member}
+ *
+ *  @return GTLRMeetQuery_SpacesMembersPatch
+ */
++ (instancetype)queryWithObject:(GTLRMeet_Member *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates details about a meeting space. For more information, see [Manage
+ *  meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
  *
  *  Method: meet.spaces.patch
  *
@@ -749,8 +1040,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRMeet_Space.
  *
- *  Updates details about a meeting space. For an example, see [Update a meeting
- *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#update-meeting-space).
+ *  Updates details about a meeting space. For more information, see [Manage
+ *  meeting
+ *  spaces](https://developers.google.com/workspace/meet/api/guides/manage-meeting-spaces).
  *
  *  @param object The @c GTLRMeet_Space to include in the query.
  *  @param name Immutable. Resource name of the space. Format: `spaces/{space}`.

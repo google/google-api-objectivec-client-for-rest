@@ -32,6 +32,7 @@
 @class GTLRDeveloperConnect_CustomOAuthConfig;
 @class GTLRDeveloperConnect_DeploymentEvent;
 @class GTLRDeveloperConnect_ExchangeError;
+@class GTLRDeveloperConnect_FieldVisibility;
 @class GTLRDeveloperConnect_GenericHTTPEndpointConfig;
 @class GTLRDeveloperConnect_GitHubConfig;
 @class GTLRDeveloperConnect_GitHubEnterpriseConfig;
@@ -230,8 +231,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage_StageUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_McpToolVisibility.visibilityEnforcementStrategy
+
+/**
+ *  The principal must satisfy both API-level tool-level) visibility
+ *  restrictions.
+ *
+ *  Value: "COMBINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_Combine;
+/**
+ *  Bypasses the API-level visibility restrictions check; access is determined
+ *  solely by the tool-level visibility restrictions.
+ *
+ *  Value: "OVERRIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_Override;
+/**
+ *  Default. Equivalent to COMBINE.
+ *
+ *  Value: "VISIBILITY_ENFORCEMENT_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_VisibilityEnforcementStrategyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
 
+/**
+ *  Bitbucket Cloud provider.
+ *
+ *  Value: "BITBUCKET_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_BitbucketCloud;
 /**
  *  Datastax provider. No scopes are allowed.
  *
@@ -317,6 +348,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 // ----------------------------------------------------------------------------
 // GTLRDeveloperConnect_StartOAuthResponse.systemProviderId
 
+/**
+ *  Bitbucket Cloud provider.
+ *
+ *  Value: "BITBUCKET_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_BitbucketCloud;
 /**
  *  Datastax provider. No scopes are allowed.
  *
@@ -1159,6 +1196,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Visibility rules for individual tool parameters (fields). This allows
+ *  producers to hide specific fields in tools/list and tools/call.
+ */
+@interface GTLRDeveloperConnect_FieldVisibility : GTLRObject
+
+/** The visibility restriction labels for this field (comma-separated). */
+@property(nonatomic, copy, nullable) NSString *restriction;
+
+/** The name of the parameter in the input_schema or output_schema. */
+@property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
  *  Message for responding to finishing an OAuth flow.
  */
 @interface GTLRDeveloperConnect_FinishOAuthResponse : GTLRObject
@@ -1409,7 +1461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
- *  The git proxy configuration.
+ *  Configuration for proxies. For legacy reasons, this message is named
+ *  `GitProxyConfig`, but it includes settings for both Git and HTTP proxy.
  */
 @interface GTLRDeveloperConnect_GitProxyConfig : GTLRObject
 
@@ -2101,6 +2154,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Profile describing the visibility restriction of an MCP tool. Key:
+ *  "google.com/tool.profiles/visibility.restriction"
+ */
+@interface GTLRDeveloperConnect_McpToolVisibility : GTLRObject
+
+/** A list of field-level visibility restrictions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_FieldVisibility *> *fieldVisibility;
+
+/**
+ *  The strategy used to enforce visibility restrictions. DO NOT USE. This field
+ *  is not yet implemented.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_Combine
+ *        The principal must satisfy both API-level tool-level) visibility
+ *        restrictions. (Value: "COMBINE")
+ *    @arg @c kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_Override
+ *        Bypasses the API-level visibility restrictions check; access is
+ *        determined solely by the tool-level visibility restrictions. (Value:
+ *        "OVERRIDE")
+ *    @arg @c kGTLRDeveloperConnect_McpToolVisibility_VisibilityEnforcementStrategy_VisibilityEnforcementStrategyUnspecified
+ *        Default. Equivalent to COMBINE. (Value:
+ *        "VISIBILITY_ENFORCEMENT_STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *visibilityEnforcementStrategy;
+
+/**
+ *  The visibility restriction labels for the tool itself (e.g.,
+ *  "PRODUCER_DEFINED_PREVIEW"). Multiple labels can be provided as a
+ *  comma-separated string.
+ */
+@property(nonatomic, copy, nullable) NSString *visibilityRestriction;
+
+@end
+
+
+/**
  *  Represents an OAuth token of the account that authorized the Connection, and
  *  associated metadata.
  */
@@ -2323,6 +2413,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  Optional. Immutable. Developer Connect provided OAuth.
  *
  *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_BitbucketCloud
+ *        Bitbucket Cloud provider. (Value: "BITBUCKET_CLOUD")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax
  *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace
@@ -2475,6 +2567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  The ID of the system provider.
  *
  *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_BitbucketCloud
+ *        Bitbucket Cloud provider. (Value: "BITBUCKET_CLOUD")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax
  *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace

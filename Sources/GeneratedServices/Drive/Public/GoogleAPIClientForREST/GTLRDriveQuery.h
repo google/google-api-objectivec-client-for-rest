@@ -435,6 +435,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Lists the approvals on a file. For more information, see [Manage
  *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  By default, this method returns a minimal response that may not include the
+ *  items array. To retrieve approval details, you must explicitly specify the
+ *  fields you want using the `fields` query parameter. To return the exact
+ *  fields you need, see [Return specific
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  Method: drive.approvals.list
  *
@@ -468,6 +473,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Lists the approvals on a file. For more information, see [Manage
  *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  By default, this method returns a minimal response that may not include the
+ *  items array. To retrieve approval details, you must explicitly specify the
+ *  fields you want using the `fields` query parameter. To return the exact
+ *  fields you need, see [Return specific
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *
  *  @param fileId Required. The ID of the file that the approval is on.
  *
@@ -1558,6 +1568,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrivePhotosReadonly
  */
 @interface GTLRDriveQuery_FilesCopy : GTLRDriveQuery
+
+/**
+ *  Whether to copy the open (unresolved) comments associated with the file.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL copyComments;
 
 /**
  *  Deprecated: Copying files into multiple folders is no longer supported. Use
@@ -2660,8 +2677,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Creates a permission for a file or shared drive. For more information, see
  *  [Share files, folders, and
  *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
- *  **Warning:** Concurrent permissions operations on the same file aren't
- *  supported; only the last update is applied.
+ *  **Warning:** Concurrent permission modifications (such as update or delete)
+ *  on the same file, folder, or shared drive aren't supported across any users
+ *  or clients; only the last update is applied.
  *
  *  Method: drive.permissions.create
  *
@@ -2751,8 +2769,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Creates a permission for a file or shared drive. For more information, see
  *  [Share files, folders, and
  *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
- *  **Warning:** Concurrent permissions operations on the same file aren't
- *  supported; only the last update is applied.
+ *  **Warning:** Concurrent permission modifications (such as update or delete)
+ *  on the same file, folder, or shared drive aren't supported across any users
+ *  or clients; only the last update is applied.
  *
  *  @param object The @c GTLRDrive_Permission to include in the query.
  *  @param fileId The ID of the file or shared drive.
@@ -2767,8 +2786,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Deletes a permission. For more information, see [Share files, folders, and
  *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
- *  **Warning:** Concurrent permissions operations on the same file aren't
- *  supported; only the last update is applied.
+ *  **Warning:** Concurrent permission modifications (such as update or delete)
+ *  on the same file, folder, or shared drive aren't supported across any users
+ *  or clients; only the last update is applied.
  *
  *  Method: drive.permissions.delete
  *
@@ -2824,8 +2844,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Deletes a permission. For more information, see [Share files, folders, and
  *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
- *  **Warning:** Concurrent permissions operations on the same file aren't
- *  supported; only the last update is applied.
+ *  **Warning:** Concurrent permission modifications (such as update or delete)
+ *  on the same file, folder, or shared drive aren't supported across any users
+ *  or clients; only the last update is applied.
  *
  *  @param fileId The ID of the file or shared drive.
  *  @param permissionId The ID of the permission.
@@ -2998,8 +3019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Updates a permission with patch semantics. For more information, see [Share
  *  files, folders, and
  *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
- *  **Warning:** Concurrent permissions operations on the same file aren't
- *  supported; only the last update is applied.
+ *  **Warning:** Concurrent permission modifications (such as update or delete)
+ *  on the same file, folder, or shared drive aren't supported across any users
+ *  or clients; only the last update is applied.
  *
  *  Method: drive.permissions.update
  *
@@ -3072,8 +3094,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Updates a permission with patch semantics. For more information, see [Share
  *  files, folders, and
  *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
- *  **Warning:** Concurrent permissions operations on the same file aren't
- *  supported; only the last update is applied.
+ *  **Warning:** Concurrent permission modifications (such as update or delete)
+ *  on the same file, folder, or shared drive aren't supported across any users
+ *  or clients; only the last update is applied.
  *
  *  @param object The @c GTLRDrive_Permission to include in the query.
  *  @param fileId The ID of the file or shared drive.

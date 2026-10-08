@@ -270,17 +270,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRThreatIntelligenceServiceQuery_ProjectsAlertsGetPassword : GTLRThreatIntelligenceServiceQuery
 
 /**
- *  Required. Name of the alert to get. Format:
+ *  Required. Name of the alert to get password for. Format:
  *  projects/{project}/alerts/{alert}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRThreatIntelligenceService_Alert.
+ *  Fetches a @c GTLRThreatIntelligenceService_GetPasswordResponse.
  *
  *  Get the decrypted password of an alert.
  *
- *  @param name Required. Name of the alert to get. Format:
+ *  @param name Required. Name of the alert to get password for. Format:
  *    projects/{project}/alerts/{alert}
  *
  *  @return GTLRThreatIntelligenceServiceQuery_ProjectsAlertsGetPassword

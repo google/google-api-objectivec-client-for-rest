@@ -1168,6 +1168,37 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_ManagedFoldersUpdate
+
+@dynamic bucket, ifMetagenerationMatch, ifMetagenerationNotMatch, managedFolder;
+
++ (instancetype)queryWithObject:(GTLRStorage_ManagedFolder *)object
+                         bucket:(NSString *)bucket
+                  managedFolder:(NSString *)managedFolder {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"bucket", @"managedFolder"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/managedFolders/{managedFolder}";
+  GTLRStorageQuery_ManagedFoldersUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.managedFolder = managedFolder;
+  query.expectedObjectClass = [GTLRStorage_ManagedFolder class];
+  query.loggingName = @"storage.managedFolders.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_NotificationsDelete
 
 @dynamic bucket, notification, userProject;
@@ -1904,6 +1935,31 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_ObjectsViewFullContext
+
+@dynamic bucket, contextKey, generation, object, userProject;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         object:(NSString *)object_param
+                     contextKey:(NSString *)contextKey {
+  NSArray *pathParams = @[
+    @"bucket", @"object"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/o/{object}/viewFullContext";
+  GTLRStorageQuery_ObjectsViewFullContext *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.object = object_param;
+  query.contextKey = contextKey;
+  query.expectedObjectClass = [GTLRStorage_ObjectFullContext class];
+  query.loggingName = @"storage.objects.viewFullContext";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_OperationsAdvanceRelocateBucket
 
 @dynamic bucket, operationId;
@@ -2129,6 +2185,129 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.projectId = projectId;
   query.expectedObjectClass = [GTLRStorage_ServiceAccount class];
   query.loggingName = @"storage.projects.serviceAccount.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_RapidCachesDisable
+
+@dynamic bucket, rapidCacheId;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   rapidCacheId:(NSString *)rapidCacheId {
+  NSArray *pathParams = @[
+    @"bucket", @"rapidCacheId"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/rapidCaches/{rapidCacheId}/disable";
+  GTLRStorageQuery_RapidCachesDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.rapidCacheId = rapidCacheId;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.rapidCaches.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_RapidCachesGet
+
+@dynamic bucket, rapidCacheId;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   rapidCacheId:(NSString *)rapidCacheId {
+  NSArray *pathParams = @[
+    @"bucket", @"rapidCacheId"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/rapidCaches/{rapidCacheId}";
+  GTLRStorageQuery_RapidCachesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.rapidCacheId = rapidCacheId;
+  query.expectedObjectClass = [GTLRStorage_RapidCache class];
+  query.loggingName = @"storage.rapidCaches.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_RapidCachesInsert
+
+@dynamic bucket;
+
++ (instancetype)queryWithObject:(GTLRStorage_RapidCache *)object
+                         bucket:(NSString *)bucket {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/rapidCaches";
+  GTLRStorageQuery_RapidCachesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.rapidCaches.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_RapidCachesList
+
+@dynamic bucket, pageSize, pageToken;
+
++ (instancetype)queryWithBucket:(NSString *)bucket {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/rapidCaches";
+  GTLRStorageQuery_RapidCachesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_RapidCaches class];
+  query.loggingName = @"storage.rapidCaches.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_RapidCachesUpdate
+
+@dynamic bucket, rapidCacheId;
+
++ (instancetype)queryWithObject:(GTLRStorage_RapidCache *)object
+                         bucket:(NSString *)bucket
+                   rapidCacheId:(NSString *)rapidCacheId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"bucket", @"rapidCacheId"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/rapidCaches/{rapidCacheId}";
+  GTLRStorageQuery_RapidCachesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.rapidCacheId = rapidCacheId;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.rapidCaches.update";
   return query;
 }
 

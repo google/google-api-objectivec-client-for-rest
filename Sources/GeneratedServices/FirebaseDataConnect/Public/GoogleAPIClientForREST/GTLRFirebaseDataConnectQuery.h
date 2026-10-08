@@ -1243,6 +1243,284 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Executes a dynamic DELETE mutation on rows matching the URL filters.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.postgrest.postgrestDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestDelete : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the service, in the format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectService;
+
+/** Required. The name of the table to delete from. */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectTable;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_HttpBody.
+ *
+ *  Executes a dynamic DELETE mutation on rows matching the URL filters.
+ *
+ *  @param firebasedataconnectService Required. The resource name of the
+ *    service, in the format:
+ *    `projects/{project}/locations/{location}/services/{service}`
+ *  @param firebasedataconnectTable Required. The name of the table to delete
+ *    from.
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestDelete
+ */
++ (instancetype)queryWithFirebasedataconnectService:(NSString *)firebasedataconnectService
+                           firebasedataconnectTable:(NSString *)firebasedataconnectTable;
+
+@end
+
+/**
+ *  Executes a dynamic INSERT (create) or UPSERT mutation on a target table.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.postgrest.postgrestInsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestInsert : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the service, in the format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectService;
+
+/** Required. The name of the table to insert into. */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectTable;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_HttpBody.
+ *
+ *  Executes a dynamic INSERT (create) or UPSERT mutation on a target table.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_HttpBody to include in the
+ *    query.
+ *  @param firebasedataconnectService Required. The resource name of the
+ *    service, in the format:
+ *    `projects/{project}/locations/{location}/services/{service}`
+ *  @param firebasedataconnectTable Required. The name of the table to insert
+ *    into.
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestInsert
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+       firebasedataconnectTable:(NSString *)firebasedataconnectTable;
+
+@end
+
+/**
+ *  Executes a dynamic SELECT (read) query on a target PostgreSQL table.
+ *  Projections, filters, sorting, and embeddings are mapped from the HTTP URL
+ *  query parameters.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.postgrest.postgrestSelect
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestSelect : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the service, in the format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectService;
+
+/** Required. The name of the table to select from. */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectTable;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_HttpBody.
+ *
+ *  Executes a dynamic SELECT (read) query on a target PostgreSQL table.
+ *  Projections, filters, sorting, and embeddings are mapped from the HTTP URL
+ *  query parameters.
+ *
+ *  @param firebasedataconnectService Required. The resource name of the
+ *    service, in the format:
+ *    `projects/{project}/locations/{location}/services/{service}`
+ *  @param firebasedataconnectTable Required. The name of the table to select
+ *    from.
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestSelect
+ */
++ (instancetype)queryWithFirebasedataconnectService:(NSString *)firebasedataconnectService
+                           firebasedataconnectTable:(NSString *)firebasedataconnectTable;
+
+@end
+
+/**
+ *  Executes a dynamic UPDATE (modify) mutation on rows matching the URL
+ *  filters.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.postgrest.postgrestUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpdate : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the service, in the format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectService;
+
+/** Required. The name of the table to update. */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectTable;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_HttpBody.
+ *
+ *  Executes a dynamic UPDATE (modify) mutation on rows matching the URL
+ *  filters.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_HttpBody to include in the
+ *    query.
+ *  @param firebasedataconnectService Required. The resource name of the
+ *    service, in the format:
+ *    `projects/{project}/locations/{location}/services/{service}`
+ *  @param firebasedataconnectTable Required. The name of the table to update.
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpdate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+       firebasedataconnectTable:(NSString *)firebasedataconnectTable;
+
+@end
+
+/**
+ *  Executes a dynamic UPSERT (replace or create) mutation on a target table
+ *  identified by primary key filters.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.postgrest.postgrestUpsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpsert : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the service, in the format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectService;
+
+/** Required. The name of the table to upsert into. */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectTable;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_HttpBody.
+ *
+ *  Executes a dynamic UPSERT (replace or create) mutation on a target table
+ *  identified by primary key filters.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_HttpBody to include in the
+ *    query.
+ *  @param firebasedataconnectService Required. The resource name of the
+ *    service, in the format:
+ *    `projects/{project}/locations/{location}/services/{service}`
+ *  @param firebasedataconnectTable Required. The name of the table to upsert
+ *    into.
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpsert
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+       firebasedataconnectTable:(NSString *)firebasedataconnectTable;
+
+@end
+
+/**
+ *  Executes a PostgreSQL database function.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.postgrest.rpc.postgrestCallFunction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestCallFunction : GTLRFirebaseDataConnectQuery
+
+/** Required. The name of the database function. */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectFunction;
+
+/**
+ *  Required. The resource name of the service, in the format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectService;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_HttpBody.
+ *
+ *  Executes a PostgreSQL database function.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_HttpBody to include in the
+ *    query.
+ *  @param firebasedataconnectService Required. The resource name of the
+ *    service, in the format:
+ *    `projects/{project}/locations/{location}/services/{service}`
+ *  @param firebasedataconnectFunction Required. The name of the database
+ *    function.
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestCallFunction
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+    firebasedataconnectFunction:(NSString *)firebasedataconnectFunction;
+
+@end
+
+/**
+ *  Executes a read-only PostgreSQL database function.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.postgrest.rpc.postgrestQueryFunction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestQueryFunction : GTLRFirebaseDataConnectQuery
+
+/** Required. The name of the database function. */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectFunction;
+
+/**
+ *  Required. The resource name of the service, in the format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *firebasedataconnectService;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_HttpBody.
+ *
+ *  Executes a read-only PostgreSQL database function.
+ *
+ *  @param firebasedataconnectService Required. The resource name of the
+ *    service, in the format:
+ *    `projects/{project}/locations/{location}/services/{service}`
+ *  @param firebasedataconnectFunction Required. The name of the database
+ *    function.
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestQueryFunction
+ */
++ (instancetype)queryWithFirebasedataconnectService:(NSString *)firebasedataconnectService
+                        firebasedataconnectFunction:(NSString *)firebasedataconnectFunction;
+
+@end
+
+/**
  *  Creates a new Schema in a given project and location. Only creation of
  *  `schemas/main` is supported and calling create with any other schema ID will
  *  result in an error.
@@ -1455,6 +1733,49 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Executes SQL migration steps against the active database schema. This
+ *  operation compares submitted migration steps against the schema migration
+ *  ledger (`firebasesql.schema_migrations`), executes unapplied DDL, and
+ *  records applied steps. It does NOT persist the GraphQL schema to the control
+ *  plane.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.schemas.migrate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesSchemasMigrate : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. Resource name of the target schema:
+ *  projects/{project}/locations/{location}/services/{service}/schemas/{schema}
+ *  Note: Only `schemas/main` is supported (singleton schema per service).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_Operation.
+ *
+ *  Executes SQL migration steps against the active database schema. This
+ *  operation compares submitted migration steps against the schema migration
+ *  ledger (`firebasesql.schema_migrations`), executes unapplied DDL, and
+ *  records applied steps. It does NOT persist the GraphQL schema to the control
+ *  plane.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_MigrateSchemaRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the target schema:
+ *    projects/{project}/locations/{location}/services/{service}/schemas/{schema}
+ *    Note: Only `schemas/main` is supported (singleton schema per service).
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesSchemasMigrate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_MigrateSchemaRequest *)object
+                           name:(NSString *)name;
 
 @end
 

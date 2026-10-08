@@ -53,16 +53,10 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryCategoryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1CreateGlossaryTermRequest;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_AccessGroupConfigs;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultBigQueryPublishing;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoveryResultScanStatistics;
@@ -71,7 +65,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigCsvOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDatasetResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField;
@@ -89,6 +82,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessApprovalConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroupDefaultIamRoleConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
@@ -149,6 +143,8 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataDocumentationResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataDocumentationResultTokenUsage;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataQualityAppliedConfigs;
@@ -162,8 +158,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanExecutionStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataSource;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryLinkRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteEntryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DeleteGlossaryCategoryRequest;
@@ -205,15 +199,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryTerm_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Job_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake;
@@ -235,7 +220,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobImportJobSpecImportJobScope;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Partition;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Args;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1RunTaskRequest_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ScannedData;
@@ -268,8 +252,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOneTime;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateEntryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryCategoryRequest;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1UpdateGlossaryRequest;
@@ -789,6 +771,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Chang
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ChangeRequest_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig.state
+
+/**
+ *  The iam role has been successfully applied.
+ *
+ *  Value: "APPLIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Applied;
+/**
+ *  The iam role is being applied.
+ *
+ *  Value: "APPLYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Applying;
+/**
+ *  The iam role application failed due to transient error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Failed;
+/**
+ *  State is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_StateUnspecified;
+/**
+ *  The iam role application is not supported for the asset resource type.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Unsupported;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig.tableType
 
 /**
@@ -811,6 +827,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataD
  *  Value: "TABLE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_TableTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery.sqlDialect
+
+/**
+ *  Google SQL dialect.
+ *
+ *  Value: "GOOGLE_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery_SqlDialect_GoogleSql;
+/**
+ *  Spark SQL dialect.
+ *
+ *  Value: "SPARK_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery_SqlDialect_SparkSql;
+/**
+ *  SQL dialect unspecified.
+ *
+ *  Value: "SQL_DIALECT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery_SqlDialect_SqlDialectUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship.sources
@@ -892,6 +930,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataD
  *  Value: "TABLE_AND_COLUMN_DESCRIPTIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_TableAndColumnDescriptions;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec.sqlDialect
+
+/**
+ *  Google SQL dialect.
+ *
+ *  Value: "GOOGLE_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_SqlDialect_GoogleSql;
+/**
+ *  Spark SQL dialect.
+ *
+ *  Value: "SPARK_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_SqlDialect_SparkSql;
+/**
+ *  SQL dialect unspecified.
+ *
+ *  Value: "SQL_DIALECT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_SqlDialect_SqlDialectUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult.state
@@ -1187,12 +1247,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified;
-/**
- *  Unstructured data profile scan.
- *
- *  Value: "UNSTRUCTURED_DATA_PROFILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_UnstructuredDataProfile;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus.state
@@ -1454,12 +1508,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "DATA_SCAN_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified;
-/**
- *  Unstructured data profile scan.
- *
- *  Value: "UNSTRUCTURED_DATA_PROFILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_UnstructuredDataProfile;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DiscoveryEvent.type
@@ -1778,6 +1826,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entry
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EventTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent.eventType
+
+/**
+ *  EntryLinkType create event.
+ *
+ *  Value: "ENTRY_LINK_TYPE_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EntryLinkTypeCreate;
+/**
+ *  EntryLinkType delete event.
+ *
+ *  Value: "ENTRY_LINK_TYPE_DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EntryLinkTypeDelete;
+/**
+ *  EntryLinkType update event.
+ *
+ *  Value: "ENTRY_LINK_TYPE_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EntryLinkTypeUpdate;
+/**
+ *  An unspecified event type.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent.eventType
 
 /**
@@ -1904,98 +1980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Gover
  *  Value: "TABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEventEntity_EntityType_Table;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField.metadataType
-
-/**
- *  Boolean type.
- *
- *  Value: "BOOLEAN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Boolean;
-/**
- *  Bytes type.
- *
- *  Value: "BYTES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Bytes;
-/**
- *  Date and time type.
- *
- *  Value: "DATETIME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Datetime;
-/**
- *  Geospatial type.
- *
- *  Value: "GEOSPATIAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Geospatial;
-/**
- *  Unspecified metadata type.
- *
- *  Value: "METADATA_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_MetadataTypeUnspecified;
-/**
- *  Numeric type.
- *
- *  Value: "NUMBER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Number;
-/**
- *  Other types not covered above.
- *
- *  Value: "OTHER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Other;
-/**
- *  String type.
- *
- *  Value: "STRING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_String;
-/**
- *  Struct (record) type.
- *
- *  Value: "STRUCT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Struct;
-/**
- *  Timestamp type.
- *
- *  Value: "TIMESTAMP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Timestamp;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField.mode
-
-/**
- *  Unspecified mode.
- *
- *  Value: "MODE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_ModeUnspecified;
-/**
- *  Field can be null.
- *
- *  Value: "NULLABLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Nullable;
-/**
- *  Field can be repeated.
- *
- *  Value: "REPEATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Repeated;
-/**
- *  Field is required.
- *
- *  Value: "REQUIRED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Required;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1Job.service
@@ -3291,6 +3275,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1ApproveChangeRequestRequest : GTLRObject
 
+/**
+ *  Optional. The comment or reason for approving the ChangeRequest. Maximum
+ *  length is 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
 /** Optional. The etag of the ChangeRequest. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -4249,6 +4239,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
+ *  Output only. The comment provided by the reviewer when approving or
+ *  rejecting the ChangeRequest. Maximum length is 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *reviewerComment;
+
+/**
  *  Output only. The current state of the ChangeRequest.
  *
  *  Likely values:
@@ -4468,25 +4464,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  DataAccessSpec holds the access control configuration to be enforced on data
- *  stored within resources (eg: rows, columns in BigQuery Tables). When
- *  associated with data, the data is only accessible to principals explicitly
- *  granted access through the DataAccessSpec. Principals with access to the
- *  containing resource are not implicitly granted access.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec : GTLRObject
-
-/**
- *  Optional. The format of strings follows the pattern followed by IAM in the
- *  bindings. user:{email}, serviceAccount:{email} group:{email}. The set of
- *  principals to be granted reader role on data stored within resources.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *readers;
-
-@end
-
-
-/**
  *  Represents a data asset resource that can be packaged and shared via a data
  *  product.
  */
@@ -4592,203 +4569,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *iamRoles;
 
-@end
-
-
 /**
- *  Denotes one dataAttribute in a dataTaxonomy, for example, PII. DataAttribute
- *  resources can be defined in a hierarchy. A single dataAttribute resource can
- *  contain specs of multiple types PII - ResourceAccessSpec : - readers
- *  :foo\@bar.com - DataAccessSpec : - readers :bar\@foo.com
- */
-GTLR_DEPRECATED
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute : GTLRObject
-
-/**
- *  Output only. The number of child attributes present for this attribute.
+ *  Output only. The state of the iam role application.
  *
- *  Uses NSNumber of intValue.
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Applied
+ *        The iam role has been successfully applied. (Value: "APPLIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Applying
+ *        The iam role is being applied. (Value: "APPLYING")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Failed
+ *        The iam role application failed due to transient error. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_StateUnspecified
+ *        State is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig_State_Unsupported
+ *        The iam role application is not supported for the asset resource type.
+ *        (Value: "UNSUPPORTED")
  */
-@property(nonatomic, strong, nullable) NSNumber *attributeCount;
-
-/** Output only. The time when the DataAttribute was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. Specified when applied to data stored on the resource (eg: rows,
- *  columns in BigQuery Tables).
- */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec *dataAccessSpec;
-
-/**
- *  Optional. Description of the DataAttribute.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Optional. User friendly display name. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  This checksum is computed by the server based on the value of other fields,
- *  and may be sent on update and delete requests to ensure the client has an
- *  up-to-date value before proceeding.
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Optional. User-defined labels for the DataAttribute. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels *labels;
-
-/**
- *  Output only. The relative resource name of the dataAttribute, of the form:
- *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The ID of the parent DataAttribute resource, should belong to the
- *  same data taxonomy. Circular dependency in parent chain is not valid.
- *  Maximum depth of the hierarchy allowed is 4. a -> b -> c -> d -> e, depth =
- *  4
- */
-@property(nonatomic, copy, nullable) NSString *parentId;
-
-/**
- *  Optional. Specified when applied to a resource (eg: Cloud Storage bucket,
- *  BigQuery dataset, BigQuery table).
- */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec *resourceAccessSpec;
-
-/**
- *  Output only. System generated globally unique ID for the DataAttribute. This
- *  ID will be different if the DataAttribute is deleted and re-created with the
- *  same name.
- */
-@property(nonatomic, copy, nullable) NSString *uid;
-
-/** Output only. The time when the DataAttribute was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Optional. User-defined labels for the DataAttribute.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels : GTLRObject
-@end
-
-
-/**
- *  DataAttributeBinding represents binding of attributes to resources. Eg: Bind
- *  'CustomerInfo' entity with 'PII' attribute.
- */
-GTLR_DEPRECATED
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding : GTLRObject
-
-/**
- *  Optional. List of attributes to be associated with the resource, provided in
- *  the form:
- *  projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
-
-/** Output only. The time when the DataAttributeBinding was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. Description of the DataAttributeBinding.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Optional. User friendly display name. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  This checksum is computed by the server based on the value of other fields,
- *  and may be sent on update and delete requests to ensure the client has an
- *  up-to-date value before proceeding. Etags must be used when calling the
- *  DeleteDataAttributeBinding and the UpdateDataAttributeBinding method.
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Optional. User-defined labels for the DataAttributeBinding. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels *labels;
-
-/**
- *  Output only. The relative resource name of the Data Attribute Binding, of
- *  the form:
- *  projects/{project_number}/locations/{location}/dataAttributeBindings/{data_attribute_binding_id}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The list of paths for items within the associated resource (eg.
- *  columns and partitions within a table) along with attribute bindings.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath *> *paths;
-
-/**
- *  Optional. Immutable. The resource name of the resource that is associated to
- *  attributes. Presently, only entity resource is supported in the form:
- *  projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/entities/{entity_id}
- *  Must belong in the same project and region as the attribute binding, and
- *  there can only exist one active binding for a resource.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Output only. System generated globally unique ID for the
- *  DataAttributeBinding. This ID will be different if the DataAttributeBinding
- *  is deleted and re-created with the same name.
- */
-@property(nonatomic, copy, nullable) NSString *uid;
-
-/** Output only. The time when the DataAttributeBinding was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Optional. User-defined labels for the DataAttributeBinding.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding_Labels : GTLRObject
-@end
-
-
-/**
- *  Represents a subresource of the given resource, and associated bindings with
- *  it. Currently supported subresources are column and partition schema fields
- *  within a table.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBindingPath : GTLRObject
-
-/**
- *  Optional. List of attributes to be associated with the path of the resource,
- *  provided in the form:
- *  projects/{project}/locations/{location}/dataTaxonomies/{dataTaxonomy}/attributes/{data_attribute_id}
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
-
-/**
- *  Required. The name identifier of the path. Nested columns should be of the
- *  form: 'address.city'.
- */
-@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -4999,9 +4797,6 @@ GTLR_DEPRECATED
 /** Optional. Configuration for JSON data. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions *jsonOptions;
 
-/** Optional. Specifies configuration for unstructured data discovery. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions *unstructuredDataOptions;
-
 @end
 
 
@@ -5061,29 +4856,6 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *typeInferenceDisabled;
-
-@end
-
-
-/**
- *  Describes options for unstructured data discovery.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions : GTLRObject
-
-/**
- *  Optional. Whether to use the global model endpoint.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *globalEndpointEnabled;
-
-/**
- *  Optional. Specifies whether deeper semantic inference over the objects'
- *  contents using GenAI is enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *semanticInferenceEnabled;
 
 @end
 
@@ -5157,6 +4929,19 @@ GTLR_DEPRECATED
 
 /** Output only. The SQL query string which can be executed. */
 @property(nonatomic, copy, nullable) NSString *sql;
+
+/**
+ *  Output only. The SQL dialect of the query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery_SqlDialect_GoogleSql
+ *        Google SQL dialect. (Value: "GOOGLE_SQL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery_SqlDialect_SparkSql
+ *        Spark SQL dialect. (Value: "SPARK_SQL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery_SqlDialect_SqlDialectUnspecified
+ *        SQL dialect unspecified. (Value: "SQL_DIALECT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sqlDialect;
 
 @end
 
@@ -5280,6 +5065,20 @@ GTLR_DEPRECATED
  *  documentation components will be generated.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *generationScopes;
+
+/**
+ *  Optional. The SQL dialect to use in the generated SQL queries. If not
+ *  specified, the default dialect is Google SQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_SqlDialect_GoogleSql
+ *        Google SQL dialect. (Value: "GOOGLE_SQL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_SqlDialect_SparkSql
+ *        Spark SQL dialect. (Value: "SPARK_SQL")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_SqlDialect_SqlDialectUnspecified
+ *        SQL dialect unspecified. (Value: "SQL_DIALECT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sqlDialect;
 
 @end
 
@@ -5531,6 +5330,12 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup : GTLRObject
 
 /**
+ *  Optional. Default IAM role configuration to be applied on the data assets
+ *  associated with this data product, for this access group.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroupDefaultIamRoleConfig *defaultIamRoleConfig;
+
+/**
  *  Optional. Description of the access group.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -5553,6 +5358,20 @@ GTLR_DEPRECATED
 
 /** Required. The principal entity associated with this access group. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal *principal;
+
+@end
+
+
+/**
+ *  Default IAM role configuration for an access group.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroupDefaultIamRoleConfig : GTLRObject
+
+/**
+ *  Optional. The IAM role resource name to be applied as default. Example:
+ *  "roles/bigquery.dataViewer".
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -7369,8 +7188,6 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified
  *        The data scan type is unspecified. (Value:
  *        "DATA_SCAN_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_UnstructuredDataProfile
- *        Unstructured data profile scan. (Value: "UNSTRUCTURED_DATA_PROFILE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7379,12 +7196,6 @@ GTLR_DEPRECATED
  *  be different if the scan is deleted and re-created with the same name.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
-
-/** Output only. The result of an unstructured data profile scan. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult *unstructuredDataProfileResult;
-
-/** Optional. Settings for an unstructured data profile scan. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec *unstructuredDataProfileSpec;
 
 /** Output only. The time when the scan was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -7443,6 +7254,9 @@ GTLR_DEPRECATED
 
 /** The time when the data scan job was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Data documentation result for data documentation (insights) scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataDocumentationResult *dataDocumentation;
 
 /** Data profile result for data profile type data scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult *dataProfile;
@@ -7543,6 +7357,82 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Data documentation result for data scan job.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataDocumentationResult : GTLRObject
+
+/** Breakdown of token consumption for the data documentation scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataDocumentationResultTokenUsage *billableTokenUsage;
+
+@end
+
+
+/**
+ *  Captures structured token usage breakdown for LLM-powered scans.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataDocumentationResultTokenUsage : GTLRObject
+
+/**
+ *  Billable cached content tokens (billed at discounted prompt caching SKU).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cachedContentTokenCount;
+
+/**
+ *  Generated candidate response tokens.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *candidatesTokenCount;
+
+/**
+ *  Billable non-cached input tokens.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputTokenCount;
+
+/**
+ *  Billable output tokens (candidates + thoughts).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputTokenCount;
+
+/**
+ *  Base prompt and system instructions tokens.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *promptTokenCount;
+
+/**
+ *  Reasoning / Chain-of-Thought tokens.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thoughtsTokenCount;
+
+/**
+ *  Tool use context tokens (schema, profile, query history).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *toolUsePromptTokenCount;
+
+/**
+ *  Total billable tokens (billable_input + billable_cached + billable_output).
+ *  Evaluates to 0 for failed or cancelled jobs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTokenCount;
+
+@end
+
+
+/**
  *  Applied configs for data profile type data scan job.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileAppliedConfigs : GTLRObject
@@ -7577,6 +7467,13 @@ GTLR_DEPRECATED
  *  Data profile result for data scan job.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEventDataProfileResult : GTLRObject
+
+/**
+ *  Dataplex Compute Units (DCUs) used in the data scan job.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dcuConsumed;
 
 /**
  *  The count of rows processed in the data scan job.
@@ -7876,19 +7773,11 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified
  *        The data scan type is unspecified. (Value:
  *        "DATA_SCAN_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_UnstructuredDataProfile
- *        Unstructured data profile scan. (Value: "UNSTRUCTURED_DATA_PROFILE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** Output only. System generated globally unique ID for the DataScanJob. */
 @property(nonatomic, copy, nullable) NSString *uid;
-
-/** Output only. The result of an unstructured data profile scan. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult *unstructuredDataProfileResult;
-
-/** Output only. Settings for an unstructured data profile scan. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec *unstructuredDataProfileSpec;
 
 @end
 
@@ -7918,82 +7807,6 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
-@end
-
-
-/**
- *  DataTaxonomy represents a set of hierarchical DataAttributes resources,
- *  grouped with a common theme Eg: 'SensitiveDataTaxonomy' can have attributes
- *  to manage PII data. It is defined at project level.
- */
-GTLR_DEPRECATED
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy : GTLRObject
-
-/**
- *  Output only. The number of attributes in the DataTaxonomy.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *attributeCount;
-
-/**
- *  Output only. The number of classes in the DataTaxonomy.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *classCount;
-
-/** Output only. The time when the DataTaxonomy was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. Description of the DataTaxonomy.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Optional. User friendly display name. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  This checksum is computed by the server based on the value of other fields,
- *  and may be sent on update and delete requests to ensure the client has an
- *  up-to-date value before proceeding.
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Optional. User-defined labels for the DataTaxonomy. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels *labels;
-
-/**
- *  Output only. The relative resource name of the DataTaxonomy, of the form:
- *  projects/{project_number}/locations/{location_id}/dataTaxonomies/{data_taxonomy_id}.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. System generated globally unique ID for the dataTaxonomy. This
- *  ID will be different if the DataTaxonomy is deleted and re-created with the
- *  same name.
- */
-@property(nonatomic, copy, nullable) NSString *uid;
-
-/** Output only. The time when the DataTaxonomy was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Optional. User-defined labels for the DataTaxonomy.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy_Labels : GTLRObject
 @end
 
 
@@ -8838,6 +8651,35 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Payload associated with EntryLinkType related log events.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent : GTLRObject
+
+/** Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *entryLinkTypeId;
+
+/**
+ *  The type of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EntryLinkTypeCreate
+ *        EntryLinkType create event. (Value: "ENTRY_LINK_TYPE_CREATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EntryLinkTypeDelete
+ *        EntryLinkType delete event. (Value: "ENTRY_LINK_TYPE_DELETE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EntryLinkTypeUpdate
+ *        EntryLinkType update event. (Value: "ENTRY_LINK_TYPE_UPDATE")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkTypeEvent_EventType_EventTypeUnspecified
+ *        An unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/** The log message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  Information related to the source system of the data resource that is
  *  represented by the entry.
  */
@@ -9415,241 +9257,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  Contains the strict structure for graph-profile for semantic inference scan
- *  result.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile : GTLRObject
-
-/** Output only. Edge types. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType *> *edgeTypes;
-
-/** Output only. Node types. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType *> *nodeTypes;
-
-@end
-
-
-/**
- *  Represents a type of edge (relationship) in the graph.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeType : GTLRObject
-
-/**
- *  Output only. Description of the edge type.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. Extraction hints for the edge. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints *extractionHints;
-
-/** Output only. Fields of the edge type. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField *> *fields;
-
-/** Output only. Defines the Foreign Key constraints for the edge. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey *> *foreignKeys;
-
-/** Output only. Name of the edge type. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. Source node type. */
-@property(nonatomic, copy, nullable) NSString *sourceNodeType;
-
-/** Output only. Target node type. */
-@property(nonatomic, copy, nullable) NSString *targetNodeType;
-
-@end
-
-
-/**
- *  Extraction hints (edge-level).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeExtractionHints : GTLRObject
-
-/**
- *  Output only. Expected connectivity topology and bounds of this relationship.
- *  Format: "Topology - Description" Example: "1:N - One company can have
- *  multiple financial reports."
- */
-@property(nonatomic, copy, nullable) NSString *cardinality;
-
-@end
-
-
-/**
- *  Represents a foreign key constraint.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKey : GTLRObject
-
-/**
- *  Output only. Description of the foreign key.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Output only. Field Mappings. Mappings between local fields and the fields
- *  they reference in the referenced node type.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping *> *fieldMappings;
-
-/** Output only. Name of the foreign key constraint. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The node type this constraint references. */
-@property(nonatomic, copy, nullable) NSString *referencedNodeType;
-
-@end
-
-
-/**
- *  Maps a local field to a referenced field.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileEdgeTypeForeignKeyFieldMapping : GTLRObject
-
-/** Output only. Local field name forming part of the foreign key. */
-@property(nonatomic, copy, nullable) NSString *field;
-
-/** Output only. Field name in the referenced node type. */
-@property(nonatomic, copy, nullable) NSString *referencedField;
-
-@end
-
-
-/**
- *  Represents a field in a node or edge type.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField : GTLRObject
-
-/** Output only. The data type of the field, e.g., STRING, INTEGER, DATE. */
-@property(nonatomic, copy, nullable) NSString *dataType;
-
-/**
- *  Output only. Description of the field.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. Extraction hints for the field. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints *extractionHints;
-
-/** Output only. Sub-fields of this field (for STRUCT types). */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField *> *fields;
-
-/**
- *  Output only. The mapped metadata type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Boolean
- *        Boolean type. (Value: "BOOLEAN")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Bytes
- *        Bytes type. (Value: "BYTES")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Datetime
- *        Date and time type. (Value: "DATETIME")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Geospatial
- *        Geospatial type. (Value: "GEOSPATIAL")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_MetadataTypeUnspecified
- *        Unspecified metadata type. (Value: "METADATA_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Number
- *        Numeric type. (Value: "NUMBER")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Other
- *        Other types not covered above. (Value: "OTHER")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_String
- *        String type. (Value: "STRING")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Struct
- *        Struct (record) type. (Value: "STRUCT")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_MetadataType_Timestamp
- *        Timestamp type. (Value: "TIMESTAMP")
- */
-@property(nonatomic, copy, nullable) NSString *metadataType;
-
-/**
- *  Output only. The mode of the field.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_ModeUnspecified
- *        Unspecified mode. (Value: "MODE_UNSPECIFIED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Nullable
- *        Field can be null. (Value: "NULLABLE")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Repeated
- *        Field can be repeated. (Value: "REPEATED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField_Mode_Required
- *        Field is required. (Value: "REQUIRED")
- */
-@property(nonatomic, copy, nullable) NSString *mode;
-
-/** Output only. Name of the field. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Extraction hints (field-level).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileFieldExtractionHints : GTLRObject
-
-/** Output only. Standardizes extracted data (e.g., to ISO 3166-1 alpha-2). */
-@property(nonatomic, copy, nullable) NSString *normalization;
-
-/**
- *  Output only. Generates value from other data instead of direct extraction
- *  (e.g., hashing).
- */
-@property(nonatomic, copy, nullable) NSString *synthesis;
-
-@end
-
-
-/**
- *  Represents a type of node in the graph.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeType : GTLRObject
-
-/**
- *  Output only. Description of the node type.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. Extraction hints for the node. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints *extractionHints;
-
-/** Output only. Fields of the node type. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileField *> *fields;
-
-/** Output only. Name of the node type. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. Field names forming the primary keys. The order in this array
- *  defines the key's ordinal positions for composite keys.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *primaryKeys;
-
-@end
-
-
-/**
- *  Extraction hints (node-level).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfileNodeTypeExtractionHints : GTLRObject
-
-/**
- *  Output only. Expected occurrence frequency of this node type within a
- *  document. Format: "Bounds - Description" Example: "0:N - A document may
- *  contain multiple people names."
- */
-@property(nonatomic, copy, nullable) NSString *cardinality;
-
-@end
-
-
-/**
  *  An object that describes the values that you want to set for an entry and
  *  its attached aspects when you import metadata. Used when you run a metadata
  *  import job. See CreateMetadataJob.You provide a collection of import items
@@ -10189,66 +9796,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  List DataAttributeBindings response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "dataAttributeBindings" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributeBindingsResponse : GTLRCollectionObject
-
-/**
- *  DataAttributeBindings under the given parent Location.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding *> *dataAttributeBindings;
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
-
-@end
-
-
-/**
- *  List DataAttributes response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "dataAttributes" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAttributesResponse : GTLRCollectionObject
-
-/**
- *  DataAttributes under the given parent DataTaxonomy.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute *> *dataAttributes;
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
-
-@end
-
-
-/**
  *  List DataDomainBindings response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -10379,36 +9926,6 @@ GTLR_DEPRECATED
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
-
-@end
-
-
-/**
- *  List DataTaxonomies response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "dataTaxonomies" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataTaxonomiesResponse : GTLRCollectionObject
-
-/**
- *  DataTaxonomies under the given parent location.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataTaxonomy *> *dataTaxonomies;
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
 
 @end
 
@@ -11702,33 +11219,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  ResourceAccessSpec holds the access control configuration to be enforced on
- *  the resources, for example, Cloud Storage bucket, BigQuery dataset, BigQuery
- *  table.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ResourceAccessSpec : GTLRObject
-
-/**
- *  Optional. The set of principals to be granted owner role on the resource.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
-
-/**
- *  Optional. The format of strings follows the pattern followed by IAM in the
- *  bindings. user:{email}, serviceAccount:{email} group:{email}. The set of
- *  principals to be granted reader role on the resource.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *readers;
-
-/**
- *  Optional. The set of principals to be granted writer role on the resource.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *writers;
-
-@end
-
-
-/**
  *  Run DataScan Request
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1RunDataScanRequest : GTLRObject
@@ -12867,59 +12357,6 @@ GTLR_DEPRECATED
  *  *.This field is required for Schedule scans.
  */
 @property(nonatomic, copy, nullable) NSString *cron;
-
-@end
-
-
-/**
- *  Contains the result of an unstructured data profile scan.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileResult : GTLRObject
-
-/**
- *  Output only. The inferred description.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Output only. The inferred graph profile. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1GraphProfile *graphProfile;
-
-/**
- *  Output only. Optional message for partial failures (e.g. node type
- *  extraction failed).
- */
-@property(nonatomic, copy, nullable) NSString *partialFailureMessage;
-
-@end
-
-
-/**
- *  Contains the specification for an unstructured data profile scan.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1UnstructuredDataProfileSpec : GTLRObject
-
-/**
- *  Optional. Customized prompt for unstructured data profile. The field will be
- *  used as part of the prompt, could be some instruction, specifying skill, or
- *  specific area to focus.
- */
-@property(nonatomic, copy, nullable) NSString *customizedPrompt;
-
-/**
- *  Optional. Whether to use the global model.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *globalEndpointEnabled;
-
-/**
- *  Optional. Whether to publish graph-profile as aspect on the catalog entry.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *graphProfilePublishingEnabled;
 
 @end
 

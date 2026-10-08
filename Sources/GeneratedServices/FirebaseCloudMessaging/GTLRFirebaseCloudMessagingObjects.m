@@ -159,6 +159,15 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseCloudMessaging_Empty
+//
+
+@implementation GTLRFirebaseCloudMessaging_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseCloudMessaging_FcmOptions
 //
 
@@ -174,6 +183,28 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 
 @implementation GTLRFirebaseCloudMessaging_LightSettings
 @dynamic color, lightOffDuration, lightOnDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_ListTopicSubscriptionsResponse
+//
+
+@implementation GTLRFirebaseCloudMessaging_ListTopicSubscriptionsResponse
+@dynamic nextPageToken, topicSubscriptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topicSubscriptions" : [GTLRFirebaseCloudMessaging_TopicSubscription class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"topicSubscriptions";
+}
+
 @end
 
 
@@ -219,6 +250,16 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 
 @implementation GTLRFirebaseCloudMessaging_SendMessageRequest
 @dynamic message, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_TopicSubscription
+//
+
+@implementation GTLRFirebaseCloudMessaging_TopicSubscription
+@dynamic createTime, name, topicName;
 @end
 
 

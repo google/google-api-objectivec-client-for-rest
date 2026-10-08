@@ -13,6 +13,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRMeet_Member.role
+NSString * const kGTLRMeet_Member_Role_Cohost          = @"COHOST";
+NSString * const kGTLRMeet_Member_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+
 // GTLRMeet_ModerationRestrictions.chatRestriction
 NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_HostsOnly = @"HOSTS_ONLY";
 NSString * const kGTLRMeet_ModerationRestrictions_ChatRestriction_NoRestriction = @"NO_RESTRICTION";
@@ -119,6 +123,42 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMeet_BatchUpdateMembersRequest
+//
+
+@implementation GTLRMeet_BatchUpdateMembersRequest
+@dynamic requests, updateMask;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRMeet_UpdateMemberRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMeet_BatchUpdateMembersResponse
+//
+
+@implementation GTLRMeet_BatchUpdateMembersResponse
+@dynamic members;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [GTLRMeet_Member class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMeet_ConferenceRecord
 //
 
@@ -192,6 +232,28 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 
 + (NSString *)collectionItemsKey {
   return @"conferenceRecords";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMeet_ListMembersResponse
+//
+
+@implementation GTLRMeet_ListMembersResponse
+@dynamic members, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [GTLRMeet_Member class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"members";
 }
 
 @end
@@ -326,6 +388,16 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
   return @"transcripts";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMeet_Member
+//
+
+@implementation GTLRMeet_Member
+@dynamic email, name, role;
 @end
 
 
@@ -489,4 +561,14 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 
 @implementation GTLRMeet_TranscriptionConfig
 @dynamic autoTranscriptionGeneration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMeet_UpdateMemberRequest
+//
+
+@implementation GTLRMeet_UpdateMemberRequest
+@dynamic member, updateMask;
 @end

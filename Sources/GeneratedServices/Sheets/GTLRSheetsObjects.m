@@ -88,6 +88,18 @@ NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption
 NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_Formula = @"FORMULA";
 NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue = @"UNFORMATTED_VALUE";
 
+// GTLRSheets_BatchUpdateSpreadsheetRequest.commentsViewMode
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetRequest_CommentsViewMode_CommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
+
+// GTLRSheets_BatchUpdateSpreadsheetResponse.commentUpdateState
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_AllFailedUnknownReason = @"ALL_FAILED_UNKNOWN_REASON";
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_AllSaved = @"ALL_SAVED";
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_CommentUpdateStateUnspecified = @"COMMENT_UPDATE_STATE_UNSPECIFIED";
+NSString * const kGTLRSheets_BatchUpdateSpreadsheetResponse_CommentUpdateState_NoUpdatesRequested = @"NO_UPDATES_REQUESTED";
+
 // GTLRSheets_BatchUpdateValuesByDataFilterRequest.responseDateTimeRenderOption
 NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString = @"FORMATTED_STRING";
 NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_SerialNumber = @"SERIAL_NUMBER";
@@ -250,6 +262,11 @@ NSString * const kGTLRSheets_ColorStyle_ThemeColor_Background  = @"BACKGROUND";
 NSString * const kGTLRSheets_ColorStyle_ThemeColor_Link        = @"LINK";
 NSString * const kGTLRSheets_ColorStyle_ThemeColor_Text        = @"TEXT";
 NSString * const kGTLRSheets_ColorStyle_ThemeColor_ThemeColorTypeUnspecified = @"THEME_COLOR_TYPE_UNSPECIFIED";
+
+// GTLRSheets_CommentThread.status
+NSString * const kGTLRSheets_CommentThread_Status_Open         = @"OPEN";
+NSString * const kGTLRSheets_CommentThread_Status_Resolved     = @"RESOLVED";
+NSString * const kGTLRSheets_CommentThread_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRSheets_ConditionValue.relativeDate
 NSString * const kGTLRSheets_ConditionValue_RelativeDate_PastMonth = @"PAST_MONTH";
@@ -422,6 +439,12 @@ NSString * const kGTLRSheets_ErrorValue_Type_Num               = @"NUM";
 NSString * const kGTLRSheets_ErrorValue_Type_Ref               = @"REF";
 NSString * const kGTLRSheets_ErrorValue_Type_Value             = @"VALUE";
 
+// GTLRSheets_GetSpreadsheetByDataFilterRequest.commentsViewMode
+NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRSheets_GetSpreadsheetByDataFilterRequest_CommentsViewMode_CommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
+
 // GTLRSheets_HistogramChartSpec.legendPosition
 NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_BottomLegend = @"BOTTOM_LEGEND";
 NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_HistogramChartLegendPositionUnspecified = @"HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED";
@@ -545,6 +568,12 @@ NSString * const kGTLRSheets_PointStyle_Shape_Star             = @"STAR";
 NSString * const kGTLRSheets_PointStyle_Shape_Triangle         = @"TRIANGLE";
 NSString * const kGTLRSheets_PointStyle_Shape_XMark            = @"X_MARK";
 
+// GTLRSheets_Post.commentAction
+NSString * const kGTLRSheets_Post_CommentAction_CommentActionTypeUnspecified = @"COMMENT_ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSheets_Post_CommentAction_NoCommentActionChange = @"NO_COMMENT_ACTION_CHANGE";
+NSString * const kGTLRSheets_Post_CommentAction_Reopen         = @"REOPEN";
+NSString * const kGTLRSheets_Post_CommentAction_Resolve        = @"RESOLVE";
+
 // GTLRSheets_RefreshCancellationStatus.errorCode
 NSString * const kGTLRSheets_RefreshCancellationStatus_ErrorCode_CancelOtherError = @"CANCEL_OTHER_ERROR";
 NSString * const kGTLRSheets_RefreshCancellationStatus_ErrorCode_CancelPermissionDenied = @"CANCEL_PERMISSION_DENIED";
@@ -593,6 +622,12 @@ NSString * const kGTLRSheets_SortSpec_SortOrder_SortOrderUnspecified = @"SORT_OR
 NSString * const kGTLRSheets_SourceAndDestination_Dimension_Columns = @"COLUMNS";
 NSString * const kGTLRSheets_SourceAndDestination_Dimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRSheets_SourceAndDestination_Dimension_Rows = @"ROWS";
+
+// GTLRSheets_Spreadsheet.commentsViewMode
+NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRSheets_Spreadsheet_CommentsViewMode_CommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
 
 // GTLRSheets_SpreadsheetProperties.autoRecalc
 NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_Hour = @"HOUR";
@@ -695,6 +730,26 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_AddChartResponse
 @dynamic chart;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_AddCommentReplyRequest
+//
+
+@implementation GTLRSheets_AddCommentReplyRequest
+@dynamic commentId, post;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_AddCommentReplyResponse
+//
+
+@implementation GTLRSheets_AddCommentReplyResponse
+@dynamic post;
 @end
 
 
@@ -1208,8 +1263,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_BatchUpdateSpreadsheetRequest
-@dynamic includeSpreadsheetInResponse, requests, responseIncludeGridData,
-         responseRanges;
+@dynamic commentsViewMode, includeSpreadsheetInResponse, requests,
+         responseIncludeGridData, responseRanges;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1228,7 +1283,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_BatchUpdateSpreadsheetResponse
-@dynamic replies, spreadsheetId, updatedSpreadsheet;
+@dynamic commentUpdateState, replies, spreadsheetId, updatedSpreadsheet;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1698,6 +1753,34 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_CommentAnchor
+//
+
+@implementation GTLRSheets_CommentAnchor
+@dynamic anchorId, range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_CommentThread
+//
+
+@implementation GTLRSheets_CommentThread
+@dynamic anchorId, commentId, headPost, plainTextQuote, replies, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replies" : [GTLRSheets_Post class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_ConditionalFormatRule
 //
 
@@ -2078,6 +2161,26 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_DeleteBandingRequest
 @dynamic bandedRangeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_DeleteCommentReplyRequest
+//
+
+@implementation GTLRSheets_DeleteCommentReplyRequest
+@dynamic commentId, postId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_DeleteCommentRequest
+//
+
+@implementation GTLRSheets_DeleteCommentRequest
+@dynamic commentId;
 @end
 
 
@@ -2546,7 +2649,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_GetSpreadsheetByDataFilterRequest
-@dynamic dataFilters, excludeTablesInBandedRanges, includeGridData;
+@dynamic commentsViewMode, dataFilters, excludeTablesInBandedRanges,
+         includeGridData;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2655,6 +2759,26 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_HistogramSeries
 @dynamic barColor, barColorStyle, data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_InsertCommentRequest
+//
+
+@implementation GTLRSheets_InsertCommentRequest
+@dynamic assigneeEmailAddress, content, coordinate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_InsertCommentResponse
+//
+
+@implementation GTLRSheets_InsertCommentResponse
+@dynamic commentThread;
 @end
 
 
@@ -3076,6 +3200,28 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_Post
+//
+
+@implementation GTLRSheets_Post
+@dynamic assigneeEmail, author, commentAction, content, contentHtml, createTime,
+         deleted, fromCopiedSpreadsheet, fromImportedSpreadsheet, postId,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_PostAuthor
+//
+
+@implementation GTLRSheets_PostAuthor
+@dynamic anonymous, displayName, me, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_ProtectedRange
 //
 
@@ -3171,20 +3317,22 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Request
-@dynamic addBanding, addChart, addConditionalFormatRule, addDataSource,
-         addDimensionGroup, addFilterView, addNamedRange, addProtectedRange,
-         addSheet, addSlicer, addTable, appendCells, appendDimension, autoFill,
-         autoResizeDimensions, cancelDataSourceRefresh, clearBasicFilter,
-         copyPaste, createDeveloperMetadata, cutPaste, deleteBanding,
-         deleteConditionalFormatRule, deleteDataSource, deleteDeveloperMetadata,
-         deleteDimension, deleteDimensionGroup, deleteDuplicates,
-         deleteEmbeddedObject, deleteFilterView, deleteNamedRange,
-         deleteProtectedRange, deleteRange, deleteSheet, deleteTable,
-         duplicateFilterView, duplicateSheet, findReplace, insertDimension,
-         insertRange, mergeCells, moveDimension, pasteData, randomizeRange,
-         refreshDataSource, repeatCell, setBasicFilter, setDataValidation,
-         sortRange, textToColumns, trimWhitespace, unmergeCells, updateBanding,
-         updateBorders, updateCells, updateChartSpec,
+@dynamic addBanding, addChart, addCommentReply, addConditionalFormatRule,
+         addDataSource, addDimensionGroup, addFilterView, addNamedRange,
+         addProtectedRange, addSheet, addSlicer, addTable, appendCells,
+         appendDimension, autoFill, autoResizeDimensions,
+         cancelDataSourceRefresh, clearBasicFilter, copyPaste,
+         createDeveloperMetadata, cutPaste, deleteBanding, deleteComment,
+         deleteCommentReply, deleteConditionalFormatRule, deleteDataSource,
+         deleteDeveloperMetadata, deleteDimension, deleteDimensionGroup,
+         deleteDuplicates, deleteEmbeddedObject, deleteFilterView,
+         deleteNamedRange, deleteProtectedRange, deleteRange, deleteSheet,
+         deleteTable, duplicateFilterView, duplicateSheet, findReplace,
+         insertComment, insertDimension, insertRange, mergeCells, moveDimension,
+         pasteData, randomizeRange, refreshDataSource, repeatCell,
+         setBasicFilter, setDataValidation, sortRange, textToColumns,
+         trimWhitespace, unmergeCells, updateBanding, updateBorders,
+         updateCells, updateChartSpec, updateCommentPost,
          updateConditionalFormatRule, updateDataSource, updateDeveloperMetadata,
          updateDimensionGroup, updateDimensionProperties,
          updateEmbeddedObjectBorder, updateEmbeddedObjectPosition,
@@ -3200,13 +3348,14 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Response
-@dynamic addBanding, addChart, addDataSource, addDimensionGroup, addFilterView,
-         addNamedRange, addProtectedRange, addSheet, addSlicer, addTable,
-         cancelDataSourceRefresh, createDeveloperMetadata,
-         deleteConditionalFormatRule, deleteDeveloperMetadata,
-         deleteDimensionGroup, deleteDuplicates, duplicateFilterView,
-         duplicateSheet, findReplace, refreshDataSource, trimWhitespace,
-         updateConditionalFormatRule, updateDataSource, updateDeveloperMetadata,
+@dynamic addBanding, addChart, addCommentReply, addDataSource,
+         addDimensionGroup, addFilterView, addNamedRange, addProtectedRange,
+         addSheet, addSlicer, addTable, cancelDataSourceRefresh,
+         createDeveloperMetadata, deleteConditionalFormatRule,
+         deleteDeveloperMetadata, deleteDimensionGroup, deleteDuplicates,
+         duplicateFilterView, duplicateSheet, findReplace, insertComment,
+         refreshDataSource, trimWhitespace, updateConditionalFormatRule,
+         updateDataSource, updateDeveloperMetadata,
          updateEmbeddedObjectPosition;
 @end
 
@@ -3313,15 +3462,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Sheet
-@dynamic bandedRanges, basicFilter, charts, columnGroups, conditionalFormats,
-         data, developerMetadata, filterViews, merges, properties,
-         protectedRanges, rowGroups, slicers, tables;
+@dynamic bandedRanges, basicFilter, charts, columnGroups, commentAnchors,
+         conditionalFormats, data, developerMetadata, filterViews, merges,
+         properties, protectedRanges, rowGroups, slicers, tables;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"bandedRanges" : [GTLRSheets_BandedRange class],
     @"charts" : [GTLRSheets_EmbeddedChart class],
     @"columnGroups" : [GTLRSheets_DimensionGroup class],
+    @"commentAnchors" : [GTLRSheets_CommentAnchor class],
     @"conditionalFormats" : [GTLRSheets_ConditionalFormatRule class],
     @"data" : [GTLRSheets_GridData class],
     @"developerMetadata" : [GTLRSheets_DeveloperMetadata class],
@@ -3415,11 +3565,13 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Spreadsheet
-@dynamic dataSources, dataSourceSchedules, developerMetadata, namedRanges,
-         properties, sheets, spreadsheetId, spreadsheetUrl;
+@dynamic comments, commentsViewMode, dataSources, dataSourceSchedules,
+         developerMetadata, namedRanges, properties, sheets, spreadsheetId,
+         spreadsheetUrl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"comments" : [GTLRSheets_CommentThread class],
     @"dataSources" : [GTLRSheets_DataSource class],
     @"dataSourceSchedules" : [GTLRSheets_DataSourceRefreshSchedule class],
     @"developerMetadata" : [GTLRSheets_DeveloperMetadata class],
@@ -3680,6 +3832,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_UpdateChartSpecRequest
 @dynamic chartId, spec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_UpdateCommentPostRequest
+//
+
+@implementation GTLRSheets_UpdateCommentPostRequest
+@dynamic commentId, content, postId;
 @end
 
 

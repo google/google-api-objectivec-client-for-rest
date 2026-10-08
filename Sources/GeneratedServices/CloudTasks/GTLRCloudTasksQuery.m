@@ -92,6 +92,25 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
 
 @end
 
+@implementation GTLRCloudTasksQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudTasksQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTasks_Operation class];
+  query.loggingName = @"cloudtasks.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesCreate
 
 @dynamic parent;
@@ -333,6 +352,60 @@ NSString * const kGTLRCloudTasksResponseViewViewUnspecified = @"VIEW_UNSPECIFIED
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudTasks_Policy class];
   query.loggingName = @"cloudtasks.projects.locations.queues.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudTasks_BatchCreateTasksRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/tasks:batchCreate";
+  GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTasks_Operation class];
+  query.loggingName = @"cloudtasks.projects.locations.queues.tasks.batchCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchDelete
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudTasks_BatchDeleteTasksRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/tasks:batchDelete";
+  GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTasks_Operation class];
+  query.loggingName = @"cloudtasks.projects.locations.queues.tasks.batchDelete";
   return query;
 }
 

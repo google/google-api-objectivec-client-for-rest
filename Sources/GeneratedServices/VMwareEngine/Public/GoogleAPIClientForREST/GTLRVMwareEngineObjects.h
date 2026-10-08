@@ -2709,7 +2709,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 /**
  *  Required. The consumer provided user/service account which needs to be
  *  granted permission to bind with the intranet VPC corresponding to the
- *  consumer project.
+ *  consumer project. Principal can be a user or a service account. For example,
+ *  to specify the user `user\@example.com`, use `"principal": {"user":
+ *  "user\@example.com"}` and to specify the service account
+ *  `service-account\@gserviceaccount.com`, use `"principal": {"serviceAccount":
+ *  "service-account\@gserviceaccount.com"}`.
  */
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_Principal *principal;
 
@@ -4732,7 +4736,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 /**
  *  Users/Service accounts which have access for DNS binding on the intranet VPC
- *  corresponding to the consumer project.
+ *  corresponding to the consumer project. Principal can be a user or a service
+ *  account. For example: For specifying user `user\@example.com` use `{"user":
+ *  "user\@example.com"}` and for specifying service account
+ *  `service-account\@gserviceaccount.com` use `{"serviceAccount":
+ *  "service-account\@gserviceaccount.com"}`.
  */
 @interface GTLRVMwareEngine_Principal : GTLRObject
 
@@ -5087,7 +5095,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 /**
  *  Required. The consumer provided user/service account which needs to be
  *  granted permission to bind with the intranet VPC corresponding to the
- *  consumer project.
+ *  consumer project. Principal can be a user or a service account. For example,
+ *  to specify the user `user\@example.com`, use `"principal": {"user":
+ *  "user\@example.com"}` and to specify the service account
+ *  `service-account\@gserviceaccount.com`, use `"principal": {"serviceAccount":
+ *  "service-account\@gserviceaccount.com"}`.
  */
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_Principal *principal;
 
@@ -5229,19 +5241,19 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 /**
  *  Required. Zone that will remain operational when connection between the two
- *  zones is lost. Specify the resource name of a zone that belongs to the
+ *  zones is lost. Specify the resource name or ID of a zone that belongs to the
  *  region of the private cloud. For example:
- *  `projects/{project}/locations/europe-west3-a` where `{project}` can either
- *  be a project number or a project ID.
+ *  `projects/{project}/locations/europe-west3-a` or `europe-west3-a`, where
+ *  `{project}` can either be a project number or a project ID.
  */
 @property(nonatomic, copy, nullable) NSString *preferredLocation;
 
 /**
  *  Required. Additional zone for a higher level of availability and load
- *  balancing. Specify the resource name of a zone that belongs to the region of
- *  the private cloud. For example:
- *  `projects/{project}/locations/europe-west3-b` where `{project}` can either
- *  be a project number or a project ID.
+ *  balancing. Specify the resource name or ID of a zone that belongs to the
+ *  region of the private cloud. For example:
+ *  `projects/{project}/locations/europe-west3-b` or `europe-west3-b`, where
+ *  `{project}` can either be a project number or a project ID.
  */
 @property(nonatomic, copy, nullable) NSString *secondaryLocation;
 

@@ -189,7 +189,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Returns the effective Cloud KMS Autokey configuration for a given project or
- *  folder.
+ *  folder. Note on permissions: - If called on a project
+ *  (`projects/{project}`), requires
+ *  `cloudkms.projects.showEffectiveAutokeyConfig`. - If called on a folder
+ *  (`folders/{folder}`), requires
+ *  `cloudkms.folders.showEffectiveAutokeyConfig`.
  *
  *  Method: cloudkms.folders.showEffectiveAutokeyConfig
  *
@@ -201,9 +205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Required. Name of the resource project or folder to show the effective Cloud
- *  KMS Autokey configuration for. This may be helpful for interrogating the
- *  effect of nested folder configurations on a given resource project. Format:
- *  * projects/{project} * folders/{folder}
+ *  KMS Autokey configuration for. This may be helpful for evaluating the effect
+ *  of nested folder configurations on a given resource project. Format: *
+ *  projects/{project} * folders/{folder}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -211,12 +215,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse.
  *
  *  Returns the effective Cloud KMS Autokey configuration for a given project or
- *  folder.
+ *  folder. Note on permissions: - If called on a project
+ *  (`projects/{project}`), requires
+ *  `cloudkms.projects.showEffectiveAutokeyConfig`. - If called on a folder
+ *  (`folders/{folder}`), requires
+ *  `cloudkms.folders.showEffectiveAutokeyConfig`.
  *
  *  @param parent Required. Name of the resource project or folder to show the
  *    effective Cloud KMS Autokey configuration for. This may be helpful for
- *    interrogating the effect of nested folder configurations on a given
- *    resource project. Format: * projects/{project} * folders/{folder}
+ *    evaluating the effect of nested folder configurations on a given resource
+ *    project. Format: * projects/{project} * folders/{folder}
  *
  *  @return GTLRCloudKMSQuery_FoldersShowEffectiveAutokeyConfig
  */
@@ -2413,6 +2421,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Permanently deletes the given KeyRing. All child resources of the KeyRing
+ *  must have been previously deleted using their corresponding Delete
+ *  operations. The specified key ring will be immediately and permanently
+ *  deleted upon calling this method. This action cannot be undone.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsDelete : GTLRCloudKMSQuery
+
+/** Required. The name of the KeyRing to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Permanently deletes the given KeyRing. All child resources of the KeyRing
+ *  must have been previously deleted using their corresponding Delete
+ *  operations. The specified key ring will be immediately and permanently
+ *  deleted upon calling this method. This action cannot be undone.
+ *
+ *  @param name Required. The name of the KeyRing to delete.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Returns metadata for a given KeyRing.
  *
  *  Method: cloudkms.projects.locations.keyRings.get
@@ -3550,7 +3591,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Returns the effective Cloud KMS Autokey configuration for a given project or
- *  folder.
+ *  folder. Note on permissions: - If called on a project
+ *  (`projects/{project}`), requires
+ *  `cloudkms.projects.showEffectiveAutokeyConfig`. - If called on a folder
+ *  (`folders/{folder}`), requires
+ *  `cloudkms.folders.showEffectiveAutokeyConfig`.
  *
  *  Method: cloudkms.projects.showEffectiveAutokeyConfig
  *
@@ -3562,9 +3607,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Required. Name of the resource project or folder to show the effective Cloud
- *  KMS Autokey configuration for. This may be helpful for interrogating the
- *  effect of nested folder configurations on a given resource project. Format:
- *  * projects/{project} * folders/{folder}
+ *  KMS Autokey configuration for. This may be helpful for evaluating the effect
+ *  of nested folder configurations on a given resource project. Format: *
+ *  projects/{project} * folders/{folder}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3572,12 +3617,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse.
  *
  *  Returns the effective Cloud KMS Autokey configuration for a given project or
- *  folder.
+ *  folder. Note on permissions: - If called on a project
+ *  (`projects/{project}`), requires
+ *  `cloudkms.projects.showEffectiveAutokeyConfig`. - If called on a folder
+ *  (`folders/{folder}`), requires
+ *  `cloudkms.folders.showEffectiveAutokeyConfig`.
  *
  *  @param parent Required. Name of the resource project or folder to show the
  *    effective Cloud KMS Autokey configuration for. This may be helpful for
- *    interrogating the effect of nested folder configurations on a given
- *    resource project. Format: * projects/{project} * folders/{folder}
+ *    evaluating the effect of nested folder configurations on a given resource
+ *    project. Format: * projects/{project} * folders/{folder}
  *
  *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig
  */

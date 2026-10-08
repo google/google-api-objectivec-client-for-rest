@@ -20,6 +20,98 @@
 
 @end
 
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/adminAccessBindings";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding class];
+  query.loggingName = @"marketingplatformadmin.organizations.adminAccessBindings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding class];
+  query.loggingName = @"marketingplatformadmin.organizations.adminAccessBindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/adminAccessBindings";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_ListAdminAccessBindingsResponse class];
+  query.loggingName = @"marketingplatformadmin.organizations.adminAccessBindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding class];
+  query.loggingName = @"marketingplatformadmin.organizations.adminAccessBindings.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAnalyticsAccountLinksCreate
 
 @dynamic parent;
@@ -197,6 +289,228 @@
   query.organization = organization;
   query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageResponse class];
   query.loggingName = @"marketingplatformadmin.organizations.reportPropertyUsage";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/userGroups";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_UserGroup class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_Empty class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_UserGroup class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/userGroups";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupsResponse class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/members";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.members.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_Empty class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.members.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.members.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/members";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupMembersResponse class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.members.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.members.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_UserGroup class];
+  query.loggingName = @"marketingplatformadmin.organizations.userGroups.patch";
   return query;
 }
 

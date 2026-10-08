@@ -76,6 +76,8 @@
 @class GTLRWalletobjects_Issuer;
 @class GTLRWalletobjects_IssuerContactInfo;
 @class GTLRWalletobjects_IssuerToUserInfo;
+@class GTLRWalletobjects_JsonResource;
+@class GTLRWalletobjects_JwtResource;
 @class GTLRWalletobjects_LabelValue;
 @class GTLRWalletobjects_LabelValueRow;
 @class GTLRWalletobjects_LatLongPoint;
@@ -6577,6 +6579,23 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
+ *  A JSON representation of a pass.
+ */
+@interface GTLRWalletobjects_JsonResource : GTLRObject
+
+/**
+ *  Required. A JSON string representing the unencoded JWT payload for a pass of
+ *  the format described at
+ *  https://developers.google.com/wallet/reference/rest/v1/Jwt. This can be set
+ *  to either the entire JSON representation described at this link or just the
+ *  contents of the payload field holding the relevant classes and objects.
+ */
+@property(nonatomic, copy, nullable) NSString *json;
+
+@end
+
+
+/**
  *  GTLRWalletobjects_JwtInsertResponse
  */
 @interface GTLRWalletobjects_JwtInsertResponse : GTLRObject
@@ -6609,6 +6628,35 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, copy, nullable) NSString *jwt;
 
+@end
+
+
+/**
+ *  Request to validate the JWT or JSON representation of a pass.
+ */
+@interface GTLRWalletobjects_JwtValidateRequest : GTLRObject
+
+/**
+ *  Optional. A JSON representation of a pass to be validated. Either this or
+ *  jwt_resource should be set. Requests setting both or neither will be
+ *  rejected.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_JsonResource *jsonResource;
+
+/**
+ *  Optional. A JWT representation of a pass to be validated. Either this or
+ *  json_resource should be set. Requests setting both or neither will be
+ *  rejected.
+ */
+@property(nonatomic, strong, nullable) GTLRWalletobjects_JwtResource *jwtResource;
+
+@end
+
+
+/**
+ *  Empty if the resource in the request is valid. Returns exception if invalid.
+ */
+@interface GTLRWalletobjects_JwtValidateResponse : GTLRObject
 @end
 
 

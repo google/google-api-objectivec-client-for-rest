@@ -11,6 +11,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRLooker_ComponentMetrics.componentType
+NSString * const kGTLRLooker_ComponentMetrics_ComponentType_All = @"ALL";
+NSString * const kGTLRLooker_ComponentMetrics_ComponentType_BqEsa = @"BQ_ESA";
+NSString * const kGTLRLooker_ComponentMetrics_ComponentType_Db = @"DB";
+NSString * const kGTLRLooker_ComponentMetrics_ComponentType_Fs = @"FS";
+NSString * const kGTLRLooker_ComponentMetrics_ComponentType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRLooker_CustomDomain.state
 NSString * const kGTLRLooker_CustomDomain_State_Available      = @"AVAILABLE";
 NSString * const kGTLRLooker_CustomDomain_State_CustomDomainStateUnspecified = @"CUSTOM_DOMAIN_STATE_UNSPECIFIED";
@@ -28,6 +35,7 @@ NSString * const kGTLRLooker_EncryptionConfig_KmsKeyState_Valid = @"VALID";
 // GTLRLooker_ExportMetadata.source
 NSString * const kGTLRLooker_ExportMetadata_Source_LookerCore  = @"LOOKER_CORE";
 NSString * const kGTLRLooker_ExportMetadata_Source_LookerOriginal = @"LOOKER_ORIGINAL";
+NSString * const kGTLRLooker_ExportMetadata_Source_LookerSelfHosted = @"LOOKER_SELF_HOSTED";
 NSString * const kGTLRLooker_ExportMetadata_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 
 // GTLRLooker_Instance.classType
@@ -117,10 +125,30 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLooker_AuthType
+//
+
+@implementation GTLRLooker_AuthType
+@dynamic googleAuthEnabled, workforceAuthEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLooker_CancelOperationRequest
 //
 
 @implementation GTLRLooker_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_ComponentMetrics
+//
+
+@implementation GTLRLooker_ComponentMetrics
+@dynamic componentType, duration, endTime, retryCount, sizeGb, startTime;
 @end
 
 
@@ -218,8 +246,9 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_ExportMetadata
-@dynamic exportEncryptionKey, filePaths, lookerEncryptionKey, lookerInstance,
-         lookerPlatformEdition, lookerVersion, source;
+@dynamic esaSourceDatasetId, exportEncryptionKey, exportMetrics, filePaths,
+         lookerEncryptionKey, lookerInstance, lookerPlatformEdition,
+         lookerVersion, source;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -238,6 +267,24 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 @implementation GTLRLooker_ExportMetadataEncryptionKey
 @dynamic cmek, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_ExportMetrics
+//
+
+@implementation GTLRLooker_ExportMetrics
+@dynamic componentMetrics, instanceInternalName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"componentMetrics" : [GTLRLooker_ComponentMetrics class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -290,7 +337,7 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_Instance
-@dynamic acceleratedSecurityPatchEnabled, adminSettings,
+@dynamic acceleratedSecurityPatchEnabled, adminSettings, authType,
          catalogIntegrationOptOut, classType, consumerNetwork,
          controlledEgressConfig, controlledEgressEnabled, createTime,
          customDomain, denyMaintenancePeriod, egressPublicIp, encryptionConfig,

@@ -27,6 +27,11 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatAsDefined = @"AS_DEFI
 NSString * const kGTLRAccessContextManagerAccessLevelFormatCel = @"CEL";
 NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified = @"LEVEL_FORMAT_UNSPECIFIED";
 
+// deletedPrincipalSyntax
+NSString * const kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportDisabled = @"DELETED_PRINCIPAL_SYNTAX_SUPPORT_DISABLED";
+NSString * const kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportEnabled = @"DELETED_PRINCIPAL_SYNTAX_SUPPORT_ENABLED";
+NSString * const kGTLRAccessContextManagerDeletedPrincipalSyntaxDeletedPrincipalSyntaxSupportUnspecified = @"DELETED_PRINCIPAL_SYNTAX_SUPPORT_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -519,7 +524,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @implementation GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersGet
 
-@dynamic name;
+@dynamic deletedPrincipalSyntax, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -538,7 +543,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @implementation GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic deletedPrincipalSyntax, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -557,7 +562,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @implementation GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch
 
-@dynamic name, updateMask;
+@dynamic deletedPrincipalSyntax, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRAccessContextManager_ServicePerimeter *)object
                            name:(NSString *)name {
@@ -685,6 +690,25 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
   query.resource = resource;
   query.expectedObjectClass = [GTLRAccessContextManager_TestIamPermissionsResponse class];
   query.loggingName = @"accesscontextmanager.accessPolicies.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_FoldersLookupConfiguredServicePerimeter
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:lookupConfiguredServicePerimeter";
+  GTLRAccessContextManagerQuery_FoldersLookupConfiguredServicePerimeter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse class];
+  query.loggingName = @"accesscontextmanager.folders.lookupConfiguredServicePerimeter";
   return query;
 }
 
@@ -841,7 +865,7 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @implementation GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -897,6 +921,25 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRAccessContextManager_ListSupportedPermissionsResponse class];
   query.loggingName = @"accesscontextmanager.permissions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_ProjectsLookupConfiguredServicePerimeter
+
+@dynamic resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:lookupConfiguredServicePerimeter";
+  GTLRAccessContextManagerQuery_ProjectsLookupConfiguredServicePerimeter *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAccessContextManager_LookupConfiguredServicePerimeterResponse class];
+  query.loggingName = @"accesscontextmanager.projects.lookupConfiguredServicePerimeter";
   return query;
 }
 

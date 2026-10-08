@@ -17,6 +17,7 @@
 @class GTLRManagedKafka_AccessConfig;
 @class GTLRManagedKafka_Acl;
 @class GTLRManagedKafka_AclEntry;
+@class GTLRManagedKafka_BrokerCapacityConfig;
 @class GTLRManagedKafka_BrokerDetails;
 @class GTLRManagedKafka_CapacityConfig;
 @class GTLRManagedKafka_CertificateAuthorityServiceConfig;
@@ -35,6 +36,7 @@
 @class GTLRManagedKafka_ConsumerPartitionMetadata;
 @class GTLRManagedKafka_ConsumerTopicMetadata;
 @class GTLRManagedKafka_ConsumerTopicMetadata_Partitions;
+@class GTLRManagedKafka_EffectiveCapacityConfig;
 @class GTLRManagedKafka_GcpConfig;
 @class GTLRManagedKafka_HttpBody_Extensions_Item;
 @class GTLRManagedKafka_Location;
@@ -44,6 +46,8 @@
 @class GTLRManagedKafka_Operation;
 @class GTLRManagedKafka_Operation_Metadata;
 @class GTLRManagedKafka_Operation_Response;
+@class GTLRManagedKafka_PublicClusterConfig;
+@class GTLRManagedKafka_PublicClusterDetails;
 @class GTLRManagedKafka_RebalanceConfig;
 @class GTLRManagedKafka_SchemaReference;
 @class GTLRManagedKafka_SchemaRegistry;
@@ -507,6 +511,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_NetworkConfig *> *networkConfigs;
 
+/**
+ *  Optional. The configuration for public connectivity to the Kafka cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_PublicClusterConfig *publicClusterConfig;
+
 @end
 
 
@@ -624,6 +633,23 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *aclCreated;
+
+@end
+
+
+/**
+ *  Capacity configuration at a per-broker level within the Kafka cluster. The
+ *  config will be appled to each broker in the cluster.
+ */
+@interface GTLRManagedKafka_BrokerCapacityConfig : GTLRObject
+
+/**
+ *  Optional. The disk to provision for each broker in Gibibytes. Minimum: 100
+ *  GiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGib;
 
 @end
 
@@ -761,6 +787,23 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 @interface GTLRManagedKafka_Cluster : GTLRObject
 
 /**
+ *  Output only. The bootstrap address of the Kafka cluster. The returned
+ *  address format is: `bootstrap-...managedkafka.s.cloud.goog` or
+ *  `bootstrap...managedkafka..cloud.goog` (legacy format). ## Examples:
+ *  `bootstrap-nol2mecj8p94jhx2ge2rg54579a.c0aad26f.europe-west1.managedkafka.s.cloud.goog`
+ *  - `bootstrap.my-cluster.us-central1.managedkafka.my-project.cloud.goog` The
+ *  port number is omitted so clients can connect to their target listener (for
+ *  example, `:9092` for TLS or `:9094` for mTLS).
+ */
+@property(nonatomic, copy, nullable) NSString *bootstrapAddress;
+
+/**
+ *  Optional. Capacity configuration at a per-broker level within the Kafka
+ *  cluster. The config will be appled to each broker in the cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_BrokerCapacityConfig *brokerCapacityConfig;
+
+/**
  *  Output only. Only populated when FULL view is requested. Details of each
  *  broker in the cluster.
  */
@@ -773,14 +816,20 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. Only populated when FULL view is requested. The effective
+ *  capacity configuration of the cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_EffectiveCapacityConfig *effectiveCapacityConfig;
+
+/**
  *  Required. Configuration properties for a Kafka cluster deployed to Google
  *  Cloud Platform.
  */
 @property(nonatomic, strong, nullable) GTLRManagedKafka_GcpConfig *gcpConfig;
 
 /**
- *  Output only. Only populated when FULL view is requested. The Kafka version
- *  of the cluster.
+ *  Optional. The Apache Kafka version of the cluster (for example, `3.7.x`,
+ *  `4.3.x`). If not specified during cluster creation, defaults to `3.7.x`.
  */
 @property(nonatomic, copy, nullable) NSString *kafkaVersion;
 
@@ -792,6 +841,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *  projects/{project_number}/locations/{location}/clusters/{cluster_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Details of the public cluster feature for the Kafka cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_PublicClusterDetails *publicClusterDetails;
 
 /** Optional. Rebalance configuration for the Kafka cluster. */
 @property(nonatomic, strong, nullable) GTLRManagedKafka_RebalanceConfig *rebalanceConfig;
@@ -1287,6 +1341,29 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+@end
+
+
+/**
+ *  Describes the effective capacity configuration of a Kafka cluster, both
+ *  cluster-wide and per-broker.
+ */
+@interface GTLRManagedKafka_EffectiveCapacityConfig : GTLRObject
+
+/**
+ *  Output only. The number of brokers in the cluster.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *brokerCount;
+
+/**
+ *  Output only. The disk assigned to each broker in Gibibytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *brokerDiskSizeGib;
 
 @end
 
@@ -1869,6 +1946,48 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *  Response for PauseConnector.
  */
 @interface GTLRManagedKafka_PauseConnectorResponse : GTLRObject
+@end
+
+
+/**
+ *  The configuration for a public Kafka cluster
+ */
+@interface GTLRManagedKafka_PublicClusterConfig : GTLRObject
+
+/**
+ *  Required. The list of IPv4 ranges in CIDR notation that are allowed to
+ *  connect to the public Kafka broker endpoints. The Kafka cluster should only
+ *  be exposed to trusted external ranges. A maximum of 500 IP ranges can be
+ *  specified and no single range can be larger than a `/16`. This field is
+ *  required if PublicClusterConfig is specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedSourceIpRanges;
+
+@end
+
+
+/**
+ *  Details of the public cluster feature for the Kafka cluster.
+ */
+@interface GTLRManagedKafka_PublicClusterDetails : GTLRObject
+
+/**
+ *  Output only. DNS discovery records that resolve to all of the external IP
+ *  addresses associated with the public cluster. Used for configuring DNS-based
+ *  egress firewall rules to a public cluster. discovery_dns_record can be added
+ *  to this list if the cluster is scaled up. Must configure DNS based firewalls
+ *  to resolve ALL DNS records in this list as large clusters have IP addresses
+ *  sharded across records. Each record contains a maximum of 30 IP addresses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDnsRecords;
+
+/**
+ *  Output only. All of the external IP addresses associated with the public
+ *  cluster used for configuring egress firewall rules to a public cluster.
+ *  external_ip_address can be added to this list if the cluster is scaled up.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalIpAddresses;
+
 @end
 
 

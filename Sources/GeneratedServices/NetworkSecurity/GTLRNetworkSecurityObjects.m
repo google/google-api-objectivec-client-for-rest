@@ -48,6 +48,7 @@ NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Allow = @"ALLOW";
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_AuthzActionUnspecified = @"AUTHZ_ACTION_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custom = @"CUSTOM";
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny  = @"DENY";
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_DenyByDefault = @"DENY_BY_DEFAULT";
 
 // GTLRNetworkSecurity_AuthzPolicy.policyProfile
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_ContentAuthz = @"CONTENT_AUTHZ";
@@ -94,6 +95,57 @@ NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Deleting
 NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive = @"INACTIVE";
 NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Orphan = @"ORPHAN";
 NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_FirewallEndpointEndpointSettings.contentCloudRegion
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Apac = @"APAC";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Australia = @"AUSTRALIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Canada = @"CANADA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_ContentCloudRegionUnspecified = @"CONTENT_CLOUD_REGION_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_France = @"FRANCE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_India = @"INDIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Indonesia = @"INDONESIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Italy = @"ITALY";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Japan = @"JAPAN";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Netherlands = @"NETHERLANDS";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Poland = @"POLAND";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Qatar = @"QATAR";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_SaudiArabia = @"SAUDI_ARABIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_SouthKorea = @"SOUTH_KOREA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Switzerland = @"SWITZERLAND";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Taiwan = @"TAIWAN";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Uk = @"UK";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_UsCentral = @"US_CENTRAL";
+
+// GTLRNetworkSecurity_FirewallEndpointWildfireSettings.wildfireRealtimeLookupTimeoutAction
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_Deny = @"DENY";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_WildfireRealtimeSignatureLookupTimeoutActionUnspecified = @"WILDFIRE_REALTIME_SIGNATURE_LOOKUP_TIMEOUT_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_FirewallEndpointWildfireSettings.wildfireRegion
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Australia = @"AUSTRALIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Canada = @"CANADA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_France = @"FRANCE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Germany = @"GERMANY";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_India = @"INDIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Indonesia = @"INDONESIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Israel = @"ISRAEL";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Japan = @"JAPAN";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Poland = @"POLAND";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Qatar = @"QATAR";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_SaudiArabia = @"SAUDI_ARABIA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Singapore = @"SINGAPORE";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_SouthKorea = @"SOUTH_KOREA";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Spain = @"SPAIN";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Switzerland = @"SWITZERLAND";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Taiwan = @"TAIWAN";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_UnitedKingdom = @"UNITED_KINGDOM";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_UnitedStates = @"UNITED_STATES";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_WildfireRegionUnspecified = @"WILDFIRE_REGION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings.timeoutAction
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_Deny = @"DENY";
+NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_WildfireInlineCloudAnalysisTimeoutActionUnspecified = @"WILDFIRE_INLINE_CLOUD_ANALYSIS_TIMEOUT_ACTION_UNSPECIFIED";
 
 // GTLRNetworkSecurity_GatewaySecurityPolicyRule.basicProfile
 NSString * const kGTLRNetworkSecurity_GatewaySecurityPolicyRule_BasicProfile_Allow = @"ALLOW";
@@ -257,6 +309,7 @@ NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring = @"C
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified = @"PROFILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention = @"THREAT_PREVENTION";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_UrlFiltering = @"URL_FILTERING";
+NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_WildfireAnalysis = @"WILDFIRE_ANALYSIS";
 
 // GTLRNetworkSecurity_SeverityOverride.action
 NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Alert = @"ALERT";
@@ -288,6 +341,11 @@ NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_ThreatTypeUnspecified 
 NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Unknown = @"UNKNOWN";
 NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Vulnerability = @"VULNERABILITY";
 
+// GTLRNetworkSecurity_TlsInspectionPolicy.certificateIssuanceMode
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_CertificateIssuanceModeUnspecified = @"CERTIFICATE_ISSUANCE_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_DirectLeafProvisioning = @"DIRECT_LEAF_PROVISIONING";
+NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_LocalIntermediateCaSigning = @"LOCAL_INTERMEDIATE_CA_SIGNING";
+
 // GTLRNetworkSecurity_TlsInspectionPolicy.minTlsVersion
 NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls10 = @"TLS_1_0";
 NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_MinTlsVersion_Tls11 = @"TLS_1_1";
@@ -306,6 +364,136 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_Allow = @"ALLOW";
 NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_Deny = @"DENY";
 NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActionUnspecified = @"URL_FILTERING_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule.action
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Alert = @"ALERT";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Deny = @"DENY";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_WildfireInlineCloudAnalysisActionUnspecified = @"WILDFIRE_INLINE_CLOUD_ANALYSIS_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule.direction
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Both = @"BOTH";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Download = @"DOWNLOAD";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Upload = @"UPLOAD";
+
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule.fileSelectionMode
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_AllFileTypes = @"ALL_FILE_TYPES";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_CustomFileTypes = @"CUSTOM_FILE_TYPES";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_FileSelectionModeUnspecified = @"FILE_SELECTION_MODE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes.fileTypes
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes_FileTypes_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes_FileTypes_Pe = @"PE";
+
+// GTLRNetworkSecurity_WildfireInlineMlOverride.action
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireAlert = @"WILDFIRE_ALERT";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireAllow = @"WILDFIRE_ALLOW";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireDefaultAction = @"WILDFIRE_DEFAULT_ACTION";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireDeny = @"WILDFIRE_DENY";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireThreatActionUnspecified = @"WILDFIRE_THREAT_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireInlineMlOverride.protocol
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireFtp = @"WILDFIRE_FTP";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireHttp = @"WILDFIRE_HTTP";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireHttp2 = @"WILDFIRE_HTTP2";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireImap = @"WILDFIRE_IMAP";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfirePop3 = @"WILDFIRE_POP3";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireProtocolUnspecified = @"WILDFIRE_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireSmb = @"WILDFIRE_SMB";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireSmtp = @"WILDFIRE_SMTP";
+
+// GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig.action
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Alert = @"ALERT";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Disable = @"DISABLE";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Enable = @"ENABLE";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_InlineMlActionUnspecified = @"INLINE_ML_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig.fileType
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Elf = @"ELF";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_InlineMlConfigUnspecified = @"INLINE_ML_CONFIG_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Macho = @"MACHO";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_MsOffice = @"MS_OFFICE";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Ooxml = @"OOXML";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_PowershellScript1 = @"POWERSHELL_SCRIPT1";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_PowershellScript2 = @"POWERSHELL_SCRIPT2";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Shell = @"SHELL";
+NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_WindowsExecutable = @"WINDOWS_EXECUTABLE";
+
+// GTLRNetworkSecurity_WildfireOverride.action
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireAlert = @"WILDFIRE_ALERT";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireAllow = @"WILDFIRE_ALLOW";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireDefaultAction = @"WILDFIRE_DEFAULT_ACTION";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireDeny = @"WILDFIRE_DENY";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireThreatActionUnspecified = @"WILDFIRE_THREAT_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireOverride.protocol
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireFtp = @"WILDFIRE_FTP";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireHttp = @"WILDFIRE_HTTP";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireHttp2 = @"WILDFIRE_HTTP2";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireImap = @"WILDFIRE_IMAP";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfirePop3 = @"WILDFIRE_POP3";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireProtocolUnspecified = @"WILDFIRE_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireSmb = @"WILDFIRE_SMB";
+NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireSmtp = @"WILDFIRE_SMTP";
+
+// GTLRNetworkSecurity_WildfireSubmissionRule.direction
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Both = @"BOTH";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Download = @"DOWNLOAD";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Upload = @"UPLOAD";
+
+// GTLRNetworkSecurity_WildfireSubmissionRule.fileSelectionMode
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_AllFileTypes = @"ALL_FILE_TYPES";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_CustomFileTypes = @"CUSTOM_FILE_TYPES";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_FileSelectionModeUnspecified = @"FILE_SELECTION_MODE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes.fileTypes
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Apk = @"APK";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Archive = @"ARCHIVE";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_EmailLink = @"EMAIL_LINK";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Flash = @"FLASH";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Jar = @"JAR";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Linux = @"LINUX";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_MsOffice = @"MS_OFFICE";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Pdf = @"PDF";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Pe = @"PE";
+NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Script = @"SCRIPT";
+
+// GTLRNetworkSecurity_WildfireThreatOverride.action
+NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireAlert = @"WILDFIRE_ALERT";
+NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireAllow = @"WILDFIRE_ALLOW";
+NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireDefaultAction = @"WILDFIRE_DEFAULT_ACTION";
+NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireDeny = @"WILDFIRE_DENY";
+NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireThreatActionUnspecified = @"WILDFIRE_THREAT_ACTION_UNSPECIFIED";
+
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.finalVerdict
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Benign = @"BENIGN";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Grayware = @"GRAYWARE";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Malware = @"MALWARE";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Phishing = @"PHISHING";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_WildfireSampleVerdictUnknown = @"WILDFIRE_SAMPLE_VERDICT_UNKNOWN";
+
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.newVerdict
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Benign = @"BENIGN";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Grayware = @"GRAYWARE";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Malware = @"MALWARE";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Phishing = @"PHISHING";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_WildfireSampleVerdictUnknown = @"WILDFIRE_SAMPLE_VERDICT_UNKNOWN";
+
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.oldVerdict
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Benign = @"BENIGN";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Grayware = @"GRAYWARE";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Malware = @"MALWARE";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Phishing = @"PHISHING";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_WildfireSampleVerdictUnknown = @"WILDFIRE_SAMPLE_VERDICT_UNKNOWN";
+
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.state
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Closed = @"CLOSED";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Open = @"OPEN";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Pending = @"PENDING";
+NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_VerdictChangeRequestStateUnspecified = @"VERDICT_CHANGE_REQUEST_STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -918,7 +1106,7 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 @implementation GTLRNetworkSecurity_FirewallEndpoint
 @dynamic associatedNetworks, associations, billingProjectId, createTime,
          descriptionProperty, endpointSettings, labels, name, reconciling,
-         satisfiesPzi, satisfiesPzs, state, updateTime;
+         satisfiesPzi, satisfiesPzs, state, updateTime, wildfireSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -990,7 +1178,29 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 //
 
 @implementation GTLRNetworkSecurity_FirewallEndpointEndpointSettings
-@dynamic jumboFramesEnabled;
+@dynamic contentCloudRegion, httpPartialResponseBlocked, jumboFramesEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpointWildfireSettings
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpointWildfireSettings
+@dynamic enabled, wildfireInlineCloudAnalysisSettings,
+         wildfireRealtimeLookupDuration, wildfireRealtimeLookupTimeoutAction,
+         wildfireRegion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings
+@dynamic maxAnalysisDuration, submissionTimeoutLoggingDisabled, timeoutAction;
 @end
 
 
@@ -2034,6 +2244,29 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse
+@dynamic nextPageToken, unreachable, wildfireVerdictChangeRequests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"wildfireVerdictChangeRequests" : [GTLRNetworkSecurity_WildfireVerdictChangeRequest class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"wildfireVerdictChangeRequests";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_Location
 //
 
@@ -2453,7 +2686,7 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 @implementation GTLRNetworkSecurity_SecurityProfile
 @dynamic createTime, customInterceptProfile, customMirroringProfile,
          descriptionProperty, ETag, labels, name, threatPreventionProfile, type,
-         updateTime, urlFilteringProfile;
+         updateTime, urlFilteringProfile, wildfireAnalysisProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2488,7 +2721,7 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 @implementation GTLRNetworkSecurity_SecurityProfileGroup
 @dynamic createTime, customInterceptProfile, customMirroringProfile, dataPathId,
          descriptionProperty, ETag, labels, name, threatPreventionProfile,
-         updateTime, urlFilteringProfile;
+         updateTime, urlFilteringProfile, wildfireAnalysisProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2642,9 +2875,9 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 //
 
 @implementation GTLRNetworkSecurity_TlsInspectionPolicy
-@dynamic caPool, createTime, customTlsFeatures, descriptionProperty,
-         excludePublicCaSet, minTlsVersion, name, tlsFeatureProfile,
-         trustConfig, updateTime;
+@dynamic caPool, certificateIssuanceMode, createTime, customTlsFeatures,
+         descriptionProperty, excludePublicCaSet, minTlsVersion, name,
+         tlsFeatureProfile, trustConfig, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2725,4 +2958,167 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 @implementation GTLRNetworkSecurity_ValidationCA
 @dynamic certificateProviderInstance, grpcEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireAnalysisProfile
+//
+
+@implementation GTLRNetworkSecurity_WildfireAnalysisProfile
+@dynamic wildfireInlineCloudAnalysisRules, wildfireInlineMlOverrides,
+         wildfireInlineMlSetting, wildfireInlineMlSettings, wildfireOverrides,
+         wildfireRealtimeLookup, wildfireSubmissionRules,
+         wildfireThreatOverrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"wildfireInlineCloudAnalysisRules" : [GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule class],
+    @"wildfireInlineMlOverrides" : [GTLRNetworkSecurity_WildfireInlineMlOverride class],
+    @"wildfireInlineMlSettings" : [GTLRNetworkSecurity_WildfireInlineMlSettings class],
+    @"wildfireOverrides" : [GTLRNetworkSecurity_WildfireOverride class],
+    @"wildfireSubmissionRules" : [GTLRNetworkSecurity_WildfireSubmissionRule class],
+    @"wildfireThreatOverrides" : [GTLRNetworkSecurity_WildfireThreatOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule
+//
+
+@implementation GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule
+@dynamic action, customFileTypes, direction, fileSelectionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes
+//
+
+@implementation GTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes
+@dynamic fileTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireInlineMlFileException
+//
+
+@implementation GTLRNetworkSecurity_WildfireInlineMlFileException
+@dynamic filename, partialHash;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireInlineMlOverride
+//
+
+@implementation GTLRNetworkSecurity_WildfireInlineMlOverride
+@dynamic action, protocol;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireInlineMlSettings
+//
+
+@implementation GTLRNetworkSecurity_WildfireInlineMlSettings
+@dynamic fileExceptions, inlineMlConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileExceptions" : [GTLRNetworkSecurity_WildfireInlineMlFileException class],
+    @"inlineMlConfigs" : [GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig
+//
+
+@implementation GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig
+@dynamic action, fileType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireOverride
+//
+
+@implementation GTLRNetworkSecurity_WildfireOverride
+@dynamic action, protocol;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireSubmissionRule
+//
+
+@implementation GTLRNetworkSecurity_WildfireSubmissionRule
+@dynamic customFileTypes, direction, fileSelectionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes
+//
+
+@implementation GTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes
+@dynamic fileTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireThreatOverride
+//
+
+@implementation GTLRNetworkSecurity_WildfireThreatOverride
+@dynamic action, threatId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_WildfireVerdictChangeRequest
+//
+
+@implementation GTLRNetworkSecurity_WildfireVerdictChangeRequest
+@dynamic comment, createTime, fileName, fileType, finalVerdict, name,
+         newVerdict, oldVerdict, resolutionTime, sha256, sourceRegion, state,
+         updateTime, wildfireVerdictChangeRequestId;
 @end

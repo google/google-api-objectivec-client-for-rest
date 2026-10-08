@@ -97,6 +97,7 @@ NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MalformedJson = @"MA
 NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingAlgorithmName = @"MISSING_ALGORITHM_NAME";
 NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingKey = @"MISSING_KEY";
 NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingSignature = @"MISSING_SIGNATURE";
+NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_ServerSideFetchRequestError = @"SERVER_SIDE_FETCH_REQUEST_ERROR";
 NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_UnsupportedAlgorithm = @"UNSUPPORTED_ALGORITHM";
 
 // GTLRAlertCenter_MailPhishing.systemActionType
@@ -126,6 +127,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Action
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert = @"ALERT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatBlockContent = @"CHAT_BLOCK_CONTENT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatWarnUser = @"CHAT_WARN_USER";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockDataCopied = @"CHROME_BLOCK_DATA_COPIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileDownload = @"CHROME_BLOCK_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileTransfer = @"CHROME_BLOCK_FILE_TRANSFER";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileUpload = @"CHROME_BLOCK_FILE_UPLOAD";
@@ -134,7 +136,9 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Chrome
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockUrlVisited = @"CHROME_BLOCK_URL_VISITED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockWebContentUpload = @"CHROME_BLOCK_WEB_CONTENT_UPLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeForceSaveToCloud = @"CHROME_FORCE_SAVE_TO_CLOUD";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeKeepInManagedChrome = @"CHROME_KEEP_IN_MANAGED_CHROME";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeStoreContent = @"CHROME_STORE_CONTENT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnDataCopied = @"CHROME_WARN_DATA_COPIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileDownload = @"CHROME_WARN_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileTransfer = @"CHROME_WARN_FILE_TRANSFER";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileUpload = @"CHROME_WARN_FILE_UPLOAD";
@@ -162,6 +166,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent = @"
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeDataCopied = @"CHROME_DATA_COPIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload = @"CHROME_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload = @"CHROME_FILE_UPLOAD";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeNetworkRequest = @"CHROME_NETWORK_REQUEST";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeosFileTransfer = @"CHROMEOS_FILE_TRANSFER";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromePagePrint = @"CHROME_PAGE_PRINT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeUrlVisited = @"CHROME_URL_VISITED";
@@ -176,6 +181,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionT
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert = @"ALERT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatBlockContent = @"CHAT_BLOCK_CONTENT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatWarnUser = @"CHAT_WARN_USER";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockDataCopied = @"CHROME_BLOCK_DATA_COPIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileDownload = @"CHROME_BLOCK_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileTransfer = @"CHROME_BLOCK_FILE_TRANSFER";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileUpload = @"CHROME_BLOCK_FILE_UPLOAD";
@@ -184,7 +190,9 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeB
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockUrlVisited = @"CHROME_BLOCK_URL_VISITED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockWebContentUpload = @"CHROME_BLOCK_WEB_CONTENT_UPLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeForceSaveToCloud = @"CHROME_FORCE_SAVE_TO_CLOUD";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeKeepInManagedChrome = @"CHROME_KEEP_IN_MANAGED_CHROME";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeStoreContent = @"CHROME_STORE_CONTENT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnDataCopied = @"CHROME_WARN_DATA_COPIED";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileDownload = @"CHROME_WARN_FILE_DOWNLOAD";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileTransfer = @"CHROME_WARN_FILE_TRANSFER";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileUpload = @"CHROME_WARN_FILE_UPLOAD";

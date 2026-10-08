@@ -229,6 +229,16 @@ NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementT
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_Exascale = @"EXASCALE";
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_StorageManagementTypeUnspecified = @"STORAGE_MANAGEMENT_TYPE_UNSPECIFIED";
 
+// GTLROracleDatabase_CloudVmClusterProperties.vmBackupStorageType
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeExascale = @"VM_BACKUP_STORAGE_TYPE_EXASCALE";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeLocal = @"VM_BACKUP_STORAGE_TYPE_LOCAL";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeUnspecified = @"VM_BACKUP_STORAGE_TYPE_UNSPECIFIED";
+
+// GTLROracleDatabase_CloudVmClusterProperties.vmFileSystemStorageType
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeExascale = @"VM_FILE_SYSTEM_STORAGE_TYPE_EXASCALE";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeLocal = @"VM_FILE_SYSTEM_STORAGE_TYPE_LOCAL";
+NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeUnspecified = @"VM_FILE_SYSTEM_STORAGE_TYPE_UNSPECIFIED";
+
 // GTLROracleDatabase_Database.opsInsightsStatus
 NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Disabling = @"DISABLING";
 NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Enabled = @"ENABLED";
@@ -1313,7 +1323,8 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
          localBackupEnabled, memorySizeGb, nodeCount, ocid, ociUrl, ocpuCount,
          scanDns, scanDnsRecordId, scanIpIds, scanListenerPortTcp,
          scanListenerPortTcpSsl, shape, sparseDiskgroupEnabled, sshPublicKeys,
-         state, storageManagementType, storageSizeGb, systemVersion, timeZone;
+         state, storageManagementType, storageSizeGb, systemVersion, timeZone,
+         vmBackupStorageType, vmFileSystemStorageType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1333,7 +1344,7 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 //
 
 @implementation GTLROracleDatabase_ConfigureExascaleCloudExadataInfrastructureRequest
-@dynamic requestId, totalStorageSizeGb;
+@dynamic requestId, totalStorageSizeGb, totalVmStorageSizeGb;
 @end
 
 
@@ -1778,7 +1789,8 @@ NSString * const kGTLROracleDatabase_TestGoldengateConnectionAssignmentResponse_
 //
 
 @implementation GTLROracleDatabase_ExascaleConfig
-@dynamic availableStorageSizeGb, totalStorageSizeGb;
+@dynamic availableStorageSizeGb, availableVmStorageSizeGb, totalStorageSizeGb,
+         totalVmStorageSizeGb;
 @end
 
 

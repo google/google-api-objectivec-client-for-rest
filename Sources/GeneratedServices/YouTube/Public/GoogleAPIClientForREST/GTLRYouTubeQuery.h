@@ -150,7 +150,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeCompleted;
  *  Value: "live"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeLive;
-/** Value: "none" */
+/**
+ *  The resource does not have live broadcast content.
+ *
+ *  Value: "none"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeNone;
 /**
  *  The live broadcast is upcoming.
@@ -217,7 +221,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeMyRatingDislike;
  *  Value: "like"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeMyRatingLike;
-/** Value: "none" */
+/**
+ *  The entity has not been rated.
+ *
+ *  Value: "none"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeMyRatingNone;
 
 // ----------------------------------------------------------------------------
@@ -296,7 +304,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingDislike;
  *  Value: "like"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingLike;
-/** Value: "none" */
+/**
+ *  The entity has not been rated.
+ *
+ *  Value: "none"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingNone;
 
 // ----------------------------------------------------------------------------
@@ -1461,7 +1473,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  once and get access to all their video and channel data, without having to
  *  provide authentication credentials for each individual channel. The actual
  *  CMS account that the user authenticates with needs to be linked to the
- *  specified YouTube content owner.
+ *  specified YouTube content owner. This parameter must be provided if the
+ *  request is authenticated with credentials for a CMS content owner user
+ *  acting on a managed channel. If omitted, the request executes under the
+ *  authenticated user's direct context and returns an HTTP 403 Forbidden error.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -1902,9 +1917,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  commentThread resource properties that the API response will include.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/** Returns the comment threads of the specified post. */
-@property(nonatomic, copy, nullable) NSString *postId;
 
 /**
  *  Limits the returned comment threads to those matching the specified key
@@ -4276,7 +4288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Filter on the livestream status of the videos.
  *
  *  Likely values:
- *    @arg @c kGTLRYouTubeEventTypeNone Value "none"
+ *    @arg @c kGTLRYouTubeEventTypeNone The resource does not have live
+ *        broadcast content. (Value: "none")
  *    @arg @c kGTLRYouTubeEventTypeUpcoming The live broadcast is upcoming.
  *        (Value: "upcoming")
  *    @arg @c kGTLRYouTubeEventTypeLive The live broadcast is active. (Value:
@@ -5291,6 +5304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeYouTube
  *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosGetRating : GTLRYouTubeQuery
@@ -5499,7 +5513,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  RateType.RATED_TYPE_NONE.
  *
  *  Likely values:
- *    @arg @c kGTLRYouTubeMyRatingNone Value "none"
+ *    @arg @c kGTLRYouTubeMyRatingNone The entity has not been rated. (Value:
+ *        "none")
  *    @arg @c kGTLRYouTubeMyRatingLike The entity is liked. (Value: "like")
  *    @arg @c kGTLRYouTubeMyRatingDislike The entity is disliked. (Value:
  *        "dislike")
@@ -5597,7 +5612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  rating
  *
  *  Likely values:
- *    @arg @c kGTLRYouTubeRatingNone Value "none"
+ *    @arg @c kGTLRYouTubeRatingNone The entity has not been rated. (Value:
+ *        "none")
  *    @arg @c kGTLRYouTubeRatingLike The entity is liked. (Value: "like")
  *    @arg @c kGTLRYouTubeRatingDislike The entity is disliked. (Value:
  *        "dislike")
@@ -5614,7 +5630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @param rating NSString
  *
  *  Likely values for @c rating:
- *    @arg @c kGTLRYouTubeRatingNone Value "none"
+ *    @arg @c kGTLRYouTubeRatingNone The entity has not been rated. (Value:
+ *        "none")
  *    @arg @c kGTLRYouTubeRatingLike The entity is liked. (Value: "like")
  *    @arg @c kGTLRYouTubeRatingDislike The entity is disliked. (Value:
  *        "dislike")

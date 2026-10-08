@@ -728,7 +728,10 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Creates a CustomDimension.
+ *  Creates a CustomDimension. Warning: It's not permissible to use this method
+ *  to collect data on individual users. In particular, sending user IDs in
+ *  custom dimensions violates the [Google Analytics Terms of
+ *  Service](https://www.google.com/analytics/terms/).
  *
  *  Method: analyticsadmin.properties.customDimensions.create
  *
@@ -743,7 +746,10 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension.
  *
- *  Creates a CustomDimension.
+ *  Creates a CustomDimension. Warning: It's not permissible to use this method
+ *  to collect data on individual users. In particular, sending user IDs in
+ *  custom dimensions violates the [Google Analytics Terms of
+ *  Service](https://www.google.com/analytics/terms/).
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension to
  *    include in the query.
@@ -1860,7 +1866,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieve a single Key Event.
+ *  Retrieves a single Key Event.
  *
  *  Method: analyticsadmin.properties.keyEvents.get
  *
@@ -1880,7 +1886,7 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.
  *
- *  Retrieve a single Key Event.
+ *  Retrieves a single Key Event.
  *
  *  @param name Required. The resource name of the Key Event to retrieve.
  *    Format: properties/{property}/keyEvents/{key_event} Example:

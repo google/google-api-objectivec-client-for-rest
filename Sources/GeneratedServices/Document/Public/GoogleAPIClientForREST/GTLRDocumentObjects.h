@@ -47,6 +47,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3FieldExtractionMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3FieldExtractionMetadataEntityQuery;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3FieldTierMetadata;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3HumanReviewLabelingMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3HumanReviewValidationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataImportConfigValidationResult;
@@ -90,6 +91,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3EvaluationReference;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3FieldExtractionMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataImportConfigValidationResult;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3ImportDocumentsMetadataIndividualImportStatus;
@@ -486,6 +488,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3E
  *  Value: "DATASET_SPLIT_UNASSIGNED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportDocumentsMetadataSplitExportStat_SplitType_DatasetSplitUnassigned;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings.groundingType
+
+/**
+ *  The default value. Behaves like HARD.
+ *
+ *  Value: "GROUNDING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_GroundingTypeUnspecified;
+/**
+ *  Requires exact match with OCR text for extractions.
+ *
+ *  Value: "HARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_Hard;
+/**
+ *  LLM extractions are used without strict OCR matching. Bounding boxes may be
+ *  approximated or absent.
+ *
+ *  Value: "NO_GROUNDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_NoGrounding;
+/**
+ *  Allows for minor discrepancies between LLM output and OCR text.
+ *
+ *  Value: "OCR_RELAXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_OcrRelaxed;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3Processor.state
@@ -1088,6 +1119,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Doc
  *  Value: "REQUIRED_ONCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings.groundingType
+
+/**
+ *  The default value. Behaves like HARD.
+ *
+ *  Value: "GROUNDING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_GroundingTypeUnspecified;
+/**
+ *  Requires exact match with OCR text for extractions.
+ *
+ *  Value: "HARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_Hard;
+/**
+ *  LLM extractions are used without strict OCR matching. Bounding boxes may be
+ *  approximated or absent.
+ *
+ *  Value: "NO_GROUNDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_NoGrounding;
+/**
+ *  Allows for minor discrepancies between LLM output and OCR text.
+ *
+ *  Value: "OCR_RELAXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_OcrRelaxed;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus.state
@@ -3257,6 +3317,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Settings for grounding extractions.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings : GTLRObject
+
+/**
+ *  The type of grounding to apply.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_GroundingTypeUnspecified
+ *        The default value. Behaves like HARD. (Value:
+ *        "GROUNDING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_Hard
+ *        Requires exact match with OCR text for extractions. (Value: "HARD")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_NoGrounding
+ *        LLM extractions are used without strict OCR matching. Bounding boxes
+ *        may be approximated or absent. (Value: "NO_GROUNDING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings_GroundingType_OcrRelaxed
+ *        Allows for minor discrepancies between LLM output and OCR text.
+ *        (Value: "OCR_RELAXED")
+ */
+@property(nonatomic, copy, nullable) NSString *groundingType;
+
+@end
+
+
+/**
  *  Metadata for human review labeling config.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3HumanReviewLabelingMetadata : GTLRObject
@@ -3530,6 +3616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *googleManaged;
+
+/**
+ *  Output only. The grounding settings of the processor version. This can only
+ *  be set using TrainProcessorVersionRequest to override the default grounding
+ *  settings.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3GroundingSettings *groundingSettings;
 
 /** Output only. The KMS key name used for encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
@@ -5225,6 +5318,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  Settings for grounding extractions.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings : GTLRObject
+
+/**
+ *  The type of grounding to apply.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_GroundingTypeUnspecified
+ *        The default value. Behaves like HARD. (Value:
+ *        "GROUNDING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_Hard
+ *        Requires exact match with OCR text for extractions. (Value: "HARD")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_NoGrounding
+ *        LLM extractions are used without strict OCR matching. Bounding boxes
+ *        may be approximated or absent. (Value: "NO_GROUNDING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings_GroundingType_OcrRelaxed
+ *        Allows for minor discrepancies between LLM output and OCR text.
+ *        (Value: "OCR_RELAXED")
+ */
+@property(nonatomic, copy, nullable) NSString *groundingType;
+
+@end
+
+
+/**
  *  The status of human review on a processed document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus : GTLRObject
@@ -5489,6 +5608,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *googleManaged;
+
+/**
+ *  Output only. The grounding settings of the processor version. This can only
+ *  be set using TrainProcessorVersionRequest to override the default grounding
+ *  settings.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3GroundingSettings *groundingSettings;
 
 /** Output only. The KMS key name used for encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;

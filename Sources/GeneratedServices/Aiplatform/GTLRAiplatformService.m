@@ -13,6 +13,7 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeAiplatform                      = @"https://www.googleapis.com/auth/aiplatform";
 NSString * const kGTLRAuthScopeAiplatformCloudPlatform         = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeAiplatformCloudPlatformReadOnly = @"https://www.googleapis.com/auth/cloud-platform.read-only";
 

@@ -3793,8 +3793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Delete an Apigee organization. For organizations with BillingType
  *  EVALUATION, an immediate deletion is performed. For paid organizations
- *  (Subscription or Pay-as-you-go), a soft-deletion is performed. The
- *  organization can be restored within the soft-deletion period, which is
+ *  (Subscription or Pay-as-you-go), a soft-deletion is performed by default.
+ *  The organization can be restored within the soft-deletion period, which is
  *  specified using the `retention` field in the request or by filing a support
  *  ticket with Apigee. During the data retention period specified in the
  *  request, the Apigee organization cannot be recreated in the same Google
@@ -3839,8 +3839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Delete an Apigee organization. For organizations with BillingType
  *  EVALUATION, an immediate deletion is performed. For paid organizations
- *  (Subscription or Pay-as-you-go), a soft-deletion is performed. The
- *  organization can be restored within the soft-deletion period, which is
+ *  (Subscription or Pay-as-you-go), a soft-deletion is performed by default.
+ *  The organization can be restored within the soft-deletion period, which is
  *  specified using the `retention` field in the request or by filing a support
  *  ticket with Apigee. During the data retention period specified in the
  *  request, the Apigee organization cannot be recreated in the same Google
@@ -11426,6 +11426,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Gets the deployed MCP server configuration for an organization.
+ *  McpServerConfig is an org-scoped singleton (one per organization). The
+ *  returned configuration may be up to 30 seconds out of date by default.
+ *
+ *  Method: apigee.organizations.getMcpServerConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsGetMcpServerConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the deployed MCP server configuration for the organization
+ *  in the singleton form: `organizations/{org}/mcpServerConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1McpServerConfig.
+ *
+ *  Gets the deployed MCP server configuration for an organization.
+ *  McpServerConfig is an org-scoped singleton (one per organization). The
+ *  returned configuration may be up to 30 seconds out of date by default.
+ *
+ *  @param name Required. Name of the deployed MCP server configuration for the
+ *    organization in the singleton form: `organizations/{org}/mcpServerConfig`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsGetMcpServerConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the project ID and region for an Apigee organization.
  *
  *  Method: apigee.organizations.getProjectMapping
@@ -15875,7 +15909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  List of fields to be updated. Fields that can be updated:
- *  synchronizer_identities, publisher_identities.
+ *  synchronizer_identities, analytics_publisher_identities, watcher_identities.
  *
  *  String format is a comma-separated list of fields.
  */

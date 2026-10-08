@@ -35,8 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Send a message to specified target (a registration token, topic or
- *  condition).
+ *  Send a message to specified target (a [Firebase Installation ID
+ *  (FID)](/docs/cloud-messaging/android/get-started#access-firebase-installation-id),
+ *  registration token, topic, or condition). If duplicate fields or parameters
+ *  are provided in a request (such as repeated JSON keys in the request body or
+ *  duplicate query parameters), the last occurrence takes precedence.
  *
  *  Method: fcm.projects.messages.send
  *
@@ -57,8 +60,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseCloudMessaging_Message.
  *
- *  Send a message to specified target (a registration token, topic or
- *  condition).
+ *  Send a message to specified target (a [Firebase Installation ID
+ *  (FID)](/docs/cloud-messaging/android/get-started#access-firebase-installation-id),
+ *  registration token, topic, or condition). If duplicate fields or parameters
+ *  are provided in a request (such as repeated JSON keys in the request body or
+ *  duplicate query parameters), the last occurrence takes precedence.
  *
  *  @param object The @c GTLRFirebaseCloudMessaging_SendMessageRequest to
  *    include in the query.
@@ -71,6 +77,221 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRFirebaseCloudMessaging_SendMessageRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a TopicSubscription. Subscribes an app installation instance (by
+ *  registration_id, either FID or FCM Token) to a topicSubscription. Returns a
+ *  TopicSubscription if it is created successfully. If the subscription already
+ *  exists, returns error of ALREADY_EXISTS.
+ *
+ *  Method: fcm.projects.registrations.topicSubscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging
+ */
+@interface GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsCreate : GTLRFirebaseCloudMessagingQuery
+
+/**
+ *  Required. The parent resource where this subscription will be created.
+ *  Format: projects/{project}/registrations/{registration} The {registration}
+ *  part can be an FID or an FCM Token.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the subscription, which is the topic name. This
+ *  will become the last segment of the TopicSubscription's resource name. Topic
+ *  names match the pattern of "[a-zA-Z0-9-_.~%]{1,900}".
+ */
+@property(nonatomic, copy, nullable) NSString *topicName;
+
+/**
+ *  Fetches a @c GTLRFirebaseCloudMessaging_TopicSubscription.
+ *
+ *  Creates a TopicSubscription. Subscribes an app installation instance (by
+ *  registration_id, either FID or FCM Token) to a topicSubscription. Returns a
+ *  TopicSubscription if it is created successfully. If the subscription already
+ *  exists, returns error of ALREADY_EXISTS.
+ *
+ *  @param object The @c GTLRFirebaseCloudMessaging_TopicSubscription to include
+ *    in the query.
+ *  @param parent Required. The parent resource where this subscription will be
+ *    created. Format: projects/{project}/registrations/{registration} The
+ *    {registration} part can be an FID or an FCM Token.
+ *
+ *  @return GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseCloudMessaging_TopicSubscription *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a TopicSubscription.
+ *
+ *  Method: fcm.projects.registrations.topicSubscriptions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging
+ */
+@interface GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsDelete : GTLRFirebaseCloudMessagingQuery
+
+/**
+ *  Optional. If set to true, and the topic subscription is not found, the
+ *  request will succeed but no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Required. The name of the topic subscription to delete. Format:
+ *  projects/{project}/registrations/{registration}/topicSubscriptions/{topicSubscription}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseCloudMessaging_Empty.
+ *
+ *  Deletes a TopicSubscription.
+ *
+ *  @param name Required. The name of the topic subscription to delete. Format:
+ *    projects/{project}/registrations/{registration}/topicSubscriptions/{topicSubscription}
+ *
+ *  @return GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a TopicSubscription.
+ *
+ *  Method: fcm.projects.registrations.topicSubscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging
+ */
+@interface GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsGet : GTLRFirebaseCloudMessagingQuery
+
+/**
+ *  Required. The name of the topic subscription to retrieve. Format:
+ *  projects/{project}/registrations/{registration}/topicSubscriptions/{topicSubscription}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseCloudMessaging_TopicSubscription.
+ *
+ *  Gets a TopicSubscription.
+ *
+ *  @param name Required. The name of the topic subscription to retrieve.
+ *    Format:
+ *    projects/{project}/registrations/{registration}/topicSubscriptions/{topicSubscription}
+ *
+ *  @return GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TopicSubscriptions for a given app instance.
+ *
+ *  Method: fcm.projects.registrations.topicSubscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging
+ */
+@interface GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsList : GTLRFirebaseCloudMessagingQuery
+
+/**
+ *  Optional. The maximum number of subscriptions to return. The service may
+ *  return fewer than this value. If unspecified, at most 1000 subscriptions
+ *  will be returned. The maximum value is 2000; values above 2000 will be
+ *  coerced to 2000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListTopicSubscriptions`
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource, which owns this collection of subscriptions.
+ *  Format: projects/{project}/registrations/{registration} The {registration}
+ *  part can be an FID or an FCM Token.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseCloudMessaging_ListTopicSubscriptionsResponse.
+ *
+ *  Lists TopicSubscriptions for a given app instance.
+ *
+ *  @param parent Required. The parent resource, which owns this collection of
+ *    subscriptions. Format: projects/{project}/registrations/{registration} The
+ *    {registration} part can be an FID or an FCM Token.
+ *
+ *  @return GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a TopicSubscription. Subscribes an app installation instance by
+ *  registration_id, either FID or FCM Token, to a topicSubscription. Returns an
+ *  existing TopicSubscription or creates a new one if it does not exist.
+ *
+ *  Method: fcm.projects.registrations.topicSubscriptions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging
+ */
+@interface GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsPatch : GTLRFirebaseCloudMessagingQuery
+
+/**
+ *  Optional. If set to true, and the topic subscription is not found, a new
+ *  topic subscription will be created.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. The resource name of the subscription. Format:
+ *  projects/{project}/registrations/{registration}/topicSubscriptions/{topicSubscription}
+ *  The {registration} part contains the registration ID (e.g., FID).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseCloudMessaging_TopicSubscription.
+ *
+ *  Updates a TopicSubscription. Subscribes an app installation instance by
+ *  registration_id, either FID or FCM Token, to a topicSubscription. Returns an
+ *  existing TopicSubscription or creates a new one if it does not exist.
+ *
+ *  @param object The @c GTLRFirebaseCloudMessaging_TopicSubscription to include
+ *    in the query.
+ *  @param name Identifier. The resource name of the subscription. Format:
+ *    projects/{project}/registrations/{registration}/topicSubscriptions/{topicSubscription}
+ *    The {registration} part contains the registration ID (e.g., FID).
+ *
+ *  @return GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseCloudMessaging_TopicSubscription *)object
+                           name:(NSString *)name;
 
 @end
 

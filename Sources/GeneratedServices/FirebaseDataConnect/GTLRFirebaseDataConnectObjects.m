@@ -55,6 +55,12 @@ NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_Re
 NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_RequireForce = @"REQUIRE_FORCE";
 NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_WarningLevelUnknown = @"WARNING_LEVEL_UNKNOWN";
 
+// GTLRFirebaseDataConnect_MigrateSchemaRequest.executionMode
+NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecuteAndRecord = @"EXECUTE_AND_RECORD";
+NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecuteOnly = @"EXECUTE_ONLY";
+NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_ExecutionModeUnspecified = @"EXECUTION_MODE_UNSPECIFIED";
+NSString * const kGTLRFirebaseDataConnect_MigrateSchemaRequest_ExecutionMode_RecordOnly = @"RECORD_ONLY";
+
 // GTLRFirebaseDataConnect_PostgreSql.schemaMigration
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_MigrateCompatible = @"MIGRATE_COMPATIBLE";
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_SqlSchemaMigrationUnspecified = @"SQL_SCHEMA_MIGRATION_UNSPECIFIED";
@@ -489,6 +495,38 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDataConnect_HttpBody
+//
+
+@implementation GTLRFirebaseDataConnect_HttpBody
+@dynamic contentType, data, extensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRFirebaseDataConnect_HttpBody_Extensions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_HttpBody_Extensions_Item
+//
+
+@implementation GTLRFirebaseDataConnect_HttpBody_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDataConnect_HttpGraphql
 //
 
@@ -694,6 +732,34 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_MigrateSchemaRequest
+//
+
+@implementation GTLRFirebaseDataConnect_MigrateSchemaRequest
+@dynamic executionMode, migrationSteps, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"migrationSteps" : [GTLRFirebaseDataConnect_MigrationStep class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_MigrationStep
+//
+
+@implementation GTLRFirebaseDataConnect_MigrationStep
+@dynamic name, sql, version;
 @end
 
 

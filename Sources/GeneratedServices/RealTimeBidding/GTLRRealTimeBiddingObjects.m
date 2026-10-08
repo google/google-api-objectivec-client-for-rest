@@ -298,6 +298,24 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRealTimeBidding_AddDealsRequest
+//
+
+@implementation GTLRRealTimeBidding_AddDealsRequest
+@dynamic dealIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dealIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRealTimeBidding_AddTargetedAppsRequest
 //
 

@@ -35,6 +35,7 @@ NSString * const kGTLRReportsApplicationNameDirectorySync      = @"directory_syn
 NSString * const kGTLRReportsApplicationNameDrive              = @"drive";
 NSString * const kGTLRReportsApplicationNameGcp                = @"gcp";
 NSString * const kGTLRReportsApplicationNameGeminiInWorkspaceApps = @"gemini_in_workspace_apps";
+NSString * const kGTLRReportsApplicationNameGeminiNotebook     = @"gemini_notebook";
 NSString * const kGTLRReportsApplicationNameGmail              = @"gmail";
 NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
 NSString * const kGTLRReportsApplicationNameGraduation         = @"graduation";

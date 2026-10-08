@@ -190,14 +190,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMembershipsApp;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMembershipsReadonly;
 /**
- *  Authorization scope: See, compose, send, update, and delete messages as well
- *  as their message content; add, see, and delete reactions to messages.
+ *  Authorization scope: See, compose, send, update, and delete messages, their
+ *  content, and attached cards; add, see, and delete reactions to messages.
  *
  *  Value "https://www.googleapis.com/auth/chat.messages"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessages;
 /**
- *  Authorization scope: Compose and send messages in Google Chat
+ *  Authorization scope: Compose and send messages and attach cards
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.create"
  */
@@ -242,6 +242,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpaces;
  *  Value "https://www.googleapis.com/auth/chat.spaces.create"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesCreate;
+/**
+ *  Authorization scope: See, add, and remove pins in your Google Chat spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.spaces.pins"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesPins;
+/**
+ *  Authorization scope: See pins in your Google Chat spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.spaces.pins.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesPinsReadonly;
 /**
  *  Authorization scope: View chat and spaces in Google Chat
  *

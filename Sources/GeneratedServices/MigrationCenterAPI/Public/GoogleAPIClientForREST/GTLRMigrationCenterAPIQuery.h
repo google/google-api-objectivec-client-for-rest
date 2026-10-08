@@ -2273,7 +2273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *  component of the report config name. The ID must be unique within the
  *  project, must conform with RFC-1034, is restricted to lower-cased letters,
  *  and has a maximum length of 63 characters. The ID must match the regular
- *  expression: [a-z]([a-z0-9-]{0,61}[a-z0-9])?.
+ *  expression: `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  */
 @property(nonatomic, copy, nullable) NSString *reportConfigId;
 
@@ -2447,7 +2447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *  component of the report name. The id must be unique within the project, must
  *  conform with RFC-1034, is restricted to lower-cased letters, and has a
  *  maximum length of 63 characters. The id must match the regular expression:
- *  [a-z]([a-z0-9-]{0,61}[a-z0-9])?.
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  */
 @property(nonatomic, copy, nullable) NSString *reportId;
 

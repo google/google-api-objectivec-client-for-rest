@@ -153,6 +153,51 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @end
 
+@implementation GTLRDnsQuery_LocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}";
+  GTLRDnsQuery_LocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_Location class];
+  query.loggingName = @"dns.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_LocationsList
+
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}/locations";
+  GTLRDnsQuery_LocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_ListLocationsResponse class];
+  query.loggingName = @"dns.locations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDnsQuery_ManagedZoneOperationsGet
 
 @dynamic clientOperationId, managedZone, operation, project;
@@ -435,6 +480,193 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @end
 
+@implementation GTLRDnsQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}:cancel";
+  GTLRDnsQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_Empty class];
+  query.loggingName = @"dns.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}";
+  GTLRDnsQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_Empty class];
+  query.loggingName = @"dns.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}";
+  GTLRDnsQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_GoogleLongrunningOperation class];
+  query.loggingName = @"dns.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}/operations";
+  GTLRDnsQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"dns.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OutboundEndpointsCreate
+
+@dynamic clientOperationId, outboundEndpointId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDns_OutboundEndpoint *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"dns/v1/{+parent}/outboundEndpoints";
+  GTLRDnsQuery_OutboundEndpointsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDns_GoogleLongrunningOperation class];
+  query.loggingName = @"dns.outboundEndpoints.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OutboundEndpointsDelete
+
+@dynamic clientOperationId, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}";
+  GTLRDnsQuery_OutboundEndpointsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_GoogleLongrunningOperation class];
+  query.loggingName = @"dns.outboundEndpoints.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OutboundEndpointsGet
+
+@dynamic clientOperationId, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}";
+  GTLRDnsQuery_OutboundEndpointsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_OutboundEndpoint class];
+  query.loggingName = @"dns.outboundEndpoints.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OutboundEndpointsList
+
+@dynamic clientOperationId, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"dns/v1/{+parent}/outboundEndpoints";
+  GTLRDnsQuery_OutboundEndpointsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDns_ListOutboundEndpointsResponse class];
+  query.loggingName = @"dns.outboundEndpoints.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_OutboundEndpointsPatch
+
+@dynamic clientOperationId, name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDns_OutboundEndpoint *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"dns/v1/{+name}";
+  GTLRDnsQuery_OutboundEndpointsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDns_GoogleLongrunningOperation class];
+  query.loggingName = @"dns.outboundEndpoints.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDnsQuery_PoliciesCreate
 
 @dynamic clientOperationId, project;
@@ -590,7 +822,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ProjectsGet
 
-@dynamic clientOperationId, project;
+@dynamic project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];

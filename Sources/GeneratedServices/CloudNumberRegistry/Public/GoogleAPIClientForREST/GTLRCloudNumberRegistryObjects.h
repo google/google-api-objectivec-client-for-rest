@@ -28,6 +28,8 @@
 @class GTLRCloudNumberRegistry_Operation;
 @class GTLRCloudNumberRegistry_Operation_Metadata;
 @class GTLRCloudNumberRegistry_Operation_Response;
+@class GTLRCloudNumberRegistry_OrgNumberRegistry;
+@class GTLRCloudNumberRegistry_OrgNumberRegistry_Labels;
 @class GTLRCloudNumberRegistry_Range;
 @class GTLRCloudNumberRegistry_RangeUtilization;
 @class GTLRCloudNumberRegistry_Realm;
@@ -35,6 +37,7 @@
 @class GTLRCloudNumberRegistry_RealmAggregatedData;
 @class GTLRCloudNumberRegistry_RegistryBook;
 @class GTLRCloudNumberRegistry_RegistryBook_Labels;
+@class GTLRCloudNumberRegistry_ScopeInfo;
 @class GTLRCloudNumberRegistry_SearchIpResourcesResult;
 @class GTLRCloudNumberRegistry_Status;
 @class GTLRCloudNumberRegistry_Status_Details_Item;
@@ -929,6 +932,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesReq
 
 
 /**
+ *  Response message for the CloudNumberRegistry.ListOrgNumberRegistries method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "orgNumberRegistries" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudNumberRegistry_ListOrgNumberRegistriesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of OrgNumberRegistries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNumberRegistry_OrgNumberRegistry *> *orgNumberRegistries;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response message for the CloudNumberRegistry.ListRealms method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1162,6 +1195,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesReq
 
 
 /**
+ *  An OrgNumberRegistry defines a delegation of authority from an organization
+ *  to a project, allowing the project to manage IP address data within
+ *  specified scopes of the organization.
+ */
+@interface GTLRCloudNumberRegistry_OrgNumberRegistry : GTLRObject
+
+/**
+ *  Required. The project that will act as the admin project for CNR resources
+ *  Format: projects/{project_number} or projects/{project_id}
+ */
+@property(nonatomic, copy, nullable) NSString *adminProject;
+
+/** Output only. The time at which the OrgNumberRegistry was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRCloudNumberRegistry_OrgNumberRegistry_Labels *labels;
+
+/** Identifier. The resource name of the OrgNumberRegistry. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The scopes within the organization that the project is able to
+ *  manage. Currently only organization scope is supported. For example,
+ *  "organizations/1234567890".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetScopes;
+
+/** Output only. The time at which the OrgNumberRegistry was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudNumberRegistry_OrgNumberRegistry_Labels : GTLRObject
+@end
+
+
+/**
  *  Represents either a CustomRange or a DiscoveredRange.
  */
 @interface GTLRCloudNumberRegistry_Range : GTLRObject
@@ -1333,6 +1413,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesReq
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *claimedScopes;
 
+/**
+ *  Output only. Detailed scope information corresponding to each entry in
+ *  `claimed_scopes`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudNumberRegistry_ScopeInfo *> *claimedScopesInfo;
+
 /** Output only. The time at which the RegistryBook was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1364,6 +1450,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesReq
  *        fetch them all at once.
  */
 @interface GTLRCloudNumberRegistry_RegistryBook_Labels : GTLRObject
+@end
+
+
+/**
+ *  Details of a scope (e.g. project or folder).
+ */
+@interface GTLRCloudNumberRegistry_ScopeInfo : GTLRObject
+
+/**
+ *  Output only. Human-readable display title of the scope shown in Console
+ *  (e.g. "My Cloud Project"). Used for UI display.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Programmatic string identifier of the scope (e.g. GCP Project
+ *  ID "my-project-id"). Used for API and code logic.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Output only. Resource name of the scope, e.g. "projects/1234567890". */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -1400,17 +1511,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesReq
  *  format. It has some limitations. You can only specify top level conjunctions
  *  or attribute level negations. Each restriction can only be used once except
  *  the attribute restriction. The available restrictions for Ranges are: -
- *  `realm`: The Realm name to search in. - `ip_address`: The IP address to
- *  search for within Ranges. - `ip_version`: The IP version to filter by (e.g.,
- *  "IPV4", "IPV6"). - `parent_range`: The parent Range of the Range to search
- *  for. - `attribute_text`: The attribute text to search for within Ranges. -
+ *  `resource_id`: The resource ID to search for within Ranges (only substring
+ *  matching using the format `resource_id="*value*"` is supported). - `realm`:
+ *  The Realm name to search in. - `ip_address`: The IP address to search for
+ *  within Ranges. - `ip_version`: The IP version to filter by (e.g., "IPV4",
+ *  "IPV6"). - `parent_range`: The parent Range of the Range to search for. -
+ *  `attribute_text`: The attribute text to search for within Ranges. -
  *  `attribute`: The attribute key and value to filter by. The available
  *  restrictions for Realms are: - `ip_version`: The IP version to search for. -
  *  `management_type`: The management type of the Realm (e.g., "CNR", "USER").
  *  Only one of attribute_text or multiple attribute filters can be specified.
  *  Examples: - `realm=test-realm` - `realm=test-realm AND ip_address=10.0.0.0`
  *  - `realm=test-realm AND ip_version=IPV6` - `realm=test-realm AND
- *  attribute_text=test` - `ip_address=10.0.0.0 AND attribute:(key1=value1) AND
+ *  resource_id="*my-range*"` - `realm=test-realm AND attribute_text=test` -
+ *  `ip_address=10.0.0.0 AND attribute:(key1=value1) AND
  *  attribute:(key2=value2)` - `attribute_text=test AND
  *  parent_range=projects/123/locations/global/discoveredRanges/test-parent-range`
  *  - `management_type=CNR`

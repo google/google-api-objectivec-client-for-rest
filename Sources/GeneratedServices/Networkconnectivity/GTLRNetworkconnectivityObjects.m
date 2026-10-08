@@ -178,6 +178,18 @@ NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_ForSelf = @"FOR_
 NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_NotShared = @"NOT_SHARED";
 NSString * const kGTLRNetworkconnectivity_InternalRange_Peering_PeeringUnspecified = @"PEERING_UNSPECIFIED";
 
+// GTLRNetworkconnectivity_InternalRange.purpose
+NSString * const kGTLRNetworkconnectivity_InternalRange_Purpose_InternalAddress = @"INTERNAL_ADDRESS";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Purpose_PurposeUnspecified = @"PURPOSE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_InternalRange_Purpose_VpcSubnet = @"VPC_SUBNET";
+
+// GTLRNetworkconnectivity_InternalRange.rangeStatus
+NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Active = @"ACTIVE";
+NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Creating = @"CREATING";
+NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_Obsolete = @"OBSOLETE";
+NSString * const kGTLRNetworkconnectivity_InternalRange_RangeStatus_RangeStatusUnspecified = @"RANGE_STATUS_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_InternalRange.usage
 NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ExternalToVpc = @"EXTERNAL_TO_VPC";
 NSString * const kGTLRNetworkconnectivity_InternalRange_Usage_ForMigration = @"FOR_MIGRATION";
@@ -1066,7 +1078,8 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 @implementation GTLRNetworkconnectivity_InternalRange
 @dynamic allocationOptions, createTime, descriptionProperty, excludeCidrRanges,
          immutable, ipCidrRange, labels, migration, name, network, overlaps,
-         peering, prefixLength, targetCidrRange, updateTime, usage, users;
+         peering, prefixLength, purpose, rangeStatus, targetCidrRange,
+         updateTime, usage, users;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2648,10 +2661,11 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_Transport
-@dynamic advertisedRoutes, bandwidth, createTime, descriptionProperty,
-         generatedActivationKey, labels, mtuLimit, name, network,
-         peeringNetwork, providedActivationKey, remoteAccountId, remoteProfile,
-         stackType, state, updateTime;
+@dynamic advertisedRoutes, autoAccept, bandwidth, createTime,
+         descriptionProperty, generatedActivationKey, hub, labels, mtuLimit,
+         name, network, peeringNetwork, providedActivationKey,
+         pscRoutingEnabled, remoteAccountId, remoteProfile, stackType, state,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

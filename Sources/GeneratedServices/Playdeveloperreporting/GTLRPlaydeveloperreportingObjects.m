@@ -40,11 +40,23 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_FullRange = @"FULL_RANGE";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_Hourly = @"HOURLY";
 
+// GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest.userCohort
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_AppTesters = @"APP_TESTERS";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_OsBeta = @"OS_BETA";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_OsPublic = @"OS_PUBLIC";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest_UserCohort_UserCohortUnspecified = @"USER_COHORT_UNSPECIFIED";
+
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest.userCohort
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest_UserCohort_AppTesters = @"APP_TESTERS";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest_UserCohort_OsBeta = @"OS_BETA";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest_UserCohort_OsPublic = @"OS_PUBLIC";
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest_UserCohort_UserCohortUnspecified = @"USER_COHORT_UNSPECIFIED";
+
+// GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest.userCohort
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_AppTesters = @"APP_TESTERS";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_OsBeta = @"OS_BETA";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_OsPublic = @"OS_PUBLIC";
+NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest_UserCohort_UserCohortUnspecified = @"USER_COHORT_UNSPECIFIED";
 
 // GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest.userCohort
 NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest_UserCohort_AppTesters = @"APP_TESTERS";
@@ -136,6 +148,16 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AnonRssAndSwapMemoryUsageMetricSet
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AnonRssAndSwapMemoryUsageMetricSet
+@dynamic freshnessInfo, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AnrRateMetricSet
 //
 
@@ -161,6 +183,16 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion
 @dynamic versionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1BitmapMemoryUsageMetricSet
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1BitmapMemoryUsageMetricSet
+@dynamic freshnessInfo, name;
 @end
 
 
@@ -378,6 +410,48 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetRequest
+@dynamic dimensions, filter, metrics, pageSize, pageToken, timelineSpec,
+         userCohort;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetResponse
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnonRssAndSwapMemoryUsageMetricSetResponse
+@dynamic nextPageToken, rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rows";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest
 //
 
@@ -402,6 +476,48 @@ NSString * const kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1
 //
 
 @implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetResponse
+@dynamic nextPageToken, rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rows";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetRequest
+@dynamic dimensions, filter, metrics, pageSize, pageToken, timelineSpec,
+         userCohort;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSString class],
+    @"metrics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetResponse
+//
+
+@implementation GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryBitmapMemoryUsageMetricSetResponse
 @dynamic nextPageToken, rows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

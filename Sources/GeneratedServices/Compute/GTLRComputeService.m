@@ -113,6 +113,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#httpsHealthCheckList" : [GTLRCompute_HttpsHealthCheckList class],
     @"compute#image" : [GTLRCompute_Image class],
     @"compute#imageList" : [GTLRCompute_ImageList class],
+    @"compute#imageViewList" : [GTLRCompute_ImageViewsListResponse class],
     @"compute#instance" : [GTLRCompute_Instance class],
     @"compute#instanceAggregatedList" : [GTLRCompute_InstanceAggregatedList class],
     @"compute#instanceGroup" : [GTLRCompute_InstanceGroup class],

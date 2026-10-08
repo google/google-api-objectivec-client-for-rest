@@ -578,6 +578,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
 /**
+ *  Anti-tampering termination was detected.
+ *
+ *  Value: "antiTamperingTermination"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AntiTamperingTermination;
+/**
  *  There was an issue with the assets in this test.
  *
  *  Value: "assetIssue"
@@ -902,6 +908,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** The stack trace of the ANR crash. Optional. */
 @property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
 
+@end
+
+
+/**
+ *  Anti-tampering termination was detected.
+ */
+@interface GTLRToolResults_AntiTamperingTermination : GTLRObject
 @end
 
 
@@ -3426,6 +3439,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Issue is an ANR crash. (Value:
  *        "anr")
+ *    @arg @c kGTLRToolResults_TestIssue_Type_AntiTamperingTermination
+ *        Anti-tampering termination was detected. (Value:
+ *        "antiTamperingTermination")
  *    @arg @c kGTLRToolResults_TestIssue_Type_AssetIssue There was an issue with
  *        the assets in this test. (Value: "assetIssue")
  *    @arg @c kGTLRToolResults_TestIssue_Type_AvailableDeepLinks The

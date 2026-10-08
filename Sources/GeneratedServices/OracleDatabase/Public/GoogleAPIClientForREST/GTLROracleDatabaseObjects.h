@@ -1256,6 +1256,50 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_StorageManagementType_StorageManagementTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_CloudVmClusterProperties.vmBackupStorageType
+
+/**
+ *  Exascale storage.
+ *
+ *  Value: "VM_BACKUP_STORAGE_TYPE_EXASCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeExascale;
+/**
+ *  Local DB server storage.
+ *
+ *  Value: "VM_BACKUP_STORAGE_TYPE_LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeLocal;
+/**
+ *  Unspecified storage type.
+ *
+ *  Value: "VM_BACKUP_STORAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_CloudVmClusterProperties.vmFileSystemStorageType
+
+/**
+ *  Exascale storage.
+ *
+ *  Value: "VM_FILE_SYSTEM_STORAGE_TYPE_EXASCALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeExascale;
+/**
+ *  Local DB server storage.
+ *
+ *  Value: "VM_FILE_SYSTEM_STORAGE_TYPE_LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeLocal;
+/**
+ *  Unspecified storage type.
+ *
+ *  Value: "VM_FILE_SYSTEM_STORAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_Database.opsInsightsStatus
 
 /**
@@ -6777,6 +6821,36 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_TimeZone *timeZone;
 
+/**
+ *  Optional. Specifies whether VM backups are stored on local DB server storage
+ *  or Exascale storage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeExascale
+ *        Exascale storage. (Value: "VM_BACKUP_STORAGE_TYPE_EXASCALE")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeLocal
+ *        Local DB server storage. (Value: "VM_BACKUP_STORAGE_TYPE_LOCAL")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_VmBackupStorageType_VmBackupStorageTypeUnspecified
+ *        Unspecified storage type. (Value:
+ *        "VM_BACKUP_STORAGE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vmBackupStorageType;
+
+/**
+ *  Optional. Specifies whether VM file system storage / VM images are stored on
+ *  local DB server storage or Exascale storage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeExascale
+ *        Exascale storage. (Value: "VM_FILE_SYSTEM_STORAGE_TYPE_EXASCALE")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeLocal
+ *        Local DB server storage. (Value: "VM_FILE_SYSTEM_STORAGE_TYPE_LOCAL")
+ *    @arg @c kGTLROracleDatabase_CloudVmClusterProperties_VmFileSystemStorageType_VmFileSystemStorageTypeUnspecified
+ *        Unspecified storage type. (Value:
+ *        "VM_FILE_SYSTEM_STORAGE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vmFileSystemStorageType;
+
 @end
 
 
@@ -6794,6 +6868,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalStorageSizeGb;
+
+/**
+ *  Optional. Storage size needed for VM storage on Exascale in GBs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalVmStorageSizeGb;
 
 @end
 
@@ -8556,11 +8637,25 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_TestGoldengateConnectionA
 @property(nonatomic, strong, nullable) NSNumber *availableStorageSizeGb;
 
 /**
+ *  Output only. Available storage size for VM storage on Exascale in GBs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableVmStorageSizeGb;
+
+/**
  *  Output only. Total storage size needed for Exascale in GBs.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalStorageSizeGb;
+
+/**
+ *  Output only. Storage size needed for VM storage on Exascale in GBs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalVmStorageSizeGb;
 
 @end
 

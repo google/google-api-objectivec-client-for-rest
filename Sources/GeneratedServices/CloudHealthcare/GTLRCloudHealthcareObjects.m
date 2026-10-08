@@ -494,7 +494,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_BulkDeleteResourcesRequest
-@dynamic gcsDestination, type, until, validateOnly, versionConfig;
+@dynamic gcsDestination, gcsSource, type, until, validateOnly, versionConfig;
 @end
 
 
@@ -1107,7 +1107,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ExportDicomDataRequest
-@dynamic bigqueryDestination, gcsDestination;
+@dynamic bigqueryDestination, filterConfig, gcsDestination;
 @end
 
 

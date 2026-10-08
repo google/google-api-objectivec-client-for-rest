@@ -99,3 +99,22 @@
 }
 
 @end
+
+@implementation GTLRSubscriptionLinkingQuery_PublicationsXReadersEntitlementsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/entitlements";
+  GTLRSubscriptionLinkingQuery_PublicationsXReadersEntitlementsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSubscriptionLinking_ListReaderEntitlementsResponse class];
+  query.loggingName = @"readerrevenuesubscriptionlinking.publications.-.readers.entitlements.list";
+  return query;
+}
+
+@end

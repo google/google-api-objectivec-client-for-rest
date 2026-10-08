@@ -43,3 +43,114 @@
 }
 
 @end
+
+@implementation GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsCreate
+
+@dynamic parent, topicName;
+
++ (instancetype)queryWithObject:(GTLRFirebaseCloudMessaging_TopicSubscription *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/topicSubscriptions";
+  GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseCloudMessaging_TopicSubscription class];
+  query.loggingName = @"fcm.projects.registrations.topicSubscriptions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsDelete
+
+@dynamic allowMissing, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseCloudMessaging_Empty class];
+  query.loggingName = @"fcm.projects.registrations.topicSubscriptions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseCloudMessaging_TopicSubscription class];
+  query.loggingName = @"fcm.projects.registrations.topicSubscriptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/topicSubscriptions";
+  GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseCloudMessaging_ListTopicSubscriptionsResponse class];
+  query.loggingName = @"fcm.projects.registrations.topicSubscriptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsPatch
+
+@dynamic allowMissing, name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseCloudMessaging_TopicSubscription *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseCloudMessagingQuery_ProjectsRegistrationsTopicSubscriptionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseCloudMessaging_TopicSubscription class];
+  query.loggingName = @"fcm.projects.registrations.topicSubscriptions.patch";
+  return query;
+}
+
+@end

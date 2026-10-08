@@ -348,6 +348,144 @@
 
 @end
 
+@implementation GTLRMeetQuery_SpacesMembersBatchUpdate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRMeet_BatchUpdateMembersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/members:batchUpdate";
+  GTLRMeetQuery_SpacesMembersBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMeet_BatchUpdateMembersResponse class];
+  query.loggingName = @"meet.spaces.members.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRMeetQuery_SpacesMembersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRMeet_Member *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/members";
+  GTLRMeetQuery_SpacesMembersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMeet_Member class];
+  query.loggingName = @"meet.spaces.members.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMeetQuery_SpacesMembersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRMeetQuery_SpacesMembersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMeet_Empty class];
+  query.loggingName = @"meet.spaces.members.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMeetQuery_SpacesMembersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRMeetQuery_SpacesMembersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMeet_Member class];
+  query.loggingName = @"meet.spaces.members.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMeetQuery_SpacesMembersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/members";
+  GTLRMeetQuery_SpacesMembersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMeet_ListMembersResponse class];
+  query.loggingName = @"meet.spaces.members.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMeetQuery_SpacesMembersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMeet_Member *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRMeetQuery_SpacesMembersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMeet_Member class];
+  query.loggingName = @"meet.spaces.members.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRMeetQuery_SpacesPatch
 
 @dynamic name, updateMask;

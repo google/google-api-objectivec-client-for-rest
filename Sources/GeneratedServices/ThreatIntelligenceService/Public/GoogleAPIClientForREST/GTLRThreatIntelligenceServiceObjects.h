@@ -19,6 +19,9 @@
 @class GTLRThreatIntelligenceService_AlertDocumentTranslation;
 @class GTLRThreatIntelligenceService_Association;
 @class GTLRThreatIntelligenceService_Audit;
+@class GTLRThreatIntelligenceService_AVDetections;
+@class GTLRThreatIntelligenceService_CertificateDetails;
+@class GTLRThreatIntelligenceService_CommunicationContext;
 @class GTLRThreatIntelligenceService_Configuration;
 @class GTLRThreatIntelligenceService_ConfigurationDetail;
 @class GTLRThreatIntelligenceService_ConfigurationRevision;
@@ -33,23 +36,44 @@
 @class GTLRThreatIntelligenceService_CustomerProfileProduct;
 @class GTLRThreatIntelligenceService_CustomerProfileSecurityConsiderations;
 @class GTLRThreatIntelligenceService_CustomerProfileSummary;
+@class GTLRThreatIntelligenceService_CustomerProfileTechnology;
 @class GTLRThreatIntelligenceService_CustomerProfileWebPresence;
+@class GTLRThreatIntelligenceService_CustomThreatScenarioConfig;
 @class GTLRThreatIntelligenceService_DataLeakAlertDetail;
 @class GTLRThreatIntelligenceService_DataLeakFindingDetail;
+@class GTLRThreatIntelligenceService_DiscoveryDocument;
+@class GTLRThreatIntelligenceService_DnsRegistrationDetails;
+@class GTLRThreatIntelligenceService_DocumentQuery;
+@class GTLRThreatIntelligenceService_DomainConfiguration;
+@class GTLRThreatIntelligenceService_DomainMonitoringAlertDetail;
+@class GTLRThreatIntelligenceService_DomainMonitoringConfig;
+@class GTLRThreatIntelligenceService_DomainMonitoringDnsDetails;
+@class GTLRThreatIntelligenceService_DomainMonitoringDnsRecord;
+@class GTLRThreatIntelligenceService_DomainMonitoringDomain;
+@class GTLRThreatIntelligenceService_DomainMonitoringDomainDetails;
+@class GTLRThreatIntelligenceService_DomainMonitoringFeatureConfig;
+@class GTLRThreatIntelligenceService_DomainMonitoringFindingDetail;
+@class GTLRThreatIntelligenceService_DomainMonitoringGtiDetails;
+@class GTLRThreatIntelligenceService_DomainMonitoringUrlDetails;
+@class GTLRThreatIntelligenceService_DomainMonitoringWhoIsDetails;
+@class GTLRThreatIntelligenceService_DomainSetting;
 @class GTLRThreatIntelligenceService_Evidence;
 @class GTLRThreatIntelligenceService_Facet;
 @class GTLRThreatIntelligenceService_FacetCount;
 @class GTLRThreatIntelligenceService_Finding;
 @class GTLRThreatIntelligenceService_FindingDetail;
+@class GTLRThreatIntelligenceService_Infrastructure;
 @class GTLRThreatIntelligenceService_InitialAccessBrokerAlertDetail;
 @class GTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail;
 @class GTLRThreatIntelligenceService_InsiderThreatAlertDetail;
 @class GTLRThreatIntelligenceService_InsiderThreatFindingDetail;
+@class GTLRThreatIntelligenceService_LegacyMetadata;
 @class GTLRThreatIntelligenceService_Operation_Metadata;
 @class GTLRThreatIntelligenceService_Operation_Response;
 @class GTLRThreatIntelligenceService_PriorityAnalysis;
 @class GTLRThreatIntelligenceService_ProductFix;
 @class GTLRThreatIntelligenceService_PublicExploit;
+@class GTLRThreatIntelligenceService_Relationships;
 @class GTLRThreatIntelligenceService_RelevanceAnalysis;
 @class GTLRThreatIntelligenceService_SeverityAnalysis;
 @class GTLRThreatIntelligenceService_Status;
@@ -58,6 +82,7 @@
 @class GTLRThreatIntelligenceService_TargetTechnologyFindingDetail;
 @class GTLRThreatIntelligenceService_TechnologyWatchListAlertThreshold;
 @class GTLRThreatIntelligenceService_TechnologyWatchListConfig;
+@class GTLRThreatIntelligenceService_ThreatAttributionDetails;
 @class GTLRThreatIntelligenceService_VulnerabilityMatch;
 
 // Generated comments include content from the discovery document; avoid them
@@ -141,6 +166,70 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_State_Tr
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_State_Triaged;
 
 // ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_Alert.tags
+
+/**
+ *  Credential login email domain matches a customer domain.
+ *
+ *  Value: "ALERT_TAG_MATCH_LOGIN_EMAIL_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagMatchLoginEmailDomain;
+/**
+ *  Credential service domain matches a customer domain.
+ *
+ *  Value: "ALERT_TAG_MATCH_SERVICE_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagMatchServiceDomain;
+/**
+ *  Password contains at least one lowercase letter.
+ *
+ *  Value: "ALERT_TAG_PASSWORD_HAS_LOWERCASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasLowercase;
+/**
+ *  Password contains at least one numeric digit.
+ *
+ *  Value: "ALERT_TAG_PASSWORD_HAS_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasNumber;
+/**
+ *  Password contains at least one special character.
+ *
+ *  Value: "ALERT_TAG_PASSWORD_HAS_SPECIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasSpecial;
+/**
+ *  Password contains at least one uppercase letter.
+ *
+ *  Value: "ALERT_TAG_PASSWORD_HAS_UPPERCASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordHasUppercase;
+/**
+ *  Password length is 12 or more characters.
+ *
+ *  Value: "ALERT_TAG_PASSWORD_LENGTH_12_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordLength12Plus;
+/**
+ *  Password length is between 8 and 11 characters inclusive.
+ *
+ *  Value: "ALERT_TAG_PASSWORD_LENGTH_8_TO_11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordLength8To11;
+/**
+ *  Password length is under 8 characters.
+ *
+ *  Value: "ALERT_TAG_PASSWORD_LENGTH_UNDER_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagPasswordLengthUnder8;
+/**
+ *  Default value, should never be set.
+ *
+ *  Value: "ALERT_TAG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Alert_Tags_AlertTagUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRThreatIntelligenceService_Association.type
 
 /**
@@ -221,6 +310,70 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Configuration_
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_Configuration_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_CustomThreatScenarioConfig.scenarioType
+
+/**
+ *  Card Shops.
+ *
+ *  Value: "CARD_SHOPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CardShops;
+/**
+ *  Custom Monitor (Non-templated legacy monitor).
+ *
+ *  Value: "CUSTOM_MONITOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CustomMonitor;
+/**
+ *  Unspecified scenario type.
+ *
+ *  Value: "CUSTOM_THREAT_SCENARIO_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CustomThreatScenarioTypeUnspecified;
+/**
+ *  Data Leaks.
+ *
+ *  Value: "DATA_LEAKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DataLeaks;
+/**
+ *  Deep & Dark Web.
+ *
+ *  Value: "DEEP_DARK_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DeepDarkWeb;
+/**
+ *  Domain Protection.
+ *
+ *  Value: "DOMAIN_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DomainProtection;
+/**
+ *  Initial Access Broker.
+ *
+ *  Value: "INITIAL_ACCESS_BROKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_InitialAccessBroker;
+/**
+ *  Netblocks and Domain Mentions.
+ *
+ *  Value: "NETBLOCKS_AND_DOMAIN_MENTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_NetblocksAndDomainMentions;
+/**
+ *  Ransomware Threats.
+ *
+ *  Value: "RANSOMWARE_THREATS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_RansomwareThreats;
+/**
+ *  Supply Chain Compromise.
+ *
+ *  Value: "SUPPLY_CHAIN_COMPROMISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_SupplyChainCompromise;
+
+// ----------------------------------------------------------------------------
 // GTLRThreatIntelligenceService_DataLeakFindingDetail.severity
 
 /**
@@ -255,17 +408,121 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DataLeakFindin
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DataLeakFindingDetail_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_DocumentQuery.queryType
+
+/**
+ *  Structured JSON condition tree built via query builder.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DocumentQuery_QueryType_Json;
+/**
+ *  Default value, should never be set.
+ *
+ *  Value: "QUERY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DocumentQuery_QueryType_QueryTypeUnspecified;
+/**
+ *  Raw search query string e.g., VTI search syntax.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DocumentQuery_QueryType_String;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_DomainMonitoringGtiDetails.verdict
+
+/**
+ *  Verdict is clean; the entity is considered harmless.
+ *
+ *  Value: "DOMAIN_MONITORING_GTI_VERDICT_BENIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictBenign;
+/**
+ *  Verdict is malicious; high confidence that the entity poses a threat.
+ *
+ *  Value: "DOMAIN_MONITORING_GTI_VERDICT_MALICIOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictMalicious;
+/**
+ *  Verdict is suspicious; possible malicious activity detected.
+ *
+ *  Value: "DOMAIN_MONITORING_GTI_VERDICT_SUSPICIOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictSuspicious;
+/**
+ *  Verdict is undetected; no immediate evidence of malicious intent.
+ *
+ *  Value: "DOMAIN_MONITORING_GTI_VERDICT_UNDETECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUndetected;
+/**
+ *  Verdict is not applicable; not able to generate a verdict for this entity.
+ *
+ *  Value: "DOMAIN_MONITORING_GTI_VERDICT_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUnknown;
+/**
+ *  Default value. The verdict is not set or unspecified.
+ *
+ *  Value: "DOMAIN_MONITORING_GTI_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRThreatIntelligenceService_DomainSetting.state
+
+/**
+ *  Verification is pending. The customer needs to add the TXT record.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainSetting_State_Pending;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainSetting_State_StateUnspecified;
+/**
+ *  Verification succeeded.
+ *
+ *  Value: "VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_DomainSetting_State_Verified;
+
+// ----------------------------------------------------------------------------
 // GTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail.severity
 
-/** Value: "CRITICAL" */
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_Critical;
-/** Value: "HIGH" */
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_High;
-/** Value: "LOW" */
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_Low;
-/** Value: "MEDIUM" */
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_Medium;
-/** Value: "SEVERITY_UNSPECIFIED" */
+/**
+ *  Default value, should never be set.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -1095,6 +1352,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Output only. System taxonomy tags associated with this alert. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
 @end
 
 
@@ -1111,6 +1371,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  *  creation to the name of the field that is set in the detail union.
  */
 @property(nonatomic, copy, nullable) NSString *detailType;
+
+/** Domain Monitoring alert detail type. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringAlertDetail *domainMonitoring;
 
 /** Initial Access Broker alert detail type. */
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_InitialAccessBrokerAlertDetail *initialAccessBroker;
@@ -1261,6 +1524,72 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 
 
 /**
+ *  Details about the detection vendors.
+ */
+@interface GTLRThreatIntelligenceService_AVDetections : GTLRObject
+
+/**
+ *  Optional. Number of vendors that detected the threat.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedVendorCount;
+
+/**
+ *  Optional. Total number of vendors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalVendorCount;
+
+@end
+
+
+/**
+ *  Details regarding the SSL certificate configuration.
+ */
+@interface GTLRThreatIntelligenceService_CertificateDetails : GTLRObject
+
+/** Optional. The SSL certificate issuer. */
+@property(nonatomic, copy, nullable) NSString *issuer;
+
+/** Optional. The SSL subject alternative names. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjectAlternativeNames;
+
+@end
+
+
+/**
+ *  Detailed communication context metadata for documents originating from deep
+ *  and dark web communication channels.
+ */
+@interface GTLRThreatIntelligenceService_CommunicationContext : GTLRObject
+
+/** Optional. Description of the communication channel. */
+@property(nonatomic, copy, nullable) NSString *channelDescription;
+
+/** Optional. Name of the communication channel. */
+@property(nonatomic, copy, nullable) NSString *channelName;
+
+/** Optional. Channel path (e.g. forum path or sub-channel). */
+@property(nonatomic, copy, nullable) NSString *channelPath;
+
+/** Optional. URL of the communication channel. */
+@property(nonatomic, copy, nullable) NSString *channelUrl;
+
+/**
+ *  Optional. Service from the collection event origin (e.g. forum or chat
+ *  service name).
+ */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/** Optional. Conversation thread identifier. */
+@property(nonatomic, copy, nullable) NSString *threadId;
+
+@end
+
+
+/**
  *  A configuration represents a behavior an engine should follow when producing
  *  new findings.
  */
@@ -1332,11 +1661,20 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 /** Customer Profile detail config. */
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_CustomerProfileConfig *customerProfile;
 
+/** Custom Threat Scenario detail config. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_CustomThreatScenarioConfig *customThreatScenario;
+
 /**
  *  Output only. Name of the detail type. Will be set by the server during
  *  creation to the name of the field that is set in the detail union.
  */
 @property(nonatomic, copy, nullable) NSString *detailType;
+
+/** Domain Configuration detail config. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainConfiguration *domainConfiguration;
+
+/** Domain Monitoring detail config. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringConfig *domainMonitoring;
 
 /** Technology Watchlist detail config. */
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_TechnologyWatchListConfig *technologyWatchlist;
@@ -1458,6 +1796,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 
 /** Optional. A summarized version of the customer profile. */
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_CustomerProfileSummary *summary;
+
+/** Optional. Technologies associated with the organization. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_CustomerProfileTechnology *> *technologies;
 
 /** Optional. Technology presence of the organization. */
 @property(nonatomic, copy, nullable) NSString *technologyPresence;
@@ -1624,6 +1965,20 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 
 
 /**
+ *  Technology information for the customer profile.
+ */
+@interface GTLRThreatIntelligenceService_CustomerProfileTechnology : GTLRObject
+
+/** Optional. The citation ids for the technology. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *citationIds;
+
+/** Required. The name of the technology. */
+@property(nonatomic, copy, nullable) NSString *technology;
+
+@end
+
+
+/**
  *  Web presence information for the customer profile.
  */
 @interface GTLRThreatIntelligenceService_CustomerProfileWebPresence : GTLRObject
@@ -1638,12 +1993,72 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 
 
 /**
+ *  CustomThreatScenarioConfig represents a user-defined threat scenario
+ *  configuration.
+ */
+@interface GTLRThreatIntelligenceService_CustomThreatScenarioConfig : GTLRObject
+
+/** Output only. The compiled Lucene query string. */
+@property(nonatomic, copy, nullable) NSString *compiledLuceneQuery;
+
+/**
+ *  Required. The condition driving the scenario, stored as a stringified JSON.
+ *  This is used to query/filter documents.
+ */
+@property(nonatomic, copy, nullable) NSString *documentCondition;
+
+/** Optional. The query used to match documents. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DocumentQuery *documentQuery;
+
+/** Output only. Legacy metadata associated with this scenario/monitor. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_LegacyMetadata *legacyMonitorMetadata;
+
+/**
+ *  Optional. The custom threat scenario type used to create this configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CardShops
+ *        Card Shops. (Value: "CARD_SHOPS")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CustomMonitor
+ *        Custom Monitor (Non-templated legacy monitor). (Value:
+ *        "CUSTOM_MONITOR")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_CustomThreatScenarioTypeUnspecified
+ *        Unspecified scenario type. (Value:
+ *        "CUSTOM_THREAT_SCENARIO_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DataLeaks
+ *        Data Leaks. (Value: "DATA_LEAKS")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DeepDarkWeb
+ *        Deep & Dark Web. (Value: "DEEP_DARK_WEB")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_DomainProtection
+ *        Domain Protection. (Value: "DOMAIN_PROTECTION")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_InitialAccessBroker
+ *        Initial Access Broker. (Value: "INITIAL_ACCESS_BROKER")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_NetblocksAndDomainMentions
+ *        Netblocks and Domain Mentions. (Value:
+ *        "NETBLOCKS_AND_DOMAIN_MENTIONS")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_RansomwareThreats
+ *        Ransomware Threats. (Value: "RANSOMWARE_THREATS")
+ *    @arg @c kGTLRThreatIntelligenceService_CustomThreatScenarioConfig_ScenarioType_SupplyChainCompromise
+ *        Supply Chain Compromise. (Value: "SUPPLY_CHAIN_COMPROMISE")
+ */
+@property(nonatomic, copy, nullable) NSString *scenarioType;
+
+@end
+
+
+/**
  *  Captures the specific details of Data Leak alert.
  */
 @interface GTLRThreatIntelligenceService_DataLeakAlertDetail : GTLRObject
 
-/** Required. Array of ids to accommodate multiple discovery documents */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds;
+/**
+ *  Optional. Deprecated: Use `discovery_documents` instead. Array of ids to
+ *  accommodate multiple discovery documents.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds GTLR_DEPRECATED;
+
+/** Output only. New structured metadata payload. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_DiscoveryDocument *> *discoveryDocuments;
 
 /**
  *  Required. The severity of the Data Leak alert. Allowed values are: * `LOW` *
@@ -1659,12 +2074,15 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  */
 @interface GTLRThreatIntelligenceService_DataLeakFindingDetail : GTLRObject
 
+/** Optional. The discovery document associated with the Data Leak finding. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DiscoveryDocument *discoveryDocument;
+
 /**
- *  Required. The unique identifier of the document that triggered the Data Leak
- *  finding. This ID can be used to retrieve the content of the document for
- *  further analysis.
+ *  Optional. Deprecated: Use `discovery_document` instead. The unique
+ *  identifier of the document that triggered the Data Leak finding. This ID can
+ *  be used to retrieve the content of the document for further analysis.
  */
-@property(nonatomic, copy, nullable) NSString *documentId;
+@property(nonatomic, copy, nullable) NSString *documentId GTLR_DEPRECATED;
 
 /**
  *  Required. Reference to the match score of the Data Leak finding. This is a
@@ -1693,6 +2111,401 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  *        Default value, should never be set. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  Replaces the raw string ID to hold associated metadata.
+ */
+@interface GTLRThreatIntelligenceService_DiscoveryDocument : GTLRObject
+
+/**
+ *  Optional. Detailed communication context metadata for documents originating
+ *  from deep and dark web communication channels.
+ */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_CommunicationContext *communicationContext;
+
+/** Output only. The identifier of the discovery document. */
+@property(nonatomic, copy, nullable) NSString *documentId;
+
+/**
+ *  Output only. The classification/type of the document (e.g. `COMMUNICATION`,
+ *  `DDW_COMMUNICATION`, `message`).
+ */
+@property(nonatomic, copy, nullable) NSString *documentType;
+
+@end
+
+
+/**
+ *  Extracted WHOIS and DNS registration details of the domain.
+ */
+@interface GTLRThreatIntelligenceService_DnsRegistrationDetails : GTLRObject
+
+/**
+ *  Optional. The specific timestamp when the current domain registration
+ *  expires.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Optional. Indicates whether private registration is enabled on the WHOIS
+ *  record.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *privateRegistration;
+
+/**
+ *  Optional. The country code of the registrant (e.g., US). Use ISO 3166-1
+ *  alpha-2 codes
+ */
+@property(nonatomic, copy, nullable) NSString *registrantCountry;
+
+/**
+ *  Optional. The registrar where the domain was registered (e.g., NameCheap).
+ */
+@property(nonatomic, copy, nullable) NSString *registrar;
+
+/**
+ *  Optional. The specific timestamp when the domain registration was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *registrationTime;
+
+@end
+
+
+/**
+ *  Represents a query to match documents.
+ */
+@interface GTLRThreatIntelligenceService_DocumentQuery : GTLRObject
+
+/** Required. The query string. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Required. The type of query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_DocumentQuery_QueryType_Json
+ *        Structured JSON condition tree built via query builder. (Value:
+ *        "JSON")
+ *    @arg @c kGTLRThreatIntelligenceService_DocumentQuery_QueryType_QueryTypeUnspecified
+ *        Default value, should never be set. (Value: "QUERY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_DocumentQuery_QueryType_String Raw
+ *        search query string e.g., VTI search syntax. (Value: "STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *queryType;
+
+@end
+
+
+/**
+ *  Configuration holding settings for one or more monitored domains.
+ */
+@interface GTLRThreatIntelligenceService_DomainConfiguration : GTLRObject
+
+/** Optional. A list of settings for individual domains. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_DomainSetting *> *domainSettings;
+
+@end
+
+
+/**
+ *  A detailed object for a Domain or URL alert.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringAlertDetail : GTLRObject
+
+/** Optional. The DNS details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringDnsDetails *dnsDetails;
+
+/** Details specific to a monitored domain. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringDomainDetails *domainDetails;
+
+/** Optional. The GTI details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringGtiDetails *gtiDetails;
+
+/** Optional. The infrastructure of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_Infrastructure *infrastructure;
+
+/** Optional. The matched domain. */
+@property(nonatomic, copy, nullable) NSString *matchedDomain;
+
+/** The protected brand name that triggered the alert. */
+@property(nonatomic, copy, nullable) NSString *protectedBrand;
+
+/** The protected domain that triggered the alert. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringDomainDetails *protectedDomain;
+
+/** Optional. Extracted WHOIS and DNS registration details. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DnsRegistrationDetails *registrationDetails;
+
+/** Optional. The relationships of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_Relationships *relationships;
+
+/** Optional. The threat attribution details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_ThreatAttributionDetails *threatAttributionDetails;
+
+/** Details specific to a monitored URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringUrlDetails *urlDetails;
+
+/** Optional. The whois details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringWhoIsDetails *whoisDetails;
+
+@end
+
+
+/**
+ *  Any account-level configuration options will go here.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringConfig : GTLRObject
+
+/** The domains to use as "seeds" for Suspicious Domain Monitoring. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_DomainMonitoringDomain *> *domains;
+
+@end
+
+
+/**
+ *  The DNS details of the domain.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringDnsDetails : GTLRObject
+
+/** Optional. The DNS records of the domain. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_DomainMonitoringDnsRecord *> *dnsRecords;
+
+/** Optional. The time the DNS details were retrieved. */
+@property(nonatomic, strong, nullable) GTLRDateTime *retrievalTime;
+
+@end
+
+
+/**
+ *  The DNS record of the domain.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringDnsRecord : GTLRObject
+
+/** Optional. The ASN hosting the domain. */
+@property(nonatomic, copy, nullable) NSString *asnHosting;
+
+/** Optional. The region code of the ASN. Use ISO 3166-1 alpha-2 codes. */
+@property(nonatomic, copy, nullable) NSString *asnRegionCode;
+
+/**
+ *  Optional. The region code associated with the resolved IP. Use ISO 3166-1
+ *  alpha-2 codes.
+ */
+@property(nonatomic, copy, nullable) NSString *ipRegionCode;
+
+/** Optional. The value of the DNS record. */
+@property(nonatomic, copy, nullable) NSString *recordData;
+
+/** Optional. The resolved IP address. */
+@property(nonatomic, copy, nullable) NSString *resolvedIp;
+
+/**
+ *  Optional. The TTL of the DNS record.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ttl;
+
+/** Optional. The type of the DNS record. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A Domain Monitoring "domain"
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringDomain : GTLRObject
+
+/** The domain name to match against. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+@end
+
+
+/**
+ *  Details specific to a monitored domain.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringDomainDetails : GTLRObject
+
+/** Required. The domain name to match against. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+@end
+
+
+/**
+ *  Specific configuration for the Domain Monitoring feature.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringFeatureConfig : GTLRObject
+
+/**
+ *  Optional. Whether the Domain Monitoring feature is disabled for the domain.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  A detailed object for a Domain or URL finding.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringFindingDetail : GTLRObject
+
+/** Optional. The DNS details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringDnsDetails *dnsDetails;
+
+/** Details specific to a monitored domain. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringDomainDetails *domainDetails;
+
+/** Optional. The GTI details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringGtiDetails *gtiDetails;
+
+/** Optional. The infrastructure of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_Infrastructure *infrastructure;
+
+/** Optional. The matched domain. */
+@property(nonatomic, copy, nullable) NSString *matchedDomain;
+
+/** The protected brand name that triggered the alert. */
+@property(nonatomic, copy, nullable) NSString *protectedBrand;
+
+/** The protected domain that triggered the alert. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringDomainDetails *protectedDomain;
+
+/** Optional. Extracted WHOIS and DNS registration details. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DnsRegistrationDetails *registrationDetails;
+
+/** Optional. The relationships of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_Relationships *relationships;
+
+/** Optional. The threat attribution details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_ThreatAttributionDetails *threatAttributionDetails;
+
+/** Details specific to a monitored URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringUrlDetails *urlDetails;
+
+/** Optional. The whois details of the domain or URL. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringWhoIsDetails *whoisDetails;
+
+@end
+
+
+/**
+ *  The GTI details of the domain.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringGtiDetails : GTLRObject
+
+/** Optional. Detection counts across vendor feeds. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_AVDetections *avDetections;
+
+/**
+ *  Optional. The permutation technique used for the domain (e.g., dictionary,
+ *  homoglyph).
+ */
+@property(nonatomic, copy, nullable) NSString *domainPermutation;
+
+/** Optional. The GTI link for the domain. */
+@property(nonatomic, copy, nullable) NSString *gtiDomainUri;
+
+/**
+ *  Optional. The GTI score of the domain. The threat score is a number between
+ *  0 and 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gtiScore;
+
+/**
+ *  Optional. The threat classification of the domain, obtained from the domain
+ *  report (e.g. DomainMonitoring).
+ */
+@property(nonatomic, copy, nullable) NSString *threatClassification;
+
+/**
+ *  Output only. The verdict of the domain.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictBenign
+ *        Verdict is clean; the entity is considered harmless. (Value:
+ *        "DOMAIN_MONITORING_GTI_VERDICT_BENIGN")
+ *    @arg @c kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictMalicious
+ *        Verdict is malicious; high confidence that the entity poses a threat.
+ *        (Value: "DOMAIN_MONITORING_GTI_VERDICT_MALICIOUS")
+ *    @arg @c kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictSuspicious
+ *        Verdict is suspicious; possible malicious activity detected. (Value:
+ *        "DOMAIN_MONITORING_GTI_VERDICT_SUSPICIOUS")
+ *    @arg @c kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUndetected
+ *        Verdict is undetected; no immediate evidence of malicious intent.
+ *        (Value: "DOMAIN_MONITORING_GTI_VERDICT_UNDETECTED")
+ *    @arg @c kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUnknown
+ *        Verdict is not applicable; not able to generate a verdict for this
+ *        entity. (Value: "DOMAIN_MONITORING_GTI_VERDICT_UNKNOWN")
+ *    @arg @c kGTLRThreatIntelligenceService_DomainMonitoringGtiDetails_Verdict_DomainMonitoringGtiVerdictUnspecified
+ *        Default value. The verdict is not set or unspecified. (Value:
+ *        "DOMAIN_MONITORING_GTI_VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+@end
+
+
+/**
+ *  Details specific to a monitored URL.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringUrlDetails : GTLRObject
+
+/** Required. The URL to match against. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  The whois details of the domain.
+ */
+@interface GTLRThreatIntelligenceService_DomainMonitoringWhoIsDetails : GTLRObject
+
+/** Optional. The time the whois details were retrieved. */
+@property(nonatomic, strong, nullable) GTLRDateTime *retrievalTime;
+
+/** Optional. The whois details of the domain. */
+@property(nonatomic, copy, nullable) NSString *whois;
+
+@end
+
+
+/**
+ *  Feature settings and toggles for a single specific domain.
+ */
+@interface GTLRThreatIntelligenceService_DomainSetting : GTLRObject
+
+/** Required. The domain name to match against. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** Optional. If not present, Domain Monitoring is enabled. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringFeatureConfig *domainMonitoringConfig;
+
+/**
+ *  Output only. The verification state of the domain.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRThreatIntelligenceService_DomainSetting_State_Pending
+ *        Verification is pending. The customer needs to add the TXT record.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRThreatIntelligenceService_DomainSetting_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRThreatIntelligenceService_DomainSetting_State_Verified
+ *        Verification succeeded. (Value: "VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1867,6 +2680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  */
 @property(nonatomic, copy, nullable) NSString *detailType;
 
+/** Domain Monitoring finding detail type. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DomainMonitoringFindingDetail *domainMonitoring;
+
 /** Initial Access Broker finding detail type. */
 @property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail *initialAccessBroker;
 
@@ -1896,12 +2712,43 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 
 
 /**
+ *  Response message for GetPassword.
+ */
+@interface GTLRThreatIntelligenceService_GetPasswordResponse : GTLRObject
+
+/** The decrypted cleartext password for the compromised credential. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+@end
+
+
+/**
+ *  Core infrastructure observations associated with the URL or Domain.
+ */
+@interface GTLRThreatIntelligenceService_Infrastructure : GTLRObject
+
+/** Optional. SSL certificate details. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_CertificateDetails *certificateDetails;
+
+/** Optional. The raw URL response string. */
+@property(nonatomic, copy, nullable) NSString *urlResponse;
+
+@end
+
+
+/**
  *  Captures the specific details of InitialAccessBroker (IAB) alert.
  */
 @interface GTLRThreatIntelligenceService_InitialAccessBrokerAlertDetail : GTLRObject
 
-/** Required. Array of ids to accommodate multiple discovery documents */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds;
+/**
+ *  Optional. Deprecated: Use `discovery_documents` instead. Array of ids to
+ *  accommodate multiple discovery documents.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds GTLR_DEPRECATED;
+
+/** Output only. New structured metadata payload. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_DiscoveryDocument *> *discoveryDocuments;
 
 /**
  *  Required. The severity of the Initial Access Broker (IAB) alert. Allowed
@@ -1917,12 +2764,15 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  */
 @interface GTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail : GTLRObject
 
+/** Optional. The discovery document associated with the IAB finding. */
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DiscoveryDocument *discoveryDocument;
+
 /**
- *  Required. The unique identifier of the document that triggered the IAB
- *  finding. This ID can be used to retrieve the content of the document for
- *  further analysis.
+ *  Optional. Deprecated: Use `discovery_document` instead. The unique
+ *  identifier of the document that triggered the IAB finding. This ID can be
+ *  used to retrieve the content of the document for further analysis.
  */
-@property(nonatomic, copy, nullable) NSString *documentId;
+@property(nonatomic, copy, nullable) NSString *documentId GTLR_DEPRECATED;
 
 /**
  *  Required. Reference to the match score of the IAB finding. This is a float
@@ -1939,15 +2789,15 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  *
  *  Likely values:
  *    @arg @c kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_Critical
- *        Value "CRITICAL"
+ *        Critical severity. (Value: "CRITICAL")
  *    @arg @c kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_High
- *        Value "HIGH"
+ *        High severity. (Value: "HIGH")
  *    @arg @c kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_Low
- *        Value "LOW"
+ *        Low severity. (Value: "LOW")
  *    @arg @c kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_Medium
- *        Value "MEDIUM"
+ *        Medium severity. (Value: "MEDIUM")
  *    @arg @c kGTLRThreatIntelligenceService_InitialAccessBrokerFindingDetail_Severity_SeverityUnspecified
- *        Value "SEVERITY_UNSPECIFIED"
+ *        Default value, should never be set. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
@@ -1959,8 +2809,14 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  */
 @interface GTLRThreatIntelligenceService_InsiderThreatAlertDetail : GTLRObject
 
-/** Required. Array of ids to accommodate multiple discovery documents */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds;
+/**
+ *  Optional. Deprecated: Use `discovery_documents` instead. Array of ids to
+ *  accommodate multiple discovery documents.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds GTLR_DEPRECATED;
+
+/** Output only. New structured metadata payload. */
+@property(nonatomic, strong, nullable) NSArray<GTLRThreatIntelligenceService_DiscoveryDocument *> *discoveryDocuments;
 
 /**
  *  Required. The severity of the Insider Threat alert. Allowed values are: *
@@ -1977,11 +2833,16 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 @interface GTLRThreatIntelligenceService_InsiderThreatFindingDetail : GTLRObject
 
 /**
- *  Required. The unique identifier of the document that triggered the
- *  InsiderThreat finding. This ID can be used to retrieve the content of the
- *  document for further analysis.
+ *  Optional. The discovery document associated with the Insider Threat finding.
  */
-@property(nonatomic, copy, nullable) NSString *documentId;
+@property(nonatomic, strong, nullable) GTLRThreatIntelligenceService_DiscoveryDocument *discoveryDocument;
+
+/**
+ *  Optional. Deprecated: Use `discovery_document` instead. The unique
+ *  identifier of the document that triggered the InsiderThreat finding. This ID
+ *  can be used to retrieve the content of the document for further analysis.
+ */
+@property(nonatomic, copy, nullable) NSString *documentId GTLR_DEPRECATED;
 
 /**
  *  Required. Reference to the match score of the InsiderThreat finding. This is
@@ -2010,6 +2871,96 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  *        Default value, should never be set. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  Legacy metadata associated with this scenario/monitor.
+ */
+@interface GTLRThreatIntelligenceService_LegacyMetadata : GTLRObject
+
+/**
+ *  Output only. Whether aggregation is enabled for alerts from this monitor.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aggregationEnabled;
+
+/**
+ *  Output only. Similarity threshold for aggregation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aggregationSimilarity;
+
+/**
+ *  Output only. Version of the condition schema.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conditionVersion;
+
+/** Output only. User ID who created the monitor. */
+@property(nonatomic, copy, nullable) NSString *creatorUserId;
+
+/**
+ *  Output only. Description of the legacy monitor.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Code indicating why the monitor is disabled (if applicable).
+ */
+@property(nonatomic, copy, nullable) NSString *disabledCode;
+
+/** Output only. Reason why the monitor is disabled (if applicable). */
+@property(nonatomic, copy, nullable) NSString *disabledReason;
+
+/** Output only. Name of the legacy monitor. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Deprecated: Whether email notifications are enabled. This field
+ *  will not be used as email notifications are handled through the GTI Mail
+ *  Hub.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *emailNotificationEnabled GTLR_DEPRECATED;
+
+/**
+ *  Output only. Deprecated: Whether email notifications are
+ *  intermediate/immediate. This field will not be used as email notifications
+ *  are handled through the GTI Mail Hub.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *emailNotificationImmediate GTLR_DEPRECATED;
+
+/** Output only. Unique identifier of the legacy monitor. */
+@property(nonatomic, copy, nullable) NSString *legacyMonitorId;
+
+/** Output only. Time the legacy monitor was considered stale. */
+@property(nonatomic, strong, nullable) GTLRDateTime *staleTime;
+
+/** Output only. ID of the template this monitor was created from. */
+@property(nonatomic, copy, nullable) NSString *templateId;
+
+/** Output only. ID of the tenant owning the monitor. */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+/** Output only. User ID who last updated the monitor. */
+@property(nonatomic, copy, nullable) NSString *updaterUserId;
+
+/**
+ *  Output only. Version of the monitor configuration.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
 
 @end
 
@@ -2393,6 +3344,23 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
 
 
 /**
+ *  Related entities and domains observed for the target.
+ */
+@interface GTLRThreatIntelligenceService_Relationships : GTLRObject
+
+/** Optional. Related URLs associated with the domain. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relatedUrls;
+
+/** Optional. Sibling domains sharing the same IP address. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *siblingDomains;
+
+/** Optional. Subdomains associated with the target domain or URL. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subdomains;
+
+@end
+
+
+/**
  *  Structured relevance analysis for a threat.
  */
 @interface GTLRThreatIntelligenceService_RelevanceAnalysis : GTLRObject
@@ -2665,6 +3633,23 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_VulnerabilityM
  *  office 360 Apache Server 3.5 cpe:2.3:a:microsoft:outlook:*:*:*:*:*:*:*:*
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *technologies;
+
+@end
+
+
+/**
+ *  Threat attribution information (actor, campaign, etc.).
+ */
+@interface GTLRThreatIntelligenceService_ThreatAttributionDetails : GTLRObject
+
+/** Optional. The threat actors associated with the target. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actors;
+
+/** Optional. The threat collections detected. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *collections;
+
+/** Optional. The malware associated with the threat. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *malware;
 
 @end
 

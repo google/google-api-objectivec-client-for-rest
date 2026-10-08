@@ -22,6 +22,7 @@
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_Labels;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1NotificationsRule;
+@class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule;
 @class GTLRCloudBillingBudget_GoogleTypeDate;
 @class GTLRCloudBillingBudget_GoogleTypeMoney;
@@ -49,7 +50,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  Only billing account-level users have full access to the budget.
  *  Project-level users have read-only access, even if they have the required
- *  IAM permissions.
+ *  IAM permissions. Not supported when `spend_cap` is set.
  *
  *  Value: "BILLING_ACCOUNT"
  */
@@ -113,13 +114,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeAllCredits;
 /**
  *  [Credit
- *  types](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type)
+ *  types](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery-tables/detailed-usage#credits-type)
  *  specified in the credit_types field are subtracted from the gross cost to
  *  determine the spend for threshold calculations.
  *
  *  Value: "INCLUDE_SPECIFIED_CREDITS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeSpecifiedCredits;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap.inputState
+
+/**
+ *  Spend cap is waiting for the next period to start.
+ *
+ *  Value: "AWAITING_NEXT_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_AwaitingNextPeriod;
+/**
+ *  Spend cap is configured and active.
+ *
+ *  Value: "CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_Configured;
+/**
+ *  Spend cap limit is reached and enforced.
+ *
+ *  Value: "ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_Enforced;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap.outputState
+
+/**
+ *  Spend cap is waiting for the next period to start.
+ *
+ *  Value: "AWAITING_NEXT_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_AwaitingNextPeriod;
+/**
+ *  Spend cap is configured and active.
+ *
+ *  Value: "CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_Configured;
+/**
+ *  Spend cap limit is reached and enforced.
+ *
+ *  Value: "ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_Enforced;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule.spendBasis
@@ -140,7 +197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Use forecasted spend for the period as the basis for comparison against the
  *  threshold. FORECASTED_SPEND can only be set when the budget's time period is
  *  a Filter.calendar_period. It cannot be set in combination with
- *  Filter.custom_period.
+ *  Filter.custom_period. Not supported when `spend_cap` is set.
  *
  *  Value: "FORECASTED_SPEND"
  */
@@ -149,19 +206,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  A budget is a plan that describes what you expect to spend on Cloud
  *  projects, plus the rules to execute as spend is tracked against that plan,
- *  (for example, send an alert when 90% of the target spend is met). The budget
- *  time period is configurable, with options such as month (default), quarter,
- *  year, or custom time period.
+ *  (for example, send an alert when 90% of the target spend is met, or pause
+ *  usage of the specified service when a spend cap budget is enforced). For
+ *  alerts-only budgets, the budget time period is configurable, with options
+ *  such as month (default), quarter, year, or custom time period. For spend cap
+ *  budgets, the budget time period is limited to month.
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget : GTLRObject
 
-/** Required. Budgeted amount. */
+/**
+ *  Required. Budgeted amount. When `spend_cap` is set, `specified_amount` must
+ *  be set to a non-negative amount (>= 0); `last_period_amount` is not
+ *  supported.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1BudgetAmount *amount;
 
 /**
  *  Optional. Filters that define which resources are used to compute the actual
  *  spend against the budget amount, such as projects, services, and the
- *  budget's time period, as well as other filters.
+ *  budget's time period, as well as other filters. Must be set when `spend_cap`
+ *  is set. See `Filter` fields for spend cap restrictions.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter *budgetFilter;
 
@@ -187,12 +251,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 /**
  *  Optional. Rules to apply to notifications sent based on budget spend and
- *  thresholds.
+ *  thresholds. Must be set when `spend_cap` is set. For spend caps,
+ *  `enable_project_level_recipients` must be set to `true`,
+ *  `disable_default_iam_recipients` must be `false` (or unset), and
+ *  `pubsub_topic` and `monitoring_notification_channels` must be empty.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1NotificationsRule *notificationsRule;
 
 /**
- *  ownershipScope
+ *  Optional. When `spend_cap` is set, must be `OWNERSHIP_SCOPE_UNSPECIFIED` or
+ *  `ALL_USERS`. `BILLING_ACCOUNT` is not supported for spend caps.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_AllUsers
@@ -202,7 +270,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_BillingAccount
  *        Only billing account-level users have full access to the budget.
  *        Project-level users have read-only access, even if they have the
- *        required IAM permissions. (Value: "BILLING_ACCOUNT")
+ *        required IAM permissions. Not supported when `spend_cap` is set.
+ *        (Value: "BILLING_ACCOUNT")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget_OwnershipScope_OwnershipScopeUnspecified
  *        Unspecified ownership scope, same as ALL_USERS. (Value:
  *        "OWNERSHIP_SCOPE_UNSPECIFIED")
@@ -210,10 +279,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @property(nonatomic, copy, nullable) NSString *ownershipScope;
 
 /**
+ *  Optional. The spend cap configured for this budget. When `spend_cap` is set,
+ *  strict field restrictions apply to the budget (see field-level comments on
+ *  `ownership_scope`, `budget_filter`, `amount`, `threshold_rules`, and
+ *  `notifications_rule`). When `spend_cap.output_state` is `ENFORCED`, only
+ *  `spend_cap.input_state` can be modified in an `UpdateBudget` request (e.g.,
+ *  setting `input_state` to `AWAITING_NEXT_PERIOD` to lift the cap); modifying
+ *  any other budget field while enforced will fail with `FAILED_PRECONDITION`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap *spendCap;
+
+/**
  *  Optional. Rules that trigger alerts (notifications of thresholds being
  *  crossed) when spend exceeds the specified percentages of the budget.
  *  Optional for `pubsubTopic` notifications. Required if using email
- *  notifications.
+ *  notifications. Must be set when `spend_cap` is set. Spend caps must have
+ *  exactly three `CURRENT_SPEND` threshold rules with `threshold_percent`
+ *  values of `0.5`, `0.8`, and `1.0` (50%, 80%, and 100%). `FORECASTED_SPEND`
+ *  threshold rules are not supported for spend caps.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule *> *thresholdRules;
 
@@ -229,7 +312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Use the last period's actual spend as the budget for the present period.
  *  LastPeriodAmount can only be set when the budget's time period is a
  *  Filter.calendar_period. It cannot be set in combination with
- *  Filter.custom_period.
+ *  Filter.custom_period. Not supported when `spend_cap` is set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount *lastPeriodAmount;
 
@@ -238,7 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  specified when creating a budget, it must match the currency of the billing
  *  account. If specified when updating a budget, it must match the
  *  currency_code of the existing budget. The `currency_code` is provided on
- *  output.
+ *  output. Must be set when `spend_cap` is set; must be non-negative (>= 0).
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleTypeMoney *specifiedAmount;
 
@@ -273,7 +356,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  example, assume that CalendarPeriod.QUARTER is set. The budget tracks usage
  *  from April 1 to June 30, when the current calendar month is April, May,
  *  June. After that, it tracks usage from July 1 to September 30 when the
- *  current calendar month is July, August, September, so on.
+ *  current calendar month is July, August, September, so on. When `spend_cap`
+ *  is set, must be `MONTH` (or `usage_period` left unset, which defaults to
+ *  `MONTH`). `QUARTER` and `YEAR` are not supported for spend caps.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified
@@ -295,14 +380,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Optional. If Filter.credit_types_treatment is INCLUDE_SPECIFIED_CREDITS,
  *  this is a list of credit types to be subtracted from gross cost to determine
  *  the spend for threshold calculations. See [a list of acceptable credit type
- *  values](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type).
+ *  values](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery-tables/detailed-usage#credits-type).
  *  If Filter.credit_types_treatment is **not** INCLUDE_SPECIFIED_CREDITS, this
- *  field must be empty.
+ *  field must be empty. Not supported when `spend_cap` is set; must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *creditTypes;
 
 /**
- *  Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`.
+ *  Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`. Must be set
+ *  to `EXCLUDE_ALL_CREDITS` when `spend_cap` is set.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified
@@ -315,7 +401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        the spend for threshold calculations. (Value: "INCLUDE_ALL_CREDITS")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeSpecifiedCredits
  *        [Credit
- *        types](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type)
+ *        types](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery-tables/detailed-usage#credits-type)
  *        specified in the credit_types field are subtracted from the gross cost
  *        to determine the spend for threshold calculations. (Value:
  *        "INCLUDE_SPECIFIED_CREDITS")
@@ -324,7 +410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 /**
  *  Optional. Specifies to track usage from any start date (required) to any end
- *  date (optional). This time period is static, it does not recur.
+ *  date (optional). This time period is static, it does not recur. Not
+ *  supported when `spend_cap` is set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1CustomPeriod *customPeriod;
 
@@ -333,7 +420,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  set of labeled resources should be included in the budget. If omitted, the
  *  report includes all labeled and unlabeled usage. An object containing a
  *  single `"key": value` pair. Example: `{ "name": "wrench" }`. _Currently,
- *  multiple entries or multiple values per entry are not allowed._
+ *  multiple entries or multiple values per entry are not allowed._ Not
+ *  supported when `spend_cap` is set; must be empty.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_Labels *labels;
 
@@ -341,7 +429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Optional. A set of projects of the form `projects/{project}`, specifying
  *  that usage from only this set of projects should be included in the budget.
  *  If omitted, the report includes all usage for the billing account,
- *  regardless of which project the usage occurred on.
+ *  regardless of which project the usage occurred on. Must be set when
+ *  `spend_cap` is set; must contain exactly one project.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projects;
 
@@ -352,7 +441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  the budget. If omitted, the budget includes all usage that the billing
  *  account pays for. If the folder or organization contains projects that are
  *  paid for by a different Cloud Billing account, the budget *doesn't* apply to
- *  those projects.
+ *  those projects. Not supported when `spend_cap` is set; must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceAncestors;
 
@@ -361,7 +450,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  that usage from only this set of services should be included in the budget.
  *  If omitted, the report includes usage for all the services. The service
  *  names are available through the Catalog API:
- *  https://cloud.google.com/billing/v1/how-tos/catalog-api.
+ *  https://docs.cloud.google.com/billing/v1/how-tos/catalog-api. When
+ *  `spend_cap` is set, the services filter must be set and must contain exactly
+ *  one service from this list of eligible services:
+ *  https://docs.cloud.google.com/billing/docs/how-to/budgets-spend-caps#eligible-services.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -371,7 +463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  in the budget. If a subaccount is set to the name of the parent account,
  *  usage from the parent account is included. If the field is omitted, the
  *  report includes usage from the parent account and all subaccounts, if they
- *  exist.
+ *  exist. Not supported when `spend_cap` is set; must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subaccounts;
 
@@ -383,7 +475,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  set of labeled resources should be included in the budget. If omitted, the
  *  report includes all labeled and unlabeled usage. An object containing a
  *  single `"key": value` pair. Example: `{ "name": "wrench" }`. _Currently,
- *  multiple entries or multiple values per entry are not allowed._
+ *  multiple entries or multiple values per entry are not allowed._ Not
+ *  supported when `spend_cap` is set; must be empty.
  *
  *  @note This class is documented as having more properties of NSArrays of any
  *        valid JSON type. Use @c -additionalJSONKeys and @c
@@ -441,7 +534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Optional. When set to true, disables default notifications sent when a
  *  threshold is exceeded. Default notifications are sent to those with Billing
  *  Account Administrator and Billing Account User IAM roles for the target
- *  account.
+ *  account. Must be `false` (or unset) when `spend_cap` is set; default
+ *  notifications cannot be disabled for spend caps.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -452,7 +546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  configured, notifications will be sent to project level recipients of that
  *  project. This field will be ignored if the budget has multiple or no project
  *  configured. Currently, project level recipients are the users with `Owner`
- *  role on a cloud project.
+ *  role on a cloud project. Must be set to `true` when `spend_cap` is set.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -469,13 +563,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  monitoring notification channels before you link them to a budget_. For
  *  guidance on setting up notification channels to use with budgets, see
  *  [Customize budget alert email
- *  recipients](https://cloud.google.com/billing/docs/how-to/budgets-notification-recipients).
+ *  recipients](https://docs.cloud.google.com/billing/docs/how-to/budgets-notification-recipients).
  *  For Cloud Billing budget alerts, you _must use email notification channels_.
  *  The other types of notification channels are _not_ supported, such as Slack,
  *  SMS, or PagerDuty. If you want to [send budget notifications to
- *  Slack](https://cloud.google.com/billing/docs/how-to/notify#send_notifications_to_slack),
+ *  Slack](https://docs.cloud.google.com/billing/docs/how-to/send-notifications-to-slack),
  *  use a pubsubTopic and configure [programmatic
- *  notifications](https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications).
+ *  notifications](https://docs.cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications).
+ *  Not supported when `spend_cap` is set; must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *monitoringNotificationChannels;
 
@@ -485,7 +580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  are sent to the topic at regular intervals; the timing of the updates is not
  *  dependent on the [threshold rules](#thresholdrule) you've set. Note that if
  *  you want your [Pub/Sub JSON
- *  object](https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification_format)
+ *  object](https://docs.cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification-format)
  *  to contain data for `alertThresholdExceeded`, you need at least one [alert
  *  threshold rule](#thresholdrule). When you set threshold rules, you must also
  *  enable at least one of the email notification options, either using the
@@ -493,12 +588,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  use Pub/Sub topics with budgets, you must do the following: 1. Create the
  *  Pub/Sub topic before connecting it to your budget. For guidance, see [Manage
  *  programmatic budget alert
- *  notifications](https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications).
+ *  notifications](https://docs.cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications).
  *  2. Grant the API caller the `pubsub.topics.setIamPolicy` permission on the
  *  Pub/Sub topic. If not set, the API call fails with PERMISSION_DENIED. For
  *  additional details on Pub/Sub roles and permissions, see [Permissions
  *  required for this
- *  task](https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#permissions_required_for_this_task).
+ *  task](https://docs.cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#permissions).
+ *  Not supported when `spend_cap` is set; must be empty.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -506,9 +602,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Optional. Required when NotificationsRule.pubsub_topic is set. The schema
  *  version of the notification sent to NotificationsRule.pubsub_topic. Only
  *  "1.0" is accepted. It represents the JSON schema as defined in
- *  https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification_format.
+ *  https://docs.cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification-format.
  */
 @property(nonatomic, copy, nullable) NSString *schemaVersion;
+
+@end
+
+
+/**
+ *  SpendCap defines the spend cap configuration and state.
+ */
+@interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap : GTLRObject
+
+/**
+ *  Required. The desired state specified by the user. Valid values for
+ *  mutation: - `CONFIGURED`: Must be set when creating a spend cap
+ *  (`CreateBudget`). Also valid when updating (`UpdateBudget`) to activate the
+ *  spend cap. - `AWAITING_NEXT_PERIOD`: Valid only when updating
+ *  (`UpdateBudget`) to explicitly lift an enforced cap. Supplying any other
+ *  value will result in an INVALID_ARGUMENT error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_AwaitingNextPeriod
+ *        Spend cap is waiting for the next period to start. (Value:
+ *        "AWAITING_NEXT_PERIOD")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_Configured
+ *        Spend cap is configured and active. (Value: "CONFIGURED")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_Enforced
+ *        Spend cap limit is reached and enforced. (Value: "ENFORCED")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_InputState_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *inputState;
+
+/**
+ *  Output only. The actual resting state of the spend cap.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_AwaitingNextPeriod
+ *        Spend cap is waiting for the next period to start. (Value:
+ *        "AWAITING_NEXT_PERIOD")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_Configured
+ *        Spend cap is configured and active. (Value: "CONFIGURED")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_Enforced
+ *        Spend cap limit is reached and enforced. (Value: "ENFORCED")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1SpendCap_OutputState_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *outputState;
+
+/**
+ *  Output only. Indicates whether the server is actively processing a state
+ *  transition or async workflow.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 @end
 
@@ -520,19 +669,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  budget), budget alert emails are sent to the email recipients you specify in
  *  the [NotificationsRule](#notificationsrule). Threshold rules also affect the
  *  fields included in the [JSON data
- *  object](https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification_format)
+ *  object](https://docs.cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification-format)
  *  sent to a Pub/Sub topic. Threshold rules are _required_ if using email
  *  notifications. Threshold rules are _optional_ if only setting a
  *  [`pubsubTopic` NotificationsRule](#NotificationsRule), unless you want your
  *  JSON data object to include data about the thresholds you set. For more
  *  information, see [set budget threshold rules and
- *  actions](https://cloud.google.com/billing/docs/how-to/budgets#budget-actions).
+ *  actions](https://docs.cloud.google.com/billing/docs/how-to/budgets#budget-actions).
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule : GTLRObject
 
 /**
  *  Optional. The type of basis used to determine if spend has passed the
- *  threshold. Behavior defaults to CURRENT_SPEND if not set.
+ *  threshold. Behavior defaults to CURRENT_SPEND if not set. When `spend_cap`
+ *  is set on the budget, must be `CURRENT_SPEND` or `BASIS_UNSPECIFIED`.
+ *  `FORECASTED_SPEND` is not supported.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_BasisUnspecified
@@ -544,13 +695,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        Use forecasted spend for the period as the basis for comparison
  *        against the threshold. FORECASTED_SPEND can only be set when the
  *        budget's time period is a Filter.calendar_period. It cannot be set in
- *        combination with Filter.custom_period. (Value: "FORECASTED_SPEND")
+ *        combination with Filter.custom_period. Not supported when `spend_cap`
+ *        is set. (Value: "FORECASTED_SPEND")
  */
 @property(nonatomic, copy, nullable) NSString *spendBasis;
 
 /**
  *  Required. Send an alert when this threshold is exceeded. This is a 1.0-based
- *  percentage, so 0.5 = 50%. Validation: non-negative number.
+ *  percentage, so 0.5 = 50%. Validation: non-negative number. When `spend_cap`
+ *  is set on the budget, `threshold_rules` must contain exactly three rules
+ *  with `threshold_percent` values of `0.5`, `0.8`, and `1.0` (50%, 80%, and
+ *  100%).
  *
  *  Uses NSNumber of doubleValue.
  */

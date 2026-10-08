@@ -19,6 +19,8 @@
 @class GTLRCustomerEngagementSuite_AgentCard;
 @class GTLRCustomerEngagementSuite_AgentInterface;
 @class GTLRCustomerEngagementSuite_AgentLlmAgent;
+@class GTLRCustomerEngagementSuite_AgentRegistryDeployment;
+@class GTLRCustomerEngagementSuite_AgentRemoteA2aAgent;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent_InputVariableMapping;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent_OutputVariableMapping;
@@ -33,6 +35,11 @@
 @class GTLRCustomerEngagementSuite_AppSnapshot;
 @class GTLRCustomerEngagementSuite_AppVariableDeclaration;
 @class GTLRCustomerEngagementSuite_AppVersion;
+@class GTLRCustomerEngagementSuite_ArtifactChunk;
+@class GTLRCustomerEngagementSuite_AssistantConfirmationRequest;
+@class GTLRCustomerEngagementSuite_AssistantConfirmationResponse;
+@class GTLRCustomerEngagementSuite_AssistantSuggestion;
+@class GTLRCustomerEngagementSuite_AssistantSuggestionLoadSession;
 @class GTLRCustomerEngagementSuite_AudioProcessingConfig;
 @class GTLRCustomerEngagementSuite_AudioProcessingConfig_SynthesizeSpeechConfigs;
 @class GTLRCustomerEngagementSuite_AudioRecordingConfig;
@@ -57,6 +64,7 @@
 @class GTLRCustomerEngagementSuite_Chunk_UpdatedVariables;
 @class GTLRCustomerEngagementSuite_Citations;
 @class GTLRCustomerEngagementSuite_CitationsCitedChunk;
+@class GTLRCustomerEngagementSuite_CitationsInlineCitation;
 @class GTLRCustomerEngagementSuite_ClientCertificateSettings;
 @class GTLRCustomerEngagementSuite_ClientFunction;
 @class GTLRCustomerEngagementSuite_CloudLoggingSettings;
@@ -66,6 +74,9 @@
 @class GTLRCustomerEngagementSuite_Conversation;
 @class GTLRCustomerEngagementSuite_ConversationLoggingSettings;
 @class GTLRCustomerEngagementSuite_ConversationTurn;
+@class GTLRCustomerEngagementSuite_CustomVoiceSample;
+@class GTLRCustomerEngagementSuite_CustomVoiceSampleWarning;
+@class GTLRCustomerEngagementSuite_DashboardSettings;
 @class GTLRCustomerEngagementSuite_DataStore;
 @class GTLRCustomerEngagementSuite_DataStoreConnectorConfig;
 @class GTLRCustomerEngagementSuite_DataStoreSettings;
@@ -100,6 +111,7 @@
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings;
 @class GTLRCustomerEngagementSuite_Event;
+@class GTLRCustomerEngagementSuite_Event_Variables;
 @class GTLRCustomerEngagementSuite_Example;
 @class GTLRCustomerEngagementSuite_ExecuteToolRequest_Args;
 @class GTLRCustomerEngagementSuite_ExecuteToolRequest_Context;
@@ -122,6 +134,7 @@
 @class GTLRCustomerEngagementSuite_GuardrailLlmPromptSecurityDefaultSecuritySettings;
 @class GTLRCustomerEngagementSuite_GuardrailModelSafety;
 @class GTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting;
+@class GTLRCustomerEngagementSuite_GuardrailSupervisor;
 @class GTLRCustomerEngagementSuite_Image;
 @class GTLRCustomerEngagementSuite_ImportAppRequestImportOptions;
 @class GTLRCustomerEngagementSuite_InputAudioConfig;
@@ -167,8 +180,12 @@
 @class GTLRCustomerEngagementSuite_LfA2aV1StringList;
 @class GTLRCustomerEngagementSuite_LfA2aV1Task;
 @class GTLRCustomerEngagementSuite_LfA2aV1Task_Metadata;
+@class GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent;
+@class GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent_Metadata;
 @class GTLRCustomerEngagementSuite_LfA2aV1TaskPushNotificationConfig;
 @class GTLRCustomerEngagementSuite_LfA2aV1TaskStatus;
+@class GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent;
+@class GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent_Metadata;
 @class GTLRCustomerEngagementSuite_Location;
 @class GTLRCustomerEngagementSuite_Location_Labels;
 @class GTLRCustomerEngagementSuite_Location_Metadata;
@@ -192,17 +209,28 @@
 @class GTLRCustomerEngagementSuite_Operation;
 @class GTLRCustomerEngagementSuite_Operation_Metadata;
 @class GTLRCustomerEngagementSuite_Operation_Response;
+@class GTLRCustomerEngagementSuite_OperationCompletedEvent;
+@class GTLRCustomerEngagementSuite_OperationCompletedEvent_Metadata;
+@class GTLRCustomerEngagementSuite_OptionQuestionsChunk;
+@class GTLRCustomerEngagementSuite_OptionQuestionsChunkOption;
+@class GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion;
 @class GTLRCustomerEngagementSuite_OutputAudioConfig;
 @class GTLRCustomerEngagementSuite_PythonCodeCondition;
 @class GTLRCustomerEngagementSuite_PythonFunction;
 @class GTLRCustomerEngagementSuite_RedactionConfig;
+@class GTLRCustomerEngagementSuite_RemoteA2aConfig;
+@class GTLRCustomerEngagementSuite_RemoteA2aConfig_InputVariableMapping;
+@class GTLRCustomerEngagementSuite_RemoteA2aConfig_OutputVariableMapping;
 @class GTLRCustomerEngagementSuite_RemoteAgentTool;
+@class GTLRCustomerEngagementSuite_RemoteAgentTool_InputVariableMapping;
+@class GTLRCustomerEngagementSuite_RemoteAgentTool_OutputVariableMapping;
 @class GTLRCustomerEngagementSuite_Schema;
 @class GTLRCustomerEngagementSuite_Schema_Defs;
 @class GTLRCustomerEngagementSuite_Schema_Properties;
 @class GTLRCustomerEngagementSuite_ServiceAccountAuthConfig;
 @class GTLRCustomerEngagementSuite_ServiceAgentIdTokenAuthConfig;
 @class GTLRCustomerEngagementSuite_ServiceDirectoryConfig;
+@class GTLRCustomerEngagementSuite_SessionCheckpoint;
 @class GTLRCustomerEngagementSuite_SessionConfig;
 @class GTLRCustomerEngagementSuite_SessionConfigRemoteDialogflowQueryParameters;
 @class GTLRCustomerEngagementSuite_SessionConfigRemoteDialogflowQueryParameters_EndUserMetadata;
@@ -211,13 +239,13 @@
 @class GTLRCustomerEngagementSuite_SessionInput;
 @class GTLRCustomerEngagementSuite_SessionInput_Variables;
 @class GTLRCustomerEngagementSuite_SessionOutput;
-@class GTLRCustomerEngagementSuite_SessionOutput_Context_Item;
 @class GTLRCustomerEngagementSuite_SessionOutput_Payload;
 @class GTLRCustomerEngagementSuite_SessionOutputDiagnosticInfo;
 @class GTLRCustomerEngagementSuite_Span;
 @class GTLRCustomerEngagementSuite_Span_Attributes;
 @class GTLRCustomerEngagementSuite_Status;
 @class GTLRCustomerEngagementSuite_Status_Details_Item;
+@class GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse;
 @class GTLRCustomerEngagementSuite_SynthesizeSpeechConfig;
 @class GTLRCustomerEngagementSuite_SystemTool;
 @class GTLRCustomerEngagementSuite_TimeZoneSettings;
@@ -241,6 +269,11 @@
 @class GTLRCustomerEngagementSuite_TriggerActionRespondImmediately;
 @class GTLRCustomerEngagementSuite_TriggerActionResponse;
 @class GTLRCustomerEngagementSuite_TriggerActionTransferAgent;
+@class GTLRCustomerEngagementSuite_TurnCompletedEvent;
+@class GTLRCustomerEngagementSuite_TurnHandoffEvent;
+@class GTLRCustomerEngagementSuite_TurnMetadata;
+@class GTLRCustomerEngagementSuite_TurnResumeSnapshot;
+@class GTLRCustomerEngagementSuite_UiEvent;
 @class GTLRCustomerEngagementSuite_VpcScSettings;
 @class GTLRCustomerEngagementSuite_WebSearchQuery;
 @class GTLRCustomerEngagementSuite_WhatsAppCredentials;
@@ -377,6 +410,116 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_App_ToolExecutio
  *  Value: "TOOL_EXECUTION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_App_ToolExecutionMode_ToolExecutionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_ArtifactChunk.state
+
+/**
+ *  The document finished streaming: its content was fully delivered via
+ *  content_delta chunks. Persistence may still follow; a FINALIZED chunk with a
+ *  gcs_uri is sent if and when the artifact is saved.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Closed;
+/**
+ *  A content increment; content_delta is set.
+ *
+ *  Value: "DELTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Delta;
+/**
+ *  Generation or persistence failed; the artifact was not saved.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Failed;
+/**
+ *  The artifact was persisted; gcs_uri is set.
+ *
+ *  Value: "FINALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Finalized;
+/**
+ *  The assistant started generating the artifact.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_Started;
+/**
+ *  Unused default.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ArtifactChunk_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_AssistantSuggestion.icon
+
+/**
+ *  Build something new.
+ *
+ *  Value: "BUILD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Build;
+/**
+ *  Deployment-related suggestion.
+ *
+ *  Value: "DEPLOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Deploy;
+/**
+ *  Evaluation-related suggestion.
+ *
+ *  Value: "EVALUATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Evaluate;
+/**
+ *  Exploration / discovery suggestion.
+ *
+ *  Value: "EXPLORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Explore;
+/**
+ *  Fix an error or failing state.
+ *
+ *  Value: "FIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Fix;
+/**
+ *  Unspecified icon.
+ *
+ *  Value: "ICON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_IconUnspecified;
+/**
+ *  Resume a previous session.
+ *
+ *  Value: "RESUME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Resume;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_AssistantSuggestion.source
+
+/**
+ *  Rule-table candidate re-ranked and phrased by the LLM phrasing step.
+ *
+ *  Value: "LLM_RANKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_LlmRanked;
+/**
+ *  Deterministic rule-table candidate with template phrasing.
+ *
+ *  Value: "RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_Rule;
+/**
+ *  Unspecified source.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_SourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_ChannelProfile.channelType
@@ -642,6 +785,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_Sou
  *  Value: "SOURCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_Source_SourceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_CustomVoiceSample.voiceInstructionMode
+
+/**
+ *  Custom voice instruction provided by the user.
+ *
+ *  Value: "CUSTOM_INSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_CustomInstruction;
+/**
+ *  Voice instruction will be automatically generated by AI from the audio
+ *  sample.
+ *
+ *  Value: "GENERATE_INSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_GenerateInstruction;
+/**
+ *  No voice instruction will be used.
+ *
+ *  Value: "NO_INSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_NoInstruction;
+/**
+ *  Unspecified instruction mode. Defaults to NO_INSTRUCTION.
+ *
+ *  Value: "VOICE_INSTRUCTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_VoiceInstructionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_CustomVoiceSampleWarning.type
+
+/**
+ *  The audio level of the voice sample is too low (e.g. low RMS amplitude).
+ *
+ *  Value: "LOW_AUDIO_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSampleWarning_Type_LowAudioLevel;
+/**
+ *  Unspecified warning type.
+ *
+ *  Value: "WARNING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_CustomVoiceSampleWarning_Type_WarningTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_DataStore.documentProcessingMode
@@ -1084,6 +1272,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_FileSearchTool_C
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_FileSearchTool_CorpusType_UserOwned;
 
 // ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse.userProfile
+
+/**
+ *  One or two assistant sessions containing messages.
+ *
+ *  Value: "EXPLORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_Exploring;
+/**
+ *  No assistant sessions containing messages.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_New;
+/**
+ *  More than two assistant sessions containing messages.
+ *
+ *  Value: "RETURNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_Returning;
+/**
+ *  Unspecified profile.
+ *
+ *  Value: "USER_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_UserProfileUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_GuardrailContentFilter.matchType
 
 /**
@@ -1165,11 +1381,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryHateSpeech;
 /**
+ *  The harm category is profanity.
+ *
+ *  Value: "HARM_CATEGORY_PROFANITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryProfanity;
+/**
  *  The harm category is sexually explicit content.
  *
  *  Value: "HARM_CATEGORY_SEXUALLY_EXPLICIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategorySexuallyExplicit;
+/**
+ *  The harm category is toxic.
+ *
+ *  Value: "HARM_CATEGORY_TOXIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryToxic;
 /**
  *  The harm category is unspecified.
  *
@@ -1216,6 +1444,88 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSa
  *  Value: "OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Threshold_Off;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_GuardrailSupervisor.detectionMode
+
+/**
+ *  Blocking detection mode. Response is blocked when the supervisor detection
+ *  is ongoing.
+ *
+ *  Value: "BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_Blocking;
+/**
+ *  Detection mode is unspecified. Default to NON_BLOCKING.
+ *
+ *  Value: "DETECTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_DetectionModeUnspecified;
+/**
+ *  Non blocking detection mode. Response is not blocked when the supervisor
+ *  detection is ongoing.
+ *
+ *  Value: "NON_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_NonBlocking;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_GuardrailSupervisor.type
+
+/**
+ *  Audio mismatch issue type.
+ *
+ *  Value: "AUDIO_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_AudioMismatch;
+/**
+ *  Choppy audio issue type.
+ *
+ *  Value: "CHOPPY_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_ChoppyAudio;
+/**
+ *  Custom issue type.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_Custom;
+/**
+ *  Invalid text issue type.
+ *
+ *  Value: "INVALID_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_InvalidText;
+/**
+ *  Language shift issue type.
+ *
+ *  Value: "LANGUAGE_SHIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_LanguageShift;
+/**
+ *  Missing tool call issue type.
+ *
+ *  Value: "MISSING_TOOL_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_MissingToolCall;
+/**
+ *  Agent profanity issue type.
+ *
+ *  Value: "PROFANITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_Profanity;
+/**
+ *  Speaker shift issue type.
+ *
+ *  Value: "SPEAKER_SHIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_SpeakerShift;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_ImportAppRequestImportOptions.conflictResolutionStrategy
@@ -1413,6 +1723,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_MockConfig_Unmat
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_UnmatchedToolCallBehaviorUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_ModelSettings.thinkingLevel
+
+/**
+ *  Default thinking level.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Default;
+/**
+ *  High thinking level.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_High;
+/**
+ *  Low thinking level.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Low;
+/**
+ *  Medium thinking level.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Medium;
+/**
+ *  Thinking level is unspecified.
+ *
+ *  Value: "THINKING_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_ThinkingLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_OAuthConfig.oauthGrantType
 
 /**
@@ -1504,6 +1848,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Schema_Type_Stri
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Schema_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest.clientCapabilities
+
+/**
+ *  Unspecified capability; ignored.
+ *
+ *  Value: "CLIENT_CAPABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_StreamChatAiAssistantRequest_ClientCapabilities_ClientCapabilityUnspecified;
+/**
+ *  The client manages long-running operations out-of-band by polling the
+ *  operation and sending `operation_completed_event` to resume the turn. If not
+ *  declared, the server manages LRO polling and completes the turn inline.
+ *
+ *  Value: "CLIENT_MANAGED_LRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_StreamChatAiAssistantRequest_ClientCapabilities_ClientManagedLro;
+/**
+ *  The client renders AssistantConfirmationRequest cards and answers them via
+ *  `confirmation_response`.
+ *
+ *  Value: "CONFIRMATION_CARDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_StreamChatAiAssistantRequest_ClientCapabilities_ConfirmationCards;
+
+// ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_Tool.executionType
 
 /**
@@ -1572,6 +1941,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TransferRule_Dir
  *  Value: "PARENT_TO_CHILD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TransferRule_Direction_ParentToChild;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_TurnCompletedEvent.reason
+
+/**
+ *  No task was driving the turn any more; it was sealed to a committed partial
+ *  and cannot be continued.
+ *
+ *  Value: "ABANDONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_Abandoned;
+/**
+ *  The turn ran to completion; the session holds its committed output.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_Completed;
+/**
+ *  Unspecified.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_ReasonUnspecified;
+/**
+ *  This server does not serve attach or resume for the session, so nothing was
+ *  tailed; the client should reload the session instead.
+ *
+ *  Value: "RESUME_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_ResumeUnavailable;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_TurnHandoffEvent.reason
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnHandoffEvent_Reason_ReasonUnspecified;
+/**
+ *  The serving task is shutting down (release push or rescheduling).
+ *
+ *  Value: "SERVER_RESTART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnHandoffEvent_Reason_ServerRestart;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_TurnMetadata.contractStreamingPhase
+
+/**
+ *  The payload is authoritative (computed from a complete contract document, a
+ *  persisted snapshot, or the pre-draft state). Clients must replace any
+ *  previously received progress with it.
+ *
+ *  Value: "CONTRACT_STREAMING_PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_ContractStreamingPhaseUnspecified;
+/**
+ *  An initial contract draft is streaming. contract_progress is an in-flight
+ *  estimate: non-decreasing within one artifact fence, capped below the
+ *  authoritative range, with pillar_breakdowns carrying total_item_count == 0
+ *  to mark estimated pillar states.
+ *
+ *  Value: "DRAFTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_Drafting;
+/**
+ *  A revision of an existing contract is streaming (for example after an
+ *  annotation submission). Same estimate semantics as DRAFTING.
+ *
+ *  Value: "REVISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_Revising;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_WidgetTool.widgetType
@@ -1878,6 +2321,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The remote [A2A](https://github.com/a2aproject/A2A) agent to be
+ *  used for the agent execution.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentRemoteA2aAgent *remoteA2aAgent;
+
+/**
  *  Optional. The remote
  *  [Dialogflow](https://cloud.google.com/dialogflow/cx/docs/concept/console-conversational-agents)
  *  agent to be used for the agent execution. If this field is set, all other
@@ -2005,6 +2454,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  the agent to perform the task using a large language model.
  */
 @interface GTLRCustomerEngagementSuite_AgentLlmAgent : GTLRObject
+@end
+
+
+/**
+ *  Configuration and status for Agent Registry deployment.
+ */
+@interface GTLRCustomerEngagementSuite_AgentRegistryDeployment : GTLRObject
+
+/**
+ *  Optional. Output only. The resource name of the deployed Agent Registry
+ *  service. Format:
+ *  `projects/{project}/locations/{location}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *agentRegistryServiceName;
+
+@end
+
+
+/**
+ *  The agent which will transfer execution to a remote
+ *  [A2A](https://github.com/a2aproject/A2A) agent.
+ */
+@interface GTLRCustomerEngagementSuite_AgentRemoteA2aAgent : GTLRObject
+
+/** Required. The A2A connection configuration. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RemoteA2aConfig *a2aConfig;
+
 @end
 
 
@@ -2315,6 +2791,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Output only. Timestamp when the app was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Optional. App-specific dashboard settings for linking and configuring
+ *  Contact Center Insights dashboards.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_DashboardSettings *dashboardSettings;
+
 /** Optional. The data store settings for the app. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_DataStoreSettings *dataStoreSettings;
 
@@ -2554,6 +3036,242 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Output only. The snapshot of the app when the version is created. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AppSnapshot *snapshot;
 
+/** Output only. Timestamp when the app version was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A streamed fragment of a document artifact (e.g. a markdown TDD) that the
+ *  assistant is generating. Content deltas stream while the document is being
+ *  written so clients can render a live preview; the FINALIZED chunk carries
+ *  the GCS URI once the file has been persisted.
+ */
+@interface GTLRCustomerEngagementSuite_ArtifactChunk : GTLRObject
+
+/**
+ *  Identifier of the artifact, stable across all chunks of one artifact within
+ *  the stream.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactId;
+
+/** Incremental artifact content. Set on DELTA chunks. */
+@property(nonatomic, copy, nullable) NSString *contentDelta;
+
+/**
+ *  The file name shown to the user, e.g. "hotel_booking_tdd.md". Set on STARTED
+ *  (and repeated on FINALIZED).
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The GCS object the artifact was persisted to. Set on FINALIZED chunks. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** The IANA media type of the artifact content, e.g. "text/markdown". */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Lifecycle position of this chunk.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_ArtifactChunk_State_Closed The
+ *        document finished streaming: its content was fully delivered via
+ *        content_delta chunks. Persistence may still follow; a FINALIZED chunk
+ *        with a gcs_uri is sent if and when the artifact is saved. (Value:
+ *        "CLOSED")
+ *    @arg @c kGTLRCustomerEngagementSuite_ArtifactChunk_State_Delta A content
+ *        increment; content_delta is set. (Value: "DELTA")
+ *    @arg @c kGTLRCustomerEngagementSuite_ArtifactChunk_State_Failed Generation
+ *        or persistence failed; the artifact was not saved. (Value: "FAILED")
+ *    @arg @c kGTLRCustomerEngagementSuite_ArtifactChunk_State_Finalized The
+ *        artifact was persisted; gcs_uri is set. (Value: "FINALIZED")
+ *    @arg @c kGTLRCustomerEngagementSuite_ArtifactChunk_State_Started The
+ *        assistant started generating the artifact. (Value: "STARTED")
+ *    @arg @c kGTLRCustomerEngagementSuite_ArtifactChunk_State_StateUnspecified
+ *        Unused default. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  A blocking question or confirmation the assistant needs answered before an
+ *  agent action can proceed. The requesting agent is paused and resumes only
+ *  when the answer arrives on a later
+ *  StreamChatAiAssistantRequest.confirmation_response.
+ */
+@interface GTLRCustomerEngagementSuite_AssistantConfirmationRequest : GTLRObject
+
+/**
+ *  Display label of the agent that raised the confirmation (e.g. `"Contract
+ *  Architect"`), for the card header.
+ */
+@property(nonatomic, copy, nullable) NSString *agentName;
+
+/**
+ *  Identifier correlating this request with its response. Opaque to clients;
+ *  must be echoed verbatim on the answering request.
+ */
+@property(nonatomic, copy, nullable) NSString *confirmationId;
+
+/**
+ *  Context describing what is being confirmed (e.g. the action the agent wants
+ *  to take, or the question it needs answered). Rendered as plain text, not
+ *  Markdown.
+ */
+@property(nonatomic, copy, nullable) NSString *context;
+
+/**
+ *  Time after which this confirmation can no longer be answered. An expired
+ *  card renders as inactive, and the server declines the confirmation on the
+ *  next turn so the paused agent does not wait indefinitely.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Label for the declining action of a binary confirmation (e.g. "Not yet").
+ *  Unset when `questions` is populated.
+ */
+@property(nonatomic, copy, nullable) NSString *negativeLabel;
+
+/**
+ *  Label for the approving action of a binary confirmation (e.g. "Publish").
+ *  Unset when `questions` is populated.
+ */
+@property(nonatomic, copy, nullable) NSString *positiveLabel;
+
+/**
+ *  Multi-choice form of the confirmation. When populated, the card renders a
+ *  selectable option list and the chosen option's submit_text (or free-form
+ *  user text) is returned as AssistantConfirmationResponse.answer_text.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion *> *questions;
+
+/**
+ *  Name of the tool call the agent paused on (e.g. "update_app"), for the card
+ *  header. Unset for pure questions.
+ */
+@property(nonatomic, copy, nullable) NSString *tool;
+
+@end
+
+
+/**
+ *  The user's answer to an AssistantConfirmationRequest, sent on the next
+ *  SessionService.StreamChatAiAssistant call to resume the paused agent.
+ */
+@interface GTLRCustomerEngagementSuite_AssistantConfirmationResponse : GTLRObject
+
+/**
+ *  The chosen option's submit_text, or free-form user text. The paused action
+ *  is cancelled and the text is handed to the agent to act on.
+ */
+@property(nonatomic, copy, nullable) NSString *answerText;
+
+/** The AssistantConfirmationRequest.confirmation_id being answered. */
+@property(nonatomic, copy, nullable) NSString *confirmationId;
+
+/**
+ *  Binary answer: true approves the paused action, false declines it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confirmed;
+
+@end
+
+
+/**
+ *  A single personalized onboarding suggestion chip for the AI assistant's zero
+ *  state.
+ */
+@interface GTLRCustomerEngagementSuite_AssistantSuggestion : GTLRObject
+
+/**
+ *  Rule-table candidate type in kebab-case (e.g. "resume-pending-review"), for
+ *  metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *candidateType;
+
+/**
+ *  Icon hint for the chip.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Build Build
+ *        something new. (Value: "BUILD")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Deploy
+ *        Deployment-related suggestion. (Value: "DEPLOY")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Evaluate
+ *        Evaluation-related suggestion. (Value: "EVALUATE")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Explore
+ *        Exploration / discovery suggestion. (Value: "EXPLORE")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Fix Fix an
+ *        error or failing state. (Value: "FIX")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_IconUnspecified
+ *        Unspecified icon. (Value: "ICON_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Icon_Resume
+ *        Resume a previous session. (Value: "RESUME")
+ */
+@property(nonatomic, copy, nullable) NSString *icon;
+
+/** Chip label shown to the user (at most 60 characters). */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** Open an existing assistant session. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AssistantSuggestionLoadSession *loadSession;
+
+/**
+ *  Optional short explanation of why this suggestion is shown (tooltip /
+ *  rationale popover).
+ */
+@property(nonatomic, copy, nullable) NSString *rationale;
+
+/** Prefill the composer with this text; the user reviews and sends. */
+@property(nonatomic, copy, nullable) NSString *seedPrompt;
+
+/**
+ *  Prefill the composer with this text and submit immediately. Only used for
+ *  quick-reply chips inside an active onboarding conversation.
+ */
+@property(nonatomic, copy, nullable) NSString *sendMessage;
+
+/**
+ *  How this suggestion was produced.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_LlmRanked
+ *        Rule-table candidate re-ranked and phrased by the LLM phrasing step.
+ *        (Value: "LLM_RANKED")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_Rule
+ *        Deterministic rule-table candidate with template phrasing. (Value:
+ *        "RULE")
+ *    @arg @c kGTLRCustomerEngagementSuite_AssistantSuggestion_Source_SourceUnspecified
+ *        Unspecified source. (Value: "SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Stable identifier for this suggestion, round-tripped by clients in
+ *  interaction logging.
+ */
+@property(nonatomic, copy, nullable) NSString *suggestionId;
+
+@end
+
+
+/**
+ *  Parameters for the load_session action.
+ */
+@interface GTLRCustomerEngagementSuite_AssistantSuggestionLoadSession : GTLRObject
+
+/**
+ *  Identifier of the assistant session to open (the final segment of the
+ *  AssistantSession resource name).
+ */
+@property(nonatomic, copy, nullable) NSString *assistantSessionId;
+
 @end
 
 
@@ -2573,6 +3291,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  Optional. Configures the agent behavior for the user barge-in activities.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_BargeInConfig *bargeInConfig;
+
+/** Optional. Configures custom voice samples for voice cloning. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_CustomVoiceSample *> *customVoiceSamples;
 
 /**
  *  Optional. The duration of user inactivity (no speech or interaction) before
@@ -2774,6 +3495,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** Required. The python code to execute for the callback. */
 @property(nonatomic, copy, nullable) NSString *pythonCode;
+
+@end
+
+
+/**
+ *  Request to cancel an assistant session's in-flight turn.
+ */
+@interface GTLRCustomerEngagementSuite_CancelAssistantTurnRequest : GTLRObject
+
+/**
+ *  Optional. The turn to cancel; empty cancels whichever turn is running. A
+ *  cancel naming a turn that is no longer the running one is a no-op.
+ */
+@property(nonatomic, copy, nullable) NSString *turnId;
+
+@end
+
+
+/**
+ *  Response for CancelAssistantTurn.
+ */
+@interface GTLRCustomerEngagementSuite_CancelAssistantTurnResponse : GTLRObject
+
+/**
+ *  Whether an in-flight turn was found and asked to stop (directly on this
+ *  task, or through an epoch preemption for a turn hosted elsewhere).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelled;
 
 @end
 
@@ -3216,6 +3967,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** List of cited pieces of information. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_CitationsCitedChunk *> *citedChunks;
 
+/** Optional. List of inline citations in the agent response. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_CitationsInlineCitation *> *inlineCitations;
+
 @end
 
 
@@ -3239,6 +3993,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** URI used for citation. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  An inline citation in the response text.
+ */
+@interface GTLRCustomerEngagementSuite_CitationsInlineCitation : GTLRObject
+
+/**
+ *  The indices of the cited chunks that back this text segment. Indices refer
+ *  to the elements in `cited_chunks`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *citedChunkIndices;
+
+/**
+ *  The ending index (in bytes) of the text segment in the agent response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  The starting index (in bytes) of the text segment in the agent response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -3548,6 +4332,109 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  (Polysynth). Only populated when word error rate metrics are enabled.
  */
 @property(nonatomic, copy, nullable) NSString *userIntendedText;
+
+@end
+
+
+/**
+ *  Configuration for a custom voice sample used for voice cloning.
+ */
+@interface GTLRCustomerEngagementSuite_CustomVoiceSample : GTLRObject
+
+/** Optional. Consent audio for voice cloning. */
+@property(nonatomic, copy, nullable) NSString *consentAudioGcsUri;
+
+/** Optional. The user-defined name for the custom voice sample. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Synthesized preview audio for custom voice, formatted as
+ *  canonical WAV (LINEAR16, 24kHz, 16-bit, mono).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *previewAudioContent;
+
+/** Optional. Text for synthesizing preview audio for custom voice. */
+@property(nonatomic, copy, nullable) NSString *previewText;
+
+/**
+ *  Optional. Natural language instructions for voice style, tone, pacing, or
+ *  pronunciation.
+ */
+@property(nonatomic, copy, nullable) NSString *voiceInstruction;
+
+/**
+ *  Optional. Instruction mode for the voice sample. If unspecified, defaults to
+ *  NO_INSTRUCTION.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_CustomInstruction
+ *        Custom voice instruction provided by the user. (Value:
+ *        "CUSTOM_INSTRUCTION")
+ *    @arg @c kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_GenerateInstruction
+ *        Voice instruction will be automatically generated by AI from the audio
+ *        sample. (Value: "GENERATE_INSTRUCTION")
+ *    @arg @c kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_NoInstruction
+ *        No voice instruction will be used. (Value: "NO_INSTRUCTION")
+ *    @arg @c kGTLRCustomerEngagementSuite_CustomVoiceSample_VoiceInstructionMode_VoiceInstructionModeUnspecified
+ *        Unspecified instruction mode. Defaults to NO_INSTRUCTION. (Value:
+ *        "VOICE_INSTRUCTION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *voiceInstructionMode;
+
+/**
+ *  Optional. The Cloud Storage URI to the audio sample for voice cloning. The
+ *  audio sample should be a mono-channel, 24kHz WAV file.
+ */
+@property(nonatomic, copy, nullable) NSString *voiceSampleGcsUri;
+
+/**
+ *  Output only. Warning messages encountered during voice clone processing
+ *  (e.g. low audio level).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_CustomVoiceSampleWarning *> *warnings;
+
+@end
+
+
+/**
+ *  A warning message encountered during voice sample processing.
+ */
+@interface GTLRCustomerEngagementSuite_CustomVoiceSampleWarning : GTLRObject
+
+/** Output only. A human-readable description of the warning. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Output only. The type of the warning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_CustomVoiceSampleWarning_Type_LowAudioLevel
+ *        The audio level of the voice sample is too low (e.g. low RMS
+ *        amplitude). (Value: "LOW_AUDIO_LEVEL")
+ *    @arg @c kGTLRCustomerEngagementSuite_CustomVoiceSampleWarning_Type_WarningTypeUnspecified
+ *        Unspecified warning type. (Value: "WARNING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Settings for dashboards associated with the app, that show up in the
+ *  Monitoring view.
+ */
+@interface GTLRCustomerEngagementSuite_DashboardSettings : GTLRObject
+
+/**
+ *  Optional. The resource name of the default Contact Center Insights dashboard
+ *  associated with the app. This is the dashboard that will be displayed when
+ *  users navigate to the Monitoring view for the app. Format:
+ *  `projects/{project}/locations/{location}/dashboards/{dashboard}`
+ */
+@property(nonatomic, copy, nullable) NSString *defaultDashboard;
 
 @end
 
@@ -4015,6 +4902,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) NSNumber *enableSnippets;
 
+/**
+ *  Optional. Number of snippets to return per query. If unset, returns all
+ *  snippets from the service by default.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSnippets;
+
 @end
 
 
@@ -4042,10 +4937,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Response message for AgentService.DeployChannel.
+ */
+@interface GTLRCustomerEngagementSuite_DeployChannelResponse : GTLRObject
+
+/** The created deployment. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Deployment *deployment;
+
+@end
+
+
+/**
  *  A deployment represents an immutable, queryable version of the app. It is
  *  used to deploy an app version with a specific channel profile.
  */
 @interface GTLRCustomerEngagementSuite_Deployment : GTLRObject
+
+/**
+ *  Optional. Configuration for deploying this deployment to Agent Registry. If
+ *  present, this deployment will be published to Agent Registry.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentRegistryDeployment *agentRegistryDeployment;
 
 /**
  *  Optional. The resource name of the app version to deploy. Format:
@@ -4506,6 +5418,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Required. The name of the event. */
 @property(nonatomic, copy, nullable) NSString *event;
 
+/** Optional. Additional variables associated with the event. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Event_Variables *variables;
+
+@end
+
+
+/**
+ *  Optional. Additional variables associated with the event.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_Event_Variables : GTLRObject
 @end
 
 
@@ -4928,6 +5855,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Request message for SessionService.GenerateOnboardingSuggestions.
+ */
+@interface GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRequest : GTLRObject
+
+/**
+ *  Optional. Maximum number of suggestions to return. Defaults to 4 when unset.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSuggestions;
+
+@end
+
+
+/**
+ *  Response message for SessionService.GenerateOnboardingSuggestions.
+ */
+@interface GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse : GTLRObject
+
+/**
+ *  Opaque token capturing the onboarding snapshot used to generate these
+ *  suggestions. Clients echo it on the first StreamChatAiAssistantRequest so
+ *  the server can reuse the snapshot.
+ */
+@property(nonatomic, copy, nullable) NSString *contextToken;
+
+/** Personalized suggestions, ranked most relevant first. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_AssistantSuggestion *> *suggestions;
+
+/**
+ *  Classification of the requesting user's history.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_Exploring
+ *        One or two assistant sessions containing messages. (Value:
+ *        "EXPLORING")
+ *    @arg @c kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_New
+ *        No assistant sessions containing messages. (Value: "NEW")
+ *    @arg @c kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_Returning
+ *        More than two assistant sessions containing messages. (Value:
+ *        "RETURNING")
+ *    @arg @c kGTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse_UserProfile_UserProfileUnspecified
+ *        Unspecified profile. (Value: "USER_PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userProfile;
+
+@end
+
+
+/**
  *  Search suggestions from Google Search Tool.
  */
 @interface GTLRCustomerEngagementSuite_GoogleSearchSuggestions : GTLRObject
@@ -5086,6 +6063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  `projects/{project}/locations/{location}/apps/{app}/guardrails/{guardrail}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Guardrail that runs supervisor intervention. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_GuardrailSupervisor *supervisor;
 
 /** Output only. Timestamp when the guardrail was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -5323,9 +6303,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *        The harm category is harassment. (Value: "HARM_CATEGORY_HARASSMENT")
  *    @arg @c kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryHateSpeech
  *        The harm category is hate speech. (Value: "HARM_CATEGORY_HATE_SPEECH")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryProfanity
+ *        The harm category is profanity. (Value: "HARM_CATEGORY_PROFANITY")
  *    @arg @c kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategorySexuallyExplicit
  *        The harm category is sexually explicit content. (Value:
  *        "HARM_CATEGORY_SEXUALLY_EXPLICIT")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryToxic
+ *        The harm category is toxic. (Value: "HARM_CATEGORY_TOXIC")
  *    @arg @c kGTLRCustomerEngagementSuite_GuardrailModelSafetySafetySetting_Category_HarmCategoryUnspecified
  *        The harm category is unspecified. (Value: "HARM_CATEGORY_UNSPECIFIED")
  */
@@ -5357,9 +6341,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Guardrail that runs supervisor intervention.
+ */
+@interface GTLRCustomerEngagementSuite_GuardrailSupervisor : GTLRObject
+
+/**
+ *  Optional. The detection mode of the supervisor.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_Blocking
+ *        Blocking detection mode. Response is blocked when the supervisor
+ *        detection is ongoing. (Value: "BLOCKING")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_DetectionModeUnspecified
+ *        Detection mode is unspecified. Default to NON_BLOCKING. (Value:
+ *        "DETECTION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_DetectionMode_NonBlocking
+ *        Non blocking detection mode. Response is not blocked when the
+ *        supervisor detection is ongoing. (Value: "NON_BLOCKING")
+ */
+@property(nonatomic, copy, nullable) NSString *detectionMode;
+
+/**
+ *  Optional. The type of the supervisor.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_AudioMismatch
+ *        Audio mismatch issue type. (Value: "AUDIO_MISMATCH")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_ChoppyAudio
+ *        Choppy audio issue type. (Value: "CHOPPY_AUDIO")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_Custom
+ *        Custom issue type. (Value: "CUSTOM")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_InvalidText
+ *        Invalid text issue type. (Value: "INVALID_TEXT")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_LanguageShift
+ *        Language shift issue type. (Value: "LANGUAGE_SHIFT")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_MissingToolCall
+ *        Missing tool call issue type. (Value: "MISSING_TOOL_CALL")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_Profanity
+ *        Agent profanity issue type. (Value: "PROFANITY")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_SpeakerShift
+ *        Speaker shift issue type. (Value: "SPEAKER_SHIFT")
+ *    @arg @c kGTLRCustomerEngagementSuite_GuardrailSupervisor_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Represents an image input or output in the conversation.
  */
 @interface GTLRCustomerEngagementSuite_Image : GTLRObject
+
+/** Optional. The alternative text for the image. */
+@property(nonatomic, copy, nullable) NSString *altText;
 
 /**
  *  Required. Raw bytes of the image.
@@ -5427,6 +6463,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** Optional. Options governing the import process for the app. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ImportAppRequestImportOptions *importOptions;
+
+/** Optional. Patch content as a JSON string. */
+@property(nonatomic, copy, nullable) NSString *jsonPatchContent;
+
+/**
+ *  Optional. A Cloud Storage URI pointing to a JSON file containing the
+ *  patches.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonPatchGcsUri;
 
 @end
 
@@ -6535,6 +7580,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  A wrapper object used in streaming operations to encapsulate different types
+ *  of response data.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1StreamResponse : GTLRObject
+
+/** An event indicating a task artifact update. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent *artifactUpdate;
+
+/** A Message object containing a message from the agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Message *message;
+
+/** An event indicating a task status update. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent *statusUpdate;
+
+/** A Task object containing the current state of the task. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Task *task;
+
+@end
+
+
+/**
  *  protolint:disable REPEATED_FIELD_NAMES_PLURALIZED A list of strings.
  */
 @interface GTLRCustomerEngagementSuite_LfA2aV1StringList : GTLRObject
@@ -6599,6 +7665,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCustomerEngagementSuite_LfA2aV1Task_Metadata : GTLRObject
+@end
+
+
+/**
+ *  A task delta where an artifact has been generated.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent : GTLRObject
+
+/**
+ *  If true, the content of this artifact should be appended to a previously
+ *  sent artifact with the same ID.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *append;
+
+/** Required. The artifact that was generated or updated. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1Artifact *artifact;
+
+/** Required. The ID of the context that this task belongs to. */
+@property(nonatomic, copy, nullable) NSString *contextId;
+
+/**
+ *  If true, this is the final chunk of the artifact.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastChunk;
+
+/** Optional. Metadata associated with the artifact update. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent_Metadata *metadata;
+
+/** Required. The ID of the task for this artifact. */
+@property(nonatomic, copy, nullable) NSString *taskId;
+
+@end
+
+
+/**
+ *  Optional. Metadata associated with the artifact update.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1TaskArtifactUpdateEvent_Metadata : GTLRObject
 @end
 
 
@@ -6687,6 +7800,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
+@end
+
+
+/**
+ *  An event sent by the agent to notify the client of a change in a task's
+ *  status.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent : GTLRObject
+
+/** Required. The ID of the context that the task belongs to. */
+@property(nonatomic, copy, nullable) NSString *contextId;
+
+/** Optional. Metadata associated with the task update. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent_Metadata *metadata;
+
+/** Required. The new status of the task. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_LfA2aV1TaskStatus *status;
+
+/** Required. The ID of the task that has changed. */
+@property(nonatomic, copy, nullable) NSString *taskId;
+
+@end
+
+
+/**
+ *  Optional. Metadata associated with the task update.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_LfA2aV1TaskStatusUpdateEvent_Metadata : GTLRObject
 @end
 
 
@@ -7523,6 +8669,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) NSNumber *temperature;
 
+/**
+ *  Optional. The thinking level of the model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Default
+ *        Default thinking level. (Value: "DEFAULT")
+ *    @arg @c kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_High High
+ *        thinking level. (Value: "HIGH")
+ *    @arg @c kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Low Low
+ *        thinking level. (Value: "LOW")
+ *    @arg @c kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_Medium
+ *        Medium thinking level. (Value: "MEDIUM")
+ *    @arg @c kGTLRCustomerEngagementSuite_ModelSettings_ThinkingLevel_ThinkingLevelUnspecified
+ *        Thinking level is unspecified. (Value: "THINKING_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *thinkingLevel;
+
 @end
 
 
@@ -7744,6 +8907,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Event sent by the client or background worker to resume an assistant session
+ *  after an asynchronous Long-Running Operation (LRO) completes.
+ */
+@interface GTLRCustomerEngagementSuite_OperationCompletedEvent : GTLRObject
+
+/**
+ *  Optional deduplication token (e.g. UUID) to prevent duplicate turn execution
+ *  from concurrent browser tabs.
+ */
+@property(nonatomic, copy, nullable) NSString *deduplicationToken;
+
+/** Optional canonical error status if the operation failed. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Status *error;
+
+/**
+ *  Optional structured result metadata (e.g. pass_rate, total_examples,
+ *  export_uri).
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OperationCompletedEvent_Metadata *metadata;
+
+/** The operation resource name (e.g. `operations/{op}`). */
+@property(nonatomic, copy, nullable) NSString *operationName;
+
+/**
+ *  The operation type or tool name (e.g. "run_evaluation", "copy_app",
+ *  "export_app").
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Status of the operation run (e.g. "SUCCEEDED", "FAILED", "CANCELLED"). */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  The primary resource targeted or produced by the operation (e.g. evaluation
+ *  run ID, app ID, dataset ID).
+ */
+@property(nonatomic, copy, nullable) NSString *targetResourceName;
+
+@end
+
+
+/**
+ *  Optional structured result metadata (e.g. pass_rate, total_examples,
+ *  export_uri).
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_OperationCompletedEvent_Metadata : GTLRObject
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRCustomerEngagementSuite_OperationMetadata : GTLRObject
@@ -7766,6 +8984,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 /** Output only. Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
+
+@end
+
+
+/**
+ *  Structured clarification options the assistant asks the user to choose
+ *  among, transduced server-side out of the model's turn (the option block is
+ *  stripped from the streamed and persisted text). The console renders a
+ *  keyboard-navigable option list docked above the composer.
+ */
+@interface GTLRCustomerEngagementSuite_OptionQuestionsChunk : GTLRObject
+
+/**
+ *  The questions asked this turn. More than one entry drives the console's "1
+ *  of N" pager.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion *> *questions;
+
+@end
+
+
+/**
+ *  A single selectable option.
+ */
+@interface GTLRCustomerEngagementSuite_OptionQuestionsChunkOption : GTLRObject
+
+/** Optional trade-off details shown as secondary text. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  Optional message text to send when the option is chosen; defaults to `title`
+ *  when empty.
+ */
+@property(nonatomic, copy, nullable) NSString *submitText;
+
+/** Short plain-text option title (no markdown, no numbering). */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  One question with its options.
+ */
+@interface GTLRCustomerEngagementSuite_OptionQuestionsChunkQuestion : GTLRObject
+
+/** The selectable options, in presentation order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_OptionQuestionsChunkOption *> *options;
+
+/** The question header text. */
+@property(nonatomic, copy, nullable) NSString *question;
 
 @end
 
@@ -7874,12 +9143,91 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Shared configuration for connecting to a remote
+ *  [A2A](https://github.com/a2aproject/A2A) agent.
+ */
+@interface GTLRCustomerEngagementSuite_RemoteA2aConfig : GTLRObject
+
+/** Optional. The full agent card defined inline. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentCard *agentCard;
+
+/**
+ *  Optional. Reference to the agent in the Agent Registry. Format:
+ *  `projects/{project}/locations/{location}/agents/{agent}`
+ */
+@property(nonatomic, copy, nullable) NSString *agentRegistry;
+
+/**
+ *  Optional. Authentication configuration for calling the remote agent.
+ *  Optional if the registry reference already handles authentication.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ApiAuthentication *apiAuthentication;
+
+/**
+ *  Optional. If not empty, interactions with the remote A2A agent will use this
+ *  context ID. This context_id field can refer to a session variable like
+ *  `$context.variables.order_agent_session_id`.
+ */
+@property(nonatomic, copy, nullable) NSString *contextId;
+
+/**
+ *  Optional. Mapping of input variable names of remote agent to GECX variable
+ *  names.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RemoteA2aConfig_InputVariableMapping *inputVariableMapping;
+
+/**
+ *  Optional. Mapping of output variable names of remote agent to GECX variable
+ *  names.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RemoteA2aConfig_OutputVariableMapping *outputVariableMapping;
+
+/**
+ *  Optional. Whether streaming is enabled for the remote agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *streamingEnabled;
+
+@end
+
+
+/**
+ *  Optional. Mapping of input variable names of remote agent to GECX variable
+ *  names.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_RemoteA2aConfig_InputVariableMapping : GTLRObject
+@end
+
+
+/**
+ *  Optional. Mapping of output variable names of remote agent to GECX variable
+ *  names.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_RemoteA2aConfig_OutputVariableMapping : GTLRObject
+@end
+
+
+/**
  *  Represents a tool that allows the agent to call another remote agent.
  */
 @interface GTLRCustomerEngagementSuite_RemoteAgentTool : GTLRObject
 
 /** Required. The agent card of the remote agent that this tool invokes. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentCard *agentCard;
+
+/** Optional. Authentication configuration for calling the remote agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ApiAuthentication *apiAuthentication;
 
 /**
  *  Required. The description of the tool.
@@ -7888,9 +9236,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Optional. Mapping of input variable names of remote agent to GECX variable
+ *  names.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RemoteAgentTool_InputVariableMapping *inputVariableMapping;
+
 /** Required. The name of the tool. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. Mapping of output variable names of remote agent to GECX variable
+ *  names.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RemoteAgentTool_OutputVariableMapping *outputVariableMapping;
+
+/**
+ *  Optional. When enabled, the interaction between the CXAS app and the remote
+ *  agent will share the same context. If the remote agent returns a context_id,
+ *  it will be persisted for the entirety of the session for this remote agent
+ *  tool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *statefulAgent;
+
+@end
+
+
+/**
+ *  Optional. Mapping of input variable names of remote agent to GECX variable
+ *  names.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_RemoteAgentTool_InputVariableMapping : GTLRObject
+@end
+
+
+/**
+ *  Optional. Mapping of output variable names of remote agent to GECX variable
+ *  names.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_RemoteAgentTool_OutputVariableMapping : GTLRObject
 @end
 
 
@@ -8249,6 +9645,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Session checkpoint containing inferred user intent for session title and UI.
+ */
+@interface GTLRCustomerEngagementSuite_SessionCheckpoint : GTLRObject
+
+/**
+ *  Inferred user goal or topic for the session (e.g. "Building E-Commerce
+ *  Support Agent").
+ */
+@property(nonatomic, copy, nullable) NSString *userIntent;
+
+@end
+
+
+/**
  *  The configuration for the session.
  */
 @interface GTLRCustomerEngagementSuite_SessionConfig : GTLRObject
@@ -8482,9 +9892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Citations *citations;
 
-/** Context messages for external supervision guardrails. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_SessionOutput_Context_Item *> *context;
-
 /**
  *  Optional. Diagnostic information contains execution details during the
  *  processing of the input. Only populated in the last SessionOutput (with
@@ -8501,8 +9908,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_GoogleSearchSuggestions *googleSearchSuggestions;
 
+/** Output image from the CES agent. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Image *image;
+
 /** Custom payload with structured output from the CES agent. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_SessionOutput_Payload *payload;
+
+/** Intermediate progress update from the CES agent. */
+@property(nonatomic, copy, nullable) NSString *progress;
 
 /** Output text from the CES agent. */
 @property(nonatomic, copy, nullable) NSString *text;
@@ -8526,18 +9939,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @property(nonatomic, strong, nullable) NSNumber *turnIndex;
 
-@end
-
-
-/**
- *  GTLRCustomerEngagementSuite_SessionOutput_Context_Item
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCustomerEngagementSuite_SessionOutput_Context_Item : GTLRObject
 @end
 
 
@@ -8655,15 +10056,170 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 
 
 /**
+ *  Request message for SessionService.StreamChatAiAssistant.
+ */
+@interface GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest : GTLRObject
+
+/**
+ *  Optional. Cloud Storage URIs for files uploaded by the user during this
+ *  turn. Example: "gs://cxas-transient-uploads/uuid/prd.pdf"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attachedGcsUris;
+
+/**
+ *  Optional. Optional flag to attach to an existing in-flight turn without
+ *  submitting a new message.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attachOnly;
+
+/**
+ *  Optional. Response features this client can render. The server only emits
+ *  events that need a capability (e.g. `confirmation_request`) when the
+ *  capability is declared, so older clients never receive events they would
+ *  silently drop.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clientCapabilities;
+
+/**
+ *  Optional. The user's answer to a pending AssistantConfirmationRequest. When
+ *  set, the server resumes the paused agent with this answer instead of (or in
+ *  addition to) starting a new prompt turn.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AssistantConfirmationResponse *confirmationResponse;
+
+/**
+ *  Optional. Opaque onboarding context token returned by
+ *  SessionService.GenerateOnboardingSuggestions. When set and still fresh, the
+ *  server reuses the onboarding snapshot computed for the zero state instead of
+ *  recomputing it for the first conversation turn.
+ */
+@property(nonatomic, copy, nullable) NSString *contextToken;
+
+/**
+ *  Optional. The message to send to the assistant agent. May be empty when
+ *  `confirmation_response` is set (answering a pending confirmation without
+ *  adding a new message); at least one of the two must be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Optional. Resumes an assistant session paused waiting for a client-managed
+ *  long-running operation to complete.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OperationCompletedEvent *operationCompletedEvent;
+
+/**
+ *  Optional. Optional cursor to resume and replay events from an in-flight or
+ *  completed turn.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resumeFromSequenceNumber;
+
+@end
+
+
+/**
+ *  Response message for SessionService.StreamChatAiAssistant.
+ */
+@interface GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse : GTLRObject
+
+/**
+ *  Generated-document artifact event (live preview deltas + final GCS pointer).
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ArtifactChunk *artifactChunk;
+
+/**
+ *  A blocking confirmation the agent paused on. The agent resumes when the
+ *  answer arrives on a later request's `confirmation_response`. Only sent to
+ *  clients that declared the CONFIRMATION_CARDS capability on the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AssistantConfirmationRequest *confirmationRequest;
+
+/** Unique identifier for the event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Timestamp when the event occurred. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Tells the client to silently reconnect with resume_from_sequence_number: the
+ *  task serving this stream is going away and the turn will continue elsewhere.
+ *  Not an error; the stream completes normally after this event.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_TurnHandoffEvent *handoff;
+
+/**
+ *  Structured clarification options parsed out of the model turn. The console
+ *  renders these as a selectable option list instead of raw text.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_OptionQuestionsChunk *optionQuestionsChunk;
+
+/**
+ *  A compacted replay of an in-flight turn, sent as the first event of every
+ *  attach or resume before any live event. The client replaces any locally
+ *  rendered state for this turn with the snapshot's contents.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_TurnResumeSnapshot *resumeSnapshot;
+
+/**
+ *  Optional. Monotonically increasing sequence number for this session turn.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sequenceNumber;
+
+/**
+ *  Session checkpoint/compaction recap event containing user intent and rolling
+ *  summary.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_SessionCheckpoint *sessionCheckpoint;
+
+/** Simple status update. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Status *status;
+
+/** Text Token (for streaming Gemini responses word-by-word). */
+@property(nonatomic, copy, nullable) NSString *textChunk;
+
+/** Thought text chunk (agent's reasoning before generating response). */
+@property(nonatomic, copy, nullable) NSString *thoughtChunk;
+
+/** Tool call execution event. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ToolCall *toolCall;
+
+/** Tool call response event. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ToolResponse *toolResponse;
+
+/**
+ *  The turn has ended. Sent as the last event of every turn, on the original
+ *  stream and on every attached or resumed stream, so clients can end the turn
+ *  on an explicit signal instead of inferring it from stream closure.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_TurnCompletedEvent *turnCompleted;
+
+/**
+ *  Optional. Indicates whether the turn is still actively running in the
+ *  background.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *turnInProgress;
+
+/** Optional. Turn-level metadata and intent categorization. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_TurnMetadata *turnMetadata;
+
+/** Optional. UI event payload. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_UiEvent *uiEvent;
+
+@end
+
+
+/**
  *  Configuration for how the agent response should be synthesized.
  */
 @interface GTLRCustomerEngagementSuite_SynthesizeSpeechConfig : GTLRObject
-
-/**
- *  Optional. Deprecated: Use `custom_voice_samples` in AudioProcessingConfig
- *  instead. The Cloud Storage URI to the consent audio for voice cloning.
- */
-@property(nonatomic, copy, nullable) NSString *consentAudioGcsUri GTLR_DEPRECATED;
 
 /**
  *  Optional. The instruction used to synthesize speech when using a generative
@@ -8695,15 +10251,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  Text-to-Speech.
  */
 @property(nonatomic, copy, nullable) NSString *voice;
-
-/**
- *  Optional. Deprecated: Use `custom_voice_samples` in AudioProcessingConfig
- *  instead. The Cloud Storage URI to the audio sample for voice cloning. The
- *  audio sample should be a mono-channel, 24kHz WAV file. Note: Please make
- *  sure the CES service agent `service-\@gcp-sa-ces.iam.gserviceaccount.com`
- *  has `storage.objects.get` permission to the Cloud Storage object.
- */
-@property(nonatomic, copy, nullable) NSString *voiceSampleGcsUri GTLR_DEPRECATED;
 
 @end
 
@@ -8869,6 +10416,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 /** Optional. The python function tool. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_PythonFunction *pythonFunction;
 
+/**
+ *  Output only. Indicates whether the tool is read-only. If true, the tool
+ *  cannot be modified by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
+
 /** Optional. The remote agent tool. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RemoteAgentTool *remoteAgentTool;
 
@@ -8900,6 +10455,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
 @interface GTLRCustomerEngagementSuite_ToolCall : GTLRObject
 
 /**
+ *  Output only. Human-readable name of the agent that issued this call, e.g.
+ *  "Contract Architect". Empty when the root agent issued it.
+ */
+@property(nonatomic, copy, nullable) NSString *agentName;
+
+/**
  *  Optional. The input parameters and values for the tool in JSON object
  *  format.
  */
@@ -8915,6 +10476,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The id of the tool call that caused this one, when it was
+ *  issued by a sub-agent working on behalf of a parent call. Empty for
+ *  top-level calls. Lets a client group a sub-agent's work under the call that
+ *  started it instead of rendering every step as a sibling.
+ */
+@property(nonatomic, copy, nullable) NSString *parentToolCallId;
 
 /**
  *  Optional. The name of the tool to execute. Format:
@@ -8978,6 +10547,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  */
 @interface GTLRCustomerEngagementSuite_ToolResponse : GTLRObject
 
+/**
+ *  Output only. Human-readable name of the agent that issued this call, e.g.
+ *  "Contract Architect". Empty when the root agent issued it.
+ */
+@property(nonatomic, copy, nullable) NSString *agentName;
+
 /** Output only. Display name of the tool. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -8987,6 +10562,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The id of the tool call that caused this one, when it was
+ *  issued by a sub-agent working on behalf of a parent call. Empty for
+ *  top-level calls. Lets a client group a sub-agent's work under the call that
+ *  started it instead of rendering every step as a sibling.
+ */
+@property(nonatomic, copy, nullable) NSString *parentToolCallId;
 
 /**
  *  Required. The tool execution result in JSON object format. Use "output" key
@@ -9285,6 +10868,180 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextRe
  *  `projects/{project}/locations/{location}/apps/{app}/agents/{agent}`
  */
 @property(nonatomic, copy, nullable) NSString *agent;
+
+@end
+
+
+/**
+ *  Terminal event of a turn (see StreamChatAiAssistantResponse.turn_completed).
+ */
+@interface GTLRCustomerEngagementSuite_TurnCompletedEvent : GTLRObject
+
+/**
+ *  Sequence number of the last event the turn produced. A client whose cursor
+ *  is lower missed content and should reload the session to see it.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finalSequenceNumber;
+
+/**
+ *  Why the turn ended.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_Abandoned
+ *        No task was driving the turn any more; it was sealed to a committed
+ *        partial and cannot be continued. (Value: "ABANDONED")
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_Completed
+ *        The turn ran to completion; the session holds its committed output.
+ *        (Value: "COMPLETED")
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_ReasonUnspecified
+ *        Unspecified. (Value: "REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnCompletedEvent_Reason_ResumeUnavailable
+ *        This server does not serve attach or resume for the session, so
+ *        nothing was tailed; the client should reload the session instead.
+ *        (Value: "RESUME_UNAVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  Identifier of the turn that ended; matches TurnResumeSnapshot.turn_id and
+ *  ActiveTurnInfo.turn_id.
+ */
+@property(nonatomic, copy, nullable) NSString *turnId;
+
+@end
+
+
+/**
+ *  Emitted before this task stops serving the stream mid-turn (e.g. a server
+ *  restart). The turn's state is persisted; a reconnect carrying
+ *  resume_from_sequence_number continues it on another task.
+ */
+@interface GTLRCustomerEngagementSuite_TurnHandoffEvent : GTLRObject
+
+/**
+ *  Why the stream is handing off.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnHandoffEvent_Reason_ReasonUnspecified
+ *        Unspecified. (Value: "REASON_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnHandoffEvent_Reason_ServerRestart
+ *        The serving task is shutting down (release push or rescheduling).
+ *        (Value: "SERVER_RESTART")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** Identifies the turn to resume. */
+@property(nonatomic, copy, nullable) NSString *turnId;
+
+@end
+
+
+/**
+ *  Turn-level metadata and intent categorization.
+ */
+@interface GTLRCustomerEngagementSuite_TurnMetadata : GTLRObject
+
+/**
+ *  Set on the terminal event of a contract draft whose every placeholder is
+ *  resolved (contract_progress is 100%), whether or not the draft was
+ *  published. Clients complete and dismiss the contract progress display on it;
+ *  publication is reported separately by contract_finalized.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contractDraftComplete;
+
+/**
+ *  Set on the final artifact event of a turn whose contract draft was published
+ *  (a revision was activated). Terminal for the clarification flow of this
+ *  draft: contract_progress is authoritative and complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contractFinalized;
+
+/**
+ *  Indicates whether this assistant turn was contract-related (e.g. contract
+ *  drafting, alignment, extraction, or revision).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contractRelated;
+
+/**
+ *  Set only on in-flight progress estimates emitted while a contract artifact
+ *  fence is streaming, and on the revision-turn-start event. Unset on
+ *  authoritative payloads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_ContractStreamingPhaseUnspecified
+ *        The payload is authoritative (computed from a complete contract
+ *        document, a persisted snapshot, or the pre-draft state). Clients must
+ *        replace any previously received progress with it. (Value:
+ *        "CONTRACT_STREAMING_PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_Drafting
+ *        An initial contract draft is streaming. contract_progress is an
+ *        in-flight estimate: non-decreasing within one artifact fence, capped
+ *        below the authoritative range, with pillar_breakdowns carrying
+ *        total_item_count == 0 to mark estimated pillar states. (Value:
+ *        "DRAFTING")
+ *    @arg @c kGTLRCustomerEngagementSuite_TurnMetadata_ContractStreamingPhase_Revising
+ *        A revision of an existing contract is streaming (for example after an
+ *        annotation submission). Same estimate semantics as DRAFTING. (Value:
+ *        "REVISING")
+ */
+@property(nonatomic, copy, nullable) NSString *contractStreamingPhase;
+
+@end
+
+
+/**
+ *  A compacted replay of an in-flight turn: everything needed to render the
+ *  turn's visible output so far, plus the position live events continue from.
+ */
+@interface GTLRCustomerEngagementSuite_TurnResumeSnapshot : GTLRObject
+
+/**
+ *  Compacted events reconstructing the turn's visible output, in render order,
+ *  using the same event shapes as live streaming.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse *> *events;
+
+/** When the turn will be wound down if no client remains attached. */
+@property(nonatomic, strong, nullable) GTLRDateTime *orphanDeadlineTime;
+
+/**
+ *  The position this snapshot represents. Live events follow with
+ *  sequence_number strictly greater than this. When lower than the
+ *  resume_from_sequence_number the client requested, flushed progress lags what
+ *  the client already rendered: the client must discard its rendered content of
+ *  this turn beyond this position before applying the snapshot.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resolvedSequenceNumber;
+
+/** Identifies the turn being attached to. */
+@property(nonatomic, copy, nullable) NSString *turnId;
+
+@end
+
+
+/**
+ *  Represents a UI event payload.
+ */
+@interface GTLRCustomerEngagementSuite_UiEvent : GTLRObject
+
+/** The JSON payload representing the A2UI surface. */
+@property(nonatomic, copy, nullable) NSString *jsonPayload;
+
+/**
+ *  The media type (MIME type) indicating the format of the UI event payload
+ *  (e.g., "application/json+a2ui").
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
 

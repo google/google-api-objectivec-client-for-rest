@@ -93,7 +93,7 @@ NSString * const kGTLRApiKeysServiceCheckExistingUsageSkip     = @"SKIP";
 
 @implementation GTLRApiKeysServiceQuery_ProjectsLocationsKeysDelete
 
-@dynamic ETag, name;
+@dynamic checkExistingUsage, ETag, name;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"ETag" : @"etag" };

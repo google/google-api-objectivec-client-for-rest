@@ -118,6 +118,7 @@ NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Active = @"ACTIVE";
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Creating = @"CREATING";
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Deleting = @"DELETING";
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Inactive = @"INACTIVE";
+NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Paused = @"PAUSED";
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Updating = @"UPDATING";
 
@@ -173,6 +174,7 @@ NSString * const kGTLRBackupdr_ComputeInstanceRestoreProperties_PrivateIpv6Googl
 NSString * const kGTLRBackupdr_DataSource_ConfigState_Active   = @"ACTIVE";
 NSString * const kGTLRBackupdr_DataSource_ConfigState_BackupConfigStateUnspecified = @"BACKUP_CONFIG_STATE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_DataSource_ConfigState_Passive  = @"PASSIVE";
+NSString * const kGTLRBackupdr_DataSource_ConfigState_Paused   = @"PAUSED";
 
 // GTLRBackupdr_DataSource.state
 NSString * const kGTLRBackupdr_DataSource_State_Active         = @"ACTIVE";
@@ -192,6 +194,7 @@ NSString * const kGTLRBackupdr_DataSourceBackupConfigInfo_LastBackupState_Succee
 NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Active = @"ACTIVE";
 NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_BackupConfigStateUnspecified = @"BACKUP_CONFIG_STATE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Passive = @"PASSIVE";
+NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Paused = @"PAUSED";
 
 // GTLRBackupdr_DiskBackupProperties.architecture
 NSString * const kGTLRBackupdr_DiskBackupProperties_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
@@ -242,6 +245,7 @@ NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Disk = @"DIS
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Filestore = @"FILESTORE";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FtCustomProbers = @"FT_CUSTOM_PROBERS";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_GoogleCloudNetappVolume = @"GOOGLE_CLOUD_NETAPP_VOLUME";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer = @"MANAGEMENT_SERVER";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ProtectionSummary = @"PROTECTION_SUMMARY";
 
@@ -322,6 +326,7 @@ NSString * const kGTLRBackupdr_Scheduling_ProvisioningModel_Standard = @"STANDAR
 NSString * const kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_Active = @"ACTIVE";
 NSString * const kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_BackupConfigStateUnspecified = @"BACKUP_CONFIG_STATE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_Passive = @"PASSIVE";
+NSString * const kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_Paused = @"PAUSED";
 
 // GTLRBackupdr_StandardSchedule.daysOfWeek
 NSString * const kGTLRBackupdr_StandardSchedule_DaysOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -958,7 +963,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_ComputeInstanceBackupPlanProperties
-@dynamic guestFlush;
+@dynamic bootDiskOnly, diskExclusionLabels, guestFlush;
 @end
 
 
@@ -968,9 +973,10 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_ComputeInstanceBackupProperties
-@dynamic canIpForward, descriptionProperty, disk, guestAccelerator, guestFlush,
-         keyRevocationActionType, labels, machineType, metadata, minCpuPlatform,
-         networkInterface, scheduling, serviceAccount, sourceInstance, tags;
+@dynamic canIpForward, descriptionProperty, disk, excludedDisks,
+         guestAccelerator, guestFlush, includedDisks, keyRevocationActionType,
+         labels, machineType, metadata, minCpuPlatform, networkInterface,
+         scheduling, serviceAccount, sourceInstance, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -979,7 +985,9 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"disk" : [GTLRBackupdr_AttachedDisk class],
+    @"excludedDisks" : [NSString class],
     @"guestAccelerator" : [GTLRBackupdr_AcceleratorConfig class],
+    @"includedDisks" : [NSString class],
     @"networkInterface" : [GTLRBackupdr_NetworkInterface class],
     @"serviceAccount" : [GTLRBackupdr_ServiceAccount class]
   };
@@ -1262,14 +1270,33 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_DiskExclusionLabels
+//
+
+@implementation GTLRBackupdr_DiskExclusionLabels
+@dynamic labels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [GTLRBackupdr_LabelKeyValPair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_DiskRestoreProperties
 //
 
 @implementation GTLRBackupdr_DiskRestoreProperties
 @dynamic accessMode, architecture, descriptionProperty, diskEncryptionKey,
-         enableConfidentialCompute, guestOsFeature, labels, licenses, name,
-         physicalBlockSizeBytes, provisionedIops, provisionedThroughput,
-         resourceManagerTags, resourcePolicy, sizeGb, storagePool, type;
+         enableConfidentialCompute, guestOsFeature, instanceBackupSource,
+         labels, licenses, name, physicalBlockSizeBytes, provisionedIops,
+         provisionedThroughput, resourceManagerTags, resourcePolicy, sizeGb,
+         storagePool, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1746,6 +1773,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_LabelKeyValPair
+//
+
+@implementation GTLRBackupdr_LabelKeyValPair
+@dynamic key, value;
 @end
 
 
@@ -2234,31 +2271,6 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBackupdr_OperationMetadata
-//
-
-@implementation GTLRBackupdr_OperationMetadata
-@dynamic additionalInfo, apiVersion, createTime, endTime, requestedCancellation,
-         statusMessage, target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBackupdr_OperationMetadata_AdditionalInfo
-//
-
-@implementation GTLRBackupdr_OperationMetadata_AdditionalInfo
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBackupdr_PitrSettings
 //
 
@@ -2399,6 +2411,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_RestoreBackupResponse
 @dynamic targetResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_RestoreDiskFromInstanceOptions
+//
+
+@implementation GTLRBackupdr_RestoreDiskFromInstanceOptions
+@dynamic bootDisk, sourceDeviceName;
 @end
 
 

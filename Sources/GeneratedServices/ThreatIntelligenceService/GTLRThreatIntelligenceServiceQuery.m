@@ -193,7 +193,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRThreatIntelligenceService_Alert class];
+  query.expectedObjectClass = [GTLRThreatIntelligenceService_GetPasswordResponse class];
   query.loggingName = @"threatintelligence.projects.alerts.getPassword";
   return query;
 }

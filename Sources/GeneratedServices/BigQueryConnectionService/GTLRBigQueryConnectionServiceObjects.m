@@ -28,6 +28,13 @@ NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres
 NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_Plaintext = @"PLAINTEXT";
 NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_SecretType_SecretTypeUnspecified = @"SECRET_TYPE_UNSPECIFIED";
 
+// GTLRBigQueryConnectionService_ConnectorConfigurationTls.mode
+NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_Disable = @"DISABLE";
+NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyCa = @"ENCRYPT_VERIFY_CA";
+NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyCaAndHost = @"ENCRYPT_VERIFY_CA_AND_HOST";
+NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_EncryptVerifyNone = @"ENCRYPT_VERIFY_NONE";
+NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationTls_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBigQueryConnectionService_AuditConfig
@@ -80,7 +87,7 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_AwsProperties
-@dynamic accessRole;
+@dynamic accessRole, crossCloudCacheOptions;
 @end
 
 
@@ -90,8 +97,8 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_AzureProperties
-@dynamic application, clientId, customerTenantId, federatedApplicationClientId,
-         identity, objectId, redirectUri;
+@dynamic application, clientId, crossCloudCacheOptions, customerTenantId,
+         federatedApplicationClientId, identity, objectId, redirectUri;
 @end
 
 
@@ -177,7 +184,7 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfiguration
-@dynamic asset, authentication, connectorId, endpoint, network, parameters;
+@dynamic asset, authentication, connectorId, endpoint, network, parameters, tls;
 @end
 
 
@@ -281,11 +288,50 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryConnectionService_ConnectorConfigurationTls
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationTls
+@dynamic mode, privatePki, webPki;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationTlsPrivatePki
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationTlsPrivatePki
+@dynamic trustedCertificatesPem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationTlsWebPki
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationTlsWebPki
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfigurationUsernamePassword
 @dynamic password, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_CrossCloudCacheOptions
+//
+
+@implementation GTLRBigQueryConnectionService_CrossCloudCacheOptions
+@dynamic enabled;
 @end
 
 
@@ -394,7 +440,7 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_SalesforceDataCloudProperties
-@dynamic identity, instanceUri, tenantId;
+@dynamic crossCloudCacheOptions, identity, instanceUri, tenantId;
 @end
 
 

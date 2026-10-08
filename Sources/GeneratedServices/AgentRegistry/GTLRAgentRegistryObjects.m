@@ -28,6 +28,12 @@ NSString * const kGTLRAgentRegistry_Card_Type_TypeUnspecified = @"TYPE_UNSPECIFI
 NSString * const kGTLRAgentRegistry_EndpointSpec_Type_NoSpec   = @"NO_SPEC";
 NSString * const kGTLRAgentRegistry_EndpointSpec_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRAgentRegistry_GoogleIamV1AuditLogConfig.logType
+NSString * const kGTLRAgentRegistry_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRAgentRegistry_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRAgentRegistry_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRAgentRegistry_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRAgentRegistry_Interface.protocolBinding
 NSString * const kGTLRAgentRegistry_Interface_ProtocolBinding_Grpc = @"GRPC";
 NSString * const kGTLRAgentRegistry_Interface_ProtocolBinding_HttpJson = @"HTTP_JSON";
@@ -311,6 +317,21 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAgentRegistry_Expr
+//
+
+@implementation GTLRAgentRegistry_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAgentRegistry_FetchAvailableBindingsResponse
 //
 
@@ -326,6 +347,129 @@ NSString * const kGTLRAgentRegistry_Protocol_Type_TypeUnspecified = @"TYPE_UNSPE
 
 + (NSString *)collectionItemsKey {
   return @"bindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GoogleIamV1AuditConfig
+//
+
+@implementation GTLRAgentRegistry_GoogleIamV1AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRAgentRegistry_GoogleIamV1AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GoogleIamV1AuditLogConfig
+//
+
+@implementation GTLRAgentRegistry_GoogleIamV1AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GoogleIamV1Binding
+//
+
+@implementation GTLRAgentRegistry_GoogleIamV1Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GoogleIamV1Policy
+//
+
+@implementation GTLRAgentRegistry_GoogleIamV1Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRAgentRegistry_GoogleIamV1AuditConfig class],
+    @"bindings" : [GTLRAgentRegistry_GoogleIamV1Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GoogleIamV1SetIamPolicyRequest
+//
+
+@implementation GTLRAgentRegistry_GoogleIamV1SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GoogleIamV1TestIamPermissionsRequest
+//
+
+@implementation GTLRAgentRegistry_GoogleIamV1TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAgentRegistry_GoogleIamV1TestIamPermissionsResponse
+//
+
+@implementation GTLRAgentRegistry_GoogleIamV1TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
 }
 
 @end

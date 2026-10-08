@@ -86,7 +86,9 @@
 @class GTLRServiceManagement_MetricDescriptor;
 @class GTLRServiceManagement_MetricDescriptorMetadata;
 @class GTLRServiceManagement_MetricRule;
+@class GTLRServiceManagement_MetricRule_AgenticMetricCosts;
 @class GTLRServiceManagement_MetricRule_MetricCosts;
+@class GTLRServiceManagement_MetricRule_NonagenticMetricCosts;
 @class GTLRServiceManagement_Mixin;
 @class GTLRServiceManagement_MonitoredResourceDescriptor;
 @class GTLRServiceManagement_Monitoring;
@@ -1031,6 +1033,28 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organizatio
  *  Value: "STREET_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Publishing_Organization_StreetView;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceManagement_QuotaLimit.trafficSource
+
+/**
+ *  This quota limit applies to only agentic traffic.
+ *
+ *  Value: "TRAFFIC_SOURCE_AGENTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceAgentic;
+/**
+ *  This quota limit applies to traffic not recognized as agentic.
+ *
+ *  Value: "TRAFFIC_SOURCE_NONAGENTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceNonagentic;
+/**
+ *  This quota limit applies to all traffic. This is the default value.
+ *
+ *  Value: "TRAFFIC_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_Rollout.status
@@ -4123,6 +4147,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @interface GTLRServiceManagement_MetricRule : GTLRObject
 
 /**
+ *  Optional. Metrics to update when the selected methods are called, and the
+ *  associated cost applied to each metric, iff the source of the call is an
+ *  agent. The key of the map is the metric name, and the values are the amount
+ *  increased for the metric against which the quota limits are defined. The
+ *  value must not be negative.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_MetricRule_AgenticMetricCosts *agenticMetricCosts;
+
+/**
  *  Metrics to update when the selected methods are called, and the associated
  *  cost applied to each metric. The key of the map is the metric name, and the
  *  values are the amount increased for the metric against which the quota
@@ -4131,11 +4164,36 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_MetricRule_MetricCosts *metricCosts;
 
 /**
+ *  Optional. Metrics to update when the selected methods are called, and the
+ *  associated cost applied to each metric, iff the source of the call is not an
+ *  agent. The key of the map is the metric name, and the values are the amount
+ *  increased for the metric against which the quota limits are defined. The
+ *  value must not be negative.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_MetricRule_NonagenticMetricCosts *nonagenticMetricCosts;
+
+/**
  *  Selects the methods to which this rule applies. Refer to selector for syntax
  *  details.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
+@end
+
+
+/**
+ *  Optional. Metrics to update when the selected methods are called, and the
+ *  associated cost applied to each metric, iff the source of the call is an
+ *  agent. The key of the map is the metric name, and the values are the amount
+ *  increased for the metric against which the quota limits are defined. The
+ *  value must not be negative.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceManagement_MetricRule_AgenticMetricCosts : GTLRObject
 @end
 
 
@@ -4151,6 +4209,22 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceManagement_MetricRule_MetricCosts : GTLRObject
+@end
+
+
+/**
+ *  Optional. Metrics to update when the selected methods are called, and the
+ *  associated cost applied to each metric, iff the source of the call is not an
+ *  agent. The key of the map is the metric name, and the values are the amount
+ *  increased for the metric against which the quota limits are defined. The
+ *  value must not be negative.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceManagement_MetricRule_NonagenticMetricCosts : GTLRObject
 @end
 
 
@@ -4961,6 +5035,24 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  well as '-'. The maximum length of the limit name is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. This is only informational, the logic to allocate the quota to the
+ *  correct metric (such as in `metric_rules`) should identify which quota
+ *  metrics to allocate to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceAgentic
+ *        This quota limit applies to only agentic traffic. (Value:
+ *        "TRAFFIC_SOURCE_AGENTIC")
+ *    @arg @c kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceNonagentic
+ *        This quota limit applies to traffic not recognized as agentic. (Value:
+ *        "TRAFFIC_SOURCE_NONAGENTIC")
+ *    @arg @c kGTLRServiceManagement_QuotaLimit_TrafficSource_TrafficSourceUnspecified
+ *        This quota limit applies to all traffic. This is the default value.
+ *        (Value: "TRAFFIC_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trafficSource;
 
 /**
  *  Specify the unit of the quota limit. It uses the same syntax as

@@ -502,6 +502,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
+ *  Optional. If set, validate the request and preview the endpoint, but do not
+ *  actually create it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
  *  Creates a new FirewallEndpoint in a given organization and location.
@@ -681,6 +687,140 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in an
+ *  organization and location.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Parent value for CreateWildfireVerdictChangeRequestRequest. The
+ *  parent is a firewall endpoint resource. Format:
+ *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
+ *
+ *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in an
+ *  organization and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_WildfireVerdictChangeRequest to
+ *    include in the query.
+ *  @param parent Required. Parent value for
+ *    CreateWildfireVerdictChangeRequestRequest. The parent is a firewall
+ *    endpoint resource. Format:
+ *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_WildfireVerdictChangeRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in an
+ *  organization and location.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the WildfireVerdictChangeRequest to retrieve. Format:
+ *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
+ *  Where {wildfire_verdict_change_request_id} is the ID in the format:
+ *  ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
+ *
+ *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in an
+ *  organization and location.
+ *
+ *  @param name Required. Name of the WildfireVerdictChangeRequest to retrieve.
+ *    Format:
+ *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
+ *    Where {wildfire_verdict_change_request_id} is the ID in the format:
+ *    ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in an
+ *  organization and location.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.wildfireVerdictChangeRequests.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression to filter the results. See AIP-160 for filtering
+ *  syntax. Supported fields are: - `sha256` (string, equality only, e.g.
+ *  `sha256 = "..."`) - `state` (enum, equality only, e.g. `state = "ACTIVE"`) -
+ *  `create_time` (timestamp, comparisons, e.g. `create_time >
+ *  "2026-01-01T00:00:00Z"`)
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListWildfireVerdictChangeRequestsRequest. The
+ *  parent is a firewall endpoint resource. Format:
+ *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse.
+ *
+ *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in an
+ *  organization and location.
+ *
+ *  @param parent Required. Parent value for
+ *    ListWildfireVerdictChangeRequestsRequest. The parent is a firewall
+ *    endpoint resource. Format:
+ *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3532,6 +3672,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
+ *  Optional. If set, validate the request and preview the endpoint, but do not
+ *  actually create it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
  *  Creates a new FirewallEndpoint in a given project and location.
@@ -3711,6 +3857,140 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in a
+ *  project and location.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Parent value for CreateWildfireVerdictChangeRequestRequest. The
+ *  parent is a firewall endpoint resource. Format:
+ *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
+ *
+ *  Create WildfireVerdictChangeRequest in a given Firewall Endpoint in a
+ *  project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_WildfireVerdictChangeRequest to
+ *    include in the query.
+ *  @param parent Required. Parent value for
+ *    CreateWildfireVerdictChangeRequestRequest. The parent is a firewall
+ *    endpoint resource. Format:
+ *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_WildfireVerdictChangeRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in a project
+ *  and location.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the WildfireVerdictChangeRequest to retrieve. Format:
+ *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
+ *  Where {wildfire_verdict_change_request_id} is the ID in the format:
+ *  ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_WildfireVerdictChangeRequest.
+ *
+ *  Get WildfireVerdictChangeRequest in a given Firewall Endpoint in a project
+ *  and location.
+ *
+ *  @param name Required. Name of the WildfireVerdictChangeRequest to retrieve.
+ *    Format:
+ *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
+ *    Where {wildfire_verdict_change_request_id} is the ID in the format:
+ *    ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in a
+ *  project and location.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.wildfireVerdictChangeRequests.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression to filter the results. See AIP-160 for filtering
+ *  syntax. Supported fields are: - `sha256` (string, equality only, e.g.
+ *  `sha256 = "..."`) - `state` (enum, equality only, e.g. `state = "ACTIVE"`) -
+ *  `create_time` (timestamp, comparisons, e.g. `create_time >
+ *  "2026-01-01T00:00:00Z"`)
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListWildfireVerdictChangeRequestsRequest. The
+ *  parent is a firewall endpoint resource. Format:
+ *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse.
+ *
+ *  Lists WildfireVerdictChangeRequests in a given Firewall Endpoint in a
+ *  project and location.
+ *
+ *  @param parent Required. Parent value for
+ *    ListWildfireVerdictChangeRequestsRequest. The parent is a firewall
+ *    endpoint resource. Format:
+ *    organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsWildfireVerdictChangeRequestsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

@@ -40,6 +40,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQ
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceDiscoveryEngine;
 /**
+ *  The scorecard is derived from the custom intent taxonomy. Customers can edit
+ *  question content, but cannot delete the scorecard or add/remove questions.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_INTENT_TAXONOMY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceIntentTaxonomy;
+/**
  *  The source of the scorecard is unspecified. Default to
  *  QA_SCORECARD_SOURCE_CUSTOMER_DEFINED.
  *
@@ -70,6 +77,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewConversationVie
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
+/**
+ *  Populates all fields in the conversation, including the structured
+ *  transcript parts.
+ *
+ *  Value: "FULL_WITH_STRUCTURED_TRANSCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFullWithStructuredTranscript;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1306,6 +1320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        conversation. (Value: "FULL")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
  *        conversation except the transcript. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFullWithStructuredTranscript
+ *        Populates all fields in the conversation, including the structured
+ *        transcript parts. (Value: "FULL_WITH_STRUCTURED_TRANSCRIPT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1380,6 +1397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        conversation. (Value: "FULL")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
  *        conversation except the transcript. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFullWithStructuredTranscript
+ *        Populates all fields in the conversation, including the structured
+ *        transcript parts. (Value: "FULL_WITH_STRUCTURED_TRANSCRIPT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -3498,6 +3518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        conversation. (Value: "FULL")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
  *        conversation except the transcript. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFullWithStructuredTranscript
+ *        Populates all fields in the conversation, including the structured
+ *        transcript parts. (Value: "FULL_WITH_STRUCTURED_TRANSCRIPT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -3604,6 +3627,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        conversation. (Value: "FULL")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
  *        conversation except the transcript. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFullWithStructuredTranscript
+ *        Populates all fields in the conversation, including the structured
+ *        transcript parts. (Value: "FULL_WITH_STRUCTURED_TRANSCRIPT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -4570,6 +4596,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        conversation. (Value: "FULL")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
  *        conversation except the transcript. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFullWithStructuredTranscript
+ *        Populates all fields in the conversation, including the structured
+ *        transcript parts. (Value: "FULL_WITH_STRUCTURED_TRANSCRIPT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -4676,6 +4705,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        conversation. (Value: "FULL")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
  *        conversation except the transcript. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFullWithStructuredTranscript
+ *        Populates all fields in the conversation, including the structured
+ *        transcript parts. (Value: "FULL_WITH_STRUCTURED_TRANSCRIPT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -6335,6 +6367,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceDiscoveryEngine
  *        The scorecard is a scorecard created through discovery engine
  *        deployment. (Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE")
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceIntentTaxonomy
+ *        The scorecard is derived from the custom intent taxonomy. Customers
+ *        can edit question content, but cannot delete the scorecard or
+ *        add/remove questions. (Value: "QA_SCORECARD_SOURCE_INTENT_TAXONOMY")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *qaScorecardSources;
 
@@ -6587,6 +6623,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceDiscoveryEngine
  *        The scorecard is a scorecard created through discovery engine
  *        deployment. (Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE")
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceIntentTaxonomy
+ *        The scorecard is derived from the custom intent taxonomy. Customers
+ *        can edit question content, but cannot delete the scorecard or
+ *        add/remove questions. (Value: "QA_SCORECARD_SOURCE_INTENT_TAXONOMY")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *qaScorecardSources;
 

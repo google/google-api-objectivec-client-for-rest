@@ -35,6 +35,83 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 
 @end
 
+@implementation GTLRCloudIdentityQuery_AllowlistedDomainsCreate
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_AllowlistedDomain *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/allowlistedDomains";
+  GTLRCloudIdentityQuery_AllowlistedDomainsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.allowlistedDomains.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_AllowlistedDomainsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_AllowlistedDomainsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.allowlistedDomains.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_AllowlistedDomainsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_AllowlistedDomainsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_AllowlistedDomain class];
+  query.loggingName = @"cloudidentity.allowlistedDomains.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_AllowlistedDomainsList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/allowlistedDomains";
+  GTLRCloudIdentityQuery_AllowlistedDomainsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudIdentity_ListAllowlistedDomainsResponse class];
+  query.loggingName = @"cloudidentity.allowlistedDomains.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIdentityQuery_CustomersUserinvitationsCancel
 
 @dynamic name;

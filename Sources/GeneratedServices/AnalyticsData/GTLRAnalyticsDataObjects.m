@@ -41,6 +41,19 @@ NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_GranularityUnspecif
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Monthly = @"MONTHLY";
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Weekly = @"WEEKLY";
 
+// GTLRAnalyticsData_DataTruncationReason.dataTruncationType
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeCm360 = @"DATA_TRUNCATION_TYPE_CM360";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeConversions = @"DATA_TRUNCATION_TYPE_CONVERSIONS";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDataDrivenAttribution = @"DATA_TRUNCATION_TYPE_DATA_DRIVEN_ATTRIBUTION";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDateRange = @"DATA_TRUNCATION_TYPE_DATE_RANGE";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeDv360 = @"DATA_TRUNCATION_TYPE_DV360";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeEventScopedEcommerceMetrics = @"DATA_TRUNCATION_TYPE_EVENT_SCOPED_ECOMMERCE_METRICS";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeGoogleAds = @"DATA_TRUNCATION_TYPE_GOOGLE_ADS";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeItemScopedEcommerceMetrics = @"DATA_TRUNCATION_TYPE_ITEM_SCOPED_ECOMMERCE_METRICS";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeProperty = @"DATA_TRUNCATION_TYPE_PROPERTY";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeRulesBasedModels = @"DATA_TRUNCATION_TYPE_RULES_BASED_MODELS";
+NSString * const kGTLRAnalyticsData_DataTruncationReason_DataTruncationType_DataTruncationTypeUnspecified = @"DATA_TRUNCATION_TYPE_UNSPECIFIED";
+
 // GTLRAnalyticsData_DimensionCompatibility.compatibility
 NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Compatible = @"COMPATIBLE";
@@ -404,6 +417,35 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dimensionNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_DataTruncationDateRange
+//
+
+@implementation GTLRAnalyticsData_DataTruncationDateRange
+@dynamic endDate, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_DataTruncationReason
+//
+
+@implementation GTLRAnalyticsData_DataTruncationReason
+@dynamic dataTruncationDate, dataTruncationDateRanges, dataTruncationMessage,
+         dataTruncationType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataTruncationDateRanges" : [GTLRAnalyticsData_DataTruncationDateRange class]
   };
   return map;
 }
@@ -904,11 +946,13 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_ResponseMetaData
-@dynamic currencyCode, dataLossFromOtherRow, emptyReason, samplingMetadatas,
-         schemaRestrictionResponse, subjectToThresholding, timeZone;
+@dynamic currencyCode, dataLossFromOtherRow, dataTruncationReasons, emptyReason,
+         samplingMetadatas, schemaRestrictionResponse, subjectToThresholding,
+         timeZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"dataTruncationReasons" : [GTLRAnalyticsData_DataTruncationReason class],
     @"samplingMetadatas" : [GTLRAnalyticsData_SamplingMetadata class]
   };
   return map;

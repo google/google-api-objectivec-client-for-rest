@@ -178,11 +178,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_StateStopping;
 /**
+ *  The workstation is suspended.
+ *
+ *  Value: "STATE_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_StateSuspended;
+/**
+ *  The workstation is being suspended.
+ *
+ *  Value: "STATE_SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_StateSuspending;
+/**
  *  Do not use.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudWorkstations_WorkstationConfig.idleAction
+
+/**
+ *  Defaults to STOP.
+ *
+ *  Value: "IDLE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_WorkstationConfig_IdleAction_IdleActionUnspecified;
+/**
+ *  Stop the workstation after idle_timeout.
+ *
+ *  Value: "STOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_WorkstationConfig_IdleAction_Stop;
+/**
+ *  Suspend the workstation after idle_timeout.
+ *
+ *  Value: "SUSPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_WorkstationConfig_IdleAction_Suspend;
 
 /**
  *  An accelerator card attached to the instance.
@@ -653,7 +687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Optional. Maximum size in GB to which this persistent directory can be
- *  resized. Defaults to unlimited if not set.
+ *  resized. Defaults to `0`, which indicates no maximum limit is enforced by
+ *  this configuration. Resizing is still subject to the quotas and limits of
+ *  the underlying disk type.
  *
  *  Uses NSNumber of intValue.
  */
@@ -993,7 +1029,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Optional. Maximum size in GB to which this persistent directory can be
- *  resized. Defaults to unlimited if not set.
+ *  resized. Defaults to `0`, which indicates no maximum limit is enforced by
+ *  this configuration. Resizing is still subject to the quotas and limits of
+ *  the underlying disk type.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1847,6 +1885,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
+ *  Request message for SuspendWorkstation.
+ */
+@interface GTLRCloudWorkstations_SuspendWorkstationRequest : GTLRObject
+
+/**
+ *  Optional. If set, the request will be rejected if the latest version of the
+ *  workstation on the server does not have this ETag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. If set, validate the request and preview the result, but do not
+ *  actually apply it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRCloudWorkstations_TestIamPermissionsRequest : GTLRObject
@@ -1976,6 +2036,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *        it is started. (Value: "STATE_STOPPED")
  *    @arg @c kGTLRCloudWorkstations_Workstation_State_StateStopping The
  *        workstation is being stopped. (Value: "STATE_STOPPING")
+ *    @arg @c kGTLRCloudWorkstations_Workstation_State_StateSuspended The
+ *        workstation is suspended. (Value: "STATE_SUSPENDED")
+ *    @arg @c kGTLRCloudWorkstations_Workstation_State_StateSuspending The
+ *        workstation is being suspended. (Value: "STATE_SUSPENDING")
  *    @arg @c kGTLRCloudWorkstations_Workstation_State_StateUnspecified Do not
  *        use. (Value: "STATE_UNSPECIFIED")
  */
@@ -2328,10 +2392,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_Host *host;
 
 /**
- *  Optional. Number of seconds to wait before automatically stopping a
- *  workstation after it last received user traffic. A value of `"0s"` indicates
- *  that Cloud Workstations VMs created with this configuration should never
- *  time out due to idleness. Provide
+ *  Optional. The action to take when the workstation has been idle for the
+ *  duration specified in idle_timeout. Defaults to STOP.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudWorkstations_WorkstationConfig_IdleAction_IdleActionUnspecified
+ *        Defaults to STOP. (Value: "IDLE_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudWorkstations_WorkstationConfig_IdleAction_Stop Stop the
+ *        workstation after idle_timeout. (Value: "STOP")
+ *    @arg @c kGTLRCloudWorkstations_WorkstationConfig_IdleAction_Suspend
+ *        Suspend the workstation after idle_timeout. (Value: "SUSPEND")
+ */
+@property(nonatomic, copy, nullable) NSString *idleAction;
+
+/**
+ *  Optional. Number of seconds to wait before automatically stopping or
+ *  suspending a workstation after it last received user traffic. See
+ *  idle_action to configure whether to stop or suspend idle workstations. A
+ *  value of `"0s"` indicates that Cloud Workstations VMs created with this
+ *  configuration should never time out due to idleness. Provide
  *  [duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)
  *  terminated by `s` for seconds—for example, `"7200s"` (2 hours). The default
  *  is `"1200s"` (20 minutes).
@@ -2392,19 +2471,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, strong, nullable) NSArray<NSString *> *replicaZones;
 
 /**
- *  Optional. Number of seconds that a workstation can run until it is
- *  automatically shut down. We recommend that workstations be shut down daily
- *  to reduce costs and so that security updates can be applied upon restart.
- *  The idle_timeout and running_timeout fields are independent of each other.
- *  Note that the running_timeout field shuts down VMs after the specified time,
- *  regardless of whether or not the VMs are idle. Provide duration terminated
- *  by `s` for seconds—for example, `"54000s"` (15 hours). Defaults to
- *  `"43200s"` (12 hours). A value of `"0s"` indicates that workstations using
- *  this configuration should never time out. If encryption_key is set, it must
- *  be greater than `"0s"` and less than `"86400s"` (24 hours). Warning: A value
- *  of `"0s"` indicates that Cloud Workstations VMs created with this
- *  configuration have no maximum running time. This is strongly discouraged
- *  because you incur costs and will not pick up security updates.
+ *  Optional. Number of seconds to wait before automatically stopping a
+ *  workstation. We recommend that workstations be stopped daily so that
+ *  security updates can be applied upon restart. The idle_timeout and
+ *  running_timeout fields are independent of each other. Note that the
+ *  running_timeout field stops workstations after the specified time,
+ *  regardless of whether or not the workstations are idle. Note: This timeout
+ *  applies to workstations in the following states: - STATE_RUNNING -
+ *  STATE_SUSPENDED Suspending a workstation does not reset this timeout.
+ *  Provide duration terminated by `s` for seconds—for example, `"54000s"` (15
+ *  hours). Defaults to `"43200s"` (12 hours). A value of `"0s"` indicates that
+ *  workstations using this configuration should never time out. If
+ *  encryption_key is set, it must be greater than `"0s"` and less than
+ *  `"86400s"` (24 hours). Warning: A value of `"0s"` indicates that Cloud
+ *  Workstations VMs created with this configuration have no maximum running
+ *  time. This is strongly discouraged because you incur costs and will not pick
+ *  up security updates.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *runningTimeout;
 

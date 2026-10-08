@@ -71,6 +71,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenPropertiesClientProperties;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataAddress;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo;
@@ -1573,13 +1574,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  google-agent - AI_AGENT * browser-base - AI_AGENT * chat-gpt - AI_AGENT *
  *  aws-bedrock - AI_AGENT * cybaa-bot - AI_AGENT * cloudflare - AI_AGENT *
  *  payhawk - AI_AGENT * duck-duck-go - SEARCH_INDEXER * mediaboard -
- *  CONTENT_SCRAPER * marker-io - AI_AGENT * broadcom - AI_AGENT *
- *  anchor-browser - AI_AGENT * shopify - AI_AGENT * stackscope -
- *  CONTENT_SCRAPER * manus - AI_AGENT * kernel-sh - AI_AGENT * zvelo -
- *  SEARCH_INDEXER Ensure that your applications can handle identifier values
- *  not explicitly listed here. Deprecated values might take some time to stop
- *  showing up in responses. New values can be pushed so this list should be
- *  taken as non exhaustive.
+ *  CONTENT_SCRAPER * marker-io - AI_AGENT * anchor-browser - AI_AGENT * shopify
+ *  - AI_AGENT * stackscope - CONTENT_SCRAPER * manus - AI_AGENT * kernel-sh -
+ *  AI_AGENT * zvelo - SEARCH_INDEXER Ensure that your applications can handle
+ *  identifier values not explicitly listed here. Deprecated values might take
+ *  some time to stop showing up in responses. New values can be pushed so this
+ *  list should be taken as non exhaustive.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3115,6 +3115,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *androidPackageName;
 
 /**
+ *  Output only. Information collected by the reCAPTCHA Enterprise client-side
+ *  integration when the token is generated.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenPropertiesClientProperties *clientProperties;
+
+/**
+ *  Output only. Indicates a failure collecting reCAPTCHA signals at token
+ *  generation. This might be a transient condition, or persistent for a user's
+ *  environment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientSignalsFailed;
+
+/**
  *  Output only. The timestamp corresponding to the generation of the token.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -3178,6 +3193,30 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *valid;
+
+@end
+
+
+/**
+ *  Information collected by the reCAPTCHA Enterprise client-side integration
+ *  when the token is generated.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenPropertiesClientProperties : GTLRObject
+
+/**
+ *  Output only. The `User-Agent` header string observed by reCAPTCHA during
+ *  token generation. This string is truncated to a maximum length of 1000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *userAgent;
+
+/**
+ *  Output only. The user's IP address at token generation. This can be either
+ *  an IPv4 address (e.g., `192.0.2.1`) or an IPv6 address in canonical format
+ *  per RFC 5952 section 4 (e.g., `2001:db8::1`). IPv4-mapped IPv6 addresses are
+ *  canonicalized to standard IPv4.
+ */
+@property(nonatomic, copy, nullable) NSString *userIpAddress;
 
 @end
 
@@ -3672,7 +3711,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Optional. Settings for the frequency and difficulty at which this key
  *  triggers captcha challenges. This should only be specified for
- *  `IntegrationType` CHECKBOX, INVISIBLE or POLICY_BASED_CHALLENGE.
+ *  `IntegrationType` CHECKBOX (defaults to BALANCE), INVISIBLE (defaults to
+ *  USABILITY), or POLICY_BASED_CHALLENGE (defaults to USABILITY).
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_ChallengeSecurityPreference_Balance

@@ -211,6 +211,35 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyMaintenance;
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyTensorflow;
 
 // ----------------------------------------------------------------------------
+// GTLRTPU_Node.protectionTier
+
+/**
+ *  CAPACITY_OPTIMIZED capacity leverages redundancies (e.g. power, cooling) at
+ *  the data center during normal operating conditions. In the event of
+ *  infrastructure failures at data center (e.g. power and/or cooling failures),
+ *  this workload may be disrupted. As a consequence, it has a weaker
+ *  availability SLO than STANDARD.
+ *
+ *  Value: "CAPACITY_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ProtectionTier_CapacityOptimized;
+/**
+ *  Protection tier is unknown.
+ *
+ *  Value: "PROTECTION_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ProtectionTier_ProtectionTierUnspecified;
+/**
+ *  STANDARD protection for workload that should be protected by redundancies
+ *  (e.g. power, cooling) at the data center level. In the event of
+ *  infrastructure failures at data center (e.g. power and/or cooling failures),
+ *  this workload is expected to continue as normal using the redundancies.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ProtectionTier_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRTPU_Node.state
 
 /**
@@ -1257,6 +1286,29 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled
  *  the 0th entry in this map first.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_NetworkEndpoint *> *networkEndpoints;
+
+/**
+ *  Output only. Protection tier for the workload which specifies the workload
+ *  expectations in the event of infrastructure failures at data center (e.g.
+ *  power and/or cooling failures).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_Node_ProtectionTier_CapacityOptimized CAPACITY_OPTIMIZED
+ *        capacity leverages redundancies (e.g. power, cooling) at the data
+ *        center during normal operating conditions. In the event of
+ *        infrastructure failures at data center (e.g. power and/or cooling
+ *        failures), this workload may be disrupted. As a consequence, it has a
+ *        weaker availability SLO than STANDARD. (Value: "CAPACITY_OPTIMIZED")
+ *    @arg @c kGTLRTPU_Node_ProtectionTier_ProtectionTierUnspecified Protection
+ *        tier is unknown. (Value: "PROTECTION_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_Node_ProtectionTier_Standard STANDARD protection for
+ *        workload that should be protected by redundancies (e.g. power,
+ *        cooling) at the data center level. In the event of infrastructure
+ *        failures at data center (e.g. power and/or cooling failures), this
+ *        workload is expected to continue as normal using the redundancies.
+ *        (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionTier;
 
 /**
  *  Output only. The qualified name of the QueuedResource that requested this

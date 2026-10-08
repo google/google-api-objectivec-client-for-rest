@@ -67,7 +67,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_AcceleratorTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -115,8 +115,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_AcceleratorTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -144,7 +143,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_AddressesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -244,8 +243,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_AddressesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -396,10 +394,72 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_AdviceCapacity
+
+@dynamic project, region;
+
++ (instancetype)queryWithObject:(GTLRCompute_CapacityAdviceRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/advice/capacity";
+  GTLRComputeQuery_AdviceCapacity *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_CapacityAdviceResponse class];
+  query.loggingName = @"compute.advice.capacity";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_AdviceCapacityHistory
+
+@dynamic project, region;
+
++ (instancetype)queryWithObject:(GTLRCompute_CapacityHistoryRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/advice/capacityHistory";
+  GTLRComputeQuery_AdviceCapacityHistory *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_CapacityHistoryResponse class];
+  query.loggingName = @"compute.advice.capacityHistory";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_AutoscalersAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -511,8 +571,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_AutoscalersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -678,7 +737,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_BackendBucketsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -818,7 +877,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_BackendBucketsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -837,7 +896,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_BackendBucketsListUsable
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1043,7 +1102,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_BackendServicesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1236,7 +1295,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_BackendServicesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1255,7 +1314,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_BackendServicesListUsable
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1533,7 +1592,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_CrossSiteNetworksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1621,7 +1680,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_DisksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1869,8 +1928,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_DisksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2265,7 +2323,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_DiskTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2313,8 +2371,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_DiskTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2414,7 +2471,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ExternalVpnGatewaysList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2687,7 +2744,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_FirewallPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, parentId, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, parentId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"locations/global/firewallPolicies";
@@ -2959,7 +3016,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_FirewallsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3072,7 +3129,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_ForwardingRulesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3172,8 +3229,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ForwardingRulesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -3296,7 +3352,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_FutureReservationsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3437,8 +3493,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_FutureReservationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -3575,7 +3630,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalAddressesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3760,7 +3815,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalForwardingRulesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3865,6 +3920,52 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.forwardingRule = forwardingRule;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.globalForwardingRules.setTarget";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalFrontendSettingsGet
+
+@dynamic project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/globalFrontendSettings";
+  GTLRComputeQuery_GlobalFrontendSettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_GlobalFrontendSettings class];
+  query.loggingName = @"compute.globalFrontendSettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalFrontendSettingsPatch
+
+@dynamic project, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalFrontendSettings *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/globalFrontendSettings";
+  GTLRComputeQuery_GlobalFrontendSettingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_GlobalFrontendSettingsPatchResponse class];
+  query.loggingName = @"compute.globalFrontendSettings.patch";
   return query;
 }
 
@@ -4007,7 +4108,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalNetworkEndpointGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4026,8 +4127,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalNetworkEndpointGroupsListNetworkEndpoints
 
-@dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project,
-         returnPartialSuccess;
+@dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project
             networkEndpointGroup:(NSString *)networkEndpointGroup {
@@ -4051,7 +4151,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_GlobalOperationsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4115,7 +4215,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalOperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4194,7 +4294,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalOrganizationOperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, parentId, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, parentId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"locations/global/operations";
@@ -4284,7 +4384,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4335,7 +4435,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_GlobalVmExtensionPoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4435,7 +4535,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_GlobalVmExtensionPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4486,7 +4586,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_HealthChecksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4578,7 +4678,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_HealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4761,7 +4861,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_HostsList
 
 @dynamic association, filter, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -4863,7 +4963,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_HttpHealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5048,7 +5148,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_HttpsHealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5339,7 +5439,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ImagesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5480,6 +5580,54 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_ImageViewsGet
+
+@dynamic project, region, resourceId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                      resourceId:(NSString *)resourceId {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resourceId"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/imageViews/{resourceId}";
+  GTLRComputeQuery_ImageViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resourceId = resourceId;
+  query.expectedObjectClass = [GTLRCompute_ImageView class];
+  query.loggingName = @"compute.imageViews.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ImageViewsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/imageViews";
+  GTLRComputeQuery_ImageViewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_ImageViewsListResponse class];
+  query.loggingName = @"compute.imageViews.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstanceGroupManagerResizeRequestsCancel
 
 @dynamic instanceGroupManager, project, requestId, resizeRequest, zoneProperty;
@@ -5613,7 +5761,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceGroupManagerResizeRequestsList
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -5680,7 +5828,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceGroupManagersAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5942,8 +6090,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstanceGroupManagersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -5971,7 +6118,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceGroupManagersListErrors
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6001,7 +6148,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceGroupManagersListManagedInstances
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6031,7 +6178,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6501,7 +6648,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceGroupsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -6613,8 +6760,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstanceGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6642,7 +6788,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceGroupsListInstances
 
 @dynamic filter, instanceGroup, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6904,7 +7050,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstancesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7423,8 +7569,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstancesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -7452,7 +7597,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstancesListReferrers
 
 @dynamic filter, instance, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -8558,7 +8703,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstanceTemplatesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -8673,7 +8818,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstanceTemplatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -8876,8 +9021,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstantSnapshotGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -8979,7 +9123,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InstantSnapshotsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -9120,8 +9264,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InstantSnapshotsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -9378,7 +9521,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InterconnectAttachmentGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -9491,7 +9634,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_InterconnectAttachmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -9591,8 +9734,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InterconnectAttachmentsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -9831,7 +9973,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InterconnectGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -9966,7 +10108,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InterconnectLocationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10008,7 +10150,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InterconnectRemoteLocationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10146,7 +10288,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_InterconnectsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10220,6 +10362,37 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.interconnects.setLabels";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InterconnectsSetName
+
+@dynamic interconnect, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectsSetNameRequest *)object
+                        project:(NSString *)project
+                   interconnect:(NSString *)interconnect {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"interconnect", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects/{interconnect}/setName";
+  GTLRComputeQuery_InterconnectsSetName *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.interconnect = interconnect;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.interconnects.setName";
   return query;
 }
 
@@ -10431,7 +10604,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_LicensesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10639,7 +10812,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_MachineImagesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10752,7 +10925,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_MachineTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10800,8 +10973,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_MachineTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -10826,10 +10998,52 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_ManagedRulesetsGet
+
+@dynamic managedRuleset, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  managedRuleset:(NSString *)managedRuleset {
+  NSArray *pathParams = @[
+    @"managedRuleset", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/managedRulesets/{managedRuleset}";
+  GTLRComputeQuery_ManagedRulesetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.managedRuleset = managedRuleset;
+  query.expectedObjectClass = [GTLRCompute_ManagedRuleset class];
+  query.loggingName = @"compute.managedRulesets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ManagedRulesetsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/managedRulesets";
+  GTLRComputeQuery_ManagedRulesetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_ManagedRulesetList class];
+  query.loggingName = @"compute.managedRulesets.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworkAttachmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10954,8 +11168,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NetworkAttachmentsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -11078,7 +11291,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NetworkEdgeSecurityServicesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11220,7 +11433,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NetworkEndpointGroupsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11406,8 +11619,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NetworkEndpointGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -11435,7 +11647,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints
 
 @dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -11603,7 +11815,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NetworkFirewallPoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11810,7 +12022,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NetworkFirewallPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12076,7 +12288,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NetworkProfilesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12253,7 +12465,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NetworksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12273,7 +12485,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NetworksListPeeringRoutes
 
 @dynamic direction, filter, maxResults, network, orderBy, pageToken,
-         peeringName, project, region, returnPartialSuccess;
+         peeringName, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                          network:(NSString *)network {
@@ -12481,7 +12693,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NodeGroupsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12661,8 +12873,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NodeGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -12690,7 +12901,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NodeGroupsListNodes
 
 @dynamic filter, maxResults, nodeGroup, orderBy, pageToken, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -12942,7 +13153,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NodeTemplatesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13067,8 +13278,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NodeTemplatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -13158,7 +13368,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_NodeTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13206,8 +13416,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_NodeTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -13407,7 +13616,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_OrganizationSecurityPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, parentId, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, parentId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"locations/global/securityPolicies";
@@ -13441,7 +13650,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_OrganizationSecurityPoliciesListPreconfiguredExpressionSets
 
-@dynamic filter, maxResults, orderBy, pageToken, parentId, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, parentId;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"locations/global/securityPolicies/listPreconfiguredExpressionSets";
@@ -13570,7 +13779,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_PacketMirroringsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13670,8 +13879,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_PacketMirroringsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -13783,7 +13991,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_PreviewFeaturesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13963,7 +14171,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ProjectsGetXpnResources
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13982,7 +14190,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ProjectsListXpnHosts
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsListXpnHostsRequest *)object
                         project:(NSString *)project {
@@ -14169,6 +14377,29 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_ProjectViewsGet
+
+@dynamic project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/projectViews";
+  GTLRComputeQuery_ProjectViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_ProjectView class];
+  query.loggingName = @"compute.projectViews.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_PublicAdvertisedPrefixesAnnounce
 
 @dynamic project, publicAdvertisedPrefix, requestId;
@@ -14267,7 +14498,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_PublicAdvertisedPrefixesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14341,7 +14572,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14466,8 +14697,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_PublicDelegatedPrefixesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -14629,8 +14859,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionAutoscalersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -14854,8 +15083,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionBackendBucketsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -14878,8 +15106,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionBackendBucketsListUsable
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -15140,8 +15367,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionBackendServicesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -15164,8 +15390,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionBackendServicesListUsable
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -15354,7 +15579,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionCommitmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -15429,8 +15654,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionCommitmentsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -15494,7 +15718,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionCompositeHealthChecksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -15619,8 +15843,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionCompositeHealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -15912,8 +16135,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionDisksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -16288,8 +16510,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionDiskTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -16313,7 +16534,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionHealthAggregationPoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -16413,8 +16634,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionHealthAggregationPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -16529,7 +16749,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionHealthCheckServicesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -16629,8 +16849,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionHealthCheckServicesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -16775,8 +16994,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionHealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -16899,7 +17117,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionHealthSourcesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -17024,8 +17242,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionHealthSourcesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -17229,7 +17446,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsList
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         region, returnPartialSuccess;
+         region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -17500,8 +17717,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -17525,7 +17741,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersListErrors
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         region, returnPartialSuccess;
+         region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -17551,7 +17767,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         region, returnPartialSuccess;
+         region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -17577,7 +17793,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         region, returnPartialSuccess;
+         region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -17984,8 +18200,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -18008,8 +18223,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupsListInstances
 
-@dynamic filter, instanceGroup, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, instanceGroup, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupsListInstancesRequest *)object
                         project:(NSString *)project
@@ -18220,8 +18434,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstanceTemplatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -18350,8 +18563,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstantSnapshotGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -18546,8 +18758,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionInstantSnapshotsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -18816,8 +19027,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionNetworkEndpointGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -18841,7 +19051,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionNetworkEndpointGroupsListNetworkEndpoints
 
 @dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project,
-         region, returnPartialSuccess;
+         region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -18866,7 +19076,8 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesAddAssociation
 
-@dynamic firewallPolicy, project, region, replaceExistingAssociation, requestId;
+@dynamic associatedPolicyToBeReplaced, firewallPolicy, project, region,
+         replaceExistingAssociation, requestId;
 
 + (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
                         project:(NSString *)project
@@ -19138,8 +19349,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -19188,6 +19398,39 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
   query.firewallPolicy = firewallPolicy;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionNetworkFirewallPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchAssociation
+
+@dynamic firewallPolicy, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firewallPolicy", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/patchAssociation";
+  GTLRComputeQuery_RegionNetworkFirewallPoliciesPatchAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkFirewallPolicies.patchAssociation";
   return query;
 }
 
@@ -19345,7 +19588,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RegionNotificationEndpointsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -19445,8 +19688,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionNotificationEndpointsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -19551,8 +19793,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionOperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -19739,8 +19980,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionSecurityPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -19910,7 +20150,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -20089,8 +20329,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionSnapshotsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -20326,8 +20565,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionSslCertificatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -20431,8 +20669,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionSslPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -20455,8 +20692,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionSslPoliciesListAvailableFeatures
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -20593,8 +20829,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionTargetHttpProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -20731,8 +20966,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionTargetHttpsProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -20935,8 +21169,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionTargetTcpProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -21040,8 +21273,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionUrlMapsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -21163,8 +21395,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RegionZonesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -21210,7 +21441,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ReliabilityRisksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -21293,7 +21524,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_ReservationBlocksList
 
 @dynamic filter, maxResults, orderBy, pageToken, project, reservation,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -21440,7 +21671,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_ReservationsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -21581,8 +21812,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ReservationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -21638,6 +21868,37 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_ReservationSlotsGetHealth
+
+@dynamic parentName, project, requestId, reservationSlot, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName
+                 reservationSlot:(NSString *)reservationSlot {
+  NSArray *pathParams = @[
+    @"parentName", @"project", @"reservationSlot", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/{+parentName}/reservationSlots/{reservationSlot}/getHealth";
+  GTLRComputeQuery_ReservationSlotsGetHealth *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.parentName = parentName;
+  query.reservationSlot = reservationSlot;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.reservationSlots.getHealth";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ReservationSlotsGetVersion
 
 @dynamic parentName, project, requestId, reservationSlot, zoneProperty;
@@ -21680,7 +21941,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_ReservationSlotsList
 
 @dynamic filter, maxResults, orderBy, pageToken, parentName, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -21999,7 +22260,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_ReservationSubBlocksList
 
 @dynamic filter, maxResults, orderBy, pageToken, parentName, project,
-         returnPartialSuccess, zoneProperty;
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -22221,7 +22482,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_ResourcePoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -22346,8 +22607,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ResourcePoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -22542,7 +22802,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RolloutPlansList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -22653,7 +22913,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RolloutsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -22727,7 +22987,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RoutersAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -22897,7 +23157,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RoutersGetNatMappingInfo
 
 @dynamic filter, maxResults, natName, orderBy, pageToken, project, region,
-         returnPartialSuccess, router;
+         router;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -23003,8 +23263,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RoutersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -23028,8 +23287,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_RoutersListBgpRoutes
 
 @dynamic addressFamily, destinationPrefix, filter, maxResults, orderBy,
-         pageToken, peer, policyApplied, project, region, returnPartialSuccess,
-         router, routeType;
+         pageToken, peer, policyApplied, project, region, router, routeType;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -23054,8 +23312,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RoutersListNamedSets
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess, router;
+@dynamic filter, maxResults, orderBy, pageToken, project, region, router;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -23080,8 +23337,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RoutersListRoutePolicies
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess, router;
+@dynamic filter, maxResults, orderBy, pageToken, project, region, router;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -23410,7 +23666,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_RoutesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -23492,7 +23748,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_SecurityPoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -23607,7 +23863,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SecurityPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -23626,7 +23882,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -23762,7 +24018,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_ServiceAttachmentsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -23887,8 +24143,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ServiceAttachmentsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -24152,7 +24407,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SnapshotsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24296,7 +24551,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_SslCertificatesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24388,7 +24643,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SslCertificatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24408,7 +24663,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_SslPoliciesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24500,7 +24755,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SslPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24519,7 +24774,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SslPoliciesListAvailableFeatures
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24570,7 +24825,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_StoragePoolsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24711,8 +24966,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_StoragePoolsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -24739,8 +24993,8 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_StoragePoolsListDisks
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         storagePool, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, storagePool,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -24881,7 +25135,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_StoragePoolTypesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -24929,8 +25183,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_StoragePoolTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -24958,7 +25211,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_SubnetworksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber, views;
+         serviceProjectNumber, views;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -25130,8 +25383,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SubnetworksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess, views;
+@dynamic filter, maxResults, orderBy, pageToken, project, region, views;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -25161,8 +25413,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_SubnetworksListUsable
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         serviceProject;
+@dynamic filter, maxResults, orderBy, pageToken, project, serviceProject;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -25386,7 +25637,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetGrpcProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -25437,7 +25688,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_TargetHttpProxiesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -25529,7 +25780,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetHttpProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -25611,7 +25862,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_TargetHttpsProxiesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -25703,7 +25954,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetHttpsProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -25909,7 +26160,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_TargetInstancesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -26021,8 +26272,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetInstancesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -26190,7 +26440,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_TargetPoolsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -26323,8 +26573,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetPoolsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -26585,7 +26834,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetSslProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -26791,7 +27040,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_TargetTcpProxiesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -26883,7 +27132,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetTcpProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -26996,7 +27245,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_TargetVpnGatewaysAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -27096,8 +27345,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_TargetVpnGatewaysList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -27154,7 +27402,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_UrlMapsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -27277,7 +27525,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_UrlMapsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -27421,7 +27669,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_VpnGatewaysAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -27546,8 +27794,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_VpnGatewaysList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -27637,7 +27884,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 @implementation GTLRComputeQuery_VpnTunnelsAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess, serviceProjectNumber;
+         serviceProjectNumber;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -27737,8 +27984,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_VpnTunnelsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region,
-         returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -27875,8 +28121,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_WireGroupsList
 
-@dynamic crossSiteNetwork, filter, maxResults, orderBy, pageToken, project,
-         returnPartialSuccess;
+@dynamic crossSiteNetwork, filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                 crossSiteNetwork:(NSString *)crossSiteNetwork {
@@ -27990,8 +28235,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ZoneOperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -28074,7 +28318,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ZonesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+@dynamic filter, maxResults, orderBy, pageToken, project;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -28186,8 +28430,7 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @implementation GTLRComputeQuery_ZoneVmExtensionPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
-         zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };

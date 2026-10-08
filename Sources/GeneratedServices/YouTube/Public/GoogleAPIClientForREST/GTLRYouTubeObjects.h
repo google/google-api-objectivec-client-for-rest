@@ -22,8 +22,6 @@
 @class GTLRYouTube_ActivityContentDetailsBulletin;
 @class GTLRYouTube_ActivityContentDetailsChannelItem;
 @class GTLRYouTube_ActivityContentDetailsComment;
-@class GTLRYouTube_ActivityContentDetailsFavorite;
-@class GTLRYouTube_ActivityContentDetailsLike;
 @class GTLRYouTube_ActivityContentDetailsPlaylistItem;
 @class GTLRYouTube_ActivityContentDetailsPromotedItem;
 @class GTLRYouTube_ActivityContentDetailsRecommendation;
@@ -31,6 +29,10 @@
 @class GTLRYouTube_ActivityContentDetailsSubscription;
 @class GTLRYouTube_ActivityContentDetailsUpload;
 @class GTLRYouTube_ActivitySnippet;
+@class GTLRYouTube_AvailabilityConfig;
+@class GTLRYouTube_AvailabilityConfigGlobalConfig;
+@class GTLRYouTube_AvailabilityConfigRegionsConfig;
+@class GTLRYouTube_AvailabilityConfigRegionsConfigRegionInterval;
 @class GTLRYouTube_BrandPartner;
 @class GTLRYouTube_Caption;
 @class GTLRYouTube_CaptionSnippet;
@@ -77,6 +79,7 @@
 @class GTLRYouTube_I18nRegionSnippet;
 @class GTLRYouTube_ImageSettings;
 @class GTLRYouTube_IngestionInfo;
+@class GTLRYouTube_Interval;
 @class GTLRYouTube_InvideoPosition;
 @class GTLRYouTube_InvideoTiming;
 @class GTLRYouTube_LanguageTag;
@@ -216,10 +219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsPromotedIt
 
 /** Value: "reasonUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_ReasonUnspecified;
-/** Value: "videoFavorited" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoFavorited;
-/** Value: "videoLiked" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoLiked;
 /** Value: "videoWatched" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoWatched;
 
@@ -244,10 +243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Bulletin;
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_ChannelItem;
 /** Value: "comment" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Comment;
-/** Value: "favorite" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Favorite;
-/** Value: "like" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Like;
 /** Value: "playlistItem" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_PlaylistItem;
 /** Value: "promotedItem" */
@@ -528,7 +523,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Disl
  *  Value: "like"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Like;
-/** Value: "none" */
+/**
+ *  The entity has not been rated.
+ *
+ *  Value: "none"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_None;
 
 // ----------------------------------------------------------------------------
@@ -4089,7 +4088,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcas
  *  Value: "live"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Live;
-/** Value: "none" */
+/**
+ *  The resource does not have live broadcast content.
+ *
+ *  Value: "none"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_None;
 /**
  *  The live broadcast is upcoming.
@@ -4285,7 +4288,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Dislike;
  *  Value: "like"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Like;
-/** Value: "none" */
+/**
+ *  The entity has not been rated.
+ *
+ *  Value: "none"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_None;
 
 // ----------------------------------------------------------------------------
@@ -4303,7 +4310,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastConten
  *  Value: "live"
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Live;
-/** Value: "none" */
+/**
+ *  The resource does not have live broadcast content.
+ *
+ *  Value: "none"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_None;
 /**
  *  The live broadcast is upcoming.
@@ -4355,9 +4366,17 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_Upload
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoStatus.license
 
-/** Value: "creativeCommon" */
+/**
+ *  Creative Commons license.
+ *
+ *  Value: "creativeCommon"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_License_CreativeCommon;
-/** Value: "youtube" */
+/**
+ *  Standard YouTube license.
+ *
+ *  Value: "youtube"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_License_Youtube;
 
 // ----------------------------------------------------------------------------
@@ -4719,20 +4738,20 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  An *activity* resource contains information about an action that a
- *  particular channel, or user, has taken on YouTube.The actions reported in
- *  activity feeds include rating a video, sharing a video, marking a video as a
- *  favorite, commenting on a video, uploading a video, and so forth. Each
- *  activity resource identifies the type of action, the channel associated with
- *  the action, and the resource(s) associated with the action, such as the
- *  video that was rated or uploaded.
+ *  An `activity` resource contains information about an action that a
+ *  particular channel, or user, has taken on YouTube. The actions reported in
+ *  activity feeds include sharing a video, uploading a video, and so forth.
+ *  Each `activity` resource identifies the type of action, the channel
+ *  associated with the action, and the resource(s) associated with the action,
+ *  such as the video that was rated or uploaded.
  */
 @interface GTLRYouTube_Activity : GTLRObject
 
 /**
- *  The contentDetails object contains information about the content associated
- *  with the activity. For example, if the snippet.type value is videoRated,
- *  then the contentDetails object's content identifies the rated video.
+ *  The `contentDetails` object contains information about the content
+ *  associated with the activity. For example, if the `snippet.type` value is
+ *  `videoRated`, then the `contentDetails` object's content identifies the
+ *  rated video.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetails *contentDetails;
 
@@ -4747,14 +4766,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "youtube#activity".
+ *  Identifies what kind of resource this is. Value: The fixed string
+ *  `"youtube#activity"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The snippet object contains basic details about the activity, including the
- *  activity's type and group ID.
+ *  The `snippet` object contains basic details about the activity, including
+ *  the activity's type and group ID.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivitySnippet *snippet;
 
@@ -4768,71 +4787,60 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_ActivityContentDetails : GTLRObject
 
 /**
- *  The bulletin object contains details about a channel bulletin post. This
- *  object is only present if the snippet.type is bulletin.
+ *  The `bulletin` object contains details about a channel bulletin post. This
+ *  object is only present if the `snippet.type` is `bulletin`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsBulletin *bulletin;
 
 /**
- *  The channelItem object contains details about a resource which was added to
- *  a channel. This property is only present if the snippet.type is channelItem.
+ *  The `channelItem` object contains details about a resource which was added
+ *  to a channel. This property is only present if the `snippet.type` is
+ *  `channelItem`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsChannelItem *channelItem;
 
 /**
- *  The comment object contains information about a resource that received a
- *  comment. This property is only present if the snippet.type is comment.
+ *  The `comment` object contains information about a resource that received a
+ *  comment. This property is only present if the `snippet.type` is `comment`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsComment *comment;
 
 /**
- *  The favorite object contains information about a video that was marked as a
- *  favorite video. This property is only present if the snippet.type is
- *  favorite.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsFavorite *favorite;
-
-/**
- *  The like object contains information about a resource that received a
- *  positive (like) rating. This property is only present if the snippet.type is
- *  like.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsLike *like;
-
-/**
- *  The playlistItem object contains information about a new playlist item. This
- *  property is only present if the snippet.type is playlistItem.
+ *  The `playlistItem` object contains information about a new playlist item.
+ *  This property is only present if the `snippet.type` is `playlistItem`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsPlaylistItem *playlistItem;
 
 /**
- *  The promotedItem object contains details about a resource which is being
- *  promoted. This property is only present if the snippet.type is promotedItem.
+ *  The `promotedItem` object contains details about a resource which is being
+ *  promoted. This property is only present if the `snippet.type` is
+ *  `promotedItem`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsPromotedItem *promotedItem;
 
 /**
- *  The recommendation object contains information about a recommended resource.
- *  This property is only present if the snippet.type is recommendation.
+ *  The `recommendation` object contains information about a recommended
+ *  resource. This property is only present if the `snippet.type` is
+ *  `recommendation`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsRecommendation *recommendation;
 
 /**
- *  The social object contains details about a social network post. This
- *  property is only present if the snippet.type is social.
+ *  The `social` object contains details about a social network post. This
+ *  property is only present if the `snippet.type` is `social`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsSocial *social;
 
 /**
- *  The subscription object contains information about a channel that a user
- *  subscribed to. This property is only present if the snippet.type is
- *  subscription.
+ *  The `subscription` object contains information about a channel that a user
+ *  subscribed to. This property is only present if the `snippet.type` is
+ *  `subscription`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsSubscription *subscription;
 
 /**
- *  The upload object contains information about the uploaded video. This
- *  property is only present if the snippet.type is upload.
+ *  The `upload` object contains information about the uploaded video. This
+ *  property is only present if the `snippet.type` is `upload`.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ActivityContentDetailsUpload *upload;
 
@@ -4845,7 +4853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_ActivityContentDetailsBulletin : GTLRObject
 
 /**
- *  The resourceId object contains information that identifies the resource
+ *  The `resourceId` object contains information that identifies the resource
  *  associated with a bulletin post. \@mutable youtube.activities.insert
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
@@ -4859,8 +4867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_ActivityContentDetailsChannelItem : GTLRObject
 
 /**
- *  The resourceId object contains information that identifies the resource that
- *  was added to the channel.
+ *  The `resourceId` object contains information that identifies the resource
+ *  that was added to the channel.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
@@ -4873,36 +4881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_ActivityContentDetailsComment : GTLRObject
 
 /**
- *  The resourceId object contains information that identifies the resource
+ *  The `resourceId` object contains information that identifies the resource
  *  associated with the comment.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
-
-@end
-
-
-/**
- *  Information about a video that was marked as a favorite video.
- */
-@interface GTLRYouTube_ActivityContentDetailsFavorite : GTLRObject
-
-/**
- *  The resourceId object contains information that identifies the resource that
- *  was marked as a favorite.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
-
-@end
-
-
-/**
- *  Information about a resource that received a positive (like) rating.
- */
-@interface GTLRYouTube_ActivityContentDetailsLike : GTLRObject
-
-/**
- *  The resourceId object contains information that identifies the rated
- *  resource.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
@@ -4921,8 +4901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *playlistItemId;
 
 /**
- *  The resourceId object contains information about the resource that was added
- *  to the playlist.
+ *  The `resourceId` object contains information about the resource that was
+ *  added to the playlist.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
@@ -5006,23 +4986,19 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  Likely values:
  *    @arg @c kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_ReasonUnspecified
  *        Value "reasonUnspecified"
- *    @arg @c kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoFavorited
- *        Value "videoFavorited"
- *    @arg @c kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoLiked
- *        Value "videoLiked"
  *    @arg @c kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoWatched
  *        Value "videoWatched"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  The resourceId object contains information that identifies the recommended
+ *  The `resourceId` object contains information that identifies the recommended
  *  resource.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
 /**
- *  The seedResourceId object contains information about the resource that
+ *  The `seedResourceId` object contains information about the resource that
  *  caused the recommendation.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *seedResourceId;
@@ -5045,8 +5021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *referenceUrl;
 
 /**
- *  The resourceId object encapsulates information that identifies the resource
- *  associated with a social network post.
+ *  The `resourceId` object encapsulates information that identifies the
+ *  resource associated with a social network post.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
@@ -5074,8 +5050,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_ActivityContentDetailsSubscription : GTLRObject
 
 /**
- *  The resourceId object contains information that identifies the resource that
- *  the user subscribed to.
+ *  The `resourceId` object contains information that identifies the resource
+ *  that the user subscribed to.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ResourceId *resourceId;
 
@@ -5172,10 +5148,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /**
  *  The group ID associated with the activity. A group ID identifies user events
  *  that are associated with the same user and resource. For example, if a user
- *  rates a video and marks the same video as a favorite, the entries for those
- *  events would have the same group ID in the user's activity feed. In your
- *  user interface, you can avoid repetition by grouping events with the same
- *  groupId value.
+ *  uploads a video and watches the same video, the entries for those events
+ *  would have the same group ID in the user's activity feed. In your user
+ *  interface, you can avoid repetition by grouping events with the same
+ *  `groupId` value.
  */
 @property(nonatomic, copy, nullable) NSString *groupId;
 
@@ -5200,8 +5176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_Bulletin Value "bulletin"
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_ChannelItem Value "channelItem"
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_Comment Value "comment"
- *    @arg @c kGTLRYouTube_ActivitySnippet_Type_Favorite Value "favorite"
- *    @arg @c kGTLRYouTube_ActivitySnippet_Type_Like Value "like"
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_PlaylistItem Value
  *        "playlistItem"
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_PromotedItem Value
@@ -5216,6 +5190,76 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_Upload Value "upload"
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Common proto for Live and VOD geo-restrictions
+ */
+@interface GTLRYouTube_AvailabilityConfig : GTLRObject
+
+/**
+ *  Video is available in all regions except the ones specified in the config.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_AvailabilityConfigGlobalConfig *globalConfig;
+
+/** Video is available in the specified regions only. */
+@property(nonatomic, strong, nullable) GTLRYouTube_AvailabilityConfigRegionsConfig *regionsConfig;
+
+@end
+
+
+/**
+ *  Video is available in all regions except the ones specified in the
+ *  excluded_region_codes list.
+ */
+@interface GTLRYouTube_AvailabilityConfigGlobalConfig : GTLRObject
+
+/** Optional. Regions where video is blocked */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedRegionCodes;
+
+/**
+ *  Default time window where video is available for all non-blocked regions Not
+ *  supported for upcoming / active live broadcasts. If start time is
+ *  unspecified, video is already available If end time is unspecified, video is
+ *  available forever Specified start and end times cannot be more than five
+ *  years in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_Interval *interval;
+
+@end
+
+
+/**
+ *  Video is available in the specified regions only.
+ */
+@interface GTLRYouTube_AvailabilityConfigRegionsConfig : GTLRObject
+
+/**
+ *  Required. List of regions and time windows where video is available. If a
+ *  region is specified multiple times, the union of all intervals is used.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_AvailabilityConfigRegionsConfigRegionInterval *> *regionIntervals;
+
+@end
+
+
+/**
+ *  Region and time window where video is available for the region.
+ */
+@interface GTLRYouTube_AvailabilityConfigRegionsConfigRegionInterval : GTLRObject
+
+/**
+ *  Time window where video is available for the region. Not supported for
+ *  upcoming / active live broadcasts. If start time is unspecified, video is
+ *  already available If end time is unspecified, video is available forever
+ *  Specified start and end times cannot be more than five years in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_Interval *interval;
+
+/** Required. Region where video is available */
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 @end
 
@@ -6555,6 +6599,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
+ *  Output only. The URL of the image or animated GIF attached to the comment,
+ *  if any. This property is only present when a comment contains an image or
+ *  GIF. The URL is served as a signed link with a six-hour time to live (TTL)
+ *  and expires six hours after retrieval.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+/**
  *  The total number of likes this comment has received.
  *
  *  Uses NSNumber of unsignedIntValue.
@@ -6579,9 +6631,6 @@ GTLR_DEPRECATED
 
 /** The unique id of the top-level comment, only set for replies. */
 @property(nonatomic, copy, nullable) NSString *parentId;
-
-/** The ID of the post the comment refers to, if any. */
-@property(nonatomic, copy, nullable) NSString *postId;
 
 /** The date and time when the comment was originally published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
@@ -6617,7 +6666,8 @@ GTLR_DEPRECATED
  *        disliked. (Value: "dislike")
  *    @arg @c kGTLRYouTube_CommentSnippet_ViewerRating_Like The entity is liked.
  *        (Value: "like")
- *    @arg @c kGTLRYouTube_CommentSnippet_ViewerRating_None Value "none"
+ *    @arg @c kGTLRYouTube_CommentSnippet_ViewerRating_None The entity has not
+ *        been rated. (Value: "none")
  */
 @property(nonatomic, copy, nullable) NSString *viewerRating;
 
@@ -6762,9 +6812,6 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isPublic;
-
-/** The ID of the post the comments refer to, if any. */
-@property(nonatomic, copy, nullable) NSString *postId;
 
 /** The top level comment of this thread. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Comment *topLevelComment;
@@ -8654,6 +8701,29 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents a time interval, encoded as a Timestamp start (inclusive) and a
+ *  Timestamp end (exclusive). The start must be less than or equal to the end.
+ *  When the start equals the end, the interval is empty (matches no time). When
+ *  both start and end are unspecified, the interval matches any time.
+ */
+@interface GTLRYouTube_Interval : GTLRObject
+
+/**
+ *  Optional. Exclusive end of the interval. If specified, a Timestamp matching
+ *  this interval will have to be before the end.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Optional. Inclusive start of the interval. If specified, a Timestamp
+ *  matching this interval will have to be the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Describes an invideo branding.
  */
 @interface GTLRYouTube_InvideoBranding : GTLRObject
@@ -8843,6 +8913,13 @@ GTLR_DEPRECATED
  *  Detailed settings of a broadcast.
  */
 @interface GTLRYouTube_LiveBroadcastContentDetails : GTLRObject
+
+/**
+ *  Optional. The broadcast's availability config. Used to set specific region
+ *  availability or block specific regions It is optional - if not set, it is
+ *  not enforced.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_AvailabilityConfig *availabilityConfig;
 
 /** This value uniquely identifies the live stream bound to the broadcast. */
 @property(nonatomic, copy, nullable) NSString *boundStreamId;
@@ -9109,6 +9186,9 @@ GTLR_DEPRECATED
  *  only available once the broadcast's state is live.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
+
+/** The YouTube video category associated with the video broadcast. */
+@property(nonatomic, copy, nullable) NSString *categoryId;
 
 /**
  *  The ID that YouTube uses to uniquely identify the channel that is publishing
@@ -11520,8 +11600,8 @@ GTLR_DEPRECATED
  *        The live broadcast has been completed. (Value: "completed")
  *    @arg @c kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Live The
  *        live broadcast is active. (Value: "live")
- *    @arg @c kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_None Value
- *        "none"
+ *    @arg @c kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_None The
+ *        resource does not have live broadcast content. (Value: "none")
  *    @arg @c kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Upcoming The
  *        live broadcast is upcoming. (Value: "upcoming")
  */
@@ -12094,6 +12174,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *defaultProperty;
 
+/** The full high definition (1080p) quality image for this resource. */
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *fhd;
+
 /** The high quality image for this resource. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *high;
 
@@ -12103,8 +12186,14 @@ GTLR_DEPRECATED
 /** The medium quality image for this resource. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *medium;
 
+/** The quad high definition (1440p / 2K) quality image for this resource. */
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *qhd;
+
 /** The standard quality image for this resource. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *standard;
+
+/** The ultra-high resolution (4K) quality image for this resource. */
+@property(nonatomic, strong, nullable) GTLRYouTube_Thumbnail *uhd;
 
 @end
 
@@ -13238,7 +13327,8 @@ GTLR_DEPRECATED
  *        (Value: "dislike")
  *    @arg @c kGTLRYouTube_VideoRating_Rating_Like The entity is liked. (Value:
  *        "like")
- *    @arg @c kGTLRYouTube_VideoRating_Rating_None Value "none"
+ *    @arg @c kGTLRYouTube_VideoRating_Rating_None The entity has not been
+ *        rated. (Value: "none")
  */
 @property(nonatomic, copy, nullable) NSString *rating;
 
@@ -13309,7 +13399,8 @@ GTLR_DEPRECATED
  *        broadcast has been completed. (Value: "completed")
  *    @arg @c kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Live The live
  *        broadcast is active. (Value: "live")
- *    @arg @c kGTLRYouTube_VideoSnippet_LiveBroadcastContent_None Value "none"
+ *    @arg @c kGTLRYouTube_VideoSnippet_LiveBroadcastContent_None The resource
+ *        does not have live broadcast content. (Value: "none")
  *    @arg @c kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Upcoming The live
  *        broadcast is upcoming. (Value: "upcoming")
  */
@@ -13498,7 +13589,7 @@ GTLR_DEPRECATED
 
 /**
  *  Basic details about a video category, such as its localized title. Next Id:
- *  19
+ *  20
  */
 @interface GTLRYouTube_VideoStatus : GTLRObject
 
@@ -13541,9 +13632,10 @@ GTLR_DEPRECATED
  *  The video's license. \@mutable youtube.videos.insert youtube.videos.update
  *
  *  Likely values:
- *    @arg @c kGTLRYouTube_VideoStatus_License_CreativeCommon Value
- *        "creativeCommon"
- *    @arg @c kGTLRYouTube_VideoStatus_License_Youtube Value "youtube"
+ *    @arg @c kGTLRYouTube_VideoStatus_License_CreativeCommon Creative Commons
+ *        license. (Value: "creativeCommon")
+ *    @arg @c kGTLRYouTube_VideoStatus_License_Youtube Standard YouTube license.
+ *        (Value: "youtube")
  */
 @property(nonatomic, copy, nullable) NSString *license;
 

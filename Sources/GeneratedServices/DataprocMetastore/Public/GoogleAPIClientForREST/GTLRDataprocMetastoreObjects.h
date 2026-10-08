@@ -22,27 +22,38 @@
 @class GTLRDataprocMetastore_AuxiliaryVersionConfig;
 @class GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_BackendMetastore;
+@class GTLRDataprocMetastore_BackfillStatus;
 @class GTLRDataprocMetastore_Backup;
+@class GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig;
 @class GTLRDataprocMetastore_Binding;
-@class GTLRDataprocMetastore_CdcConfig;
-@class GTLRDataprocMetastore_CloudSQLConnectionConfig;
-@class GTLRDataprocMetastore_CloudSQLMigrationConfig;
+@class GTLRDataprocMetastore_CatalogReport;
+@class GTLRDataprocMetastore_CatalogReport_DatabaseReports;
+@class GTLRDataprocMetastore_CatalogSummary;
 @class GTLRDataprocMetastore_Consumer;
 @class GTLRDataprocMetastore_CustomRegionMetadata;
 @class GTLRDataprocMetastore_DatabaseDump;
+@class GTLRDataprocMetastore_DatabaseReport;
+@class GTLRDataprocMetastore_DatabaseReport_TableReports;
+@class GTLRDataprocMetastore_DatabaseSummary;
 @class GTLRDataprocMetastore_DataCatalogConfig;
 @class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_ErrorDetails_Details;
+@class GTLRDataprocMetastore_ExecutionPlan;
+@class GTLRDataprocMetastore_ExecutionPlan_Diffs;
+@class GTLRDataprocMetastore_ExecutionResult;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_Federation;
 @class GTLRDataprocMetastore_Federation_BackendMetastores;
 @class GTLRDataprocMetastore_Federation_Labels;
 @class GTLRDataprocMetastore_Federation_Tags;
+@class GTLRDataprocMetastore_HiveConfig;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
+@class GTLRDataprocMetastore_IcebergConfig;
 @class GTLRDataprocMetastore_KerberosConfig;
+@class GTLRDataprocMetastore_LakehouseProxyConfig;
 @class GTLRDataprocMetastore_LatestBackup;
 @class GTLRDataprocMetastore_LimitConfig;
 @class GTLRDataprocMetastore_Location;
@@ -55,11 +66,13 @@
 @class GTLRDataprocMetastore_MetadataIntegration;
 @class GTLRDataprocMetastore_MetadataManagementActivity;
 @class GTLRDataprocMetastore_MigrationExecution;
+@class GTLRDataprocMetastore_MigrationSummary;
 @class GTLRDataprocMetastore_MultiRegionMetadata;
 @class GTLRDataprocMetastore_NetworkConfig;
 @class GTLRDataprocMetastore_Operation;
 @class GTLRDataprocMetastore_Operation_Metadata;
 @class GTLRDataprocMetastore_Operation_Response;
+@class GTLRDataprocMetastore_PartitionReport;
 @class GTLRDataprocMetastore_Policy;
 @class GTLRDataprocMetastore_Restore;
 @class GTLRDataprocMetastore_ScalingConfig;
@@ -70,7 +83,12 @@
 @class GTLRDataprocMetastore_Service_Tags;
 @class GTLRDataprocMetastore_Status;
 @class GTLRDataprocMetastore_Status_Details_Item;
+@class GTLRDataprocMetastore_TableReport;
+@class GTLRDataprocMetastore_TableSummary;
+@class GTLRDataprocMetastore_TableSummary_PlanCounts;
+@class GTLRDataprocMetastore_TableSummary_ResultCounts;
 @class GTLRDataprocMetastore_TelemetryConfig;
+@class GTLRDataprocMetastore_ValueDiff;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -134,6 +152,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_Metas
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_BackfillStatus.state
+
+/**
+ *  Backfill failed; check report for details
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Failed;
+/**
+ *  Waiting to start.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Pending;
+/**
+ *  Backfill in progress.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Running;
+/**
+ *  The backfill state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackfillStatus_State_StateUnspecified;
+/**
+ *  Backfill complete, report is available
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BackfillStatus_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Backup.state
 
 /**
@@ -174,6 +226,89 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Restoring
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig.conflictPolicy
+
+/**
+ *  The conflict policy is unspecified.
+ *
+ *  Value: "CONFLICT_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_ConflictPolicyUnspecified;
+/**
+ *  Update resources that already exist in the target catalog.
+ *
+ *  Value: "OVERWRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_Overwrite;
+/**
+ *  Skip migrating resources that already exist in the target catalog.
+ *
+ *  Value: "SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_Skip;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig.mode
+
+/**
+ *  Performs the metadata migration of requested resources. The migration
+ *  completes once the backfill is finished.
+ *
+ *  Value: "BACKFILL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_Mode_Backfill;
+/**
+ *  The migration mode is unspecified.
+ *
+ *  Value: "MIGRATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_Mode_MigrationModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_CatalogReport.catalogType
+
+/**
+ *  The catalog type is unspecified.
+ *
+ *  Value: "CATALOG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_CatalogReport_CatalogType_CatalogTypeUnspecified;
+/**
+ *  BigLake Metastore Hive catalog.
+ *
+ *  Value: "HIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_CatalogReport_CatalogType_Hive;
+/**
+ *  BigLake Metastore Iceberg REST catalog.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_CatalogReport_CatalogType_Iceberg;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_CatalogSummary.catalogType
+
+/**
+ *  The catalog type is unspecified.
+ *
+ *  Value: "CATALOG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_CatalogSummary_CatalogType_CatalogTypeUnspecified;
+/**
+ *  BigLake Metastore Hive catalog.
+ *
+ *  Value: "HIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_CatalogSummary_CatalogType_Hive;
+/**
+ *  BigLake Metastore Iceberg REST catalog.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_CatalogSummary_CatalogType_Iceberg;
+
+// ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_DatabaseDump.databaseType
 
 /**
@@ -210,6 +345,144 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Mysq
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_DatabaseSummary.planAction
+
+/**
+ *  The action is unspecified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_ActionUnspecified;
+/**
+ *  Resource missing; will be created.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Create;
+/**
+ *  Resource cannot be migrated due to a dependency failure (e.g., parent
+ *  resource missing).
+ *
+ *  Value: "DEPENDENCY_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_DependencyFailure;
+/**
+ *  Resource cannot be migrated due to an error during discovery.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Error;
+/**
+ *  Resource exists at the target; no changes will be made.
+ *
+ *  Value: "SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Skip;
+/**
+ *  Resource exists at the target, but differs from the source; will be updated.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Update;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_DatabaseSummary.resultStatus
+
+/**
+ *  The resource failed to migrate.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Failed;
+/**
+ *  The resource was skipped and will not be migrated.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Skipped;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_StateUnspecified;
+/**
+ *  The resource was migrated successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_ExecutionPlan.action
+
+/**
+ *  The action is unspecified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_ActionUnspecified;
+/**
+ *  Resource missing; will be created.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Create;
+/**
+ *  Resource cannot be migrated due to a dependency failure (e.g., parent
+ *  resource missing).
+ *
+ *  Value: "DEPENDENCY_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_DependencyFailure;
+/**
+ *  Resource cannot be migrated due to an error during discovery.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Error;
+/**
+ *  Resource exists at the target; no changes will be made.
+ *
+ *  Value: "SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Skip;
+/**
+ *  Resource exists at the target, but differs from the source; will be updated.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionPlan_Action_Update;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_ExecutionResult.state
+
+/**
+ *  The resource failed to migrate.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionResult_State_Failed;
+/**
+ *  The resource was skipped and will not be migrated.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionResult_State_Skipped;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionResult_State_StateUnspecified;
+/**
+ *  The resource was migrated successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExecutionResult_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_ExportMetadataRequest.databaseDumpType
@@ -562,6 +835,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_Sta
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_PartitionReport.state
+
+/**
+ *  All partitions failed to migrate at the target.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_PartitionReport_State_Failed;
+/**
+ *  Some partitions migrated successfully at the target, but others failed.
+ *
+ *  Value: "PARTIALLY_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_PartitionReport_State_PartiallySucceeded;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_PartitionReport_State_StateUnspecified;
+/**
+ *  All partitions migrated successfully at the target.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_PartitionReport_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Restore.state
@@ -1088,6 +1389,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
+ *  Backfill status for the migration execution.
+ */
+@interface GTLRDataprocMetastore_BackfillStatus : GTLRObject
+
+/**
+ *  Output only. Summary of the migration results. This is populated after the
+ *  backfill or dry run is finished.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_MigrationSummary *migrationSummary;
+
+/**
+ *  Output only. The Cloud Storage path where the backfill or dry run report is
+ *  written. Format: "gs://path-to-report".
+ */
+@property(nonatomic, copy, nullable) NSString *reportPath;
+
+/**
+ *  Output only. The current state of the backfill (or dry run).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_BackfillStatus_State_Failed Backfill
+ *        failed; check report for details (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_BackfillStatus_State_Pending Waiting to
+ *        start. (Value: "PENDING")
+ *    @arg @c kGTLRDataprocMetastore_BackfillStatus_State_Running Backfill in
+ *        progress. (Value: "RUNNING")
+ *    @arg @c kGTLRDataprocMetastore_BackfillStatus_State_StateUnspecified The
+ *        backfill state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_BackfillStatus_State_Succeeded Backfill
+ *        complete, report is available (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  The details of a backup resource.
  */
 @interface GTLRDataprocMetastore_Backup : GTLRObject
@@ -1136,6 +1474,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
  *        the backup is unknown. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Defines the configuration required to migrate metadata from a Dataproc
+ *  Metastore service to BigLake Metastore.
+ */
+@interface GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig : GTLRObject
+
+/** Output only. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_BackfillStatus *backfillStatus;
+
+/**
+ *  Optional. The policy to handle conflicts when migrating resources, defaults
+ *  to SKIP if not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_ConflictPolicyUnspecified
+ *        The conflict policy is unspecified. (Value:
+ *        "CONFLICT_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_Overwrite
+ *        Update resources that already exist in the target catalog. (Value:
+ *        "OVERWRITE")
+ *    @arg @c kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_ConflictPolicy_Skip
+ *        Skip migrating resources that already exist in the target catalog.
+ *        (Value: "SKIP")
+ */
+@property(nonatomic, copy, nullable) NSString *conflictPolicy;
+
+/**
+ *  Optional. If true, performs discovery of requested resources and analysis
+ *  against the target catalog to come up with a plan for each resource (e.g.
+ *  Create, Update, Skip, etc.). No metadata is actually migrated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dryRun;
+
+/**
+ *  Optional. At least one of hive_config or iceberg_config must be provided,
+ *  otherwise, a validation error will be thrown. If only one is provided, the
+ *  service only migrates tables of that specific type. If both are provided,
+ *  both Hive and Iceberg tables will be migrated.Configuration for migrating
+ *  Hive tables to a BigLake Hive catalog.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveConfig *hiveConfig;
+
+/**
+ *  Optional. Configuration for migrating Iceberg tables to a BigLake Iceberg
+ *  REST catalog.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_IcebergConfig *icebergConfig;
+
+/**
+ *  Required. Defines the behavior of the migration execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_Mode_Backfill
+ *        Performs the metadata migration of requested resources. The migration
+ *        completes once the backfill is finished. (Value: "BACKFILL")
+ *    @arg @c kGTLRDataprocMetastore_BigLakeMetastoreMigrationConfig_Mode_MigrationModeUnspecified
+ *        The migration mode is unspecified. (Value:
+ *        "MIGRATION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Optional. The Cloud Storage path where the backfill / dry run report should
+ *  be written. If not provided, the report will be generated in the service's
+ *  artifacts bucket. Format: "gs://path/to/folder"
+ */
+@property(nonatomic, copy, nullable) NSString *reportPath;
 
 @end
 
@@ -1240,147 +1651,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Configuration information to start the Change Data Capture (CDC) streams
- *  from customer database to backend database of Dataproc Metastore.
+ *  Aggregated report at the catalog level.
  */
-@interface GTLRDataprocMetastore_CdcConfig : GTLRObject
+@interface GTLRDataprocMetastore_CatalogReport : GTLRObject
+
+/** The name of the catalog (format: projects/ * /catalogs/ *). */
+@property(nonatomic, copy, nullable) NSString *catalog;
 
 /**
- *  Optional. The bucket to write the intermediate stream event data in. The
- *  bucket name must be without any prefix like "gs://". See the bucket naming
- *  requirements (https://cloud.google.com/storage/docs/buckets#naming). This
- *  field is optional. If not set, the Artifacts Cloud Storage bucket will be
- *  used.
- */
-@property(nonatomic, copy, nullable) NSString *bucket;
-
-/**
- *  Required. Input only. The password for the user that Datastream service
- *  should use for the MySQL connection. This field is not returned on request.
- */
-@property(nonatomic, copy, nullable) NSString *password;
-
-/**
- *  Required. The URL of the subnetwork resource to create the VM instance
- *  hosting the reverse proxy in. More context in
- *  https://cloud.google.com/datastream/docs/private-connectivity#reverse-csql-proxy
- *  The subnetwork should reside in the network provided in the request that
- *  Datastream will peer to and should be in the same region as Datastream, in
- *  the following format.
- *  projects/{project_id}/regions/{region_id}/subnetworks/{subnetwork_id}
- */
-@property(nonatomic, copy, nullable) NSString *reverseProxySubnet;
-
-/**
- *  Optional. The root path inside the Cloud Storage bucket. The stream event
- *  data will be written to this path. The default value is /migration.
- */
-@property(nonatomic, copy, nullable) NSString *rootPath;
-
-/** Required. A /29 CIDR IP range for peering with datastream. */
-@property(nonatomic, copy, nullable) NSString *subnetIpRange;
-
-/**
- *  Required. The username that the Datastream service should use for the MySQL
- *  connection.
- */
-@property(nonatomic, copy, nullable) NSString *username;
-
-/**
- *  Required. Fully qualified name of the Cloud SQL instance's VPC network or
- *  the shared VPC network that Datastream will peer to, in the following
- *  format: projects/{project_id}/locations/global/networks/{network_id}. More
- *  context in
- *  https://cloud.google.com/datastream/docs/network-connectivity-options#privateconnectivity
- */
-@property(nonatomic, copy, nullable) NSString *vpcNetwork;
-
-@end
-
-
-/**
- *  Configuration information to establish customer database connection before
- *  the cutover phase of migration
- */
-@interface GTLRDataprocMetastore_CloudSQLConnectionConfig : GTLRObject
-
-/** Required. The hive database name. */
-@property(nonatomic, copy, nullable) NSString *hiveDatabaseName;
-
-/**
- *  Required. Cloud SQL database connection name
- *  (project_id:region:instance_name)
- */
-@property(nonatomic, copy, nullable) NSString *instanceConnectionName;
-
-/** Required. The private IP address of the Cloud SQL instance. */
-@property(nonatomic, copy, nullable) NSString *ipAddress;
-
-/**
- *  Required. The relative resource name of the subnetwork to be used for
- *  Private Service Connect. Note that this cannot be a regular subnet and is
- *  used only for NAT.
- *  (https://cloud.google.com/vpc/docs/about-vpc-hosted-services#psc-subnets)
- *  This subnet is used to publish the SOCKS5 proxy service. The subnet size
- *  must be at least /29 and it should reside in a network through which the
- *  Cloud SQL instance is accessible. The resource name should be in the format,
- *  projects/{project_id}/regions/{region_id}/subnetworks/{subnetwork_id}
- */
-@property(nonatomic, copy, nullable) NSString *natSubnet;
-
-/**
- *  Required. Input only. The password for the user that Dataproc Metastore
- *  service will be using to connect to the database. This field is not returned
- *  on request.
- */
-@property(nonatomic, copy, nullable) NSString *password;
-
-/**
- *  Required. The network port of the database.
+ *  The type of catalog.
  *
- *  Uses NSNumber of intValue.
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_CatalogReport_CatalogType_CatalogTypeUnspecified
+ *        The catalog type is unspecified. (Value: "CATALOG_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_CatalogReport_CatalogType_Hive BigLake
+ *        Metastore Hive catalog. (Value: "HIVE")
+ *    @arg @c kGTLRDataprocMetastore_CatalogReport_CatalogType_Iceberg BigLake
+ *        Metastore Iceberg REST catalog. (Value: "ICEBERG")
  */
-@property(nonatomic, strong, nullable) NSNumber *port;
+@property(nonatomic, copy, nullable) NSString *catalogType;
 
-/**
- *  Required. The relative resource name of the subnetwork to deploy the SOCKS5
- *  proxy service in. The subnetwork should reside in a network through which
- *  the Cloud SQL instance is accessible. The resource name should be in the
- *  format,
- *  projects/{project_id}/regions/{region_id}/subnetworks/{subnetwork_id}
- */
-@property(nonatomic, copy, nullable) NSString *proxySubnet;
-
-/**
- *  Required. The username that Dataproc Metastore service will use to connect
- *  to the database.
- */
-@property(nonatomic, copy, nullable) NSString *username;
+/** A map of database names to their respective reports. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CatalogReport_DatabaseReports *databaseReports;
 
 @end
 
 
 /**
- *  Deprecated: Migrations to Dataproc Metastore are no longer supported. Use
- *  BigLake Metastore migration instead. Configuration information for migrating
- *  from self-managed hive metastore on Google Cloud using Cloud SQL as the
- *  backend database to Dataproc Metastore.
+ *  A map of database names to their respective reports.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_DatabaseReport. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
-@interface GTLRDataprocMetastore_CloudSQLMigrationConfig : GTLRObject
+@interface GTLRDataprocMetastore_CatalogReport_DatabaseReports : GTLRObject
+@end
+
 
 /**
- *  Required. Configuration information to start the Change Data Capture (CDC)
- *  streams from customer database to backend database of Dataproc Metastore.
- *  Dataproc Metastore switches to using its backend database after the cutover
- *  phase of migration.
+ *  Summary of results for a specific destination catalog.
  */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CdcConfig *cdcConfig;
+@interface GTLRDataprocMetastore_CatalogSummary : GTLRObject
 
 /**
- *  Required. Configuration information to establish customer database
- *  connection before the cutover phase of migration
+ *  Output only. The catalog resource name (format: projects/ * /catalogs/ *).
  */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CloudSQLConnectionConfig *cloudSqlConnectionConfig;
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Output only. The type of the catalog.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_CatalogSummary_CatalogType_CatalogTypeUnspecified
+ *        The catalog type is unspecified. (Value: "CATALOG_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_CatalogSummary_CatalogType_Hive BigLake
+ *        Metastore Hive catalog. (Value: "HIVE")
+ *    @arg @c kGTLRDataprocMetastore_CatalogSummary_CatalogType_Iceberg BigLake
+ *        Metastore Iceberg REST catalog. (Value: "ICEBERG")
+ */
+@property(nonatomic, copy, nullable) NSString *catalogType;
+
+/** Output only. Summary of results for each database in the catalog. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_DatabaseSummary *> *databaseSummaries;
 
 @end
 
@@ -1485,6 +1818,93 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Aggregated report at the database level.
+ */
+@interface GTLRDataprocMetastore_DatabaseReport : GTLRObject
+
+/** The name of the database. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  The discovered intent for the database (what we found and what we planned).
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ExecutionPlan *executionPlan;
+
+/** The actual outcome of the database migration. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ExecutionResult *executionResult;
+
+/** A map of table names to their respective reports. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DatabaseReport_TableReports *tableReports;
+
+@end
+
+
+/**
+ *  A map of table names to their respective reports.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_TableReport. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_DatabaseReport_TableReports : GTLRObject
+@end
+
+
+/**
+ *  Summary of results for a specific database in a catalog.
+ */
+@interface GTLRDataprocMetastore_DatabaseSummary : GTLRObject
+
+/** Output only. The name of the database. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Output only. The migration plan action for the database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_PlanAction_ActionUnspecified
+ *        The action is unspecified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Create Resource
+ *        missing; will be created. (Value: "CREATE")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_PlanAction_DependencyFailure
+ *        Resource cannot be migrated due to a dependency failure (e.g., parent
+ *        resource missing). (Value: "DEPENDENCY_FAILURE")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Error Resource
+ *        cannot be migrated due to an error during discovery. (Value: "ERROR")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Skip Resource
+ *        exists at the target; no changes will be made. (Value: "SKIP")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_PlanAction_Update Resource
+ *        exists at the target, but differs from the source; will be updated.
+ *        (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *planAction;
+
+/**
+ *  Output only. The migration result status for the database. This is only set
+ *  if the migration is not a dry run.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Failed The
+ *        resource failed to migrate. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Skipped The
+ *        resource was skipped and will not be migrated. (Value: "SKIPPED")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_StateUnspecified
+ *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseSummary_ResultStatus_Succeeded The
+ *        resource was migrated successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *resultStatus;
+
+/**
+ *  Output only. Aggregated summary of results for all tables in the database.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_TableSummary *tableSummary;
+
+@end
+
+
+/**
  *  Specifies how metastore metadata should be integrated with the Data Catalog
  *  service.
  */
@@ -1551,6 +1971,84 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRDataprocMetastore_ErrorDetails_Details : GTLRObject
+@end
+
+
+/**
+ *  Represents the migration plan for a specific resource (e.g. Database,
+ *  Table).
+ */
+@interface GTLRDataprocMetastore_ExecutionPlan : GTLRObject
+
+/**
+ *  The action that will be taken for a resource during migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_ExecutionPlan_Action_ActionUnspecified The
+ *        action is unspecified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionPlan_Action_Create Resource
+ *        missing; will be created. (Value: "CREATE")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionPlan_Action_DependencyFailure
+ *        Resource cannot be migrated due to a dependency failure (e.g., parent
+ *        resource missing). (Value: "DEPENDENCY_FAILURE")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionPlan_Action_Error Resource cannot
+ *        be migrated due to an error during discovery. (Value: "ERROR")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionPlan_Action_Skip Resource exists
+ *        at the target; no changes will be made. (Value: "SKIP")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionPlan_Action_Update Resource exists
+ *        at the target, but differs from the source; will be updated. (Value:
+ *        "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** A map of field names to their respective value diff. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ExecutionPlan_Diffs *diffs;
+
+/** A human-readable string explaining why the action was chosen. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  A map of field names to their respective value diff.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_ValueDiff. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_ExecutionPlan_Diffs : GTLRObject
+@end
+
+
+/**
+ *  Represents the actual migration result for a specific resource (e.g.
+ *  Database, Table).
+ */
+@interface GTLRDataprocMetastore_ExecutionResult : GTLRObject
+
+/** Description of the error if the state is FAILED. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** Remediation steps for the error if the state is FAILED. */
+@property(nonatomic, copy, nullable) NSString *remediation;
+
+/**
+ *  Output only. The state of the migration for a resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_ExecutionResult_State_Failed The resource
+ *        failed to migrate. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionResult_State_Skipped The resource
+ *        was skipped and will not be migrated. (Value: "SKIPPED")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionResult_State_StateUnspecified The
+ *        state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_ExecutionResult_State_Succeeded The
+ *        resource was migrated successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -1771,6 +2269,27 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for migrating Hive metadata.
+ */
+@interface GTLRDataprocMetastore_HiveConfig : GTLRObject
+
+/**
+ *  Required. The target catalog for migrated databases and tables. Format:
+ *  "projects/{project_id_or_number}/catalogs/{catalog_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Required. The list of databases to migrate to the Hive catalog. Use "*" to
+ *  migrate all databases. Note: If Iceberg tables exist in these databases,
+ *  they will only be migrated if iceberg_config is also specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
+
+@end
+
+
+/**
  *  Specifies configuration information specific to running Hive metastore
  *  software as the metastore service.
  */
@@ -1884,6 +2403,27 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for migrating Iceberg metadata.
+ */
+@interface GTLRDataprocMetastore_IcebergConfig : GTLRObject
+
+/**
+ *  Required. The target catalog for migrated Iceberg metadata. Format:
+ *  "projects/{project_id_or_number}/catalogs/{catalog_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Required. The list of namespaces to migrate to the Iceberg REST catalog. Use
+ *  "*" to migrate all namespaces. Note: If Hive tables exist in these
+ *  namespaces, they will only be migrated if hive_config is also specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaces;
+
+@end
+
+
+/**
  *  Configuration information for a Kerberos principal.
  */
 @interface GTLRDataprocMetastore_KerberosConfig : GTLRObject
@@ -1907,6 +2447,32 @@ GTLR_DEPRECATED
  *  but there is no exact format.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
+
+@end
+
+
+/**
+ *  Configuration for Dataproc Metastore to Lakehouse proxy routing.In a phased
+ *  migration, namespaces are migrated from Dataproc Metastore to a Lakehouse
+ *  Iceberg REST Catalog in batches. Between and after migration phases, the
+ *  metastore service operates in PROXY state where requests for migrated
+ *  namespaces are forwarded to the Lakehouse catalog while unmigrated
+ *  namespaces continue to be served locally by DPMS.
+ */
+@interface GTLRDataprocMetastore_LakehouseProxyConfig : GTLRObject
+
+/**
+ *  Output only. The Lakehouse Iceberg REST Catalog where requests are being
+ *  proxied to. Format: projects/{project_id_or_number}/catalogs/{catalog_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *catalog;
+
+/**
+ *  Output only. The list of namespaces currently proxied to the Lakehouse
+ *  catalog. As each migration batch completes, newly migrated namespaces are
+ *  added to this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaces;
 
 @end
 
@@ -2453,12 +3019,10 @@ GTLR_DEPRECATED
 @interface GTLRDataprocMetastore_MigrationExecution : GTLRObject
 
 /**
- *  Deprecated: Migrations to Dataproc Metastore are no longer supported. Use
- *  BigLake Metastore migration instead. Configuration information specific to
- *  migrating from self-managed hive metastore on Google Cloud using Cloud SQL
- *  as the backend database to Dataproc Metastore.
+ *  Configuration information specific to migrating from Dataproc Metastore to
+ *  BigLake Metastore.
  */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CloudSQLMigrationConfig *cloudSqlMigrationConfig GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_BigLakeMetastoreMigrationConfig *biglakeMetastoreMigrationConfig;
 
 /** Output only. The time when the migration execution was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -2535,6 +3099,56 @@ GTLR_DEPRECATED
  *  execution.
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
+
+@end
+
+
+/**
+ *  Report containing the results of a migration run. This report is generated
+ *  at the specified path in the BigLakeMetastoreMigrationConfig after the
+ *  backfill is complete, or when a dry run is executed.
+ */
+@interface GTLRDataprocMetastore_MigrationReport : GTLRObject
+
+/**
+ *  Output only. Detailed results for each catalog involved in the migration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_CatalogReport *> *catalogReports;
+
+/** Output only. High-level summary of the migration results. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_MigrationSummary *summary;
+
+@end
+
+
+/**
+ *  Summary of the migration results.
+ */
+@interface GTLRDataprocMetastore_MigrationSummary : GTLRObject
+
+/**
+ *  Output only. Summary of results for each catalog involved in the migration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_CatalogSummary *> *catalogSummaries;
+
+/** Output only. The UTC time when the source metadata read was initiated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Whether the migration was a dry run.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dryRun;
+
+/** Output only. The UTC time when the report was written. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The Dataproc Metastore service name (format: projects/ *
+ *  /locations/ * /services/ *) on which the migration was executed.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -2711,6 +3325,44 @@ GTLR_DEPRECATED
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Partition migration report for a Hive table.
+ */
+@interface GTLRDataprocMetastore_PartitionReport : GTLRObject
+
+/**
+ *  The number of partitions that failed to migrate at the target.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionFailedCount;
+
+/**
+ *  The number of partitions successfully migrated at the target.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionSuccessCount;
+
+/**
+ *  Output only. The state of the partition migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_PartitionReport_State_Failed All partitions
+ *        failed to migrate at the target. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_PartitionReport_State_PartiallySucceeded
+ *        Some partitions migrated successfully at the target, but others
+ *        failed. (Value: "PARTIALLY_SUCCEEDED")
+ *    @arg @c kGTLRDataprocMetastore_PartitionReport_State_StateUnspecified The
+ *        state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_PartitionReport_State_Succeeded All
+ *        partitions migrated successfully at the target. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -3107,6 +3759,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_Service_Labels *labels;
 
 /**
+ *  Output only. The Lakehouse proxy routing configuration for the metastore
+ *  service.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_LakehouseProxyConfig *lakehouseProxyConfig;
+
+/**
  *  Optional. The one hour maintenance window of the metastore service. This
  *  specifies when the service can be restarted for maintenance purposes in UTC
  *  time. Maintenance window is not needed for services with the SPANNER
@@ -3319,6 +3977,15 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MigrationExecution *migrationExecution;
 
 /**
+ *  Optional. The ID to use for the migration execution, which will become the
+ *  final component of the migration execution's resource name. If not
+ *  specified, a UUID will be generated.This value must be between 2 and 63
+ *  characters long inclusive, begin with a letter, end with a letter or number,
+ *  and valid characters are a-z0-9-.
+ */
+@property(nonatomic, copy, nullable) NSString *migrationExecutionId;
+
+/**
  *  Optional. A request ID. Specify a unique request ID to allow the server to
  *  ignore the request if it has completed. The server will ignore subsequent
  *  requests that provide a duplicate request ID for at least 60 minutes after
@@ -3426,6 +4093,111 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Aggregated report at the table level.
+ */
+@interface GTLRDataprocMetastore_TableReport : GTLRObject
+
+/**
+ *  The discovered intent for the table (what we found and what we planned).
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ExecutionPlan *executionPlan;
+
+/** The actual outcome of the table migration. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_ExecutionResult *executionResult;
+
+/**
+ *  The total number of partitions identified at the source during discovery.
+ *  This is only relevant for Hive Partitioned tables.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionDiscoveredCount;
+
+/**
+ *  Report containing the results of partition migration for this table. This is
+ *  only relevant for Hive Partitioned tables.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_PartitionReport *partitionReport;
+
+/** The name of the table. */
+@property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  Aggregated summary of results for all tables in a database.
+ */
+@interface GTLRDataprocMetastore_TableSummary : GTLRObject
+
+/**
+ *  Output only. Partition migration summary across all Hive tables in the
+ *  database.The total number of partitions discovered at the source.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionDiscoveredCount;
+
+/**
+ *  Output only. The total number of partitions that failed to migrate at the
+ *  target.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionFailedCount;
+
+/**
+ *  Output only. The total number of partitions successfully migrated at the
+ *  target.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionSuccessCount;
+
+/**
+ *  Output only. Number of tables with a specific migration plan action. The key
+ *  is the action name (e.g. CREATE, UPDATE, SKIP, etc.).
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_TableSummary_PlanCounts *planCounts;
+
+/**
+ *  Output only. Number of tables with a specific migration result status. The
+ *  key is the status name (e.g. SUCCEEDED, FAILED, SKIPPED, etc.). This is only
+ *  set if the migration is not a dry run.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_TableSummary_ResultCounts *resultCounts;
+
+@end
+
+
+/**
+ *  Output only. Number of tables with a specific migration plan action. The key
+ *  is the action name (e.g. CREATE, UPDATE, SKIP, etc.).
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_TableSummary_PlanCounts : GTLRObject
+@end
+
+
+/**
+ *  Output only. Number of tables with a specific migration result status. The
+ *  key is the status name (e.g. SUCCEEDED, FAILED, SKIPPED, etc.). This is only
+ *  set if the migration is not a dry run.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_TableSummary_ResultCounts : GTLRObject
+@end
+
+
+/**
  *  Telemetry Configuration for the Dataproc Metastore service.
  */
 @interface GTLRDataprocMetastore_TelemetryConfig : GTLRObject
@@ -3470,6 +4242,21 @@ GTLR_DEPRECATED
  *  A subset of TestPermissionsRequest.permissions that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  A field-level metadata mismatch for a resource between the source and
+ *  target.
+ */
+@interface GTLRDataprocMetastore_ValueDiff : GTLRObject
+
+/** The value of the field at the source. */
+@property(nonatomic, copy, nullable) NSString *sourceValue;
+
+/** The value of the field at the target. */
+@property(nonatomic, copy, nullable) NSString *targetValue;
 
 @end
 

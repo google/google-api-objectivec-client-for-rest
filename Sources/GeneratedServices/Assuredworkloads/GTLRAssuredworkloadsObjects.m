@@ -16,6 +16,11 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeV
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_ExistingChildResourceViolations = @"EXISTING_CHILD_RESOURCE_VIOLATIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation = @"SINGLE_VIOLATION";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest.view
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewAssuredWorkloads = @"VIOLATION_VIEW_ASSURED_WORKLOADS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewDataBoundary = @"VIOLATION_VIEW_DATA_BOUNDARY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewUnspecified = @"VIOLATION_VIEW_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata.action
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_Apply = @"APPLY";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_WorkloadUpdateActionUnspecified = @"WORKLOAD_UPDATE_ACTION_UNSPECIFIED";
@@ -23,11 +28,6 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloa
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest.action
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_Apply = @"APPLY";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified = @"WORKLOAD_UPDATE_ACTION_UNSPECIFIED";
-
-// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest.acknowledgeType
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_AcknowledgeTypeUnspecified = @"ACKNOWLEDGE_TYPE_UNSPECIFIED";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_ExistingChildResourceViolations = @"EXISTING_CHILD_RESOURCE_VIOLATIONS";
-NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_SingleViolation = @"SINGLE_VIOLATION";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails.evaluationState
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails_EvaluationState_EvaluationStateFailed = @"EVALUATION_STATE_FAILED";
@@ -331,7 +331,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest
-@dynamic acknowledgeType, comment, nonCompliantOrgPolicy;
+@dynamic acknowledgeType, comment, nonCompliantOrgPolicy, view;
 @end
 
 
@@ -465,34 +465,6 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest
-//
-
-@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest
-@dynamic acknowledgeType, comment, names;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse
-//
-
-@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse
-@dynamic acknowledgedViolationsCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CELExpression
 //
 
@@ -507,7 +479,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails
-@dynamic evaluationState, findingsCount;
+@dynamic evaluationState, findingsCount, orgPolicyFindingCount,
+         resourceFindingCount;
 @end
 
 
@@ -582,8 +555,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbControlComplianceSummary
 @dynamic cloudControlReports, complianceFrameworks, control,
          controlResponsibilityType, descriptionProperty, displayName,
-         isFakeControl, name, overallEvaluationState, similarControls,
-         totalFindingsCount;
+         isFakeControl, name, orgPolicyFindingCount, overallEvaluationState,
+         resourceFindingCount, similarControls, totalFindingsCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -607,8 +580,9 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1DbFindingSummary
-@dynamic findingCategory, findingClass, findingCount, name, relatedFrameworks,
-         severity, updateTime;
+@dynamic findingCategory, findingClass, findingCount, name,
+         organizationPolicyFindingCount, relatedFrameworks,
+         resourceFindingCount, severity, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1064,11 +1038,13 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation
-@dynamic acknowledged, acknowledgementTime, associatedOrgPolicyViolationId,
-         auditLogLink, beginTime, category, descriptionProperty,
+@dynamic acknowledged, acknowledgementTime, affectedFrameworks,
+         associatedOrgPolicyViolationId, auditLogLink, beginTime, category,
+         childResourceViolationCount, descriptionProperty,
          exceptionAuditLogLink, exceptionContexts, name, nonCompliantOrgPolicy,
-         orgPolicyConstraint, parentProjectNumber, remediation, resolveTime,
-         resourceName, resourceType, state, updateTime, violationType;
+         orgPolicyConstraint, parentProjectNumber, remediation,
+         remediationMarkdown, resolveTime, resourceName, resourceType, state,
+         updateTime, violationType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1076,6 +1052,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"affectedFrameworks" : [NSString class],
     @"exceptionContexts" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext class]
   };
   return map;

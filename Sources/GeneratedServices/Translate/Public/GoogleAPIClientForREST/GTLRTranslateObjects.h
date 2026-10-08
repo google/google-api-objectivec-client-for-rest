@@ -198,6 +198,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_GlossaryConfig *glossaryConfig;
 
+/** The format of the source text. Currently only text/plain is supported. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
 /** Configuration for caller provided reference sentences. */
 @property(nonatomic, strong, nullable) GTLRTranslate_ReferenceSentenceConfig *referenceSentenceConfig;
 

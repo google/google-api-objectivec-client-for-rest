@@ -625,7 +625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @interface GTLRMyBusinessBusinessInformationQuery_LocationsPatch : GTLRMyBusinessBusinessInformationQuery
 
 /**
- *  Google identifier for this location in the form: `locations/{location_id}`.
+ *  Identifier. Google identifier for this location in the form:
+ *  `locations/{location_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -650,7 +651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
  *
  *  @param object The @c GTLRMyBusinessBusinessInformation_Location to include
  *    in the query.
- *  @param name Google identifier for this location in the form:
+ *  @param name Identifier. Google identifier for this location in the form:
  *    `locations/{location_id}`.
  *
  *  @return GTLRMyBusinessBusinessInformationQuery_LocationsPatch

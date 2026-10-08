@@ -1935,7 +1935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Output only. The timestamp that the session first became ACTIVE. */
 @property(nonatomic, strong, nullable) GTLRDateTime *activeStartTime;
 
-/** Required. The requested device */
+/** Required. The requested device. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidDevice *androidDevice;
 
 /** Output only. The time that the Session was created. */

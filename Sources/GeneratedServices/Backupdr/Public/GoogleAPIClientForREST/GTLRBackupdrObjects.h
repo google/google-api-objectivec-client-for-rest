@@ -70,6 +70,7 @@
 @class GTLRBackupdr_DiskBackupProperties;
 @class GTLRBackupdr_DiskBackupProperties_Labels;
 @class GTLRBackupdr_DiskDataSourceProperties;
+@class GTLRBackupdr_DiskExclusionLabels;
 @class GTLRBackupdr_DiskRestoreProperties;
 @class GTLRBackupdr_DiskRestoreProperties_Labels;
 @class GTLRBackupdr_DiskRestoreProperties_ResourceManagerTags;
@@ -90,6 +91,7 @@
 @class GTLRBackupdr_InitializeParams;
 @class GTLRBackupdr_InstanceParams;
 @class GTLRBackupdr_InstanceParams_ResourceManagerTags;
+@class GTLRBackupdr_LabelKeyValPair;
 @class GTLRBackupdr_Location;
 @class GTLRBackupdr_Location_Labels;
 @class GTLRBackupdr_Location_Metadata;
@@ -104,7 +106,6 @@
 @class GTLRBackupdr_Operation;
 @class GTLRBackupdr_Operation_Metadata;
 @class GTLRBackupdr_Operation_Response;
-@class GTLRBackupdr_OperationMetadata_AdditionalInfo;
 @class GTLRBackupdr_PitrSettings;
 @class GTLRBackupdr_PlanConfig;
 @class GTLRBackupdr_PlanRule;
@@ -112,6 +113,7 @@
 @class GTLRBackupdr_RegionDiskTargetEnvironment;
 @class GTLRBackupdr_ResourceBackupConfig;
 @class GTLRBackupdr_ResourceBackupConfig_TargetResourceLabels;
+@class GTLRBackupdr_RestoreDiskFromInstanceOptions;
 @class GTLRBackupdr_RuleConfigInfo;
 @class GTLRBackupdr_Scheduling;
 @class GTLRBackupdr_SchedulingDuration;
@@ -660,6 +662,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Del
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Inactive;
 /**
+ *  The resource has been created but backups are paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupPlanAssociation_State_Paused;
+/**
  *  State not set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -933,6 +941,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSource_ConfigState_BackupCo
  *  Value: "PASSIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSource_ConfigState_Passive;
+/**
+ *  The data source has been created but backups are paused
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSource_ConfigState_Paused;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_DataSource.state
@@ -1025,6 +1039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceReference_DataSourceB
  *  Value: "PASSIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Passive;
+/**
+ *  The data source has been created but backups are paused
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Paused;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_DiskBackupProperties.architecture
@@ -1240,6 +1260,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFea
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Filestore;
 /** Value: "FT_CUSTOM_PROBERS" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FtCustomProbers;
+/** Value: "GOOGLE_CLOUD_NETAPP_VOLUME" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_GoogleCloudNetappVolume;
 /** Value: "MANAGEMENT_SERVER" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer;
 /** Value: "PROTECTION_SUMMARY" */
@@ -1609,6 +1631,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_SetInternalStatusRequest_Backup
  *  Value: "PASSIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_Passive;
+/**
+ *  The data source has been created but backups are paused
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_Paused;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_StandardSchedule.daysOfWeek
@@ -3217,6 +3245,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        being deleted. (Value: "DELETING")
  *    @arg @c kGTLRBackupdr_BackupPlanAssociation_State_Inactive The resource
  *        has been created but is not usable. (Value: "INACTIVE")
+ *    @arg @c kGTLRBackupdr_BackupPlanAssociation_State_Paused The resource has
+ *        been created but backups are paused. (Value: "PAUSED")
  *    @arg @c kGTLRBackupdr_BackupPlanAssociation_State_StateUnspecified State
  *        not set. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRBackupdr_BackupPlanAssociation_State_Updating The resource is
@@ -3753,6 +3783,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @interface GTLRBackupdr_ComputeInstanceBackupPlanProperties : GTLRObject
 
 /**
+ *  Optional. If true, only the boot disk will be backed up.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bootDiskOnly;
+
+/**
+ *  Optional. Labels used to identify disks for exclusion from the backup. If a
+ *  disk carries any of these labels, it will be excluded (OR logic).
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskExclusionLabels *diskExclusionLabels;
+
+/**
  *  Optional. Indicates whether to perform a guest flush operation before taking
  *  a compute backup. When set to false, the system will create crash-consistent
  *  backups. Default value is false.
@@ -3797,6 +3840,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_AttachedDisk *> *disk;
 
+/** Optional. List of disks excluded from the backup. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDisks;
+
 /**
  *  A list of guest accelerator cards' type and count to use for instances
  *  created from these properties.
@@ -3811,6 +3857,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *guestFlush;
+
+/** Optional. List of disks included in the backup. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedDisks;
 
 /**
  *  KeyRevocationActionType of the instance. Supported options are "STOP" and
@@ -4230,6 +4279,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        "BACKUP_CONFIG_STATE_UNSPECIFIED")
  *    @arg @c kGTLRBackupdr_DataSource_ConfigState_Passive The data source is no
  *        longer protected (but may have backups under it) (Value: "PASSIVE")
+ *    @arg @c kGTLRBackupdr_DataSource_ConfigState_Paused The data source has
+ *        been created but backups are paused (Value: "PAUSED")
  */
 @property(nonatomic, copy, nullable) NSString *configState;
 
@@ -4504,6 +4555,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *    @arg @c kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Passive
  *        The data source is no longer protected (but may have backups under it)
  *        (Value: "PASSIVE")
+ *    @arg @c kGTLRBackupdr_DataSourceReference_DataSourceBackupConfigState_Paused
+ *        The data source has been created but backups are paused (Value:
+ *        "PAUSED")
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceBackupConfigState;
 
@@ -4709,6 +4763,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Message for selective disk backup exclusion labels.
+ */
+@interface GTLRBackupdr_DiskExclusionLabels : GTLRObject
+
+/**
+ *  Optional. Labels used to identify disks for exclusion from the backup. If a
+ *  disk carries any of these labels, it will be excluded (OR logic).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_LabelKeyValPair *> *labels;
+
+@end
+
+
+/**
  *  DiskRestoreProperties represents the properties of a Disk restore.
  */
 @interface GTLRBackupdr_DiskRestoreProperties : GTLRObject
@@ -4771,6 +4839,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  is applicable only for bootable images.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_GuestOsFeature *> *guestOsFeature;
+
+/**
+ *  Provides options for creating a disk from a source Compute Instance backup.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_RestoreDiskFromInstanceOptions *instanceBackupSource;
 
 /**
  *  Optional. Labels to apply to this disk. These can be modified later using
@@ -5674,6 +5747,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Message for a label key-value pair.
+ */
+@interface GTLRBackupdr_LabelKeyValPair : GTLRObject
+
+/**
+ *  Key of the label. The key must follow the format:
+ *  `\\\\p{Ll}\\\\p{Lo}{0,62}`. This means the key must start with a lowercase
+ *  letter or a lowercase international character, followed by zero or more
+ *  lowercase letters, lowercase international characters, numbers, underscores,
+ *  or dashes. The key must be at most 63 characters long. International
+ *  characters are allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Value of the label. The value must follow the format:
+ *  `[\\\\p{Ll}\\\\p{Lo}\\\\p{N}_-]{1,63}`. This means the value must be one or
+ *  more lowercase letters, lowercase international characters, numbers,
+ *  underscores, or dashes. The value must be at most 63 characters long.
+ *  International characters are allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Response message for List BackupPlanAssociation
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6544,63 +6644,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRBackupdr_OperationMetadata : GTLRObject
-
-/**
- *  Output only. AdditionalInfo contains additional Info related to backup plan
- *  association resource.
- */
-@property(nonatomic, strong, nullable) GTLRBackupdr_OperationMetadata_AdditionalInfo *additionalInfo;
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to 'Code.CANCELLED'.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  Output only. AdditionalInfo contains additional Info related to backup plan
- *  association resource.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRBackupdr_OperationMetadata_AdditionalInfo : GTLRObject
-@end
-
-
-/**
  *  Point in time recovery settings of the backup configuration resource.
  */
 @interface GTLRBackupdr_PitrSettings : GTLRObject
@@ -6935,6 +6978,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Options for creating a disk from a source Compute Instance backup.
+ */
+@interface GTLRBackupdr_RestoreDiskFromInstanceOptions : GTLRObject
+
+/**
+ *  Specifies that the boot disk should be restored from the instance backup.
+ *  This field should only be set to `true` if selected.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bootDisk;
+
+/** The device name of the disk to restore from the VM backup. */
+@property(nonatomic, copy, nullable) NSString *sourceDeviceName;
+
+@end
+
+
+/**
  *  Message for rules config info.
  */
 @interface GTLRBackupdr_RuleConfigInfo : GTLRObject
@@ -7162,6 +7224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *    @arg @c kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_Passive
  *        The data source is no longer protected (but may have backups under it)
  *        (Value: "PASSIVE")
+ *    @arg @c kGTLRBackupdr_SetInternalStatusRequest_BackupConfigState_Paused
+ *        The data source has been created but backups are paused (Value:
+ *        "PAUSED")
  */
 @property(nonatomic, copy, nullable) NSString *backupConfigState;
 

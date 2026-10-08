@@ -83,6 +83,83 @@
 
 @end
 
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentRegistry_GoogleIamV1Policy class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAgentRegistry_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentRegistry_GoogleIamV1Policy class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAgentRegistry_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAgentRegistryQuery_ProjectsLocationsAiApplicationsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAgentRegistry_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"agentregistry.projects.locations.aiApplications.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRAgentRegistryQuery_ProjectsLocationsBindingsCreate
 
 @dynamic bindingId, parent, requestId;

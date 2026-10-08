@@ -21,6 +21,7 @@
 @class GTLRBigtableAdmin_AutomatedBackupPolicy;
 @class GTLRBigtableAdmin_AutoscalingLimits;
 @class GTLRBigtableAdmin_AutoscalingTargets;
+@class GTLRBigtableAdmin_AvroSchema;
 @class GTLRBigtableAdmin_Backup;
 @class GTLRBigtableAdmin_BackupInfo;
 @class GTLRBigtableAdmin_Binding;
@@ -613,6 +614,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority
 // GTLRBigtableAdmin_Table.granularity
 
 /**
+ *  The table keeps data versioned at a granularity of 1us.
+ *
+ *  Value: "MICROS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_Micros;
+/**
  *  The table keeps data versioned at a granularity of 1ms.
  *
  *  Value: "MILLIS"
@@ -903,6 +910,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *storageUtilizationGibPerNode;
+
+@end
+
+
+/**
+ *  Represents a collection of Avro schemas.
+ */
+@interface GTLRBigtableAdmin_AvroSchema : GTLRObject
+
+/**
+ *  Required. The Avro schemas in JSON format. Each element must be the content
+ *  of a valid, self-contained Avro schema file (.avsc), as described in
+ *  https://avro.apache.org/docs/1.8.1/spec.html. Use repeated elements to
+ *  include multiple Avro schema files in a single bundle.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jsonSchemas;
 
 @end
 
@@ -2881,7 +2904,10 @@ GTLR_DEPRECATED
  *  must be between 0 and 63 characters long and must conform to the regular
  *  expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64 labels can
  *  be associated with a given resource. * Keys and values must both be under
- *  128 bytes.
+ *  128 bytes. Labels and Tags (below) are both used to bind metadata to
+ *  resources, with different use-cases. See
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
+ *  in-depth overview on the difference between tags and labels.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance_Labels *labels;
 
@@ -2959,7 +2985,10 @@ GTLR_DEPRECATED
  *  must be between 0 and 63 characters long and must conform to the regular
  *  expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64 labels can
  *  be associated with a given resource. * Keys and values must both be under
- *  128 bytes.
+ *  128 bytes. Labels and Tags (below) are both used to bind metadata to
+ *  resources, with different use-cases. See
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
+ *  in-depth overview on the difference between tags and labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4097,6 +4126,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRBigtableAdmin_SchemaBundle : GTLRObject
 
+/** Optional. Schema for Avros. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_AvroSchema *avroSchema;
+
 /**
  *  Optional. The etag for this schema bundle. This may be sent on update and
  *  delete requests to ensure the client has an up-to-date value before
@@ -4312,6 +4344,8 @@ GTLR_DEPRECATED
  *  `FULL`.
  *
  *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_Table_Granularity_Micros The table keeps data
+ *        versioned at a granularity of 1us. (Value: "MICROS")
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_Millis The table keeps data
  *        versioned at a granularity of 1ms. (Value: "MILLIS")
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified

@@ -54,6 +54,8 @@
 @class GTLRNetworkSecurity_FirewallEndpointAssociation_Labels;
 @class GTLRNetworkSecurity_FirewallEndpointAssociationReference;
 @class GTLRNetworkSecurity_FirewallEndpointEndpointSettings;
+@class GTLRNetworkSecurity_FirewallEndpointWildfireSettings;
+@class GTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings;
 @class GTLRNetworkSecurity_GatewaySecurityPolicy;
 @class GTLRNetworkSecurity_GatewaySecurityPolicyRule;
 @class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider;
@@ -122,6 +124,18 @@
 @class GTLRNetworkSecurity_UrlFilteringProfile;
 @class GTLRNetworkSecurity_UrlList;
 @class GTLRNetworkSecurity_ValidationCA;
+@class GTLRNetworkSecurity_WildfireAnalysisProfile;
+@class GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule;
+@class GTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes;
+@class GTLRNetworkSecurity_WildfireInlineMlFileException;
+@class GTLRNetworkSecurity_WildfireInlineMlOverride;
+@class GTLRNetworkSecurity_WildfireInlineMlSettings;
+@class GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig;
+@class GTLRNetworkSecurity_WildfireOverride;
+@class GTLRNetworkSecurity_WildfireSubmissionRule;
+@class GTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes;
+@class GTLRNetworkSecurity_WildfireThreatOverride;
+@class GTLRNetworkSecurity_WildfireVerdictChangeRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -316,6 +330,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custo
  *  Value: "DENY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny;
+/**
+ *  Establishes a secure-by-default posture by denying any request not
+ *  explicitly matched by any `ALLOW`, `DENY`, or `CUSTOM` policy. This action
+ *  serves as a universal fallback: if no other policies match or are
+ *  configured, the request is denied.
+ *
+ *  Value: "DENY_BY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_DenyByDefault;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_AuthzPolicy.policyProfile
@@ -559,6 +582,287 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociat
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpointEndpointSettings.contentCloudRegion
+
+/**
+ *  APAC content cloud portal: apac.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "APAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Apac;
+/**
+ *  Australia content cloud portal:
+ *  au.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "AUSTRALIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Australia;
+/**
+ *  Canada content cloud portal: ca.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "CANADA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Canada;
+/**
+ *  Palo Alto Networks content cloud region not specified.
+ *
+ *  Value: "CONTENT_CLOUD_REGION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_ContentCloudRegionUnspecified;
+/**
+ *  France content cloud portal: fr.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "FRANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_France;
+/**
+ *  India content cloud portal: in.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "INDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_India;
+/**
+ *  Indonesia content cloud portal:
+ *  id.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "INDONESIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Indonesia;
+/**
+ *  Italy content cloud portal: it.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "ITALY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Italy;
+/**
+ *  Japan content cloud portal: jp.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "JAPAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Japan;
+/**
+ *  Netherlands content cloud portal:
+ *  nl.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "NETHERLANDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Netherlands;
+/**
+ *  Poland content cloud portal: pl.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "POLAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Poland;
+/**
+ *  Qatar content cloud portal: qa.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "QATAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Qatar;
+/**
+ *  Saudi Arabia content cloud portal:
+ *  sa.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "SAUDI_ARABIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_SaudiArabia;
+/**
+ *  South Korea content cloud portal:
+ *  kr.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "SOUTH_KOREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_SouthKorea;
+/**
+ *  Switzerland content cloud portal:
+ *  ch.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "SWITZERLAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Switzerland;
+/**
+ *  Taiwan content cloud portal: tw.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "TAIWAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Taiwan;
+/**
+ *  UK content cloud portal: uk.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "UK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Uk;
+/**
+ *  us.hawkeye.services-edge.paloaltonetworks.com
+ *
+ *  Value: "US_CENTRAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_UsCentral;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpointWildfireSettings.wildfireRealtimeLookupTimeoutAction
+
+/**
+ *  The files that timed out in the signature lookup will be allowed to
+ *  transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_Allow;
+/**
+ *  The files that timed out in the signature lookup will be denied to transmit.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_Deny;
+/**
+ *  WildFire real time signature lookup timeout action not specified.
+ *
+ *  Value: "WILDFIRE_REALTIME_SIGNATURE_LOOKUP_TIMEOUT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_WildfireRealtimeSignatureLookupTimeoutActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpointWildfireSettings.wildfireRegion
+
+/**
+ *  Australia cloud portal: au.wildfire.paloaltonetworks.com
+ *
+ *  Value: "AUSTRALIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Australia;
+/**
+ *  Canada cloud portal: ca.wildfire.paloaltonetworks.com
+ *
+ *  Value: "CANADA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Canada;
+/**
+ *  France cloud portal: fr.wildfire.paloaltonetworks.com
+ *
+ *  Value: "FRANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_France;
+/**
+ *  Germany cloud portal: de.wildfire.paloaltonetworks.com
+ *
+ *  Value: "GERMANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Germany;
+/**
+ *  India cloud portal: in.wildfire.paloaltonetworks.com
+ *
+ *  Value: "INDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_India;
+/**
+ *  Indonesia cloud portal: id.wildfire.paloaltonetworks.com
+ *
+ *  Value: "INDONESIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Indonesia;
+/**
+ *  Israel cloud portal: il.wildfire.paloaltonetworks.com
+ *
+ *  Value: "ISRAEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Israel;
+/**
+ *  Japan cloud portal: jp.wildfire.paloaltonetworks.com
+ *
+ *  Value: "JAPAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Japan;
+/**
+ *  Poland cloud portal: pl.wildfire.paloaltonetworks.com
+ *
+ *  Value: "POLAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Poland;
+/**
+ *  Qatar cloud portal: qatar.wildfire.paloaltonetworks.com
+ *
+ *  Value: "QATAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Qatar;
+/**
+ *  Saudi Arabia cloud portal: sa.wildfire.paloaltonetworks.com
+ *
+ *  Value: "SAUDI_ARABIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_SaudiArabia;
+/**
+ *  Singapore cloud portal: sg.wildfire.paloaltonetworks.com
+ *
+ *  Value: "SINGAPORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Singapore;
+/**
+ *  South Korea cloud portal: kr.wildfire.paloaltonetworks.com
+ *
+ *  Value: "SOUTH_KOREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_SouthKorea;
+/**
+ *  Spain cloud portal: es.wildfire.paloaltonetworks.com
+ *
+ *  Value: "SPAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Spain;
+/**
+ *  Switzerland cloud portal: ch.wildfire.paloaltonetworks.com
+ *
+ *  Value: "SWITZERLAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Switzerland;
+/**
+ *  Taiwan cloud portal: tw.wildfire.paloaltonetworks.com
+ *
+ *  Value: "TAIWAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Taiwan;
+/**
+ *  United Kingdom cloud portal: uk.wildfire.paloaltonetworks.com
+ *
+ *  Value: "UNITED_KINGDOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_UnitedKingdom;
+/**
+ *  United States cloud portal: us-native.wildfire.paloaltonetworks.com
+ *
+ *  Value: "UNITED_STATES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_UnitedStates;
+/**
+ *  WildFire region not specified.
+ *
+ *  Value: "WILDFIRE_REGION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_WildfireRegionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings.timeoutAction
+
+/**
+ *  The files that timed out will be allowed to transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_Allow;
+/**
+ *  The files that timed out will be denied to transmit.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_Deny;
+/**
+ *  WildFire inline cloud analysis timeout action not specified.
+ *
+ *  Value: "WILDFIRE_INLINE_CLOUD_ANALYSIS_TIMEOUT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_WildfireInlineCloudAnalysisTimeoutActionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_GatewaySecurityPolicyRule.basicProfile
@@ -1418,6 +1722,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_Thr
  *  Value: "URL_FILTERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_UrlFiltering;
+/**
+ *  Profile type for WildFire Analysis.
+ *
+ *  Value: "WILDFIRE_ANALYSIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_WildfireAnalysis;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_SeverityOverride.action
@@ -1590,6 +1900,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Unkn
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Vulnerability;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_TlsInspectionPolicy.certificateIssuanceMode
+
+/**
+ *  Unspecified default mode.
+ *
+ *  Value: "CERTIFICATE_ISSUANCE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_CertificateIssuanceModeUnspecified;
+/**
+ *  Fallback: Direct Private CA leaf certificate provisioning.
+ *
+ *  Value: "DIRECT_LEAF_PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_DirectLeafProvisioning;
+/**
+ *  High-speed Local Intermediate CA signing.
+ *
+ *  Value: "LOCAL_INTERMEDIATE_CA_SIGNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_LocalIntermediateCaSigning;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_TlsInspectionPolicy.minTlsVersion
 
 /**
@@ -1683,6 +2015,664 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  Value: "URL_FILTERING_ACTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule.action
+
+/**
+ *  The files caught by WildFire Inline Cloud Analysis will be allowed to
+ *  transmit, but a wildfire_submission_log entry will be sent to the consumer
+ *  project.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Alert;
+/**
+ *  The files caught by WildFire Inline Cloud Analysis will be allowed to
+ *  transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Allow;
+/**
+ *  The files caught by WildFire Inline Cloud Analysis will be denied to
+ *  transmit.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Deny;
+/**
+ *  WildFire Inline Cloud Analysis action not specified.
+ *
+ *  Value: "WILDFIRE_INLINE_CLOUD_ANALYSIS_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_WildfireInlineCloudAnalysisActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule.direction
+
+/**
+ *  Both upload and download directions.
+ *
+ *  Value: "BOTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Both;
+/**
+ *  Direction not specified.
+ *
+ *  Value: "DIRECTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_DirectionUnspecified;
+/**
+ *  Download direction.
+ *
+ *  Value: "DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Download;
+/**
+ *  Upload direction.
+ *
+ *  Value: "UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Upload;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule.fileSelectionMode
+
+/**
+ *  Submit all the file types for scan.
+ *
+ *  Value: "ALL_FILE_TYPES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_AllFileTypes;
+/**
+ *  Submit a custom list of file types for scan.
+ *
+ *  Value: "CUSTOM_FILE_TYPES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_CustomFileTypes;
+/**
+ *  File selection mode not specified.
+ *
+ *  Value: "FILE_SELECTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_FileSelectionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes.fileTypes
+
+/**
+ *  File type not specified.
+ *
+ *  Value: "FILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes_FileTypes_FileTypeUnspecified;
+/**
+ *  Portable Executable (PE) files.
+ *
+ *  Value: "PE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes_FileTypes_Pe;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineMlOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "WILDFIRE_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireAlert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "WILDFIRE_ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireAllow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "WILDFIRE_DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireDefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "WILDFIRE_DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireDeny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "WILDFIRE_THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineMlOverride.protocol
+
+/**
+ *  FTP protocol
+ *
+ *  Value: "WILDFIRE_FTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireFtp;
+/**
+ *  HTTP protocol
+ *
+ *  Value: "WILDFIRE_HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireHttp;
+/**
+ *  HTTP2 protocol
+ *
+ *  Value: "WILDFIRE_HTTP2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireHttp2;
+/**
+ *  IMAP protocol
+ *
+ *  Value: "WILDFIRE_IMAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireImap;
+/**
+ *  POP3 protocol
+ *
+ *  Value: "WILDFIRE_POP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfirePop3;
+/**
+ *  Protocol not specified.
+ *
+ *  Value: "WILDFIRE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireProtocolUnspecified;
+/**
+ *  SMB protocol
+ *
+ *  Value: "WILDFIRE_SMB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireSmb;
+/**
+ *  SMTP protocol
+ *
+ *  Value: "WILDFIRE_SMTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireSmtp;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig.action
+
+/**
+ *  Enable WildFire Inline ML for the associated file type. Overrides any
+ *  protocol level settings with action stricter than ALERT to ALERT so that the
+ *  malicious files detected generate a threat log to the consumer project but
+ *  are not blocked.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Alert;
+/**
+ *  Disable WildFire Inline ML for the associated file type.
+ *
+ *  Value: "DISABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Disable;
+/**
+ *  Enable WildFire Inline ML for the associated file type, malicious files
+ *  detected will be blocked.
+ *
+ *  Value: "ENABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Enable;
+/**
+ *  Inline ML threat action not specified.
+ *
+ *  Value: "INLINE_ML_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_InlineMlActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig.fileType
+
+/**
+ *  Enable machine learning engine to dynamically detect malicious ELF files.
+ *
+ *  Value: "ELF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Elf;
+/**
+ *  Inline ML config not specified.
+ *
+ *  Value: "INLINE_ML_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_InlineMlConfigUnspecified;
+/**
+ *  Enable machine learning engine to dynamically detect malicious Mach-O files.
+ *
+ *  Value: "MACHO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Macho;
+/**
+ *  Enable machine learning engine to dynamically detect malicious MSOffice
+ *  (97-03) files.
+ *
+ *  Value: "MS_OFFICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_MsOffice;
+/**
+ *  Enable machine learning engine to dynamically detect malicious Open Office
+ *  XML files.
+ *
+ *  Value: "OOXML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Ooxml;
+/**
+ *  Enable machine learning engine to dynamically identify malicious PowerShell
+ *  scripts with known length.
+ *
+ *  Value: "POWERSHELL_SCRIPT1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_PowershellScript1;
+/**
+ *  Enable machine learning engine to dynamically identify malicious PowerShell
+ *  script without known length.
+ *
+ *  Value: "POWERSHELL_SCRIPT2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_PowershellScript2;
+/**
+ *  Enable machine learning engine to dynamically detect malicious Shell files.
+ *
+ *  Value: "SHELL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Shell;
+/**
+ *  Enable machine learning engine to dynamically detect malicious PE files.
+ *
+ *  Value: "WINDOWS_EXECUTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_WindowsExecutable;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "WILDFIRE_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireAlert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "WILDFIRE_ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireAllow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "WILDFIRE_DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireDefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "WILDFIRE_DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireDeny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "WILDFIRE_THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Action_WildfireThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireOverride.protocol
+
+/**
+ *  FTP protocol
+ *
+ *  Value: "WILDFIRE_FTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireFtp;
+/**
+ *  HTTP protocol
+ *
+ *  Value: "WILDFIRE_HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireHttp;
+/**
+ *  HTTP2 protocol
+ *
+ *  Value: "WILDFIRE_HTTP2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireHttp2;
+/**
+ *  IMAP protocol
+ *
+ *  Value: "WILDFIRE_IMAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireImap;
+/**
+ *  POP3 protocol
+ *
+ *  Value: "WILDFIRE_POP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfirePop3;
+/**
+ *  Protocol not specified.
+ *
+ *  Value: "WILDFIRE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireProtocolUnspecified;
+/**
+ *  SMB protocol
+ *
+ *  Value: "WILDFIRE_SMB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireSmb;
+/**
+ *  SMTP protocol
+ *
+ *  Value: "WILDFIRE_SMTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireSmtp;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireSubmissionRule.direction
+
+/**
+ *  Both upload and download directions.
+ *
+ *  Value: "BOTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Both;
+/**
+ *  Direction not specified.
+ *
+ *  Value: "DIRECTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_DirectionUnspecified;
+/**
+ *  Download direction.
+ *
+ *  Value: "DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Download;
+/**
+ *  Upload direction.
+ *
+ *  Value: "UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Upload;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireSubmissionRule.fileSelectionMode
+
+/**
+ *  Submit all the file types for scan.
+ *
+ *  Value: "ALL_FILE_TYPES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_AllFileTypes;
+/**
+ *  Submit a custom list of file types for scan.
+ *
+ *  Value: "CUSTOM_FILE_TYPES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_CustomFileTypes;
+/**
+ *  File selection mode not specified.
+ *
+ *  Value: "FILE_SELECTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_FileSelectionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes.fileTypes
+
+/**
+ *  Android Application Package (APK) files.
+ *
+ *  Value: "APK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Apk;
+/**
+ *  Roshal Archive (RAR) and 7-Zip (7z) archive files.
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Archive;
+/**
+ *  HTTP/HTTPS links contained in SMTP and POP3 email messages.
+ *
+ *  Value: "EMAIL_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_EmailLink;
+/**
+ *  File type not specified.
+ *
+ *  Value: "FILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_FileTypeUnspecified;
+/**
+ *  Adobe Flash applets and Flash content embedded in web pages.
+ *
+ *  Value: "FLASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Flash;
+/**
+ *  Java applets (JAR/class files types).
+ *
+ *  Value: "JAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Jar;
+/**
+ *  Executable and Linkable Format (ELF) files.
+ *
+ *  Value: "LINUX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Linux;
+/**
+ *  Files used by Microsoft Office.
+ *
+ *  Value: "MS_OFFICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_MsOffice;
+/**
+ *  Portable Document Format (PDF) files.
+ *
+ *  Value: "PDF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Pdf;
+/**
+ *  Portable Executable (PE) files.
+ *
+ *  Value: "PE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Pe;
+/**
+ *  Various script files. Jscript (JS), VBScript (VBS), PowerShell Scripts
+ *  (PS1), Batch (BAT), HTML Application (HTA).
+ *
+ *  Value: "SCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes_FileTypes_Script;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireThreatOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "WILDFIRE_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireAlert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "WILDFIRE_ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireAllow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "WILDFIRE_DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireDefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "WILDFIRE_DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireDeny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "WILDFIRE_THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.finalVerdict
+
+/**
+ *  Sample is safe and does not exhibit malicious behavior.
+ *
+ *  Value: "BENIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Benign;
+/**
+ *  Sample does not pose a direct security threat, but might display otherwise
+ *  obtrusive behavior.
+ *
+ *  Value: "GRAYWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Grayware;
+/**
+ *  Sample is malware and poses a security threat.
+ *
+ *  Value: "MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Malware;
+/**
+ *  Link directs users to a phishing site and poses a security threat.
+ *
+ *  Value: "PHISHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Phishing;
+/**
+ *  Default value. Malware is not yet classified.
+ *
+ *  Value: "WILDFIRE_SAMPLE_VERDICT_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_WildfireSampleVerdictUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.newVerdict
+
+/**
+ *  Sample is safe and does not exhibit malicious behavior.
+ *
+ *  Value: "BENIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Benign;
+/**
+ *  Sample does not pose a direct security threat, but might display otherwise
+ *  obtrusive behavior.
+ *
+ *  Value: "GRAYWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Grayware;
+/**
+ *  Sample is malware and poses a security threat.
+ *
+ *  Value: "MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Malware;
+/**
+ *  Link directs users to a phishing site and poses a security threat.
+ *
+ *  Value: "PHISHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Phishing;
+/**
+ *  Default value. Malware is not yet classified.
+ *
+ *  Value: "WILDFIRE_SAMPLE_VERDICT_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_WildfireSampleVerdictUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.oldVerdict
+
+/**
+ *  Sample is safe and does not exhibit malicious behavior.
+ *
+ *  Value: "BENIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Benign;
+/**
+ *  Sample does not pose a direct security threat, but might display otherwise
+ *  obtrusive behavior.
+ *
+ *  Value: "GRAYWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Grayware;
+/**
+ *  Sample is malware and poses a security threat.
+ *
+ *  Value: "MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Malware;
+/**
+ *  Link directs users to a phishing site and poses a security threat.
+ *
+ *  Value: "PHISHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Phishing;
+/**
+ *  Default value. Malware is not yet classified.
+ *
+ *  Value: "WILDFIRE_SAMPLE_VERDICT_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_WildfireSampleVerdictUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_WildfireVerdictChangeRequest.state
+
+/**
+ *  Malware Sample has been reviewed and the final verdict has been updated.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Closed;
+/**
+ *  Request has been created and review has not started.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Open;
+/**
+ *  Malware Sample is currently being reviewed.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Pending;
+/**
+ *  Default value. Request does not have a state. This value is unused.
+ *
+ *  Value: "VERDICT_CHANGE_REQUEST_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_VerdictChangeRequestStateUnspecified;
 
 /**
  *  Request used by the AddAddressGroupItems method.
@@ -1915,18 +2905,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @interface GTLRNetworkSecurity_AuthzPolicy : GTLRObject
 
 /**
- *  Required. Can be one of `ALLOW`, `DENY`, `CUSTOM`. When the action is
- *  `CUSTOM`, `customProvider` must be specified. When the action is `ALLOW`,
- *  only requests matching the policy will be allowed. When the action is
- *  `DENY`, only requests matching the policy will be denied. When a request
- *  arrives, the policies are evaluated in the following order: 1. If there is a
- *  `CUSTOM` policy that matches the request, the `CUSTOM` policy is evaluated
- *  using the custom authorization providers and the request is denied if the
- *  provider rejects the request. 2. If there are any `DENY` policies that match
- *  the request, the request is denied. 3. If there are no `ALLOW` policies for
- *  the resource or if any of the `ALLOW` policies match the request, the
- *  request is allowed. 4. Else the request is denied by default if none of the
- *  configured AuthzPolicies with `ALLOW` action match the request.
+ *  Required. Can be one of `ALLOW`, `DENY`, `CUSTOM`, `DENY_BY_DEFAULT`. When
+ *  the action is `CUSTOM`, `customProvider` must be specified. When the action
+ *  is `ALLOW`, only requests matching the policy will be allowed. When the
+ *  action is `DENY`, only requests matching the policy will be denied. When the
+ *  action is `DENY_BY_DEFAULT`, no `http_rules` or `network_rules` can be
+ *  specified. When a request arrives, the policies are evaluated in the
+ *  following order: 1. If there is a `CUSTOM` policy that matches the request,
+ *  the `CUSTOM` policy is evaluated using the custom authorization providers
+ *  and the request is denied if the provider rejects the request. 2. If there
+ *  are any `DENY` policies that match the request, the request is denied. 3. If
+ *  any of the `ALLOW` policies match the request, the request is allowed. 4. If
+ *  a `DENY_BY_DEFAULT` policy is applied to the resource, the request is denied
+ *  (unless it was explicitly allowed by a `CUSTOM` or `ALLOW` policy). 5. Else,
+ *  the request is allowed by default if no other policies are configured.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_Action_Allow Allow request to
@@ -1938,6 +2930,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *        "CUSTOM")
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_Action_Deny Deny the request and
  *        return a HTTP 404 to the client. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_Action_DenyByDefault Establishes
+ *        a secure-by-default posture by denying any request not explicitly
+ *        matched by any `ALLOW`, `DENY`, or `CUSTOM` policy. This action serves
+ *        as a universal fallback: if no other policies match or are configured,
+ *        the request is denied. (Value: "DENY_BY_DEFAULT")
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -2391,7 +3388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP : GTLRObject
 
 /**
- *  Optional. If specified, matches on the MCP protocol’s non-access specific
+ *  Optional. If specified, matches on the MCP protocol's non-access specific
  *  methods namely: * initialize * completion/ * logging/ * notifications/ *
  *  ping Defaults to SKIP_BASE_PROTOCOL_METHODS if not specified.
  *
@@ -2426,7 +3423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCPMethod : GTLRObject
 
 /**
- *  Required. The MCP method to match against. Allowed values are as follows: 1.
+ *  Required. The MCP method to match against. Allowed values include: 1.
  *  `tools`, `prompts`, `resources` - these will match against all sub methods
  *  under the respective methods. 2. `prompts/list`, `tools/list`,
  *  `resources/list`, `resources/templates/list` 3. `prompts/get`, `tools/call`,
@@ -2506,8 +3503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  extensions must share the same load balancing scheme. Required only when
  *  targeting forwarding rules. If targeting Secure Web Proxy, this field must
  *  be `INTERNAL_MANAGED` or not specified. Must not be specified when targeting
- *  Agent Gateway. Supported values: `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`.
- *  For more information, refer to [Backend services
+ *  Agent Gateway. Supported values include `INTERNAL_MANAGED` and
+ *  `EXTERNAL_MANAGED`. For more information, refer to [Backend services
  *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
  *  Likely values:
@@ -3024,6 +4021,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 /** Output only. Update time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** Optional. Settings for WildFire analysis. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpointWildfireSettings *wildfireSettings;
+
 @end
 
 
@@ -3143,12 +4143,226 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @interface GTLRNetworkSecurity_FirewallEndpointEndpointSettings : GTLRObject
 
 /**
+ *  Optional. The content cloud region of the endpoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Apac
+ *        APAC content cloud portal:
+ *        apac.hawkeye.services-edge.paloaltonetworks.com (Value: "APAC")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Australia
+ *        Australia content cloud portal:
+ *        au.hawkeye.services-edge.paloaltonetworks.com (Value: "AUSTRALIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Canada
+ *        Canada content cloud portal:
+ *        ca.hawkeye.services-edge.paloaltonetworks.com (Value: "CANADA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_ContentCloudRegionUnspecified
+ *        Palo Alto Networks content cloud region not specified. (Value:
+ *        "CONTENT_CLOUD_REGION_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_France
+ *        France content cloud portal:
+ *        fr.hawkeye.services-edge.paloaltonetworks.com (Value: "FRANCE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_India
+ *        India content cloud portal:
+ *        in.hawkeye.services-edge.paloaltonetworks.com (Value: "INDIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Indonesia
+ *        Indonesia content cloud portal:
+ *        id.hawkeye.services-edge.paloaltonetworks.com (Value: "INDONESIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Italy
+ *        Italy content cloud portal:
+ *        it.hawkeye.services-edge.paloaltonetworks.com (Value: "ITALY")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Japan
+ *        Japan content cloud portal:
+ *        jp.hawkeye.services-edge.paloaltonetworks.com (Value: "JAPAN")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Netherlands
+ *        Netherlands content cloud portal:
+ *        nl.hawkeye.services-edge.paloaltonetworks.com (Value: "NETHERLANDS")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Poland
+ *        Poland content cloud portal:
+ *        pl.hawkeye.services-edge.paloaltonetworks.com (Value: "POLAND")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Qatar
+ *        Qatar content cloud portal:
+ *        qa.hawkeye.services-edge.paloaltonetworks.com (Value: "QATAR")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_SaudiArabia
+ *        Saudi Arabia content cloud portal:
+ *        sa.hawkeye.services-edge.paloaltonetworks.com (Value: "SAUDI_ARABIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_SouthKorea
+ *        South Korea content cloud portal:
+ *        kr.hawkeye.services-edge.paloaltonetworks.com (Value: "SOUTH_KOREA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Switzerland
+ *        Switzerland content cloud portal:
+ *        ch.hawkeye.services-edge.paloaltonetworks.com (Value: "SWITZERLAND")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Taiwan
+ *        Taiwan content cloud portal:
+ *        tw.hawkeye.services-edge.paloaltonetworks.com (Value: "TAIWAN")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_Uk
+ *        UK content cloud portal: uk.hawkeye.services-edge.paloaltonetworks.com
+ *        (Value: "UK")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointEndpointSettings_ContentCloudRegion_UsCentral
+ *        us.hawkeye.services-edge.paloaltonetworks.com (Value: "US_CENTRAL")
+ */
+@property(nonatomic, copy, nullable) NSString *contentCloudRegion;
+
+/**
+ *  Optional. Whether to block HTTP partial responses for the endpoint. When
+ *  this is true, resumption of blocked malicious HTTP file downloads will be
+ *  blocked by the firewall. False provides maximum availability, true provides
+ *  maximum security.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpPartialResponseBlocked;
+
+/**
  *  Optional. Immutable. Indicates whether Jumbo Frames are enabled. Default
  *  value is false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *jumboFramesEnabled;
+
+@end
+
+
+/**
+ *  Settings for WildFire analysis.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointWildfireSettings : GTLRObject
+
+/**
+ *  Optional. Indicates whether WildFire analysis is enabled. Default value is
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Optional. Settings for WildFire inline cloud analysis. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings *wildfireInlineCloudAnalysisSettings;
+
+/**
+ *  Optional. Duration in milliseconds on a file being held while the WildFire
+ *  real time signature cloud performs a signature lookup. Value between 1 to
+ *  5000 is valid. Default value is 1000.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *wildfireRealtimeLookupDuration;
+
+/**
+ *  Optional. Action to take on WildFire real time signature lookup timeout.
+ *  Default value is ALLOW.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_Allow
+ *        The files that timed out in the signature lookup will be allowed to
+ *        transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_Deny
+ *        The files that timed out in the signature lookup will be denied to
+ *        transmit. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRealtimeLookupTimeoutAction_WildfireRealtimeSignatureLookupTimeoutActionUnspecified
+ *        WildFire real time signature lookup timeout action not specified.
+ *        (Value:
+ *        "WILDFIRE_REALTIME_SIGNATURE_LOOKUP_TIMEOUT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wildfireRealtimeLookupTimeoutAction;
+
+/**
+ *  Optional. The region where WildFire analysis will be performed. Palo Alto
+ *  Networks supports regions:
+ *  https://docs.paloaltonetworks.com/advanced-wildfire/administration/advanced-wildfire-overview/advanced-wildfire-deployments/advanced-wildfire-global-cloud
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Australia
+ *        Australia cloud portal: au.wildfire.paloaltonetworks.com (Value:
+ *        "AUSTRALIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Canada
+ *        Canada cloud portal: ca.wildfire.paloaltonetworks.com (Value:
+ *        "CANADA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_France
+ *        France cloud portal: fr.wildfire.paloaltonetworks.com (Value:
+ *        "FRANCE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Germany
+ *        Germany cloud portal: de.wildfire.paloaltonetworks.com (Value:
+ *        "GERMANY")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_India
+ *        India cloud portal: in.wildfire.paloaltonetworks.com (Value: "INDIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Indonesia
+ *        Indonesia cloud portal: id.wildfire.paloaltonetworks.com (Value:
+ *        "INDONESIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Israel
+ *        Israel cloud portal: il.wildfire.paloaltonetworks.com (Value:
+ *        "ISRAEL")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Japan
+ *        Japan cloud portal: jp.wildfire.paloaltonetworks.com (Value: "JAPAN")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Poland
+ *        Poland cloud portal: pl.wildfire.paloaltonetworks.com (Value:
+ *        "POLAND")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Qatar
+ *        Qatar cloud portal: qatar.wildfire.paloaltonetworks.com (Value:
+ *        "QATAR")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_SaudiArabia
+ *        Saudi Arabia cloud portal: sa.wildfire.paloaltonetworks.com (Value:
+ *        "SAUDI_ARABIA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Singapore
+ *        Singapore cloud portal: sg.wildfire.paloaltonetworks.com (Value:
+ *        "SINGAPORE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_SouthKorea
+ *        South Korea cloud portal: kr.wildfire.paloaltonetworks.com (Value:
+ *        "SOUTH_KOREA")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Spain
+ *        Spain cloud portal: es.wildfire.paloaltonetworks.com (Value: "SPAIN")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Switzerland
+ *        Switzerland cloud portal: ch.wildfire.paloaltonetworks.com (Value:
+ *        "SWITZERLAND")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_Taiwan
+ *        Taiwan cloud portal: tw.wildfire.paloaltonetworks.com (Value:
+ *        "TAIWAN")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_UnitedKingdom
+ *        United Kingdom cloud portal: uk.wildfire.paloaltonetworks.com (Value:
+ *        "UNITED_KINGDOM")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_UnitedStates
+ *        United States cloud portal: us-native.wildfire.paloaltonetworks.com
+ *        (Value: "UNITED_STATES")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettings_WildfireRegion_WildfireRegionUnspecified
+ *        WildFire region not specified. (Value: "WILDFIRE_REGION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wildfireRegion;
+
+@end
+
+
+/**
+ *  Settings for WildFire inline cloud analysis.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings : GTLRObject
+
+/**
+ *  Optional. Timeout in milliseconds on a file being held while WildFire inline
+ *  cloud analysis is performed. Value between 1 to 240000 is valid. Default
+ *  value is 30000.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxAnalysisDuration;
+
+/**
+ *  Optional. Whether to disable WildFire submission log generation for files
+ *  that timeout during WildFire inline cloud analysis.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *submissionTimeoutLoggingDisabled;
+
+/**
+ *  Optional. Action to take when WildFire inline cloud analysis times out.
+ *  Default value is ALLOW.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_Allow
+ *        The files that timed out will be allowed to transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_Deny
+ *        The files that timed out will be denied to transmit. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointWildfireSettingsWildfireInlineCloudAnalysisSettings_TimeoutAction_WildfireInlineCloudAnalysisTimeoutActionUnspecified
+ *        WildFire inline cloud analysis timeout action not specified. (Value:
+ *        "WILDFIRE_INLINE_CLOUD_ANALYSIS_TIMEOUT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *timeoutAction;
 
 @end
 
@@ -5104,6 +6318,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 
 
 /**
+ *  Message for response to listing WildfireVerdictChangeRequests.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "wildfireVerdictChangeRequests" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListWildfireVerdictChangeRequestsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/**
+ *  The list of WildfireVerdictChangeRequests
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireVerdictChangeRequest *> *wildfireVerdictChangeRequests;
+
+@end
+
+
+/**
  *  A resource that represents a Google Cloud location.
  */
 @interface GTLRNetworkSecurity_Location : GTLRObject
@@ -6267,6 +7508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *        type for threat prevention. (Value: "THREAT_PREVENTION")
  *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_UrlFiltering Profile
  *        type for URL filtering. (Value: "URL_FILTERING")
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_WildfireAnalysis Profile
+ *        type for WildFire Analysis. (Value: "WILDFIRE_ANALYSIS")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6275,6 +7518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 
 /** The URL filtering configuration for the SecurityProfile. */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_UrlFilteringProfile *urlFilteringProfile;
+
+/** The WildFire Analysis configurations for SecurityProfile. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_WildfireAnalysisProfile *wildfireAnalysisProfile;
 
 @end
 
@@ -6359,6 +7605,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  configuration.
  */
 @property(nonatomic, copy, nullable) NSString *urlFilteringProfile;
+
+/**
+ *  Optional. Reference to a SecurityProfile with the WildFire configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *wildfireAnalysisProfile;
 
 @end
 
@@ -6688,6 +7939,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  */
 @property(nonatomic, copy, nullable) NSString *caPool;
 
+/**
+ *  Optional. The mode used to issue certificates (local CA signing vs direct
+ *  leaf).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_CertificateIssuanceModeUnspecified
+ *        Unspecified default mode. (Value:
+ *        "CERTIFICATE_ISSUANCE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_DirectLeafProvisioning
+ *        Fallback: Direct Private CA leaf certificate provisioning. (Value:
+ *        "DIRECT_LEAF_PROVISIONING")
+ *    @arg @c kGTLRNetworkSecurity_TlsInspectionPolicy_CertificateIssuanceMode_LocalIntermediateCaSigning
+ *        High-speed Local Intermediate CA signing. (Value:
+ *        "LOCAL_INTERMEDIATE_CA_SIGNING")
+ */
+@property(nonatomic, copy, nullable) NSString *certificateIssuanceMode;
+
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -6899,6 +8167,563 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  certificate.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1GrpcEndpoint *grpcEndpoint;
+
+@end
+
+
+/**
+ *  WildfireAnalysisProfile defines Palo Alto Networks WildFire behavior.
+ */
+@interface GTLRNetworkSecurity_WildfireAnalysisProfile : GTLRObject
+
+/** Optional. Configuration for WildFire inline cloud analysis. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule *> *wildfireInlineCloudAnalysisRules;
+
+/**
+ *  Optional. Configuration for overriding inline ML WildFire actions per
+ *  protocol.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireInlineMlOverride *> *wildfireInlineMlOverrides;
+
+/** Optional. Settings for WildFire Inline ML analysis. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_WildfireInlineMlSettings *wildfireInlineMlSetting;
+
+/** Optional. Settings for WildFire Inline ML analysis. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireInlineMlSettings *> *wildfireInlineMlSettings GTLR_DEPRECATED;
+
+/** Optional. Configuration for overriding WildFire actions per protocol. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireOverride *> *wildfireOverrides;
+
+/**
+ *  Optional. Whether to hold the transfer of a file while the WildFire
+ *  real-time signature cloud performs a signature lookup. Default value is
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wildfireRealtimeLookup;
+
+/** Optional. Configurations for WildFire file submissions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireSubmissionRule *> *wildfireSubmissionRules;
+
+/**
+ *  Optional. Configuration for overriding WildFire threats action by threat_id
+ *  match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireThreatOverride *> *wildfireThreatOverrides;
+
+@end
+
+
+/**
+ *  The list of file type configurations to be scanned by WildFire Inline Cloud
+ *  Analysis.
+ */
+@interface GTLRNetworkSecurity_WildfireInlineCloudAnalysisRule : GTLRObject
+
+/**
+ *  Required. Action to take when a threat is detected using WildFire Inline
+ *  Cloud Analysis. The default Value is DENY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Alert
+ *        The files caught by WildFire Inline Cloud Analysis will be allowed to
+ *        transmit, but a wildfire_submission_log entry will be sent to the
+ *        consumer project. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Allow
+ *        The files caught by WildFire Inline Cloud Analysis will be allowed to
+ *        transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_Deny
+ *        The files caught by WildFire Inline Cloud Analysis will be denied to
+ *        transmit. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Action_WildfireInlineCloudAnalysisActionUnspecified
+ *        WildFire Inline Cloud Analysis action not specified. (Value:
+ *        "WILDFIRE_INLINE_CLOUD_ANALYSIS_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Submit a custom list of file types for WildFire analysis. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes *customFileTypes;
+
+/**
+ *  Required. Direction for the file to be analyzed by WildFire Inline Cloud
+ *  Analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Both
+ *        Both upload and download directions. (Value: "BOTH")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_DirectionUnspecified
+ *        Direction not specified. (Value: "DIRECTION_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Download
+ *        Download direction. (Value: "DOWNLOAD")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_Direction_Upload
+ *        Upload direction. (Value: "UPLOAD")
+ */
+@property(nonatomic, copy, nullable) NSString *direction;
+
+/**
+ *  Required. File selection mode for WildFire inline cloud analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_AllFileTypes
+ *        Submit all the file types for scan. (Value: "ALL_FILE_TYPES")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_CustomFileTypes
+ *        Submit a custom list of file types for scan. (Value:
+ *        "CUSTOM_FILE_TYPES")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineCloudAnalysisRule_FileSelectionMode_FileSelectionModeUnspecified
+ *        File selection mode not specified. (Value:
+ *        "FILE_SELECTION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fileSelectionMode;
+
+@end
+
+
+/**
+ *  The options to submit a custom list of file types for scan.
+ */
+@interface GTLRNetworkSecurity_WildfireInlineCloudAnalysisRuleCustomFileTypes : GTLRObject
+
+/**
+ *  Required. File types to be submitted for WildFire inline cloud analysis.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
+
+@end
+
+
+/**
+ *  Defines the file to exclude from WildFire Inline ML analysis.
+ */
+@interface GTLRNetworkSecurity_WildfireInlineMlFileException : GTLRObject
+
+/** Optional. Name of the file to exclude from WildFire Inline ML analysis. */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  Required. Machine learning partial hash of the file to exclude from WildFire
+ *  Inline ML analysis.
+ */
+@property(nonatomic, copy, nullable) NSString *partialHash;
+
+@end
+
+
+/**
+ *  Defines what action to take for WildFire Inline ML threats per protocol.
+ */
+@interface GTLRNetworkSecurity_WildfireInlineMlOverride : GTLRObject
+
+/**
+ *  Required. The action to take for WildFire Inline ML override.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireAlert
+ *        The packet matching this rule will be allowed to transmit, but a
+ *        threat_log entry will be sent to the consumer project. (Value:
+ *        "WILDFIRE_ALERT")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireAllow
+ *        The packet matching this rule will be allowed to transmit. (Value:
+ *        "WILDFIRE_ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireDefaultAction
+ *        The default action (as specified by the vendor) is taken. (Value:
+ *        "WILDFIRE_DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireDeny
+ *        The packet matching this rule will be dropped, and a threat_log entry
+ *        will be sent to the consumer project. (Value: "WILDFIRE_DENY")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Action_WildfireThreatActionUnspecified
+ *        Threat action not specified. (Value:
+ *        "WILDFIRE_THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Protocol to match for WildFire Inline ML override.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireFtp
+ *        FTP protocol (Value: "WILDFIRE_FTP")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireHttp
+ *        HTTP protocol (Value: "WILDFIRE_HTTP")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireHttp2
+ *        HTTP2 protocol (Value: "WILDFIRE_HTTP2")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireImap
+ *        IMAP protocol (Value: "WILDFIRE_IMAP")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfirePop3
+ *        POP3 protocol (Value: "WILDFIRE_POP3")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireProtocolUnspecified
+ *        Protocol not specified. (Value: "WILDFIRE_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireSmb
+ *        SMB protocol (Value: "WILDFIRE_SMB")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlOverride_Protocol_WildfireSmtp
+ *        SMTP protocol (Value: "WILDFIRE_SMTP")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+@end
+
+
+/**
+ *  Defines the settings for WildFire Inline ML analysis.
+ */
+@interface GTLRNetworkSecurity_WildfireInlineMlSettings : GTLRObject
+
+/** Optional. List of files to exclude from WildFire Inline ML analysis. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireInlineMlFileException *> *fileExceptions;
+
+/**
+ *  Optional. List of Inline ML configs to enable in WildFire Inline ML
+ *  analysis.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig *> *inlineMlConfigs;
+
+@end
+
+
+/**
+ *  Configuration for WildFire Inline ML analysis per file type.
+ */
+@interface GTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig : GTLRObject
+
+/**
+ *  Required. Action to take when a threat is detected using Inline ML.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Alert
+ *        Enable WildFire Inline ML for the associated file type. Overrides any
+ *        protocol level settings with action stricter than ALERT to ALERT so
+ *        that the malicious files detected generate a threat log to the
+ *        consumer project but are not blocked. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Disable
+ *        Disable WildFire Inline ML for the associated file type. (Value:
+ *        "DISABLE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_Enable
+ *        Enable WildFire Inline ML for the associated file type, malicious
+ *        files detected will be blocked. (Value: "ENABLE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_Action_InlineMlActionUnspecified
+ *        Inline ML threat action not specified. (Value:
+ *        "INLINE_ML_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. File type to configure Inline ML for.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Elf
+ *        Enable machine learning engine to dynamically detect malicious ELF
+ *        files. (Value: "ELF")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_InlineMlConfigUnspecified
+ *        Inline ML config not specified. (Value:
+ *        "INLINE_ML_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Macho
+ *        Enable machine learning engine to dynamically detect malicious Mach-O
+ *        files. (Value: "MACHO")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_MsOffice
+ *        Enable machine learning engine to dynamically detect malicious
+ *        MSOffice (97-03) files. (Value: "MS_OFFICE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Ooxml
+ *        Enable machine learning engine to dynamically detect malicious Open
+ *        Office XML files. (Value: "OOXML")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_PowershellScript1
+ *        Enable machine learning engine to dynamically identify malicious
+ *        PowerShell scripts with known length. (Value: "POWERSHELL_SCRIPT1")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_PowershellScript2
+ *        Enable machine learning engine to dynamically identify malicious
+ *        PowerShell script without known length. (Value: "POWERSHELL_SCRIPT2")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_Shell
+ *        Enable machine learning engine to dynamically detect malicious Shell
+ *        files. (Value: "SHELL")
+ *    @arg @c kGTLRNetworkSecurity_WildfireInlineMlSettingsInlineMlConfig_FileType_WindowsExecutable
+ *        Enable machine learning engine to dynamically detect malicious PE
+ *        files. (Value: "WINDOWS_EXECUTABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *fileType;
+
+@end
+
+
+/**
+ *  Defines what action to take for WildFire threats per protocol.
+ */
+@interface GTLRNetworkSecurity_WildfireOverride : GTLRObject
+
+/**
+ *  Required. Threat action override. For some threat types, only a subset of
+ *  actions applies.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Action_WildfireAlert The
+ *        packet matching this rule will be allowed to transmit, but a
+ *        threat_log entry will be sent to the consumer project. (Value:
+ *        "WILDFIRE_ALERT")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Action_WildfireAllow The
+ *        packet matching this rule will be allowed to transmit. (Value:
+ *        "WILDFIRE_ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Action_WildfireDefaultAction
+ *        The default action (as specified by the vendor) is taken. (Value:
+ *        "WILDFIRE_DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Action_WildfireDeny The
+ *        packet matching this rule will be dropped, and a threat_log entry will
+ *        be sent to the consumer project. (Value: "WILDFIRE_DENY")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Action_WildfireThreatActionUnspecified
+ *        Threat action not specified. (Value:
+ *        "WILDFIRE_THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Protocol to match.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireFtp FTP
+ *        protocol (Value: "WILDFIRE_FTP")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireHttp HTTP
+ *        protocol (Value: "WILDFIRE_HTTP")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireHttp2 HTTP2
+ *        protocol (Value: "WILDFIRE_HTTP2")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireImap IMAP
+ *        protocol (Value: "WILDFIRE_IMAP")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfirePop3 POP3
+ *        protocol (Value: "WILDFIRE_POP3")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireProtocolUnspecified
+ *        Protocol not specified. (Value: "WILDFIRE_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireSmb SMB
+ *        protocol (Value: "WILDFIRE_SMB")
+ *    @arg @c kGTLRNetworkSecurity_WildfireOverride_Protocol_WildfireSmtp SMTP
+ *        protocol (Value: "WILDFIRE_SMTP")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+@end
+
+
+/**
+ *  Defines the file types to be submitted for WildFire analysis and the
+ *  direction of the traffic.
+ */
+@interface GTLRNetworkSecurity_WildfireSubmissionRule : GTLRObject
+
+/** Submit a custom list of file types for WildFire analysis. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes *customFileTypes;
+
+/**
+ *  Required. Direction for the files to be analyzed by WildFire.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Both Both
+ *        upload and download directions. (Value: "BOTH")
+ *    @arg @c kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_DirectionUnspecified
+ *        Direction not specified. (Value: "DIRECTION_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Download
+ *        Download direction. (Value: "DOWNLOAD")
+ *    @arg @c kGTLRNetworkSecurity_WildfireSubmissionRule_Direction_Upload
+ *        Upload direction. (Value: "UPLOAD")
+ */
+@property(nonatomic, copy, nullable) NSString *direction;
+
+/**
+ *  Required. File selection mode for WildFire analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_AllFileTypes
+ *        Submit all the file types for scan. (Value: "ALL_FILE_TYPES")
+ *    @arg @c kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_CustomFileTypes
+ *        Submit a custom list of file types for scan. (Value:
+ *        "CUSTOM_FILE_TYPES")
+ *    @arg @c kGTLRNetworkSecurity_WildfireSubmissionRule_FileSelectionMode_FileSelectionModeUnspecified
+ *        File selection mode not specified. (Value:
+ *        "FILE_SELECTION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fileSelectionMode;
+
+@end
+
+
+/**
+ *  The options to submit a custom list of file types for scan.
+ */
+@interface GTLRNetworkSecurity_WildfireSubmissionRuleCustomFileTypes : GTLRObject
+
+/** Required. File types to be submitted for WildFire analysis. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
+
+@end
+
+
+/**
+ *  Defines what action to take for a specific WildFire threat_id match.
+ */
+@interface GTLRNetworkSecurity_WildfireThreatOverride : GTLRObject
+
+/**
+ *  Required. Threat action override.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireAlert
+ *        The packet matching this rule will be allowed to transmit, but a
+ *        threat_log entry will be sent to the consumer project. (Value:
+ *        "WILDFIRE_ALERT")
+ *    @arg @c kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireAllow
+ *        The packet matching this rule will be allowed to transmit. (Value:
+ *        "WILDFIRE_ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireDefaultAction
+ *        The default action (as specified by the vendor) is taken. (Value:
+ *        "WILDFIRE_DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireDeny
+ *        The packet matching this rule will be dropped, and a threat_log entry
+ *        will be sent to the consumer project. (Value: "WILDFIRE_DENY")
+ *    @arg @c kGTLRNetworkSecurity_WildfireThreatOverride_Action_WildfireThreatActionUnspecified
+ *        Threat action not specified. (Value:
+ *        "WILDFIRE_THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Required. Threat ID to match. */
+@property(nonatomic, copy, nullable) NSString *threatId;
+
+@end
+
+
+/**
+ *  Message for a WildfireVerdictChangeRequest.
+ */
+@interface GTLRNetworkSecurity_WildfireVerdictChangeRequest : GTLRObject
+
+/**
+ *  Required. The justification for the verdict change request. Max length 2048
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  Output only. The timestamp when the WildfireVerdictChangeRequest was
+ *  created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The file name of the Malware Sample. */
+@property(nonatomic, copy, nullable) NSString *fileName;
+
+/** Output only. The file type of the Malware Sample. */
+@property(nonatomic, copy, nullable) NSString *fileType;
+
+/**
+ *  Output only. The final verdict of the Malware Sample.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Benign
+ *        Sample is safe and does not exhibit malicious behavior. (Value:
+ *        "BENIGN")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Grayware
+ *        Sample does not pose a direct security threat, but might display
+ *        otherwise obtrusive behavior. (Value: "GRAYWARE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Malware
+ *        Sample is malware and poses a security threat. (Value: "MALWARE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_Phishing
+ *        Link directs users to a phishing site and poses a security threat.
+ *        (Value: "PHISHING")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_FinalVerdict_WildfireSampleVerdictUnknown
+ *        Default value. Malware is not yet classified. (Value:
+ *        "WILDFIRE_SAMPLE_VERDICT_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *finalVerdict;
+
+/**
+ *  Output only. Identifier. The relative name of the
+ *  WildfireVerdictChangeRequest. Output only. This is a unique identifier
+ *  generated by the third party API. Format:
+ *  organizations|projects/{project_or_organization}/locations/{location}/firewallEndpoints/{firewall_endpoint}/wildfireVerdictChangeRequests/{wildfire_verdict_change_request_id}
+ *  Where {wildfire_verdict_change_request_id} is the ID in the format:
+ *  ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The suggested verdict to apply to the Malware Sample.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Benign
+ *        Sample is safe and does not exhibit malicious behavior. (Value:
+ *        "BENIGN")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Grayware
+ *        Sample does not pose a direct security threat, but might display
+ *        otherwise obtrusive behavior. (Value: "GRAYWARE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Malware
+ *        Sample is malware and poses a security threat. (Value: "MALWARE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_Phishing
+ *        Link directs users to a phishing site and poses a security threat.
+ *        (Value: "PHISHING")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_NewVerdict_WildfireSampleVerdictUnknown
+ *        Default value. Malware is not yet classified. (Value:
+ *        "WILDFIRE_SAMPLE_VERDICT_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *newVerdict NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Output only. The original verdict of the Malware Sample.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Benign
+ *        Sample is safe and does not exhibit malicious behavior. (Value:
+ *        "BENIGN")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Grayware
+ *        Sample does not pose a direct security threat, but might display
+ *        otherwise obtrusive behavior. (Value: "GRAYWARE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Malware
+ *        Sample is malware and poses a security threat. (Value: "MALWARE")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_Phishing
+ *        Link directs users to a phishing site and poses a security threat.
+ *        (Value: "PHISHING")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_OldVerdict_WildfireSampleVerdictUnknown
+ *        Default value. Malware is not yet classified. (Value:
+ *        "WILDFIRE_SAMPLE_VERDICT_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *oldVerdict;
+
+/**
+ *  Output only. The timestamp when the WildfireVerdictChangeRequest was
+ *  resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *resolutionTime;
+
+/**
+ *  Required. The SHA256 hash of the Malware Sample to change the verdict of.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256;
+
+/** Output only. The region of the file associated with the Malware Sample. */
+@property(nonatomic, copy, nullable) NSString *sourceRegion;
+
+/**
+ *  Output only. The review state of the WildfireVerdictChangeRequest.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Closed
+ *        Malware Sample has been reviewed and the final verdict has been
+ *        updated. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Open
+ *        Request has been created and review has not started. (Value: "OPEN")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_Pending
+ *        Malware Sample is currently being reviewed. (Value: "PENDING")
+ *    @arg @c kGTLRNetworkSecurity_WildfireVerdictChangeRequest_State_VerdictChangeRequestStateUnspecified
+ *        Default value. Request does not have a state. This value is unused.
+ *        (Value: "VERDICT_CHANGE_REQUEST_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the WildfireVerdictChangeRequest was last
+ *  updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. The ID of the WildfireVerdictChangeRequest. This is a unique
+ *  identifier generated by the third party API. Format:
+ *  ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$
+ */
+@property(nonatomic, copy, nullable) NSString *wildfireVerdictChangeRequestId;
 
 @end
 

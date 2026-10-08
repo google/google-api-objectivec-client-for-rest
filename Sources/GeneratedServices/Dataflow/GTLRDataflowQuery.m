@@ -44,6 +44,228 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsCreate
+
+@dynamic configStoreSettingId, parent;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ConfigStoreSetting *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/configStoreSettings";
+  GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_ConfigStoreSetting class];
+  query.loggingName = @"dataflow.folders.locations.configStoreSettings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_Empty class];
+  query.loggingName = @"dataflow.folders.locations.configStoreSettings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ConfigStoreSetting class];
+  query.loggingName = @"dataflow.folders.locations.configStoreSettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/configStoreSettings";
+  GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_ListConfigStoreSettingsResponse class];
+  query.loggingName = @"dataflow.folders.locations.configStoreSettings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsResolve
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ResolveConfigStoreSettingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}:resolve";
+  GTLRDataflowQuery_FoldersLocationsConfigStoreSettingsResolve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ResolveConfigStoreSettingResponse class];
+  query.loggingName = @"dataflow.folders.locations.configStoreSettings.resolve";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsCreate
+
+@dynamic configStoreSettingId, parent;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ConfigStoreSetting *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/configStoreSettings";
+  GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_ConfigStoreSetting class];
+  query.loggingName = @"dataflow.organizations.locations.configStoreSettings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_Empty class];
+  query.loggingName = @"dataflow.organizations.locations.configStoreSettings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ConfigStoreSetting class];
+  query.loggingName = @"dataflow.organizations.locations.configStoreSettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/configStoreSettings";
+  GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_ListConfigStoreSettingsResponse class];
+  query.loggingName = @"dataflow.organizations.locations.configStoreSettings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsResolve
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ResolveConfigStoreSettingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}:resolve";
+  GTLRDataflowQuery_OrganizationsLocationsConfigStoreSettingsResolve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ResolveConfigStoreSettingResponse class];
+  query.loggingName = @"dataflow.organizations.locations.configStoreSettings.resolve";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsDeleteSnapshots
 
 @dynamic location, projectId, snapshotId;
@@ -65,7 +287,8 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsJobsAggregated
 
-@dynamic filter, location, name, pageSize, pageToken, projectId, view;
+@dynamic filter, location, name, pageSize, pageToken, projectId,
+         regionalFanoutRequested, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -219,7 +442,8 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsJobsList
 
-@dynamic filter, location, name, pageSize, pageToken, projectId, view;
+@dynamic filter, location, name, pageSize, pageToken, projectId,
+         regionalFanoutRequested, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -379,6 +603,117 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
   query.jobId = jobId;
   query.expectedObjectClass = [GTLRDataflow_ReportWorkItemStatusResponse class];
   query.loggingName = @"dataflow.projects.jobs.workItems.reportStatus";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsCreate
+
+@dynamic configStoreSettingId, parent;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ConfigStoreSetting *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/configStoreSettings";
+  GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_ConfigStoreSetting class];
+  query.loggingName = @"dataflow.projects.locations.configStoreSettings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_Empty class];
+  query.loggingName = @"dataflow.projects.locations.configStoreSettings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ConfigStoreSetting class];
+  query.loggingName = @"dataflow.projects.locations.configStoreSettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/configStoreSettings";
+  GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_ListConfigStoreSettingsResponse class];
+  query.loggingName = @"dataflow.projects.locations.configStoreSettings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsResolve
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ResolveConfigStoreSettingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}:resolve";
+  GTLRDataflowQuery_ProjectsLocationsConfigStoreSettingsResolve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ResolveConfigStoreSettingResponse class];
+  query.loggingName = @"dataflow.projects.locations.configStoreSettings.resolve";
   return query;
 }
 
@@ -622,7 +957,8 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsList
 
-@dynamic filter, location, name, pageSize, pageToken, projectId, view;
+@dynamic filter, location, name, pageSize, pageToken, projectId,
+         regionalFanoutRequested, view;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location {

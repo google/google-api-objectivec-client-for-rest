@@ -96,6 +96,11 @@ NSString * const kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetai
 NSString * const kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonUpgradeDowngrade = @"CANCELLATION_REASON_UPGRADE_DOWNGRADE";
 NSString * const kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonUserDelinquency = @"CANCELLATION_REASON_USER_DELINQUENCY";
 
+// GTLRPaymentsResellerSubscription_SubscriptionLineItem.planType
+NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeAddon = @"LINE_ITEM_PLAN_TYPE_ADDON";
+NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeBase = @"LINE_ITEM_PLAN_TYPE_BASE";
+NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_PlanType_LineItemPlanTypeUnspecified = @"LINE_ITEM_PLAN_TYPE_UNSPECIFIED";
+
 // GTLRPaymentsResellerSubscription_SubscriptionLineItem.recurrenceType
 NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypeOneTime = @"LINE_ITEM_RECURRENCE_TYPE_ONE_TIME";
 NSString * const kGTLRPaymentsResellerSubscription_SubscriptionLineItem_RecurrenceType_LineItemRecurrenceTypePeriodic = @"LINE_ITEM_RECURRENCE_TYPE_PERIODIC";
@@ -645,8 +650,8 @@ NSString * const kGTLRPaymentsResellerSubscription_YoutubePayload_PartnerPlanTyp
 @implementation GTLRPaymentsResellerSubscription_SubscriptionLineItem
 @dynamic amount, bundleDetails, descriptionProperty, finiteBillingCycleDetails,
          lineItemFreeTrialEndTime, lineItemIndex, lineItemPromotionSpecs, name,
-         oneTimeRecurrenceDetails, product, productPayload, recurrenceType,
-         state;
+         oneTimeRecurrenceDetails, planType, product, productPayload,
+         recurrenceType, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -706,7 +711,7 @@ NSString * const kGTLRPaymentsResellerSubscription_YoutubePayload_PartnerPlanTyp
 //
 
 @implementation GTLRPaymentsResellerSubscription_SubscriptionMigrationDetails
-@dynamic migratedSubscriptionId;
+@dynamic legacyCreationTime, migratedSubscriptionId;
 @end
 
 

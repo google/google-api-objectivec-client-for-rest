@@ -459,6 +459,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. An idempotency ID for the request. A random UUID is recommended.
+ *  Restricted to 36 ASCII characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Required. The list of fields to update. Only a limited set of fields can be
  *  updated. The allowed fields are the following: -
  *  `product_payload.googleHomePayload.googleStructureId`

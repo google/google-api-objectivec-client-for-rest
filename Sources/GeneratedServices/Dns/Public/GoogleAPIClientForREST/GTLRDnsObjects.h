@@ -21,15 +21,20 @@
 @class GTLRDns_GoogleIamV1Binding;
 @class GTLRDns_GoogleIamV1GetPolicyOptions;
 @class GTLRDns_GoogleIamV1Policy;
+@class GTLRDns_GoogleLongrunningOperation;
 @class GTLRDns_GoogleLongrunningOperation_Metadata;
 @class GTLRDns_GoogleLongrunningOperation_Response;
 @class GTLRDns_KeyDigest;
+@class GTLRDns_Location;
+@class GTLRDns_Location_Labels;
+@class GTLRDns_Location_Metadata;
 @class GTLRDns_ManagedZone;
 @class GTLRDns_ManagedZone_Labels;
 @class GTLRDns_ManagedZoneCloudLoggingConfig;
 @class GTLRDns_ManagedZoneDnsSecConfig;
 @class GTLRDns_ManagedZoneForwardingConfig;
 @class GTLRDns_ManagedZoneForwardingConfigNameServerTarget;
+@class GTLRDns_ManagedZoneForwardingConfigOutboundEndpoint;
 @class GTLRDns_ManagedZonePeeringConfig;
 @class GTLRDns_ManagedZonePeeringConfigTargetNetwork;
 @class GTLRDns_ManagedZonePrivateVisibilityConfig;
@@ -41,8 +46,13 @@
 @class GTLRDns_Operation;
 @class GTLRDns_OperationDnsKeyContext;
 @class GTLRDns_OperationManagedZoneContext;
+@class GTLRDns_OutboundEndpoint;
+@class GTLRDns_OutboundEndpoint_Annotations;
+@class GTLRDns_OutboundEndpoint_Labels;
+@class GTLRDns_OutboundEndpoint_Tags;
 @class GTLRDns_Policy;
 @class GTLRDns_PolicyAlternativeNameServerConfig;
+@class GTLRDns_PolicyAlternativeNameServerConfigOutboundEndpoint;
 @class GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer;
 @class GTLRDns_PolicyDns64Config;
 @class GTLRDns_PolicyDns64ConfigScope;
@@ -404,7 +414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_Change *> *changes;
 
-/** Type of resource. */
+/** Output only. Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -535,7 +545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKey *> *dnsKeys;
 
-/** Type of resource. */
+/** Output only. Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -595,6 +605,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 @property(nonatomic, copy, nullable) NSString *kind;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRDns_Empty : GTLRObject
 @end
 
 
@@ -981,6 +1001,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 
 /**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDns_GoogleLongrunningListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1085,6 +1137,126 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  The response message for Locations.ListLocations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "locations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDns_ListLocationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of locations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_Location *> *locations;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for OutboundEndpointsService.ListOutboundEndpoints
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "outboundEndpoints" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDns_ListOutboundEndpointsResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Set to empty if there are no
+ *  remaining results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of OutboundEndpoints.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_OutboundEndpoint *> *outboundEndpoints;
+
+/**
+ *  Unordered list. The resource names of the unreachable locations. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  A resource that represents a Google Cloud location.
+ */
+@interface GTLRDns_Location : GTLRObject
+
+/**
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ */
+@property(nonatomic, strong, nullable) GTLRDns_Location_Labels *labels;
+
+/** The canonical id for this location. For example: `"us-east1"`. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ *
+ *  Documented to be a google.protobuf.Any.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_Location_Metadata *metadata;
+
+/**
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDns_Location_Labels : GTLRObject
+@end
+
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDns_Location_Metadata : GTLRObject
 @end
 
 
@@ -1283,6 +1455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The list of outbound endpoints to use for queries. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZoneForwardingConfigOutboundEndpoint *> *outboundEndpoints;
+
 /**
  *  List of target name servers to forward to. Cloud DNS selects the best
  *  available name server if more than one target is given.
@@ -1334,6 +1509,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 
 /**
+ *  GTLRDns_ManagedZoneForwardingConfigOutboundEndpoint
+ */
+@interface GTLRDns_ManagedZoneForwardingConfigOutboundEndpoint : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Specified as a resource path including project and region. This should be
+ *  formatted like
+ *  projects/{project}/locations/{location}/outboundEndpoints/{endpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  GTLRDns_ManagedZoneOperationsListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1343,7 +1535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ManagedZoneOperationsListResponse : GTLRCollectionObject
 
-/** Type of resource. */
+/** Output only. Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1517,7 +1709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ManagedZonesListResponse : GTLRCollectionObject
 
-/** Type of resource. */
+/** Output only. Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1632,6 +1824,135 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRDns_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  An OutboundEndpoint is a regional resource to enable outbound forwarding
+ *  from a private IP range in VPCs to on-premise or other networks.
+ */
+@interface GTLRDns_OutboundEndpoint : GTLRObject
+
+/** Optional. Annotations as key value pairs */
+@property(nonatomic, strong, nullable) GTLRDns_OutboundEndpoint_Annotations *annotations;
+
+/** Output only. [Output only] Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User provided description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. User provided IP address to use for outbound DNS
+ *  forwarding. This address must be a free address on the subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointIp;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRDns_OutboundEndpoint_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the OutboundEndpoint. Format:
+ *  `projects/{project}/locations/{location}/outboundEndpoints/{outboundEndpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The VPC network containing the outbound endpoint,
+ *  specified as full path.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Required. Immutable. The subnetwork holding the endpoint_ip, specified as
+ *  full path.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/** Optional. Tag bindings as key value pairs */
+@property(nonatomic, strong, nullable) GTLRDns_OutboundEndpoint_Tags *tags;
+
+/** Output only. [Output only] Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDns_OutboundEndpoint_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDns_OutboundEndpoint_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Tag bindings as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDns_OutboundEndpoint_Tags : GTLRObject
+@end
+
+
+/**
  *  GTLRDns_PoliciesListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1641,7 +1962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_PoliciesListResponse : GTLRCollectionObject
 
-/** Type of resource. */
+/** Output only. Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1757,12 +2078,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The list of outbound endpoints to use for queries. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_PolicyAlternativeNameServerConfigOutboundEndpoint *> *outboundEndpoints;
+
 /**
  *  Sets an alternative name server for the associated networks. When specified,
  *  all DNS queries are forwarded to a name server that you choose. Names such
  *  as .internal are not available when an alternative name server is specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer *> *targetNameServers;
+
+@end
+
+
+/**
+ *  GTLRDns_PolicyAlternativeNameServerConfigOutboundEndpoint
+ */
+@interface GTLRDns_PolicyAlternativeNameServerConfigOutboundEndpoint : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Specified as a resource path including project and region. This should be
+ *  formatted like
+ *  projects/{project}/locations/{location}/outboundEndpoints/{endpoint}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1985,6 +2326,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @property(nonatomic, strong, nullable) NSNumber *networksPerResponsePolicy;
 
 /**
+ *  Maximum allowed number of outbound endpoints per managed zone.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outboundEndpointsPerManagedZone;
+
+/**
+ *  Maximum allowed number of outbound endpoints per policy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outboundEndpointsPerPolicy;
+
+/**
  *  Maximum allowed number of consumer peering zones per target network owned by
  *  this producer project
  *
@@ -2094,7 +2449,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
 
-/** As defined in RFC 4034 (section 3.2). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
 
 /**
@@ -2130,7 +2484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @interface GTLRDns_ResourceRecordSetsListResponse : GTLRCollectionObject
 
-/** Type of resource. */
+/** Output only. Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**

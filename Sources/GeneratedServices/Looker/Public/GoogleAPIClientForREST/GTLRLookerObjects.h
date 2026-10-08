@@ -13,6 +13,8 @@
 #endif
 
 @class GTLRLooker_AdminSettings;
+@class GTLRLooker_AuthType;
+@class GTLRLooker_ComponentMetrics;
 @class GTLRLooker_ControlledEgressConfig;
 @class GTLRLooker_CustomDomain;
 @class GTLRLooker_Date;
@@ -20,6 +22,7 @@
 @class GTLRLooker_EncryptionConfig;
 @class GTLRLooker_ExportEncryptionConfig;
 @class GTLRLooker_ExportMetadataEncryptionKey;
+@class GTLRLooker_ExportMetrics;
 @class GTLRLooker_IngressIpAllowlistConfig;
 @class GTLRLooker_IngressIpAllowlistRule;
 @class GTLRLooker_Instance;
@@ -50,6 +53,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRLooker_ComponentMetrics.componentType
+
+/**
+ *  Overall Export Job.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ComponentMetrics_ComponentType_All;
+/**
+ *  BigQuery Elite System Activity component.
+ *
+ *  Value: "BQ_ESA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ComponentMetrics_ComponentType_BqEsa;
+/**
+ *  Database component.
+ *
+ *  Value: "DB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ComponentMetrics_ComponentType_Db;
+/**
+ *  File system component.
+ *
+ *  Value: "FS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ComponentMetrics_ComponentType_Fs;
+/**
+ *  Unspecified component type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ComponentMetrics_ComponentType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLooker_CustomDomain.state
@@ -134,6 +171,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ExportMetadata_Source_LookerCore;
  *  Value: "LOOKER_ORIGINAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLooker_ExportMetadata_Source_LookerOriginal;
+/**
+ *  Source of export is Self-Hosted Looker
+ *
+ *  Value: "LOOKER_SELF_HOSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_ExportMetadata_Source_LookerSelfHosted;
 /**
  *  Source not specified
  *
@@ -493,9 +536,80 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 
 /**
+ *  Auth type for the Looker instance.
+ */
+@interface GTLRLooker_AuthType : GTLRObject
+
+/**
+ *  Optional. Whether google auth is enabled on the Looker instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleAuthEnabled;
+
+/**
+ *  Optional. Whether Workforce auth is enabled on the Looker instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *workforceAuthEnabled;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRLooker_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  ComponentMetrics contains sizing, timing, retries, and metrics for an
+ *  exported component.
+ */
+@interface GTLRLooker_ComponentMetrics : GTLRObject
+
+/**
+ *  Type of the exported component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLooker_ComponentMetrics_ComponentType_All Overall Export Job.
+ *        (Value: "ALL")
+ *    @arg @c kGTLRLooker_ComponentMetrics_ComponentType_BqEsa BigQuery Elite
+ *        System Activity component. (Value: "BQ_ESA")
+ *    @arg @c kGTLRLooker_ComponentMetrics_ComponentType_Db Database component.
+ *        (Value: "DB")
+ *    @arg @c kGTLRLooker_ComponentMetrics_ComponentType_Fs File system
+ *        component. (Value: "FS")
+ *    @arg @c kGTLRLooker_ComponentMetrics_ComponentType_TypeUnspecified
+ *        Unspecified component type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *componentType;
+
+/** Duration of the component export. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** End timestamp of the component export. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Number of retries during the component export.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retryCount;
+
+/**
+ *  Size of the exported component in gigabytes.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/** Start timestamp of the component export. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 
@@ -695,8 +809,17 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @interface GTLRLooker_ExportMetadata : GTLRObject
 
+/**
+ *  Source BigQuery dataset (formatted as `project_id:dataset_id`) for O2C Elite
+ *  System Activity (ESA) direct dataset migration.
+ */
+@property(nonatomic, copy, nullable) NSString *esaSourceDatasetId;
+
 /** Encryption key that was used to encrypt the export artifacts. */
 @property(nonatomic, strong, nullable) GTLRLooker_ExportMetadataEncryptionKey *exportEncryptionKey;
+
+/** Overall export metrics, timing, and component telemetry. */
+@property(nonatomic, strong, nullable) GTLRLooker_ExportMetrics *exportMetrics;
 
 /**
  *  List of files created as part of export artifact (excluding the metadata).
@@ -731,6 +854,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *        Looker Core (Value: "LOOKER_CORE")
  *    @arg @c kGTLRLooker_ExportMetadata_Source_LookerOriginal Source of export
  *        is Looker Original (Value: "LOOKER_ORIGINAL")
+ *    @arg @c kGTLRLooker_ExportMetadata_Source_LookerSelfHosted Source of
+ *        export is Self-Hosted Looker (Value: "LOOKER_SELF_HOSTED")
  *    @arg @c kGTLRLooker_ExportMetadata_Source_SourceUnspecified Source not
  *        specified (Value: "SOURCE_UNSPECIFIED")
  */
@@ -749,6 +874,21 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 /** Version of the CMEK. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  ExportMetrics contains overall export execution metrics, timing, and
+ *  component telemetry.
+ */
+@interface GTLRLooker_ExportMetrics : GTLRObject
+
+/** Metrics and telemetry for each exported component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRLooker_ComponentMetrics *> *componentMetrics;
+
+/** Internal name of the instance being exported. */
+@property(nonatomic, copy, nullable) NSString *instanceInternalName;
 
 @end
 
@@ -825,6 +965,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 /** Looker Instance Admin settings. */
 @property(nonatomic, strong, nullable) GTLRLooker_AdminSettings *adminSettings;
+
+/** Optional. Auth type for the Looker instance. */
+@property(nonatomic, strong, nullable) GTLRLooker_AuthType *authType;
 
 /**
  *  Optional. Indicates whether catalog integration is disabled for the Looker

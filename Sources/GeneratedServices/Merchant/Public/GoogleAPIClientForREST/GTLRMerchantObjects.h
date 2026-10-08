@@ -126,6 +126,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_ProductReviews;
 /**
+ *  Real Estate Rental Ads. .
+ *
+ *  Value: "RENTAL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_RentalAds;
+/**
  *  Not specified.
  *
  *  Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED"
@@ -281,6 +287,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_ProductReviews;
 /**
+ *  Real Estate Rental Ads. .
+ *
+ *  Value: "RENTAL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_RentalAds;
+/**
  *  Not specified.
  *
  *  Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED"
@@ -411,6 +423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_Rep
  *  Value: "PRODUCT_REVIEWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_ProductReviews;
+/**
+ *  Real Estate Rental Ads. .
+ *
+ *  Value: "RENTAL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_RentalAds;
 /**
  *  Not specified.
  *
@@ -635,6 +653,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_Reporti
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_ProductReviews;
 /**
+ *  Real Estate Rental Ads. .
+ *
+ *  Value: "RENTAL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_RentalAds;
+/**
  *  Not specified.
  *
  *  Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED"
@@ -765,6 +789,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingC
  *  Value: "PRODUCT_REVIEWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ProductReviews;
+/**
+ *  Real Estate Rental Ads. .
+ *
+ *  Value: "RENTAL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_RentalAds;
 /**
  *  Not specified.
  *
@@ -1021,6 +1051,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Product
  *        Reviews](https://support.google.com/merchants/answer/14620732).
  *        (Value: "PRODUCT_REVIEWS")
+ *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_RentalAds Real Estate
+ *        Rental Ads. . (Value: "RENTAL_ADS")
  *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_ReportingContextEnumUnspecified
  *        Not specified. (Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED")
  *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_ShoppingAds [Shopping
@@ -1343,6 +1375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Product
  *        Reviews](https://support.google.com/merchants/answer/14620732).
  *        (Value: "PRODUCT_REVIEWS")
+ *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_RentalAds
+ *        Real Estate Rental Ads. . (Value: "RENTAL_ADS")
  *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_ReportingContextEnumUnspecified
  *        Not specified. (Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED")
  *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_ShoppingAds
@@ -1451,6 +1485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Product
  *        Reviews](https://support.google.com/merchants/answer/14620732).
  *        (Value: "PRODUCT_REVIEWS")
+ *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_RentalAds
+ *        Real Estate Rental Ads. . (Value: "RENTAL_ADS")
  *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_ReportingContextEnumUnspecified
  *        Not specified. (Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED")
  *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_ShoppingAds
@@ -1807,6 +1843,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Product
  *        Reviews](https://support.google.com/merchants/answer/14620732).
  *        (Value: "PRODUCT_REVIEWS")
+ *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_RentalAds
+ *        Real Estate Rental Ads. . (Value: "RENTAL_ADS")
  *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_ReportingContextEnumUnspecified
  *        Not specified. (Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED")
  *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_ShoppingAds
@@ -1915,6 +1953,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Product
  *        Reviews](https://support.google.com/merchants/answer/14620732).
  *        (Value: "PRODUCT_REVIEWS")
+ *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_RentalAds Real
+ *        Estate Rental Ads. . (Value: "RENTAL_ADS")
  *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ReportingContextEnumUnspecified
  *        Not specified. (Value: "REPORTING_CONTEXT_ENUM_UNSPECIFIED")
  *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ShoppingAds

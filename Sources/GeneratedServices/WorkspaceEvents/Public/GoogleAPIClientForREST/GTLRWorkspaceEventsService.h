@@ -115,8 +115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly;
 /**
- *  Authorization scope: See, compose, send, update, and delete messages as well
- *  as their message content; add, see, and delete reactions to messages.
+ *  Authorization scope: See, compose, send, update, and delete messages, their
+ *  content, and attached cards; add, see, and delete reactions to messages.
  *
  *  Value "https://www.googleapis.com/auth/chat.messages"
  */

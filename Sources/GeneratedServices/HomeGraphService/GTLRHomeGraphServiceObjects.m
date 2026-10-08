@@ -11,11 +11,40 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRHomeGraphService_DeviceBlameStruct.blameType
+NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_DeviceBlameTypeEnumUnspecified = @"DEVICE_BLAME_TYPE_ENUM_UNSPECIFIED";
+NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_Lock = @"LOCK";
+NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_MotionDetection = @"MOTION_DETECTION";
+NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_TouchInteraction = @"TOUCH_INTERACTION";
+NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_Unlock = @"UNLOCK";
+NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_VoiceInteraction = @"VOICE_INTERACTION";
+
+// GTLRHomeGraphService_EveUtilityTrait.acceptedCommandList
+NSString * const kGTLRHomeGraphService_EveUtilityTrait_AcceptedCommandList_CommandsUnspecified = @"COMMANDS_UNSPECIFIED";
+
 // GTLRHomeGraphService_QueryRequest.deviceView
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_DeviceViewUnspecified = @"DEVICE_VIEW_UNSPECIFIED";
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitAndSmartHomeTrait = @"HOME_TRAIT_AND_SMART_HOME_TRAIT";
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_HomeTraitOnly = @"HOME_TRAIT_ONLY";
 NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnly = @"SMART_HOME_TRAIT_ONLY";
+
+// GTLRHomeGraphService_StructurePresenceStateChangeEvent.presenceState
+NSString * const kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_Away = @"AWAY";
+NSString * const kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_Home = @"HOME";
+NSString * const kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_StructurePresenceStateEnumUnspecified = @"STRUCTURE_PRESENCE_STATE_ENUM_UNSPECIFIED";
+
+// GTLRHomeGraphService_ThermostatFanControlTrait.timerSpeed
+NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingAuto = @"FAN_SPEED_SETTING_AUTO";
+NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingEnumUnspecified = @"FAN_SPEED_SETTING_ENUM_UNSPECIFIED";
+NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingOff = @"FAN_SPEED_SETTING_OFF";
+NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage1 = @"FAN_SPEED_SETTING_STAGE1";
+NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage2 = @"FAN_SPEED_SETTING_STAGE2";
+NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage3 = @"FAN_SPEED_SETTING_STAGE3";
+
+// GTLRHomeGraphService_UserBlameStruct.blameType
+NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_ManualChange = @"MANUAL_CHANGE";
+NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_PhoneLocation = @"PHONE_LOCATION";
+NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_UserBlameTypeEnumUnspecified = @"USER_BLAME_TYPE_ENUM_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -39,6 +68,25 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 
 @implementation GTLRHomeGraphService_AgentOtherDeviceId
 @dynamic agentId, deviceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_CameraEventStreamTrait
+//
+
+@implementation GTLRHomeGraphService_CameraEventStreamTrait
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_CommonEventDataStruct
+//
+
+@implementation GTLRHomeGraphService_CommonEventDataStruct
+@dynamic mediaUrls, sessionId, trackId;
 @end
 
 
@@ -134,6 +182,16 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_DeviceBlameStruct
+//
+
+@implementation GTLRHomeGraphService_DeviceBlameStruct
+@dynamic blameType;
 @end
 
 
@@ -243,6 +301,28 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHomeGraphService_EveUtilityTrait
+//
+
+@implementation GTLRHomeGraphService_EveUtilityTrait
+@dynamic acceptedCommandList, accumulatedControlPoint, airPressure, altitude,
+         childLock, current, getConfig, holdPosition, lastEventTime,
+         loggingControlPoint, loggingData, loggingMetadata, loggingTime,
+         motionSensitivity, obstructionDetected, openCount, rloc16, setConfig,
+         statusFault, voltage, watt, wattAccumulated, weatherTrend;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceptedCommandList" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHomeGraphService_HomeEvents
 //
 
@@ -280,6 +360,61 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"components" : [GTLRHomeGraphService_ComponentTraitUpdates class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_MediaUrlsStruct
+//
+
+@implementation GTLRHomeGraphService_MediaUrlsStruct
+@dynamic dashManifestUrl, hlsMasterPlaylistUrl, previewUrl, thumbnailUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_MotionEvent
+//
+
+@implementation GTLRHomeGraphService_MotionEvent
+@dynamic commonEventData, zones, zonesIsEmpty;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [GTLRHomeGraphService_ZoneStruct class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_PartnerPresenceSignalTrait
+//
+
+@implementation GTLRHomeGraphService_PartnerPresenceSignalTrait
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_PersonEvent
+//
+
+@implementation GTLRHomeGraphService_PersonEvent
+@dynamic commonEventData, zones, zonesIsEmpty;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [GTLRHomeGraphService_ZoneStruct class]
   };
   return map;
 }
@@ -531,6 +666,26 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHomeGraphService_StructurePresenceStateChangeEvent
+//
+
+@implementation GTLRHomeGraphService_StructurePresenceStateChangeEvent
+@dynamic presenceState, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_StructurePresenceStateChangeReasonStruct
+//
+
+@implementation GTLRHomeGraphService_StructurePresenceStateChangeReasonStruct
+@dynamic deviceBlame, userBlame;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHomeGraphService_SyncRequest
 //
 
@@ -569,11 +724,21 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHomeGraphService_ThermostatFanControlTrait
+//
+
+@implementation GTLRHomeGraphService_ThermostatFanControlTrait
+@dynamic timerDuration, timerEnd, timerSpeed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHomeGraphService_TraitData
 //
 
 @implementation GTLRHomeGraphService_TraitData
-@dynamic commitTime, providerVersionTime, trait;
+@dynamic commitTime, providerUpdateTime, trait;
 @end
 
 
@@ -588,4 +753,24 @@ NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnl
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_UserBlameStruct
+//
+
+@implementation GTLRHomeGraphService_UserBlameStruct
+@dynamic blameType, userEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_ZoneStruct
+//
+
+@implementation GTLRHomeGraphService_ZoneStruct
+@dynamic label, zoneId;
 @end

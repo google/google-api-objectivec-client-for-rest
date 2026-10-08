@@ -2067,6 +2067,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Uploads a source archive to a Google Cloud Storage bucket through Cloud Run.
+ *  The uploaded source object should be used for Cloud Run resource
+ *  deployments. User is responsible for managing the lifecycle of the uploaded
+ *  object. If uploading through the Cloud Run API to Cloud Storage is not
+ *  desired, you can use the IAM Deny Policy to deny the
+ *  `run.locations.uploadSource` permission for all principals.
+ *
+ *  Method: run.projects.locations.sourceUploads.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsSourceUploadsUpload : GTLRCloudRunQuery
+
+/**
+ *  Required. The project and location in which the source archive should be
+ *  uploaded to, specified in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2UploadSourceResponse.
+ *
+ *  Uploads a source archive to a Google Cloud Storage bucket through Cloud Run.
+ *  The uploaded source object should be used for Cloud Run resource
+ *  deployments. User is responsible for managing the lifecycle of the uploaded
+ *  object. If uploading through the Cloud Run API to Cloud Storage is not
+ *  desired, you can use the IAM Deny Policy to deny the
+ *  `run.locations.uploadSource` permission for all principals.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2UploadSourceRequest to
+ *    include in the query.
+ *  @param parent Required. The project and location in which the source archive
+ *    should be uploaded to, specified in the format `projects/ * /locations/
+ *    *`.
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    262144000. Accepted MIME type: * / *
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsSourceUploadsUpload
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2UploadSourceRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
  *  Creates a new WorkerPool in a given project and location.
  *
  *  Method: run.projects.locations.workerPools.create

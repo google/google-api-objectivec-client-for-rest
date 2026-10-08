@@ -4,7 +4,8 @@
 // API:
 //   Cloud Product Registry API (cloudproductregistry/v1)
 // Description:
-//   cloudproductregistry.googleapis.com API.
+//   Cloud Product Registry API provides capabilities to access all first Google
+//   Cloud products.
 // Documentation:
 //   https://docs.cloud.google.com/product-registry
 

@@ -93,6 +93,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest.view
+
+/**
+ *  Includes the basic metadata about the violation.
+ *
+ *  Value: "VIOLATION_VIEW_ASSURED_WORKLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewAssuredWorkloads;
+/**
+ *  Includes all information about the violation, including details about the
+ *  data boundary.
+ *
+ *  Value: "VIOLATION_VIEW_DATA_BOUNDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewDataBoundary;
+/**
+ *  Defaults to the ASSURED_WORKLOADS view.
+ *
+ *  Value: "VIOLATION_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata.action
 
 /**
@@ -123,29 +146,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest.acknowledgeType
-
-/**
- *  Acknowledge type unspecified.
- *
- *  Value: "ACKNOWLEDGE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_AcknowledgeTypeUnspecified;
-/**
- *  Acknowledge specified orgPolicy violation and also associated resource
- *  violations.
- *
- *  Value: "EXISTING_CHILD_RESOURCE_VIOLATIONS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_ExistingChildResourceViolations;
-/**
- *  Acknowledge only the specific violation.
- *
- *  Value: "SINGLE_VIOLATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_SingleViolation;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CloudControlAssessmentDetails.evaluationState
@@ -1828,6 +1828,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *nonCompliantOrgPolicy GTLR_DEPRECATED;
 
+/**
+ *  Optional. Specifies the violation view (`AssuredWorkloads` or
+ *  `DataBoundary`) for acknowledging violations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewAssuredWorkloads
+ *        Includes the basic metadata about the violation. (Value:
+ *        "VIOLATION_VIEW_ASSURED_WORKLOADS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewDataBoundary
+ *        Includes all information about the violation, including details about
+ *        the data boundary. (Value: "VIOLATION_VIEW_DATA_BOUNDARY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_View_ViolationViewUnspecified
+ *        Defaults to the ASSURED_WORKLOADS view. (Value:
+ *        "VIOLATION_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
 @end
 
 
@@ -2029,56 +2046,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
- *  Request for acknowledging the violations in a batch
- */
-@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest : GTLRObject
-
-/**
- *  Optional. Acknowledge type of specified violations.
- *
- *  Likely values:
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_AcknowledgeTypeUnspecified
- *        Acknowledge type unspecified. (Value: "ACKNOWLEDGE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_ExistingChildResourceViolations
- *        Acknowledge specified orgPolicy violation and also associated resource
- *        violations. (Value: "EXISTING_CHILD_RESOURCE_VIOLATIONS")
- *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest_AcknowledgeType_SingleViolation
- *        Acknowledge only the specific violation. (Value: "SINGLE_VIOLATION")
- */
-@property(nonatomic, copy, nullable) NSString *acknowledgeType;
-
-/**
- *  Required. Business justification explaining the need for violations
- *  acknowledgement
- */
-@property(nonatomic, copy, nullable) NSString *comment;
-
-/**
- *  Required. The resource names of the Violations to acknowledge. Format for
- *  each name:
- *  organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
-
-@end
-
-
-/**
- *  Response for batch violation acknowledgement
- */
-@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse : GTLRObject
-
-/**
- *  Count of acknowledged violations.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *acknowledgedViolationsCount;
-
-@end
-
-
-/**
  *  A Common Expression Language (CEL) expression that's used to create a rule.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CELExpression : GTLRObject
@@ -2126,6 +2093,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *findingsCount;
+
+/**
+ *  Output only. Number of organization policy findings for the cloud control.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orgPolicyFindingCount;
+
+/**
+ *  Output only. Number of resource findings for the cloud control.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceFindingCount;
 
 @end
 
@@ -2569,6 +2550,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Number of organization policy findings for this control.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orgPolicyFindingCount;
+
+/**
  *  Output only. The overall evaluation status of the control.
  *
  *  Likely values:
@@ -2583,6 +2571,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        "EVALUATION_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *overallEvaluationState;
+
+/**
+ *  Output only. Number of resource findings for this control.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceFindingCount;
 
 /** The list of similar controls. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1SimilarControls *> *similarControls;
@@ -2652,9 +2647,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Number of active organization policy findings for this
+ *  category.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationPolicyFindingCount;
+
+/**
  *  Optional. The list of compliance frameworks that the finding belongs to.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedFrameworks;
+
+/**
+ *  Output only. Number of active resource findings for this category.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resourceFindingCount;
 
 /**
  *  Output only. The severity of the finding.
@@ -3441,6 +3451,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, strong, nullable) GTLRDateTime *acknowledgementTime;
 
 /**
+ *  Output only. List of compliance frameworks that are affected by this
+ *  violation. This field is only populated when using
+ *  `VIOLATION_VIEW_DATA_BOUNDARY`. e.g. "FedRAMP High", "NIST 800-53".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *affectedFrameworks;
+
+/**
  *  Optional. Output only. Violation Id of the org-policy violation due to which
  *  the resource violation is caused. Empty for org-policy violations.
  */
@@ -3460,6 +3477,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Service Usage, Access, Encryption, etc.
  */
 @property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Optional. Output only. The number of resource violations for particular org
+ *  policy violation. This will be 0 in case of resource violation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *childResourceViolationCount;
 
 /**
  *  Output only. Description for the Violation. e.g. OrgPolicy
@@ -3508,6 +3533,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /** Output only. Compliance violation remediation */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation *remediation;
+
+/**
+ *  Output only. Contains the remediation instructions for the violation in
+ *  markdown format.
+ */
+@property(nonatomic, copy, nullable) NSString *remediationMarkdown;
 
 /**
  *  Output only. Time of the event which fixed the Violation. If the violation

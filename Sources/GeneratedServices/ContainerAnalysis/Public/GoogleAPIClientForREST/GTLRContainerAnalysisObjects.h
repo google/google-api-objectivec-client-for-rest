@@ -89,6 +89,7 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOption;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildResourceUsage;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStepResults;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStepResults_Results;
@@ -155,6 +156,9 @@
 @class GTLRContainerAnalysis_LayerDetails;
 @class GTLRContainerAnalysis_License;
 @class GTLRContainerAnalysis_Location;
+@class GTLRContainerAnalysis_MaliciousContentLLMResult;
+@class GTLRContainerAnalysis_MaliciousContentStaticResult;
+@class GTLRContainerAnalysis_MalwareScanResult;
 @class GTLRContainerAnalysis_Material;
 @class GTLRContainerAnalysis_Material_Digest;
 @class GTLRContainerAnalysis_Metadata;
@@ -164,6 +168,7 @@
 @class GTLRContainerAnalysis_PackageIssue;
 @class GTLRContainerAnalysis_PackageNote;
 @class GTLRContainerAnalysis_PackageOccurrence;
+@class GTLRContainerAnalysis_PerScannerVerdict;
 @class GTLRContainerAnalysis_Policy;
 @class GTLRContainerAnalysis_Product;
 @class GTLRContainerAnalysis_ProjectRepoId;
@@ -212,6 +217,7 @@
 @class GTLRContainerAnalysis_Subject;
 @class GTLRContainerAnalysis_Subject_Digest;
 @class GTLRContainerAnalysis_TimeSpan;
+@class GTLRContainerAnalysis_TokenUsage;
 @class GTLRContainerAnalysis_UpgradeDistribution;
 @class GTLRContainerAnalysis_UpgradeNote;
 @class GTLRContainerAnalysis_UpgradeOccurrence;
@@ -223,6 +229,7 @@
 @class GTLRContainerAnalysis_VulnerabilityOccurrence;
 @class GTLRContainerAnalysis_WindowsDetail;
 @class GTLRContainerAnalysis_WindowsUpdate;
+@class GTLRContainerAnalysis_WorkspacePolicyResult;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -2023,6 +2030,138 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_Justific
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeNotPresent;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_MaliciousContentLLMResult.maxSeverity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_High;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_MaliciousContentLLMResult.scanStatus
+
+/**
+ *  Scan was not performed.
+ *
+ *  Value: "NOT_PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_NotPerformed;
+/**
+ *  Scan was performed.
+ *
+ *  Value: "PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_Performed;
+/**
+ *  Unspecified scan status.
+ *
+ *  Value: "SCAN_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_ScanStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_MaliciousContentStaticResult.maxSeverity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_High;
+/**
+ *  Unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_MaliciousContentStaticResult.scanStatus
+
+/**
+ *  Scan was not performed.
+ *
+ *  Value: "NOT_PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_NotPerformed;
+/**
+ *  Scan was performed.
+ *
+ *  Value: "PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_Performed;
+/**
+ *  Unspecified scan status.
+ *
+ *  Value: "SCAN_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_ScanStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_MalwareScanResult.scanStatus
+
+/**
+ *  Scan was not performed.
+ *
+ *  Value: "NOT_PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_NotPerformed;
+/**
+ *  Scan was performed.
+ *
+ *  Value: "PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_Performed;
+/**
+ *  Unspecified scan status.
+ *
+ *  Value: "SCAN_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_ScanStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_MalwareScanResult.verdict
+
+/**
+ *  Scanner failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MalwareScanResult_Verdict_Failed;
+/**
+ *  Scanner passed.
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MalwareScanResult_Verdict_Passed;
+/**
+ *  Unspecified verdict.
+ *
+ *  Value: "VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_MalwareScanResult_Verdict_VerdictUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Note.kind
 
 /**
@@ -2769,6 +2908,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_SeverityUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_WorkspacePolicyResult.scanStatus
+
+/**
+ *  Scan was not performed.
+ *
+ *  Value: "NOT_PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_NotPerformed;
+/**
+ *  Scan was performed.
+ *
+ *  Value: "PERFORMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_Performed;
+/**
+ *  Unspecified scan status.
+ *
+ *  Value: "SCAN_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_ScanStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_WorkspacePolicyResult.verdict
+
+/**
+ *  Scanner failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_Failed;
+/**
+ *  Scanner passed.
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_Passed;
+/**
+ *  Unspecified verdict.
+ *
+ *  Value: "VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_VerdictUnspecified;
+
 /**
  *  AISkillAnalysisNote provides the metadata of an AI-based skill analysis.
  */
@@ -2786,7 +2969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Finding *> *findings;
 
 /**
- *  Maximum severity found among findings.
+ *  Maximum severity found among findings. Per scanner verdict details.
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_AISkillAnalysisOccurrence_MaxSeverity_Critical
@@ -2797,6 +2980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *maxSeverity;
+
+/** Per scanner verdict. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PerScannerVerdict *perScannerVerdict;
 
 /** Name of the skill that produced this analysis. */
 @property(nonatomic, copy, nullable) NSString *skillName;
@@ -5884,6 +6070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, copy, nullable) NSString *requestedVerifyOption;
 
+/** Output only. Worker release resolved from the release channel. */
+@property(nonatomic, copy, nullable) NSString *resolvedWorkerRelease;
+
 /**
  *  A list of global environment variables, which are encrypted using a Cloud
  *  Key Management Service crypto key. These values must be specified in the
@@ -5923,6 +6112,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** This field deprecated; please use `pool.name` instead. */
 @property(nonatomic, copy, nullable) NSString *workerPool GTLR_DEPRECATED;
 
+/**
+ *  Optional. Option to specify which release or release channel
+ *  (rapid|regular|stable) to use to run this build.
+ */
+@property(nonatomic, copy, nullable) NSString *workerRelease;
+
 @end
 
 
@@ -5940,6 +6135,66 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  projects/{project}/locations/{location}/workerPools/{workerPoolId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. OUTPUT_ONLY. Worker release resolved from the release channel.
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedWorkerRelease;
+
+/**
+ *  Output only. OUTPUT_ONLY. The release or release channel used to run the
+ *  Build. This is set to the same value as
+ *  `PrivatePoolV1Config.WorkerConfig.worker_release` for the UI to easily
+ *  access.
+ */
+@property(nonatomic, copy, nullable) NSString *workerRelease;
+
+@end
+
+
+/**
+ *  Aggregated/summary metrics over the entire build lifecycle.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildResourceUsage : GTLRObject
+
+/**
+ *  Output only. The average CPU utilization ratio across all vCPUs over the
+ *  duration of the build, expressed as a fraction in the range [0.0, 1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageCpuUtilization;
+
+/**
+ *  Output only. The average memory utilization ratio over the duration of the
+ *  build, expressed as a fraction in the range [0.0, 1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageMemoryUtilization;
+
+/**
+ *  Output only. The highest CPU utilization ratio across all vCPUs observed
+ *  over the duration of the build, expressed as a fraction in the range [0.0,
+ *  1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peakCpuUtilization;
+
+/**
+ *  Output only. The highest memory utilization ratio observed over the duration
+ *  of the build, expressed as a fraction in the range [0.0, 1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peakMemoryUtilization;
+
+/**
+ *  Output only. Total CPU execution time consumed across all cores during build
+ *  execution.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *totalCpuDuration;
 
 @end
 
@@ -6298,6 +6553,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *destPath;
 
 /**
+ *  Optional. True if remote tags should be fetched too (default false). Note:
+ *  when depth is 1 (default), git fetch only retrieves tags pointing to commits
+ *  within the shallow boundary. Set depth to -1 to fetch all historical tags.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fetchTags;
+
+/**
  *  Optional. True if submodules should be fetched too (default false).
  *
  *  Uses NSNumber of boolValue.
@@ -6636,6 +6900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Python artifacts uploaded to Artifact Registry at the end of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedPythonPackage *> *pythonPackages;
+
+/** Output only. Aggregated metrics for the build. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildResourceUsage *resourceUsage;
 
 @end
 
@@ -7730,6 +7997,114 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Result of Malicious Content LLM scan.
+ */
+@interface GTLRContainerAnalysis_MaliciousContentLLMResult : GTLRObject
+
+/**
+ *  Tracks max severity found.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_High
+ *        High severity. (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *maxSeverity;
+
+/** The base name of the model that performed the scan. */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/**
+ *  Status of the scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_NotPerformed
+ *        Scan was not performed. (Value: "NOT_PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_Performed
+ *        Scan was performed. (Value: "PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_ScanStatusUnspecified
+ *        Unspecified scan status. (Value: "SCAN_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scanStatus;
+
+/** Telemetry metrics tracking token usage for the AI scan. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_TokenUsage *tokenUsage;
+
+@end
+
+
+/**
+ *  Result of Malicious Content Static scan.
+ */
+@interface GTLRContainerAnalysis_MaliciousContentStaticResult : GTLRObject
+
+/**
+ *  Tracks max severity found.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_High
+ *        High severity. (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_SeverityUnspecified
+ *        Unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *maxSeverity;
+
+/**
+ *  Status of the scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_NotPerformed
+ *        Scan was not performed. (Value: "NOT_PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_Performed
+ *        Scan was performed. (Value: "PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_ScanStatusUnspecified
+ *        Unspecified scan status. (Value: "SCAN_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scanStatus;
+
+@end
+
+
+/**
+ *  Result of Malware scan.
+ */
+@interface GTLRContainerAnalysis_MalwareScanResult : GTLRObject
+
+/**
+ *  Status of the scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_NotPerformed
+ *        Scan was not performed. (Value: "NOT_PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_Performed Scan
+ *        was performed. (Value: "PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_ScanStatusUnspecified
+ *        Unspecified scan status. (Value: "SCAN_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scanStatus;
+
+/**
+ *  Verdict of the scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_MalwareScanResult_Verdict_Failed Scanner
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRContainerAnalysis_MalwareScanResult_Verdict_Passed Scanner
+ *        passed. (Value: "PASSED")
+ *    @arg @c kGTLRContainerAnalysis_MalwareScanResult_Verdict_VerdictUnspecified
+ *        Unspecified verdict. (Value: "VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+@end
+
+
+/**
  *  GTLRContainerAnalysis_Material
  */
 @interface GTLRContainerAnalysis_Material : GTLRObject
@@ -8242,6 +8617,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Output only. The version of the package. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *version;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_PerScannerVerdict
+ */
+@interface GTLRContainerAnalysis_PerScannerVerdict : GTLRObject
+
+/** Malicious Content LLM scan result. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_MaliciousContentLLMResult *maliciousContentLlmResult;
+
+/** Malicious Content Static scan result. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_MaliciousContentStaticResult *maliciousContentStaticResult;
+
+/** Malware scan result. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_MalwareScanResult *malwareScan;
+
+/** Workspace Policy scan result. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_WorkspacePolicyResult *workspacePolicy;
 
 @end
 
@@ -9424,6 +9819,49 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Token usage associated with an AI scan.
+ */
+@interface GTLRContainerAnalysis_TokenUsage : GTLRObject
+
+/**
+ *  Cache matched tokens for implicit cache.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cacheCount;
+
+/**
+ *  Tokens in the model response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *candidateCount;
+
+/**
+ *  Tokens in the user request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *promptCount;
+
+/**
+ *  Tokens in the thinking output.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thinkingCount;
+
+/**
+ *  Prompt tokens for using tools.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *toolUsePromptCount;
+
+@end
+
+
+/**
  *  The Upgrade Distribution represents metadata about the Upgrade for each
  *  operating system (CPE). Some distributions have additional metadata around
  *  updates, classifying them into various categories and severities.
@@ -9993,6 +10431,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The localized title of the update. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Result of Workspace Policy scan.
+ */
+@interface GTLRContainerAnalysis_WorkspacePolicyResult : GTLRObject
+
+/**
+ *  Status of the scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_NotPerformed
+ *        Scan was not performed. (Value: "NOT_PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_Performed
+ *        Scan was performed. (Value: "PERFORMED")
+ *    @arg @c kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_ScanStatusUnspecified
+ *        Unspecified scan status. (Value: "SCAN_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scanStatus;
+
+/**
+ *  Verdict of the scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_Failed
+ *        Scanner failed. (Value: "FAILED")
+ *    @arg @c kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_Passed
+ *        Scanner passed. (Value: "PASSED")
+ *    @arg @c kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_VerdictUnspecified
+ *        Unspecified verdict. (Value: "VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
 
 @end
 

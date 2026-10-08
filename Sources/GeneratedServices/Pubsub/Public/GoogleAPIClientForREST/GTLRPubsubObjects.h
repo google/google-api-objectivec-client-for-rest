@@ -27,11 +27,14 @@
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CloudStorage;
 @class GTLRPubsub_CloudStorageConfig;
+@class GTLRPubsub_ColumnFamilyMapping;
+@class GTLRPubsub_CompiledProtoSchema;
 @class GTLRPubsub_Compression;
 @class GTLRPubsub_ConfluentCloud;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
 @class GTLRPubsub_CreateSnapshotRequest_Tags;
 @class GTLRPubsub_DeadLetterPolicy;
+@class GTLRPubsub_DelimitedKey;
 @class GTLRPubsub_ExpirationPolicy;
 @class GTLRPubsub_Expr;
 @class GTLRPubsub_IngestionDataSourceSettings;
@@ -44,10 +47,12 @@
 @class GTLRPubsub_OidcToken;
 @class GTLRPubsub_PlatformLogsSettings;
 @class GTLRPubsub_Policy;
+@class GTLRPubsub_PublishOperation;
 @class GTLRPubsub_PushConfig;
 @class GTLRPubsub_PushConfig_Attributes;
 @class GTLRPubsub_ReceivedMessage;
 @class GTLRPubsub_RetryPolicy;
+@class GTLRPubsub_RowKeySchema;
 @class GTLRPubsub_Schema;
 @class GTLRPubsub_SchemaSettings;
 @class GTLRPubsub_Snapshot;
@@ -1116,11 +1121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  Configuration for a Bigtable subscription. The Pub/Sub message will be
- *  written to a Bigtable row as follows: - row key: subscription name, message
- *  ID hash, and message ID delimited by `#`. - columns: message bytes written
- *  to a single column family `data` with an empty-string column qualifier. -
- *  cell timestamp: the message publish timestamp.
+ *  Configuration for a Bigtable subscription, which will write a Pub/Sub
+ *  message to a Bigtable row. See the ColumnFamilyMapping documentation below
+ *  for details on how the row keys and columns will be written.
  */
 @interface GTLRPubsub_BigtableConfig : GTLRObject
 
@@ -1130,6 +1133,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  single-cluster routing.
  */
 @property(nonatomic, copy, nullable) NSString *appProfileId;
+
+/**
+ *  Optional. Configuration that allows writing row keys and/or columns based on
+ *  fields in the input message. The input message format must be JSON if this
+ *  field is set.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_ColumnFamilyMapping *columnFamilyMapping;
 
 /**
  *  Optional. The service account to use to write to Bigtable. The subscription
@@ -1283,6 +1293,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Client-side telemetry about Pub/Sub requests, useful for debugging purposes.
+ *  If the client opts to provide this information, it will be passed as a
+ *  serialized proto in the `x-goog-pubsub-client-telemetry` header.
+ */
+@interface GTLRPubsub_ClientTelemetry : GTLRObject
+
+/** Optional. Telemetry about a `Publish` operation. */
+@property(nonatomic, strong, nullable) GTLRPubsub_PublishOperation *publishOperation;
 
 @end
 
@@ -1475,12 +1498,68 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
+ *  Configuration for writing a Pub/Sub message to a Bigtable row with a
+ *  user-defined key and writing to column families. If this field is set: - The
+ *  subscription messages must be formatted as JSON. - The row key mapping is
+ *  configured in the `key_definition` section. - The top-level fields will be
+ *  written either: - By default, they will be written to the `data` column
+ *  family with the field name as the column qualifier. - But if the field name
+ *  matches an existing column family (except for the default `data` column),
+ *  then that field will be written to that column family, either as a scalar or
+ *  its next level nested fields if it's a JSON object. - The cell timestamp
+ *  will be the message publish timestamp. If the field is not set, the default
+ *  behavior is to write: - row key: subscription name, message ID hash, and
+ *  message ID delimited by `#`. - columns: message bytes written to a single
+ *  column family `data` with an empty-string column qualifier. - cell
+ *  timestamp: the message publish timestamp.
+ */
+@interface GTLRPubsub_ColumnFamilyMapping : GTLRObject
+
+/**
+ *  Optional. If set, the row key is constructed from the given key fields and
+ *  delimiter. All key fields must be present in the message; otherwise, the
+ *  message remains in the subscription backlog.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_DelimitedKey *delimitedKey;
+
+/**
+ *  Optional. If set, the row key is constructed from the field names of the
+ *  table's structured row key
+ *  ({$universe.dns_names.final_documentation_domain}/bigtable/docs/manage-row-key-schemas).
+ *  Note that if the field is nullable in the structured row key, then it need
+ *  not be present in the message; null will be used instead.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_RowKeySchema *rowKeySchema;
+
+@end
+
+
+/**
  *  Request for CommitSchema method.
  */
 @interface GTLRPubsub_CommitSchemaRequest : GTLRObject
 
 /** Required. The schema revision to commit. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Schema *schema;
+
+@end
+
+
+/**
+ *  Configuration specific to compiled Protocol Buffer schemas.
+ */
+@interface GTLRPubsub_CompiledProtoSchema : GTLRObject
+
+/**
+ *  Required. The compiled FileDescriptorSet binary.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *compiledBytes;
+
+/** Required. The name of the root message type in the schema. */
+@property(nonatomic, copy, nullable) NSString *rootMessage;
 
 @end
 
@@ -1677,6 +1756,31 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxDeliveryAttempts;
+
+@end
+
+
+/**
+ *  Row key definition based on fields from the message.
+ */
+@interface GTLRPubsub_DelimitedKey : GTLRObject
+
+/**
+ *  Optional. Byte sequence used to delimit concatenated fields. Must be
+ *  specified if multiple key fields are used. The delimiter must contain at
+ *  least 1 character and at most 50 characters.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *delimiter;
+
+/**
+ *  Optional. The key fields to construct from the row key. The fields must be
+ *  present in the message as a top-level field, i.e. JSON path expressions will
+ *  not traverse into nested objects.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keyFields;
 
 @end
 
@@ -2345,6 +2449,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
+ *  Telemetry about a `Publish` operation which may or may not be common across
+ *  individual RPCs.
+ */
+@interface GTLRPubsub_PublishOperation : GTLRObject
+
+/**
+ *  Optional. If the publisher client is using publish hedging, provides the
+ *  attempt count for the hedge (starting at 1). A value of 0 indicates that the
+ *  request was not hedged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hedgedAttemptCount;
+
+/**
+ *  Optional. Time at which the `publish()` call was initiated in the client
+ *  library, meaning across all RPC retry attempts, see [grpc
+ *  retries](https://grpc.io/docs/guides/retry/). Provides a sense of the
+ *  end-to-end publish duration from the client perspective, across retries.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishStartTime;
+
+@end
+
+
+/**
  *  Request for the Publish method.
  */
 @interface GTLRPubsub_PublishRequest : GTLRObject
@@ -2561,9 +2691,27 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
+ *  Row key definition that reads the input message fields based on the field
+ *  names of the table's structured row key
+ *  ({$universe.dns_names.final_documentation_domain}/bigtable/docs/manage-row-key-schemas).
+ *  Note that if the field is nullable in the structured row key, then it need
+ *  not be present in the message; null will be used instead.
+ */
+@interface GTLRPubsub_RowKeySchema : GTLRObject
+@end
+
+
+/**
  *  A schema resource.
  */
 @interface GTLRPubsub_Schema : GTLRObject
+
+/**
+ *  Optional. Configuration for a schema provided as a pre-compiled Protocol
+ *  Buffer FileDescriptorSet. The `type` field above must be set to
+ *  PROTOCOL_BUFFER.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_CompiledProtoSchema *compiledProtoSchema;
 
 /**
  *  The definition of the schema. This should contain a string representing the

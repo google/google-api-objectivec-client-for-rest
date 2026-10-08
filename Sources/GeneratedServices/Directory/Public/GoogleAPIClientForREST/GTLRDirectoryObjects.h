@@ -49,6 +49,7 @@
 @class GTLRDirectory_CustomerPostalAddress;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
+@class GTLRDirectory_ExpirationDetails;
 @class GTLRDirectory_ExternalId;
 @class GTLRDirectory_FailureInfo;
 @class GTLRDirectory_FanInfo;
@@ -3132,6 +3133,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  Details regarding the expiration of this role assignment. Used to
+ *  automatically revoke access when the time limit is reached.
+ */
+@interface GTLRDirectory_ExpirationDetails : GTLRObject
+
+/** The specific timestamp when the role assignment expires. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+@end
+
+
+/**
  *  External identifier used to link and identify this group across external
  *  directory systems.
  */
@@ -4595,6 +4608,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. Details regarding the expiration of this role assignment. */
+@property(nonatomic, strong, nullable) GTLRDirectory_ExpirationDetails *expirationDetails;
 
 /**
  *  The type of the API resource. This is always

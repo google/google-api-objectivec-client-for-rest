@@ -404,6 +404,36 @@ NSString * const kGTLRContainerAnalysis_Justification_JustificationType_Vulnerab
 NSString * const kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeNotInExecutePath = @"VULNERABLE_CODE_NOT_IN_EXECUTE_PATH";
 NSString * const kGTLRContainerAnalysis_Justification_JustificationType_VulnerableCodeNotPresent = @"VULNERABLE_CODE_NOT_PRESENT";
 
+// GTLRContainerAnalysis_MaliciousContentLLMResult.maxSeverity
+NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_High = @"HIGH";
+NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_MaxSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRContainerAnalysis_MaliciousContentLLMResult.scanStatus
+NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLRContainerAnalysis_MaliciousContentLLMResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLRContainerAnalysis_MaliciousContentStaticResult.maxSeverity
+NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_High = @"HIGH";
+NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_MaxSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRContainerAnalysis_MaliciousContentStaticResult.scanStatus
+NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLRContainerAnalysis_MaliciousContentStaticResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLRContainerAnalysis_MalwareScanResult.scanStatus
+NSString * const kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLRContainerAnalysis_MalwareScanResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLRContainerAnalysis_MalwareScanResult.verdict
+NSString * const kGTLRContainerAnalysis_MalwareScanResult_Verdict_Failed = @"FAILED";
+NSString * const kGTLRContainerAnalysis_MalwareScanResult_Verdict_Passed = @"PASSED";
+NSString * const kGTLRContainerAnalysis_MalwareScanResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
 // GTLRContainerAnalysis_Note.kind
 NSString * const kGTLRContainerAnalysis_Note_Kind_AiSkillAnalysis = @"AI_SKILL_ANALYSIS";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Attestation  = @"ATTESTATION";
@@ -549,6 +579,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Medium 
 NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Minimal = @"MINIMAL";
 NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLRContainerAnalysis_WorkspacePolicyResult.scanStatus
+NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_NotPerformed = @"NOT_PERFORMED";
+NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_Performed = @"PERFORMED";
+NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_ScanStatus_ScanStatusUnspecified = @"SCAN_STATUS_UNSPECIFIED";
+
+// GTLRContainerAnalysis_WorkspacePolicyResult.verdict
+NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_Failed = @"FAILED";
+NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_Passed = @"PASSED";
+NSString * const kGTLRContainerAnalysis_WorkspacePolicyResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRContainerAnalysis_AISkillAnalysisNote
@@ -564,7 +604,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_AISkillAnalysisOccurrence
-@dynamic findings, maxSeverity, skillName;
+@dynamic findings, maxSeverity, perScannerVerdict, skillName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1695,8 +1735,9 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @dynamic automapSubstitutions, defaultLogsBucketBehavior, diskSizeGb,
          dynamicSubstitutions, enableStructuredLogging, env, logging,
          logStreamingOption, machineType, pool, pubsubTopic,
-         requestedVerifyOption, secretEnv, sourceProvenanceHash,
-         substitutionOption, volumes, workerPool;
+         requestedVerifyOption, resolvedWorkerRelease, secretEnv,
+         sourceProvenanceHash, substitutionOption, volumes, workerPool,
+         workerRelease;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1717,7 +1758,18 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOption
-@dynamic name;
+@dynamic name, resolvedWorkerRelease, workerRelease;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildResourceUsage
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildResourceUsage
+@dynamic averageCpuUtilization, averageMemoryUtilization, peakCpuUtilization,
+         peakMemoryUtilization, totalCpuDuration;
 @end
 
 
@@ -1831,7 +1883,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceDependency
-@dynamic depth, destPath, recurseSubmodules, repository, revision;
+@dynamic depth, destPath, fetchTags, recurseSubmodules, repository, revision;
 @end
 
 
@@ -1970,7 +2022,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Results
 @dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
          buildStepResults, genericArtifacts, goModules, images, mavenArtifacts,
-         npmPackages, numArtifacts, pythonPackages;
+         npmPackages, numArtifacts, pythonPackages, resourceUsage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2623,6 +2675,36 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_MaliciousContentLLMResult
+//
+
+@implementation GTLRContainerAnalysis_MaliciousContentLLMResult
+@dynamic maxSeverity, modelId, scanStatus, tokenUsage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_MaliciousContentStaticResult
+//
+
+@implementation GTLRContainerAnalysis_MaliciousContentStaticResult
+@dynamic maxSeverity, scanStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_MalwareScanResult
+//
+
+@implementation GTLRContainerAnalysis_MalwareScanResult
+@dynamic scanStatus, verdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_Material
 //
 
@@ -2774,6 +2856,17 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_PerScannerVerdict
+//
+
+@implementation GTLRContainerAnalysis_PerScannerVerdict
+@dynamic maliciousContentLlmResult, maliciousContentStaticResult, malwareScan,
+         workspacePolicy;
 @end
 
 
@@ -3475,6 +3568,17 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_TokenUsage
+//
+
+@implementation GTLRContainerAnalysis_TokenUsage
+@dynamic cacheCount, candidateCount, promptCount, thinkingCount,
+         toolUsePromptCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_UpgradeDistribution
 //
 
@@ -3681,4 +3785,14 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_WorkspacePolicyResult
+//
+
+@implementation GTLRContainerAnalysis_WorkspacePolicyResult
+@dynamic scanStatus, verdict;
 @end

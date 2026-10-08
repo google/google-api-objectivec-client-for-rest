@@ -1001,6 +1001,7 @@ NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_Targeti
 
 // GTLRDisplayVideo_CreateSdfDownloadTaskRequest.version
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion10 = @"SDF_VERSION_10";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion101 = @"SDF_VERSION_10_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion31 = @"SDF_VERSION_3_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion4 = @"SDF_VERSION_4";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion41 = @"SDF_VERSION_4_1";
@@ -2882,6 +2883,7 @@ NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_SyntaxError = @"SYNTAX_
 
 // GTLRDisplayVideo_SdfConfig.version
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion10 = @"SDF_VERSION_10";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion101 = @"SDF_VERSION_10_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion31 = @"SDF_VERSION_3_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion4 = @"SDF_VERSION_4";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion41 = @"SDF_VERSION_4_1";
@@ -2904,6 +2906,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"S
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion10 = @"SDF_VERSION_10";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion101 = @"SDF_VERSION_10_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion31 = @"SDF_VERSION_3_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion4 = @"SDF_VERSION_4";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion41 = @"SDF_VERSION_4_1";
@@ -3156,6 +3159,7 @@ NSString * const kGTLRDisplayVideo_ThirdPartyUrl_Type_ThirdPartyUrlTypeImpressio
 NSString * const kGTLRDisplayVideo_ThirdPartyUrl_Type_ThirdPartyUrlTypeUnspecified = @"THIRD_PARTY_URL_TYPE_UNSPECIFIED";
 
 // GTLRDisplayVideo_ThirdPartyVendorConfig.vendor
+NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorAquila = @"THIRD_PARTY_VENDOR_AQUILA";
 NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorAudienceProject = @"THIRD_PARTY_VENDOR_AUDIENCE_PROJECT";
 NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorComscore = @"THIRD_PARTY_VENDOR_COMSCORE";
 NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorDoubleVerify = @"THIRD_PARTY_VENDOR_DOUBLE_VERIFY";

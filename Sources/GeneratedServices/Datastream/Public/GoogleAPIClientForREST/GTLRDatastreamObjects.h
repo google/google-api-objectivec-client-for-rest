@@ -148,6 +148,7 @@
 @class GTLRDatastream_SpecificStartPosition;
 @class GTLRDatastream_SqlServerChangeTables;
 @class GTLRDatastream_SqlServerColumn;
+@class GTLRDatastream_SqlServerDdlConfig;
 @class GTLRDatastream_SqlServerLsnPosition;
 @class GTLRDatastream_SqlServerObjectIdentifier;
 @class GTLRDatastream_SqlServerProfile;
@@ -4358,6 +4359,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Configuration to use Change Tables CDC read method.
  */
 @interface GTLRDatastream_SqlServerChangeTables : GTLRObject
+
+/** Optional. DDL configuration for change tables. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SqlServerDdlConfig *ddlConfig;
+
 @end
 
 
@@ -4413,6 +4418,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scale;
+
+@end
+
+
+/**
+ *  DDL configuration for change tables.
+ */
+@interface GTLRDatastream_SqlServerDdlConfig : GTLRObject
+
+/**
+ *  Optional. If set to true, Datastream will automatically create a new capture
+ *  instance when DDL is detected on a table.The customer will be responsible
+ *  for deleting it so that the next set of DDLs can be handled. The default is
+ *  false and it means that DDL's will not be handled .
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoCreateNewCaptureInstanceOnDdl;
+
+/**
+ *  Optional. If set to true, Datastream will automatically delete the old
+ *  capture instance after creating a new one to support a DDL change. The
+ *  default is false and means that the customer has to delete the old capture
+ *  instance manually.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoDeleteOldCaptureInstance;
 
 @end
 

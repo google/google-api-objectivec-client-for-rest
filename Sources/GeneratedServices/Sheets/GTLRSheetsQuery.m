@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// commentsViewMode
+NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeDefaultForCurrentAccess = @"COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS";
+NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeIncluded = @"COMMENTS_VIEW_MODE_INCLUDED";
+NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeOmitted = @"COMMENTS_VIEW_MODE_OMITTED";
+NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeUnspecified = @"COMMENTS_VIEW_MODE_UNSPECIFIED";
+
 // dateTimeRenderOption
 NSString * const kGTLRSheetsDateTimeRenderOptionFormattedString = @"FORMATTED_STRING";
 NSString * const kGTLRSheetsDateTimeRenderOptionSerialNumber   = @"SERIAL_NUMBER";
@@ -156,7 +162,8 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
 
 @implementation GTLRSheetsQuery_SpreadsheetsGet
 
-@dynamic excludeTablesInBandedRanges, includeGridData, ranges, spreadsheetId;
+@dynamic commentsViewMode, excludeTablesInBandedRanges, includeGridData, ranges,
+         spreadsheetId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

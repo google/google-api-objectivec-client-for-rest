@@ -199,6 +199,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEnt
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelMedium = @"RISK_LEVEL_MEDIUM";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelUnspecified = @"RISK_LEVEL_UNSPECIFIED";
 
+// GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser.osPlatform
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_DeviceSystemUnspecified = @"DEVICE_SYSTEM_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemAndroid = @"SYSTEM_ANDROID";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemCros = @"SYSTEM_CROS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemIos = @"SYSTEM_IOS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemLinux = @"SYSTEM_LINUX";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemMac = @"SYSTEM_MAC";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemOther = @"SYSTEM_OTHER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemWindows = @"SYSTEM_WINDOWS";
+
+// GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport.osPlatform
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_DeviceSystemUnspecified = @"DEVICE_SYSTEM_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemAndroid = @"SYSTEM_ANDROID";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemCros = @"SYSTEM_CROS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemIos = @"SYSTEM_IOS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemLinux = @"SYSTEM_LINUX";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemMac = @"SYSTEM_MAC";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemOther = @"SYSTEM_OTHER";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemWindows = @"SYSTEM_WINDOWS";
+
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallReason
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonCommandLine = @"APPLICATION_INSTALL_REASON_COMMAND_LINE";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonDefault = @"APPLICATION_INSTALL_REASON_DEFAULT";
@@ -462,6 +482,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Connector
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ConnectorTypeUnspecified = @"CONNECTOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ContentAnalysis = @"CONTENT_ANALYSIS";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_DeviceTrust = @"DEVICE_TRUST";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_EnterpriseProxy = @"ENTERPRISE_PROXY";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_IdentityBasedEnrollment = @"IDENTITY_BASED_ENROLLMENT";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Reporting = @"REPORTING";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_RootStore = @"ROOT_STORE";
@@ -582,6 +603,11 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageKeyEncipherment = @"KEY_USAGE_KEY_ENCIPHERMENT";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageSigning = @"KEY_USAGE_SIGNING";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageUnspecified = @"KEY_USAGE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig.enabledPlatforms
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig_EnabledPlatforms_Android = @"ANDROID";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig_EnabledPlatforms_Ios = @"IOS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig_EnabledPlatforms_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest.signatureAlgorithm
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256 = @"SIGNATURE_ALGORITHM_ECDSA_SHA256";
@@ -1304,6 +1330,72 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageBrowsersResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageBrowsersResponse
+@dynamic nextPageToken, saasUsageBrowsers, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"saasUsageBrowsers" : [GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"saasUsageBrowsers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageProfilesResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageProfilesResponse
+@dynamic nextPageToken, profileReports, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"profileReports" : [GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"profileReports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageReportsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageReportsResponse
+@dynamic nextPageToken, saasReports, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"saasReports" : [GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"saasReports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo
 //
 
@@ -1692,6 +1784,60 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 @implementation GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport
 @dynamic enterHibernationCount, enterPoweroffCount, enterSleepCount, reportTime,
          uptimeRuntimeDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser
+@dynamic devicePermanentId, firstNavigationTime, lastNavigationTime, machine,
+         orgUnitId, osPlatform, osVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport
+@dynamic email, firstNavigationTime, lastNavigationTime, orgUnitId, osPlatform,
+         osVersion, profilePermanentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReport
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReport
+@dynamic app, category, contentTransferDetails, distinctBrowsersCount,
+         distinctUsersCount, domains, encryptionProtocols, firstNavigationTime,
+         foundedYear, headquarters, lastNavigationTime, organization, orgUnitId,
+         primaryDomain, visitsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [NSString class],
+    @"encryptionProtocols" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReportContentTransferDetails
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReportContentTransferDetails
+@dynamic contentTransferCount;
 @end
 
 
@@ -2259,7 +2405,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
 @dynamic crowdStrikeConfig, crowdStrikeFalconNextGenConfig,
          crowdStrikeXdrConfig, deviceTrustConfig, googleSecOpsConfig,
          mipLabelConfig, paloAltoNetworksConfig, pubSubConfig, pubSubXdrConfig,
-         splunkConfig;
+         secureGatewayConfig, splunkConfig;
 @end
 
 
@@ -2778,6 +2924,24 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1UrlVisits
     @"keyUsages" : [NSString class],
     @"organizationalUnits" : [NSString class],
     @"subjectAltNames" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig
+@dynamic enabledPlatforms, resourceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledPlatforms" : [NSString class]
   };
   return map;
 }

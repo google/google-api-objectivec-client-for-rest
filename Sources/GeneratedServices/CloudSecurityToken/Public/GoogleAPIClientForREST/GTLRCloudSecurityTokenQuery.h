@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches the signing keys for an agentic or managed workload identity pool
- *  and returns them in JWKs format, defined in [RFC
+ *  and returns them in JWK Set format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
  *  pools are supported. **Preview** This feature is subject to the "Pre-GA
  *  Offerings Terms" in the General Service Terms section of the [Service
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSecurityTokenQuery_OrganizationsLocationsWorkloadIdentityPoolsOpenidGetJwks : GTLRCloudSecurityTokenQuery
 
 /**
- *  Required. The name of the pool whose JWKS needs to be retrieved. Format:
+ *  Required. The name of the pool whose JWKs need to be retrieved. Format:
  *  'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
  *  'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
  *  Example(s):
@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks.
  *
  *  Fetches the signing keys for an agentic or managed workload identity pool
- *  and returns them in JWKs format, defined in [RFC
+ *  and returns them in JWK Set format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
  *  pools are supported. **Preview** This feature is subject to the "Pre-GA
  *  Offerings Terms" in the General Service Terms section of the [Service
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  information, see the [launch stage
  *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
- *  @param name Required. The name of the pool whose JWKS needs to be retrieved.
+ *  @param name Required. The name of the pool whose JWKs need to be retrieved.
  *    Format:
  *    'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
  *    'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
@@ -143,7 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches the signing keys for an agentic or managed workload identity pool
- *  and returns them in JWKs format, defined in [RFC
+ *  and returns them in JWK Set format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
  *  pools are supported. **Preview** This feature is subject to the "Pre-GA
  *  Offerings Terms" in the General Service Terms section of the [Service
@@ -157,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSecurityTokenQuery_ProjectsLocationsWorkloadIdentityPoolsOpenidGetJwks : GTLRCloudSecurityTokenQuery
 
 /**
- *  Required. The name of the pool whose JWKS needs to be retrieved. Format:
+ *  Required. The name of the pool whose JWKs need to be retrieved. Format:
  *  'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
  *  'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
  *  Example(s):
@@ -170,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks.
  *
  *  Fetches the signing keys for an agentic or managed workload identity pool
- *  and returns them in JWKs format, defined in [RFC
+ *  and returns them in JWK Set format, defined in [RFC
  *  7517](https://tools.ietf.org/html/rfc7517). For now, only agentic system
  *  pools are supported. **Preview** This feature is subject to the "Pre-GA
  *  Offerings Terms" in the General Service Terms section of the [Service
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  information, see the [launch stage
  *  descriptions](https://cloud.google.com/products#product-launch-stages).
  *
- *  @param name Required. The name of the pool whose JWKS needs to be retrieved.
+ *  @param name Required. The name of the pool whose JWKs need to be retrieved.
  *    Format:
  *    'organizations/{ORGANIZATION_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'
  *    'projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}'

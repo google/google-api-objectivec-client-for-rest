@@ -455,6 +455,48 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_BatchRecordEventsRequest
+//
+
+@implementation GTLRGames_BatchRecordEventsRequest
+@dynamic droidGuardBlob, events, packageName, requestTime, salt;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"events" : [GTLRGames_PlayerGameEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_BatchRecordEventsResponse
+//
+
+@implementation GTLRGames_BatchRecordEventsResponse
+@dynamic failedRequests;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_BatchRecordEventsResponse_FailedRequests
+//
+
+@implementation GTLRGames_BatchRecordEventsResponse_FailedRequests
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGames_Status class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_Category
 //
 
@@ -1140,6 +1182,30 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_PlayerGameEvent
+//
+
+@implementation GTLRGames_PlayerGameEvent
+@dynamic eventId, eventName, eventProperties, eventTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_PlayerGameEvent_EventProperties
+//
+
+@implementation GTLRGames_PlayerGameEvent_EventProperties
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGames_PropertyValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_PlayerLeaderboardScore
 //
 
@@ -1340,6 +1406,16 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_PropertyValue
+//
+
+@implementation GTLRGames_PropertyValue
+@dynamic boolValue, doubleValue, durationValue, intValue, stringValue;
 @end
 
 
@@ -1565,6 +1641,38 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_Status
+//
+
+@implementation GTLRGames_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRGames_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_Status_Details_Item
+//
+
+@implementation GTLRGames_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

@@ -967,7 +967,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 @property(nonatomic, strong, nullable) NSArray<GTLRMyBusinessBusinessInformation_MoreHours *> *moreHours;
 
 /**
- *  Google identifier for this location in the form: `locations/{location_id}`.
+ *  Identifier. Google identifier for this location in the form:
+ *  `locations/{location_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1099,8 +1100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 @property(nonatomic, strong, nullable) NSNumber *canOperateHealthData;
 
 /**
- *  Output only. Indicates if the listing can manage local posts. Deprecated:
- *  This field is no longer populated and will be removed in a future version.
+ *  Output only. Deprecated: This field is no longer populated and will be
+ *  removed in a future version.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1144,7 +1145,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 @property(nonatomic, strong, nullable) NSNumber *hasVoiceOfMerchant;
 
 /**
- *  Output only.
+ *  Output only. Indicates whether the location is classified as a particularly
+ *  personal place. This means there are restrictions on Location History
+ *  features. If you believe this was a mistake, see the [help center
+ *  article](https://support.google.com/business/answer/3480441).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1332,7 +1336,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  */
 @interface GTLRMyBusinessBusinessInformation_Places : GTLRObject
 
-/** The areas represented by place IDs. Limited to a maximum of 20 places. */
+/**
+ *  Optional. The areas represented by place IDs. Limited to a maximum of 20
+ *  places.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRMyBusinessBusinessInformation_PlaceInfo *> *placeInfos;
 
 @end
@@ -1479,16 +1486,19 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  */
 @interface GTLRMyBusinessBusinessInformation_RelationshipData : GTLRObject
 
-/** The list of children locations that this location has relations with. */
+/**
+ *  Optional. The list of children locations that this location has relations
+ *  with.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRMyBusinessBusinessInformation_RelevantLocation *> *childrenLocations;
 
 /**
- *  The resource name of the Chain that this location is member of. How to find
- *  Chain ID
+ *  Optional. The resource name of the Chain that this location is member of.
+ *  How to find Chain ID
  */
 @property(nonatomic, copy, nullable) NSString *parentChain;
 
-/** The parent location that this location has relations with. */
+/** Optional. The parent location that this location has relations with. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_RelevantLocation *parentLocation;
 
 @end
@@ -1630,7 +1640,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  */
 @property(nonatomic, copy, nullable) NSString *businessType;
 
-/** The area that this business serves defined through a set of places. */
+/**
+ *  Optional. The area that this business serves defined through a set of
+ *  places.
+ */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_Places *places;
 
 /**
@@ -1853,7 +1866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 
 /**
  *  Required. Valid values are 00:00-24:00, where 24:00 represents midnight at
- *  the end of the specified day field.
+ *  the end of the specified day field. Note: In Proto3 JSON mapping, default
+ *  zero values (00:00) are omitted, producing `{}` for close_time.
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_TimeOfDay *closeTime;
 
@@ -1882,7 +1896,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 
 /**
  *  Required. Valid values are 00:00-24:00, where 24:00 represents midnight at
- *  the end of the specified day field.
+ *  the end of the specified day field. Note: In Proto3 JSON mapping, default
+ *  zero values (00:00) are omitted, producing `{}` for open_time.
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_TimeOfDay *openTime;
 

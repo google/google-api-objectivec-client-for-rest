@@ -14,11 +14,13 @@
 
 @class GTLRHomeGraphService_AgentDeviceId;
 @class GTLRHomeGraphService_AgentOtherDeviceId;
+@class GTLRHomeGraphService_CommonEventDataStruct;
 @class GTLRHomeGraphService_Component;
 @class GTLRHomeGraphService_ComponentTraitUpdates;
 @class GTLRHomeGraphService_Device;
 @class GTLRHomeGraphService_Device_Attributes;
 @class GTLRHomeGraphService_Device_CustomData;
+@class GTLRHomeGraphService_DeviceBlameStruct;
 @class GTLRHomeGraphService_DeviceInfo;
 @class GTLRHomeGraphService_DeviceMetadata;
 @class GTLRHomeGraphService_DeviceMetadata_TraitCommitTimestamps;
@@ -29,6 +31,7 @@
 @class GTLRHomeGraphService_HomeEvents;
 @class GTLRHomeGraphService_HomeTraitPayload;
 @class GTLRHomeGraphService_HomeTraitUpdates;
+@class GTLRHomeGraphService_MediaUrlsStruct;
 @class GTLRHomeGraphService_QueryRequestInput;
 @class GTLRHomeGraphService_QueryRequestPayload;
 @class GTLRHomeGraphService_QueryResponsePayload;
@@ -42,9 +45,12 @@
 @class GTLRHomeGraphService_ReportStateAndNotificationResponse_DeviceResults;
 @class GTLRHomeGraphService_Result;
 @class GTLRHomeGraphService_StateAndNotificationPayload;
+@class GTLRHomeGraphService_StructurePresenceStateChangeReasonStruct;
 @class GTLRHomeGraphService_SyncResponsePayload;
 @class GTLRHomeGraphService_TraitData;
 @class GTLRHomeGraphService_TraitData_Trait;
+@class GTLRHomeGraphService_UserBlameStruct;
+@class GTLRHomeGraphService_ZoneStruct;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -55,6 +61,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRHomeGraphService_DeviceBlameStruct.blameType
+
+/**
+ *  Indicates an unspecified device blame type.
+ *
+ *  Value: "DEVICE_BLAME_TYPE_ENUM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_DeviceBlameTypeEnumUnspecified;
+/**
+ *  Indicates lock interaction.
+ *
+ *  Value: "LOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_Lock;
+/**
+ *  Indicates motion detection.
+ *
+ *  Value: "MOTION_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_MotionDetection;
+/**
+ *  Indicates touch interaction.
+ *
+ *  Value: "TOUCH_INTERACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_TouchInteraction;
+/**
+ *  Indicates unlock interaction.
+ *
+ *  Value: "UNLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_Unlock;
+/**
+ *  Indicates voice interaction.
+ *
+ *  Value: "VOICE_INTERACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_DeviceBlameStruct_BlameType_VoiceInteraction;
+
+// ----------------------------------------------------------------------------
+// GTLRHomeGraphService_EveUtilityTrait.acceptedCommandList
+
+/**
+ *  Deprecated: This enum exists only to conform to AIP guidelines and should
+ *  never be used.
+ *
+ *  Value: "COMMANDS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_EveUtilityTrait_AcceptedCommandList_CommandsUnspecified GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRHomeGraphService_QueryRequest.deviceView
@@ -85,6 +142,66 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
  */
 FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView_SmartHomeTraitOnly;
 
+// ----------------------------------------------------------------------------
+// GTLRHomeGraphService_StructurePresenceStateChangeEvent.presenceState
+
+/**
+ *  Indicates away presence state.
+ *
+ *  Value: "AWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_Away;
+/**
+ *  Indicates home presence state.
+ *
+ *  Value: "HOME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_Home;
+/**
+ *  Indicates an unknown presence state.
+ *
+ *  Value: "STRUCTURE_PRESENCE_STATE_ENUM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_StructurePresenceStateEnumUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHomeGraphService_ThermostatFanControlTrait.timerSpeed
+
+/** Value: "FAN_SPEED_SETTING_AUTO" */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingAuto;
+/** Value: "FAN_SPEED_SETTING_ENUM_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingEnumUnspecified;
+/** Value: "FAN_SPEED_SETTING_OFF" */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingOff;
+/** Value: "FAN_SPEED_SETTING_STAGE1" */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage1;
+/** Value: "FAN_SPEED_SETTING_STAGE2" */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage2;
+/** Value: "FAN_SPEED_SETTING_STAGE3" */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage3;
+
+// ----------------------------------------------------------------------------
+// GTLRHomeGraphService_UserBlameStruct.blameType
+
+/**
+ *  Indicates manual change.
+ *
+ *  Value: "MANUAL_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_ManualChange;
+/**
+ *  Indicates phone location.
+ *
+ *  Value: "PHONE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_PhoneLocation;
+/**
+ *  Indicates an unspecified user blame type.
+ *
+ *  Value: "USER_BLAME_TYPE_ENUM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_UserBlameStruct_BlameType_UserBlameTypeEnumUnspecified;
+
 /**
  *  Third-party device ID for one device.
  */
@@ -110,6 +227,31 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
 
 /** Unique third-party device ID. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+@end
+
+
+/**
+ *  This cluster defines the camera event stream used by GHP for their
+ *  Cloud-to-Cloud eventing flow
+ */
+@interface GTLRHomeGraphService_CameraEventStreamTrait : GTLRObject
+@end
+
+
+/**
+ *  Common camera event data.
+ */
+@interface GTLRHomeGraphService_CommonEventDataStruct : GTLRObject
+
+/** Contains media urls for the event */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_MediaUrlsStruct *mediaUrls;
+
+/** Camera event session id. Used for identifying a unique event session */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/** Id of the track this object belongs to */
+@property(nonatomic, copy, nullable) NSString *trackId;
 
 @end
 
@@ -271,6 +413,35 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
 
 
 /**
+ *  Contains metadata about the cause of presence state change attributed to a
+ *  device.
+ */
+@interface GTLRHomeGraphService_DeviceBlameStruct : GTLRObject
+
+/**
+ *  Required. Specifies the device blame type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHomeGraphService_DeviceBlameStruct_BlameType_DeviceBlameTypeEnumUnspecified
+ *        Indicates an unspecified device blame type. (Value:
+ *        "DEVICE_BLAME_TYPE_ENUM_UNSPECIFIED")
+ *    @arg @c kGTLRHomeGraphService_DeviceBlameStruct_BlameType_Lock Indicates
+ *        lock interaction. (Value: "LOCK")
+ *    @arg @c kGTLRHomeGraphService_DeviceBlameStruct_BlameType_MotionDetection
+ *        Indicates motion detection. (Value: "MOTION_DETECTION")
+ *    @arg @c kGTLRHomeGraphService_DeviceBlameStruct_BlameType_TouchInteraction
+ *        Indicates touch interaction. (Value: "TOUCH_INTERACTION")
+ *    @arg @c kGTLRHomeGraphService_DeviceBlameStruct_BlameType_Unlock Indicates
+ *        unlock interaction. (Value: "UNLOCK")
+ *    @arg @c kGTLRHomeGraphService_DeviceBlameStruct_BlameType_VoiceInteraction
+ *        Indicates voice interaction. (Value: "VOICE_INTERACTION")
+ */
+@property(nonatomic, copy, nullable) NSString *blameType;
+
+@end
+
+
+/**
  *  Device information.
  */
 @interface GTLRHomeGraphService_DeviceInfo : GTLRObject
@@ -398,6 +569,177 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
 
 
 /**
+ *  GTLRHomeGraphService_EveUtilityTrait
+ */
+@interface GTLRHomeGraphService_EveUtilityTrait : GTLRObject
+
+/** Required. Output only. Accepted command list for this trait */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *acceptedCommandList;
+
+/**
+ *  accumulatedControlPoint
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accumulatedControlPoint;
+
+/**
+ *  airPressure
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *airPressure;
+
+/**
+ *  altitude
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *altitude;
+
+/**
+ *  childLock
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *childLock;
+
+/**
+ *  current
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *current;
+
+/**
+ *  getConfig
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *getConfig;
+
+/**
+ *  holdPosition
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *holdPosition;
+
+/**
+ *  lastEventTime
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastEventTime;
+
+/**
+ *  loggingControlPoint
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *loggingControlPoint;
+
+/**
+ *  loggingData
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *loggingData;
+
+/**
+ *  loggingMetadata
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *loggingMetadata;
+
+/**
+ *  loggingTime
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *loggingTime;
+
+/**
+ *  motionSensitivity
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *motionSensitivity;
+
+/**
+ *  obstructionDetected
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *obstructionDetected;
+
+/**
+ *  openCount
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *openCount;
+
+/**
+ *  rloc16
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rloc16;
+
+/**
+ *  setConfig
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *setConfig;
+
+/**
+ *  statusFault
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *statusFault;
+
+/**
+ *  voltage
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *voltage;
+
+/**
+ *  watt
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *watt;
+
+/**
+ *  wattAccumulated
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wattAccumulated;
+
+/**
+ *  weatherTrend
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weatherTrend;
+
+@end
+
+
+/**
  *  Contains the set of events for an item.
  */
 @interface GTLRHomeGraphService_HomeEvents : GTLRObject
@@ -432,6 +774,74 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
 
 /** Required. Unique identifier for the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+@end
+
+
+/**
+ *  GTLRHomeGraphService_MediaUrlsStruct
+ */
+@interface GTLRHomeGraphService_MediaUrlsStruct : GTLRObject
+
+/** URL for a dash manifest for playback */
+@property(nonatomic, copy, nullable) NSString *dashManifestUrl;
+
+/** URL for a hls master playlist for playback */
+@property(nonatomic, copy, nullable) NSString *hlsMasterPlaylistUrl;
+
+/** URL for animated preview clip representing the event session */
+@property(nonatomic, copy, nullable) NSString *previewUrl;
+
+/** URL for thumbnail image representing the event session */
+@property(nonatomic, copy, nullable) NSString *thumbnailUrl;
+
+@end
+
+
+/**
+ *  Represents a newly detected motion event.
+ */
+@interface GTLRHomeGraphService_MotionEvent : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_CommonEventDataStruct *commonEventData;
+
+/** Zones where events are detected in. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_ZoneStruct *> *zones;
+
+/**
+ *  If set, zones is an empty list.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *zonesIsEmpty;
+
+@end
+
+
+/**
+ *  Provides attributes and events related to partner presence signals. See
+ *  PartnerPresenceSignal trait:
+ */
+@interface GTLRHomeGraphService_PartnerPresenceSignalTrait : GTLRObject
+@end
+
+
+/**
+ *  Represents a newly detected person event.
+ */
+@interface GTLRHomeGraphService_PersonEvent : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_CommonEventDataStruct *commonEventData;
+
+/** Zones where events are detected in. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_ZoneStruct *> *zones;
+
+/**
+ *  If set, zones is an empty list.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *zonesIsEmpty;
 
 @end
 
@@ -797,6 +1207,52 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
 
 
 /**
+ *  Sent when the structure presence state changes.
+ */
+@interface GTLRHomeGraphService_StructurePresenceStateChangeEvent : GTLRObject
+
+/**
+ *  Required. Specifies the presence state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_Away
+ *        Indicates away presence state. (Value: "AWAY")
+ *    @arg @c kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_Home
+ *        Indicates home presence state. (Value: "HOME")
+ *    @arg @c kGTLRHomeGraphService_StructurePresenceStateChangeEvent_PresenceState_StructurePresenceStateEnumUnspecified
+ *        Indicates an unknown presence state. (Value:
+ *        "STRUCTURE_PRESENCE_STATE_ENUM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *presenceState;
+
+/** Optional. Specifies the presence state change reason. */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_StructurePresenceStateChangeReasonStruct *reason;
+
+@end
+
+
+/**
+ *  Contains the metadata about the cause of the structure presence state
+ *  change.
+ */
+@interface GTLRHomeGraphService_StructurePresenceStateChangeReasonStruct : GTLRObject
+
+/**
+ *  Optional. Contains metadata about the cause of presence state change
+ *  attributed to a device.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_DeviceBlameStruct *deviceBlame;
+
+/**
+ *  Optional. Contains metadata about the cause of presence state change
+ *  attributed to a user.
+ */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_UserBlameStruct *userBlame;
+
+@end
+
+
+/**
  *  Request type for the
  *  [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync) call.
  */
@@ -851,6 +1307,47 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
 
 
 /**
+ *  This cluster provides fan control capabilities for thermostats.
+ */
+@interface GTLRHomeGraphService_ThermostatFanControlTrait : GTLRObject
+
+/**
+ *  timerDuration
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timerDuration;
+
+/**
+ *  timerEnd
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timerEnd;
+
+/**
+ *  timerSpeed
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingAuto
+ *        Value "FAN_SPEED_SETTING_AUTO"
+ *    @arg @c kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingEnumUnspecified
+ *        Value "FAN_SPEED_SETTING_ENUM_UNSPECIFIED"
+ *    @arg @c kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingOff
+ *        Value "FAN_SPEED_SETTING_OFF"
+ *    @arg @c kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage1
+ *        Value "FAN_SPEED_SETTING_STAGE1"
+ *    @arg @c kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage2
+ *        Value "FAN_SPEED_SETTING_STAGE2"
+ *    @arg @c kGTLRHomeGraphService_ThermostatFanControlTrait_TimerSpeed_FanSpeedSettingStage3
+ *        Value "FAN_SPEED_SETTING_STAGE3"
+ */
+@property(nonatomic, copy, nullable) NSString *timerSpeed;
+
+@end
+
+
+/**
  *  Contains the trait payload for a single trait.
  */
 @interface GTLRHomeGraphService_TraitData : GTLRObject
@@ -862,13 +1359,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
 
 /**
- *  Optional in write requests (e.g. ReportStateAndNotification). If set,
- *  represents the provider version timestamp of the existing trait in the
- *  database. The server will perform optimistic locking validation if this
- *  field is present and the experiment is enabled. It will not be persisted to
- *  the database.
+ *  The custom timestamp supplied by the provider during a
+ *  ReportStateAndNotification update (if provided). This field is returned as
+ *  part of the `QueryResponse`.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *providerVersionTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *providerUpdateTime;
 
 /** The Provider Home API trait payload. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_TraitData_Trait *trait;
@@ -885,6 +1380,50 @@ FOUNDATION_EXTERN NSString * const kGTLRHomeGraphService_QueryRequest_DeviceView
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRHomeGraphService_TraitData_Trait : GTLRObject
+@end
+
+
+/**
+ *  Contains metadata about the cause of presence state change attributed to a
+ *  user.
+ */
+@interface GTLRHomeGraphService_UserBlameStruct : GTLRObject
+
+/**
+ *  Required. Specifies the user blame type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHomeGraphService_UserBlameStruct_BlameType_ManualChange
+ *        Indicates manual change. (Value: "MANUAL_CHANGE")
+ *    @arg @c kGTLRHomeGraphService_UserBlameStruct_BlameType_PhoneLocation
+ *        Indicates phone location. (Value: "PHONE_LOCATION")
+ *    @arg @c kGTLRHomeGraphService_UserBlameStruct_BlameType_UserBlameTypeEnumUnspecified
+ *        Indicates an unspecified user blame type. (Value:
+ *        "USER_BLAME_TYPE_ENUM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *blameType;
+
+/** Required. Specifies the email of the user. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+@end
+
+
+/**
+ *  GTLRHomeGraphService_ZoneStruct
+ */
+@interface GTLRHomeGraphService_ZoneStruct : GTLRObject
+
+/** Name of the zone. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Id of the zone
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *zoneId;
+
 @end
 
 NS_ASSUME_NONNULL_END

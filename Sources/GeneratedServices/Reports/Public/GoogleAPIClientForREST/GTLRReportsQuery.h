@@ -162,6 +162,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGcp;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGeminiInWorkspaceApps;
 /**
+ *  The Gemini Notebook application's activity reports return information about
+ *  various types of Gemini Notebook activity events.
+ *
+ *  Value: "gemini_notebook"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGeminiNotebook;
+/**
  *  The Gmail application's activity reports return information about various
  *  [Gmail activity events](/admin-sdk/reports/v1/appendix/activity/gmail).
  *
@@ -516,6 +523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameWorkspaceStudio The Workspace Studio
  *        application's activity reports return information about various types
  *        of Workspace Studio activity events. (Value: "workspace_studio")
+ *    @arg @c kGTLRReportsApplicationNameGeminiNotebook The Gemini Notebook
+ *        application's activity reports return information about various types
+ *        of Gemini Notebook activity events. (Value: "gemini_notebook")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -610,8 +620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  Optional. When set to `true`, this field allows sensitive user-generated
  *  content to be included in the returned audit logs. This parameter is
- *  supported only for Rules (DLP) and Chat applications; using it with any
- *  other application will result in a permission error.
+ *  supported only for Rules (DLP), Chat and Workspace Studio applications;
+ *  using it with any other application will result in a permission error.
  */
 @property(nonatomic, assign) BOOL includeSensitiveData;
 
@@ -873,6 +883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameWorkspaceStudio The Workspace Studio
  *        application's activity reports return information about various types
  *        of Workspace Studio activity events. (Value: "workspace_studio")
+ *    @arg @c kGTLRReportsApplicationNameGeminiNotebook The Gemini Notebook
+ *        application's activity reports return information about various types
+ *        of Gemini Notebook activity events. (Value: "gemini_notebook")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *

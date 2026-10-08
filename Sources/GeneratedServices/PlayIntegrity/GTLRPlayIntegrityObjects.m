@@ -61,6 +61,15 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdi
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_Unknown = @"UNKNOWN";
 
+// GTLRPlayIntegrity_EnvironmentDetails.locationSpoofingRiskVerdict
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_HighRiskDevice = @"HIGH_RISK_DEVICE";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_HighRiskNetwork = @"HIGH_RISK_NETWORK";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_LocationSpoofingRiskVerdictUnspecified = @"LOCATION_SPOOFING_RISK_VERDICT_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_LowRiskDevice = @"LOW_RISK_DEVICE";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_LowRiskNetwork = @"LOW_RISK_NETWORK";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_MediumRiskDevice = @"MEDIUM_RISK_DEVICE";
+NSString * const kGTLRPlayIntegrity_EnvironmentDetails_LocationSpoofingRiskVerdict_MediumRiskNetwork = @"MEDIUM_RISK_NETWORK";
+
 // GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_HighRisk = @"HIGH_RISK";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_MediumRisk = @"MEDIUM_RISK";
@@ -235,7 +244,15 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 //
 
 @implementation GTLRPlayIntegrity_EnvironmentDetails
-@dynamic appAccessRiskVerdict, playProtectVerdict;
+@dynamic appAccessRiskVerdict, locationSpoofingRiskVerdict, playProtectVerdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locationSpoofingRiskVerdict" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

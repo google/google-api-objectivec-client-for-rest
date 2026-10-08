@@ -69,6 +69,338 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNumberRegistryViewRegistryBookViewU
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsCancel : GTLRCloudNumberRegistryQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRCloudNumberRegistry_CancelOperationRequest to
+ *    include in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudNumberRegistry_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsDelete : GTLRCloudNumberRegistryQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsGet : GTLRCloudNumberRegistryQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsList : GTLRCloudNumberRegistryQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new OrgNumberRegistry in a given organization and location.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.orgNumberRegistries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesCreate : GTLRCloudNumberRegistryQuery
+
+/**
+ *  Required. The ID to use for the OrgNumberRegistry, which will become the
+ *  final segment of the resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *orgNumberRegistryId;
+
+/**
+ *  Required. The parent resource name where the OrgNumberRegistry will be
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_Operation.
+ *
+ *  Creates a new OrgNumberRegistry in a given organization and location.
+ *
+ *  @param object The @c GTLRCloudNumberRegistry_OrgNumberRegistry to include in
+ *    the query.
+ *  @param parent Required. The parent resource name where the OrgNumberRegistry
+ *    will be created.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudNumberRegistry_OrgNumberRegistry *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single OrgNumberRegistry.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.orgNumberRegistries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesDelete : GTLRCloudNumberRegistryQuery
+
+/** Required. The resource name of the OrgNumberRegistry to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_Operation.
+ *
+ *  Deletes a single OrgNumberRegistry.
+ *
+ *  @param name Required. The resource name of the OrgNumberRegistry to delete.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single OrgNumberRegistry.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.orgNumberRegistries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesGet : GTLRCloudNumberRegistryQuery
+
+/** Required. The resource name of the OrgNumberRegistry to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_OrgNumberRegistry.
+ *
+ *  Gets details of a single OrgNumberRegistry.
+ *
+ *  @param name Required. The resource name of the OrgNumberRegistry to
+ *    retrieve.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists OrgNumberRegistries in a given organization and location.
+ *
+ *  Method: cloudnumberregistry.organizations.locations.orgNumberRegistries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudNumberRegistryCloudPlatform
+ */
+@interface GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesList : GTLRCloudNumberRegistryQuery
+
+/** Optional. Filter expression to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name, for example `organizations/ *
+ *  /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudNumberRegistry_ListOrgNumberRegistriesResponse.
+ *
+ *  Lists OrgNumberRegistries in a given organization and location.
+ *
+ *  @param parent Required. The parent resource name, for example
+ *    `organizations/ * /locations/ *`.
+ *
+ *  @return GTLRCloudNumberRegistryQuery_OrganizationsLocationsOrgNumberRegistriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new CustomRange in a given project and location.
  *
  *  Method: cloudnumberregistry.projects.locations.customRanges.create

@@ -1105,6 +1105,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ExpirationDetails
+//
+
+@implementation GTLRDirectory_ExpirationDetails
+@dynamic expireTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ExternalId
 //
 
@@ -1702,8 +1712,8 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 //
 
 @implementation GTLRDirectory_RoleAssignment
-@dynamic assignedTo, assigneeType, condition, ETag, kind, orgUnitId,
-         roleAssignmentId, roleId, scopeType;
+@dynamic assignedTo, assigneeType, condition, ETag, expirationDetails, kind,
+         orgUnitId, roleAssignmentId, roleId, scopeType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

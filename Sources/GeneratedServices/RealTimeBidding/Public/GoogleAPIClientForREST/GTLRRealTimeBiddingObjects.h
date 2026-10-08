@@ -1050,13 +1050,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_MediaFile_MimeType_Video
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_Approved;
 /**
- *  Certificates are required for the creative to be served in some regions. For
- *  more information about creative certification, refer to:
- *  https://support.google.com/authorizedbuyers/answer/7450776
+ *  Certificates are required for the creative to be served in some regions.
  *
  *  Value: "CERTIFICATE_REQUIRED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_CertificateRequired;
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_PolicyCompliance_Status_CertificateRequired GTLR_DEPRECATED;
 /**
  *  Creative cannot serve.
  *
@@ -1468,6 +1466,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  state to ACTIVE.
  */
 @interface GTLRRealTimeBidding_ActivatePretargetingConfigRequest : GTLRObject
+@end
+
+
+/**
+ *  A request to add deals to a creative resource.
+ */
+@interface GTLRRealTimeBidding_AddDealsRequest : GTLRObject
+
+/**
+ *  Required. The IDs of the deals to associate with the creative. This can
+ *  include Programmatic Guaranteed, Private Auction, Preferred Deal, and
+ *  Marketplace Package deal IDs. You can associate no more than 100 deal IDs
+ *  per request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dealIds;
+
 @end
 
 
@@ -2975,9 +2989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *        approved. (Value: "APPROVED")
  *    @arg @c kGTLRRealTimeBidding_PolicyCompliance_Status_CertificateRequired
  *        Certificates are required for the creative to be served in some
- *        regions. For more information about creative certification, refer to:
- *        https://support.google.com/authorizedbuyers/answer/7450776 (Value:
- *        "CERTIFICATE_REQUIRED")
+ *        regions. (Value: "CERTIFICATE_REQUIRED")
  *    @arg @c kGTLRRealTimeBidding_PolicyCompliance_Status_Disapproved Creative
  *        cannot serve. (Value: "DISAPPROVED")
  *    @arg @c kGTLRRealTimeBidding_PolicyCompliance_Status_PendingReview
@@ -3011,14 +3023,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, copy, nullable) NSString *helpCenterUrl;
 
 /**
- *  Whether or not the policy topic is missing a certificate. Some policy topics
- *  require a certificate to unblock serving in some regions. For more
- *  information about creative certification, refer to:
- *  https://support.google.com/authorizedbuyers/answer/7450776
+ *  Whether or not the policy topic is missing a certificate.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *missingCertificate;
+@property(nonatomic, strong, nullable) NSNumber *missingCertificate GTLR_DEPRECATED;
 
 /**
  *  Policy topic this entry refers to. For example, "ALCOHOL",

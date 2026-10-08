@@ -26,8 +26,11 @@
 @class GTLRSQLAdmin_BackupRetentionSettings;
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_BinLogCoordinates;
+@class GTLRSQLAdmin_BlueGreenDeployment;
+@class GTLRSQLAdmin_BlueGreenDeploymentInfo;
 @class GTLRSQLAdmin_CloneContext;
 @class GTLRSQLAdmin_Column;
+@class GTLRSQLAdmin_ConfigDiff;
 @class GTLRSQLAdmin_ConnectionPoolConfig;
 @class GTLRSQLAdmin_ConnectionPoolFlags;
 @class GTLRSQLAdmin_ConnectPoolNodeConfig;
@@ -42,6 +45,8 @@
 @class GTLRSQLAdmin_DemoteMasterContext;
 @class GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration;
 @class GTLRSQLAdmin_DenyMaintenancePeriod;
+@class GTLRSQLAdmin_DeploymentTask;
+@class GTLRSQLAdmin_DeploymentTasks;
 @class GTLRSQLAdmin_DiskEncryptionConfiguration;
 @class GTLRSQLAdmin_DiskEncryptionStatus;
 @class GTLRSQLAdmin_DnsNameMapping;
@@ -75,6 +80,7 @@
 @class GTLRSQLAdmin_Metadata;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
 @class GTLRSQLAdmin_MySqlSyncConfig;
+@class GTLRSQLAdmin_NodeInfo;
 @class GTLRSQLAdmin_OnPremisesConfiguration;
 @class GTLRSQLAdmin_Operation;
 @class GTLRSQLAdmin_OperationError;
@@ -91,6 +97,7 @@
 @class GTLRSQLAdmin_ReadPoolAutoScaleConfig;
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_ReplicationCluster;
+@class GTLRSQLAdmin_RequestedConfig;
 @class GTLRSQLAdmin_Reschedule;
 @class GTLRSQLAdmin_RestoreBackupContext;
 @class GTLRSQLAdmin_RotateEntraIdCertificateContext;
@@ -100,6 +107,8 @@
 @class GTLRSQLAdmin_SelectedObjects;
 @class GTLRSQLAdmin_Settings;
 @class GTLRSQLAdmin_Settings_UserLabels;
+@class GTLRSQLAdmin_SourceRole;
+@class GTLRSQLAdmin_SourceTargetPairedNode;
 @class GTLRSQLAdmin_SqlActiveDirectoryConfig;
 @class GTLRSQLAdmin_SqlExternalSyncSettingError;
 @class GTLRSQLAdmin_SqlOutOfDiskReport;
@@ -111,15 +120,21 @@
 @class GTLRSQLAdmin_SqlSubOperationType;
 @class GTLRSQLAdmin_SslCert;
 @class GTLRSQLAdmin_SslCertDetail;
+@class GTLRSQLAdmin_StartWorkloadCaptureContext;
+@class GTLRSQLAdmin_StartWorkloadReplayContext;
 @class GTLRSQLAdmin_Status;
 @class GTLRSQLAdmin_Status_Details_Item;
+@class GTLRSQLAdmin_StopWorkloadCaptureContext;
+@class GTLRSQLAdmin_StopWorkloadReplayContext;
 @class GTLRSQLAdmin_SyncFlags;
 @class GTLRSQLAdmin_TargetMetric;
+@class GTLRSQLAdmin_TargetRole;
 @class GTLRSQLAdmin_Tier;
 @class GTLRSQLAdmin_TruncateLogContext;
 @class GTLRSQLAdmin_User;
 @class GTLRSQLAdmin_UserPasswordValidationPolicy;
 @class GTLRSQLAdmin_Value;
+@class GTLRSQLAdmin_WorkloadCapture;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1162,6 +1177,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BlueGreenDeployment.state
+
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_Deleting;
+/**
+ *  The deployment is being provisioned.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_Provisioning;
+/**
+ *  The default value. This value is used if the state is omitted or unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_StateUnspecified;
+/**
+ *  The deployment has completed switchover.
+ *
+ *  Value: "SWITCHOVER_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverCompleted;
+/**
+ *  The deployment is in the process of switching over.
+ *
+ *  Value: "SWITCHOVER_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverInProgress;
+/**
+ *  The deployment is not ready for switchover.
+ *
+ *  Value: "SWITCHOVER_NOT_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverNotReady;
+/**
+ *  The deployment is ready for switchover.
+ *
+ *  Value: "SWITCHOVER_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverReady;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BlueGreenDeploymentInfo.state
+
+/**
+ *  The deployment is post-switchover.
+ *
+ *  Value: "POST_SWITCHOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_PostSwitchover;
+/**
+ *  The deployment is pre-switchover.
+ *
+ *  Value: "PRE_SWITCHOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_PreSwitchover;
+/**
+ *  The state of the deployment is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ConnectSettings.backendType
 
 /**
@@ -1954,6 +2037,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance;
 /**
+ *  A Cloud SQL instance acting as a Blue-Green deployment target primary.
+ *  (MySQL only)
+ *
+ *  Value: "GREEN_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_GreenInstance;
+/**
  *  An instance running on the customer's premises that is not managed by Cloud
  *  SQL.
  *
@@ -2099,6 +2189,84 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReas
  *  Value: "SQL_SUSPENSION_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_SqlSuspensionReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_DeploymentTask.state
+
+/**
+ *  The task has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_State_Failed;
+/**
+ *  The task is pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_State_Pending;
+/**
+ *  The task is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_State_Running;
+/**
+ *  The state of the task is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_State_StateUnspecified;
+/**
+ *  The task has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_DeploymentTask.type
+
+/**
+ *  Deletes the blue-green deployment, including underlying resources.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Delete;
+/**
+ *  Post-switchover operations, including cleaning up resources of the old
+ *  instance, taking final backups, and updating metadata.
+ *
+ *  Value: "POST_SWITCHOVER_OPERATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_Type_PostSwitchoverOperations;
+/**
+ *  Provisions the green environment, which includes creating the target
+ *  instance.
+ *
+ *  Value: "PROVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Provision;
+/**
+ *  Promotes the target instance and then demotes the source instance for this
+ *  pair.
+ *
+ *  Value: "SWITCHOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Switchover;
+/**
+ *  The default value. This value is used if the type is omitted.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_Type_TypeUnspecified;
+/**
+ *  Upgrades the green environment, for example, performing a major version
+ *  upgrade on the target instance.
+ *
+ *  Value: "UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DeploymentTask_Type_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DnsNameMapping.connectionType
@@ -2987,6 +3155,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Cluster
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Create;
 /**
+ *  Creates a new Blue-Green deployment.
+ *
+ *  Value: "CREATE_BLUE_GREEN_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateBlueGreenDeployment;
+/**
  *  Creates clone instance.
  *
  *  Value: "CREATE_CLONE"
@@ -3030,6 +3204,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Delete;
  *  Value: "DELETE_BACKUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteBackup;
+/**
+ *  Deletes a Blue-Green deployment.
+ *
+ *  Value: "DELETE_BLUE_GREEN_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteBlueGreenDeployment;
 /**
  *  Deletes a database in the Cloud SQL instance.
  *
@@ -3224,6 +3404,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StopRep
  *  Value: "SWITCHOVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Switchover;
+/**
+ *  Switches over a Blue-Green deployment.
+ *
+ *  Value: "SWITCHOVER_BLUE_GREEN_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SwitchoverBlueGreenDeployment;
 /**
  *  Switches a primary instance to a replica. This operation runs as part of a
  *  switchover operation to the original primary instance.
@@ -4050,6 +4236,70 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_SqlRep
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SourceTargetPairedNode.state
+
+/**
+ *  The paired node is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Deleting;
+/**
+ *  The paired node is provisioned.
+ *
+ *  Value: "PROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Provisioned;
+/**
+ *  The paired node is being provisioned.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Provisioning;
+/**
+ *  The state of the paired node is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_StateUnspecified;
+/**
+ *  Switchover failed on the paired node.
+ *
+ *  Value: "SWITCHOVER_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverFailed;
+/**
+ *  Switchover is in progress.
+ *
+ *  Value: "SWITCHOVER_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverInProgress;
+/**
+ *  Switchover completed successfully.
+ *
+ *  Value: "SWITCHOVER_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverSucceeded;
+/**
+ *  The paired node is upgraded.
+ *
+ *  Value: "UPGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Upgraded;
+/**
+ *  Upgrade failed on the paired node.
+ *
+ *  Value: "UPGRADE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_UpgradeFailed;
+/**
+ *  The paired node is upgrading.
+ *
+ *  Value: "UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SourceTargetPairedNode_State_Upgrading;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlActiveDirectoryConfig.mode
 
 /**
@@ -4446,6 +4696,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "WILL_DELETE_EXISTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WillDeleteExisting;
+/**
+ *  Read replicas of the Writable Destination instance will be recreated after
+ *  external synchronization is complete, causing downtime on read replicas.
+ *
+ *  Value: "WRITABLE_DESTINATION_REPLICA_RECREATION_DOWNTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WritableDestinationReplicaRecreationDowntime;
+/**
+ *  A warning that disk storage auto increase is disabled on the destination
+ *  instance for a Writable Destination migration.
+ *
+ *  Value: "WRITABLE_DESTINATION_STORAGE_AUTO_INCREASE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WritableDestinationStorageAutoIncreaseDisabled;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.migrationType
@@ -4750,7 +5014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamServiceAccoun
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
- *  Cloud IAM workforce identity user managed via workforce identity federation.
+ *  Cloud IAM workforce identity managed by Workforce Identity Federation.
  *
  *  Value: "CLOUD_IAM_WORKFORCE_IDENTITY"
  */
@@ -4761,6 +5025,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamWorkforceIden
  *  Value: "ENTRAID_USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_WorkloadCapture.workloadCaptureState
+
+/**
+ *  Workload capture completed successfully.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Completed;
+/**
+ *  Workload capture failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Failed;
+/**
+ *  Workload capture is currently running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Running;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspecified;
 
 /**
  *  An entry for an Access Control list.
@@ -5745,6 +6037,129 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
+ *  A `BlueGreenDeployment` resource represents a Cloud SQL blue-green
+ *  deployment setup.
+ */
+@interface GTLRSQLAdmin_BlueGreenDeployment : GTLRObject
+
+/**
+ *  Output only. The time when the deployment was created. Example:
+ *  `2024-01-01T00:00:00Z`
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. A list representing the pairs of source and target instances in
+ *  the deployment.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SourceTargetPairedNode *> *deploymentMappings;
+
+/** Output only. Combined list of tasks for all paired nodes. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DeploymentTasks *deploymentTasks;
+
+/**
+ *  Optional. User-provided description for the deployment. The description can
+ *  be up to 255 characters long.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Provides details on why switchover is not possible. This field
+ *  is empty unless a switchover attempt failed or the state is
+ *  `SWITCHOVER_NOT_READY`. Example: "The target database version does not match
+ *  the source instance database version."
+ */
+@property(nonatomic, copy, nullable) NSString *errorDetail;
+
+/**
+ *  Output only. Identifier. The full resource name of the deployment. Format:
+ *  projects/{project}/locations/{location}/blueGreenDeployments/{deployment_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Immutable. Optional on create, and immutable. The configuration
+ *  intended for the target instance(s) when the deployment was created.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_RequestedConfig *requestedConfig;
+
+/**
+ *  Required. Immutable. Required on create, and immutable. The full resource
+ *  name of the source instance (the "blue" instance). Format:
+ *  projects/{project}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *sourceInstance;
+
+/**
+ *  Output only. The current state of the blue-green deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeployment_State_Deleting The deployment is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeployment_State_Provisioning The
+ *        deployment is being provisioned. (Value: "PROVISIONING")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeployment_State_StateUnspecified The
+ *        default value. This value is used if the state is omitted or unknown.
+ *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverCompleted The
+ *        deployment has completed switchover. (Value: "SWITCHOVER_COMPLETED")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverInProgress The
+ *        deployment is in the process of switching over. (Value:
+ *        "SWITCHOVER_IN_PROGRESS")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverNotReady The
+ *        deployment is not ready for switchover. (Value:
+ *        "SWITCHOVER_NOT_READY")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeployment_State_SwitchoverReady The
+ *        deployment is ready for switchover. (Value: "SWITCHOVER_READY")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The full resource name of the primary target instance (the
+ *  "green" instance) that will be promoted during switchover. This field is
+ *  always populated once the deployment is created. Format:
+ *  projects/{project}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *switchoverTargetInstance;
+
+@end
+
+
+/**
+ *  Blue-green deployment metadata for a database instance. In a blue-green
+ *  deployment, we maintain two environments, one of which is live. This message
+ *  contains details about the blue-green deployment.
+ */
+@interface GTLRSQLAdmin_BlueGreenDeploymentInfo : GTLRObject
+
+/** Output only. The resource ID of the blue-green deployment. */
+@property(nonatomic, copy, nullable) NSString *deploymentId;
+
+/** Output only. The source instance for the Blue-Green deployment. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SourceRole *source;
+
+/**
+ *  Output only. The current state of blue-green-deployment for UI tags
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_PostSwitchover The
+ *        deployment is post-switchover. (Value: "POST_SWITCHOVER")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_PreSwitchover The
+ *        deployment is pre-switchover. (Value: "PRE_SWITCHOVER")
+ *    @arg @c kGTLRSQLAdmin_BlueGreenDeploymentInfo_State_StateUnspecified The
+ *        state of the deployment is unknown. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The target instance for the Blue-Green deployment. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_TargetRole *target;
+
+@end
+
+
+/**
  *  Database instance clone context.
  */
 @interface GTLRSQLAdmin_CloneContext : GTLRObject
@@ -5841,6 +6256,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /** Datatype of the column. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents a specific configuration difference between blue and green
+ *  instances.
+ */
+@interface GTLRSQLAdmin_ConfigDiff : GTLRObject
+
+/**
+ *  Output only. The name of the field that differs in the blue and green
+ *  instances, fully-qualified. Example: `settings.tier`
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/** Output only. The value on the source instance. */
+@property(nonatomic, copy, nullable) NSString *sourceValue;
+
+/** Output only. The value on the target instance. */
+@property(nonatomic, copy, nullable) NSString *targetValue;
 
 @end
 
@@ -6465,6 +6901,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
+/**
+ *  Output only. Deployment info for the instance. This is set if the instance
+ *  is currently part of any blue-green setup.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_BlueGreenDeploymentInfo *deploymentInfo;
+
 /** Disk encryption configuration specific to an instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionConfiguration *diskEncryptionConfiguration;
 
@@ -6513,6 +6955,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance A
  *        regular Cloud SQL instance that is not replicating from a primary
  *        instance. (Value: "CLOUD_SQL_INSTANCE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_GreenInstance A Cloud
+ *        SQL instance acting as a Blue-Green deployment target primary. (MySQL
+ *        only) (Value: "GREEN_INSTANCE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance An
  *        instance running on the customer's premises that is not managed by
  *        Cloud SQL. (Value: "ON_PREMISES_INSTANCE")
@@ -6961,14 +7406,104 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
+ *  Represents a task executed as part of the deployment on a target instance.
+ */
+@interface GTLRSQLAdmin_DeploymentTask : GTLRObject
+
+/** Output only. Task end time (if completed). */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Optional error details if the task state is `FAILED`. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** Output only. Task start time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The current state of the task.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_State_Failed The task has failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_State_Pending The task is pending.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_State_Running The task is running.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_State_StateUnspecified The state of
+ *        the task is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_State_Succeeded The task has
+ *        succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The type of the task.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_Type_Delete Deletes the blue-green
+ *        deployment, including underlying resources. (Value: "DELETE")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_Type_PostSwitchoverOperations
+ *        Post-switchover operations, including cleaning up resources of the old
+ *        instance, taking final backups, and updating metadata. (Value:
+ *        "POST_SWITCHOVER_OPERATIONS")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_Type_Provision Provisions the green
+ *        environment, which includes creating the target instance. (Value:
+ *        "PROVISION")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_Type_Switchover Promotes the target
+ *        instance and then demotes the source instance for this pair. (Value:
+ *        "SWITCHOVER")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_Type_TypeUnspecified The default
+ *        value. This value is used if the type is omitted. (Value:
+ *        "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_DeploymentTask_Type_Upgrade Upgrades the green
+ *        environment, for example, performing a major version upgrade on the
+ *        target instance. (Value: "UPGRADE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Combined list of tasks for all paired nodes in the deployment.
+ */
+@interface GTLRSQLAdmin_DeploymentTasks : GTLRObject
+
+/**
+ *  Output only. Tasks performed or being performed on the paired nodes of the
+ *  deployment at a consolidated level.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DeploymentTask *> *task;
+
+@end
+
+
+/**
  *  Disk encryption configuration for an instance.
  */
 @interface GTLRSQLAdmin_DiskEncryptionConfiguration : GTLRObject
 
+/**
+ *  Optional. Whether to enforce CMEK log encryption at source. When enforced,
+ *  transaction logs are encrypted prior to being uploaded to Cloud Storage. If
+ *  not enforced, then CMEK logs are encrypted by the Cloud Storage service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cmekSourceLogEncryptionEnforced;
+
+/**
+ *  Optional. If true, enables Confidential Mode for the instance's Hyperdisk
+ *  Balanced volumes. Only supported for zonal C4A instances currently.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidentialMode;
+
 /** This is always `sql#diskEncryptionConfiguration`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Resource name of KMS key for disk encryption */
+/** Resource name of KMS key for disk encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 @end
@@ -8268,6 +8803,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  */
 @property(nonatomic, copy, nullable) NSString *backupdrBackup;
 
+/**
+ *  Optional. If true, the restore operation proceeds even if the target
+ *  instance's maintenance version is older than the source instance's
+ *  maintenance version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreMaintenanceVersion;
+
 /** Parameters required to perform the restore backup operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_RestoreBackupContext *restoreBackupContext;
 
@@ -8598,6 +9142,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
+ *  The response message for listing blue-green deployment resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "blueGreenDeployments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSQLAdmin_ListBlueGreenDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of blue-green deployment resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_BlueGreenDeployment *> *blueGreenDeployments;
+
+/**
+ *  A token to retrieve the next page of results, or empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Preferred location. This specifies where a Cloud SQL instance is located.
  *  Note that if the preferred location is not available, the instance will be
  *  located as close as possible within the region. Only one location may be
@@ -8794,6 +9365,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
+ *  Details about an instance within the deployment.
+ */
+@interface GTLRSQLAdmin_NodeInfo : GTLRObject
+
+/** Output only. The instance connection name. */
+@property(nonatomic, copy, nullable) NSString *connection;
+
+/** Output only. The unique DNS name for this instance. */
+@property(nonatomic, copy, nullable) NSString *dns;
+
+/**
+ *  Output only. The full resource name of the instance. Format:
+ *  projects/{project}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Output only. The list of IP addresses for this instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipMappings;
+
+@end
+
+
+/**
  *  On-premises instance configuration.
  */
 @interface GTLRSQLAdmin_OnPremisesConfiguration : GTLRObject
@@ -8945,6 +9539,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        minutes. (Value: "CLUSTER_MAINTENANCE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Create Creates a new Cloud
  *        SQL instance. (Value: "CREATE")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateBlueGreenDeployment
+ *        Creates a new Blue-Green deployment. (Value:
+ *        "CREATE_BLUE_GREEN_DEPLOYMENT")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateClone Creates clone
  *        instance. (Value: "CREATE_CLONE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_CreateDatabase Creates a
@@ -8961,6 +9558,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        instance. (Value: "DELETE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_DeleteBackup Deletes the
  *        backup taken by a backup run. (Value: "DELETE_BACKUP")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_DeleteBlueGreenDeployment
+ *        Deletes a Blue-Green deployment. (Value:
+ *        "DELETE_BLUE_GREEN_DEPLOYMENT")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_DeleteDatabase Deletes a
  *        database in the Cloud SQL instance. (Value: "DELETE_DATABASE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_DeleteUser Deletes a user
@@ -9046,6 +9646,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Switchover Switches the
  *        roles of the primary and replica pair. The target instance should be
  *        the replica. (Value: "SWITCHOVER")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SwitchoverBlueGreenDeployment
+ *        Switches over a Blue-Green deployment. (Value:
+ *        "SWITCHOVER_BLUE_GREEN_DEPLOYMENT")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SwitchoverToReplica Switches
  *        a primary instance to a replica. This operation runs as part of a
  *        switchover operation to the original primary instance. (Value:
@@ -9084,6 +9687,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
+ *  The context for the `StartWorkloadCapture` operation, which contains details
+ *  to start recording the workload (SQL queries) on a Cloud SQL instance.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadCaptureContext *startWorkloadCaptureContext;
+
+/**
+ *  The context for the `StartWorkloadReplay` operation, which contains details
+ *  about starting the execution of a captured workload (recorded read and write
+ *  SQL queries) on a replay instance (the Cloud SQL instance where the recorded
+ *  SQL queries are executed).
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadReplayContext *startWorkloadReplayContext;
+
+/**
  *  The status of an operation.
  *
  *  Likely values:
@@ -9098,6 +9715,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "SQL_OPERATION_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  The context for the `StopWorkloadCapture` operation, which contains details
+ *  to stop recording the workload (SQL queries) on a Cloud SQL instance.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadCaptureContext *stopWorkloadCaptureContext;
+
+/**
+ *  The context for the `StopWorkloadReplay` operation, which contains details
+ *  about stopping the execution of a captured workload (recorded read and write
+ *  SQL queries) on a replay instance.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadReplayContext *stopWorkloadReplayContext;
 
 /** Optional. The sub operation based on the operation type. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlSubOperationType *subOperationType;
@@ -9896,8 +10526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /**
  *  Optional. The network attachment of the consumer network that the Private
- *  Service Connect enabled Cloud SQL instance is authorized to connect via PSC
- *  interface. format: projects/PROJECT/regions/REGION/networkAttachments/ID
+ *  Service Connect enabled Cloud SQL instance is authorized to connect using
+ *  the PSC interface. format:
+ *  projects/PROJECT/regions/REGION/networkAttachments/ID
  */
 @property(nonatomic, copy, nullable) NSString *networkAttachmentUri;
 
@@ -10111,6 +10742,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  deleted.
  */
 @property(nonatomic, copy, nullable) NSString *psaWriteEndpoint;
+
+@end
+
+
+/**
+ *  Configuration specified by the user at creation time for the target (green)
+ *  instance.
+ */
+@interface GTLRSQLAdmin_RequestedConfig : GTLRObject
+
+/**
+ *  Optional. The target database major version for the upgrade. For example,
+ *  `MYSQL_8_0` or `POSTGRES_15`.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
 
 @end
 
@@ -10520,7 +11166,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
 
-/** The local user password validation policy of the instance. */
+/**
+ *  The local user password validation policy of the instance for PostgreSQL and
+ *  MySQL.
+ */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_PasswordValidationPolicy *passwordValidationPolicy;
 
 /**
@@ -10642,6 +11291,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        fetch them all at once.
  */
 @interface GTLRSQLAdmin_Settings_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  The source instance for the Blue-Green deployment.
+ */
+@interface GTLRSQLAdmin_SourceRole : GTLRObject
+
+/**
+ *  Output only. The target instance paired with this source instance in a
+ *  blue-green deployment.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_InstanceReference *targetId;
+
+@end
+
+
+/**
+ *  Represents a pairing of a source instance node and a target instance node.
+ */
+@interface GTLRSQLAdmin_SourceTargetPairedNode : GTLRObject
+
+/**
+ *  Output only. Describes the list of differences for the
+ *  `SourceTargetPairedNode`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_ConfigDiff *> *diffs;
+
+/**
+ *  Output only. Specifies the resource name of the source instance in this
+ *  pair.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_NodeInfo *source;
+
+/**
+ *  Output only. Specifies the current state of this specific source-target
+ *  pair.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_Deleting The paired
+ *        node is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_Provisioned The paired
+ *        node is provisioned. (Value: "PROVISIONED")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_Provisioning The paired
+ *        node is being provisioned. (Value: "PROVISIONING")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_StateUnspecified The
+ *        state of the paired node is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverFailed
+ *        Switchover failed on the paired node. (Value: "SWITCHOVER_FAILED")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverInProgress
+ *        Switchover is in progress. (Value: "SWITCHOVER_IN_PROGRESS")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_SwitchoverSucceeded
+ *        Switchover completed successfully. (Value: "SWITCHOVER_SUCCEEDED")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_Upgraded The paired
+ *        node is upgraded. (Value: "UPGRADED")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_UpgradeFailed Upgrade
+ *        failed on the paired node. (Value: "UPGRADE_FAILED")
+ *    @arg @c kGTLRSQLAdmin_SourceTargetPairedNode_State_Upgrading The paired
+ *        node is upgrading. (Value: "UPGRADING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Specifies details of the corresponding target instance in this
+ *  pair.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_NodeInfo *target;
+
 @end
 
 
@@ -10907,6 +11624,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        replica_overwrite_enabled was set in the request acknowledging this.
  *        This is a warning rather than an error. MySQL only. (Value:
  *        "WILL_DELETE_EXISTING")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WritableDestinationReplicaRecreationDowntime
+ *        Read replicas of the Writable Destination instance will be recreated
+ *        after external synchronization is complete, causing downtime on read
+ *        replicas. (Value: "WRITABLE_DESTINATION_REPLICA_RECREATION_DOWNTIME")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_WritableDestinationStorageAutoIncreaseDisabled
+ *        A warning that disk storage auto increase is disabled on the
+ *        destination instance for a Writable Destination migration. (Value:
+ *        "WRITABLE_DESTINATION_STORAGE_AUTO_INCREASE_DISABLED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -10925,7 +11650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
- *  Execute SQL statements response.
+ *  GTLRSQLAdmin_SqlInstancesExecuteSqlResponse
  */
 @interface GTLRSQLAdmin_SqlInstancesExecuteSqlResponse : GTLRObject
 
@@ -11019,6 +11744,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  Instance reset replica size request.
  */
 @interface GTLRSQLAdmin_SqlInstancesResetReplicaSizeRequest : GTLRObject
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 @end
 
 
@@ -11026,6 +11755,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  Instance start external sync request.
  */
 @interface GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest : GTLRObject
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. MigrationType configures the migration to use physical files or
@@ -11103,6 +11835,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  Instance verify external sync settings request.
  */
 @interface GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest : GTLRObject
+
+/** Optional. Region of the Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. MigrationType configures the migration to use physical files or
@@ -11318,13 +12053,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @interface GTLRSQLAdmin_SqlServerUserDetails : GTLRObject
 
 /**
- *  If the user has been disabled
+ *  Indicates if the user has been disabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
-/** The server roles for this user */
+/** Indicates the server roles for this user. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serverRoles;
 
 @end
@@ -11362,6 +12097,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "SQL_MAINTENANCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *maintenanceType;
+
+@end
+
+
+/**
+ *  Request to start executing a captured workload on a replay instance (the
+ *  Cloud SQL instance where the recorded SQL queries are executed).
+ */
+@interface GTLRSQLAdmin_SqlWorkloadCapturesStartReplayRequest : GTLRObject
+
+/** Required. Contains details about the start workload replay operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadReplayContext *startWorkloadReplayContext;
+
+@end
+
+
+/**
+ *  Request to start recording traffic from the primary instance (captured
+ *  workload).
+ */
+@interface GTLRSQLAdmin_SqlWorkloadCapturesStartRequest : GTLRObject
+
+/** Optional. Contains details about the start workload capture operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StartWorkloadCaptureContext *startWorkloadCaptureContext;
+
+@end
+
+
+/**
+ *  Request to stop executing a captured workload on a replay instance.
+ */
+@interface GTLRSQLAdmin_SqlWorkloadCapturesStopReplayRequest : GTLRObject
+
+/** Required. Contains details about the stop workload replay operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadReplayContext *stopWorkloadReplayContext;
+
+@end
+
+
+/**
+ *  Request to stop recording traffic from the primary instance.
+ */
+@interface GTLRSQLAdmin_SqlWorkloadCapturesStopRequest : GTLRObject
+
+/** Optional. Contains details about the stop workload capture operation. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_StopWorkloadCaptureContext *stopWorkloadCaptureContext;
 
 @end
 
@@ -11501,6 +12282,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
+ *  The context for the `StartWorkloadCapture` operation, which contains details
+ *  to start recording the workload (SQL queries) on a Cloud SQL instance.
+ */
+@interface GTLRSQLAdmin_StartWorkloadCaptureContext : GTLRObject
+
+/**
+ *  Optional. If true, the captured workload is simultaneously executed on a
+ *  separate, ephemeral Cloud SQL instance. This "live replay" instance is
+ *  automatically provisioned and is cloned from the source instance. If false
+ *  (the default), the workload is only stored and no live replay occurs. It can
+ *  be replayed later using a separate `StartWorkloadReplayRequest`. Note: The
+ *  workload capture runs continuously until an explicit
+ *  `StopWorkloadCaptureRequest` is issued.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableLiveReplay;
+
+/**
+ *  Optional. Required if `enable_live_replay` is true. The name of the Cloud
+ *  SQL instance where the captured workload (SQL queries) is being executed,
+ *  excluding the project ID (for example, `my-replay-instance`). The instance
+ *  name must start with a lowercase letter and contain only lowercase letters,
+ *  numbers, and hyphens. The combined length of `project-ID:instance-name` must
+ *  be 98 characters or less.
+ */
+@property(nonatomic, copy, nullable) NSString *replayInstance;
+
+@end
+
+
+/**
+ *  The context for the `StartWorkloadReplay` operation, which contains details
+ *  about starting the execution of a captured workload (recorded read and write
+ *  SQL queries) on a replay instance (the Cloud SQL instance where the recorded
+ *  SQL queries are executed).
+ */
+@interface GTLRSQLAdmin_StartWorkloadReplayContext : GTLRObject
+
+/**
+ *  Required. The name of the Cloud SQL instance where the captured workload
+ *  (SQL queries) is being executed, excluding the project ID (for example,
+ *  `my-replay-instance`). The instance name must start with a lowercase letter
+ *  and contain only lowercase letters, numbers, and hyphens. The combined
+ *  length of `project-ID:instance-name` must be 98 characters or less.
+ */
+@property(nonatomic, copy, nullable) NSString *replayInstance;
+
+/**
+ *  Output only. The ID of the workload to start executing on the replay
+ *  instance. Each workload capture generates a unique ID in the format
+ *  `workload-` (for example, `workload-1786046400`). Use this ID to start
+ *  executing the recorded SQL queries.
+ */
+@property(nonatomic, copy, nullable) NSString *workloadId;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -11546,6 +12387,60 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
+ *  The context for the `StopWorkloadCapture` operation, which contains details
+ *  to stop recording the workload (SQL queries) on a Cloud SQL instance.
+ */
+@interface GTLRSQLAdmin_StopWorkloadCaptureContext : GTLRObject
+
+/**
+ *  Optional. If true, immediately aborts the concurrent live replay and
+ *  discards any un-replayed traffic alongside stopping the capture. If false
+ *  (the default), the capture stops recording new traffic, but the live replay
+ *  will continue executing until the entire backlog of captured traffic has
+ *  been replayed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *abortLiveReplay;
+
+@end
+
+
+/**
+ *  The context for the `StopWorkloadReplay` operation, which contains details
+ *  about stopping the execution of a captured workload (recorded read and write
+ *  SQL queries) on a replay instance.
+ */
+@interface GTLRSQLAdmin_StopWorkloadReplayContext : GTLRObject
+
+/**
+ *  Required. The name of the Cloud SQL instance where the captured workload
+ *  (SQL queries) is being executed, excluding the project ID (for example,
+ *  `my-replay-instance`). The instance name must start with a lowercase letter
+ *  and contain only lowercase letters, numbers, and hyphens. The combined
+ *  length of `project-ID:instance-name` must be 98 characters or less.
+ */
+@property(nonatomic, copy, nullable) NSString *replayInstance;
+
+/**
+ *  Output only. The ID of the workload to stop executing on the replay
+ *  instance. Each workload capture generates a unique ID in the format
+ *  `workload-` (for example, `workload-1786046400`). Use this ID to stop
+ *  executing the recorded SQL queries.
+ */
+@property(nonatomic, copy, nullable) NSString *workloadId;
+
+@end
+
+
+/**
+ *  Request message for switching over a `BlueGreenDeployment` resource.
+ */
+@interface GTLRSQLAdmin_SwitchoverBlueGreenDeploymentRequest : GTLRObject
+@end
+
+
+/**
  *  Initial sync flags for certain Cloud SQL APIs. Currently used for the MySQL
  *  external server initial dump.
  */
@@ -11577,6 +12472,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetValue;
+
+@end
+
+
+/**
+ *  The target instance for the Blue-Green deployment.
+ */
+@interface GTLRSQLAdmin_TargetRole : GTLRObject
+
+/**
+ *  Output only. The source instance paired with this target instance in a
+ *  blue-green deployment.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_InstanceReference *sourceId;
 
 @end
 
@@ -11770,8 +12679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamUser Cloud IAM user. (Value:
  *        "CLOUD_IAM_USER")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamWorkforceIdentity Cloud IAM
- *        workforce identity user managed via workforce identity federation.
- *        (Value: "CLOUD_IAM_WORKFORCE_IDENTITY")
+ *        workforce identity managed by Workforce Identity Federation. (Value:
+ *        "CLOUD_IAM_WORKFORCE_IDENTITY")
  *    @arg @c kGTLRSQLAdmin_User_Type_EntraidUser Microsoft Entra ID user.
  *        (Value: "ENTRAID_USER")
  */
@@ -11857,6 +12766,67 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /** The cell value in string format. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Captured workload for an instance.
+ */
+@interface GTLRSQLAdmin_WorkloadCapture : GTLRObject
+
+/** Output only. The end time of the workload capture. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The name of the replay instance, if live replay was enabled.
+ */
+@property(nonatomic, copy, nullable) NSString *replayInstance;
+
+/**
+ *  Output only. The retention period in days for the captured workload.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionDays;
+
+/** Output only. The name of the source instance. */
+@property(nonatomic, copy, nullable) NSString *sourceInstance;
+
+/** Output only. The start time of the workload capture. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The state of the workload capture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Completed
+ *        Workload capture completed successfully. (Value: "COMPLETED")
+ *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Failed Workload
+ *        capture failed. (Value: "FAILED")
+ *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_Running
+ *        Workload capture is currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRSQLAdmin_WorkloadCapture_WorkloadCaptureState_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workloadCaptureState;
+
+/** Output only. The ID of the captured workload. */
+@property(nonatomic, copy, nullable) NSString *workloadId;
+
+@end
+
+
+/**
+ *  GTLRSQLAdmin_WorkloadCapturesListResponse
+ */
+@interface GTLRSQLAdmin_WorkloadCapturesListResponse : GTLRObject
+
+/** This is always `sql#workloadCapturesList`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** List of captured workloads for the instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_WorkloadCapture *> *workloadCaptures;
 
 @end
 

@@ -671,7 +671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
 
 /**
  *  Metadata for a private key instance managed by an external key access
- *  control list service.
+ *  control list service. The maximum size of the KACLS data field is 8 KiB.
  */
 @property(nonatomic, strong, nullable) GTLRGmail_KaclsKeyMetadata *kaclsKeyMetadata;
 
@@ -1045,21 +1045,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_I
 
 
 /**
- *  Metadata for private keys managed by an external key access control list
- *  service. For details about managing key access, see [Google Workspace CSE
- *  API Reference](https://developers.google.com/workspace/cse/reference).
+ *  Metadata for a cryptographic key managed by an external key access control
+ *  list service. For details about managing key access, see [Google Workspace
+ *  CSE API Reference](https://developers.google.com/workspace/cse/reference).
  */
 @interface GTLRGmail_KaclsKeyMetadata : GTLRObject
 
-/**
- *  Opaque data generated and used by the key access control list service.
- *  Maximum size: 8 KiB.
- */
+/** Opaque data generated and used by the key access control list service. */
 @property(nonatomic, copy, nullable) NSString *kaclsData;
 
-/**
- *  The URI of the key access control list service that manages the private key.
- */
+/** The URI of the key access control list service that manages the key. */
 @property(nonatomic, copy, nullable) NSString *kaclsUri;
 
 @end

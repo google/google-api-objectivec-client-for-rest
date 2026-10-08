@@ -480,8 +480,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_St
 
 /**
  *  A user-supplied email address to send case update notifications for. This
- *  should only be used in BYOID flows, where we cannot infer the user's email
- *  address directly from their EUCs.
+ *  field must be set when the request is authenticated using a Workforce
+ *  Identity Federation (BYOID) flow and must not be set otherwise. When unset,
+ *  the contact email is inferred from the authenticated user's credentials. If
+ *  you use a service account to create the case and its inferred email address
+ *  cannot receive emails, you should add appropriate contact emails in the
+ *  `subscriber_email_addresses` field.
  */
 @property(nonatomic, copy, nullable) NSString *contactEmail;
 
@@ -489,8 +493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_St
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The user who created the case. Note: The name and email will be obfuscated
- *  if the case was created by Google Support.
+ *  The user who created the case. This field is ignored on input. Note: The
+ *  name and email will be obfuscated if the case was created by Google Support.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSupport_Actor *creator;
 
@@ -1365,7 +1369,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_SupportEventSubscription_St
 
 
 /**
- *  A support event subscription.
+ *  A support event subscription. You can also manage support event
+ *  subscriptions using other tools: * [`gcloud support
+ *  support-event-subscriptions`](/sdk/gcloud/reference/support/support-event-subscriptions)
+ *  (or [`gcloud
+ *  beta`](/sdk/gcloud/reference/beta/support/support-event-subscriptions) for
+ *  beta) * [Terraform
+ *  `google_cloud_support_support_event_subscription`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_support_support_event_subscription)
+ *  (or [google-beta
+ *  provider](https://registry.terraform.io/providers/hashicorp/google-beta/latest/docs/resources/cloud_support_support_event_subscription)
+ *  for beta)
  */
 @interface GTLRCloudSupport_SupportEventSubscription : GTLRObject
 

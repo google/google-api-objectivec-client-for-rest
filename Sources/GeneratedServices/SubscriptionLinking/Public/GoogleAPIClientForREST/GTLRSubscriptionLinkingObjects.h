@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRSubscriptionLinking_Entitlement;
+@class GTLRSubscriptionLinking_ReaderEntitlements;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -64,6 +65,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  Google.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionToken;
+
+@end
+
+
+/**
+ *  Response containing the aggregated collection of matching ReaderEntitlements
+ *  objects.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "readerEntitlements" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSubscriptionLinking_ListReaderEntitlementsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The collection of ReaderEntitlements found across the scoped child
+ *  publications. Every element's `name` field will contain the canonical
+ *  sub-publication path, never the wildcard dash.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSubscriptionLinking_ReaderEntitlements *> *readerEntitlements;
 
 @end
 

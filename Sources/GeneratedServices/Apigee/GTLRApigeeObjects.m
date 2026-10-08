@@ -329,6 +329,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeg
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCloudTrace = @"OPEN_TELEMETRY_CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCollector = @"OPEN_TELEMETRY_COLLECTOR";
 
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.otelCollectorSecurityScheme
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_OtelCollectorSecurityScheme_Mtls = @"MTLS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_OtelCollectorSecurityScheme_None = @"NONE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_OtelCollectorSecurityScheme_OtelCollectorSecuritySchemeUnspecified = @"OTEL_COLLECTOR_SECURITY_SCHEME_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.spanSemantics
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Legacy = @"LEGACY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_SpanSemantics_Otel = @"OTEL";
@@ -470,6 +475,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUns
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger = @"JAEGER";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCloudTrace = @"OPEN_TELEMETRY_CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCollector = @"OPEN_TELEMETRY_COLLECTOR";
+
+// GTLRApigee_GoogleCloudApigeeV1TraceConfig.otelCollectorSecurityScheme
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_OtelCollectorSecurityScheme_Mtls = @"MTLS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_OtelCollectorSecurityScheme_None = @"NONE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_OtelCollectorSecurityScheme_OtelCollectorSecuritySchemeUnspecified = @"OTEL_COLLECTOR_SECURITY_SCHEME_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1TraceConfig.spanSemantics
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_SpanSemantics_Legacy = @"LEGACY";
@@ -1551,12 +1561,14 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess
-@dynamic analyticsPublisherIdentities, name, synchronizerIdentities;
+@dynamic analyticsPublisherIdentities, name, synchronizerIdentities,
+         watcherIdentities;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"analyticsPublisherIdentities" : [NSString class],
-    @"synchronizerIdentities" : [NSString class]
+    @"synchronizerIdentities" : [NSString class],
+    @"watcherIdentities" : [NSString class]
   };
   return map;
 }
@@ -3728,6 +3740,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1McpServerConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1McpServerConfig
+@dynamic mcpServerConfigDataLocation, name, revisionCreateTime, revisionId, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1Metadata
 //
 
@@ -4655,7 +4677,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RuntimeAddonsConfig
-@dynamic analyticsConfig, apiSecurityConfig, name, revisionId, uid;
+@dynamic analyticsConfig, apiSecurityConfig, name, revisionId,
+         specGenerationConfig, uid;
 @end
 
 
@@ -4691,13 +4714,24 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1RuntimeSpecGenerationAddonConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RuntimeSpecGenerationAddonConfig
+@dynamic apiObservationsPubsubTopic, enabled, enabledUntil,
+         rawObservationsPubsubTopic, samplingRate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig
-@dynamic endpoint, exporter, name, openTelemetryProtocolEnabled, overrides,
-         revisionCreateTime, revisionId, samplingConfig, spanSemantics,
-         traceProtocol;
+@dynamic endpoint, exporter, mTlsConfig, name, openTelemetryProtocolEnabled,
+         otelCollectorSecurityScheme, overrides, revisionCreateTime, revisionId,
+         samplingConfig, spanSemantics, traceProtocol;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4706,6 +4740,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOtelMtlsConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOtelMtlsConfig
+@dynamic keyAlias, keyAliasReference, trustStore;
 @end
 
 
@@ -5691,7 +5735,18 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1TraceConfig
-@dynamic endpoint, exporter, samplingConfig, spanSemantics, traceProtocol;
+@dynamic endpoint, exporter, mtlsConfig, otelCollectorSecurityScheme,
+         samplingConfig, spanSemantics, traceProtocol;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1TraceConfigOtelMtlsConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1TraceConfigOtelMtlsConfig
+@dynamic keyAlias, keyStore, trustStore;
 @end
 
 

@@ -494,6 +494,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_Mi
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingSignature;
 /**
+ *  Fetch request from the Google server to the key service has failed.
+ *
+ *  Value: "SERVER_SIDE_FETCH_REQUEST_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_ServerSideFetchRequestError;
+/**
  *  SMIME only: the algorithm name in the response is not supported by the
  *  client.
  *
@@ -629,6 +635,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatWarnUser;
 /**
+ *  Block text copied from Chrome.
+ *
+ *  Value: "CHROME_BLOCK_DATA_COPIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockDataCopied;
+/**
  *  Chrome actions. Block file download.
  *
  *  Value: "CHROME_BLOCK_FILE_DOWNLOAD"
@@ -677,11 +689,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeForceSaveToCloud;
 /**
+ *  Keep in managed Chrome.
+ *
+ *  Value: "CHROME_KEEP_IN_MANAGED_CHROME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeKeepInManagedChrome;
+/**
  *  Store the content that violated the rule.
  *
  *  Value: "CHROME_STORE_CONTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeStoreContent;
+/**
+ *  Warn on text copied from Chrome.
+ *
+ *  Value: "CHROME_WARN_DATA_COPIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnDataCopied;
 /**
  *  Warn user about downloaded file.
  *
@@ -837,6 +861,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_Ch
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload;
 /**
+ *  Network request from Chrome.
+ *
+ *  Value: "CHROME_NETWORK_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeNetworkRequest;
+/**
  *  A file being transferred (copy or moved) between different file systems on
  *  ChromeOS.
  *
@@ -914,6 +944,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatWarnUser;
 /**
+ *  Block text copied from Chrome.
+ *
+ *  Value: "CHROME_BLOCK_DATA_COPIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockDataCopied;
+/**
  *  Chrome actions. Block file download.
  *
  *  Value: "CHROME_BLOCK_FILE_DOWNLOAD"
@@ -962,11 +998,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeForceSaveToCloud;
 /**
+ *  Keep in managed Chrome.
+ *
+ *  Value: "CHROME_KEEP_IN_MANAGED_CHROME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeKeepInManagedChrome;
+/**
  *  Store the content that violated the rule.
  *
  *  Value: "CHROME_STORE_CONTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeStoreContent;
+/**
+ *  Warn on text copied from Chrome.
+ *
+ *  Value: "CHROME_WARN_DATA_COPIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnDataCopied;
 /**
  *  Warn user about downloaded file.
  *
@@ -2381,6 +2429,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingSignature SMIME
  *        sign only: The sign response did not contain the signature. (Value:
  *        "MISSING_SIGNATURE")
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_ServerSideFetchRequestError
+ *        Fetch request from the Google server to the key service has failed.
+ *        (Value: "SERVER_SIDE_FETCH_REQUEST_ERROR")
  *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_UnsupportedAlgorithm
  *        SMIME only: the algorithm name in the response is not supported by the
  *        client. (Value: "UNSUPPORTED_ALGORITHM")
@@ -2824,6 +2875,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *        "CHROME_FILE_DOWNLOAD")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload A file
  *        being uploaded from a Chrome browser. (Value: "CHROME_FILE_UPLOAD")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeNetworkRequest
+ *        Network request from Chrome. (Value: "CHROME_NETWORK_REQUEST")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeosFileTransfer A
  *        file being transferred (copy or moved) between different file systems
  *        on ChromeOS. (Value: "CHROMEOS_FILE_TRANSFER")

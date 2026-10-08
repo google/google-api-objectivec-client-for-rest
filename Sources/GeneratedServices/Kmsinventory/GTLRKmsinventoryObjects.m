@@ -47,6 +47,8 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Hm
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemXwing = @"KEM_XWING";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem1024 = @"ML_KEM_1024";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem768 = @"ML_KEM_768";
@@ -118,6 +120,8 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algo
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemEcdhP256 = @"KEM_ECDH_P256";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemEcdhP384 = @"KEM_ECDH_P384";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemXwing = @"KEM_XWING";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem1024 = @"ML_KEM_1024";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem768 = @"ML_KEM_768";
@@ -173,6 +177,7 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy
 // GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation.format
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_AttestationFormatUnspecified = @"ATTESTATION_FORMAT_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV1Compressed = @"CAVIUM_V1_COMPRESSED";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV209 = @"CAVIUM_V209";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Format_CaviumV2Compressed = @"CAVIUM_V2_COMPRESSED";
 
 // ----------------------------------------------------------------------------

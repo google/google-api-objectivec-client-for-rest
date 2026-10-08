@@ -38,6 +38,169 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates an admin access binding in the specified GMP organization.
+ *
+ *  Method: marketingplatformadmin.organizations.adminAccessBindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsCreate : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The parent organization, which owns this Admin Access Binding.
+ *  Format: organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding.
+ *
+ *  Creates an admin access binding in the specified GMP organization.
+ *
+ *  @param object The @c GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding
+ *    to include in the query.
+ *  @param parent Required. The parent organization, which owns this Admin
+ *    Access Binding. Format: organizations/{org_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Looks up a single admin access binding.
+ *
+ *  Method: marketingplatformadmin.organizations.adminAccessBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsGet : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The name of the AdminAccessBinding to retrieve. Format:
+ *  organizations/{org_id}/adminAccessBindings/{admin_access_binding_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding.
+ *
+ *  Looks up a single admin access binding.
+ *
+ *  @param name Required. The name of the AdminAccessBinding to retrieve.
+ *    Format:
+ *    organizations/{org_id}/adminAccessBindings/{admin_access_binding_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of admin access bindings in the specified GMP organization.
+ *
+ *  Method: marketingplatformadmin.organizations.adminAccessBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsList : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Optional. The maximum number of Admin Access Bindings to return in one call.
+ *  The service may return fewer than this value. If unspecified, at most 50
+ *  Admin Access Bindings will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListAdminAccessBindings
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListAdminAccessBindings` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent organization, which owns this collection of Admin
+ *  Access Bindings. Format: organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleMarketingPlatformAdminAPI_ListAdminAccessBindingsResponse.
+ *
+ *  Returns a list of admin access bindings in the specified GMP organization.
+ *
+ *  @param parent Required. The parent organization, which owns this collection
+ *    of Admin Access Bindings. Format: organizations/{org_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an admin access binding in the specified GMP organization.
+ *
+ *  Method: marketingplatformadmin.organizations.adminAccessBindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsPatch : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Identifier. The resource name of this AdminAccessBinding. Format:
+ *  organizations/{org_id}/adminAccessBindings/{admin_access_binding_id}
+ *  Example: "organizations/123abc/adminAccessBindings/456def"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. Field names must be in snake case
+ *  (for example, "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding.
+ *
+ *  Updates an admin access binding in the specified GMP organization.
+ *
+ *  @param object The @c GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding
+ *    to include in the query.
+ *  @param name Identifier. The resource name of this AdminAccessBinding.
+ *    Format:
+ *    organizations/{org_id}/adminAccessBindings/{admin_access_binding_id}
+ *    Example: "organizations/123abc/adminAccessBindings/456def"
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsAdminAccessBindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_AdminAccessBinding *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates the link between the Analytics account and the Google Marketing
  *  Platform organization. User needs to be an org user, and admin on the
  *  Analytics account to create the link. If the account is already linked to an
@@ -363,6 +526,387 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageRequest *)object
                    organization:(NSString *)organization;
+
+@end
+
+/**
+ *  Creates a user group in the specified GMP organization.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsCreate : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The parent resource where this UserGroup will be created. Format:
+ *  organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_UserGroup.
+ *
+ *  Creates a user group in the specified GMP organization.
+ *
+ *  @param object The @c GTLRGoogleMarketingPlatformAdminAPI_UserGroup to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this UserGroup will be
+ *    created. Format: organizations/{org_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a user group in the specified GMP organization.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsDelete : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The name of the user group to delete. Format:
+ *  organizations/{org_id}/userGroups/{user_group_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_Empty.
+ *
+ *  Deletes a user group in the specified GMP organization.
+ *
+ *  @param name Required. The name of the user group to delete. Format:
+ *    organizations/{org_id}/userGroups/{user_group_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Looks up a single user group.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsGet : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The name of the UserGroup to retrieve. Format:
+ *  organizations/{org_id}/userGroups/{user_group_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_UserGroup.
+ *
+ *  Looks up a single user group.
+ *
+ *  @param name Required. The name of the UserGroup to retrieve. Format:
+ *    organizations/{org_id}/userGroups/{user_group_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of user groups in the specified GMP organization.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsList : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Optional. The maximum number of user groups to return in one call. The
+ *  service may return fewer than this value. If unspecified, at most 50 user
+ *  groups will be returned. The maximum value is 1000; values above 1000 will
+ *  be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListUserGroups call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListUserGroups` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent org where this UserGroup will be listed. Format:
+ *  organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupsResponse.
+ *
+ *  Returns a list of user groups in the specified GMP organization.
+ *
+ *  @param parent Required. The parent org where this UserGroup will be listed.
+ *    Format: organizations/{org_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Adds a member to the specified GMP user group.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.members.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersCreate : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The parent resource where this UserGroupMember will be created.
+ *  Format: organizations/{org_id}/userGroups/{user_group_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember.
+ *
+ *  Adds a member to the specified GMP user group.
+ *
+ *  @param object The @c GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this UserGroupMember will
+ *    be created. Format: organizations/{org_id}/userGroups/{user_group_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a member in the specified GMP user group.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.members.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersDelete : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The name of the user group member to delete. Format:
+ *  organizations/{org_id}/userGroups/{user_group_id}/members/{member_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_Empty.
+ *
+ *  Deletes a member in the specified GMP user group.
+ *
+ *  @param name Required. The name of the user group member to delete. Format:
+ *    organizations/{org_id}/userGroups/{user_group_id}/members/{member_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Looks up a single user group member.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.members.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersGet : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The name of the user group member to retrieve. Format:
+ *  organizations/{org_id}/userGroups/{user_group_id}/members/{member_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember.
+ *
+ *  Looks up a single user group member.
+ *
+ *  @param name Required. The name of the user group member to retrieve. Format:
+ *    organizations/{org_id}/userGroups/{user_group_id}/members/{member_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of members in the specified user group.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.members.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersList : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Optional. The maximum number of user group members to return in one call.
+ *  The service may return fewer than this value. If unspecified, at most 50
+ *  user group members will be returned. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListUserGroupMembers call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListUserGroupMembers` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent user group where this UserGroupMember will be listed.
+ *  Format: organizations/{org_id}/userGroups/{user_group_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleMarketingPlatformAdminAPI_ListUserGroupMembersResponse.
+ *
+ *  Returns a list of members in the specified user group.
+ *
+ *  @param parent Required. The parent user group where this UserGroupMember
+ *    will be listed. Format: organizations/{org_id}/userGroups/{user_group_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a member in the specified GMP user group.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.members.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersPatch : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Identifier. The resource name of this UserGroupMember. Format:
+ *  organizations/{org_id}/userGroups/{user_group_id}/members/{member_id}
+ *  Example: "organizations/123abc/userGroups/456def/members/789ghi"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. Field names must be in snake case
+ *  (for example, "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember.
+ *
+ *  Updates a member in the specified GMP user group.
+ *
+ *  @param object The @c GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember to
+ *    include in the query.
+ *  @param name Identifier. The resource name of this UserGroupMember. Format:
+ *    organizations/{org_id}/userGroups/{user_group_id}/members/{member_id}
+ *    Example: "organizations/123abc/userGroups/456def/members/789ghi"
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsMembersPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroupMember *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a user group in the specified GMP organization.
+ *
+ *  Method: marketingplatformadmin.organizations.userGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsPatch : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Identifier. Resource name of this UserGroup. Format:
+ *  organizations/{org_id}/userGroups/{user_group_id} Example:
+ *  "organizations/123abc/userGroups/456def"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. Field names must be in snake case
+ *  (for example, "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_UserGroup.
+ *
+ *  Updates a user group in the specified GMP organization.
+ *
+ *  @param object The @c GTLRGoogleMarketingPlatformAdminAPI_UserGroup to
+ *    include in the query.
+ *  @param name Identifier. Resource name of this UserGroup. Format:
+ *    organizations/{org_id}/userGroups/{user_group_id} Example:
+ *    "organizations/123abc/userGroups/456def"
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsUserGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_UserGroup *)object
+                           name:(NSString *)name;
 
 @end
 

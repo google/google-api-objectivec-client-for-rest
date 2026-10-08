@@ -373,6 +373,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1LimitedUseConfig
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1LimitedUseConfig
+@dynamic jti;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListDebugTokensResponse
 //
 
@@ -434,6 +444,26 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayPro
   return @"services";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenRequest
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenRequest
+@dynamic limitedUseConfig, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenResponse
+@dynamic token, ttl;
 @end
 
 

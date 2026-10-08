@@ -58,6 +58,9 @@
 @class GTLRAndroidPublisher_CatalogDeviceSelector;
 @class GTLRAndroidPublisher_CatalogPermission;
 @class GTLRAndroidPublisher_CatalogSdkVersion;
+@class GTLRAndroidPublisher_CertificateHashes;
+@class GTLRAndroidPublisher_CloudKmsKey;
+@class GTLRAndroidPublisher_CloudKmsKeyAndCert;
 @class GTLRAndroidPublisher_CoarseLocation;
 @class GTLRAndroidPublisher_Comment;
 @class GTLRAndroidPublisher_CompatibleScreen;
@@ -94,9 +97,12 @@
 @class GTLRAndroidPublisher_DeviceTier;
 @class GTLRAndroidPublisher_DeviceTierConfig;
 @class GTLRAndroidPublisher_DeviceTierSet;
+@class GTLRAndroidPublisher_EnrollExistingApp;
+@class GTLRAndroidPublisher_EnrollNewApp;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternalAccountIdentifiers;
 @class GTLRAndroidPublisher_ExternalAccountIds;
+@class GTLRAndroidPublisher_ExternalContentLinkDetails;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
 @class GTLRAndroidPublisher_ExternalOfferDetails;
 @class GTLRAndroidPublisher_ExternalSubscription;
@@ -156,6 +162,7 @@
 @class GTLRAndroidPublisher_OneTimeProduct;
 @class GTLRAndroidPublisher_OneTimeProductBuyPurchaseOption;
 @class GTLRAndroidPublisher_OneTimeProductDiscountedOffer;
+@class GTLRAndroidPublisher_OneTimeProductGameRewardOffer;
 @class GTLRAndroidPublisher_OneTimeProductListing;
 @class GTLRAndroidPublisher_OneTimeProductOffer;
 @class GTLRAndroidPublisher_OneTimeProductOfferNoPriceOverrideOptions;
@@ -236,6 +243,7 @@
 @class GTLRAndroidPublisher_RevocationContextFullRefund;
 @class GTLRAndroidPublisher_RevocationContextItemBasedRefund;
 @class GTLRAndroidPublisher_RevocationContextProratedRefund;
+@class GTLRAndroidPublisher_RotatedCloudKmsKey;
 @class GTLRAndroidPublisher_ScreenDensity;
 @class GTLRAndroidPublisher_ScreenDensityTargeting;
 @class GTLRAndroidPublisher_ScreenshotSet;
@@ -1123,6 +1131,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequ
  *  Value: "USE_32_BIT_ABI_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeviceCompatibilityRequirements_Use32BitAbi_Use32BitAbiUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ExternalContentLinkDetails.externalAppCategory
+
+/**
+ *  The app is classified under the app category.
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_App;
+/**
+ *  Unspecified, do not use.
+ *
+ *  Value: "EXTERNAL_CONTENT_APP_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_ExternalContentAppCategoryUnspecified;
+/**
+ *  The app is classified under the game category.
+ *
+ *  Value: "GAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_Game;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ExternalContentLinkDetails.linkType
+
+/**
+ *  Unspecified, do not use.
+ *
+ *  Value: "EXTERNAL_CONTENT_LINK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_ExternalContentLinkTypeUnspecified;
+/**
+ *  An app install.
+ *
+ *  Value: "LINK_TO_APP_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_LinkToAppDownload;
+/**
+ *  An offer to purchase digital content.
+ *
+ *  Value: "LINK_TO_DIGITAL_CONTENT_OFFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_LinkToDigitalContentOffer;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ExternalOfferDetails.installedAppCategory
@@ -2489,6 +2541,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseL
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RotateAppSigningKeyRequest.keyRotationReason
+
+/**
+ *  Key is compromised.
+ *
+ *  Value: "COMPROMISED_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_CompromisedKey;
+/**
+ *  Unspecified key rotation reason. Cannot be used.
+ *
+ *  Value: "KEY_ROTATION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_KeyRotationReasonUnspecified;
+/**
+ *  Other reason.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_Other;
+/**
+ *  Routine key upgrade.
+ *
+ *  Value: "ROUTINE_KEY_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_RoutineKeyUpgrade;
+/**
+ *  Same key is used for multiple apps.
+ *
+ *  Value: "USE_SAME_KEY_FOR_MULTIPLE_APPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_UseSameKeyForMultipleApps;
+/**
+ *  Stronger key is required.
+ *
+ *  Value: "USE_STRONGER_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_UseStrongerKey;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ScreenDensity.densityAlias
 
 /**
@@ -3114,11 +3206,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_AccessState_Invite
 // GTLRAndroidPublisher_User.developerAccountPermissions
 
 /**
- *  Choose whether apps are public, or only available to your organization.
+ *  Deprecated: This permission is no longer supported. Choose whether apps are
+ *  public, or only available to your organization.
  *
  *  Value: "CAN_CHANGE_MANAGED_PLAY_SETTING_GLOBAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChangeManagedPlaySettingGlobal;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChangeManagedPlaySettingGlobal GTLR_DEPRECATED;
 /**
  *  Create and publish private apps to your organization.
  *
@@ -3917,15 +4010,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_Requi
 
 
 /**
- *  An installable set of active APKs. A set of APKs might only contain 1 APK if
- *  the app in question publishes using APKs. If the app uses app bundles (or a
- *  similar technology), this set should contain all APKs (even optional ones)
- *  that might be installed for this app. A set of APKs should be installable
+ *  An installable set of active APKs. All APKs in this set should belong to the
+ *  same version of the app. A set of APKs might only contain 1 APK if the app
+ *  in question publishes using APKs. If the app uses app bundles (or a similar
+ *  technology), this set should contain all APKs (even optional ones) that
+ *  might be installed for this app. A set of APKs should be installable
  *  together. If certain APKs are exclusive to one another and cannot be
  *  installed together, then a separate AppStoreAppActiveApkSet should be
  *  created.
  */
 @interface GTLRAndroidPublisher_AppStoreAppActiveApkSet : GTLRObject
+
+/**
+ *  Optional. Whether all APKs referenced in this active APK set are published
+ *  on Play Store (or derived from an app bundle published on Play Store). When
+ *  this is set, version_code must be provided.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alreadyPublishedOnPlay;
 
 /**
  *  Required. The ID for the main base application module. Example: base.apk or
@@ -3939,6 +4042,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_UsesConfiguration_Requi
  *  used. Example: config.en.apk.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *splitApkId;
+
+/**
+ *  Optional. Version code for the version this APK set represents.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 @end
 
@@ -5138,6 +5248,68 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Hash digests of a certificate.
+ */
+@interface GTLRAndroidPublisher_CertificateHashes : GTLRObject
+
+/**
+ *  Hex-encoded MD5 hash of the certificate. example:
+ *  `43:51:43:A1:B5:FC:8B:B7:0A:3A:A9:B1:0F:66:73:A8`
+ */
+@property(nonatomic, copy, nullable) NSString *certificateHashMd5;
+
+/**
+ *  Hex-encoded SHA1 hash of the certificate. example:
+ *  `86:61:97:1A:D5:EF:E5:74:1E:A7:5B:84:7C:68:37:65:CD:94:16:DE`
+ */
+@property(nonatomic, copy, nullable) NSString *certificateHashSha1;
+
+/**
+ *  Hex-encoded SHA256 hash of the certificate. example:
+ *  `94:49:C7:F3:A9:3C:F0:C5:5A:67:5D:DF:1C:83:73:2D:87:D5:62:55:E7:0B:15:0D:9E:6F:3C:F8:63:BB:7F:C1`
+ */
+@property(nonatomic, copy, nullable) NSString *certificateHashSha256;
+
+@end
+
+
+/**
+ *  Reference to a private key hosted in developer-managed Google Cloud KMS.
+ */
+@interface GTLRAndroidPublisher_CloudKmsKey : GTLRObject
+
+/**
+ *  Required. Resource identifier of the private key hosted in Google Cloud KMS.
+ *  The Google Play service account must be granted Decrypt and Sign permissions
+ *  on this resource. Format:
+ *  projects//locations//keyRings//cryptoKeys//cryptoKeyVersions/
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyVersionResource;
+
+@end
+
+
+/**
+ *  Cloud KMS key and the certificate associated with the key.
+ */
+@interface GTLRAndroidPublisher_CloudKmsKeyAndCert : GTLRObject
+
+/** Required. Cloud KMS key. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CloudKmsKey *cloudKmsKey;
+
+/**
+ *  Required. Certificate associated with the key. The bytes must contain the
+ *  certificate in PEM format.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *pemCertificate;
+
+@end
+
+
+/**
  *  Coarse Geographic location details for where the consumption happened.
  */
 @interface GTLRAndroidPublisher_CoarseLocation : GTLRObject
@@ -6314,6 +6486,79 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request to enroll an app into Play App Signing using a self-hosted Cloud KMS
+ *  key.
+ */
+@interface GTLRAndroidPublisher_EnrollAppRequest : GTLRObject
+
+/**
+ *  Enrolls an existing app into Play signing using an external Cloud KMS key.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_EnrollExistingApp *enrollExistingApp;
+
+/**
+ *  Changes the signing key of a new app to an external Cloud KMS key. The app
+ *  must not have published to Open testing or Production tracks.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_EnrollNewApp *enrollNewApp;
+
+/**
+ *  The certificate associated with the upload key, in PEM format.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *pemUploadCertificate;
+
+@end
+
+
+/**
+ *  Response to enroll an app into Play signing.
+ */
+@interface GTLRAndroidPublisher_EnrollAppResponse : GTLRObject
+
+/** The signing certificate hashes for the app. Always set. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CertificateHashes *signingCertificate;
+
+/**
+ *  The upload certificate hashes for the app. Set iff pem_upload_certificate
+ *  was set in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CertificateHashes *uploadCertificate;
+
+@end
+
+
+/**
+ *  Enroll an existing app into Play signing.
+ */
+@interface GTLRAndroidPublisher_EnrollExistingApp : GTLRObject
+
+/**
+ *  Required. Self-hosted key. Once enrolled, this key will be used to sign your
+ *  app.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CloudKmsKey *cloudKmsKey;
+
+@end
+
+
+/**
+ *  Enroll a new app into Play signing.
+ */
+@interface GTLRAndroidPublisher_EnrollNewApp : GTLRObject
+
+/**
+ *  Required. Self-hosted key. Once enrolled, this key will be used to sign your
+ *  app.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CloudKmsKeyAndCert *cloudKmsKeyAndCert;
+
+@end
+
+
+/**
  *  An expansion file. The resource for ExpansionFilesService.
  */
 @interface GTLRAndroidPublisher_ExpansionFile : GTLRObject
@@ -6415,6 +6660,51 @@ GTLR_DEPRECATED
  *  to set this field for purchases made using the standard in-app billing flow.
  */
 @property(nonatomic, copy, nullable) NSString *obfuscatedProfileId;
+
+@end
+
+
+/**
+ *  Reporting details unique to the external content link program.
+ */
+@interface GTLRAndroidPublisher_ExternalContentLinkDetails : GTLRObject
+
+/**
+ *  Optional. The category of the downlaoded app. This must match the category
+ *  provided in Play Console during the external app verification process. Only
+ *  required for app installs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_App
+ *        The app is classified under the app category. (Value: "APP")
+ *    @arg @c kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_ExternalContentAppCategoryUnspecified
+ *        Unspecified, do not use. (Value:
+ *        "EXTERNAL_CONTENT_APP_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_ExternalContentLinkDetails_ExternalAppCategory_Game
+ *        The app is classified under the game category. (Value: "GAME")
+ */
+@property(nonatomic, copy, nullable) NSString *externalAppCategory;
+
+/**
+ *  Optional. The package name of the app downloaded through this transaction.
+ *  Only required for app installs.
+ */
+@property(nonatomic, copy, nullable) NSString *installedAppPackage;
+
+/**
+ *  Required. The type content being reported by this transaction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_ExternalContentLinkTypeUnspecified
+ *        Unspecified, do not use. (Value:
+ *        "EXTERNAL_CONTENT_LINK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_LinkToAppDownload
+ *        An app install. (Value: "LINK_TO_APP_DOWNLOAD")
+ *    @arg @c kGTLRAndroidPublisher_ExternalContentLinkDetails_LinkType_LinkToDigitalContentOffer
+ *        An offer to purchase digital content. (Value:
+ *        "LINK_TO_DIGITAL_CONTENT_OFFER")
+ */
+@property(nonatomic, copy, nullable) NSString *linkType;
 
 @end
 
@@ -6598,6 +6888,12 @@ GTLR_DEPRECATED
  *  including any refunds that may have been applied to this transaction.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *currentTaxAmount;
+
+/**
+ *  Optional. Details necessary to accurately report external content link
+ *  transactions.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalContentLinkDetails *externalContentLinkDetails;
 
 /**
  *  Optional. Details necessary to accurately report external offers
@@ -8544,6 +8840,23 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration specific to game reward offers.
+ */
+@interface GTLRAndroidPublisher_OneTimeProductGameRewardOffer : GTLRObject
+
+/**
+ *  Optional. The number of times this offer can be redeemed. If unset or set to
+ *  0, allows for unlimited offer redemptions. Otherwise must be a number
+ *  between 1 and 50 inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *redemptionLimit;
+
+@end
+
+
+/**
  *  Regional store listing for a one-time product.
  */
 @interface GTLRAndroidPublisher_OneTimeProductListing : GTLRObject
@@ -8577,6 +8890,9 @@ GTLR_DEPRECATED
 
 /** A discounted offer. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductDiscountedOffer *discountedOffer;
+
+/** A game reward offer. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OneTimeProductGameRewardOffer *gameRewardOffer;
 
 /**
  *  Required. Immutable. The ID of this product offer. Must be unique within the
@@ -9563,7 +9879,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  An individual response to a policy question about an app.
+ *  An individual response (answer) to a policy question about an app.
  */
 @interface GTLRAndroidPublisher_PolicyResponse : GTLRObject
 
@@ -10976,6 +11292,70 @@ GTLR_DEPRECATED
  *  Response for the purchases.subscriptionsv2.revoke API.
  */
 @interface GTLRAndroidPublisher_RevokeSubscriptionPurchaseResponse : GTLRObject
+@end
+
+
+/**
+ *  Request to rotate an app's signing key.
+ */
+@interface GTLRAndroidPublisher_RotateAppSigningKeyRequest : GTLRObject
+
+/**
+ *  Required. Reason for rotating the app key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_CompromisedKey
+ *        Key is compromised. (Value: "COMPROMISED_KEY")
+ *    @arg @c kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_KeyRotationReasonUnspecified
+ *        Unspecified key rotation reason. Cannot be used. (Value:
+ *        "KEY_ROTATION_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_Other
+ *        Other reason. (Value: "OTHER")
+ *    @arg @c kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_RoutineKeyUpgrade
+ *        Routine key upgrade. (Value: "ROUTINE_KEY_UPGRADE")
+ *    @arg @c kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_UseSameKeyForMultipleApps
+ *        Same key is used for multiple apps. (Value:
+ *        "USE_SAME_KEY_FOR_MULTIPLE_APPS")
+ *    @arg @c kGTLRAndroidPublisher_RotateAppSigningKeyRequest_KeyRotationReason_UseStrongerKey
+ *        Stronger key is required. (Value: "USE_STRONGER_KEY")
+ */
+@property(nonatomic, copy, nullable) NSString *keyRotationReason;
+
+/** Required. Self-hosted Cloud KMS key. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_RotatedCloudKmsKey *rotatedCloudKmsKey;
+
+@end
+
+
+/**
+ *  Response to rotate an app's signing key.
+ */
+@interface GTLRAndroidPublisher_RotateAppSigningKeyResponse : GTLRObject
+
+/** The rotated key certificate hashes for the app. Always set. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CertificateHashes *rotatedKeyCertificate;
+
+@end
+
+
+/**
+ *  Message representing rotated Cloud KMS key. Consists of the Cloud KMS key
+ *  and its associated proof of rotation.
+ */
+@interface GTLRAndroidPublisher_RotatedCloudKmsKey : GTLRObject
+
+/** Required. Cloud KMS key and the certificate associated with the key. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CloudKmsKeyAndCert *cloudKmsKeyAndCert;
+
+/**
+ *  Required. Proof-of-rotation. See [creating signing certificate
+ *  lineages](https://developer.android.com/studio/command-line/apksigner#rotate_signing_keys_2).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signingCertificateLineage;
+
 @end
 
 
@@ -12458,6 +12838,15 @@ GTLR_DEPRECATED
  *  Response for updating an app record for an app store hosted app.
  */
 @interface GTLRAndroidPublisher_UpdateAppStoreHostedAppResponse : GTLRObject
+
+/**
+ *  Unique identifier for the specific version of the hosted app submitted in
+ *  this update. This identifier can be used to correlate publishing signals
+ *  (such as those returned by ListHostedAppsPublishingSignals) with this
+ *  specific app update.
+ */
+@property(nonatomic, copy, nullable) NSString *updateId;
+
 @end
 
 

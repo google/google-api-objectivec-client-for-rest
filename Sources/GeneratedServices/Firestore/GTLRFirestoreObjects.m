@@ -220,6 +220,16 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove = @"REMOVE";
 
+// GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata.state
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata_State_Successful = @"SUCCESSFUL";
+
 // GTLRFirestore_GoogleFirestoreAdminV1UserCreds.state
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Disabled = @"DISABLED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Enabled = @"ENABLED";
@@ -330,7 +340,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_BatchGetDocumentsRequest
-@dynamic documents, mask, newTransaction, readTime, transaction;
+@dynamic documents, mask, newTransaction, readTime, requestOptions, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -358,7 +368,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_BatchWriteRequest
-@dynamic labels, writes;
+@dynamic labels, requestOptions, writes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -409,7 +419,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_BeginTransactionRequest
-@dynamic options;
+@dynamic options, requestOptions;
 @end
 
 
@@ -459,7 +469,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_CommitRequest
-@dynamic transaction, writes;
+@dynamic requestOptions, transaction, writes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -683,8 +693,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_ExecutePipelineRequest
-@dynamic autoCommitTransaction, newTransaction, readTime, structuredPipeline,
-         transaction;
+@dynamic autoCommitTransaction, newTransaction, readTime, requestOptions,
+         structuredPipeline, transaction;
 @end
 
 
@@ -940,6 +950,22 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1ChangeStream
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ChangeStream
+@dynamic collectionGroupScope, createTime, databaseScope, ETag, name,
+         retentionPeriod, startTime, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata
 //
 
@@ -988,6 +1014,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1CollectionGroupScope
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CollectionGroupScope
+@dynamic collectionGroupId;
 @end
 
 
@@ -1050,6 +1086,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1DatabaseScope
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1DatabaseScope
 @end
 
 
@@ -1323,6 +1368,24 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
   NSDictionary<NSString *, Class> *map = @{
     @"backups" : [GTLRFirestore_GoogleFirestoreAdminV1Backup class],
     @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1ListChangeStreamsResponse
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ListChangeStreamsResponse
+@dynamic changeStreams;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changeStreams" : [GTLRFirestore_GoogleFirestoreAdminV1ChangeStream class]
   };
   return map;
 }
@@ -1607,6 +1670,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata
+@dynamic endTime, startTime, state;
 @end
 
 
@@ -1726,7 +1790,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_ListCollectionIdsRequest
-@dynamic pageSize, pageToken, readTime;
+@dynamic pageSize, pageToken, readTime, requestOptions;
 @end
 
 
@@ -1776,7 +1840,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_ListenRequest
-@dynamic addTarget, labels, removeTarget;
+@dynamic addTarget, labels, removeTarget, requestOptions;
 @end
 
 
@@ -1904,7 +1968,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_PartitionQueryRequest
-@dynamic pageSize, pageToken, partitionCount, readTime, structuredQuery;
+@dynamic pageSize, pageToken, partitionCount, readTime, requestOptions,
+         structuredQuery;
 @end
 
 
@@ -2040,11 +2105,29 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_RequestOptions
+//
+
+@implementation GTLRFirestore_RequestOptions
+@dynamic requestTags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_RollbackRequest
 //
 
 @implementation GTLRFirestore_RollbackRequest
-@dynamic transaction;
+@dynamic requestOptions, transaction;
 @end
 
 
@@ -2054,8 +2137,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunAggregationQueryRequest
-@dynamic explainOptions, newTransaction, readTime, structuredAggregationQuery,
-         transaction;
+@dynamic explainOptions, newTransaction, readTime, requestOptions,
+         structuredAggregationQuery, transaction;
 @end
 
 
@@ -2075,7 +2158,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryRequest
-@dynamic explainOptions, newTransaction, readTime, structuredQuery, transaction;
+@dynamic explainOptions, newTransaction, readTime, requestOptions,
+         structuredQuery, transaction;
 @end
 
 
@@ -2315,7 +2399,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_WriteRequest
-@dynamic labels, streamId, streamToken, writes;
+@dynamic labels, requestOptions, streamId, streamToken, writes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

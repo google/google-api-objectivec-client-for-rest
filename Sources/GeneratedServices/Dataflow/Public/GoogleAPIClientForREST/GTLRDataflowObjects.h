@@ -18,6 +18,7 @@
 @class GTLRDataflow_ApproximateReportedProgress;
 @class GTLRDataflow_ApproximateSplitRequest;
 @class GTLRDataflow_AutoscalingEvent;
+@class GTLRDataflow_AutoscalingSchedule;
 @class GTLRDataflow_AutoscalingSettings;
 @class GTLRDataflow_Base2Exponent;
 @class GTLRDataflow_BigQueryIODetails;
@@ -30,6 +31,8 @@
 @class GTLRDataflow_ComponentTransform;
 @class GTLRDataflow_ComputationTopology;
 @class GTLRDataflow_ConcatPosition;
+@class GTLRDataflow_ConfigStoreSetting;
+@class GTLRDataflow_ConfigStoreSettingValue;
 @class GTLRDataflow_ContainerSpec;
 @class GTLRDataflow_CounterMetadata;
 @class GTLRDataflow_CounterStructuredName;
@@ -115,6 +118,7 @@
 @class GTLRDataflow_ParameterMetadata;
 @class GTLRDataflow_ParameterMetadata_CustomMetadata;
 @class GTLRDataflow_ParameterMetadataEnumOption;
+@class GTLRDataflow_Parameters;
 @class GTLRDataflow_ParDoInstruction;
 @class GTLRDataflow_ParDoInstruction_UserFn;
 @class GTLRDataflow_PartialGroupByKeyInstruction;
@@ -2200,6 +2204,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  A schedule for autoscaling.
+ */
+@interface GTLRDataflow_AutoscalingSchedule : GTLRObject
+
+/**
+ *  Optional. A crontab specification of when this schedule should trigger
+ *  applying overrides. The overrides will be applied from the trigger time
+ *  until the specified duration elapses.
+ */
+@property(nonatomic, copy, nullable) NSString *crontab;
+
+/**
+ *  Optional. The duration for which the parameter overrides for this schedule
+ *  will be applied when triggered by the crontab.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Optional. The name of the schedule. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The parameters to use for autoscaling when this schedule is
+ *  active.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_Parameters *parameters;
+
+/**
+ *  Optional. Specifies the priority of the schedule. If two schedules overlap,
+ *  the one with the higher priority will be used. The higher the value, the
+ *  higher the priority of the schedule.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  Optional. The time zone for the schedule. The value of this field must be a
+ *  time zone name from the [tz
+ *  database](http://en.wikipedia.org/wiki/Tz_database). The default value is
+ *  UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/** Output only. When the customer last updated the schedule. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Settings for WorkerPool autoscaling.
  */
 @interface GTLRDataflow_AutoscalingSettings : GTLRObject
@@ -2447,6 +2501,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Position within the inner source. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Position *position;
+
+@end
+
+
+/**
+ *  A ConfigStoreSetting resource.
+ */
+@interface GTLRDataflow_ConfigStoreSetting : GTLRObject
+
+/** Identifier. The resource name of the setting. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The dynamic value of the setting. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ConfigStoreSettingValue *value;
+
+@end
+
+
+/**
+ *  Represents a dynamically typed value.
+ */
+@interface GTLRDataflow_ConfigStoreSettingValue : GTLRObject
+
+/**
+ *  Represents a boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/** Represents a string value. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
 
@@ -3143,6 +3229,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_DerivedSource *residual;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
+ */
+@interface GTLRDataflow_Empty : GTLRObject
 @end
 
 
@@ -5216,6 +5312,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Response message for ListConfigStoreSettings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "configStoreSettings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDataflow_ListConfigStoreSettingsResponse : GTLRCollectionObject
+
+/**
+ *  The list of ConfigStoreSettings.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ConfigStoreSetting *> *configStoreSettings;
+
+/** A token that can be sent as `page_token` to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response to a request to list job messages.
  */
 @interface GTLRDataflow_ListJobMessagesResponse : GTLRObject
@@ -5916,6 +6036,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  The parameters to use for autoscaling when this schedule is active.
+ */
+@interface GTLRDataflow_Parameters : GTLRObject
+
+/**
+ *  Optional. The target CPU utilization for this schedule.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuUtilizationTarget;
+
+/** Optional. The target latency for this schedule. */
+@property(nonatomic, copy, nullable) NSString *latencyTarget;
+
+/**
+ *  Optional. The maximum number of workers for this schedule.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWorkerCount;
+
+/**
+ *  Optional. The minimum number of workers for this schedule.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minWorkerCount;
+
+@end
+
+
+/**
  *  An instruction that does a ParDo operation. Takes one main input and zero or
  *  more side inputs, and produces zero or more outputs. Runs user code.
  */
@@ -6363,6 +6515,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Request message for ResolveConfigStoreSetting.
+ */
+@interface GTLRDataflow_ResolveConfigStoreSettingRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for ResolveConfigStoreSetting.
+ */
+@interface GTLRDataflow_ResolveConfigStoreSettingResponse : GTLRObject
+
+/** The list of settings that were considered during resolution. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ConfigStoreSetting *> *choices;
+
+/** The dry-run setting result. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ConfigStoreSetting *setting;
+
+@end
+
+
+/**
  *  Worker metrics exported from workers. This contains resource utilization
  *  metrics accumulated from a variety of sources. For more information, see
  *  go/df-resource-signals.
@@ -6643,6 +6816,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minNumWorkers;
+
+/** Optional. The schedule for autoscaling. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_AutoscalingSchedule *> *schedules;
 
 /**
  *  Target worker utilization, compared against the aggregate utilization of the

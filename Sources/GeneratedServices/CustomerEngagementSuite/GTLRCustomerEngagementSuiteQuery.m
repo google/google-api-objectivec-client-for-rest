@@ -150,6 +150,60 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
 
 @end
 
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsCancelAssistantTurn
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_CancelAssistantTurnRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancelAssistantTurn";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsCancelAssistantTurn *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_CancelAssistantTurnResponse class];
+  query.loggingName = @"ces.projects.locations.apps.assistantSessions.cancelAssistantTurn";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsStreamChatAiAssistant
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_StreamChatAiAssistantRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:streamChatAiAssistant";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsAssistantSessionsStreamChatAiAssistant *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_StreamChatAiAssistantResponse class];
+  query.loggingName = @"ces.projects.locations.apps.assistantSessions.streamChatAiAssistant";
+  return query;
+}
+
+@end
+
 @implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsChangelogsGet
 
 @dynamic name;
@@ -463,6 +517,33 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
 
 @end
 
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageStream
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/message:stream";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsMessageStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1StreamResponse class];
+  query.loggingName = @"ces.projects.locations.apps.deployments.message.stream";
+  return query;
+}
+
+@end
+
 @implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsPatch
 
 @dynamic name, updateMask;
@@ -654,6 +735,33 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
   query.name = name;
   query.expectedObjectClass = [GTLRCustomerEngagementSuite_Operation class];
   query.loggingName = @"ces.projects.locations.apps.exportApp";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGenerateOnboardingSuggestions
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateOnboardingSuggestions";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsGenerateOnboardingSuggestions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_GenerateOnboardingSuggestionsResponse class];
+  query.loggingName = @"ces.projects.locations.apps.generateOnboardingSuggestions";
   return query;
 }
 
@@ -880,6 +988,33 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
   query.tenant = tenant;
   query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse class];
   query.loggingName = @"ces.projects.locations.apps.message.send";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageStream
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/message:stream";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsMessageStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1StreamResponse class];
+  query.loggingName = @"ces.projects.locations.apps.message.stream";
   return query;
 }
 
@@ -1406,6 +1541,60 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
   query.tenant = tenant;
   query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1SendMessageResponse class];
   query.loggingName = @"ces.projects.locations.apps.versions.message.send";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageStream
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_LfA2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v1/{+tenant}/message:stream";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsMessageStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_LfA2aV1StreamResponse class];
+  query.loggingName = @"ces.projects.locations.apps.versions.message.stream";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_AppVersion *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_AppVersion class];
+  query.loggingName = @"ces.projects.locations.apps.versions.patch";
   return query;
 }
 

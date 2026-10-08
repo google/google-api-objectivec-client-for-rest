@@ -19,6 +19,7 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1LimitedUseConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAccountDetails;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAppIntegrity;
@@ -682,10 +683,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  token. *Limited use* App Check tokens with the same `jti` will be counted as
  *  the same token for the purposes of replay protection. An error is returned
  *  if this field is specified without setting `limited_use` to `true`. The size
- *  of this field is limited to 500 bytes. If specified, its length must be at
+ *  of this field is limited to 250 bytes. If specified, its length must be at
  *  least 16 bytes. If this field is omitted or is empty and `limited_use` is
  *  set to `true`, a randomly generated `jti` claim with length between 16 and
- *  500 bytes (inclusive) will be used in the returned App Check token. Leaving
+ *  250 bytes (inclusive) will be used in the returned App Check token. Leaving
  *  this field empty is only recommended if your custom attestation provider
  *  itself is not vulnerable to replay attacks. When `limited_use` is set to
  *  `false`, the presence and the contents of the `jti` claim in the returned
@@ -892,6 +893,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
+ *  Configuration for a limited-use App Check token.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1LimitedUseConfig : GTLRObject
+
+/**
+ *  Optional. Specifies the desired `jti` claim (Section 4.1.7 of RFC 7519) in
+ *  the returned App Check token. Limited-use App Check tokens with the same
+ *  `jti` will be counted as the same token for the purposes of replay
+ *  protection. The size of this field is limited to 250 bytes. If specified,
+ *  its length must be at least 16 bytes. If this field is omitted or is empty,
+ *  a randomly generated `jti` claim with length between 16 and 250 bytes
+ *  (inclusive) will be used in the returned App Check token. Leaving this field
+ *  empty is only recommended if your custom attestation provider itself is not
+ *  vulnerable to replay attacks.
+ */
+@property(nonatomic, copy, nullable) NSString *jti;
+
+@end
+
+
+/**
  *  Response message for the ListDebugTokens method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -977,6 +999,53 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service *> *services;
+
+@end
+
+
+/**
+ *  Request message for the MintAppCheckToken method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenRequest : GTLRObject
+
+/**
+ *  Optional. If specified, the returned App Check token will be a limited-use
+ *  token minted according to the specified configuration options.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1LimitedUseConfig *limitedUseConfig;
+
+/**
+ *  Optional. If specified, the returned App Check token will be a session
+ *  token, valid for the specified duration. Must be between 30 minutes and 7
+ *  days, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
+
+@end
+
+
+/**
+ *  Response message for the MintAppCheckToken method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1MintAppCheckTokenResponse : GTLRObject
+
+/**
+ *  The App Check token, used to access backend services protected by App Check.
+ *  App Check tokens are signed [JWTs](https://tools.ietf.org/html/rfc7519)
+ *  containing claims that identify the attested app and GCP project. This token
+ *  is used to access Google services protected by App Check. These tokens can
+ *  also be [verified by your own custom
+ *  backends](https://firebase.google.com/docs/app-check/custom-resource-backend)
+ *  using the Firebase Admin SDK or third-party libraries.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  The duration from the time this token is minted until its expiration. This
+ *  field is intended to ease client-side token management, since the client may
+ *  have clock skew, but is still able to accurately measure a duration.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
 @end
 

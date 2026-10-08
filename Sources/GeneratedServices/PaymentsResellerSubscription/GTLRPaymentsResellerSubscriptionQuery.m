@@ -221,7 +221,7 @@ NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurati
 
 @implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsLineItemsPatch
 
-@dynamic name, updateMask;
+@dynamic name, requestId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_SubscriptionLineItem *)object
                            name:(NSString *)name {

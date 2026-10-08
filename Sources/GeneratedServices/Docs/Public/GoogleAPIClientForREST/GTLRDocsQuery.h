@@ -27,6 +27,40 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// commentsViewMode
+
+/**
+ *  The CommentsViewMode applied to the returned document depends on the user's
+ *  current access level. If the user only has view access,
+ *  COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *  COMMENTS_VIEW_MODE_INCLUDED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocsCommentsViewModeCommentsViewModeDefaultForCurrentAccess;
+/**
+ *  The returned document has comments included. Requests to retrieve a document
+ *  using this mode will return a 403 error if the user does not have permission
+ *  to view comments. When set, suggestions_view_mode must also be set to
+ *  SUGGESTIONS_INLINE. Returns a 400 bad request error otherwise.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocsCommentsViewModeCommentsViewModeIncluded;
+/**
+ *  The returned document has comments omitted.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_OMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocsCommentsViewModeCommentsViewModeOmitted;
+/**
+ *  The CommentsViewMode is unspecified. COMMENTS_VIEW_MODE_OMITTED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocsCommentsViewModeCommentsViewModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // suggestionsViewMode
 
 /**
@@ -175,17 +209,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
  */
 @interface GTLRDocsQuery_DocumentsGet : GTLRDocsQuery
 
+/**
+ *  The comments view mode to apply to the document. This allows viewing the
+ *  document with comments omitted or included. If one is not specified,
+ *  COMMENTS_VIEW_MODE_OMITTED is used. If you set comments_view_mode to any
+ *  value, you must also set include_tabs_content to `true` or use a field mask
+ *  that references the Document.tabs field (or any subfield). If you set
+ *  comments_view_mode to COMMENTS_VIEW_MODE_INCLUDED, you must also explicitly
+ *  set suggestions_view_mode to SUGGESTIONS_INLINE. If you set
+ *  comments_view_mode to COMMENTS_VIEW_MODE_INCLUDED or
+ *  COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS, you may not set
+ *  suggestions_view_mode to PREVIEW_WITHOUT_SUGGESTIONS or
+ *  PREVIEW_SUGGESTIONS_ACCEPTED. [Developer
+ *  Preview](https://developers.google.com/workspace/preview).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocsCommentsViewModeCommentsViewModeUnspecified The
+ *        CommentsViewMode is unspecified. COMMENTS_VIEW_MODE_OMITTED is
+ *        applied. (Value: "COMMENTS_VIEW_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDocsCommentsViewModeCommentsViewModeDefaultForCurrentAccess
+ *        The CommentsViewMode applied to the returned document depends on the
+ *        user's current access level. If the user only has view access,
+ *        COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *        COMMENTS_VIEW_MODE_INCLUDED is applied. (Value:
+ *        "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRDocsCommentsViewModeCommentsViewModeOmitted The returned
+ *        document has comments omitted. (Value: "COMMENTS_VIEW_MODE_OMITTED")
+ *    @arg @c kGTLRDocsCommentsViewModeCommentsViewModeIncluded The returned
+ *        document has comments included. Requests to retrieve a document using
+ *        this mode will return a 403 error if the user does not have permission
+ *        to view comments. When set, suggestions_view_mode must also be set to
+ *        SUGGESTIONS_INLINE. Returns a 400 bad request error otherwise. (Value:
+ *        "COMMENTS_VIEW_MODE_INCLUDED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentsViewMode;
+
 /** The ID of the document to retrieve. */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
 /**
- *  Whether to populate the Document.tabs field instead of the text content
- *  fields like `body` and `documentStyle` on Document. - When `True`: Document
- *  content populates in the Document.tabs field instead of the text content
- *  fields in Document. - When `False`: The content of the document's first tab
- *  populates the content fields in Document excluding Document.tabs. If a
- *  document has only one tab, then that tab is used to populate the document
- *  content. Document.tabs will be empty.
+ *  Whether to populate the `Document.tabs` field instead of the text content
+ *  fields like `body` and `documentStyle` on `Document`. - When `true`:
+ *  Document content populates in the `Document.tabs` field instead of the text
+ *  content fields in `Document`. - When `false`: The content of the document's
+ *  first tab populates the content fields in `Document` excluding
+ *  `Document.tabs`. If a document has only one tab, then that tab is used to
+ *  populate the document content. `Document.tabs` will be empty. If you use a
+ *  field mask that references the `Document.tabs` field (or any subfield), the
+ *  API implicitly treats the request as if you set `include_tabs_content` to
+ *  `true`.
  */
 @property(nonatomic, assign) BOOL includeTabsContent;
 

@@ -40,6 +40,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarAdditionalInsightsAdditionalInsight
  *  Value: "DETECTED_ARRAYS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolarAdditionalInsightsDetectedArrays;
+/**
+ *  Determines whether to include the roof segment polygons and obstacles in the
+ *  response. If specified, the response will contain a polygon_geojson field in
+ *  each RoofSegmentSizeAndSunshineStats and the obstacles field in
+ *  SolarPotential.
+ *
+ *  Value: "ROOF_GEOMETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolarAdditionalInsightsRoofGeometry;
 
 // ----------------------------------------------------------------------------
 // experiments
@@ -58,6 +67,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarExperimentsExpandedCoverage;
  *  Value: "EXPERIMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSolarExperimentsExperimentUnspecified;
+/**
+ *  Enables experimental roof geometry data via FindClosestBuildingInsights.
+ *  Requires `ROOF_GEOMETRY` to be included in the `additional_insights` field.
+ *  Returns an error if passed to GetDataLayers.
+ *
+ *  Value: "ROOF_GEOMETRY_INSIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolarExperimentsRoofGeometryInsights;
 
 // ----------------------------------------------------------------------------
 // requiredQuality
@@ -170,6 +187,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @arg @c kGTLRSolarAdditionalInsightsAdditionalInsightsUnspecified The
  *        default value. The default BuildingInsights will be returned. (Value:
  *        "ADDITIONAL_INSIGHTS_UNSPECIFIED")
+ *    @arg @c kGTLRSolarAdditionalInsightsRoofGeometry Determines whether to
+ *        include the roof segment polygons and obstacles in the response. If
+ *        specified, the response will contain a polygon_geojson field in each
+ *        RoofSegmentSizeAndSunshineStats and the obstacles field in
+ *        SolarPotential. (Value: "ROOF_GEOMETRY")
  *    @arg @c kGTLRSolarAdditionalInsightsDetectedArrays Determines whether the
  *        response will include the detected arrays. If specified, the
  *        `detected_arrays` field will be populated in the response. (Value:
@@ -204,6 +226,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *        [Expanded
  *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
  *        (Value: "EXPANDED_COVERAGE")
+ *    @arg @c kGTLRSolarExperimentsRoofGeometryInsights Enables experimental
+ *        roof geometry data via FindClosestBuildingInsights. Requires
+ *        `ROOF_GEOMETRY` to be included in the `additional_insights` field.
+ *        Returns an error if passed to GetDataLayers. (Value:
+ *        "ROOF_GEOMETRY_INSIGHTS")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
@@ -285,6 +312,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *        [Expanded
  *        Coverage](https://developers.google.com/maps/documentation/solar/expanded-coverage).
  *        (Value: "EXPANDED_COVERAGE")
+ *    @arg @c kGTLRSolarExperimentsRoofGeometryInsights Enables experimental
+ *        roof geometry data via FindClosestBuildingInsights. Requires
+ *        `ROOF_GEOMETRY` to be included in the `additional_insights` field.
+ *        Returns an error if passed to GetDataLayers. (Value:
+ *        "ROOF_GEOMETRY_INSIGHTS")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 

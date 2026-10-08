@@ -5601,7 +5601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_VirtualField_VirtualFieldType_Vi
  *  "organizations/123/logs/cloudaudit.googleapis.com%2Factivity" The permission
  *  logging.logEntries.create is needed on each project, organization, billing
  *  account, or folder that is receiving new log entries, whether the resource
- *  is specified in logName or in an individual log entry.
+ *  is specified in logName or in an individual log entry.Only platform services
+ *  can write logs to billing accounts.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 

@@ -286,7 +286,9 @@ NSString * const kGTLRFirebaseCrashlytics_Thread_ThreadState_ThreadStateWaiting 
 //
 
 @implementation GTLRFirebaseCrashlytics_IntervalMetrics
-@dynamic endTime, eventsCount, impactedUsersCount, sessionsCount, startTime;
+@dynamic crashFreeSessionsPercentage, crashFreeUsersPercentage, endTime,
+         eventsCount, impactedSessionsCount, impactedUsersCount, sessionsCount,
+         startTime, totalSessionsCount, totalUsersCount;
 @end
 
 

@@ -1372,6 +1372,25 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_Operation class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGet
 
 @dynamic name;

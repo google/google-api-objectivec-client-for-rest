@@ -498,6 +498,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream;
 /**
+ *  An entry type for a graph edge.
+ *
+ *  Value: "EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Edge;
+/**
  *  Default unknown type.
  *
  *  Value: "ENTRY_TYPE_UNSPECIFIED"
@@ -561,6 +567,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  *  Value: "MODEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model;
+/**
+ *  An entry type for a graph node.
+ *
+ *  Value: "NODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Node;
 /**
  *  Routine, for example, a BigQuery routine.
  *
@@ -2271,6 +2283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream An
  *        entry type for streaming entries. For example, a Pub/Sub topic.
  *        (Value: "DATA_STREAM")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Edge An entry
+ *        type for a graph edge. (Value: "EDGE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_EntryTypeUnspecified
  *        Default unknown type. (Value: "ENTRY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Explore A
@@ -2301,6 +2315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        of models. For more information, see [Supported models in BigQuery
  *        ML](/bigquery/docs/bqml-introduction#supported_models). (Value:
  *        "MODEL")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Node An entry
+ *        type for a graph node. (Value: "NODE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Routine
  *        Routine, for example, a BigQuery routine. (Value: "ROUTINE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Service A

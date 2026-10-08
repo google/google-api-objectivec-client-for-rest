@@ -65,6 +65,10 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData;
 @class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry;
 @class GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser;
+@class GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReportContentTransferDetails;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
@@ -128,6 +132,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser;
@@ -1004,11 +1009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry.provider
 
 /**
- *  CRXcavator.
+ *  Deprecated: Please use other risk score providers instead. CRXcavator.
  *
  *  Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator;
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator GTLR_DEPRECATED;
 /**
  *  LayerX Security.
  *
@@ -1061,6 +1066,110 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "RISK_LEVEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser.osPlatform
+
+/**
+ *  No operating system specified.
+ *
+ *  Value: "DEVICE_SYSTEM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_DeviceSystemUnspecified;
+/**
+ *  Android operating system.
+ *
+ *  Value: "SYSTEM_ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemAndroid;
+/**
+ *  ChromeOS operating system.
+ *
+ *  Value: "SYSTEM_CROS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemCros;
+/**
+ *  Apple iOS operating system.
+ *
+ *  Value: "SYSTEM_IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemIos;
+/**
+ *  Linux operating system.
+ *
+ *  Value: "SYSTEM_LINUX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemLinux;
+/**
+ *  Apple macOS operating system.
+ *
+ *  Value: "SYSTEM_MAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemMac;
+/**
+ *  Other operating system.
+ *
+ *  Value: "SYSTEM_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemOther;
+/**
+ *  Microsoft Windows operating system.
+ *
+ *  Value: "SYSTEM_WINDOWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemWindows;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport.osPlatform
+
+/**
+ *  No operating system specified.
+ *
+ *  Value: "DEVICE_SYSTEM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_DeviceSystemUnspecified;
+/**
+ *  Android operating system.
+ *
+ *  Value: "SYSTEM_ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemAndroid;
+/**
+ *  ChromeOS operating system.
+ *
+ *  Value: "SYSTEM_CROS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemCros;
+/**
+ *  Apple iOS operating system.
+ *
+ *  Value: "SYSTEM_IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemIos;
+/**
+ *  Linux operating system.
+ *
+ *  Value: "SYSTEM_LINUX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemLinux;
+/**
+ *  Apple macOS operating system.
+ *
+ *  Value: "SYSTEM_MAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemMac;
+/**
+ *  Other operating system.
+ *
+ *  Value: "SYSTEM_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemOther;
+/**
+ *  Microsoft Windows operating system.
+ *
+ *  Value: "SYSTEM_WINDOWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemWindows;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallReason
@@ -2474,6 +2583,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_DeviceTrust;
 /**
+ *  Enterprise proxy connector.
+ *
+ *  Value: "ENTERPRISE_PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_EnterpriseProxy;
+/**
  *  Authentication connector.
  *
  *  Value: "IDENTITY_BASED_ENROLLMENT"
@@ -3076,6 +3191,28 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "KEY_USAGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig.enabledPlatforms
+
+/**
+ *  Android platform.
+ *
+ *  Value: "ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig_EnabledPlatforms_Android;
+/**
+ *  iOS platform.
+ *
+ *  Value: "IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig_EnabledPlatforms_Ios;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig_EnabledPlatforms_PlatformUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest.signatureAlgorithm
@@ -4983,6 +5120,105 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response to `FindSaasUsageBrowsers` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "saasUsageBrowsers" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageBrowsersResponse : GTLRCollectionObject
+
+/** A token, which can be sent as `page_token` to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of SaaS usage browser reports.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser *> *saasUsageBrowsers;
+
+/**
+ *  Total number of SaaS usage browser reports that match the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response to `FindSaasUsageProfiles` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "profileReports" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageProfilesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of SaaS usage profile reports.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport *> *profileReports;
+
+/**
+ *  Total number of SaaS usage profile reports that match the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response to `FindSaasUsage` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "saasReports" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageReportsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of SaaS usage reports.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReport *> *saasReports;
+
+/**
+ *  Total number of SaaS usage reports that match the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  Information of a graphics adapter (GPU).
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo : GTLRObject
@@ -6007,7 +6243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator
- *        CRXcavator. (Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR")
+ *        Deprecated: Please use other risk score providers instead. CRXcavator.
+ *        (Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx
  *        LayerX Security. (Value: "RISK_ASSESSMENT_PROVIDER_LAYERX")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi
@@ -6079,6 +6316,209 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Total lifetime runtime. Currently always S0 runtime from Intel vPro PSR.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *uptimeRuntimeDuration;
+
+@end
+
+
+/**
+ *  Details of a SaaS usage browser.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser : GTLRObject
+
+/** Output only. The device permanent ID. */
+@property(nonatomic, copy, nullable) NSString *devicePermanentId;
+
+/**
+ *  Output only. The timestamp when the application was first navigated to by
+ *  this browser.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstNavigationTime;
+
+/**
+ *  Output only. The timestamp when the application was last navigated to by
+ *  this browser.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastNavigationTime;
+
+/** Output only. The machine name. */
+@property(nonatomic, copy, nullable) NSString *machine;
+
+/** Output only. The ID of the organizational unit. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Output only. The OS platform.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_DeviceSystemUnspecified
+ *        No operating system specified. (Value: "DEVICE_SYSTEM_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemAndroid
+ *        Android operating system. (Value: "SYSTEM_ANDROID")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemCros
+ *        ChromeOS operating system. (Value: "SYSTEM_CROS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemIos
+ *        Apple iOS operating system. (Value: "SYSTEM_IOS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemLinux
+ *        Linux operating system. (Value: "SYSTEM_LINUX")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemMac
+ *        Apple macOS operating system. (Value: "SYSTEM_MAC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemOther
+ *        Other operating system. (Value: "SYSTEM_OTHER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageBrowser_OsPlatform_SystemWindows
+ *        Microsoft Windows operating system. (Value: "SYSTEM_WINDOWS")
+ */
+@property(nonatomic, copy, nullable) NSString *osPlatform;
+
+/** Output only. The OS version. */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+@end
+
+
+/**
+ *  Represents a single SaaS report entry grouped by profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport : GTLRObject
+
+/** Output only. The email of the user. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Output only. The timestamp when the application was first navigated to by
+ *  this profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstNavigationTime;
+
+/**
+ *  Output only. The timestamp when the application was last navigated to by
+ *  this profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastNavigationTime;
+
+/** Output only. The ID of the organizational unit. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Output only. The OS platform.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_DeviceSystemUnspecified
+ *        No operating system specified. (Value: "DEVICE_SYSTEM_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemAndroid
+ *        Android operating system. (Value: "SYSTEM_ANDROID")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemCros
+ *        ChromeOS operating system. (Value: "SYSTEM_CROS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemIos
+ *        Apple iOS operating system. (Value: "SYSTEM_IOS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemLinux
+ *        Linux operating system. (Value: "SYSTEM_LINUX")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemMac
+ *        Apple macOS operating system. (Value: "SYSTEM_MAC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemOther
+ *        Other operating system. (Value: "SYSTEM_OTHER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1SaasUsageProfileReport_OsPlatform_SystemWindows
+ *        Microsoft Windows operating system. (Value: "SYSTEM_WINDOWS")
+ */
+@property(nonatomic, copy, nullable) NSString *osPlatform;
+
+/** Output only. The OS version. */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/** Output only. The permanent ID of the profile. */
+@property(nonatomic, copy, nullable) NSString *profilePermanentId;
+
+@end
+
+
+/**
+ *  Represents a single SaaS report entry.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReport : GTLRObject
+
+/** Output only. The name of the application. */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/** Output only. The category of the application. */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Output only. Provides information about content transfer events, if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReportContentTransferDetails *contentTransferDetails;
+
+/**
+ *  Output only. Number of distinct browsers that visited the application.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distinctBrowsersCount;
+
+/**
+ *  Output only. Number of distinct users who visited the application.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distinctUsersCount;
+
+/**
+ *  Output only. A list of domains and subdomains associated with the
+ *  application.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
+
+/**
+ *  Output only. A list of encryption protocols used to access the application.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *encryptionProtocols;
+
+/** Output only. The timestamp when the application was first navigated to. */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstNavigationTime;
+
+/**
+ *  Output only. The year the organization was founded.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *foundedYear;
+
+/** Output only. The headquarters location of the organization. */
+@property(nonatomic, copy, nullable) NSString *headquarters;
+
+/** Output only. The timestamp when the application was last navigated to. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastNavigationTime;
+
+/** Output only. The organization that develops the application. */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/** Output only. The ID of the organizational unit. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/** Output only. The primary domain of the application. */
+@property(nonatomic, copy, nullable) NSString *primaryDomain;
+
+/**
+ *  Output only. Total number of visits to the application.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visitsCount;
+
+@end
+
+
+/**
+ *  Provides information about content transfer events, if available.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1SaasUsageReportContentTransferDetails : GTLRObject
+
+/**
+ *  Output only. Total number of content transfers associated with the
+ *  application.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contentTransferCount;
 
 @end
 
@@ -7857,8 +8297,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, copy, nullable) NSString *commandState;
 
 /**
- *  Required. Type of the remote command. The only supported command_type is
- *  "clearBrowsingData".
+ *  Required. Type of the remote command. Supported commands:
+ *  "clearBrowsingData" and "extensionUpdateCheck".
  */
 @property(nonatomic, copy, nullable) NSString *commandType;
 
@@ -7874,7 +8314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /**
  *  Required. Payload of the remote command. The payload for "clearBrowsingData"
  *  command supports: - fields "clearCache" and "clearCookies" - values of
- *  boolean type.
+ *  boolean type. The payload for "extensionUpdateCheck" should be empty.
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload *payload;
 
@@ -7887,7 +8327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /**
  *  Required. Payload of the remote command. The payload for "clearBrowsingData"
  *  command supports: - fields "clearCache" and "clearCookies" - values of
- *  boolean type.
+ *  boolean type. The payload for "extensionUpdateCheck" should be empty.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8001,7 +8441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Required. The details of the connector config. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigDetails *details;
 
-/** Required. The display name of the config. */
+/**
+ *  Required. The display name of the config. Must be at most 100 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -8026,6 +8468,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        Content analysis connector. (Value: "CONTENT_ANALYSIS")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_DeviceTrust
  *        Device trust connector. (Value: "DEVICE_TRUST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_EnterpriseProxy
+ *        Enterprise proxy connector. (Value: "ENTERPRISE_PROXY")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_IdentityBasedEnrollment
  *        Authentication connector. (Value: "IDENTITY_BASED_ENROLLMENT")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Reporting
@@ -8071,6 +8515,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Pub/Sub XDR connector config. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig *pubSubXdrConfig;
+
+/** Secure gateway connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig *secureGatewayConfig;
 
 /** Splunk connector config. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig *splunkConfig;
@@ -8194,12 +8641,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig : GTLRObject
 
-/** Required. Input only. API key to use on the ingestion API. */
+/**
+ *  Required. Input only. API key to use on the ingestion API. Must be at most
+ *  50 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**
  *  Required. Host to identify the customer specific server to receive the
- *  events.
+ *  events. Must be at most 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -8214,12 +8664,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig : GTLRObject
 
-/** Required. Input only. API key to use on the ingestion API. */
+/**
+ *  Required. Input only. API key to use on the ingestion API. Must be at most
+ *  50 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**
  *  Required. Host to identify the customer specific server to receive the
- *  events.
+ *  events. Must be at most 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -8236,12 +8689,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig : GTLRObject
 
-/** Required. Input only. API key to use on the ingestion API. */
+/**
+ *  Required. Input only. API key to use on the ingestion API. Must be at most
+ *  256 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**
  *  Required. Host to identify the customer specific server to receive the
- *  events.
+ *  events. Must be at most 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -8460,13 +8916,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GoogleSecOpsConfig : GTLRObject
 
-/** Required. Input only. API key to use on the ingestion API. */
+/**
+ *  Required. Input only. API key to use on the ingestion API. Must be 39
+ *  characters.
+ */
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**
  *  Required. Host of ingestion API endpoint. Allows customer to upload events
  *  to servers in specific geographical regions. Existing configs that don't
- *  have this setting default to US.
+ *  have this setting default to US. Must be at most 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -8614,12 +9073,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig : GTLRObject
 
-/** Required. Input only. API key to use on the ingestion API. */
+/**
+ *  Required. Input only. API key to use on the ingestion API. Must be at most
+ *  256 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**
  *  Required. Host to identify the customer specific server to receive the
- *  events.
+ *  events. Must be at most 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -8637,7 +9099,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Required. The reporting settings for the Pub/Sub config. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
 
-/** Required. The full path to the topic to send the event to. */
+/**
+ *  Required. The full path to the topic to send the event to. Must be at most
+ *  1000 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *topicFullPath;
 
 @end
@@ -8648,7 +9113,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig : GTLRObject
 
-/** Required. The full path to the topic to send the event to. */
+/**
+ *  Required. The full path to the topic to send the event to. Must be at most
+ *  1000 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *topicFullPath;
 
 /** Required. The XDR settings for the Pub/Sub XDR config. */
@@ -9033,6 +9501,25 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Secure gateway connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SecureGatewayConfig : GTLRObject
+
+/**
+ *  Optional. The enabled platforms for the secure gateway connector config.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledPlatforms;
+
+/**
+ *  Required. The resource ID of the secure gateway connector config. Must be at
+ *  most 256 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+@end
+
+
+/**
  *  Request message for marking a certificate provisioning process as failed.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureRequest : GTLRObject
@@ -9124,13 +9611,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  Required. Input only. The data input's HTTP Event Collector token to use as
- *  an Authorization header.
+ *  an Authorization header. Must be at most 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *hecToken;
 
 /**
  *  Required. Host to identify the customer specific server to receive the
- *  events.
+ *  events. Must be at most 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -9147,7 +9634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  Optional. Optional source name to override the default one set in the Splunk
- *  admin console.
+ *  admin console. Must be at most 100 characters.
  */
 @property(nonatomic, copy, nullable) NSString *source;
 

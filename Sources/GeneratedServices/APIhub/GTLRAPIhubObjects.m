@@ -244,6 +244,7 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePri
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeEdgePublicCloud = @"APIGEE_EDGE_PUBLIC_CLOUD";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_ApigeeXAndHybrid = @"APIGEE_X_AND_HYBRID";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AwsApiGateway = @"AWS_API_GATEWAY";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_AzureApiManagement = @"AZURE_API_MANAGEMENT";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudApiGateway = @"CLOUD_API_GATEWAY";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_CloudEndpoints = @"CLOUD_ENDPOINTS";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1Plugin_GatewayType_GatewayTypeUnspecified = @"GATEWAY_TYPE_UNSPECIFIED";
@@ -370,8 +371,8 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1Addon
-@dynamic config, createTime, dataSource, descriptionProperty, displayName, name,
-         state, updateTime;
+@dynamic boostSpecGeminiRegionId, config, createTime, dataSource,
+         descriptionProperty, displayName, name, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -438,8 +439,8 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 @dynamic apiFunctionalRequirements, apiRequirements, apiStyle,
          apiTechnicalRequirements, attributes, businessUnit, createTime,
          descriptionProperty, displayName, documentation, fingerprint,
-         maturityLevel, name, owner, selectedVersion, sourceMetadata,
-         targetUser, team, updateTime, versions;
+         maturityLevel, name, owner, selectedVersion, serviceType,
+         sourceMetadata, targetUser, team, updateTime, versions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -612,11 +613,12 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1ApiOperation
-@dynamic attributes, createTime, details, name, sourceMetadata, spec,
-         updateTime;
+@dynamic attributes, createTime, deployments, details, name, sourceMetadata,
+         spec, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"deployments" : [NSString class],
     @"sourceMetadata" : [GTLRAPIhub_GoogleCloudApihubV1SourceMetadata class]
   };
   return map;
@@ -952,10 +954,11 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1Deployment
-@dynamic apiVersions, attributes, createTime, deploymentType,
+@dynamic apiOperations, apiVersions, attributes, createTime, deploymentType,
          descriptionProperty, displayName, documentation, endpoints,
          environment, managementUrl, name, resourceUri, slo, sourceEnvironment,
-         sourceMetadata, sourceProject, sourceUri, updateTime;
+         sourceMetadata, sourceProject, sourceRevision, sourceUri, specs,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -963,9 +966,11 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"apiOperations" : [NSString class],
     @"apiVersions" : [NSString class],
     @"endpoints" : [NSString class],
-    @"sourceMetadata" : [GTLRAPIhub_GoogleCloudApihubV1SourceMetadata class]
+    @"sourceMetadata" : [GTLRAPIhub_GoogleCloudApihubV1SourceMetadata class],
+    @"specs" : [NSString class]
   };
   return map;
 }
@@ -2386,13 +2391,14 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1Spec
-@dynamic additionalSpecContents, attributes, contents, createTime, details,
-         displayName, documentation, lintResponse, name, parsingMode,
+@dynamic additionalSpecContents, attributes, contents, createTime, deployments,
+         details, displayName, documentation, lintResponse, name, parsingMode,
          sourceMetadata, sourceUri, specType, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalSpecContents" : [GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent class],
+    @"deployments" : [NSString class],
     @"sourceMetadata" : [GTLRAPIhub_GoogleCloudApihubV1SourceMetadata class]
   };
   return map;
@@ -2446,7 +2452,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1SpecMetadata
-@dynamic originalCreateTime, originalId, originalUpdateTime, spec;
+@dynamic deploymentResourceUris, originalCreateTime, originalId,
+         originalUpdateTime, spec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentResourceUris" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

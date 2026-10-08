@@ -567,7 +567,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
- *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
@@ -578,11 +577,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Parent (data type) for the Data Point collection Format:
- *  `users/me/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
- *  `users/me/dataTypes/-` For a list of the supported data types see the
- *  DataPoint data union field. Deleting data points across multiple data type
- *  collections is supported following https://aip.dev/159. If this is set, the
- *  parent of all of the data points specified in `names` must match this field.
+ *  `users/{user}/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
+ *  `users/1234567890/dataTypes/steps` - `users/me/dataTypes/-` -
+ *  `users/1234567890/dataTypes/-` The `{user}` can be either the alias `me` or
+ *  the authenticated user's numeric Health User ID (retrieved via GetIdentity).
+ *  For a list of the supported data types see the DataPoint data union field.
+ *  Deleting data points across multiple data type collections is supported
+ *  following https://aip.dev/159. If this is set, the parent of all of the data
+ *  points specified in `names` must match this field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -594,12 +596,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGoogleHealthAPI_BatchDeleteDataPointsRequest to
  *    include in the query.
  *  @param parent Optional. Parent (data type) for the Data Point collection
- *    Format: `users/me/dataTypes/{data_type}`, e.g.: -
- *    `users/me/dataTypes/steps` - `users/me/dataTypes/-` For a list of the
- *    supported data types see the DataPoint data union field. Deleting data
- *    points across multiple data type collections is supported following
- *    https://aip.dev/159. If this is set, the parent of all of the data points
- *    specified in `names` must match this field.
+ *    Format: `users/{user}/dataTypes/{data_type}`, e.g.: -
+ *    `users/me/dataTypes/steps` - `users/1234567890/dataTypes/steps` -
+ *    `users/me/dataTypes/-` - `users/1234567890/dataTypes/-` The `{user}` can
+ *    be either the alias `me` or the authenticated user's numeric Health User
+ *    ID (retrieved via GetIdentity). For a list of the supported data types see
+ *    the DataPoint data union field. Deleting data points across multiple data
+ *    type collections is supported following https://aip.dev/159. If this is
+ *    set, the parent of all of the data points specified in `names` must match
+ *    this field.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsBatchDelete
  */
@@ -616,7 +621,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
- *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
@@ -627,7 +631,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource name where the data point will be created.
- *  Format: `users/{user}/dataTypes/{data_type}`
+ *  Format: `users/{user}/dataTypes/{data_type}`, e.g.: -
+ *  `users/me/dataTypes/steps` - `users/1234567890/dataTypes/steps` The `{user}`
+ *  can be either the alias `me` or the authenticated user's numeric Health User
+ *  ID (retrieved via GetIdentity).
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -638,7 +645,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGoogleHealthAPI_DataPoint to include in the query.
  *  @param parent Required. The parent resource name where the data point will
- *    be created. Format: `users/{user}/dataTypes/{data_type}`
+ *    be created. Format: `users/{user}/dataTypes/{data_type}`, e.g.: -
+ *    `users/me/dataTypes/steps` - `users/1234567890/dataTypes/steps` The
+ *    `{user}` can be either the alias `me` or the authenticated user's numeric
+ *    Health User ID (retrieved via GetIdentity).
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsCreate
  */
@@ -654,16 +664,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsDailyRollUp : GTLRGoogleHealthAPIQuery
 
 /**
  *  Required. Parent data type of the Data Point collection. Format:
  *  `users/{user}/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
- *  `users/me/dataTypes/distance` For a list of the supported data types see the
+ *  `users/1234567890/dataTypes/steps` - `users/me/dataTypes/distance` -
+ *  `users/1234567890/dataTypes/distance` The `{user}` can be either the alias
+ *  `me` or the authenticated user's numeric Health User ID (retrieved via
+ *  GetIdentity). For a list of the supported data types see the
  *  DailyRollupDataPoint value union field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -677,8 +702,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param parent Required. Parent data type of the Data Point collection.
  *    Format: `users/{user}/dataTypes/{data_type}`, e.g.: -
- *    `users/me/dataTypes/steps` - `users/me/dataTypes/distance` For a list of
- *    the supported data types see the DailyRollupDataPoint value union field.
+ *    `users/me/dataTypes/steps` - `users/1234567890/dataTypes/steps` -
+ *    `users/me/dataTypes/distance` - `users/1234567890/dataTypes/distance` The
+ *    `{user}` can be either the alias `me` or the authenticated user's numeric
+ *    Health User ID (retrieved via GetIdentity). For a list of the supported
+ *    data types see the DailyRollupDataPoint value union field.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsDailyRollUp
  */
@@ -689,8 +717,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Exports exercise data in TCX format. **IMPORTANT:** HTTP clients must append
- *  `?alt=media` to the request URL to download the raw TCX file. Example:
+ *  `?alt=media` to the request URL to download the raw TCX file. ## Examples:
+ *  ##
  *  `https://health.googleapis.com/v4/users/me/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
+ *  `https://health.googleapis.com/v4/users/1234567890/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
  *  Without `alt=media`, the server returns a JSON response
  *  (`ExportExerciseTcxResponse`) which is intended primarily for gRPC clients.
  *  **Note:** While the Authorization section below states that any one of the
@@ -709,10 +739,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the exercise data point to export. Format:
- *  `users/{user}/dataTypes/exercise/dataPoints/{data_point}` Example:
- *  `users/me/dataTypes/exercise/dataPoints/2026443605080188808` The `{user}` is
- *  the alias `"me"` currently. Future versions may support user IDs. The
- *  `{data_point}` ID maps to the exercise ID, which is a long integer.
+ *  `users/{user}/dataTypes/exercise/dataPoints/{data_point}` Examples: -
+ *  `users/me/dataTypes/exercise/dataPoints/2026443605080188808` -
+ *  `users/1234567890/dataTypes/exercise/dataPoints/2026443605080188808` The
+ *  `{user}` can be either the alias `me` or the authenticated user's numeric
+ *  Health User ID (retrieved via GetIdentity). The `{data_point}` ID maps to
+ *  the exercise ID, which is a long integer.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -727,8 +759,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGoogleHealthAPI_ExportExerciseTcxResponse.
  *
  *  Exports exercise data in TCX format. **IMPORTANT:** HTTP clients must append
- *  `?alt=media` to the request URL to download the raw TCX file. Example:
+ *  `?alt=media` to the request URL to download the raw TCX file. ## Examples:
+ *  ##
  *  `https://health.googleapis.com/v4/users/me/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
+ *  `https://health.googleapis.com/v4/users/1234567890/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
  *  Without `alt=media`, the server returns a JSON response
  *  (`ExportExerciseTcxResponse`) which is intended primarily for gRPC clients.
  *  **Note:** While the Authorization section below states that any one of the
@@ -739,10 +773,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The resource name of the exercise data point to
  *    export. Format: `users/{user}/dataTypes/exercise/dataPoints/{data_point}`
- *    Example: `users/me/dataTypes/exercise/dataPoints/2026443605080188808` The
- *    `{user}` is the alias `"me"` currently. Future versions may support user
- *    IDs. The `{data_point}` ID maps to the exercise ID, which is a long
- *    integer.
+ *    Examples: - `users/me/dataTypes/exercise/dataPoints/2026443605080188808` -
+ *    `users/1234567890/dataTypes/exercise/dataPoints/2026443605080188808` The
+ *    `{user}` can be either the alias `me` or the authenticated user's numeric
+ *    Health User ID (retrieved via GetIdentity). The `{data_point}` ID maps to
+ *    the exercise ID, which is a long integer.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsExportExerciseTcx
  */
@@ -752,8 +787,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
  *  Exports exercise data in TCX format. **IMPORTANT:** HTTP clients must append
- *  `?alt=media` to the request URL to download the raw TCX file. Example:
+ *  `?alt=media` to the request URL to download the raw TCX file. ## Examples:
+ *  ##
  *  `https://health.googleapis.com/v4/users/me/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
+ *  `https://health.googleapis.com/v4/users/1234567890/dataTypes/exercise/dataPoints/EXERCISE_ID:exportExerciseTcx?alt=media`
  *  Without `alt=media`, the server returns a JSON response
  *  (`ExportExerciseTcxResponse`) which is intended primarily for gRPC clients.
  *  **Note:** While the Authorization section below states that any one of the
@@ -764,10 +801,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The resource name of the exercise data point to
  *    export. Format: `users/{user}/dataTypes/exercise/dataPoints/{data_point}`
- *    Example: `users/me/dataTypes/exercise/dataPoints/2026443605080188808` The
- *    `{user}` is the alias `"me"` currently. Future versions may support user
- *    IDs. The `{data_point}` ID maps to the exercise ID, which is a long
- *    integer.
+ *    Examples: - `users/me/dataTypes/exercise/dataPoints/2026443605080188808` -
+ *    `users/1234567890/dataTypes/exercise/dataPoints/2026443605080188808` The
+ *    `{user}` can be either the alias `me` or the authenticated user's numeric
+ *    Health User ID (retrieved via GetIdentity). The `{data_point}` ID maps to
+ *    the exercise ID, which is a long integer.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsExportExerciseTcx
  */
@@ -782,16 +820,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsGet : GTLRGoogleHealthAPIQuery
 
 /**
  *  Required. The name of the data point to retrieve. Format:
- *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` See
- *  DataPoint.name for examples and possible values.
+ *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` ## Examples: ##
+ *  `users/me/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  `users/1234567890/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  The `{user}` can be either the alias `me` or the authenticated user's
+ *  numeric Health User ID (retrieved via GetIdentity). See DataPoint.name for
+ *  examples and possible values.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -801,8 +855,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get a single identifyable data point.
  *
  *  @param name Required. The name of the data point to retrieve. Format:
- *    `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` See
- *    DataPoint.name for examples and possible values.
+ *    `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` ## Examples:
+ *    ##
+ *    `users/me/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *    `users/1234567890/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *    The `{user}` can be either the alias `me` or the authenticated user's
+ *    numeric Health User ID (retrieved via GetIdentity). See DataPoint.name for
+ *    examples and possible values.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsGet
  */
@@ -817,11 +876,55 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsList : GTLRGoogleHealthAPIQuery
+
+/**
+ *  Optional. The data source family name to filter by. If empty, data points
+ *  from all available data sources will be returned. Format:
+ *  `users/{user}/dataSourceFamilies/{data_source_family}` The `{user}` can be
+ *  either the alias `me` or the authenticated user's numeric Health User ID,
+ *  retrieved via GetIdentity (e.g. `users/me/dataSourceFamilies/...` or
+ *  `users/1234567890/dataSourceFamilies/...`). The supported values are: -
+ *  `users/{user}/dataSourceFamilies/all-sources` - Default value. Includes data
+ *  from all available data sources. -
+ *  `users/{user}/dataSourceFamilies/google-wearables` - Includes data from
+ *  Google and Fitbit tracker devices (such as Fitbit trackers and Pixel Watch).
+ *  Excludes manually logged data. -
+ *  `users/{user}/dataSourceFamilies/google-sources` - Includes first-party
+ *  Google data, such as data from tracker devices, manually logged data, and
+ *  Health Connect. - `users/{user}/dataSourceFamilies/self-sources` - Includes
+ *  only the data the calling client wrote through this API, that is, data
+ *  points whose data source was registered through this API with the same OAuth
+ *  client ID as the caller. Callers that were only granted write scopes for the
+ *  requested data types may only read the data they wrote themselves: their
+ *  requests are implicitly restricted to `self-sources`, and requesting any
+ *  other data source family fails with `PERMISSION_DENIED`. If no data point
+ *  matches the requested data source family, the response is an empty list
+ *  rather than an error. Filtering by data source family is not supported for
+ *  the `sleep`, `food` and `food-measurement-unit` data types, because the
+ *  underlying listing implementation cannot restrict results by data source.
+ *  Such requests fail with `INVALID_ARGUMENT` when the data source family is
+ *  set explicitly, and with `PERMISSION_DENIED` when the restriction is only
+ *  implied by the caller's scopes. For `sleep`, use ReconcileDataPoints
+ *  instead.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSourceFamily;
 
 /**
  *  Optional. Filter expression following https://google.aip.dev/160. A time
@@ -898,9 +1001,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Parent data type of the Data Point collection. Format:
- *  `users/me/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
- *  `users/me/dataTypes/weight` For a list of the supported data types see the
- *  DataPoint data union field.
+ *  `users/{user}/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
+ *  `users/1234567890/dataTypes/steps` - `users/me/dataTypes/weight` -
+ *  `users/1234567890/dataTypes/weight` The `{user}` can be either the alias
+ *  `me` or the authenticated user's numeric Health User ID (retrieved via
+ *  GetIdentity). For a list of the supported data types see the DataPoint data
+ *  union field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -910,9 +1016,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Query user health and fitness data points.
  *
  *  @param parent Required. Parent data type of the Data Point collection.
- *    Format: `users/me/dataTypes/{data_type}`, e.g.: -
- *    `users/me/dataTypes/steps` - `users/me/dataTypes/weight` For a list of the
- *    supported data types see the DataPoint data union field.
+ *    Format: `users/{user}/dataTypes/{data_type}`, e.g.: -
+ *    `users/me/dataTypes/steps` - `users/1234567890/dataTypes/steps` -
+ *    `users/me/dataTypes/weight` - `users/1234567890/dataTypes/weight` The
+ *    `{user}` can be either the alias `me` or the authenticated user's numeric
+ *    Health User ID (retrieved via GetIdentity). For a list of the supported
+ *    data types see the DataPoint data union field.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsList
  *
@@ -933,7 +1042,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
- *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
@@ -946,10 +1054,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Identifier. Data point name, only supported for the subset of identifiable
  *  data types. For the majority of the data types, individual data points do
  *  not need to be identified and this field would be empty. Format:
- *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` Example:
- *  `users/abcd1234/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
- *  The `{user}` ID is a system-generated identifier, as described in
- *  Identity.health_user_id. The `{data_type}` ID corresponds to the kebab-case
+ *  `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` ## Examples: ##
+ *  `users/me/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  `users/1234567890/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *  The `{user}` can be either the alias `me` or the authenticated user's
+ *  numeric Health User ID, which can be retrieved by calling GetIdentity (see
+ *  Identity.health_user_id). The `{data_type}` ID corresponds to the kebab-case
  *  version of the field names in the DataPoint data union field, e.g.
  *  `heart-rate` for the `heart_rate` field. The `{data_point}` ID can be
  *  client-provided or system-generated. If client-provided, it must be a string
@@ -967,11 +1077,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Identifier. Data point name, only supported for the subset of
  *    identifiable data types. For the majority of the data types, individual
  *    data points do not need to be identified and this field would be empty.
- *    Format: `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}`
- *    Example:
- *    `users/abcd1234/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
- *    The `{user}` ID is a system-generated identifier, as described in
- *    Identity.health_user_id. The `{data_type}` ID corresponds to the
+ *    Format: `users/{user}/dataTypes/{data_type}/dataPoints/{data_point}` ##
+ *    Examples: ##
+ *    `users/me/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *    `users/1234567890/dataTypes/sleep/dataPoints/a1b2c3d4-e5f6-7890-1234-567890abcdef`
+ *    The `{user}` can be either the alias `me` or the authenticated user's
+ *    numeric Health User ID, which can be retrieved by calling GetIdentity (see
+ *    Identity.health_user_id). The `{data_type}` ID corresponds to the
  *    kebab-case version of the field names in the DataPoint data union field,
  *    e.g. `heart-rate` for the `heart_rate` field. The `{data_point}` ID can be
  *    client-provided or system-generated. If client-provided, it must be a
@@ -992,19 +1104,47 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsReconcile : GTLRGoogleHealthAPIQuery
 
 /**
  *  Optional. The data source family name to reconcile. If empty, data points
  *  from all data sources will be reconciled. Format:
- *  `users/me/dataSourceFamilies/{data_source_family}` The supported values are:
- *  - `users/me/dataSourceFamilies/all-sources` - default value -
- *  `users/me/dataSourceFamilies/google-wearables` - tracker devices -
- *  `users/me/dataSourceFamilies/google-sources` - Google first party sources
+ *  `users/{user}/dataSourceFamilies/{data_source_family}` The `{user}` can be
+ *  either the alias `me` or the authenticated user's numeric Health User ID,
+ *  retrieved via GetIdentity (e.g. `users/me/dataSourceFamilies/...` or
+ *  `users/1234567890/dataSourceFamilies/...`). The supported values are: -
+ *  `users/{user}/dataSourceFamilies/all-sources` - Default value. Includes data
+ *  from all available data sources. -
+ *  `users/{user}/dataSourceFamilies/google-wearables` - Includes data from
+ *  Google and Fitbit tracker devices (such as Fitbit trackers and Pixel Watch).
+ *  Excludes manually logged data. -
+ *  `users/{user}/dataSourceFamilies/google-sources` - Includes first-party
+ *  Google data, such as data from tracker devices, manually logged data, and
+ *  Health Connect. - `users/{user}/dataSourceFamilies/self-sources` - Includes
+ *  only the data the calling client wrote through this API, that is, data
+ *  points whose data source was registered through this API with the same OAuth
+ *  client ID as the caller. Callers that were only granted write scopes for the
+ *  requested data type may only read the data they wrote themselves: their
+ *  requests are implicitly restricted to `self-sources`, and requesting any
+ *  other data source family fails with `PERMISSION_DENIED`. If no data point
+ *  matches the requested data source family, the response is an empty list
+ *  rather than an error.
  */
 @property(nonatomic, copy, nullable) NSString *dataSourceFamily;
 
@@ -1029,9 +1169,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Parent data type of the Data Point collection. Format:
- *  `users/me/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
- *  `users/me/dataTypes/heart-rate` For a list of the supported data types see
- *  the DataPoint data union field.
+ *  `users/{user}/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
+ *  `users/1234567890/dataTypes/steps` - `users/me/dataTypes/heart-rate` -
+ *  `users/1234567890/dataTypes/heart-rate` The `{user}` can be either the alias
+ *  `me` or the authenticated user's numeric Health User ID (retrieved via
+ *  GetIdentity). For a list of the supported data types see the DataPoint data
+ *  union field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1041,9 +1184,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Reconcile data points from multiple data sources into a single data stream.
  *
  *  @param parent Required. Parent data type of the Data Point collection.
- *    Format: `users/me/dataTypes/{data_type}`, e.g.: -
- *    `users/me/dataTypes/steps` - `users/me/dataTypes/heart-rate` For a list of
- *    the supported data types see the DataPoint data union field.
+ *    Format: `users/{user}/dataTypes/{data_type}`, e.g.: -
+ *    `users/me/dataTypes/steps` - `users/1234567890/dataTypes/steps` -
+ *    `users/me/dataTypes/heart-rate` - `users/1234567890/dataTypes/heart-rate`
+ *    The `{user}` can be either the alias `me` or the authenticated user's
+ *    numeric Health User ID (retrieved via GetIdentity). For a list of the
+ *    supported data types see the DataPoint data union field.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsReconcile
  *
@@ -1062,17 +1208,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthActivityAndFitnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthNutritionWriteonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthWriteonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepWriteonly
  */
 @interface GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsRollUp : GTLRGoogleHealthAPIQuery
 
 /**
  *  Required. Parent data type of the Data Point collection. Format:
  *  `users/{user}/dataTypes/{data_type}`, e.g.: - `users/me/dataTypes/steps` -
- *  `users/me/dataTypes/distance` For a list of the supported data types see the
- *  RollupDataPoint value union field.
+ *  `users/1234567890/dataTypes/steps` - `users/me/dataTypes/distance` -
+ *  `users/1234567890/dataTypes/distance` The `{user}` can be either the alias
+ *  `me` or the authenticated user's numeric Health User ID (retrieved via
+ *  GetIdentity). For a list of the supported data types see the RollupDataPoint
+ *  value union field.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1085,8 +1246,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param parent Required. Parent data type of the Data Point collection.
  *    Format: `users/{user}/dataTypes/{data_type}`, e.g.: -
- *    `users/me/dataTypes/steps` - `users/me/dataTypes/distance` For a list of
- *    the supported data types see the RollupDataPoint value union field.
+ *    `users/me/dataTypes/steps` - `users/1234567890/dataTypes/steps` -
+ *    `users/me/dataTypes/distance` - `users/1234567890/dataTypes/distance` The
+ *    `{user}` can be either the alias `me` or the authenticated user's numeric
+ *    Health User ID (retrieved via GetIdentity). For a list of the supported
+ *    data types see the RollupDataPoint value union field.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersDataTypesDataPointsRollUp
  */
@@ -1107,7 +1271,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthEcgReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthHealthMetricsAndMeasurementsReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileReadonly
+ *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSettingsReadonly
  *    @c kGTLRAuthScopeGoogleHealthAPIGooglehealthSleepReadonly
  */
@@ -1319,7 +1486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `users/me/profile` The {user} ID is a system-generated Google Health API
  *  user ID, a string of 1-63 characters consisting of lowercase and uppercase
  *  letters, numbers, and hyphens. The literal `me` can also be used to refer to
- *  the authenticated user.
+ *  the authenticated user. This field is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1341,7 +1508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `users/me/profile` The {user} ID is a system-generated Google Health API
  *    user ID, a string of 1-63 characters consisting of lowercase and uppercase
  *    letters, numbers, and hyphens. The literal `me` can also be used to refer
- *    to the authenticated user.
+ *    to the authenticated user. This field is read-only.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersUpdateProfile
  */
@@ -1366,7 +1533,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `users/me/settings` The {user} ID is a system-generated Google Health API
  *  user ID, a string of 1-63 characters consisting of lowercase and uppercase
  *  letters, numbers, and hyphens. The literal `me` can also be used to refer to
- *  the authenticated user.
+ *  the authenticated user. This field is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1388,7 +1555,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `users/me/settings` The {user} ID is a system-generated Google Health API
  *    user ID, a string of 1-63 characters consisting of lowercase and uppercase
  *    letters, numbers, and hyphens. The literal `me` can also be used to refer
- *    to the authenticated user.
+ *    to the authenticated user. This field is read-only.
  *
  *  @return GTLRGoogleHealthAPIQuery_UsersUpdateSettings
  */

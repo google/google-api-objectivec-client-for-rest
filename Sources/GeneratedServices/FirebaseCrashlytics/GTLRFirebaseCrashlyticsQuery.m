@@ -53,6 +53,16 @@ NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranularityHour = @"TIME
 NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranularityNone = @"TIME_GRANULARITY_NONE";
 NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranularityUnspecified = @"TIME_GRANULARITY_UNSPECIFIED";
 
+// metricsMode
+NSString * const kGTLRFirebaseCrashlyticsMetricsModeMetricsModeExtrapolated = @"METRICS_MODE_EXTRAPOLATED";
+NSString * const kGTLRFirebaseCrashlyticsMetricsModeMetricsModeObserved = @"METRICS_MODE_OBSERVED";
+NSString * const kGTLRFirebaseCrashlyticsMetricsModeMetricsModeUnspecified = @"METRICS_MODE_UNSPECIFIED";
+
+// view
+NSString * const kGTLRFirebaseCrashlyticsViewReportViewBasic   = @"REPORT_VIEW_BASIC";
+NSString * const kGTLRFirebaseCrashlyticsViewReportViewFull    = @"REPORT_VIEW_FULL";
+NSString * const kGTLRFirebaseCrashlyticsViewReportViewUnspecified = @"REPORT_VIEW_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -96,7 +106,8 @@ NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranularityUnspecified =
          filterIntervalStartTime, filterIssueContent, filterIssueErrorTypes,
          filterIssueId, filterIssueSignals, filterIssueState, filterIssueStates,
          filterIssueVariantId, filterOperatingSystemDisplayNames,
-         filterVersionDisplayNames, pageSize, pageToken, parent, readMask;
+         filterVersionDisplayNames, filterExpression, pageSize, pageToken,
+         parent, readMask;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -292,7 +303,8 @@ NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranularityUnspecified =
          filterIntervalStartTime, filterIssueContent, filterIssueErrorTypes,
          filterIssueId, filterIssueSignals, filterIssueState, filterIssueStates,
          filterIssueVariantId, filterOperatingSystemDisplayNames,
-         filterVersionDisplayNames, granularity, name, pageSize, pageToken;
+         filterVersionDisplayNames, granularity, metricsMode, name, pageSize,
+         pageToken, view;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -345,7 +357,7 @@ NSString * const kGTLRFirebaseCrashlyticsGranularityTimeGranularityUnspecified =
 
 @implementation GTLRFirebaseCrashlyticsQuery_ProjectsAppsReportsList
 
-@dynamic parent;
+@dynamic parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

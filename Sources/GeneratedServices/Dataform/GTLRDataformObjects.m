@@ -27,10 +27,22 @@ NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_NotFound = @"NOT_FO
 NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_TokenStatusUnspecified = @"TOKEN_STATUS_UNSPECIFIED";
 NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_Valid = @"VALID";
 
+// GTLRDataform_InvocationConfig.executionMode
+NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_AllExceptUnitTests = @"ALL_EXCEPT_UNIT_TESTS";
+NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_Default = @"DEFAULT";
+NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_ExecutionModeUnspecified = @"EXECUTION_MODE_UNSPECIFIED";
+NSString * const kGTLRDataform_InvocationConfig_ExecutionMode_UnitTestsOnly = @"UNIT_TESTS_ONLY";
+
 // GTLRDataform_InvocationConfig.queryPriority
 NSString * const kGTLRDataform_InvocationConfig_QueryPriority_Batch = @"BATCH";
 NSString * const kGTLRDataform_InvocationConfig_QueryPriority_Interactive = @"INTERACTIVE";
 NSString * const kGTLRDataform_InvocationConfig_QueryPriority_QueryPriorityUnspecified = @"QUERY_PRIORITY_UNSPECIFIED";
+
+// GTLRDataform_PipelineConfig.pipelineType
+NSString * const kGTLRDataform_PipelineConfig_PipelineType_Dataform = @"DATAFORM";
+NSString * const kGTLRDataform_PipelineConfig_PipelineType_Notebook = @"NOTEBOOK";
+NSString * const kGTLRDataform_PipelineConfig_PipelineType_PipelineTypeUnspecified = @"PIPELINE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataform_PipelineConfig_PipelineType_Sql = @"SQL";
 
 // GTLRDataform_Relation.fileFormat
 NSString * const kGTLRDataform_Relation_FileFormat_FileFormatUnspecified = @"FILE_FORMAT_UNSPECIFIED";
@@ -152,6 +164,37 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_BigQueryUnitTest
+//
+
+@implementation GTLRDataform_BigQueryUnitTest
+@dynamic dependencyTargets, disabled, displayName, expectedOutputQuery, tags,
+         testQuery;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dependencyTargets" : [GTLRDataform_Target class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_BigQueryUnitTestAction
+//
+
+@implementation GTLRDataform_BigQueryUnitTestAction
+@dynamic actualResultsJobId, actualResultsSqlScript, expectedResultsJobId,
+         expectedResultsSqlScript, totalBilledBytes, totalProcessedBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_Binding
 //
 
@@ -203,7 +246,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 @implementation GTLRDataform_CodeCompilationConfig
 @dynamic assertionSchema, builtinAssertionNamePrefix, databaseSuffix,
          defaultDatabase, defaultLocation, defaultNotebookRuntimeOptions,
-         defaultSchema, schemaSuffix, tablePrefix, vars;
+         defaultSchema, pipelineConfig, schemaSuffix, tablePrefix, vars;
 @end
 
 
@@ -352,9 +395,10 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_CompilationResult
 @dynamic codeCompilationConfig, compilationErrors, createTime,
-         dataEncryptionState, dataformCoreVersion, gitCommitish,
-         internalMetadata, name, privateResourceMetadata, releaseConfig,
-         resolvedGitCommitSha, workspace;
+         dataEncryptionState, dataformCoreVersion,
+         gcsRepositorySnapshotMetadata, gitCommitish, internalMetadata, name,
+         privateResourceMetadata, releaseConfig, resolvedGitCommitSha,
+         workspace;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -372,8 +416,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_CompilationResultAction
-@dynamic assertion, canonicalTarget, dataPreparation, declaration, filePath,
-         internalMetadata, notebook, operations, relation, target;
+@dynamic assertion, bigqueryUnitTest, canonicalTarget, dataPreparation,
+         declaration, filePath, internalMetadata, notebook, operations,
+         relation, target;
 @end
 
 
@@ -501,6 +546,26 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_EndUserAuthConfig
+//
+
+@implementation GTLRDataform_EndUserAuthConfig
+@dynamic oauthConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_EndUserAuthenticationConfig
+//
+
+@implementation GTLRDataform_EndUserAuthenticationConfig
+@dynamic oauthConfig, userEmail;
 @end
 
 
@@ -660,6 +725,26 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_GcsRepositorySnapshotDestination
+//
+
+@implementation GTLRDataform_GcsRepositorySnapshotDestination
+@dynamic repositorySnapshotUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_GcsRepositorySnapshotMetadata
+//
+
+@implementation GTLRDataform_GcsRepositorySnapshotMetadata
+@dynamic crc32cChecksum, generation, repositorySnapshotUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_GitRemoteSettings
 //
 
@@ -718,6 +803,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_InstallNpmPackagesRequest
+@dynamic pipelineConfig;
 @end
 
 
@@ -746,9 +832,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_InvocationConfig
-@dynamic fullyRefreshIncrementalTablesEnabled, includedTags, includedTargets,
-         queryPriority, serviceAccount, transitiveDependenciesIncluded,
-         transitiveDependentsIncluded;
+@dynamic endUserAuthConfig, executionMode, fullyRefreshIncrementalTablesEnabled,
+         includedTags, includedTargets, queryPriority, serviceAccount,
+         transitiveDependenciesIncluded, transitiveDependentsIncluded;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1094,7 +1180,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_NotebookAction
-@dynamic contents, jobId;
+@dynamic contents, filePath, jobId;
 @end
 
 
@@ -1104,7 +1190,26 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_NotebookRuntimeOptions
-@dynamic aiPlatformNotebookRuntimeTemplate, gcsOutputBucket;
+@dynamic aiPlatformNotebookRuntimeTemplate, gcsOutputBucket,
+         gcsRepositorySnapshotDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_OAuthConfig
+//
+
+@implementation GTLRDataform_OAuthConfig
+@dynamic additionalOauthScopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalOauthScopes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1175,6 +1280,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_PipelineConfig
+//
+
+@implementation GTLRDataform_PipelineConfig
+@dynamic path, pipelineType;
 @end
 
 
@@ -1578,8 +1693,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_Repository
 @dynamic containingFolder, createTime, dataEncryptionState, displayName,
-         gitRemoteSettings, internalMetadata, kmsKeyName, labels, name,
-         npmrcEnvironmentVariablesSecretVersion, serviceAccount,
+         endUserAuthConfig, gitRemoteSettings, internalMetadata, kmsKeyName,
+         labels, name, npmrcEnvironmentVariablesSecretVersion, serviceAccount,
          setAuthenticatedUserAdmin, teamFolderName,
          workspaceCompilationOverrides;
 @end
@@ -1895,8 +2010,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_WorkflowInvocation
 @dynamic compilationResult, dataEncryptionState, internalMetadata,
-         invocationConfig, invocationTiming, name, privateResourceMetadata,
-         resolvedCompilationResult, state, workflowConfig;
+         invocationConfig, invocationTiming, name, pipelineConfig,
+         privateResourceMetadata, resolvedCompilationResult, state,
+         workflowConfig;
 @end
 
 
@@ -1906,8 +2022,9 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_WorkflowInvocationAction
-@dynamic bigqueryAction, canonicalTarget, dataPreparationAction, failureReason,
-         internalMetadata, invocationTiming, notebookAction, state, target;
+@dynamic bigqueryAction, bigqueryUnitTestAction, canonicalTarget,
+         dataPreparationAction, failureReason, internalMetadata,
+         invocationTiming, notebookAction, state, target;
 @end
 
 

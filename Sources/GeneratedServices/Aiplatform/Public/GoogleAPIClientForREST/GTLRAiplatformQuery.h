@@ -227,6 +227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.customJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_CustomJobsOperationsCancel : GTLRAiplatformQuery
@@ -295,6 +296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.customJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_CustomJobsOperationsGet : GTLRAiplatformQuery
@@ -324,6 +326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.customJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_CustomJobsOperationsList : GTLRAiplatformQuery
@@ -383,6 +386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.customJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_CustomJobsOperationsWait : GTLRAiplatformQuery
@@ -432,6 +436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.dataLabelingJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DataLabelingJobsOperationsCancel : GTLRAiplatformQuery
@@ -500,6 +505,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.dataLabelingJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DataLabelingJobsOperationsGet : GTLRAiplatformQuery
@@ -529,6 +535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.dataLabelingJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DataLabelingJobsOperationsList : GTLRAiplatformQuery
@@ -588,6 +595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.dataLabelingJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DataLabelingJobsOperationsWait : GTLRAiplatformQuery
@@ -637,6 +645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.annotationSpecs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsAnnotationSpecsOperationsCancel : GTLRAiplatformQuery
@@ -705,6 +714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.annotationSpecs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsAnnotationSpecsOperationsGet : GTLRAiplatformQuery
@@ -734,6 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.annotationSpecs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsAnnotationSpecsOperationsList : GTLRAiplatformQuery
@@ -793,6 +804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.annotationSpecs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsAnnotationSpecsOperationsWait : GTLRAiplatformQuery
@@ -834,6 +846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsCreate : GTLRAiplatformQuery
@@ -872,6 +885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.annotations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsAnnotationsOperationsCancel : GTLRAiplatformQuery
@@ -940,6 +954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.annotations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsAnnotationsOperationsGet : GTLRAiplatformQuery
@@ -969,6 +984,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.annotations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsAnnotationsOperationsList : GTLRAiplatformQuery
@@ -1028,6 +1044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.annotations.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsAnnotationsOperationsWait : GTLRAiplatformQuery
@@ -1077,6 +1094,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsOperationsCancel : GTLRAiplatformQuery
@@ -1145,6 +1163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsOperationsGet : GTLRAiplatformQuery
@@ -1174,6 +1193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsOperationsList : GTLRAiplatformQuery
@@ -1233,6 +1253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.dataItems.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDataItemsOperationsWait : GTLRAiplatformQuery
@@ -1274,6 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.datasetVersions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDatasetVersionsCreate : GTLRAiplatformQuery
@@ -1307,6 +1329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.datasetVersions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDatasetVersionsDelete : GTLRAiplatformQuery
@@ -1338,6 +1361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.datasetVersions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDatasetVersionsGet : GTLRAiplatformQuery
@@ -1376,6 +1400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.datasetVersions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDatasetVersionsList : GTLRAiplatformQuery
@@ -1434,6 +1459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.datasetVersions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDatasetVersionsPatch : GTLRAiplatformQuery
@@ -1477,6 +1503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.datasetVersions.restore
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDatasetVersionsRestore : GTLRAiplatformQuery
@@ -1507,6 +1534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsDelete : GTLRAiplatformQuery
@@ -1537,6 +1565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsGet : GTLRAiplatformQuery
@@ -1570,6 +1599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsList : GTLRAiplatformQuery
@@ -1640,6 +1670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsOperationsCancel : GTLRAiplatformQuery
@@ -1708,6 +1739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsOperationsGet : GTLRAiplatformQuery
@@ -1737,6 +1769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsOperationsList : GTLRAiplatformQuery
@@ -1796,6 +1829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsOperationsWait : GTLRAiplatformQuery
@@ -1837,6 +1871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsPatch : GTLRAiplatformQuery
@@ -1887,6 +1922,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.savedQueries.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsSavedQueriesOperationsCancel : GTLRAiplatformQuery
@@ -1955,6 +1991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.savedQueries.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsSavedQueriesOperationsGet : GTLRAiplatformQuery
@@ -1984,6 +2021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.savedQueries.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsSavedQueriesOperationsList : GTLRAiplatformQuery
@@ -2043,6 +2081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.datasets.savedQueries.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DatasetsSavedQueriesOperationsWait : GTLRAiplatformQuery
@@ -2092,6 +2131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.deploymentResourcePools.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DeploymentResourcePoolsOperationsCancel : GTLRAiplatformQuery
@@ -2160,6 +2200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.deploymentResourcePools.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DeploymentResourcePoolsOperationsGet : GTLRAiplatformQuery
@@ -2189,6 +2230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.deploymentResourcePools.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DeploymentResourcePoolsOperationsList : GTLRAiplatformQuery
@@ -2248,6 +2290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.deploymentResourcePools.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_DeploymentResourcePoolsOperationsWait : GTLRAiplatformQuery
@@ -2289,6 +2332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.chat.completions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -2393,6 +2437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.fetchPredictOperation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -2431,6 +2476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.generateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -2480,6 +2526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_EndpointsOperationsCancel : GTLRAiplatformQuery
@@ -2548,6 +2595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_EndpointsOperationsGet : GTLRAiplatformQuery
@@ -2577,6 +2625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_EndpointsOperationsList : GTLRAiplatformQuery
@@ -2636,6 +2685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_EndpointsOperationsWait : GTLRAiplatformQuery
@@ -2677,6 +2727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.predict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -2710,6 +2761,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.predictLongRunning
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -2746,6 +2798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.endpoints.streamGenerateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -2821,6 +2874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureGroups.features.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureGroupsFeaturesOperationsGet : GTLRAiplatformQuery
@@ -2850,6 +2904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureGroups.features.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureGroupsFeaturesOperationsListWait : GTLRAiplatformQuery
@@ -2909,6 +2964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureGroups.features.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureGroupsFeaturesOperationsWait : GTLRAiplatformQuery
@@ -2984,6 +3040,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureGroups.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureGroupsOperationsGet : GTLRAiplatformQuery
@@ -3013,6 +3070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureGroups.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureGroupsOperationsListWait : GTLRAiplatformQuery
@@ -3072,6 +3130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureGroups.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureGroupsOperationsWait : GTLRAiplatformQuery
@@ -3147,6 +3206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureOnlineStores.featureViews.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureOnlineStoresFeatureViewsOperationsGet : GTLRAiplatformQuery
@@ -3176,6 +3236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureOnlineStores.featureViews.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureOnlineStoresFeatureViewsOperationsListWait : GTLRAiplatformQuery
@@ -3235,6 +3296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureOnlineStores.featureViews.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureOnlineStoresFeatureViewsOperationsWait : GTLRAiplatformQuery
@@ -3310,6 +3372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureOnlineStores.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureOnlineStoresOperationsGet : GTLRAiplatformQuery
@@ -3339,6 +3402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureOnlineStores.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureOnlineStoresOperationsListWait : GTLRAiplatformQuery
@@ -3398,6 +3462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featureOnlineStores.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeatureOnlineStoresOperationsWait : GTLRAiplatformQuery
@@ -3447,6 +3512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.features.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesFeaturesOperationsCancel : GTLRAiplatformQuery
@@ -3515,6 +3581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.features.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesFeaturesOperationsGet : GTLRAiplatformQuery
@@ -3544,6 +3611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.features.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesFeaturesOperationsList : GTLRAiplatformQuery
@@ -3603,6 +3671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.features.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesFeaturesOperationsWait : GTLRAiplatformQuery
@@ -3652,6 +3721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesOperationsCancel : GTLRAiplatformQuery
@@ -3720,6 +3790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesOperationsGet : GTLRAiplatformQuery
@@ -3749,6 +3820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesOperationsList : GTLRAiplatformQuery
@@ -3808,6 +3880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.entityTypes.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresEntityTypesOperationsWait : GTLRAiplatformQuery
@@ -3857,6 +3930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresOperationsCancel : GTLRAiplatformQuery
@@ -3925,6 +3999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresOperationsGet : GTLRAiplatformQuery
@@ -3954,6 +4029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresOperationsList : GTLRAiplatformQuery
@@ -4013,6 +4089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.featurestores.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_FeaturestoresOperationsWait : GTLRAiplatformQuery
@@ -4062,6 +4139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.hyperparameterTuningJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_HyperparameterTuningJobsOperationsCancel : GTLRAiplatformQuery
@@ -4130,6 +4208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.hyperparameterTuningJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_HyperparameterTuningJobsOperationsGet : GTLRAiplatformQuery
@@ -4159,6 +4238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.hyperparameterTuningJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_HyperparameterTuningJobsOperationsList : GTLRAiplatformQuery
@@ -4218,6 +4298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.hyperparameterTuningJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_HyperparameterTuningJobsOperationsWait : GTLRAiplatformQuery
@@ -4267,6 +4348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexEndpoints.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexEndpointsOperationsCancel : GTLRAiplatformQuery
@@ -4335,6 +4417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexEndpoints.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexEndpointsOperationsGet : GTLRAiplatformQuery
@@ -4364,6 +4447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexEndpoints.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexEndpointsOperationsList : GTLRAiplatformQuery
@@ -4423,6 +4507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexEndpoints.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexEndpointsOperationsWait : GTLRAiplatformQuery
@@ -4472,6 +4557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexes.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexesOperationsCancel : GTLRAiplatformQuery
@@ -4540,6 +4626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexes.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexesOperationsGet : GTLRAiplatformQuery
@@ -4569,6 +4656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexes.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexesOperationsList : GTLRAiplatformQuery
@@ -4628,6 +4716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.indexes.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_IndexesOperationsWait : GTLRAiplatformQuery
@@ -4669,6 +4758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.media.upload
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MediaUpload : GTLRAiplatformQuery
@@ -4715,6 +4805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.memories.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksMemoriesOperationsCancel : GTLRAiplatformQuery
@@ -4783,6 +4874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.memories.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksMemoriesOperationsGet : GTLRAiplatformQuery
@@ -4812,6 +4904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.memories.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksMemoriesOperationsList : GTLRAiplatformQuery
@@ -4871,6 +4964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.memories.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksMemoriesOperationsWait : GTLRAiplatformQuery
@@ -4920,6 +5014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksOperationsCancel : GTLRAiplatformQuery
@@ -4988,6 +5083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksOperationsGet : GTLRAiplatformQuery
@@ -5017,6 +5113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksOperationsList : GTLRAiplatformQuery
@@ -5076,6 +5173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.memoryBanks.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MemoryBanksOperationsWait : GTLRAiplatformQuery
@@ -5125,6 +5223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.artifacts.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresArtifactsOperationsCancel : GTLRAiplatformQuery
@@ -5193,6 +5292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.artifacts.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresArtifactsOperationsGet : GTLRAiplatformQuery
@@ -5222,6 +5322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.artifacts.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresArtifactsOperationsList : GTLRAiplatformQuery
@@ -5281,6 +5382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.artifacts.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresArtifactsOperationsWait : GTLRAiplatformQuery
@@ -5330,6 +5432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.contexts.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresContextsOperationsCancel : GTLRAiplatformQuery
@@ -5398,6 +5501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.contexts.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresContextsOperationsGet : GTLRAiplatformQuery
@@ -5427,6 +5531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.contexts.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresContextsOperationsList : GTLRAiplatformQuery
@@ -5486,6 +5591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.contexts.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresContextsOperationsWait : GTLRAiplatformQuery
@@ -5535,6 +5641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.executions.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresExecutionsOperationsCancel : GTLRAiplatformQuery
@@ -5603,6 +5710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.executions.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresExecutionsOperationsGet : GTLRAiplatformQuery
@@ -5632,6 +5740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.executions.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresExecutionsOperationsList : GTLRAiplatformQuery
@@ -5691,6 +5800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.executions.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresExecutionsOperationsWait : GTLRAiplatformQuery
@@ -5740,6 +5850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresOperationsCancel : GTLRAiplatformQuery
@@ -5808,6 +5919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresOperationsGet : GTLRAiplatformQuery
@@ -5837,6 +5949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresOperationsList : GTLRAiplatformQuery
@@ -5896,6 +6009,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.metadataStores.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MetadataStoresOperationsWait : GTLRAiplatformQuery
@@ -5945,6 +6059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.migratableResources.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MigratableResourcesOperationsCancel : GTLRAiplatformQuery
@@ -6013,6 +6128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.migratableResources.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MigratableResourcesOperationsGet : GTLRAiplatformQuery
@@ -6042,6 +6158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.migratableResources.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MigratableResourcesOperationsList : GTLRAiplatformQuery
@@ -6101,6 +6218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.migratableResources.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_MigratableResourcesOperationsWait : GTLRAiplatformQuery
@@ -6150,6 +6268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.modelDeploymentMonitoringJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelDeploymentMonitoringJobsOperationsCancel : GTLRAiplatformQuery
@@ -6218,6 +6337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.modelDeploymentMonitoringJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelDeploymentMonitoringJobsOperationsGet : GTLRAiplatformQuery
@@ -6247,6 +6367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.modelDeploymentMonitoringJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelDeploymentMonitoringJobsOperationsList : GTLRAiplatformQuery
@@ -6306,6 +6427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.modelDeploymentMonitoringJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelDeploymentMonitoringJobsOperationsWait : GTLRAiplatformQuery
@@ -6355,6 +6477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.evaluations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsEvaluationsOperationsCancel : GTLRAiplatformQuery
@@ -6423,6 +6546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.evaluations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsEvaluationsOperationsGet : GTLRAiplatformQuery
@@ -6452,6 +6576,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.evaluations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsEvaluationsOperationsList : GTLRAiplatformQuery
@@ -6511,6 +6636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.evaluations.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsEvaluationsOperationsWait : GTLRAiplatformQuery
@@ -6560,6 +6686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsOperationsCancel : GTLRAiplatformQuery
@@ -6628,6 +6755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsOperationsGet : GTLRAiplatformQuery
@@ -6657,6 +6785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsOperationsList : GTLRAiplatformQuery
@@ -6716,6 +6845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.models.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ModelsOperationsWait : GTLRAiplatformQuery
@@ -6765,6 +6895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookExecutionJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookExecutionJobsOperationsCancel : GTLRAiplatformQuery
@@ -6833,6 +6964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookExecutionJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookExecutionJobsOperationsGet : GTLRAiplatformQuery
@@ -6862,6 +6994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookExecutionJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookExecutionJobsOperationsList : GTLRAiplatformQuery
@@ -6921,6 +7054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookExecutionJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookExecutionJobsOperationsWait : GTLRAiplatformQuery
@@ -6970,6 +7104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimes.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimesOperationsCancel : GTLRAiplatformQuery
@@ -7038,6 +7173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimes.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimesOperationsGet : GTLRAiplatformQuery
@@ -7067,6 +7203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimes.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimesOperationsList : GTLRAiplatformQuery
@@ -7126,6 +7263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimes.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimesOperationsWait : GTLRAiplatformQuery
@@ -7175,6 +7313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimeTemplates.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimeTemplatesOperationsCancel : GTLRAiplatformQuery
@@ -7243,6 +7382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimeTemplates.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimeTemplatesOperationsGet : GTLRAiplatformQuery
@@ -7272,6 +7412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimeTemplates.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimeTemplatesOperationsList : GTLRAiplatformQuery
@@ -7331,6 +7472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.notebookRuntimeTemplates.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_NotebookRuntimeTemplatesOperationsWait : GTLRAiplatformQuery
@@ -7380,6 +7522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.onlineEvaluators.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OnlineEvaluatorsOperationsCancel : GTLRAiplatformQuery
@@ -7448,6 +7591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.onlineEvaluators.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OnlineEvaluatorsOperationsGet : GTLRAiplatformQuery
@@ -7477,6 +7621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.onlineEvaluators.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OnlineEvaluatorsOperationsList : GTLRAiplatformQuery
@@ -7536,6 +7681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.onlineEvaluators.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OnlineEvaluatorsOperationsWait : GTLRAiplatformQuery
@@ -7585,6 +7731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OperationsCancel : GTLRAiplatformQuery
@@ -7653,6 +7800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OperationsGet : GTLRAiplatformQuery
@@ -7682,6 +7830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OperationsList : GTLRAiplatformQuery
@@ -7739,6 +7888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_OperationsWait : GTLRAiplatformQuery
@@ -7788,6 +7938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.persistentResources.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PersistentResourcesOperationsCancel : GTLRAiplatformQuery
@@ -7856,6 +8007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.persistentResources.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PersistentResourcesOperationsGet : GTLRAiplatformQuery
@@ -7885,6 +8037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.persistentResources.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PersistentResourcesOperationsList : GTLRAiplatformQuery
@@ -7944,6 +8097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.persistentResources.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PersistentResourcesOperationsWait : GTLRAiplatformQuery
@@ -7993,6 +8147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.pipelineJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PipelineJobsOperationsCancel : GTLRAiplatformQuery
@@ -8061,6 +8216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.pipelineJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PipelineJobsOperationsGet : GTLRAiplatformQuery
@@ -8090,6 +8246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.pipelineJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PipelineJobsOperationsList : GTLRAiplatformQuery
@@ -8149,6 +8306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.pipelineJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PipelineJobsOperationsWait : GTLRAiplatformQuery
@@ -8220,6 +8378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.agents.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsAgentsCreate : GTLRAiplatformQuery
@@ -8253,9 +8412,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.agents.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsAgentsDelete : GTLRAiplatformQuery
+
+/**
+ *  Optional. If true, any `Task` belonging to this agent is deleted along with
+ *  it. If false or unset and the agent still has at least one `Task`, the
+ *  request fails with `FAILED_PRECONDITION` and nothing is deleted. This
+ *  governs `Task` and nothing else. Resources the agent owns but a caller never
+ *  named -- its AI Application and the tenant project bound to it, its
+ *  Workspace identity, its service-extension binding -- are torn down with the
+ *  agent on every delete, whatever this field says.
+ */
+@property(nonatomic, assign) BOOL force;
 
 /**
  *  Required. The resource name of the agent to delete. Format:
@@ -8283,6 +8454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.agents.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsAgentsGet : GTLRAiplatformQuery
@@ -8308,14 +8480,103 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Lists agents in a location.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
- *  Method: aiplatform.projects.locations.agents.list
+ *  Method: aiplatform.projects.locations.agents.getIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
+@interface GTLRAiplatformQuery_ProjectsLocationsAgentsGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsAgentsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists the agents in a location that belong to the caller. An agent belongs
+ *  to the end user recorded as its owner when it was created, so the response
+ *  holds that caller's agents and no others. It is empty for a caller that is
+ *  not an end user, and an agent with no recorded owner is listed for nobody.
+ *
+ *  Method: aiplatform.projects.locations.agents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
 @interface GTLRAiplatformQuery_ProjectsLocationsAgentsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. An [AIP-160](https://google.aip.dev/160) filter over the returned
+ *  agents. An empty filter returns the unfiltered collection. Supported fields,
+ *  and the operators each accepts: * `created` * `updated` * `base_agent` *
+ *  `metadata.agent_type` `created` and `updated` are timestamps and take an
+ *  RFC-3339 value, for example `2026-08-01T00:00:00Z`. Supported operators:
+ *  `=`, `!=`, `<`, `>`, `<=`, `>=`, `:`, `AND`, `OR`, `NOT` (equivalently `-`),
+ *  and parentheses. Note that `OR` binds more tightly than `AND`, so `a AND b
+ *  OR c` means `a AND (b OR c)`; parentheses are recommended, not required.
+ *  `metadata.agent_type` accepts only the value `"default_agent"`, matched
+ *  exactly: `metadata.agent_type:"default_agent"` selects the caller's default
+ *  agent, of which there is at most one, and the negated form selects the rest.
+ *  Any other value is `INVALID_ARGUMENT` rather than an empty page --
+ *  `metadata` is an opaque blob, so only this one marker is indexed, and the
+ *  server cannot answer a question about the others. An agent designated before
+ *  the server began recording the marker is not matched by the positive form;
+ *  there is no backfill. `base_agent` accepts `=` and `!=` against the value an
+ *  agent was created with, and selects only among the agents you own: an agent
+ *  that belongs to the project rather than to a user is never returned by a
+ *  filter naming it, including the negated form. An agent created before the
+ *  server began recording the value is not matched either. Example: `created >
+ *  "2026-08-01T00:00:00Z" AND updated < "2026-08-09T00:00:00Z"`. IMPORTANT --
+ *  `base_agent` and `metadata.agent_type` select only among the agents you own.
+ *  An agent that belongs to the project rather than to a user is never returned
+ *  by a filter naming either of them, including a negated one: `base_agent !=
+ *  "some-value"` returns your matching agents and no project-owned agents at
+ *  all. Filtering on `created` or `updated` alone is unaffected and still spans
+ *  both. If you want every agent in the project, do not filter on these two
+ *  fields. Not supported: any field other than those listed above, wildcards
+ *  other than `field:*`, bare literals with no field name, functions, and the
+ *  regular-expression operators `=~` and `!~`. A filter that names an
+ *  unsupported field, exceeds 1000 characters, or nests parentheses more than 5
+ *  deep fails with `INVALID_ARGUMENT`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. A comma-separated list of fields to order by. Supported fields: *
@@ -8346,7 +8607,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListAgentsResponse.
  *
- *  Lists agents in a location.
+ *  Lists the agents in a location that belong to the caller. An agent belongs
+ *  to the end user recorded as its owner when it was created, so the response
+ *  holds that caller's agents and no others. It is empty for a caller that is
+ *  not an end user, and an agent with no recorded owner is listed for nobody.
  *
  *  @param parent Required. The resource name of the location to list agents
  *    from. Format: `projects/{project}/locations/{location}`.
@@ -8367,6 +8631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.agents.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsAgentsPatch : GTLRAiplatformQuery
@@ -8386,7 +8651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1Agent.
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
  *
  *  Updates an agent.
  *
@@ -8403,11 +8668,100 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.agents.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsAgentsSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsAgentsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.agents.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsAgentsTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsAgentsTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Agentic Retrieval Ask API for RAG.
  *
  *  Method: aiplatform.projects.locations.askContexts
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsAskContexts : GTLRAiplatformQuery
@@ -8444,6 +8798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.asyncRetrieveContexts
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsAsyncRetrieveContexts : GTLRAiplatformQuery
@@ -8481,6 +8836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.augmentPrompt
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsAugmentPrompt : GTLRAiplatformQuery
@@ -8907,6 +9263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.corroborateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsCorroborateContent : GTLRAiplatformQuery
@@ -9089,6 +9446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.customJobs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsCustomJobsList : GTLRAiplatformQuery
@@ -9162,6 +9520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.customJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsCustomJobsOperationsCancel : GTLRAiplatformQuery
@@ -9230,6 +9589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.customJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsCustomJobsOperationsGet : GTLRAiplatformQuery
@@ -9259,6 +9619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.customJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsCustomJobsOperationsList : GTLRAiplatformQuery
@@ -9318,6 +9679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.customJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsCustomJobsOperationsWait : GTLRAiplatformQuery
@@ -9565,6 +9927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.dataLabelingJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDataLabelingJobsOperationsCancel : GTLRAiplatformQuery
@@ -9633,6 +9996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.dataLabelingJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDataLabelingJobsOperationsGet : GTLRAiplatformQuery
@@ -9662,6 +10026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.dataLabelingJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDataLabelingJobsOperationsList : GTLRAiplatformQuery
@@ -9721,6 +10086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.dataLabelingJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDataLabelingJobsOperationsWait : GTLRAiplatformQuery
@@ -9762,6 +10128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.annotationSpecs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsAnnotationSpecsGet : GTLRAiplatformQuery
@@ -9807,6 +10174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.annotationSpecs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsAnnotationSpecsOperationsCancel : GTLRAiplatformQuery
@@ -9875,6 +10243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.annotationSpecs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsAnnotationSpecsOperationsGet : GTLRAiplatformQuery
@@ -9904,6 +10273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.annotationSpecs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsAnnotationSpecsOperationsList : GTLRAiplatformQuery
@@ -9963,6 +10333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.annotationSpecs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsAnnotationSpecsOperationsWait : GTLRAiplatformQuery
@@ -10004,6 +10375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsCreate : GTLRAiplatformQuery
@@ -10037,6 +10409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsAnnotationsList : GTLRAiplatformQuery
@@ -10103,6 +10476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsAnnotationsOperationsCancel : GTLRAiplatformQuery
@@ -10171,6 +10545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsAnnotationsOperationsGet : GTLRAiplatformQuery
@@ -10200,6 +10575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsAnnotationsOperationsList : GTLRAiplatformQuery
@@ -10259,6 +10635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsAnnotationsOperationsWait : GTLRAiplatformQuery
@@ -10300,6 +10677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsList : GTLRAiplatformQuery
@@ -10364,6 +10742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsOperationsCancel : GTLRAiplatformQuery
@@ -10432,6 +10811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsOperationsGet : GTLRAiplatformQuery
@@ -10461,6 +10841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsOperationsList : GTLRAiplatformQuery
@@ -10520,6 +10901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.dataItems.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDataItemsOperationsWait : GTLRAiplatformQuery
@@ -10561,6 +10943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsCreate : GTLRAiplatformQuery
@@ -10594,6 +10977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsDelete : GTLRAiplatformQuery
@@ -10625,6 +11009,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsGet : GTLRAiplatformQuery
@@ -10663,6 +11048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsList : GTLRAiplatformQuery
@@ -10721,6 +11107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch : GTLRAiplatformQuery
@@ -10764,6 +11151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.restore
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsRestore : GTLRAiplatformQuery
@@ -10794,6 +11182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDelete : GTLRAiplatformQuery
@@ -10824,6 +11213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.export
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsExport : GTLRAiplatformQuery
@@ -10857,6 +11247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsGet : GTLRAiplatformQuery
@@ -10939,6 +11330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsImport : GTLRAiplatformQuery
@@ -10972,6 +11364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsList : GTLRAiplatformQuery
@@ -11045,6 +11438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsOperationsCancel : GTLRAiplatformQuery
@@ -11113,6 +11507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsOperationsGet : GTLRAiplatformQuery
@@ -11142,6 +11537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsOperationsList : GTLRAiplatformQuery
@@ -11201,6 +11597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsOperationsWait : GTLRAiplatformQuery
@@ -11242,6 +11639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsPatch : GTLRAiplatformQuery
@@ -11284,6 +11682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.savedQueries.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsSavedQueriesDelete : GTLRAiplatformQuery
@@ -11314,6 +11713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.savedQueries.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsSavedQueriesList : GTLRAiplatformQuery
@@ -11379,6 +11779,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.savedQueries.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsSavedQueriesOperationsCancel : GTLRAiplatformQuery
@@ -11447,6 +11848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.savedQueries.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsSavedQueriesOperationsGet : GTLRAiplatformQuery
@@ -11476,6 +11878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.savedQueries.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsSavedQueriesOperationsList : GTLRAiplatformQuery
@@ -11535,6 +11938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.savedQueries.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsSavedQueriesOperationsWait : GTLRAiplatformQuery
@@ -11576,6 +11980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.datasets.searchDataItems
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsSearchDataItems : GTLRAiplatformQuery
@@ -11790,6 +12195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.deploy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDeploy : GTLRAiplatformQuery
@@ -11977,6 +12383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.deploymentResourcePools.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsOperationsCancel : GTLRAiplatformQuery
@@ -12045,6 +12452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.deploymentResourcePools.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsOperationsGet : GTLRAiplatformQuery
@@ -12074,6 +12482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.deploymentResourcePools.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsOperationsList : GTLRAiplatformQuery
@@ -12133,6 +12542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.deploymentResourcePools.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsOperationsWait : GTLRAiplatformQuery
@@ -12262,6 +12672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.chat.completions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12366,6 +12777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsCreate : GTLRAiplatformQuery
@@ -12412,6 +12824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDelete : GTLRAiplatformQuery
@@ -12444,6 +12857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.deployedModels.invoke.invoke
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12491,6 +12905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.deployModel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDeployModel : GTLRAiplatformQuery
@@ -12527,6 +12942,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.directPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12565,6 +12981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.directRawPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12605,6 +13022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.explain
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12643,6 +13061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.fetchPredictOperation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12681,6 +13100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.generateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12722,6 +13142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsGet : GTLRAiplatformQuery
@@ -12754,6 +13175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.google.science.inference
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12796,6 +13218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.invoke.invoke
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -12837,6 +13260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsList : GTLRAiplatformQuery
@@ -12918,6 +13342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.mutateDeployedModel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsMutateDeployedModel : GTLRAiplatformQuery
@@ -12959,6 +13384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.openapi.completions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13001,6 +13427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.openapi.embeddings
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13043,6 +13470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.openapi.responses
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13091,6 +13519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsOperationsCancel : GTLRAiplatformQuery
@@ -13159,6 +13588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsOperationsGet : GTLRAiplatformQuery
@@ -13188,6 +13618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsOperationsList : GTLRAiplatformQuery
@@ -13247,6 +13678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsOperationsWait : GTLRAiplatformQuery
@@ -13288,6 +13720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsPatch : GTLRAiplatformQuery
@@ -13325,6 +13758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.predict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13358,6 +13792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.predictLongRunning
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13397,6 +13832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.rawPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13430,12 +13866,78 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Deletes the response from the endpoint.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.responses.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsResponsesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Response resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Deletes the response from the endpoint.
+ *
+ *  @param name Required. The name of the Response resource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsResponsesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the response from the endpoint.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.responses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsResponsesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Response resource. Format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Gets the response from the endpoint.
+ *
+ *  @param name Required. The name of the Response resource. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsResponsesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Perform a server-side streaming online prediction request for Vertex LLM
  *  streaming.
  *
  *  Method: aiplatform.projects.locations.endpoints.serverStreamingPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13473,6 +13975,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.streamGenerateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13514,6 +14017,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.streamRawPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -13553,6 +14057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.undeployModel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsUndeployModel : GTLRAiplatformQuery
@@ -13589,6 +14094,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.endpoints.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsUpdate : GTLRAiplatformQuery
@@ -13619,6 +14125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.evaluateDataset
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEvaluateDataset : GTLRAiplatformQuery
@@ -13653,6 +14160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.evaluateInstances
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEvaluateInstances : GTLRAiplatformQuery
@@ -14769,6 +15277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureGroups.features.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsGet : GTLRAiplatformQuery
@@ -14798,6 +15307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureGroups.features.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsListWait : GTLRAiplatformQuery
@@ -14857,6 +15367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureGroups.features.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesOperationsWait : GTLRAiplatformQuery
@@ -15134,6 +15645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureGroups.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsGet : GTLRAiplatformQuery
@@ -15163,6 +15675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureGroups.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsListWait : GTLRAiplatformQuery
@@ -15222,6 +15735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureGroups.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsOperationsWait : GTLRAiplatformQuery
@@ -15958,6 +16472,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsGet : GTLRAiplatformQuery
@@ -15987,6 +16502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsListWait : GTLRAiplatformQuery
@@ -16046,6 +16562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsOperationsWait : GTLRAiplatformQuery
@@ -16477,6 +16994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureOnlineStores.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsGet : GTLRAiplatformQuery
@@ -16506,6 +17024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureOnlineStores.operations.listWait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsListWait : GTLRAiplatformQuery
@@ -16565,6 +17084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featureOnlineStores.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresOperationsWait : GTLRAiplatformQuery
@@ -17287,6 +17807,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.features.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesOperationsCancel : GTLRAiplatformQuery
@@ -17355,6 +17876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.features.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesOperationsGet : GTLRAiplatformQuery
@@ -17384,6 +17906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.features.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesOperationsList : GTLRAiplatformQuery
@@ -17443,6 +17966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.features.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesOperationsWait : GTLRAiplatformQuery
@@ -17770,6 +18294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesOperationsCancel : GTLRAiplatformQuery
@@ -17838,6 +18363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesOperationsGet : GTLRAiplatformQuery
@@ -17867,6 +18393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesOperationsList : GTLRAiplatformQuery
@@ -17926,6 +18453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesOperationsWait : GTLRAiplatformQuery
@@ -18411,6 +18939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresOperationsCancel : GTLRAiplatformQuery
@@ -18479,6 +19008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresOperationsGet : GTLRAiplatformQuery
@@ -18508,6 +19038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresOperationsList : GTLRAiplatformQuery
@@ -18567,6 +19098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.featurestores.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresOperationsWait : GTLRAiplatformQuery
@@ -18832,6 +19364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.generateInstanceRubrics
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsGenerateInstanceRubrics : GTLRAiplatformQuery
@@ -18906,6 +19439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.generateSyntheticData
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsGenerateSyntheticData : GTLRAiplatformQuery
@@ -18945,6 +19479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.generateUserScenarios
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsGenerateUserScenarios : GTLRAiplatformQuery
@@ -19006,6 +19541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.getRagEngineConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsGetRagEngineConfig : GTLRAiplatformQuery
@@ -19301,6 +19837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.hyperparameterTuningJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsHyperparameterTuningJobsOperationsCancel : GTLRAiplatformQuery
@@ -19369,6 +19906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.hyperparameterTuningJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsHyperparameterTuningJobsOperationsGet : GTLRAiplatformQuery
@@ -19398,6 +19936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.hyperparameterTuningJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsHyperparameterTuningJobsOperationsList : GTLRAiplatformQuery
@@ -19457,6 +19996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.hyperparameterTuningJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsHyperparameterTuningJobsOperationsWait : GTLRAiplatformQuery
@@ -19784,6 +20324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexEndpoints.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexEndpointsOperationsCancel : GTLRAiplatformQuery
@@ -19852,6 +20393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexEndpoints.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexEndpointsOperationsGet : GTLRAiplatformQuery
@@ -19881,6 +20423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexEndpoints.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexEndpointsOperationsList : GTLRAiplatformQuery
@@ -19940,6 +20483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexEndpoints.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexEndpointsOperationsWait : GTLRAiplatformQuery
@@ -20250,6 +20794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexes.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexesOperationsCancel : GTLRAiplatformQuery
@@ -20318,6 +20863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexes.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexesOperationsGet : GTLRAiplatformQuery
@@ -20347,6 +20893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexes.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexesOperationsList : GTLRAiplatformQuery
@@ -20406,6 +20953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.indexes.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsIndexesOperationsWait : GTLRAiplatformQuery
@@ -20871,6 +21419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.memories.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksMemoriesOperationsCancel : GTLRAiplatformQuery
@@ -20939,6 +21488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.memories.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksMemoriesOperationsGet : GTLRAiplatformQuery
@@ -20968,6 +21518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.memories.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksMemoriesOperationsList : GTLRAiplatformQuery
@@ -21027,6 +21578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.memories.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksMemoriesOperationsWait : GTLRAiplatformQuery
@@ -21303,6 +21855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksOperationsCancel : GTLRAiplatformQuery
@@ -21371,6 +21924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksOperationsGet : GTLRAiplatformQuery
@@ -21400,6 +21954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksOperationsList : GTLRAiplatformQuery
@@ -21459,6 +22014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.memoryBanks.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMemoryBanksOperationsWait : GTLRAiplatformQuery
@@ -21702,6 +22258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.artifacts.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresArtifactsOperationsCancel : GTLRAiplatformQuery
@@ -21770,6 +22327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.artifacts.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresArtifactsOperationsGet : GTLRAiplatformQuery
@@ -21799,6 +22357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.artifacts.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresArtifactsOperationsList : GTLRAiplatformQuery
@@ -21858,6 +22417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.artifacts.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresArtifactsOperationsWait : GTLRAiplatformQuery
@@ -22330,6 +22890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.contexts.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresContextsOperationsCancel : GTLRAiplatformQuery
@@ -22398,6 +22959,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.contexts.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresContextsOperationsGet : GTLRAiplatformQuery
@@ -22427,6 +22989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.contexts.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresContextsOperationsList : GTLRAiplatformQuery
@@ -22486,6 +23049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.contexts.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresContextsOperationsWait : GTLRAiplatformQuery
@@ -23002,6 +23566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.executions.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresExecutionsOperationsCancel : GTLRAiplatformQuery
@@ -23070,6 +23635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.executions.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresExecutionsOperationsGet : GTLRAiplatformQuery
@@ -23099,6 +23665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.executions.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresExecutionsOperationsList : GTLRAiplatformQuery
@@ -23158,6 +23725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.executions.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresExecutionsOperationsWait : GTLRAiplatformQuery
@@ -23528,6 +24096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresOperationsCancel : GTLRAiplatformQuery
@@ -23596,6 +24165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresOperationsGet : GTLRAiplatformQuery
@@ -23625,6 +24195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresOperationsList : GTLRAiplatformQuery
@@ -23684,6 +24255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.metadataStores.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMetadataStoresOperationsWait : GTLRAiplatformQuery
@@ -23769,6 +24341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.migratableResources.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMigratableResourcesOperationsCancel : GTLRAiplatformQuery
@@ -23837,6 +24410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.migratableResources.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMigratableResourcesOperationsGet : GTLRAiplatformQuery
@@ -23866,6 +24440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.migratableResources.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMigratableResourcesOperationsList : GTLRAiplatformQuery
@@ -23925,6 +24500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.migratableResources.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsMigratableResourcesOperationsWait : GTLRAiplatformQuery
@@ -24179,6 +24755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelDeploymentMonitoringJobsOperationsCancel : GTLRAiplatformQuery
@@ -24247,6 +24824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelDeploymentMonitoringJobsOperationsGet : GTLRAiplatformQuery
@@ -24276,6 +24854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelDeploymentMonitoringJobsOperationsList : GTLRAiplatformQuery
@@ -24335,6 +24914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelDeploymentMonitoringJobsOperationsWait : GTLRAiplatformQuery
@@ -24552,6 +25132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.copy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsCopy : GTLRAiplatformQuery
@@ -24590,6 +25171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsDelete : GTLRAiplatformQuery
@@ -24623,6 +25205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.deleteVersion
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsDeleteVersion : GTLRAiplatformQuery
@@ -24657,6 +25240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsGet : GTLRAiplatformQuery
@@ -24687,6 +25271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsImport : GTLRAiplatformQuery
@@ -24721,6 +25306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsList : GTLRAiplatformQuery
@@ -24785,6 +25371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsOperationsCancel : GTLRAiplatformQuery
@@ -24853,6 +25440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsOperationsGet : GTLRAiplatformQuery
@@ -24882,6 +25470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsOperationsList : GTLRAiplatformQuery
@@ -24941,6 +25530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsOperationsWait : GTLRAiplatformQuery
@@ -24982,6 +25572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.slices.batchImport
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsSlicesBatchImport : GTLRAiplatformQuery
@@ -25018,6 +25609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.slices.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsSlicesGet : GTLRAiplatformQuery
@@ -25048,6 +25640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.evaluations.slices.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsEvaluationsSlicesList : GTLRAiplatformQuery
@@ -25107,6 +25700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.export
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsExport : GTLRAiplatformQuery
@@ -25145,6 +25739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsGet : GTLRAiplatformQuery
@@ -25240,6 +25835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsList : GTLRAiplatformQuery
@@ -25311,6 +25907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.listCheckpoints
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsListCheckpoints : GTLRAiplatformQuery
@@ -25361,6 +25958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.listVersions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsListVersions : GTLRAiplatformQuery
@@ -25424,6 +26022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.mergeVersionAliases
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsMergeVersionAliases : GTLRAiplatformQuery
@@ -25468,6 +26067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsOperationsCancel : GTLRAiplatformQuery
@@ -25536,6 +26136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsOperationsGet : GTLRAiplatformQuery
@@ -25565,6 +26166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsOperationsList : GTLRAiplatformQuery
@@ -25624,6 +26226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsOperationsWait : GTLRAiplatformQuery
@@ -25665,6 +26268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsPatch : GTLRAiplatformQuery
@@ -25790,6 +26394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.updateExplanationDataset
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsUpdateExplanationDataset : GTLRAiplatformQuery
@@ -25824,6 +26429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.models.upload
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsModelsUpload : GTLRAiplatformQuery
@@ -26331,6 +26937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsCancel : GTLRAiplatformQuery
@@ -26399,6 +27006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsGet : GTLRAiplatformQuery
@@ -26428,6 +27036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsList : GTLRAiplatformQuery
@@ -26487,6 +27096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsWait : GTLRAiplatformQuery
@@ -26728,6 +27338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimes.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsCancel : GTLRAiplatformQuery
@@ -26796,6 +27407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimes.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsGet : GTLRAiplatformQuery
@@ -26825,6 +27437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimes.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsList : GTLRAiplatformQuery
@@ -26884,6 +27497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimes.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsWait : GTLRAiplatformQuery
@@ -27275,6 +27889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsCancel : GTLRAiplatformQuery
@@ -27343,6 +27958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsGet : GTLRAiplatformQuery
@@ -27372,6 +27988,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsList : GTLRAiplatformQuery
@@ -27431,6 +28048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsWait : GTLRAiplatformQuery
@@ -27805,6 +28423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.onlineEvaluators.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOnlineEvaluatorsOperationsCancel : GTLRAiplatformQuery
@@ -27873,6 +28492,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.onlineEvaluators.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOnlineEvaluatorsOperationsGet : GTLRAiplatformQuery
@@ -27902,6 +28522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.onlineEvaluators.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOnlineEvaluatorsOperationsList : GTLRAiplatformQuery
@@ -27961,6 +28582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.onlineEvaluators.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOnlineEvaluatorsOperationsWait : GTLRAiplatformQuery
@@ -28087,6 +28709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOperationsCancel : GTLRAiplatformQuery
@@ -28155,6 +28778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOperationsGet : GTLRAiplatformQuery
@@ -28184,6 +28808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOperationsList : GTLRAiplatformQuery
@@ -28243,6 +28868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsOperationsWait : GTLRAiplatformQuery
@@ -28441,6 +29067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.persistentResources.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsCancel : GTLRAiplatformQuery
@@ -28509,6 +29136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.persistentResources.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsGet : GTLRAiplatformQuery
@@ -28538,6 +29166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.persistentResources.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsList : GTLRAiplatformQuery
@@ -28597,6 +29226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.persistentResources.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsWait : GTLRAiplatformQuery
@@ -29036,6 +29666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.pipelineJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPipelineJobsOperationsCancel : GTLRAiplatformQuery
@@ -29104,6 +29735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.pipelineJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPipelineJobsOperationsGet : GTLRAiplatformQuery
@@ -29133,6 +29765,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.pipelineJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPipelineJobsOperationsList : GTLRAiplatformQuery
@@ -29192,6 +29825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.pipelineJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPipelineJobsOperationsWait : GTLRAiplatformQuery
@@ -29302,6 +29936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.embedContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29338,6 +29973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.fetchPredictOperation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29376,6 +30012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.generateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29419,6 +30056,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.invoke.invoke
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29460,6 +30098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.predict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29493,6 +30132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.predictLongRunning
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29532,6 +30172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.rawPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29571,6 +30212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.serverStreamingPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29608,6 +30250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.streamGenerateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29649,6 +30292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.models.streamRawPredict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29689,6 +30333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.v1.responses
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29731,6 +30376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.publishers.v1.responses.compact
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -29766,11 +30412,77 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Deletes the response from the endpoint.
+ *
+ *  Method: aiplatform.projects.locations.publishers.v1.responses.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersV1ResponsesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Response resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Deletes the response from the endpoint.
+ *
+ *  @param name Required. The name of the Response resource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersV1ResponsesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the response from the endpoint.
+ *
+ *  Method: aiplatform.projects.locations.publishers.v1.responses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersV1ResponsesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Response resource. Format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Gets the response from the endpoint.
+ *
+ *  @param name Required. The name of the Response resource. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}/responses/{response}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersV1ResponsesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a RagCorpus.
  *
  *  Method: aiplatform.projects.locations.ragCorpora.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaCreate : GTLRAiplatformQuery
@@ -29804,6 +30516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaDelete : GTLRAiplatformQuery
@@ -29841,6 +30554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaGet : GTLRAiplatformQuery
@@ -29871,6 +30585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaList : GTLRAiplatformQuery
@@ -29926,6 +30641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsCancel : GTLRAiplatformQuery
@@ -29994,6 +30710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsGet : GTLRAiplatformQuery
@@ -30023,6 +30740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsList : GTLRAiplatformQuery
@@ -30082,6 +30800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsWait : GTLRAiplatformQuery
@@ -30123,6 +30842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaPatch : GTLRAiplatformQuery
@@ -30152,6 +30872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesDelete : GTLRAiplatformQuery
@@ -30189,6 +30910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesGet : GTLRAiplatformQuery
@@ -30219,6 +30941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesImport : GTLRAiplatformQuery
@@ -30254,6 +30977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesList : GTLRAiplatformQuery
@@ -30311,6 +31035,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsCancel : GTLRAiplatformQuery
@@ -30379,6 +31104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsGet : GTLRAiplatformQuery
@@ -30408,6 +31134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsList : GTLRAiplatformQuery
@@ -30467,6 +31194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsWait : GTLRAiplatformQuery
@@ -30516,6 +31244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragEngineConfig.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsCancel : GTLRAiplatformQuery
@@ -30584,6 +31313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragEngineConfig.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsGet : GTLRAiplatformQuery
@@ -30613,6 +31343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragEngineConfig.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsList : GTLRAiplatformQuery
@@ -30672,6 +31403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.ragEngineConfig.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsWait : GTLRAiplatformQuery
@@ -30784,6 +31516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesCreate : GTLRAiplatformQuery
@@ -30817,6 +31550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesDelete : GTLRAiplatformQuery
@@ -30890,6 +31624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesGet : GTLRAiplatformQuery
@@ -30969,6 +31704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesList : GTLRAiplatformQuery
@@ -31260,6 +31996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.memories.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesMemoriesOperationsCancel : GTLRAiplatformQuery
@@ -31328,6 +32065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.memories.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesMemoriesOperationsGet : GTLRAiplatformQuery
@@ -31357,6 +32095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.memories.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesMemoriesOperationsList : GTLRAiplatformQuery
@@ -31416,6 +32155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.memories.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesMemoriesOperationsWait : GTLRAiplatformQuery
@@ -31692,6 +32432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsCancel : GTLRAiplatformQuery
@@ -31760,6 +32501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsGet : GTLRAiplatformQuery
@@ -31789,6 +32531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsList : GTLRAiplatformQuery
@@ -31848,6 +32591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsWait : GTLRAiplatformQuery
@@ -31889,6 +32633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesPatch : GTLRAiplatformQuery
@@ -32026,6 +32771,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesRuntimeRevisionsStreamQuery
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Checks whether the caller is authorized to access the sandbox environment.
+ *  Authorization is performed entirely by the API infrastructure from the
+ *  `method_policy` below; the handler is a no-op. A successful response means
+ *  the caller holds `sandboxEnvironments.execute` on the named sandbox. Used by
+ *  the sandbox data-plane proxy, which forwards the caller's credential and
+ *  proxies traffic only on success.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.authorizeAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsAuthorizeAccess : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment to authorize access
+ *  to. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1AuthorizeSandboxEnvironmentAccessResponse.
+ *
+ *  Checks whether the caller is authorized to access the sandbox environment.
+ *  Authorization is performed entirely by the API infrastructure from the
+ *  `method_policy` below; the handler is a no-op. A successful response means
+ *  the caller holds `sandboxEnvironments.execute` on the named sandbox. Used by
+ *  the sandbox data-plane proxy, which forwards the caller's credential and
+ *  proxies traffic only on success.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1AuthorizeSandboxEnvironmentAccessRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the sandbox environment to
+ *    authorize access to. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsAuthorizeAccess
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AuthorizeSandboxEnvironmentAccessRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -32356,6 +33148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironmentSnapshots.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentSnapshotsOperationsCancel : GTLRAiplatformQuery
@@ -32424,6 +33217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironmentSnapshots.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentSnapshotsOperationsGet : GTLRAiplatformQuery
@@ -32460,6 +33254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironmentSnapshots.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentSnapshotsOperationsWait : GTLRAiplatformQuery
@@ -32509,6 +33304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsCancel : GTLRAiplatformQuery
@@ -32577,6 +33373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsGet : GTLRAiplatformQuery
@@ -32613,6 +33410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsWait : GTLRAiplatformQuery
@@ -32926,6 +33724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironmentTemplates.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentTemplatesOperationsCancel : GTLRAiplatformQuery
@@ -32994,6 +33793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironmentTemplates.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentTemplatesOperationsGet : GTLRAiplatformQuery
@@ -33030,6 +33830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironmentTemplates.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentTemplatesOperationsWait : GTLRAiplatformQuery
@@ -33095,6 +33896,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsAppendEvent
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1SessionEvent *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Compacts the event history of a given Session, which may run an LLM
+ *  summarization call and rewrite the full event history. Compaction is a
+ *  storage-side rewrite that can apply a stackable pipeline of rules
+ *  (event-horizon preservation, tool-response truncation, thought stripping,
+ *  and LLM summarization etc.)
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sessions.compact
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsCompact : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the session to compact. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Compacts the event history of a given Session, which may run an LLM
+ *  summarization call and rewrite the full event history. Compaction is a
+ *  storage-side rewrite that can apply a stackable pipeline of rules
+ *  (event-horizon preservation, tool-response truncation, thought stripping,
+ *  and LLM summarization etc.)
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CompactSessionRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the session to compact. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsCompact
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CompactSessionRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -33341,6 +34184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sessions.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsOperationsCancel : GTLRAiplatformQuery
@@ -33409,6 +34253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sessions.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsOperationsGet : GTLRAiplatformQuery
@@ -33438,6 +34283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sessions.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsOperationsList : GTLRAiplatformQuery
@@ -33497,6 +34343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.reasoningEngines.sessions.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsOperationsWait : GTLRAiplatformQuery
@@ -33702,6 +34549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.retrieveContexts
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRetrieveContexts : GTLRAiplatformQuery
@@ -33916,6 +34764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.schedules.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSchedulesOperationsCancel : GTLRAiplatformQuery
@@ -33984,6 +34833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.schedules.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSchedulesOperationsGet : GTLRAiplatformQuery
@@ -34013,6 +34863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.schedules.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSchedulesOperationsList : GTLRAiplatformQuery
@@ -34072,6 +34923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.schedules.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSchedulesOperationsWait : GTLRAiplatformQuery
@@ -34407,6 +35259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.semanticGovernancePolicies.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSemanticGovernancePoliciesOperationsCancel : GTLRAiplatformQuery
@@ -34475,6 +35328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.semanticGovernancePolicies.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSemanticGovernancePoliciesOperationsGet : GTLRAiplatformQuery
@@ -34504,6 +35358,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.semanticGovernancePolicies.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSemanticGovernancePoliciesOperationsList : GTLRAiplatformQuery
@@ -34563,6 +35418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.semanticGovernancePolicies.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSemanticGovernancePoliciesOperationsWait : GTLRAiplatformQuery
@@ -34685,6 +35541,152 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Creates a ServingProfile.
+ *
+ *  Method: aiplatform.projects.locations.servingProfiles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the ServingProfile in.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the ServingProfile, which will become the final
+ *  component of the ServingProfile's resource name. This value should be 1-63
+ *  characters, and valid characters are `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *servingProfileId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a ServingProfile.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ServingProfile to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    ServingProfile in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsServingProfilesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ServingProfile *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a ServingProfile.
+ *
+ *  Method: aiplatform.projects.locations.servingProfiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ServingProfile resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/servingProfiles/{serving_profile}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a ServingProfile.
+ *
+ *  @param name Required. The name of the ServingProfile resource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/servingProfiles/{serving_profile}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsServingProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a ServingProfile.
+ *
+ *  Method: aiplatform.projects.locations.servingProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ServingProfile resource. Format:
+ *  `projects/{project}/locations/{location}/servingProfiles/{serving_profile}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ServingProfile.
+ *
+ *  Gets a ServingProfile.
+ *
+ *  @param name Required. The name of the ServingProfile resource. Format:
+ *    `projects/{project}/locations/{location}/servingProfiles/{serving_profile}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsServingProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ServingProfiles in a Location.
+ *
+ *  Method: aiplatform.projects.locations.servingProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The standard list page size. If unspecified, at most 100
+ *  ServingProfiles will be returned. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list the ServingProfiles
+ *  from. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListServingProfilesResponse.
+ *
+ *  Lists ServingProfiles in a Location.
+ *
+ *  @param parent Required. The resource name of the Location to list the
+ *    ServingProfiles from. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsServingProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -34698,6 +35700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.servingProfiles.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesOperationsCancel : GTLRAiplatformQuery
@@ -34766,6 +35769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.servingProfiles.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesOperationsGet : GTLRAiplatformQuery
@@ -34795,6 +35799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.servingProfiles.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesOperationsList : GTLRAiplatformQuery
@@ -34854,6 +35859,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.servingProfiles.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesOperationsWait : GTLRAiplatformQuery
@@ -34890,6 +35896,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Updates a ServingProfile.
+ *
+ *  Method: aiplatform.projects.locations.servingProfiles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsServingProfilesPatch : GTLRAiplatformQuery
+
+/** Identifier. The resource name of the ServingProfile. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update; see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.
+ *  If omitted, all populated (non-empty) mutable fields are updated; if set to
+ *  `["*"]`, all mutable fields are fully replaced (unpopulated values are
+ *  cleared).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ServingProfile.
+ *
+ *  Updates a ServingProfile.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ServingProfile to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the ServingProfile.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsServingProfilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ServingProfile *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -34903,6 +35949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.skills.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSkillsOperationsCancel : GTLRAiplatformQuery
@@ -34971,6 +36018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.skills.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSkillsOperationsGet : GTLRAiplatformQuery
@@ -35000,6 +36048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.skills.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSkillsOperationsList : GTLRAiplatformQuery
@@ -35059,6 +36108,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.skills.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSkillsOperationsWait : GTLRAiplatformQuery
@@ -35261,6 +36311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.specialistPools.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSpecialistPoolsOperationsCancel : GTLRAiplatformQuery
@@ -35329,6 +36380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.specialistPools.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSpecialistPoolsOperationsGet : GTLRAiplatformQuery
@@ -35358,6 +36410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.specialistPools.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSpecialistPoolsOperationsList : GTLRAiplatformQuery
@@ -35417,6 +36470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.specialistPools.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsSpecialistPoolsOperationsWait : GTLRAiplatformQuery
@@ -35679,6 +36733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesOperationsCancel : GTLRAiplatformQuery
@@ -35747,6 +36802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesOperationsGet : GTLRAiplatformQuery
@@ -35776,6 +36832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesOperationsList : GTLRAiplatformQuery
@@ -35835,6 +36892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesOperationsWait : GTLRAiplatformQuery
@@ -36167,6 +37225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.trials.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesTrialsOperationsCancel : GTLRAiplatformQuery
@@ -36235,6 +37294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.trials.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesTrialsOperationsGet : GTLRAiplatformQuery
@@ -36264,6 +37324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.trials.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesTrialsOperationsList : GTLRAiplatformQuery
@@ -36323,6 +37384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.studies.trials.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsStudiesTrialsOperationsWait : GTLRAiplatformQuery
@@ -36428,6 +37490,215 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1SuggestTrialsRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.taskStores.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.taskStores.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.taskStores.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.taskStores.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.taskStores.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTaskStoresOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -36777,6 +38048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsOperationsCancel : GTLRAiplatformQuery
@@ -36845,6 +38117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsOperationsGet : GTLRAiplatformQuery
@@ -36874,6 +38147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsOperationsList : GTLRAiplatformQuery
@@ -36933,6 +38207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsOperationsWait : GTLRAiplatformQuery
@@ -37238,6 +38513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsOperationsCancel : GTLRAiplatformQuery
@@ -37306,6 +38582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsOperationsGet : GTLRAiplatformQuery
@@ -37335,6 +38612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsOperationsList : GTLRAiplatformQuery
@@ -37394,6 +38672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsOperationsWait : GTLRAiplatformQuery
@@ -37700,6 +38979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesOperationsCancel : GTLRAiplatformQuery
@@ -37768,6 +39048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesOperationsGet : GTLRAiplatformQuery
@@ -37797,6 +39078,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesOperationsList : GTLRAiplatformQuery
@@ -37856,6 +39138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsExperimentsRunsTimeSeriesOperationsWait : GTLRAiplatformQuery
@@ -38208,6 +39491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsOperationsCancel : GTLRAiplatformQuery
@@ -38276,6 +39560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsOperationsGet : GTLRAiplatformQuery
@@ -38305,6 +39590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsOperationsList : GTLRAiplatformQuery
@@ -38364,6 +39650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tensorboards.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTensorboardsOperationsWait : GTLRAiplatformQuery
@@ -38732,6 +40019,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.trainingPipelines.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTrainingPipelinesOperationsCancel : GTLRAiplatformQuery
@@ -38800,6 +40088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.trainingPipelines.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTrainingPipelinesOperationsGet : GTLRAiplatformQuery
@@ -38829,6 +40118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.trainingPipelines.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTrainingPipelinesOperationsList : GTLRAiplatformQuery
@@ -38888,6 +40178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.trainingPipelines.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTrainingPipelinesOperationsWait : GTLRAiplatformQuery
@@ -38935,6 +40226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsCancel : GTLRAiplatformQuery
@@ -38976,6 +40268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsCreate : GTLRAiplatformQuery
@@ -39010,6 +40303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsGet : GTLRAiplatformQuery
@@ -39040,6 +40334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsList : GTLRAiplatformQuery
@@ -39095,6 +40390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsCancel : GTLRAiplatformQuery
@@ -39163,6 +40459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsGet : GTLRAiplatformQuery
@@ -39192,6 +40489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsList : GTLRAiplatformQuery
@@ -39251,6 +40549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsWait : GTLRAiplatformQuery
@@ -39294,6 +40593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.tuningJobs.rebaseTunedModel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsRebaseTunedModel : GTLRAiplatformQuery
@@ -39330,6 +40630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.projects.locations.updateRagEngineConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsUpdateRagEngineConfig : GTLRAiplatformQuery
@@ -39423,6 +40724,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The list of fields of `cache_config` to update. Supported paths
+ *  are `disable_cache`, `retention_config` (and its subfields such as
+ *  `retention_config.retention_type`), and the special value `*`; any other
+ *  path returns `INVALID_ARGUMENT`. Fields not covered by the mask keep their
+ *  stored value. If the mask is omitted, it is treated as an implied mask
+ *  covering the fields populated in `cache_config`, so updating one field never
+ *  clears another. `retention_config` is covered only when the request carries
+ *  it. `disable_cache` is always covered: it is a bare `bool`, so the server
+ *  cannot tell a request that omits it from one that sets it to `false`. `*`
+ *  requests full replacement of the resource: every settable field is written
+ *  from the request, clearing `retention_config` when the request omits it. It
+ *  cannot be combined with other paths. Prefer naming fields explicitly -- a
+ *  caller that sends `*` without knowing about a field added to `CacheConfig`
+ *  later would silently reset that field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
  *
  *  Updates a cache config.
@@ -39514,6 +40835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.publishers.models.fetchPredictOperation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -39552,6 +40874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.publishers.models.generateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -39593,6 +40916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.publishers.models.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_PublishersModelsGet : GTLRAiplatformQuery
@@ -39656,6 +40980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.publishers.models.predict
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -39689,6 +41014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.publishers.models.predictLongRunning
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -39725,6 +41051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.publishers.models.streamGenerateContent
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
@@ -39774,6 +41101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaOperationsCancel : GTLRAiplatformQuery
@@ -39842,6 +41170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaOperationsGet : GTLRAiplatformQuery
@@ -39871,6 +41200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaOperationsList : GTLRAiplatformQuery
@@ -39930,6 +41260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaOperationsWait : GTLRAiplatformQuery
@@ -39979,6 +41310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.ragFiles.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaRagFilesOperationsCancel : GTLRAiplatformQuery
@@ -40047,6 +41379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.ragFiles.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaRagFilesOperationsGet : GTLRAiplatformQuery
@@ -40076,6 +41409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.ragFiles.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaRagFilesOperationsList : GTLRAiplatformQuery
@@ -40135,6 +41469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragCorpora.ragFiles.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagCorporaRagFilesOperationsWait : GTLRAiplatformQuery
@@ -40184,6 +41519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragEngineConfig.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagEngineConfigOperationsCancel : GTLRAiplatformQuery
@@ -40252,6 +41588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragEngineConfig.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagEngineConfigOperationsGet : GTLRAiplatformQuery
@@ -40281,6 +41618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragEngineConfig.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagEngineConfigOperationsList : GTLRAiplatformQuery
@@ -40340,6 +41678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.ragEngineConfig.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_RagEngineConfigOperationsWait : GTLRAiplatformQuery
@@ -40452,6 +41791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesCreate : GTLRAiplatformQuery
@@ -40482,6 +41822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesDelete : GTLRAiplatformQuery
@@ -40555,6 +41896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesGet : GTLRAiplatformQuery
@@ -40585,6 +41927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesList : GTLRAiplatformQuery
@@ -40637,6 +41980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.memories.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesMemoriesOperationsCancel : GTLRAiplatformQuery
@@ -40705,6 +42049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.memories.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesMemoriesOperationsGet : GTLRAiplatformQuery
@@ -40734,6 +42079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.memories.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesMemoriesOperationsList : GTLRAiplatformQuery
@@ -40793,6 +42139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.memories.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesMemoriesOperationsWait : GTLRAiplatformQuery
@@ -40842,6 +42189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesOperationsCancel : GTLRAiplatformQuery
@@ -40910,6 +42258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesOperationsGet : GTLRAiplatformQuery
@@ -40939,6 +42288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesOperationsList : GTLRAiplatformQuery
@@ -40998,6 +42348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesOperationsWait : GTLRAiplatformQuery
@@ -41039,6 +42390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesPatch : GTLRAiplatformQuery
@@ -41176,6 +42528,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ReasoningEnginesRuntimeRevisionsStreamQuery
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Checks whether the caller is authorized to access the sandbox environment.
+ *  Authorization is performed entirely by the API infrastructure from the
+ *  `method_policy` below; the handler is a no-op. A successful response means
+ *  the caller holds `sandboxEnvironments.execute` on the named sandbox. Used by
+ *  the sandbox data-plane proxy, which forwards the caller's credential and
+ *  proxies traffic only on success.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.authorizeAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsAuthorizeAccess : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment to authorize access
+ *  to. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1AuthorizeSandboxEnvironmentAccessResponse.
+ *
+ *  Checks whether the caller is authorized to access the sandbox environment.
+ *  Authorization is performed entirely by the API infrastructure from the
+ *  `method_policy` below; the handler is a no-op. A successful response means
+ *  the caller holds `sandboxEnvironments.execute` on the named sandbox. Used by
+ *  the sandbox data-plane proxy, which forwards the caller's credential and
+ *  proxies traffic only on success.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1AuthorizeSandboxEnvironmentAccessRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the sandbox environment to
+ *    authorize access to. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsAuthorizeAccess
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AuthorizeSandboxEnvironmentAccessRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -41506,6 +42905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironmentSnapshots.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentSnapshotsOperationsCancel : GTLRAiplatformQuery
@@ -41574,6 +42974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironmentSnapshots.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentSnapshotsOperationsGet : GTLRAiplatformQuery
@@ -41610,6 +43011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironmentSnapshots.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentSnapshotsOperationsWait : GTLRAiplatformQuery
@@ -41659,6 +43061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironments.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsCancel : GTLRAiplatformQuery
@@ -41727,6 +43130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironments.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsGet : GTLRAiplatformQuery
@@ -41763,6 +43167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironments.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsWait : GTLRAiplatformQuery
@@ -42076,6 +43481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironmentTemplates.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentTemplatesOperationsCancel : GTLRAiplatformQuery
@@ -42144,6 +43550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironmentTemplates.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentTemplatesOperationsGet : GTLRAiplatformQuery
@@ -42180,6 +43587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sandboxEnvironmentTemplates.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentTemplatesOperationsWait : GTLRAiplatformQuery
@@ -42229,6 +43637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sessions.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSessionsOperationsCancel : GTLRAiplatformQuery
@@ -42297,6 +43706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sessions.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSessionsOperationsGet : GTLRAiplatformQuery
@@ -42326,6 +43736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sessions.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSessionsOperationsList : GTLRAiplatformQuery
@@ -42385,6 +43796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.reasoningEngines.sessions.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ReasoningEnginesSessionsOperationsWait : GTLRAiplatformQuery
@@ -42469,6 +43881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.schedules.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SchedulesOperationsCancel : GTLRAiplatformQuery
@@ -42537,6 +43950,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.schedules.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SchedulesOperationsGet : GTLRAiplatformQuery
@@ -42566,6 +43980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.schedules.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SchedulesOperationsList : GTLRAiplatformQuery
@@ -42625,6 +44040,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.schedules.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SchedulesOperationsWait : GTLRAiplatformQuery
@@ -42674,6 +44090,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.semanticGovernancePolicies.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SemanticGovernancePoliciesOperationsCancel : GTLRAiplatformQuery
@@ -42742,6 +44159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.semanticGovernancePolicies.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SemanticGovernancePoliciesOperationsGet : GTLRAiplatformQuery
@@ -42771,6 +44189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.semanticGovernancePolicies.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SemanticGovernancePoliciesOperationsList : GTLRAiplatformQuery
@@ -42830,6 +44249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.semanticGovernancePolicies.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SemanticGovernancePoliciesOperationsWait : GTLRAiplatformQuery
@@ -42879,6 +44299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.servingProfiles.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ServingProfilesOperationsCancel : GTLRAiplatformQuery
@@ -42947,6 +44368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.servingProfiles.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ServingProfilesOperationsGet : GTLRAiplatformQuery
@@ -42976,6 +44398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.servingProfiles.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ServingProfilesOperationsList : GTLRAiplatformQuery
@@ -43035,6 +44458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.servingProfiles.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ServingProfilesOperationsWait : GTLRAiplatformQuery
@@ -43084,6 +44508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.skills.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SkillsOperationsCancel : GTLRAiplatformQuery
@@ -43152,6 +44577,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.skills.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SkillsOperationsGet : GTLRAiplatformQuery
@@ -43181,6 +44607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.skills.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SkillsOperationsList : GTLRAiplatformQuery
@@ -43240,6 +44667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.skills.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SkillsOperationsWait : GTLRAiplatformQuery
@@ -43289,6 +44717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.specialistPools.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SpecialistPoolsOperationsCancel : GTLRAiplatformQuery
@@ -43357,6 +44786,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.specialistPools.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SpecialistPoolsOperationsGet : GTLRAiplatformQuery
@@ -43386,6 +44816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.specialistPools.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SpecialistPoolsOperationsList : GTLRAiplatformQuery
@@ -43445,6 +44876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.specialistPools.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_SpecialistPoolsOperationsWait : GTLRAiplatformQuery
@@ -43494,6 +44926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesOperationsCancel : GTLRAiplatformQuery
@@ -43562,6 +44995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesOperationsGet : GTLRAiplatformQuery
@@ -43591,6 +45025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesOperationsList : GTLRAiplatformQuery
@@ -43650,6 +45085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesOperationsWait : GTLRAiplatformQuery
@@ -43699,6 +45135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.trials.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesTrialsOperationsCancel : GTLRAiplatformQuery
@@ -43767,6 +45204,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.trials.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesTrialsOperationsGet : GTLRAiplatformQuery
@@ -43796,6 +45234,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.trials.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesTrialsOperationsList : GTLRAiplatformQuery
@@ -43855,6 +45294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.studies.trials.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_StudiesTrialsOperationsWait : GTLRAiplatformQuery
@@ -43901,9 +45341,219 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
+ *  Method: aiplatform.taskStores.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_TaskStoresOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_TaskStoresOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.taskStores.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_TaskStoresOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_TaskStoresOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.taskStores.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_TaskStoresOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_TaskStoresOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.taskStores.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_TaskStoresOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_TaskStoresOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.taskStores.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_TaskStoresOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_TaskStoresOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
  *  Method: aiplatform.tensorboards.experiments.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsOperationsCancel : GTLRAiplatformQuery
@@ -43972,6 +45622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsOperationsGet : GTLRAiplatformQuery
@@ -44001,6 +45652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsOperationsList : GTLRAiplatformQuery
@@ -44060,6 +45712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsOperationsWait : GTLRAiplatformQuery
@@ -44109,6 +45762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsOperationsCancel : GTLRAiplatformQuery
@@ -44177,6 +45831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsOperationsGet : GTLRAiplatformQuery
@@ -44206,6 +45861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsOperationsList : GTLRAiplatformQuery
@@ -44265,6 +45921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsOperationsWait : GTLRAiplatformQuery
@@ -44314,6 +45971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.timeSeries.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsTimeSeriesOperationsCancel : GTLRAiplatformQuery
@@ -44382,6 +46040,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.timeSeries.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsTimeSeriesOperationsGet : GTLRAiplatformQuery
@@ -44411,6 +46070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.timeSeries.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsTimeSeriesOperationsList : GTLRAiplatformQuery
@@ -44470,6 +46130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.experiments.runs.timeSeries.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsExperimentsRunsTimeSeriesOperationsWait : GTLRAiplatformQuery
@@ -44519,6 +46180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsOperationsCancel : GTLRAiplatformQuery
@@ -44587,6 +46249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsOperationsGet : GTLRAiplatformQuery
@@ -44616,6 +46279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsOperationsList : GTLRAiplatformQuery
@@ -44675,6 +46339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tensorboards.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TensorboardsOperationsWait : GTLRAiplatformQuery
@@ -44724,6 +46389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.trainingPipelines.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TrainingPipelinesOperationsCancel : GTLRAiplatformQuery
@@ -44792,6 +46458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.trainingPipelines.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TrainingPipelinesOperationsGet : GTLRAiplatformQuery
@@ -44821,6 +46488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.trainingPipelines.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TrainingPipelinesOperationsList : GTLRAiplatformQuery
@@ -44880,6 +46548,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.trainingPipelines.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TrainingPipelinesOperationsWait : GTLRAiplatformQuery
@@ -44929,6 +46598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tuningJobs.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TuningJobsOperationsCancel : GTLRAiplatformQuery
@@ -44997,6 +46667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tuningJobs.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TuningJobsOperationsGet : GTLRAiplatformQuery
@@ -45026,6 +46697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tuningJobs.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TuningJobsOperationsList : GTLRAiplatformQuery
@@ -45085,6 +46757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.tuningJobs.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_TuningJobsOperationsWait : GTLRAiplatformQuery
@@ -45126,6 +46799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.evaluateDataset
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_V1EvaluateDataset : GTLRAiplatformQuery
@@ -45151,6 +46825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.evaluateInstances
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_V1EvaluateInstances : GTLRAiplatformQuery
@@ -45180,6 +46855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Method: aiplatform.generateInstanceRubrics
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatform
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_V1GenerateInstanceRubrics : GTLRAiplatformQuery

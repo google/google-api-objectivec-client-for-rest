@@ -2536,6 +2536,219 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementMetricUrlVisitsMetricUns
 @end
 
 /**
+ *  Find SaaS usage reports of a customer based on the given search and sorting
+ *  criteria.
+ *
+ *  Method: chromemanagement.customers.reports.findSaasUsage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsFindSaasUsage : GTLRChromeManagementQuery
+
+/**
+ *  Required. Obfuscated customer ID prefixed with "customers/C" or
+ *  "customers/my_customer".
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The filter expression to narrow down the SaaS reports to return.
+ *  Supported operators are: =, !=, <, <=, >, >=, :. Logical operators AND, OR,
+ *  and NOT are supported. Supported fields: * app * org_unit_id *
+ *  first_navigation_time * last_navigation_time * category * organization *
+ *  founded_year * headquarters * primary_domain * domains *
+ *  encryption_protocols * visits_count * distinct_users_count *
+ *  distinct_browsers_count * content_transfer_count Example:
+ *  `(first_navigation_time < "2026-01-31T00:00:00Z" AND last_navigation_time >
+ *  "2026-01-01T00:00:00Z") AND visits_count > 100`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The order by expression to sort the SaaS reports. Supported
+ *  fields: * app * category * organization * founded_year * headquarters *
+ *  primary_domain * visits_count * distinct_users_count *
+ *  distinct_browsers_count * content_transfer_count Default order is ascending.
+ *  To specify descending order for a field, append " desc". Example:
+ *  `visits_count desc`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of reports to return. The service may return
+ *  fewer than this value. If unspecified, at most 100 reports will be returned.
+ *  The maximum value is 200; values above 200 will be coerced to 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `FindSaasUsageReports`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `FindSaasUsageReports` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageReportsResponse.
+ *
+ *  Find SaaS usage reports of a customer based on the given search and sorting
+ *  criteria.
+ *
+ *  @param customer Required. Obfuscated customer ID prefixed with "customers/C"
+ *    or "customers/my_customer".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsFindSaasUsage
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Find SaaS usage reports of a customer grouped by browsers based on the given
+ *  search and sorting criteria.
+ *
+ *  Method: chromemanagement.customers.reports.findSaasUsageBrowsers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsFindSaasUsageBrowsers : GTLRChromeManagementQuery
+
+/** Required. The name of the SaaS application (e.g., `ChatGPT`, `Gemini`). */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Required. Obfuscated customer ID prefixed with "customers/C" or
+ *  "customers/my_customer".
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The filter expression to narrow down the SaaS browser reports to
+ *  return. Supported operators are: =, !=, <, <=, >, >=, :. Logical operators
+ *  AND, OR, and NOT are supported. Supported fields: * machine * os_platform *
+ *  first_navigation_time * last_navigation_time * org_unit_id
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The order by expression to sort the SaaS browser reports.
+ *  Supported fields: * machine * os_platform * first_navigation_time *
+ *  last_navigation_time Default order is ascending. To specify descending order
+ *  for a field, append " desc".
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of browsers to return. The service may return
+ *  fewer than this value. If unspecified, at most 100 browsers will be
+ *  returned. The maximum value is 200; values above 200 will be coerced to 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `FindSaasUsageBrowsers`
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageBrowsersResponse.
+ *
+ *  Find SaaS usage reports of a customer grouped by browsers based on the given
+ *  search and sorting criteria.
+ *
+ *  @param customer Required. Obfuscated customer ID prefixed with "customers/C"
+ *    or "customers/my_customer".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsFindSaasUsageBrowsers
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Find SaaS usage reports of a customer grouped by profiles based on the given
+ *  search and sorting criteria.
+ *
+ *  Method: chromemanagement.customers.reports.findSaasUsageProfiles
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsFindSaasUsageProfiles : GTLRChromeManagementQuery
+
+/** Required. The name of the SaaS application (e.g., `ChatGPT`, `Gemini`). */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Required. Obfuscated customer ID prefixed with "customers/C" or
+ *  "customers/my_customer".
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. The filter expression to narrow down the SaaS profile reports to
+ *  return. Supported operators are: =, !=, <, <=, >, >=, :. Logical operators
+ *  AND, OR, and NOT are supported. Supported fields: * email * org_unit_id *
+ *  os_platform * first_navigation_time * last_navigation_time
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The order by expression to sort the SaaS profile reports.
+ *  Supported fields: * email * os_platform * first_navigation_time *
+ *  last_navigation_time Default order is ascending. To specify descending order
+ *  for a field, append " desc".
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of reports to return. The service may return
+ *  fewer than this value. If unspecified, at most 100 reports will be returned.
+ *  The maximum value is 200; values above 200 will be coerced to 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `FindSaasUsageProfiles`
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FindSaasUsageProfilesResponse.
+ *
+ *  Find SaaS usage reports of a customer grouped by profiles based on the given
+ *  search and sorting criteria.
+ *
+ *  @param customer Required. Obfuscated customer ID prefixed with "customers/C"
+ *    or "customers/my_customer".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsFindSaasUsageProfiles
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Get telemetry device.
  *
  *  Method: chromemanagement.customers.telemetry.devices.get

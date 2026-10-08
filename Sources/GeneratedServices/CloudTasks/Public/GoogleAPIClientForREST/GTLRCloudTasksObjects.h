@@ -19,6 +19,7 @@
 @class GTLRCloudTasks_AppEngineRouting;
 @class GTLRCloudTasks_Attempt;
 @class GTLRCloudTasks_Binding;
+@class GTLRCloudTasks_CreateTaskRequest;
 @class GTLRCloudTasks_Expr;
 @class GTLRCloudTasks_GetPolicyOptions;
 @class GTLRCloudTasks_Header;
@@ -33,6 +34,8 @@
 @class GTLRCloudTasks_Location_Metadata;
 @class GTLRCloudTasks_OAuthToken;
 @class GTLRCloudTasks_OidcToken;
+@class GTLRCloudTasks_Operation_Metadata;
+@class GTLRCloudTasks_Operation_Response;
 @class GTLRCloudTasks_PathOverride;
 @class GTLRCloudTasks_Policy;
 @class GTLRCloudTasks_QueryOverride;
@@ -639,6 +642,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
 
 
 /**
+ *  Request message for [BatchCreateTasks].
+ */
+@interface GTLRCloudTasks_BatchCreateTasksRequest : GTLRObject
+
+/**
+ *  Optional. This field will be used to identify the long running operation,
+ *  avoiding duplication when user retries. If not provided, then a UUID will be
+ *  generated at server side.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The list of requests to create tasks. The queue specified in
+ *  parent field of each CreateTaskRequest will be the same. This validation
+ *  happens on the client side as well as in the handler.
+ *  BatchCreateTasksRequest.parent will also be the same value as the individual
+ *  CreateTaskRequest.parent . The maximum number of requests is 100.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_CreateTaskRequest *> *requests;
+
+@end
+
+
+/**
+ *  Request message for deleting a batch of tasks using BatchDeleteTasks.
+ */
+@interface GTLRCloudTasks_BatchDeleteTasksRequest : GTLRObject
+
+/**
+ *  Required. The names of the tasks to delete. A maximum of 1000 tasks can be
+ *  deleted in a batch. For example: Format:
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  Optional. This field will be used to identify the long running operation,
+ *  avoiding duplication when user retries. If not provided, then a UUID will be
+ *  generated at server side.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudTasks_Binding : GTLRObject
@@ -777,6 +826,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  Request message for CreateTask.
  */
 @interface GTLRCloudTasks_CreateTaskRequest : GTLRObject
+
+/**
+ *  Required. The queue name. For example:
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID` The queue must
+ *  already exist.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  The response_view specifies which subset of the Task will be returned. By
@@ -1141,8 +1197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
 
 
 /**
- *  HTTP target. When specified as a Queue, all the tasks with [HttpRequest]
- *  will be overridden according to the target.
+ *  HTTP target. When specified at the Queue level, all tasks with HttpRequest
+ *  are overridden according to the target.
  */
 @interface GTLRCloudTasks_HttpTarget : GTLRObject
 
@@ -1412,6 +1468,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRCloudTasks_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudTasks_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudTasks_Operation_Response : GTLRObject
 @end
 
 
@@ -2021,6 +2157,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *responseCount;
+
+/**
+ *  Optional. Specifies the task-level RetryConfig. If present, this overrides
+ *  the Queue.retry_config for this task.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_RetryConfig *retryConfig;
 
 /**
  *  The time when the task is scheduled to be attempted or retried.

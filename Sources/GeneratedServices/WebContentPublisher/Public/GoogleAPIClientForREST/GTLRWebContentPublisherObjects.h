@@ -21,6 +21,7 @@
 @class GTLRWebContentPublisher_NewsletterConfig;
 @class GTLRWebContentPublisher_Publication;
 @class GTLRWebContentPublisher_RrmProduct;
+@class GTLRWebContentPublisher_SiteToken;
 @class GTLRWebContentPublisher_SlProduct;
 @class GTLRWebContentPublisher_TosAcceptance;
 
@@ -308,8 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebContentPublisher_Publication_Publicat
 @interface GTLRWebContentPublisher_DomainProperty : GTLRObject
 
 /**
- *  Optional. Whether the domain ownership has been verified (e.g., via Google
- *  Search Console).
+ *  Output only. Whether the domain ownership has been verified (e.g., via
+ *  Google Search Console).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -317,6 +318,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWebContentPublisher_Publication_Publicat
 
 /** Required. The URL of the domain property (e.g., "https://example.com"). */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Request message for `GeneratePlatformSiteTokens`.
+ */
+@interface GTLRWebContentPublisher_GeneratePlatformSiteTokensRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for `GeneratePlatformSiteTokens`.
+ */
+@interface GTLRWebContentPublisher_GeneratePlatformSiteTokensResponse : GTLRObject
+
+/** List of domain-scoped secure token mappings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWebContentPublisher_SiteToken *> *siteTokens;
 
 @end
 
@@ -392,6 +411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWebContentPublisher_Publication_Publicat
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nameRequired;
+
+/**
+ *  Optional. Whether checking the opt-in checkbox is required.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *optInRequired;
 
 /** Required. The title of the newsletter signup prompt. */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -533,6 +559,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWebContentPublisher_Publication_Publicat
 
 
 /**
+ *  Represents a domain-scoped secure token mapping.
+ */
+@interface GTLRWebContentPublisher_SiteToken : GTLRObject
+
+/** The domain scope this token is valid for. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** The domain-scoped secure token value (ESUT). */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
  *  Subscription Linking (SL) product settings and status.
  */
 @interface GTLRWebContentPublisher_SlProduct : GTLRObject
@@ -566,12 +606,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebContentPublisher_Publication_Publicat
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *emailOptIn;
-
-/** Optional. The name of the person who accepted the TOS. */
-@property(nonatomic, copy, nullable) NSString *signer;
-
-/** Optional. The job title or role of the signer. */
-@property(nonatomic, copy, nullable) NSString *signerTitle;
 
 /**
  *  Required. Whether the user has accepted the Terms of Service.

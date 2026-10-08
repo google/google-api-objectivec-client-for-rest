@@ -212,7 +212,7 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsAgentGatewaysList
 
-@dynamic pageSize, pageToken, parent, returnPartialSuccess;
+@dynamic filter, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -704,6 +704,121 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkServices_Operation class];
   query.loggingName = @"networkservices.projects.locations.endpointPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsCreate
+
+@dynamic extensionBindingId, parent;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_ExtensionBinding *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/extensionBindings";
+  GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.extensionBindings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.extensionBindings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_ExtensionBinding class];
+  query.loggingName = @"networkservices.projects.locations.extensionBindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/extensionBindings";
+  GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListExtensionBindingsResponse class];
+  query.loggingName = @"networkservices.projects.locations.extensionBindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_ExtensionBinding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsExtensionBindingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.extensionBindings.patch";
   return query;
 }
 
@@ -1913,9 +2028,97 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @end
 
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsCreate
+
+@dynamic parent, producerExtensionId;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_ProducerExtension *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/producerExtensions";
+  GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.producerExtensions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsDelete
+
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.producerExtensions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_ProducerExtension class];
+  query.loggingName = @"networkservices.projects.locations.producerExtensions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/producerExtensions";
+  GTLRNetworkServicesQuery_ProjectsLocationsProducerExtensionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListProducerExtensionsResponse class];
+  query.loggingName = @"networkservices.projects.locations.producerExtensions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsCreate
 
-@dynamic parent, serviceBindingId;
+@dynamic parent, requestId, serviceBindingId;
 
 + (instancetype)queryWithObject:(GTLRNetworkServices_ServiceBinding *)object
                          parent:(NSString *)parent {
@@ -1942,7 +2145,7 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsDelete
 
-@dynamic name;
+@dynamic name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1999,7 +2202,7 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsPatch
 
-@dynamic name, updateMask;
+@dynamic name, requestId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRNetworkServices_ServiceBinding *)object
                            name:(NSString *)name {

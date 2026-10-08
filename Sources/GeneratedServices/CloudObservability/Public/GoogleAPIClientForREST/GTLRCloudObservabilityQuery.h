@@ -697,6 +697,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a new bucket.
+ *
+ *  Method: observability.projects.locations.buckets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsCreate : GTLRCloudObservabilityQuery
+
+/** Required. Id of the bucket to create. */
+@property(nonatomic, copy, nullable) NSString *bucketId;
+
+/**
+ *  Required. Name of the project and location for the bucket. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Create a new bucket.
+ *
+ *  @param object The @c GTLRCloudObservability_Bucket to include in the query.
+ *  @param parent Required. Name of the project and location for the bucket. The
+ *    format is: projects/[PROJECT_ID]/locations/[LOCATION]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_Bucket *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Get a dataset.
  *
  *  Method: observability.projects.locations.buckets.datasets.get
@@ -1115,6 +1150,45 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a bucket.
+ *
+ *  Method: observability.projects.locations.buckets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsPatch : GTLRCloudObservabilityQuery
+
+/**
+ *  Identifier. Name of the bucket. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Update a bucket.
+ *
+ *  @param object The @c GTLRCloudObservability_Bucket to include in the query.
+ *  @param name Identifier. Name of the bucket. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_Bucket *)object
+                           name:(NSString *)name;
 
 @end
 

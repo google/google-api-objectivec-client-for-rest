@@ -380,7 +380,8 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 //
 
 @implementation GTLRBackupforGKE_BDRBackupRestoreJobLog
-@dynamic backupConsistencyTime, backupName, backupPlanName, backupRetentionDays,
+@dynamic autoProtectionPolicy, autoProtectionPolicyBinding,
+         backupConsistencyTime, backupName, backupPlanName, backupRetentionDays,
          backupRule, backupVaultName, dataSourceName, endTime, errorCode,
          errorMessage, errorType, incrementalBackupSizeGib, jobCategory, jobId,
          jobStatus, recoveryPointTime, resourceType, restoreResourceLocation,

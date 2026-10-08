@@ -194,6 +194,15 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDns_Empty
+//
+
+@implementation GTLRDns_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDns_Expr
 //
 
@@ -352,6 +361,29 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDns_GoogleLongrunningListOperationsResponse
+//
+
+@implementation GTLRDns_GoogleLongrunningListOperationsResponse
+@dynamic nextPageToken, operations, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRDns_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDns_GoogleLongrunningOperation
 //
 
@@ -395,6 +427,89 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 @implementation GTLRDns_KeyDigest
 @dynamic digest, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ListLocationsResponse
+//
+
+@implementation GTLRDns_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRDns_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ListOutboundEndpointsResponse
+//
+
+@implementation GTLRDns_ListOutboundEndpointsResponse
+@dynamic nextPageToken, outboundEndpoints, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"outboundEndpoints" : [GTLRDns_OutboundEndpoint class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"outboundEndpoints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_Location
+//
+
+@implementation GTLRDns_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_Location_Labels
+//
+
+@implementation GTLRDns_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_Location_Metadata
+//
+
+@implementation GTLRDns_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -475,10 +590,11 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_ManagedZoneForwardingConfig
-@dynamic kind, targetNameServers;
+@dynamic kind, outboundEndpoints, targetNameServers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"outboundEndpoints" : [GTLRDns_ManagedZoneForwardingConfigOutboundEndpoint class],
     @"targetNameServers" : [GTLRDns_ManagedZoneForwardingConfigNameServerTarget class]
   };
   return map;
@@ -494,6 +610,16 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 @implementation GTLRDns_ManagedZoneForwardingConfigNameServerTarget
 @dynamic domainName, forwardingPath, ipv4Address, ipv6Address, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZoneForwardingConfigOutboundEndpoint
+//
+
+@implementation GTLRDns_ManagedZoneForwardingConfigOutboundEndpoint
+@dynamic kind, name;
 @end
 
 
@@ -673,6 +799,75 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDns_OperationMetadata
+//
+
+@implementation GTLRDns_OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_OutboundEndpoint
+//
+
+@implementation GTLRDns_OutboundEndpoint
+@dynamic annotations, createTime, descriptionProperty, endpointIp, labels, name,
+         network, subnetwork, tags, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_OutboundEndpoint_Annotations
+//
+
+@implementation GTLRDns_OutboundEndpoint_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_OutboundEndpoint_Labels
+//
+
+@implementation GTLRDns_OutboundEndpoint_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_OutboundEndpoint_Tags
+//
+
+@implementation GTLRDns_OutboundEndpoint_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDns_PoliciesListResponse
 //
 
@@ -747,15 +942,26 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 //
 
 @implementation GTLRDns_PolicyAlternativeNameServerConfig
-@dynamic kind, targetNameServers;
+@dynamic kind, outboundEndpoints, targetNameServers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"outboundEndpoints" : [GTLRDns_PolicyAlternativeNameServerConfigOutboundEndpoint class],
     @"targetNameServers" : [GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PolicyAlternativeNameServerConfigOutboundEndpoint
+//
+
+@implementation GTLRDns_PolicyAlternativeNameServerConfigOutboundEndpoint
+@dynamic kind, name;
 @end
 
 
@@ -825,6 +1031,7 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
          itemsPerRoutingPolicy, kind, managedZones, managedZonesPerGkeCluster,
          managedZonesPerNetwork, nameserversPerDelegation,
          networksPerManagedZone, networksPerPolicy, networksPerResponsePolicy,
+         outboundEndpointsPerManagedZone, outboundEndpointsPerPolicy,
          peeringZonesPerTargetNetwork, policies, resourceRecordsPerRrset,
          responsePolicies, responsePolicyRulesPerResponsePolicy,
          rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,

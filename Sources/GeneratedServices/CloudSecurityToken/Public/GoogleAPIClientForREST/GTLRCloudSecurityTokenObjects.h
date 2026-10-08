@@ -469,7 +469,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A JSON web key set (JWK) See also
  *  https://datatracker.ietf.org/doc/html/rfc7517 and
- *  https://github.com/spiffe/spiffe/blob/main/standards/JWT-SVID.md#6-representation-in-the-spiffe-bundle
+ *  https://github.com/spiffe/spiffe/blob/main/standards/JWT-SVID.md#6-representation-in-the-spiffe-bundle.
  */
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk : GTLRObject
 
@@ -499,7 +499,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1Jwks : GTLRObject
 
-/** The JWKS for this OP. */
+/** The JWKs for this OP. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSecurityToken_GoogleIdentityStsV1Jwk *> *keys;
 
 @end
@@ -507,7 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Response message for GetOpenIdProviderConfig. Message fields are defined in
- *  https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse
+ *  https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationResponse.
  */
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1OpenIdProviderConfig : GTLRObject
 
@@ -518,9 +518,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *authorizationEndpoint;
 
 /**
- *  JSON array containing a list of the JWS signing algorithms (alg values)
- *  supported by the OP for the ID token to encode the claims in a JWT [JWT].
- *  Note: Currently always "["RS256"]".
+ *  JSON array that contains a list of the JWS signing algorithms (alg values)
+ *  supported by the OP for the ID token to encode the claims in a JWT.
+ *  Supported value: `RS256`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *idTokenSigningAlgValuesSupported;
 
@@ -530,20 +530,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *issuer;
 
-/**
- *  URL of the OP's JWK Set [JWK] document, which MUST use the https scheme.
- */
+/** URL of the OP's JWK Set document, which MUST use the https scheme. */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
 /**
- *  JSON array containing a list of the OAuth 2.0 response_type values that this
- *  OP supports. Note: Currently always "["id_token"]".
+ *  JSON array that contains a list of the OAuth 2.0 response_type values that
+ *  this OP supports. Supported value: `id_token`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *responseTypesSupported;
 
 /**
- *  JSON array containing a list of the subject identifier types that this OP
- *  supports. Note: Currently always "["public"]".
+ *  JSON array that contains a list of the subject identifier types that this OP
+ *  supports. Supported value: `public`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subjectTypesSupported;
 
@@ -572,7 +570,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCloudSecurityToken_GoogleIdentityStsV1AccessBoundary *accessBoundary;
 
 /**
- *  The unpadded, url-escaped, base64-encoded SHA-256 hash of the certificate's
+ *  The unpadded, URL-escaped, base64-encoded SHA-256 hash of the certificate's
  *  DER encoding. It must be 43 characters long. The resulting token will be
  *  bound to this value.
  */

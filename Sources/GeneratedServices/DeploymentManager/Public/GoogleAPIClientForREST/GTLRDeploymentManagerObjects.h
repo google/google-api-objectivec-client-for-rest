@@ -30,6 +30,8 @@
 @class GTLRDeploymentManager_ErrorInfo_Metadatas;
 @class GTLRDeploymentManager_Expr;
 @class GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata;
+@class GTLRDeploymentManager_GetHealthOperationMetadata;
+@class GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo;
 @class GTLRDeploymentManager_GetVersionOperationMetadata;
 @class GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo;
 @class GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_CurrentComponentVersions;
@@ -39,6 +41,7 @@
 @class GTLRDeploymentManager_ImportFile;
 @class GTLRDeploymentManager_InstancesBulkInsertOperationMetadata;
 @class GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus;
+@class GTLRDeploymentManager_InstancesTroubleshootOperationMetadata;
 @class GTLRDeploymentManager_LocalizedMessage;
 @class GTLRDeploymentManager_Manifest;
 @class GTLRDeploymentManager_Operation;
@@ -47,6 +50,8 @@
 @class GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item;
 @class GTLRDeploymentManager_Operation_Warnings_Item;
 @class GTLRDeploymentManager_Operation_Warnings_Item_Data_Item;
+@class GTLRDeploymentManager_OperationDetails;
+@class GTLRDeploymentManager_OperationDetails_Data;
 @class GTLRDeploymentManager_Policy;
 @class GTLRDeploymentManager_QuotaExceededInfo;
 @class GTLRDeploymentManager_QuotaExceededInfo_Dimensions;
@@ -124,6 +129,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationSta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Done;
 /**
+ *  Pending - waiting until the capacity is available.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Pending;
+/**
  *  Rolling back - cleaning up after an error.
  *
  *  Value: "ROLLING_BACK"
@@ -133,13 +144,140 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationSta
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_BulkInsertOperationStatus_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.availabilitySloStatus
+
+/**
+ *  The slot availability is in SLO.
+ *
+ *  Value: "AVAILABILITY_SLO_STATUS_IN_SLO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusInSlo;
+/**
+ *  The slot availability is out of SLO.
+ *
+ *  Value: "AVAILABILITY_SLO_STATUS_OUT_OF_SLO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusOutOfSlo;
+/**
+ *  The slot availability is unknown.
+ *
+ *  Value: "AVAILABILITY_SLO_STATUS_SLO_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusSloUnknown;
+/**
+ *  Unspecified availability SLO status.
+ *
+ *  Value: "AVAILABILITY_SLO_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.healthStatus
+
+/**
+ *  The reservation slot is healthy.
+ *
+ *  Value: "HEALTH_STATUS_HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusHealthy;
+/**
+ *  The reservation slot is unhealthy.
+ *
+ *  Value: "HEALTH_STATUS_UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusUnhealthy;
+/**
+ *  Unspecified health status.
+ *
+ *  Value: "HEALTH_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.repairCategory
+
+/**
+ *  The repair is because of critical failures, that are scoped outside emergent
+ *  maintenance
+ *
+ *  Value: "REPAIR_CATEGORY_CRITICAL_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryCriticalFailure;
+/**
+ *  The repair is because of an emergent maintenance
+ *
+ *  Value: "REPAIR_CATEGORY_EMERGENT_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryEmergentMaintenance;
+/**
+ *  The repair is because of a planned maintenance
+ *
+ *  Value: "REPAIR_CATEGORY_PLANNED_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryPlannedMaintenance;
+/**
+ *  Unspecified repair category.
+ *
+ *  Value: "REPAIR_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryUnspecified;
+/**
+ *  The repair is because of a user reported fault
+ *
+ *  Value: "REPAIR_CATEGORY_USER_REPORTED_FAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryUserReportedFault;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo.unhealthyReason
+
+/**
+ *  The slot is unhealthy because there is a pending repair, waiting for
+ *  customer approval
+ *
+ *  Value: "UNHEALTHY_REASON_PENDING_USER_APPROVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonPendingUserApproval;
+/**
+ *  The slot is unhealthy because repair is in progress
+ *
+ *  Value: "UNHEALTHY_REASON_REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonRepairing;
+/**
+ *  The slot is unhealthy because a vm cannot be scheduled on it, and no repairs
+ *  are running on the slot
+ *
+ *  Value: "UNHEALTHY_REASON_UNSCHEDULABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonUnschedulable;
+/**
+ *  Unspecified unhealthy reason.
+ *
+ *  Value: "UNHEALTHY_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDeploymentManager_Operation.status
 
-/** Value: "DONE" */
+/**
+ *  The operation has completed processing successfully or with an error.
+ *
+ *  Value: "DONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Status_Done;
-/** Value: "PENDING" */
+/**
+ *  The operation is waiting to be processed.
+ *
+ *  Value: "PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Status_Pending;
-/** Value: "RUNNING" */
+/**
+ *  The operation is actively being processed.
+ *
+ *  Value: "RUNNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Status_Running;
 
 // ----------------------------------------------------------------------------
@@ -1210,6 +1348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        Rolling forward - creating VMs. (Value: "CREATING")
  *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Done Done
  *        (Value: "DONE")
+ *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_Pending
+ *        Pending - waiting until the capacity is available. (Value: "PENDING")
  *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_RollingBack
  *        Rolling back - cleaning up after an error. (Value: "ROLLING_BACK")
  *    @arg @c kGTLRDeploymentManager_BulkInsertOperationStatus_Status_StatusUnspecified
@@ -1592,17 +1732,111 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata
+ *  Metadata for FirewallPolicyRule operations.
  */
 @interface GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata : GTLRObject
 
 /**
- *  The priority allocated for the firewall policy rule if query parameters
- *  specified minPriority/maxPriority.
+ *  Output only. [Output Only] The priority allocated for the firewall policy
+ *  rule if query parameters specified minPriority/maxPriority.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allocatedPriority;
+
+@end
+
+
+/**
+ *  Metadata for GetHealth operations.
+ */
+@interface GTLRDeploymentManager_GetHealthOperationMetadata : GTLRObject
+
+/** Output only. The health information. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo *healthInfo;
+
+@end
+
+
+/**
+ *  Health information.
+ */
+@interface GTLRDeploymentManager_GetHealthOperationMetadataHealthInfo : GTLRObject
+
+/**
+ *  Output only. The availability SLO status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusInSlo
+ *        The slot availability is in SLO. (Value:
+ *        "AVAILABILITY_SLO_STATUS_IN_SLO")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusOutOfSlo
+ *        The slot availability is out of SLO. (Value:
+ *        "AVAILABILITY_SLO_STATUS_OUT_OF_SLO")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusSloUnknown
+ *        The slot availability is unknown. (Value:
+ *        "AVAILABILITY_SLO_STATUS_SLO_UNKNOWN")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_AvailabilitySloStatus_AvailabilitySloStatusUnspecified
+ *        Unspecified availability SLO status. (Value:
+ *        "AVAILABILITY_SLO_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *availabilitySloStatus;
+
+/**
+ *  Output only. The health status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusHealthy
+ *        The reservation slot is healthy. (Value: "HEALTH_STATUS_HEALTHY")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusUnhealthy
+ *        The reservation slot is unhealthy. (Value: "HEALTH_STATUS_UNHEALTHY")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_HealthStatus_HealthStatusUnspecified
+ *        Unspecified health status. (Value: "HEALTH_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *healthStatus;
+
+/**
+ *  Output only. The repair category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryCriticalFailure
+ *        The repair is because of critical failures, that are scoped outside
+ *        emergent maintenance (Value: "REPAIR_CATEGORY_CRITICAL_FAILURE")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryEmergentMaintenance
+ *        The repair is because of an emergent maintenance (Value:
+ *        "REPAIR_CATEGORY_EMERGENT_MAINTENANCE")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryPlannedMaintenance
+ *        The repair is because of a planned maintenance (Value:
+ *        "REPAIR_CATEGORY_PLANNED_MAINTENANCE")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryUnspecified
+ *        Unspecified repair category. (Value: "REPAIR_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_RepairCategory_RepairCategoryUserReportedFault
+ *        The repair is because of a user reported fault (Value:
+ *        "REPAIR_CATEGORY_USER_REPORTED_FAULT")
+ */
+@property(nonatomic, copy, nullable) NSString *repairCategory;
+
+/**
+ *  Output only. The reason for unhealthy status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonPendingUserApproval
+ *        The slot is unhealthy because there is a pending repair, waiting for
+ *        customer approval (Value: "UNHEALTHY_REASON_PENDING_USER_APPROVAL")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonRepairing
+ *        The slot is unhealthy because repair is in progress (Value:
+ *        "UNHEALTHY_REASON_REPAIRING")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonUnschedulable
+ *        The slot is unhealthy because a vm cannot be scheduled on it, and no
+ *        repairs are running on the slot (Value:
+ *        "UNHEALTHY_REASON_UNSCHEDULABLE")
+ *    @arg @c kGTLRDeploymentManager_GetHealthOperationMetadataHealthInfo_UnhealthyReason_UnhealthyReasonUnspecified
+ *        Unspecified unhealthy reason. (Value: "UNHEALTHY_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *unhealthyReason;
+
+/** Output only. The time when health info was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -1623,14 +1857,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @interface GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo : GTLRObject
 
 /**
- *  SBOM versions currently applied to the resource. The key is the component
- *  name and the value is the version.
+ *  A mapping of components to their currently-applied versions or other
+ *  appropriate identifiers.
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_CurrentComponentVersions *currentComponentVersions;
 
 /**
- *  SBOM versions scheduled for the next maintenance. The key is the component
- *  name and the value is the version.
+ *  A mapping of components to their target versions or other appropriate
+ *  identifiers.
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_TargetComponentVersions *targetComponentVersions;
 
@@ -1638,8 +1872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  SBOM versions currently applied to the resource. The key is the component
- *  name and the value is the version.
+ *  A mapping of components to their currently-applied versions or other
+ *  appropriate identifiers.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1651,8 +1885,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  SBOM versions scheduled for the next maintenance. The key is the component
- *  name and the value is the version.
+ *  A mapping of components to their target versions or other appropriate
+ *  identifiers.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1779,6 +2013,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        fetch them all at once.
  */
 @interface GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Operation metadata for instances.troubleshoot.
+ */
+@interface GTLRDeploymentManager_InstancesTroubleshootOperationMetadata : GTLRObject
+
+/**
+ *  Output only. [Output Only] Serialized output of the troubleshooting
+ *  diagnostic run.
+ */
+@property(nonatomic, copy, nullable) NSString *troubleshootOutput;
+
 @end
 
 
@@ -1914,6 +2162,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** [Output Only] Extended details about the operation's execution. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_OperationDetails *details;
+
 /**
  *  [Output Only] The time that this operation was completed. This value is in
  *  RFC3339 text format.
@@ -1926,7 +2177,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation_Error *error;
 
+/**
+ *  Output only. [Output Only] Metadata containing the allocated priority from
+ *  the networkFirewallPolicies.addRule and
+ *  regionNetworkFirewallPolicies.addRule methods if not explicitly provided by
+ *  the user.
+ */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata *firewallPolicyRuleOperationMetadata;
+
+/** Output only. Metadata for GetHealth operations. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_GetHealthOperationMetadata *getHealthOperationMetadata;
+
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_GetVersionOperationMetadata *getVersionOperationMetadata;
 
 /**
@@ -1961,6 +2222,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_InstancesBulkInsertOperationMetadata *instancesBulkInsertOperationMetadata;
+
+/**
+ *  Output only. [Output Only] Operation metadata for instances.troubleshoot.
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_InstancesTroubleshootOperationMetadata *instancesTroubleshootOperationMetadata;
 
 /**
  *  Output only. [Output Only] Type of the resource. Always `compute#operation`
@@ -2033,9 +2299,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *  following: `PENDING`, `RUNNING`, or `DONE`.
  *
  *  Likely values:
- *    @arg @c kGTLRDeploymentManager_Operation_Status_Done Value "DONE"
- *    @arg @c kGTLRDeploymentManager_Operation_Status_Pending Value "PENDING"
- *    @arg @c kGTLRDeploymentManager_Operation_Status_Running Value "RUNNING"
+ *    @arg @c kGTLRDeploymentManager_Operation_Status_Done The operation has
+ *        completed processing successfully or with an error. (Value: "DONE")
+ *    @arg @c kGTLRDeploymentManager_Operation_Status_Pending The operation is
+ *        waiting to be processed. (Value: "PENDING")
+ *    @arg @c kGTLRDeploymentManager_Operation_Status_Running The operation is
+ *        actively being processed. (Value: "RUNNING")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2240,7 +2509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 /**
  *  [Output Only] Metadata about this warning in key: value format. For example:
- *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }]
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Operation_Warnings_Item_Data_Item *> *data;
 
@@ -2251,7 +2520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  GTLRDeploymentManager_Operation_Error_Errors_Item
+ *  Represents a single error encountered during the processing of an operation.
  */
 @interface GTLRDeploymentManager_Operation_Error_Errors_Item : GTLRObject
 
@@ -2266,6 +2535,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
 
+/**
+ *  Output only. [Output Only] Advanced debugging information with stack traces
+ *  and other diagnostic details for the error.
+ */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_DebugInfo *debugInfo;
 
 /**
@@ -2311,15 +2584,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item
+ *  Container for structured error details providing additional context specific
+ *  to the encountered error code.
  */
 @interface GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item : GTLRObject
 
+/** Error information containing structured domain, reason, and metadata. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_ErrorInfo *errorInfo;
+
+/** Links and information to help the user resolve the error. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Help *help;
+
+/** A localized human-readable error message intended for end users. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_LocalizedMessage *localizedMessage;
+
+/** Details about quota limits and metrics when a quota is exceeded. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_QuotaExceededInfo *quotaInfo;
 
+@end
+
+
+/**
+ *  GTLRDeploymentManager_OperationDetails
+ */
+@interface GTLRDeploymentManager_OperationDetails : GTLRObject
+
+/** Machine readable data from the message. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_OperationDetails_Data *data;
+
+/** Human or AI readable details on execution of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Machine readable data from the message.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDeploymentManager_OperationDetails_Data : GTLRObject
 @end
 
 
@@ -2706,7 +3013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 /**
  *  [Output Only] Metadata about this warning in key: value format. For example:
- *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }]
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Resource_Warnings_Item_Data_Item *> *data;
 
@@ -3011,7 +3318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 /**
  *  [Output Only] Metadata about this warning in key: value format. For example:
- *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }]
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item *> *data;
 
@@ -3022,7 +3329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item
+ *  Represents a single error encountered during the processing of an operation.
  */
 @interface GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item : GTLRObject
 
@@ -3037,6 +3344,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
 
+/**
+ *  Output only. [Output Only] Advanced debugging information with stack traces
+ *  and other diagnostic details for the error.
+ */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_DebugInfo *debugInfo;
 
 /**
@@ -3082,13 +3393,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
- *  GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item
+ *  Container for structured error details providing additional context specific
+ *  to the encountered error code.
  */
 @interface GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item : GTLRObject
 
+/** Error information containing structured domain, reason, and metadata. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_ErrorInfo *errorInfo;
+
+/** Links and information to help the user resolve the error. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Help *help;
+
+/** A localized human-readable error message intended for end users. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_LocalizedMessage *localizedMessage;
+
+/** Details about quota limits and metrics when a quota is exceeded. */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_QuotaExceededInfo *quotaInfo;
 
 @end

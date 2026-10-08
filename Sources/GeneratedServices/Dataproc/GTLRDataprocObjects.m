@@ -202,6 +202,10 @@ NSString * const kGTLRDataproc_Metric_MetricSource_Spark       = @"SPARK";
 NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistoryServer = @"SPARK_HISTORY_SERVER";
 NSString * const kGTLRDataproc_Metric_MetricSource_Yarn        = @"YARN";
 
+// GTLRDataproc_MultiZoneConfig.targetShape
+NSString * const kGTLRDataproc_MultiZoneConfig_TargetShape_Any = @"ANY";
+NSString * const kGTLRDataproc_MultiZoneConfig_TargetShape_TargetShapeUnspecified = @"TARGET_SHAPE_UNSPECIFIED";
+
 // GTLRDataproc_NodeGroup.roles
 NSString * const kGTLRDataproc_NodeGroup_Roles_Driver          = @"DRIVER";
 NSString * const kGTLRDataproc_NodeGroup_Roles_RoleUnspecified = @"ROLE_UNSPECIFIED";
@@ -314,6 +318,12 @@ NSString * const kGTLRDataproc_StateHistory_State_Pending      = @"PENDING";
 NSString * const kGTLRDataproc_StateHistory_State_Running      = @"RUNNING";
 NSString * const kGTLRDataproc_StateHistory_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDataproc_StateHistory_State_Succeeded    = @"SUCCEEDED";
+
+// GTLRDataproc_VirtualClusterOperationMetadata.operationType
+NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Create = @"CREATE";
+NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_Update = @"UPDATE";
+NSString * const kGTLRDataproc_VirtualClusterOperationMetadata_OperationType_VirtualClusterOperationTypeUnspecified = @"VIRTUAL_CLUSTER_OPERATION_TYPE_UNSPECIFIED";
 
 // GTLRDataproc_WorkflowMetadata.state
 NSString * const kGTLRDataproc_WorkflowMetadata_State_Done    = @"DONE";
@@ -598,7 +608,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ApplicationAttemptInfo
 @dynamic appSparkVersion, attemptId, completed, durationMillis, endTime,
-         lastUpdated, sparkUser, startTime;
+         eventLogPath, lastUpdated, sparkUser, startTime;
 @end
 
 
@@ -727,7 +737,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_AttachedDiskConfig
-@dynamic diskSizeGb, diskType, provisionedIops, provisionedThroughput;
+@dynamic diskSizeGb, diskType, provisionedIops, provisionedThroughput, type;
 @end
 
 
@@ -1626,10 +1636,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_GceClusterConfig
 @dynamic autoZoneExcludeZoneUris, confidentialInstanceConfig, internalIpOnly,
-         metadata, networkUri, nodeGroupAffinity, privateIpv6GoogleAccess,
-         reservationAffinity, resourceManagerTags, serviceAccount,
-         serviceAccountScopes, shieldedInstanceConfig, subnetworkUri, tags,
-         zoneUri;
+         metadata, multiZoneConfig, networkUri, nodeGroupAffinity,
+         privateIpv6GoogleAccess, reservationAffinity, resourceManagerTags,
+         serviceAccount, serviceAccountScopes, shieldedInstanceConfig,
+         subnetworkUri, tags, zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2607,6 +2617,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_MultiZoneConfig
+//
+
+@implementation GTLRDataproc_MultiZoneConfig
+@dynamic targetShape;
 @end
 
 
@@ -5382,6 +5402,43 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_VirtualClusterConfig
 @dynamic auxiliaryServicesConfig, kubernetesClusterConfig, stagingBucket;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_VirtualClusterOperationMetadata
+//
+
+@implementation GTLRDataproc_VirtualClusterOperationMetadata
+@dynamic createTime, descriptionProperty, doneTime, labels, operationType,
+         virtualCluster, virtualClusterUuid, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_VirtualClusterOperationMetadata_Labels
+//
+
+@implementation GTLRDataproc_VirtualClusterOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

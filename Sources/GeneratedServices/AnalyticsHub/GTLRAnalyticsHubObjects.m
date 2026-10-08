@@ -213,7 +213,8 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_BigtableConfig
-@dynamic appProfileId, serviceAccountEmail, table, writeMetadata;
+@dynamic appProfileId, columnFamilyMapping, serviceAccountEmail, table,
+         writeMetadata;
 @end
 
 
@@ -244,6 +245,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 @dynamic avroConfig, bucket, filenameDatetimeFormat, filenamePrefix,
          filenameSuffix, maxBytes, maxDuration, maxMessages,
          serviceAccountEmail, textConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_ColumnFamilyMapping
+//
+
+@implementation GTLRAnalyticsHub_ColumnFamilyMapping
+@dynamic delimitedKey, rowKeySchema;
 @end
 
 
@@ -316,6 +327,24 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_DelimitedKey
+//
+
+@implementation GTLRAnalyticsHub_DelimitedKey
+@dynamic delimiter, keyFields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyFields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_DestinationDataset
 //
 
@@ -377,6 +406,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_EncryptionConfig
+//
+
+@implementation GTLRAnalyticsHub_EncryptionConfig
+@dynamic kmsKeyName;
 @end
 
 
@@ -862,8 +901,9 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_QueryTemplate
-@dynamic createTime, descriptionProperty, displayName, documentation, name,
-         primaryContact, proposer, routine, state, updateTime;
+@dynamic createTime, descriptionProperty, displayName, documentation,
+         encryptionConfiguration, name, primaryContact, proposer, routine,
+         state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -957,6 +997,15 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 @implementation GTLRAnalyticsHub_Routine
 @dynamic definitionBody, routineType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_RowKeySchema
+//
+
+@implementation GTLRAnalyticsHub_RowKeySchema
 @end
 
 

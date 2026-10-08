@@ -91,6 +91,7 @@
 @class GTLRBigquery_ExternalDatasetReference;
 @class GTLRBigquery_ExternalRuntimeOptions;
 @class GTLRBigquery_ExternalServiceCost;
+@class GTLRBigquery_ExternalVolumeMount;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_ForeignTypeInfo;
 @class GTLRBigquery_ForeignViewDefinition;
@@ -202,6 +203,8 @@
 @class GTLRBigquery_ScriptStackFrame;
 @class GTLRBigquery_ScriptStatistics;
 @class GTLRBigquery_SearchStatistics;
+@class GTLRBigquery_SecureContext;
+@class GTLRBigquery_SecureContext_SecureParameterEntries;
 @class GTLRBigquery_SerDeInfo;
 @class GTLRBigquery_SerDeInfo_Parameters;
 @class GTLRBigquery_SessionInfo;
@@ -2532,6 +2535,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Ti
  *  Value: "TYPE_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified;
+/**
+ *  Encoded as a string.
+ *
+ *  Value: "UUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Uuid;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_StoredColumnsUnusedReason.code
@@ -2712,7 +2721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableReplicationInfo_Replicatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TableReplicationInfo_ReplicationStatus_SourceDeleted;
 /**
- *  Source configuration doesn’t allow replication.
+ *  Source configuration doesn't allow replication.
  *
  *  Value: "UNSUPPORTED_CONFIGURATION"
  */
@@ -7573,6 +7582,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** Optional. Language runtime version. Example: `python-3.11`. */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
+/**
+ *  Optional. List of volume mounts for the Python UDF container that executes
+ *  the managed function.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExternalVolumeMount *> *volumeMounts;
+
 @end
 
 
@@ -7629,6 +7644,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *slotMs;
+
+@end
+
+
+/**
+ *  Configuration of a volume mount for the Python UDF container that executes
+ *  the managed function.
+ */
+@interface GTLRBigquery_ExternalVolumeMount : GTLRObject
+
+/**
+ *  Optional. The absolute path within the container where the volume should be
+ *  mounted.
+ */
+@property(nonatomic, copy, nullable) NSString *mountPath;
+
+/**
+ *  Optional. The absolute path of the source to be mounted, only support Google
+ *  Cloud Storage bucket or folder now. Eg: gs://bucket-xxx for Google Cloud
+ *  Storage bucket, gs://bucket-xxx/folder1/folder2 for Google Cloud Storage
+ *  folder.
+ */
+@property(nonatomic, copy, nullable) NSString *sourcePath;
 
 @end
 
@@ -7800,8 +7838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_GenAiErrorStats *errorStats;
 
 /**
- *  Function level stats for GenAi Functions. See
- *  https://docs.cloud.google.com/bigquery/docs/generative-ai-overview
+ *  Function level stats for GenAI Functions. For more information, see
+ *  [Generative AI
+ *  overview](https://docs.cloud.google.com/bigquery/docs/generative-ai-overview).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_GenAiFunctionStats *> *functionStats;
 
@@ -8897,6 +8936,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelExtractOptions *modelExtractOptions;
 
 /**
+ *  Optional. Applicable to formats: PARQUET. If enabled, BigQuery to Parquet
+ *  export will write the native Parquet Geography type instead of the default
+ *  GeoParquet type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nativeGeographyExportEnabled;
+
+/**
  *  Optional. Whether to print out a header row in the results. Default is true.
  *  Not applicable when extracting models.
  *
@@ -9544,6 +9592,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_ScriptOptions *scriptOptions;
 
 /**
+ *  Optional. A set of key-value pairs representing the secure context. This can
+ *  be used to pass sensitive or context-specific information. They can be
+ *  retrieved via the SECURE_CONTEXT() function and used to modify the run-time
+ *  behavior of a query.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SecureContext *secureContext;
+
+/**
  *  Output only. System variables for GoogleSQL queries. A system variable is
  *  output if the variable is settable and its value differs from the system
  *  default. "\@\@" prefix is not included in the name of the System variables.
@@ -9922,7 +9978,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *finalExecutionDurationMs;
 
-/** Output only. Regions where the global query accesses data. */
+/**
+ *  Output only. The list of remote regions from which a global query accesses
+ *  data. This field is populated only for parent global query jobs in the
+ *  primary execution region. It is empty for child global query jobs and
+ *  single-region queries. For more information, see [Global
+ *  queries](https://cloud.google.com/bigquery/docs/global-queries).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *globalQueryRemoteRegions;
 
 /** Output only. Statistics for a load job. */
@@ -9935,7 +9997,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, strong, nullable) NSNumber *numChildJobs;
 
-/** Output only. The global query that created this job. */
+/**
+ *  Output only. Reference to the parent global query job, if this is a child
+ *  global query job. This field is populated only for child global query jobs
+ *  (remote subqueries or cross-region table copy jobs) executed in remote
+ *  regions on behalf of a global query. It contains the project ID, job ID, and
+ *  location of the parent global query job. It is unset for parent global query
+ *  jobs and single-region queries. For more information, see [Global
+ *  queries](https://cloud.google.com/bigquery/docs/global-queries).
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobReference *parentGlobalQueryJob;
 
 /**
@@ -9959,7 +10029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Output only. The reservation group path of the reservation assigned to this
  *  job. This field has a limit of 10 nested reservation groups. This is to
- *  maintain consistency between reservatins info schema and jobs info schema.
+ *  maintain consistency between reservations info schema and jobs info schema.
  *  The first reservation group is the root reservation group and the last is
  *  the leaf or lowest level reservation group.
  */
@@ -10208,6 +10278,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** Output only. Describes execution plan for the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExplainQueryStage *> *queryPlan;
 
+/** Output only. Referenced logical views for the job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableReference *> *referencedLogicalViews;
+
 /**
  *  Output only. Referenced property graphs for the job. Queries that reference
  *  more than 50 property graphs will not have a complete list.
@@ -10252,6 +10325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  [`DELETE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language)
  *  statement. * `MERGE`:
  *  [`MERGE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language)
+ *  statement. * `TRUNCATE_TABLE`: [`TRUNCATE
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#truncate_table_statement)
  *  statement. * `CREATE_TABLE`: [`CREATE
  *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
  *  statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`: [`CREATE TABLE
@@ -10273,10 +10348,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_row_access_policy_statement)
  *  statement. * `CREATE_SCHEMA`: [`CREATE
  *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_schema_statement)
+ *  statement. * `CREATE_EXTERNAL_SCHEMA`: [`CREATE EXTERNAL
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_external_schema_statement)
+ *  statement. * `CREATE_EXTERNAL_TABLE`: [`CREATE EXTERNAL
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_external_table_statement)
  *  statement. * `CREATE_SNAPSHOT_TABLE`: [`CREATE SNAPSHOT
  *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_snapshot_table_statement)
  *  statement. * `CREATE_SEARCH_INDEX`: [`CREATE SEARCH
  *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_search_index_statement)
+ *  statement. * `CREATE_VECTOR_INDEX`: [`CREATE VECTOR
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_vector_index_statement)
+ *  statement. * `CREATE_CONNECTION`: [`CREATE
+ *  CONNECTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_connection_statement)
+ *  statement. * `CREATE_DATA_POLICY`: [`CREATE
+ *  DATA_POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_data_policy_statement)
+ *  statement. * `CREATE_PROPERTY_GRAPH`: [`CREATE PROPERTY
+ *  GRAPH`](https://cloud.google.com/bigquery/docs/reference/standard-sql/graph-schema-statements#gql_create_graph)
+ *  statement. * `CREATE_CAPACITY`: [`CREATE
+ *  CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_capacity_statement)
+ *  statement. * `CREATE_RESERVATION`: [`CREATE
+ *  RESERVATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_reservation_statement)
+ *  statement. * `CREATE_ASSIGNMENT`: [`CREATE
+ *  ASSIGNMENT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_assignment_statement)
  *  statement. * `DROP_TABLE`: [`DROP
  *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_statement)
  *  statement. * `DROP_EXTERNAL_TABLE`: [`DROP EXTERNAL
@@ -10287,20 +10380,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-drop-model)
  *  statement. * `DROP_MATERIALIZED_VIEW`: [`DROP MATERIALIZED
  *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_materialized_view_statement)
- *  statement. * `DROP_FUNCTION` : [`DROP
+ *  statement. * `DROP_FUNCTION`: [`DROP
  *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_function_statement)
- *  statement. * `DROP_TABLE_FUNCTION` : [`DROP TABLE
+ *  statement. * `DROP_TABLE_FUNCTION`: [`DROP TABLE
  *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_function)
  *  statement. * `DROP_PROCEDURE`: [`DROP
  *  PROCEDURE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_procedure_statement)
  *  statement. * `DROP_SEARCH_INDEX`: [`DROP SEARCH
  *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_search_index)
+ *  statement. * `DROP_VECTOR_INDEX`: [`DROP VECTOR
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_vector_index)
  *  statement. * `DROP_SCHEMA`: [`DROP
  *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_schema_statement)
+ *  statement. * `UNDROP_SCHEMA`: [`UNDROP
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#undrop_schema_statement)
  *  statement. * `DROP_SNAPSHOT_TABLE`: [`DROP SNAPSHOT
  *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_snapshot_table_statement)
  *  statement. * `DROP_ROW_ACCESS_POLICY`: [`DROP [ALL] ROW ACCESS
  *  POLICY|POLICIES`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_row_access_policy_statement)
+ *  statement. * `DROP_CONNECTION`: [`DROP
+ *  CONNECTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_connection_statement)
+ *  statement. * `DROP_DATA_POLICY`: [`DROP
+ *  DATA_POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_data_policy)
+ *  statement. * `DROP_PROPERTY_GRAPH`: [`DROP PROPERTY
+ *  GRAPH`](https://cloud.google.com/bigquery/docs/reference/standard-sql/graph-schema-statements#gql_drop_graph)
+ *  statement. * `DROP_CAPACITY`: [`DROP
+ *  CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_capacity_statement)
+ *  statement. * `DROP_RESERVATION`: [`DROP
+ *  RESERVATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_reservation_statement)
+ *  statement. * `DROP_ASSIGNMENT`: [`DROP
+ *  ASSIGNMENT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_assignment_statement)
  *  statement. * `ALTER_TABLE`: [`ALTER
  *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_table_set_options_statement)
  *  statement. * `ALTER_VIEW`: [`ALTER
@@ -10309,20 +10418,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_materialized_view_set_options_statement)
  *  statement. * `ALTER_SCHEMA`: [`ALTER
  *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_schema_set_options_statement)
+ *  statement. * `ALTER_MODEL`: [`ALTER
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-alter-model)
+ *  statement. * `ALTER_SEARCH_INDEX`: [`ALTER SEARCH
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_search_index_statement)
+ *  statement. * `ALTER_VECTOR_INDEX`: [`ALTER VECTOR
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_vector_index_rebuild_statement)
+ *  statement. * `ALTER_CONNECTION`: [`ALTER
+ *  CONNECTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_connection_set_options_statement)
+ *  statement. * `ALTER_DATA_POLICY`: [`ALTER
+ *  DATA_POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_data_policy_statement)
+ *  statement. * `ALTER_PROJECT`: [`ALTER
+ *  PROJECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_project_set_options_statement)
+ *  statement. * `ALTER_ORGANIZATION`: [`ALTER
+ *  ORGANIZATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_organization_set_options_statement)
+ *  statement. * `ALTER_BI_CAPACITY`: [`ALTER
+ *  BI_CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_bi_capacity_set_options_statement)
+ *  statement. * `ALTER_CAPACITY`: [`ALTER
+ *  CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_capacity_set_options_statement)
+ *  statement. * `ALTER_RESERVATION`: [`ALTER
+ *  RESERVATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_reservation_set_options_statement)
  *  statement. * `SCRIPT`:
- *  [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language).
- *  * `TRUNCATE_TABLE`: [`TRUNCATE
- *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#truncate_table_statement)
- *  statement. * `CREATE_EXTERNAL_TABLE`: [`CREATE EXTERNAL
- *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_external_table_statement)
- *  statement. * `EXPORT_DATA`: [`EXPORT
- *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/other-statements#export_data_statement)
- *  statement. * `EXPORT_MODEL`: [`EXPORT
- *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-export-model)
- *  statement. * `LOAD_DATA`: [`LOAD
- *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/other-statements#load_data_statement)
+ *  [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language)
  *  statement. * `CALL`:
  *  [`CALL`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#call)
+ *  statement. * `BEGIN_TRANSACTION`: [`BEGIN
+ *  TRANSACTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#begin_transaction)
+ *  statement. * `COMMIT_TRANSACTION`: [`COMMIT
+ *  TRANSACTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#commit_transaction)
+ *  statement. * `ROLLBACK_TRANSACTION`: [`ROLLBACK
+ *  TRANSACTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#rollback_transaction)
+ *  statement. * `EXPORT_DATA`: [`EXPORT
+ *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/export-statements#export_data_statement)
+ *  statement. * `EXPORT_MODEL`: [`EXPORT
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-export-model)
+ *  statement. * `EXPORT_METADATA`: [`EXPORT TABLE
+ *  METADATA`](https://cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery)
+ *  statement, for BigLake Iceberg tables. * `LOAD_DATA`: [`LOAD
+ *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/load-statements#load_data_statement)
+ *  statement. * `GRANT_ON_SCHEMA`: [`GRANT ... ON
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. * `GRANT_ON_TABLE`: [`GRANT ... ON
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. Also used for `GRANT ... ON EXTERNAL TABLE`. * `GRANT_ON_VIEW`:
+ *  [`GRANT ... ON
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. * `GRANT_ON_PROJECT`: [`GRANT ... ON
+ *  PROJECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. * `REVOKE_ON_SCHEMA`: [`REVOKE ... ON
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
+ *  statement. * `REVOKE_ON_TABLE`: [`REVOKE ... ON
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
+ *  statement. Also used for `REVOKE ... ON EXTERNAL TABLE`. * `REVOKE_ON_VIEW`:
+ *  [`REVOKE ... ON
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
+ *  statement. * `REVOKE_ON_PROJECT`: [`REVOKE ... ON
+ *  PROJECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
  *  statement.
  */
 @property(nonatomic, copy, nullable) NSString *statementType;
@@ -12255,6 +12406,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *reservation;
 
 /**
+ *  Optional. A set of key-value pairs representing the secure context. This can
+ *  be used to pass sensitive or context-specific information. They can be
+ *  retrieved via the SECURE_CONTEXT() function and used to modify the run-time
+ *  behavior of a query.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SecureContext *secureContext;
+
+/**
  *  Optional. Optional: Specifies the maximum amount of time, in milliseconds,
  *  that the client is willing to wait for the query to complete. By default,
  *  this limit is 10 seconds (10,000 milliseconds). If the query is complete,
@@ -12458,6 +12617,173 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startTime;
+
+/**
+ *  Output only. The type of query statement, if valid. Possible values: *
+ *  `SELECT`:
+ *  [`SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#select_list)
+ *  statement. * `ASSERT`:
+ *  [`ASSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/debugging-statements#assert)
+ *  statement. * `INSERT`:
+ *  [`INSERT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#insert_statement)
+ *  statement. * `UPDATE`:
+ *  [`UPDATE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#update_statement)
+ *  statement. * `DELETE`:
+ *  [`DELETE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language)
+ *  statement. * `MERGE`:
+ *  [`MERGE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language)
+ *  statement. * `TRUNCATE_TABLE`: [`TRUNCATE
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#truncate_table_statement)
+ *  statement. * `CREATE_TABLE`: [`CREATE
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
+ *  statement, without `AS SELECT`. * `CREATE_TABLE_AS_SELECT`: [`CREATE TABLE
+ *  AS
+ *  SELECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement)
+ *  statement. * `CREATE_VIEW`: [`CREATE
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_view_statement)
+ *  statement. * `CREATE_MODEL`: [`CREATE
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create#create_model_statement)
+ *  statement. * `CREATE_MATERIALIZED_VIEW`: [`CREATE MATERIALIZED
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_materialized_view_statement)
+ *  statement. * `CREATE_FUNCTION`: [`CREATE
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_function_statement)
+ *  statement. * `CREATE_TABLE_FUNCTION`: [`CREATE TABLE
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_function_statement)
+ *  statement. * `CREATE_PROCEDURE`: [`CREATE
+ *  PROCEDURE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_procedure)
+ *  statement. * `CREATE_ROW_ACCESS_POLICY`: [`CREATE ROW ACCESS
+ *  POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_row_access_policy_statement)
+ *  statement. * `CREATE_SCHEMA`: [`CREATE
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_schema_statement)
+ *  statement. * `CREATE_EXTERNAL_SCHEMA`: [`CREATE EXTERNAL
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_external_schema_statement)
+ *  statement. * `CREATE_EXTERNAL_TABLE`: [`CREATE EXTERNAL
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_external_table_statement)
+ *  statement. * `CREATE_SNAPSHOT_TABLE`: [`CREATE SNAPSHOT
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_snapshot_table_statement)
+ *  statement. * `CREATE_SEARCH_INDEX`: [`CREATE SEARCH
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_search_index_statement)
+ *  statement. * `CREATE_VECTOR_INDEX`: [`CREATE VECTOR
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_vector_index_statement)
+ *  statement. * `CREATE_CONNECTION`: [`CREATE
+ *  CONNECTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_connection_statement)
+ *  statement. * `CREATE_DATA_POLICY`: [`CREATE
+ *  DATA_POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_data_policy_statement)
+ *  statement. * `CREATE_PROPERTY_GRAPH`: [`CREATE PROPERTY
+ *  GRAPH`](https://cloud.google.com/bigquery/docs/reference/standard-sql/graph-schema-statements#gql_create_graph)
+ *  statement. * `CREATE_CAPACITY`: [`CREATE
+ *  CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_capacity_statement)
+ *  statement. * `CREATE_RESERVATION`: [`CREATE
+ *  RESERVATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_reservation_statement)
+ *  statement. * `CREATE_ASSIGNMENT`: [`CREATE
+ *  ASSIGNMENT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_assignment_statement)
+ *  statement. * `DROP_TABLE`: [`DROP
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_statement)
+ *  statement. * `DROP_EXTERNAL_TABLE`: [`DROP EXTERNAL
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_external_table_statement)
+ *  statement. * `DROP_VIEW`: [`DROP
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_view_statement)
+ *  statement. * `DROP_MODEL`: [`DROP
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-drop-model)
+ *  statement. * `DROP_MATERIALIZED_VIEW`: [`DROP MATERIALIZED
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_materialized_view_statement)
+ *  statement. * `DROP_FUNCTION`: [`DROP
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_function_statement)
+ *  statement. * `DROP_TABLE_FUNCTION`: [`DROP TABLE
+ *  FUNCTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_function)
+ *  statement. * `DROP_PROCEDURE`: [`DROP
+ *  PROCEDURE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_procedure_statement)
+ *  statement. * `DROP_SEARCH_INDEX`: [`DROP SEARCH
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_search_index)
+ *  statement. * `DROP_VECTOR_INDEX`: [`DROP VECTOR
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_vector_index)
+ *  statement. * `DROP_SCHEMA`: [`DROP
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_schema_statement)
+ *  statement. * `UNDROP_SCHEMA`: [`UNDROP
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#undrop_schema_statement)
+ *  statement. * `DROP_SNAPSHOT_TABLE`: [`DROP SNAPSHOT
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_snapshot_table_statement)
+ *  statement. * `DROP_ROW_ACCESS_POLICY`: [`DROP [ALL] ROW ACCESS
+ *  POLICY|POLICIES`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_row_access_policy_statement)
+ *  statement. * `DROP_CONNECTION`: [`DROP
+ *  CONNECTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_connection_statement)
+ *  statement. * `DROP_DATA_POLICY`: [`DROP
+ *  DATA_POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_data_policy)
+ *  statement. * `DROP_PROPERTY_GRAPH`: [`DROP PROPERTY
+ *  GRAPH`](https://cloud.google.com/bigquery/docs/reference/standard-sql/graph-schema-statements#gql_drop_graph)
+ *  statement. * `DROP_CAPACITY`: [`DROP
+ *  CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_capacity_statement)
+ *  statement. * `DROP_RESERVATION`: [`DROP
+ *  RESERVATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_reservation_statement)
+ *  statement. * `DROP_ASSIGNMENT`: [`DROP
+ *  ASSIGNMENT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_assignment_statement)
+ *  statement. * `ALTER_TABLE`: [`ALTER
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_table_set_options_statement)
+ *  statement. * `ALTER_VIEW`: [`ALTER
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_view_set_options_statement)
+ *  statement. * `ALTER_MATERIALIZED_VIEW`: [`ALTER MATERIALIZED
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_materialized_view_set_options_statement)
+ *  statement. * `ALTER_SCHEMA`: [`ALTER
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_schema_set_options_statement)
+ *  statement. * `ALTER_MODEL`: [`ALTER
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-alter-model)
+ *  statement. * `ALTER_SEARCH_INDEX`: [`ALTER SEARCH
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_search_index_statement)
+ *  statement. * `ALTER_VECTOR_INDEX`: [`ALTER VECTOR
+ *  INDEX`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_vector_index_rebuild_statement)
+ *  statement. * `ALTER_CONNECTION`: [`ALTER
+ *  CONNECTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_connection_set_options_statement)
+ *  statement. * `ALTER_DATA_POLICY`: [`ALTER
+ *  DATA_POLICY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_data_policy_statement)
+ *  statement. * `ALTER_PROJECT`: [`ALTER
+ *  PROJECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_project_set_options_statement)
+ *  statement. * `ALTER_ORGANIZATION`: [`ALTER
+ *  ORGANIZATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_organization_set_options_statement)
+ *  statement. * `ALTER_BI_CAPACITY`: [`ALTER
+ *  BI_CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_bi_capacity_set_options_statement)
+ *  statement. * `ALTER_CAPACITY`: [`ALTER
+ *  CAPACITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_capacity_set_options_statement)
+ *  statement. * `ALTER_RESERVATION`: [`ALTER
+ *  RESERVATION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#alter_reservation_set_options_statement)
+ *  statement. * `SCRIPT`:
+ *  [`SCRIPT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language)
+ *  statement. * `CALL`:
+ *  [`CALL`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#call)
+ *  statement. * `BEGIN_TRANSACTION`: [`BEGIN
+ *  TRANSACTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#begin_transaction)
+ *  statement. * `COMMIT_TRANSACTION`: [`COMMIT
+ *  TRANSACTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#commit_transaction)
+ *  statement. * `ROLLBACK_TRANSACTION`: [`ROLLBACK
+ *  TRANSACTION`](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language#rollback_transaction)
+ *  statement. * `EXPORT_DATA`: [`EXPORT
+ *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/export-statements#export_data_statement)
+ *  statement. * `EXPORT_MODEL`: [`EXPORT
+ *  MODEL`](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-export-model)
+ *  statement. * `EXPORT_METADATA`: [`EXPORT TABLE
+ *  METADATA`](https://cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery)
+ *  statement, for BigLake Iceberg tables. * `LOAD_DATA`: [`LOAD
+ *  DATA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/load-statements#load_data_statement)
+ *  statement. * `GRANT_ON_SCHEMA`: [`GRANT ... ON
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. * `GRANT_ON_TABLE`: [`GRANT ... ON
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. Also used for `GRANT ... ON EXTERNAL TABLE`. * `GRANT_ON_VIEW`:
+ *  [`GRANT ... ON
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. * `GRANT_ON_PROJECT`: [`GRANT ... ON
+ *  PROJECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#grant_statement)
+ *  statement. * `REVOKE_ON_SCHEMA`: [`REVOKE ... ON
+ *  SCHEMA`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
+ *  statement. * `REVOKE_ON_TABLE`: [`REVOKE ... ON
+ *  TABLE`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
+ *  statement. Also used for `REVOKE ... ON EXTERNAL TABLE`. * `REVOKE_ON_VIEW`:
+ *  [`REVOKE ... ON
+ *  VIEW`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
+ *  statement. * `REVOKE_ON_PROJECT`: [`REVOKE ... ON
+ *  PROJECT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-control-language#revoke_statement)
+ *  statement.
+ */
+@property(nonatomic, copy, nullable) NSString *statementType;
 
 /**
  *  Output only. If the project is configured to use on-demand pricing, then
@@ -13412,6 +13738,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  A set of key-value pairs representing the secure context.
+ */
+@interface GTLRBigquery_SecureContext : GTLRObject
+
+/**
+ *  Optional. A set of key-value pairs representing the secure parameter values.
+ *  They can be retrieved via the SECURE_CONTEXT() function and used to modify
+ *  the run-time behavior of a query.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SecureContext_SecureParameterEntries *secureParameterEntries;
+
+@end
+
+
+/**
+ *  Optional. A set of key-value pairs representing the secure parameter values.
+ *  They can be retrieved via the SECURE_CONTEXT() function and used to modify
+ *  the run-time behavior of a query.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigquery_SecureContext_SecureParameterEntries : GTLRObject
+@end
+
+
+/**
  *  Serializer and deserializer information.
  */
 @interface GTLRBigquery_SerDeInfo : GTLRObject
@@ -13488,6 +13843,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Details about source stages which produce skewed data.
  */
 @interface GTLRBigquery_SkewSource : GTLRObject
+
+/**
+ *  Output only. Max partition output size (in bytes) for this stage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputBytesMax;
+
+/**
+ *  Output only. Median partition output size (in bytes) for this stage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputBytesMedian;
+
+/**
+ *  Output only. 95-th percentile of partition output size (in bytes) for this
+ *  stage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputBytesP95;
 
 /**
  *  Output only. Stage id of the skew source stage.
@@ -13808,6 +14185,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        1985-04-12T23:20:50.52Z (Value: "TIMESTAMP")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified
  *        Invalid type. (Value: "TYPE_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Uuid Encoded as a
+ *        string. (Value: "UUID")
  */
 @property(nonatomic, copy, nullable) NSString *typeKind;
 
@@ -14712,16 +15091,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Optional. Specifies the data governance tags on this field. This field works
- *  with other column-level security fields as follows: - Precedence: If a data
- *  governance tag is attached to a column, it takes precedence over the policy
- *  tag attached to the column. However, if a data policy is attached to a
- *  column, it takes precedence over the data governance tag. - Patching
- *  behavior (how this field behaves during a `Table.patch` schema update): -
- *  Unset: If the `data_governance_tags_info` field is omitted from the update
- *  request, the existing tags on the column are preserved. - Empty Field: To
- *  clear data governance tags from a column, send the
- *  `data_governance_tags_info` field as an empty object. This will remove all
- *  tags from the column. - Updating tags: To replace existing tag, send the
+ *  with other column-level security fields as follows: * **Precedence**: If a
+ *  data governance tag is attached to a column, it takes precedence over the
+ *  policy tag attached to the column. However, if a data policy is attached to
+ *  a column, it takes precedence over the data governance tag. * **Patching
+ *  behavior**: Describes how this field behaves during a `Table.patch` schema
+ *  update: * **Unset**: If the `data_governance_tags_info` field is omitted
+ *  from the update request, the existing tags on the column are preserved. *
+ *  **Empty Field**: To clear data governance tags from a column, send the
+ *  `data_governance_tags_info` field as an empty object. This removes all tags
+ *  from the column. * **Updating tags**: To replace an existing tag, send the
  *  field with the new tag.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo *dataGovernanceTagsInfo;
@@ -14890,16 +15269,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Optional. Specifies the data governance tags on this field. This field works
- *  with other column-level security fields as follows: - Precedence: If a data
- *  governance tag is attached to a column, it takes precedence over the policy
- *  tag attached to the column. However, if a data policy is attached to a
- *  column, it takes precedence over the data governance tag. - Patching
- *  behavior (how this field behaves during a `Table.patch` schema update): -
- *  Unset: If the `data_governance_tags_info` field is omitted from the update
- *  request, the existing tags on the column are preserved. - Empty Field: To
- *  clear data governance tags from a column, send the
- *  `data_governance_tags_info` field as an empty object. This will remove all
- *  tags from the column. - Updating tags: To replace existing tag, send the
+ *  with other column-level security fields as follows: * **Precedence**: If a
+ *  data governance tag is attached to a column, it takes precedence over the
+ *  policy tag attached to the column. However, if a data policy is attached to
+ *  a column, it takes precedence over the data governance tag. * **Patching
+ *  behavior**: Describes how this field behaves during a `Table.patch` schema
+ *  update: * **Unset**: If the `data_governance_tags_info` field is omitted
+ *  from the update request, the existing tags on the column are preserved. *
+ *  **Empty Field**: To clear data governance tags from a column, send the
+ *  `data_governance_tags_info` field as an empty object. This removes all tags
+ *  from the column. * **Updating tags**: To replace an existing tag, send the
  *  field with the new tag.
  */
 @interface GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo : GTLRObject
@@ -14908,12 +15287,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Optional. The data governance tags added to this field are used for
  *  field-level access control. Only one data governance tag is currently
  *  supported on a field. Tag keys are globally unique. Tag key is expected to
- *  be in the namespaced format, for example "123456789012/pii" where
- *  123456789012 is the ID of the parent organization or project resource for
- *  this tag key. Tag value is expected to be the short name, for example
- *  "sensitive". See [Tag
+ *  be in the namespaced format, for example "parent-id/pii" where parent-id is
+ *  the ID of the parent organization or project resource for this tag key. Tag
+ *  value is expected to be the short name, for example "sensitive". See [Tag
  *  definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
- *  for more details. For example: "123456789012/pii": "sensitive",
+ *  for more details. For example: "parent-id/pii": "sensitive",
  *  "myProject/cost_center": "sales"
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_DataGovernanceTagsInfo_DataGovernanceTags *dataGovernanceTags;
@@ -14955,12 +15333,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Optional. The data governance tags added to this field are used for
  *  field-level access control. Only one data governance tag is currently
  *  supported on a field. Tag keys are globally unique. Tag key is expected to
- *  be in the namespaced format, for example "123456789012/pii" where
- *  123456789012 is the ID of the parent organization or project resource for
- *  this tag key. Tag value is expected to be the short name, for example
- *  "sensitive". See [Tag
+ *  be in the namespaced format, for example "parent-id/pii" where parent-id is
+ *  the ID of the parent organization or project resource for this tag key. Tag
+ *  value is expected to be the short name, for example "sensitive". See [Tag
  *  definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
- *  for more details. For example: "123456789012/pii": "sensitive",
+ *  for more details. For example: "parent-id/pii": "sensitive",
  *  "myProject/cost_center": "sales"
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -15227,7 +15604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *    @arg @c kGTLRBigquery_TableReplicationInfo_ReplicationStatus_SourceDeleted
  *        Source object is deleted. (Value: "SOURCE_DELETED")
  *    @arg @c kGTLRBigquery_TableReplicationInfo_ReplicationStatus_UnsupportedConfiguration
- *        Source configuration doesn’t allow replication. (Value:
+ *        Source configuration doesn't allow replication. (Value:
  *        "UNSUPPORTED_CONFIGURATION")
  */
 @property(nonatomic, copy, nullable) NSString *replicationStatus;

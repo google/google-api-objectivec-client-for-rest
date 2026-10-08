@@ -27,6 +27,39 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// commentsViewMode
+
+/**
+ *  The CommentsViewMode applied to the returned spreadsheet depends on the
+ *  user's current access level. If the user only has view access,
+ *  COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *  COMMENTS_VIEW_MODE_INCLUDED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeDefaultForCurrentAccess;
+/**
+ *  The returned spreadsheet has comments included. Requests to retrieve a
+ *  spreadsheet using this mode will return a 403 error if the user does not
+ *  have permission to view comments.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeIncluded;
+/**
+ *  The returned spreadsheet has comments omitted.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_OMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeOmitted;
+/**
+ *  The CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is applied.
+ *
+ *  Value: "COMMENTS_VIEW_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheetsCommentsViewModeCommentsViewModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // dateTimeRenderOption
 
 /**
@@ -406,6 +439,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheetsReadonly
  */
 @interface GTLRSheetsQuery_SpreadsheetsGet : GTLRSheetsQuery
+
+/**
+ *  The comments view mode to apply to the spreadsheet. This allows viewing the
+ *  spreadsheet with comments omitted or included. If one is not specified,
+ *  COMMENTS_VIEW_MODE_OMITTED is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheetsCommentsViewModeCommentsViewModeUnspecified The
+ *        CommentsViewMode is unspecified; COMMENTS_VIEW_MODE_OMITTED is
+ *        applied. (Value: "COMMENTS_VIEW_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSheetsCommentsViewModeCommentsViewModeDefaultForCurrentAccess
+ *        The CommentsViewMode applied to the returned spreadsheet depends on
+ *        the user's current access level. If the user only has view access,
+ *        COMMENTS_VIEW_MODE_OMITTED is applied. Otherwise,
+ *        COMMENTS_VIEW_MODE_INCLUDED is applied. (Value:
+ *        "COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRSheetsCommentsViewModeCommentsViewModeOmitted The returned
+ *        spreadsheet has comments omitted. (Value:
+ *        "COMMENTS_VIEW_MODE_OMITTED")
+ *    @arg @c kGTLRSheetsCommentsViewModeCommentsViewModeIncluded The returned
+ *        spreadsheet has comments included. Requests to retrieve a spreadsheet
+ *        using this mode will return a 403 error if the user does not have
+ *        permission to view comments. (Value: "COMMENTS_VIEW_MODE_INCLUDED")
+ */
+@property(nonatomic, copy, nullable) NSString *commentsViewMode;
 
 /**
  *  True if tables should be excluded in the banded ranges. False if not set.

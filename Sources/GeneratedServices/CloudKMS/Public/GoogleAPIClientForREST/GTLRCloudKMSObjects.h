@@ -439,6 +439,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Hmac
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512;
 /**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemEcdhP384;
+/**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
  *
@@ -877,6 +891,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemEcdhP384;
 /**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
@@ -1425,6 +1453,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512;
 /**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemEcdhP384;
+/**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
  *
@@ -1951,6 +1993,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKe
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha512;
 /**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemEcdhP384;
+/**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
  *
@@ -2257,6 +2313,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed;
 /**
+ *  Cavium HSM attestation V209, introduced in Cavium's version 2.09-0702.
+ *
+ *  Value: "CAVIUM_V209"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV209;
+/**
  *  Cavium HSM attestation V2 compressed with gzip. This is a new format
  *  introduced in Cavium's version 3.2-08.
  *
@@ -2468,6 +2530,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha384;
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_KemEcdhP256;
+/**
+ *  Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *  returns shared secret.
+ *
+ *  Value: "KEM_ECDH_P384"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_KemEcdhP384;
 /**
  *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
@@ -3329,7 +3405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
- *  Cloud KMS Autokey configuration for a folder.
+ *  Cloud KMS Autokey configuration for a project or folder.
  */
 @interface GTLRCloudKMS_AutokeyConfig : GTLRObject
 
@@ -3871,6 +3947,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512 HMAC-SHA512
  *        signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemEcdhP256 Key
+ *        encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *        returns shared secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemEcdhP384 Key
+ *        encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *        returns shared secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemXwing X-Wing hybrid
  *        KEM combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
@@ -4134,11 +4216,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Immutable. Field indicating that the key may be wrapped by a trusted key.
- *  This field can be set for all key purposes except ENCRYPT_DECRYPT, and is
- *  only valid for keys with protection level HSM_SINGLE_TENANT. This field can
- *  only be set at creation or import time via CreateCryptoKeyVersion, or
- *  ImportCryptoKeyVersion.
+ *  Optional. Immutable. Field indicating that the key may be wrapped by a
+ *  trusted key. This field can be set for all key purposes except
+ *  ENCRYPT_DECRYPT, and is only valid for keys with protection level
+ *  HSM_SINGLE_TENANT. This field can only be set at creation or import time via
+ *  CreateCryptoKeyVersion, or ImportCryptoKeyVersion.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4214,6 +4296,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemEcdhP256 Key
+ *        encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key that
+ *        returns shared secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemEcdhP384 Key
+ *        encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key that
+ *        returns shared secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemXwing X-Wing
  *        hybrid KEM combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
@@ -5001,9 +5089,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 /**
  *  Optional. The resource name of the backend environment where the key
  *  material of CryptoKeyVersions is associated with. Setting this field
- *  overrides the CryptoKeyBackend. This field may be set when CryptoKeyVersions
- *  is set to EXTERNAL_VPC. Format: `projects/ * /locations/ * /ekmConnections/
- *  *`.
+ *  overrides the crypto_key_backend. This field may be set when
+ *  CryptoKeyVersions is set to EXTERNAL_VPC. Format: `projects/ * /locations/ *
+ *  /ekmConnections/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *ekmConnectionBackendOverride;
 
@@ -5160,6 +5248,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemEcdhP256
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemEcdhP384
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemXwing
  *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
@@ -5605,6 +5699,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemEcdhP256
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-256 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemEcdhP384
+ *        Key encapsulation: Elliptic Curve Diffie-Hellman with NIST P-384 key
+ *        that returns shared secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRCloudKMS_ImportTrustedKeyWrappedCryptoKeyVersionRequest_Algorithm_KemXwing
  *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
@@ -5870,6 +5970,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        defined by Cavium and subject to change at any time. See
  *        https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/software-key-attestation.html.
  *        (Value: "CAVIUM_V1_COMPRESSED")
+ *    @arg @c kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV209 Cavium HSM
+ *        attestation V209, introduced in Cavium's version 2.09-0702. (Value:
+ *        "CAVIUM_V209")
  *    @arg @c kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed
  *        Cavium HSM attestation V2 compressed with gzip. This is a new format
  *        introduced in Cavium's version 3.2-08. (Value: "CAVIUM_V2_COMPRESSED")
@@ -6801,6 +6904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512 HMAC-SHA512 signing
  *        with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_KemEcdhP256 Key encapsulation:
+ *        Elliptic Curve Diffie-Hellman with NIST P-256 key that returns shared
+ *        secret. (Value: "KEM_ECDH_P256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_KemEcdhP384 Key encapsulation:
+ *        Elliptic Curve Diffie-Hellman with NIST P-384 key that returns shared
+ *        secret. (Value: "KEM_ECDH_P384")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_KemXwing X-Wing hybrid KEM
  *        combining ML-KEM-768 with X25519 following
  *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
@@ -6893,7 +7002,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 /**
  *  The name of the CryptoKeyVersion public key. Provided here for verification.
- *  NOTE: This field is in Beta.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6916,7 +7024,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  defined as int64 for reasons of compatibility across different languages.
  *  However, it is a non-negative integer, which will never exceed `2^32-1`, and
  *  can be safely downconverted to uint32 in languages that support this type.
- *  NOTE: This field is in Beta.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -7697,7 +7804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
- *  Response message for ShowEffectiveAutokeyConfig.
+ *  Response message for ShowEffectiveAutokeyConfig
  */
 @interface GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse : GTLRObject
 

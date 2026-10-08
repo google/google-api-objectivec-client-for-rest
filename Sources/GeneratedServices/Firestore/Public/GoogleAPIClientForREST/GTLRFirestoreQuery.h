@@ -256,6 +256,148 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new change stream for the database.
+ *
+ *  Method: firestore.projects.databases.changeStreams.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsCreate : GTLRFirestoreQuery
+
+/**
+ *  Required. The ID to use for the change stream, which will become the final
+ *  component of the change stream's resource name. This value should be 4-63
+ *  characters. Valid characters are lowercase letters, numbers, and hyphens.
+ *  The first character must be a letter, and the last character must be a
+ *  letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *changeStreamId;
+
+/**
+ *  Required. The parent database to create the change stream for. Format is
+ *  `projects/{project}/databases/{database}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ChangeStream.
+ *
+ *  Creates a new change stream for the database.
+ *
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1ChangeStream to
+ *    include in the query.
+ *  @param parent Required. The parent database to create the change stream for.
+ *    Format is `projects/{project}/databases/{database}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ChangeStream *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a change stream.
+ *
+ *  Method: firestore.projects.databases.changeStreams.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsDelete : GTLRFirestoreQuery
+
+/**
+ *  Optional. The etag of the change stream to delete. If this is not the
+ *  current etag of the change stream, the deletion will fail.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the change stream to delete. Format is
+ *  `projects/{project}/databases/{database}/changeStreams/{change_stream}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_Empty.
+ *
+ *  Deletes a change stream.
+ *
+ *  @param name Required. The name of the change stream to delete. Format is
+ *    `projects/{project}/databases/{database}/changeStreams/{change_stream}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a change stream.
+ *
+ *  Method: firestore.projects.databases.changeStreams.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsGet : GTLRFirestoreQuery
+
+/**
+ *  Required. The name of the change stream to retrieve. Format is
+ *  `projects/{project}/databases/{database}/changeStreams/{change_stream}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ChangeStream.
+ *
+ *  Gets information about a change stream.
+ *
+ *  @param name Required. The name of the change stream to retrieve. Format is
+ *    `projects/{project}/databases/{database}/changeStreams/{change_stream}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all change streams in a database.
+ *
+ *  Method: firestore.projects.databases.changeStreams.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsList : GTLRFirestoreQuery
+
+/**
+ *  Required. The parent database to list change streams from. Format is
+ *  `projects/{project}/databases/{database}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListChangeStreamsResponse.
+ *
+ *  Lists all change streams in a database.
+ *
+ *  @param parent Required. The parent database to list change streams from.
+ *    Format is `projects/{project}/databases/{database}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesChangeStreamsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new database by cloning an existing one. The new database must be
  *  in the same cloud region or multi-region location as the existing database.
  *  This behaves similar to FirestoreAdmin.CreateDatabase except instead of
@@ -894,6 +1036,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. The request tags for the request. Request tags are user-provided
+ *  strings used for usage monitoring, cost management, and observability.
+ *  Callers can associate custom application context (such as component,
+ *  microservice, feature name, or operation type) with database requests. These
+ *  tags are collected and aggregated in usage and monitoring reports, allowing
+ *  billable operations and usage metrics to be sliced and analyzed by tag.
+ *  These tags *only* show up in monitoring and are visible in administrative
+ *  operations (such as usage reports). They do not affect data storage, query
+ *  semantics, or request execution. Cardinality and Best Practices: - Request
+ *  tags are most effective when using a bounded set of distinct values (e.g.,
+ *  fewer than 100 distinct tags across an entire database). Using a large
+ *  number of distinct tags may result in tags being omitted from top usage
+ *  dashboards. - Use structured identifiers (for example: `app=cart`,
+ *  `env=prod`, `service=checkout`) and avoid high-cardinality values such as
+ *  UUIDs, request IDs, timestamps, user IDs, or document keys. - Do not include
+ *  sensitive data or personally identifiable information (PII) in request tags,
+ *  as they show up in administrative monitoring. The tags are processed as
+ *  follows: - Leading and trailing whitespace is trimmed. - Empty tags (after
+ *  trimming) are filtered out. - Truncated to a maximum of 510 characters. -
+ *  Deduplicated within the same request. - Limited to a maximum of 50 tags per
+ *  request (excess tags are silently discarded).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestOptionsRequestTags;
+
+/**
  *  Fetches a @c GTLRFirestore_Document.
  *
  *  Creates a new document.
@@ -941,6 +1108,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The request tags for the request. Request tags are user-provided
+ *  strings used for usage monitoring, cost management, and observability.
+ *  Callers can associate custom application context (such as component,
+ *  microservice, feature name, or operation type) with database requests. These
+ *  tags are collected and aggregated in usage and monitoring reports, allowing
+ *  billable operations and usage metrics to be sliced and analyzed by tag.
+ *  These tags *only* show up in monitoring and are visible in administrative
+ *  operations (such as usage reports). They do not affect data storage, query
+ *  semantics, or request execution. Cardinality and Best Practices: - Request
+ *  tags are most effective when using a bounded set of distinct values (e.g.,
+ *  fewer than 100 distinct tags across an entire database). Using a large
+ *  number of distinct tags may result in tags being omitted from top usage
+ *  dashboards. - Use structured identifiers (for example: `app=cart`,
+ *  `env=prod`, `service=checkout`) and avoid high-cardinality values such as
+ *  UUIDs, request IDs, timestamps, user IDs, or document keys. - Do not include
+ *  sensitive data or personally identifiable information (PII) in request tags,
+ *  as they show up in administrative monitoring. The tags are processed as
+ *  follows: - Leading and trailing whitespace is trimmed. - Empty tags (after
+ *  trimming) are filtered out. - Truncated to a maximum of 510 characters. -
+ *  Deduplicated within the same request. - Limited to a maximum of 50 tags per
+ *  request (excess tags are silently discarded).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestOptionsRequestTags;
 
 /**
  *  Fetches a @c GTLRFirestore_Empty.
@@ -1021,6 +1213,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  timestamp within the past 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/**
+ *  Optional. The request tags for the request. Request tags are user-provided
+ *  strings used for usage monitoring, cost management, and observability.
+ *  Callers can associate custom application context (such as component,
+ *  microservice, feature name, or operation type) with database requests. These
+ *  tags are collected and aggregated in usage and monitoring reports, allowing
+ *  billable operations and usage metrics to be sliced and analyzed by tag.
+ *  These tags *only* show up in monitoring and are visible in administrative
+ *  operations (such as usage reports). They do not affect data storage, query
+ *  semantics, or request execution. Cardinality and Best Practices: - Request
+ *  tags are most effective when using a bounded set of distinct values (e.g.,
+ *  fewer than 100 distinct tags across an entire database). Using a large
+ *  number of distinct tags may result in tags being omitted from top usage
+ *  dashboards. - Use structured identifiers (for example: `app=cart`,
+ *  `env=prod`, `service=checkout`) and avoid high-cardinality values such as
+ *  UUIDs, request IDs, timestamps, user IDs, or document keys. - Do not include
+ *  sensitive data or personally identifiable information (PII) in request tags,
+ *  as they show up in administrative monitoring. The tags are processed as
+ *  follows: - Leading and trailing whitespace is trimmed. - Empty tags (after
+ *  trimming) are filtered out. - Truncated to a maximum of 510 characters. -
+ *  Deduplicated within the same request. - Limited to a maximum of 50 tags per
+ *  request (excess tags are silently discarded).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestOptionsRequestTags;
 
 /**
  *  Reads the document in a transaction.
@@ -1117,6 +1334,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  not specify `show_missing`.
  */
 @property(nonatomic, assign) BOOL recursive;
+
+/**
+ *  Optional. The request tags for the request. Request tags are user-provided
+ *  strings used for usage monitoring, cost management, and observability.
+ *  Callers can associate custom application context (such as component,
+ *  microservice, feature name, or operation type) with database requests. These
+ *  tags are collected and aggregated in usage and monitoring reports, allowing
+ *  billable operations and usage metrics to be sliced and analyzed by tag.
+ *  These tags *only* show up in monitoring and are visible in administrative
+ *  operations (such as usage reports). They do not affect data storage, query
+ *  semantics, or request execution. Cardinality and Best Practices: - Request
+ *  tags are most effective when using a bounded set of distinct values (e.g.,
+ *  fewer than 100 distinct tags across an entire database). Using a large
+ *  number of distinct tags may result in tags being omitted from top usage
+ *  dashboards. - Use structured identifiers (for example: `app=cart`,
+ *  `env=prod`, `service=checkout`) and avoid high-cardinality values such as
+ *  UUIDs, request IDs, timestamps, user IDs, or document keys. - Do not include
+ *  sensitive data or personally identifiable information (PII) in request tags,
+ *  as they show up in administrative monitoring. The tags are processed as
+ *  follows: - Leading and trailing whitespace is trimmed. - Empty tags (after
+ *  trimming) are filtered out. - Truncated to a maximum of 510 characters. -
+ *  Deduplicated within the same request. - Limited to a maximum of 50 tags per
+ *  request (excess tags are silently discarded).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestOptionsRequestTags;
 
 /**
  *  If the list should show missing documents. A document is missing if it does
@@ -1277,6 +1519,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL recursive;
 
 /**
+ *  Optional. The request tags for the request. Request tags are user-provided
+ *  strings used for usage monitoring, cost management, and observability.
+ *  Callers can associate custom application context (such as component,
+ *  microservice, feature name, or operation type) with database requests. These
+ *  tags are collected and aggregated in usage and monitoring reports, allowing
+ *  billable operations and usage metrics to be sliced and analyzed by tag.
+ *  These tags *only* show up in monitoring and are visible in administrative
+ *  operations (such as usage reports). They do not affect data storage, query
+ *  semantics, or request execution. Cardinality and Best Practices: - Request
+ *  tags are most effective when using a bounded set of distinct values (e.g.,
+ *  fewer than 100 distinct tags across an entire database). Using a large
+ *  number of distinct tags may result in tags being omitted from top usage
+ *  dashboards. - Use structured identifiers (for example: `app=cart`,
+ *  `env=prod`, `service=checkout`) and avoid high-cardinality values such as
+ *  UUIDs, request IDs, timestamps, user IDs, or document keys. - Do not include
+ *  sensitive data or personally identifiable information (PII) in request tags,
+ *  as they show up in administrative monitoring. The tags are processed as
+ *  follows: - Leading and trailing whitespace is trimmed. - Empty tags (after
+ *  trimming) are filtered out. - Truncated to a maximum of 510 characters. -
+ *  Deduplicated within the same request. - Limited to a maximum of 50 tags per
+ *  request (excess tags are silently discarded).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestOptionsRequestTags;
+
+/**
  *  If the list should show missing documents. A document is missing if it does
  *  not exist, but there are sub-documents nested underneath it. When true, such
  *  missing documents will be returned with a key but will not have fields,
@@ -1429,6 +1696,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The request tags for the request. Request tags are user-provided
+ *  strings used for usage monitoring, cost management, and observability.
+ *  Callers can associate custom application context (such as component,
+ *  microservice, feature name, or operation type) with database requests. These
+ *  tags are collected and aggregated in usage and monitoring reports, allowing
+ *  billable operations and usage metrics to be sliced and analyzed by tag.
+ *  These tags *only* show up in monitoring and are visible in administrative
+ *  operations (such as usage reports). They do not affect data storage, query
+ *  semantics, or request execution. Cardinality and Best Practices: - Request
+ *  tags are most effective when using a bounded set of distinct values (e.g.,
+ *  fewer than 100 distinct tags across an entire database). Using a large
+ *  number of distinct tags may result in tags being omitted from top usage
+ *  dashboards. - Use structured identifiers (for example: `app=cart`,
+ *  `env=prod`, `service=checkout`) and avoid high-cardinality values such as
+ *  UUIDs, request IDs, timestamps, user IDs, or document keys. - Do not include
+ *  sensitive data or personally identifiable information (PII) in request tags,
+ *  as they show up in administrative monitoring. The tags are processed as
+ *  follows: - Leading and trailing whitespace is trimmed. - Empty tags (after
+ *  trimming) are filtered out. - Truncated to a maximum of 510 characters. -
+ *  Deduplicated within the same request. - Limited to a maximum of 50 tags per
+ *  request (excess tags are silently discarded).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestOptionsRequestTags;
 
 /**
  *  The list of field paths in the mask. See Document.fields for a field path

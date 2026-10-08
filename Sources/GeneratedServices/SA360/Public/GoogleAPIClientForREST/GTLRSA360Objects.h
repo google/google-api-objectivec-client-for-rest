@@ -80,6 +80,8 @@
 @class GTLRSA360_GoogleAdsSearchads360V23CommonCalloutAsset;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonCalloutFeedItem;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonCallToActionAsset;
+@class GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignLoyaltyRetentionGoalSettings;
+@class GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignRetentionGoalSettings;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonCampaignThirdPartyBrandLiftIntegrationPartner;
 @class GTLRSA360_GoogleAdsSearchads360V23CommonCampaignThirdPartyBrandSafetyIntegrationPartner;
@@ -3832,6 +3834,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCall
  *  Value: "WATCH_NOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCallToActionAsset_CallToAction_WatchNow;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings.targetOption
+
+/**
+ *  The mode is used when the campaign optimizes for all customers, which is the
+ *  default value.
+ *
+ *  Value: "TARGET_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_TargetAll;
+/**
+ *  This mode configures the campaign to target only customers who have
+ *  previously interacted but are now lapsed or disengaged.
+ *
+ *  Value: "TARGET_SPECIFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_TargetSpecific;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignRetentionGoalSettings.targetOption
@@ -15684,6 +15716,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErro
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignNotFound;
 /**
+ *  New customer acquisition customer lifecycle optimization goal campaign
+ *  override high lifetime values should only be set for supported campaign
+ *  type.
+ *
+ *  Value: "CAMPAIGN_OVERRIDE_HIGH_LIFETIME_VALUE_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignOverrideHighLifetimeValueNotSupportedForCampaignType;
+/**
+ *  New customer acquisition customer lifecycle optimization goal targeting only
+ *  new customers should not have campaign override values set.
+ *
+ *  Value: "CAMPAIGN_OVERRIDE_VALUES_SET_FOR_NEW_CUSTOMER_ACQUISITION_TARGET_SPECIFIC_OPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignOverrideValuesSetForNewCustomerAcquisitionTargetSpecificOption;
+/**
+ *  Error when the campaign is attempting to combine incompatible CLO goals.
+ *
+ *  Value: "CANNOT_USE_INCOMPATIBLE_CLO_GOALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CannotUseIncompatibleCloGoals;
+/**
  *  When using customer lifecycle optimization goal, campaign type should be
  *  supported.
  *
@@ -15714,6 +15767,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErro
  *  Value: "HIGH_LIFETIME_VALUE_PRESENT_BUT_VALUE_ABSENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_HighLifetimeValuePresentButValueAbsent;
+/**
+ *  At least one mode (either enabling bid adjustments or showing benefits in
+ *  PLA) must be enabled for loyalty retention goal.
+ *
+ *  Value: "LOYALTY_RETENTION_GOAL_INVALID_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_LoyaltyRetentionGoalInvalidMode;
 /**
  *  The received error code is not known in this version.
  *
@@ -38888,12 +38948,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesC
 
 /**
  *  Retention goal, which allows advertisers to optimize campaigns to win back
- *  lapsed customers.
- *  (https://support.google.com/google-ads/answer/14792043?hl=en)
+ *  lapsed customers. See https://support.google.com/google-ads/answer/14792043
+ *  to learn more.
  *
  *  Value: "CUSTOMER_RETENTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_CustomerRetention;
+/**
+ *  Loyalty retention goal, which allows advertisers to optimize campaigns for
+ *  retaining loyalty program members.
+ *
+ *  Value: "LOYALTY_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_LoyaltyRetention;
+/**
+ *  New customer acquisition goal, which allows advertisers to optimize
+ *  campaigns to acquire new customers.
+ *
+ *  Value: "NEW_CUSTOMER_ACQUISITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_NewCustomerAcquisition;
 /**
  *  Used for return value only. Represents value unknown in this version.
  *
@@ -44576,12 +44650,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesG
 
 /**
  *  Retention goal, which allows advertisers to optimize campaigns to win back
- *  lapsed customers.
- *  (https://support.google.com/google-ads/answer/14792043?hl=en)
+ *  lapsed customers. See https://support.google.com/google-ads/answer/14792043
+ *  to learn more.
  *
  *  Value: "CUSTOMER_RETENTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_CustomerRetention;
+/**
+ *  Loyalty retention goal, which allows advertisers to optimize campaigns for
+ *  retaining loyalty program members.
+ *
+ *  Value: "LOYALTY_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_LoyaltyRetention;
+/**
+ *  New customer acquisition goal, which allows advertisers to optimize
+ *  campaigns to acquire new customers.
+ *
+ *  Value: "NEW_CUSTOMER_ACQUISITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_NewCustomerAcquisition;
 /**
  *  Used for return value only. Represents value unknown in this version.
  *
@@ -59578,6 +59666,63 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 
 /**
+ *  Loyalty retention campaign goal settings.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignLoyaltyRetentionGoalSettings : GTLRObject
+
+/**
+ *  Whether to adjust bids for loyalty members.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableBidAdjustmentsForLoyaltyMembers;
+
+/**
+ *  Whether to show targeted loyalty member benefits in PLA format in eligible
+ *  countries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *showTargetedLoyaltyMemberBenefitsInPla;
+
+/** Loyalty retention goal campaign specific value settings. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonCustomerLifecycleOptimizationValueSettings *valueSettingsOverride;
+
+@end
+
+
+/**
+ *  New Customer Acquisition campaign goal settings.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings : GTLRObject
+
+/**
+ *  New Customer Acquisition goal optimization mode for this campaign. Defaults
+ *  to TARGET_ALL. Whether the campaign is targeting new customers only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_TargetAll
+ *        The mode is used when the campaign optimizes for all customers, which
+ *        is the default value. (Value: "TARGET_ALL")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_TargetSpecific
+ *        This mode configures the campaign to target only customers who have
+ *        previously interacted but are now lapsed or disengaged. (Value:
+ *        "TARGET_SPECIFIC")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings_TargetOption_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *targetOption;
+
+/** New Customer Acquisition goal campaign specific value settings. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonCustomerLifecycleOptimizationValueSettings *valueSettingsOverride;
+
+@end
+
+
+/**
  *  Retention campaign goal settings.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignRetentionGoalSettings : GTLRObject
@@ -73765,6 +73910,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignNotFound
  *        Campaign is either removed or does not exist. (Value:
  *        "CAMPAIGN_NOT_FOUND")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignOverrideHighLifetimeValueNotSupportedForCampaignType
+ *        New customer acquisition customer lifecycle optimization goal campaign
+ *        override high lifetime values should only be set for supported
+ *        campaign type. (Value:
+ *        "CAMPAIGN_OVERRIDE_HIGH_LIFETIME_VALUE_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CampaignOverrideValuesSetForNewCustomerAcquisitionTargetSpecificOption
+ *        New customer acquisition customer lifecycle optimization goal
+ *        targeting only new customers should not have campaign override values
+ *        set. (Value:
+ *        "CAMPAIGN_OVERRIDE_VALUES_SET_FOR_NEW_CUSTOMER_ACQUISITION_TARGET_SPECIFIC_OPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CannotUseIncompatibleCloGoals
+ *        Error when the campaign is attempting to combine incompatible CLO
+ *        goals. (Value: "CANNOT_USE_INCOMPATIBLE_CLO_GOALS")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_CustomerLifecycleOptimizationCampaignTypeNotSupported
  *        When using customer lifecycle optimization goal, campaign type should
  *        be supported. (Value:
@@ -73781,6 +73939,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_HighLifetimeValuePresentButValueAbsent
  *        If high lifetime value is present then value should be present.
  *        (Value: "HIGH_LIFETIME_VALUE_PRESENT_BUT_VALUE_ABSENT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_LoyaltyRetentionGoalInvalidMode
+ *        At least one mode (either enabling bid adjustments or showing benefits
+ *        in PLA) must be enabled for loyalty retention goal. (Value:
+ *        "LOYALTY_RETENTION_GOAL_INVALID_MODE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ErrorsErrorCode_CampaignGoalConfigError_Unknown
  *        The received error code is not known in this version. (Value:
  *        "UNKNOWN")
@@ -89993,6 +90155,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /** Immutable. The resource name of the campaign for this link. */
 @property(nonatomic, copy, nullable) NSString *campaign;
 
+/** Loyalty retention goal campaign settings. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignLoyaltyRetentionGoalSettings *campaignLoyaltyRetentionSettings;
+
+/** New customer acquisition goal campaign settings. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignNewCustomerAcquisitionGoalSettings *campaignNewCustomerAcquisitionSettings;
+
 /** Retention goal campaign settings. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23CommonCampaignGoalSettingsCampaignRetentionGoalSettings *campaignRetentionSettings;
 
@@ -90005,9 +90173,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  Likely values:
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_CustomerRetention
  *        Retention goal, which allows advertisers to optimize campaigns to win
- *        back lapsed customers.
- *        (https://support.google.com/google-ads/answer/14792043?hl=en) (Value:
- *        "CUSTOMER_RETENTION")
+ *        back lapsed customers. See
+ *        https://support.google.com/google-ads/answer/14792043 to learn more.
+ *        (Value: "CUSTOMER_RETENTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_LoyaltyRetention
+ *        Loyalty retention goal, which allows advertisers to optimize campaigns
+ *        for retaining loyalty program members. (Value: "LOYALTY_RETENTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_NewCustomerAcquisition
+ *        New customer acquisition goal, which allows advertisers to optimize
+ *        campaigns to acquire new customers. (Value:
+ *        "NEW_CUSTOMER_ACQUISITION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesCampaignGoalConfig_GoalType_Unknown
  *        Used for return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -96418,9 +96593,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
  *  Likely values:
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_CustomerRetention
  *        Retention goal, which allows advertisers to optimize campaigns to win
- *        back lapsed customers.
- *        (https://support.google.com/google-ads/answer/14792043?hl=en) (Value:
- *        "CUSTOMER_RETENTION")
+ *        back lapsed customers. See
+ *        https://support.google.com/google-ads/answer/14792043 to learn more.
+ *        (Value: "CUSTOMER_RETENTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_LoyaltyRetention
+ *        Loyalty retention goal, which allows advertisers to optimize campaigns
+ *        for retaining loyalty program members. (Value: "LOYALTY_RETENTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_NewCustomerAcquisition
+ *        New customer acquisition goal, which allows advertisers to optimize
+ *        campaigns to acquire new customers. (Value:
+ *        "NEW_CUSTOMER_ACQUISITION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V23ResourcesGoal_GoalType_Unknown
  *        Used for return value only. Represents value unknown in this version.
  *        (Value: "UNKNOWN")
@@ -118274,6 +118456,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 /** A campaign draft mutate operation. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignDraftOperation *campaignDraftOperation;
 
+/** A campaign goal config mutate operation. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignGoalConfigOperation *campaignGoalConfigOperation;
+
 /** A campaign group mutate operation. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesCampaignGroupOperation *campaignGroupOperation;
 
@@ -118470,6 +118655,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V23ServicesUp
 
 /** The result for the campaign draft mutate. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesMutateCampaignDraftResult *campaignDraftResult;
+
+/** The result for the campaign goal config mutate. */
+@property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesMutateCampaignGoalConfigResult *campaignGoalConfigResult;
 
 /** The result for the campaign group mutate. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V23ServicesMutateCampaignGroupResult *campaignGroupResult;

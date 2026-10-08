@@ -247,6 +247,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ConfigConflict_Type_Confli
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ConfigConflict_Type_NonBlocking;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudComposer_Environment.mode
+
+/**
+ *  Represents the development mode, which has constraints on the environment
+ *  configuration, but offers an additional feature (environment hibernation).
+ *  It should be used only for test environments.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_Mode_Development;
+/**
+ *  Represents the default mode, which allows full customization of the
+ *  environment. It should be used for all production and customized test
+ *  environments.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudComposer_Environment.state
 
 /**
@@ -267,6 +287,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Deleting
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Error;
+/**
+ *  The environment is currently hibernated. It does not run any DAGs.
+ *
+ *  Value: "HIBERNATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Hibernated;
 /**
  *  The environment is currently running and healthy. It is ready for use.
  *
@@ -391,6 +417,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_Operatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete;
 /**
+ *  Hibernates a resource.
+ *
+ *  Value: "HIBERNATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Hibernate;
+/**
  *  Loads snapshot of the resource operation.
  *
  *  Value: "LOAD_SNAPSHOT"
@@ -402,6 +434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_Operatio
  *  Value: "MIGRATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Migrate;
+/**
+ *  Resumes a resource.
+ *
+ *  Value: "RESUME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Resume;
 /**
  *  Saves snapshot of the resource operation.
  *
@@ -1010,6 +1048,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 @property(nonatomic, strong, nullable) GTLRCloudComposer_Environment_Labels *labels;
 
 /**
+ *  Optional. Selects the environment mode that determines what settings are
+ *  customizable and what features are available in the environment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_Environment_Mode_Development Represents the
+ *        development mode, which has constraints on the environment
+ *        configuration, but offers an additional feature (environment
+ *        hibernation). It should be used only for test environments. (Value:
+ *        "DEVELOPMENT")
+ *    @arg @c kGTLRCloudComposer_Environment_Mode_ModeUnspecified Represents the
+ *        default mode, which allows full customization of the environment. It
+ *        should be used for all production and customized test environments.
+ *        (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
  *  Identifier. The resource name of the environment, in the form:
  *  "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
  *  EnvironmentId must start with a lowercase letter followed by up to 63
@@ -1041,6 +1096,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *        undergoing deletion. It cannot be used. (Value: "DELETING")
  *    @arg @c kGTLRCloudComposer_Environment_State_Error The environment has
  *        encountered an error and cannot be used. (Value: "ERROR")
+ *    @arg @c kGTLRCloudComposer_Environment_State_Hibernated The environment is
+ *        currently hibernated. It does not run any DAGs. (Value: "HIBERNATED")
  *    @arg @c kGTLRCloudComposer_Environment_State_Running The environment is
  *        currently running and healthy. It is ready for use. (Value: "RUNNING")
  *    @arg @c kGTLRCloudComposer_Environment_State_StateUnspecified The state of
@@ -1996,10 +2053,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *        resilient environments). (Value: "DATABASE_FAILOVER")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Delete A
  *        resource deletion operation. (Value: "DELETE")
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Hibernate
+ *        Hibernates a resource. (Value: "HIBERNATE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot
  *        Loads snapshot of the resource operation. (Value: "LOAD_SNAPSHOT")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Migrate
  *        Migrates resource to a new major version. (Value: "MIGRATE")
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Resume Resumes
+ *        a resource. (Value: "RESUME")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_SaveSnapshot
  *        Saves snapshot of the resource operation. (Value: "SAVE_SNAPSHOT")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified

@@ -46,6 +46,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceS
  *  Value: "FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified;
+/**
+ *  Includes the basic metadata about the violation.
+ *
+ *  Value: "VIOLATION_VIEW_ASSURED_WORKLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewAssuredWorkloads;
+/**
+ *  Includes all information about the violation, including details about the
+ *  data boundary.
+ *
+ *  Value: "VIOLATION_VIEW_DATA_BOUNDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewDataBoundary;
+/**
+ *  Defaults to the ASSURED_WORKLOADS view.
+ *
+ *  Value: "VIOLATION_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewViolationViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1013,18 +1032,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceS
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsList : GTLRAssuredworkloadsQuery
 
 /**
- *  A custom filter for filtering by properties of a workload. At this time,
- *  only filtering by labels is supported.
+ *  Optional. A custom filter for filtering by properties of a workload. At this
+ *  time, only filtering by labels is supported.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Page size. */
+/** Optional. Page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token returned from previous request. Page token contains context from
- *  previous request. Page token needs to be passed in the second and following
- *  requests.
+ *  Optional. Page token returned from previous request. Page token contains
+ *  context from previous request. Page token needs to be passed in the second
+ *  and following requests.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1308,51 +1327,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceS
 @end
 
 /**
- *  Acknowledges multiple existing violations. By acknowledging violations,
- *  users acknowledge the existence of compliance violations in their workload
- *  and decide to ignore them due to a valid business justification.
- *  Acknowledgement is a permanent operation and it cannot be reverted. This is
- *  a batch version of AcknowledgeViolation.
- *
- *  Method: assuredworkloads.organizations.locations.workloads.violations.batchAcknowledgeViolations
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
- */
-@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations : GTLRAssuredworkloadsQuery
-
-/**
- *  Optional. The parent resource shared by all violations being acknowledged.
- *  Format:
- *  organizations/{organization}/locations/{location}/workloads/{workload}
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse.
- *
- *  Acknowledges multiple existing violations. By acknowledging violations,
- *  users acknowledge the existence of compliance violations in their workload
- *  and decide to ignore them due to a valid business justification.
- *  Acknowledgement is a permanent operation and it cannot be reverted. This is
- *  a batch version of AcknowledgeViolation.
- *
- *  @param object The @c
- *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest
- *    to include in the query.
- *  @param parent Optional. The parent resource shared by all violations being
- *    acknowledged. Format:
- *    organizations/{organization}/locations/{location}/workloads/{workload}
- *
- *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations
- */
-+ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
  *  Retrieves Assured Workload Violation based on ID.
  *
  *  Method: assuredworkloads.organizations.locations.workloads.violations.get
@@ -1368,6 +1342,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceS
  *  organizations/{organization}/locations/{location}/workloads/{workload}/violations/{violation}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies the violation view (`AssuredWorkloads` or
+ *  `DataBoundary`) for fetching violations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloadsViewViolationViewUnspecified Defaults to the
+ *        ASSURED_WORKLOADS view. (Value: "VIOLATION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloadsViewViolationViewAssuredWorkloads Includes
+ *        the basic metadata about the violation. (Value:
+ *        "VIOLATION_VIEW_ASSURED_WORKLOADS")
+ *    @arg @c kGTLRAssuredworkloadsViewViolationViewDataBoundary Includes all
+ *        information about the violation, including details about the data
+ *        boundary. (Value: "VIOLATION_VIEW_DATA_BOUNDARY")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation.
@@ -1421,6 +1411,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceS
  *  `organizations/{org_id}/locations/{location}/workloads/{workload}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Specifies the violation view(AssuredWorkloads or DataBoundary) for
+ *  fetching violations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloadsViewViolationViewUnspecified Defaults to the
+ *        ASSURED_WORKLOADS view. (Value: "VIOLATION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloadsViewViolationViewAssuredWorkloads Includes
+ *        the basic metadata about the violation. (Value:
+ *        "VIOLATION_VIEW_ASSURED_WORKLOADS")
+ *    @arg @c kGTLRAssuredworkloadsViewViolationViewDataBoundary Includes all
+ *        information about the violation, including details about the data
+ *        boundary. (Value: "VIOLATION_VIEW_DATA_BOUNDARY")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c

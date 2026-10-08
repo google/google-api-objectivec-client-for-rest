@@ -79,12 +79,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthIrnR
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationReadonly;
 /**
- *  Authorization scope: Add exercise GPS location data to Google Health, and
- *  edit or delete the data it adds.
+ *  Authorization scope: See your Google Health logged symptoms data
  *
- *  Value "https://www.googleapis.com/auth/googlehealth.location.writeonly"
+ *  Value "https://www.googleapis.com/auth/googlehealth.logged_symptoms.readonly"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLocationWriteonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsReadonly;
 /**
  *  Authorization scope: Add logged symptoms data to Google Health, and edit or
  *  delete the data it adds
@@ -92,6 +91,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLoca
  *  Value "https://www.googleapis.com/auth/googlehealth.logged_symptoms.writeonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthLoggedSymptomsWriteonly;
+/**
+ *  Authorization scope: See your Google Health mindfulness data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.mindfulness.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthMindfulnessReadonly;
 /**
  *  Authorization scope: Add mindfulness data to Google Health, and edit or
  *  delete the data it adds
@@ -119,6 +124,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProf
  *  Value "https://www.googleapis.com/auth/googlehealth.profile.writeonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthProfileWriteonly;
+/**
+ *  Authorization scope: See your Google Health reproductive health data
+ *
+ *  Value "https://www.googleapis.com/auth/googlehealth.reproductive_health.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPIGooglehealthReproductiveHealthReadonly;
 /**
  *  Authorization scope: Add reproductive health data to Google Health, and edit
  *  or delete the data it adds

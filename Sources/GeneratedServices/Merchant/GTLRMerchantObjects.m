@@ -27,6 +27,7 @@ NSString * const kGTLRMerchant_ProductChange_ReportingContext_LocalCloudRetail =
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_LocalInventoryAds = @"LOCAL_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_MerchantReviews = @"MERCHANT_REVIEWS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_ProductReviews = @"PRODUCT_REVIEWS";
+NSString * const kGTLRMerchant_ProductChange_ReportingContext_RentalAds = @"RENTAL_ADS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_ReportingContextEnumUnspecified = @"REPORTING_CONTEXT_ENUM_UNSPECIFIED";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
@@ -54,6 +55,7 @@ NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_L
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_LocalInventoryAds = @"LOCAL_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_MerchantReviews = @"MERCHANT_REVIEWS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_ProductReviews = @"PRODUCT_REVIEWS";
+NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_RentalAds = @"RENTAL_ADS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_ReportingContextEnumUnspecified = @"REPORTING_CONTEXT_ENUM_UNSPECIFIED";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
@@ -76,6 +78,7 @@ NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_Loca
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_LocalInventoryAds = @"LOCAL_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_MerchantReviews = @"MERCHANT_REVIEWS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_ProductReviews = @"PRODUCT_REVIEWS";
+NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_RentalAds = @"RENTAL_ADS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_ReportingContextEnumUnspecified = @"REPORTING_CONTEXT_ENUM_UNSPECIFIED";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
@@ -118,6 +121,7 @@ NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_LocalClo
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_LocalInventoryAds = @"LOCAL_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_MerchantReviews = @"MERCHANT_REVIEWS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_ProductReviews = @"PRODUCT_REVIEWS";
+NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_RentalAds = @"RENTAL_ADS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_ReportingContextEnumUnspecified = @"REPORTING_CONTEXT_ENUM_UNSPECIFIED";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";
@@ -140,6 +144,7 @@ NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_LocalCloudR
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_LocalInventoryAds = @"LOCAL_INVENTORY_ADS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_MerchantReviews = @"MERCHANT_REVIEWS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ProductReviews = @"PRODUCT_REVIEWS";
+NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_RentalAds = @"RENTAL_ADS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ReportingContextEnumUnspecified = @"REPORTING_CONTEXT_ENUM_UNSPECIFIED";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_ShoppingAds = @"SHOPPING_ADS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_VehicleInventoryAds = @"VEHICLE_INVENTORY_ADS";

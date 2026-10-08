@@ -41,6 +41,7 @@ NSString * const kGTLRSaaSServiceManagement_Saas_State_StateActive = @"STATE_ACT
 NSString * const kGTLRSaaSServiceManagement_Saas_State_StateFailed = @"STATE_FAILED";
 NSString * const kGTLRSaaSServiceManagement_Saas_State_StateRunning = @"STATE_RUNNING";
 NSString * const kGTLRSaaSServiceManagement_Saas_State_StateTypeUnspecified = @"STATE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSaaSServiceManagement_Saas_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRSaaSServiceManagement_SaasCondition.status
 NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusFalse = @"STATUS_FALSE";
@@ -967,8 +968,8 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_UnitKind
 @dynamic annotations, boundaryType, createTime, defaultFlagRevisions,
-         defaultRelease, dependencies, ETag, inputVariableMappings, labels,
-         name, outputVariableMappings, saas, uid, updateTime;
+         defaultRelease, deleteTime, dependencies, ETag, inputVariableMappings,
+         labels, name, outputVariableMappings, saas, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

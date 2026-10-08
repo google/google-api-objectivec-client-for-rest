@@ -318,6 +318,60 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_AppsigningEnrollApp
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_EnrollAppRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{name}/appSigning:enrollApp";
+  GTLRAndroidPublisherQuery_AppsigningEnrollApp *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidPublisher_EnrollAppResponse class];
+  query.loggingName = @"androidpublisher.appsigning.enrollApp";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_AppsigningRotateAppSigningKey
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_RotateAppSigningKeyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{name}/appSigning:rotateAppSigningKey";
+  GTLRAndroidPublisherQuery_AppsigningRotateAppSigningKey *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidPublisher_RotateAppSigningKeyResponse class];
+  query.loggingName = @"androidpublisher.appsigning.rotateAppSigningKey";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_AppstoreappsreviewCreateappstorehostedapp
 
 @dynamic appStorePackageName;

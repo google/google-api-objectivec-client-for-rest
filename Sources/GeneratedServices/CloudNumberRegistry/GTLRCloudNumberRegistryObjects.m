@@ -423,6 +423,29 @@ NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesRequest_SearchResourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudNumberRegistry_ListOrgNumberRegistriesResponse
+//
+
+@implementation GTLRCloudNumberRegistry_ListOrgNumberRegistriesResponse
+@dynamic nextPageToken, orgNumberRegistries, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orgNumberRegistries" : [GTLRCloudNumberRegistry_OrgNumberRegistry class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"orgNumberRegistries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudNumberRegistry_ListRealmsResponse
 //
 
@@ -556,6 +579,38 @@ NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesRequest_SearchResourc
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudNumberRegistry_OrgNumberRegistry
+//
+
+@implementation GTLRCloudNumberRegistry_OrgNumberRegistry
+@dynamic adminProject, createTime, labels, name, targetScopes, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetScopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNumberRegistry_OrgNumberRegistry_Labels
+//
+
+@implementation GTLRCloudNumberRegistry_OrgNumberRegistry_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudNumberRegistry_Range
 //
 
@@ -615,12 +670,13 @@ NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesRequest_SearchResourc
 //
 
 @implementation GTLRCloudNumberRegistry_RegistryBook
-@dynamic aggregatedData, claimedScopes, createTime, isDefault, labels, name,
-         updateTime;
+@dynamic aggregatedData, claimedScopes, claimedScopesInfo, createTime,
+         isDefault, labels, name, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"claimedScopes" : [NSString class]
+    @"claimedScopes" : [NSString class],
+    @"claimedScopesInfo" : [GTLRCloudNumberRegistry_ScopeInfo class]
   };
   return map;
 }
@@ -637,6 +693,21 @@ NSString * const kGTLRCloudNumberRegistry_SearchIpResourcesRequest_SearchResourc
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudNumberRegistry_ScopeInfo
+//
+
+@implementation GTLRCloudNumberRegistry_ScopeInfo
+@dynamic displayName, identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

@@ -16,6 +16,9 @@
 
 // GTLRNetworkManagement_AbortInfo.cause
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified = @"CAUSE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CloudRunResourceNotConnectedToVpc = @"CLOUD_RUN_RESOURCE_NOT_CONNECTED_TO_VPC";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationCloudRunServiceRevisionUnsupported = @"DESTINATION_CLOUD_RUN_SERVICE_REVISION_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationCloudRunVpcConnectorUnsupported = @"DESTINATION_CLOUD_RUN_VPC_CONNECTOR_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound = @"DESTINATION_ENDPOINT_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_FirewallConfigNotFound = @"FIREWALL_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported = @"GKE_KONNECTIVITY_PROXY_UNSUPPORTED";
@@ -221,6 +224,11 @@ NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationIn
 NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval30Sec = @"INTERVAL_30_SEC";
 NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval5Min = @"INTERVAL_5_MIN";
 NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval5Sec = @"INTERVAL_5_SEC";
+
+// GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.connectionLogging
+NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingDisabled = @"CONNECTION_LOGGING_DISABLED";
+NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingEnabled = @"CONNECTION_LOGGING_ENABLED";
+NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingUnspecified = @"CONNECTION_LOGGING_UNSPECIFIED";
 
 // GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.crossProjectMetadata
 NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataDisabled = @"CROSS_PROJECT_METADATA_DISABLED";
@@ -563,6 +571,12 @@ NSString * const kGTLRNetworkManagement_Step_State_StartFromStorageBucket = @"ST
 NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing = @"VIEWER_PERMISSION_MISSING";
 
+// GTLRNetworkManagement_ViewerPermissionMissingInfo.resourceTypes
+NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_Firewall = @"FIREWALL";
+NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_ForwardingRule = @"FORWARDING_RULE";
+NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_Instance = @"INSTANCE";
+NSString * const kGTLRNetworkManagement_ViewerPermissionMissingInfo_ResourceTypes_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+
 // GTLRNetworkManagement_VpcFlowLogsConfig.aggregationInterval
 NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_AggregationIntervalUnspecified = @"AGGREGATION_INTERVAL_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval10Min = @"INTERVAL_10_MIN";
@@ -571,6 +585,11 @@ NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_In
 NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval30Sec = @"INTERVAL_30_SEC";
 NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Min = @"INTERVAL_5_MIN";
 NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Sec = @"INTERVAL_5_SEC";
+
+// GTLRNetworkManagement_VpcFlowLogsConfig.connectionLogging
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingDisabled = @"CONNECTION_LOGGING_DISABLED";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingEnabled = @"CONNECTION_LOGGING_ENABLED";
+NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_ConnectionLogging_ConnectionLoggingUnspecified = @"CONNECTION_LOGGING_UNSPECIFIED";
 
 // GTLRNetworkManagement_VpcFlowLogsConfig.crossProjectMetadata
 NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataDisabled = @"CROSS_PROJECT_METADATA_DISABLED";
@@ -748,7 +767,7 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_CloudRunRevisionEndpoint
-@dynamic serviceUri, uri;
+@dynamic serviceUri, uri, workerPoolUri;
 @end
 
 
@@ -758,7 +777,7 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_CloudRunRevisionInfo
-@dynamic displayName, location, serviceUri, uri;
+@dynamic displayName, ipAddress, location, serviceUri, uri, workerPoolUri;
 @end
 
 
@@ -859,9 +878,9 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_EffectiveVpcFlowLogsConfig
-@dynamic aggregationInterval, crossProjectMetadata, filterExpr, flowSampling,
-         interconnectAttachment, metadata, metadataFields, name, network, scope,
-         state, subnet, vpnTunnel;
+@dynamic aggregationInterval, connectionLogging, crossProjectMetadata,
+         filterExpr, flowSampling, interconnectAttachment, metadata,
+         metadataFields, name, network, scope, state, subnet, vpnTunnel;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1896,8 +1915,8 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
          ipMasqueradingSkipped, loadBalancer, loadBalancerBackendInfo, nat,
          network, ngfwPacketInspection, projectId, proxyConnection,
          redisCluster, redisInstance, route, serverlessExternalConnection,
-         serverlessNeg, state, storageBucket, vpcConnector, vpnGateway,
-         vpnTunnel;
+         serverlessNeg, state, storageBucket, viewerPermissionMissingInfo,
+         vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1972,6 +1991,24 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_ViewerPermissionMissingInfo
+//
+
+@implementation GTLRNetworkManagement_ViewerPermissionMissingInfo
+@dynamic resourceTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_VpcConnectorInfo
 //
 
@@ -1986,10 +2023,10 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 //
 
 @implementation GTLRNetworkManagement_VpcFlowLogsConfig
-@dynamic aggregationInterval, createTime, crossProjectMetadata,
-         descriptionProperty, filterExpr, flowSampling, interconnectAttachment,
-         labels, metadata, metadataFields, name, network, state, subnet,
-         targetResourceState, updateTime, vpnTunnel;
+@dynamic aggregationInterval, connectionLogging, createTime,
+         crossProjectMetadata, descriptionProperty, filterExpr, flowSampling,
+         interconnectAttachment, labels, metadata, metadataFields, name,
+         network, state, subnet, targetResourceState, updateTime, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

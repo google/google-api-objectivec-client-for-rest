@@ -731,9 +731,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesCopy
 
-@dynamic enforceSingleParent, fileId, ignoreDefaultVisibility, includeLabels,
-         includePermissionsForView, keepRevisionForever, ocrLanguage,
-         supportsAllDrives, supportsTeamDrives;
+@dynamic copyComments, enforceSingleParent, fileId, ignoreDefaultVisibility,
+         includeLabels, includePermissionsForView, keepRevisionForever,
+         ocrLanguage, supportsAllDrives, supportsTeamDrives;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                          fileId:(NSString *)fileId {

@@ -15,6 +15,9 @@
 NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewBasic = @"FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_BASIC";
 NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewFull = @"FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_FULL";
 NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecified = @"FRAMEWORK_COMPLIANCE_SUMMARY_VIEW_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloadsViewViolationViewAssuredWorkloads = @"VIOLATION_VIEW_ASSURED_WORKLOADS";
+NSString * const kGTLRAssuredworkloadsViewViolationViewDataBoundary = @"VIOLATION_VIEW_DATA_BOUNDARY";
+NSString * const kGTLRAssuredworkloadsViewViolationViewUnspecified = @"VIOLATION_VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -620,36 +623,9 @@ NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecif
 
 @end
 
-@implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/violations:batchAcknowledgeViolations";
-  GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsBatchAcknowledgeViolations *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1BatchAcknowledgeViolationsResponse class];
-  query.loggingName = @"assuredworkloads.organizations.locations.workloads.violations.batchAcknowledgeViolations";
-  return query;
-}
-
-@end
-
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -669,7 +645,7 @@ NSString * const kGTLRAssuredworkloadsViewFrameworkComplianceSummaryViewUnspecif
 @implementation GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsViolationsList
 
 @dynamic filter, intervalEndTime, intervalStartTime, orderBy, pageSize,
-         pageToken, parent;
+         pageToken, parent, view;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{

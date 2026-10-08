@@ -622,6 +622,199 @@
 
 @end
 
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestDelete
+
+@dynamic firebasedataconnectService, firebasedataconnectTable;
+
++ (instancetype)queryWithFirebasedataconnectService:(NSString *)firebasedataconnectService
+                           firebasedataconnectTable:(NSString *)firebasedataconnectTable {
+  NSArray *pathParams = @[
+    @"firebasedataconnectService", @"firebasedataconnectTable"
+  ];
+  NSString *pathURITemplate = @"v1/{+firebasedataconnectService}/postgrest/{+firebasedataconnectTable}";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.firebasedataconnectService = firebasedataconnectService;
+  query.firebasedataconnectTable = firebasedataconnectTable;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_HttpBody class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.postgrest.postgrestDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestInsert
+
+@dynamic firebasedataconnectService, firebasedataconnectTable;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+       firebasedataconnectTable:(NSString *)firebasedataconnectTable {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firebasedataconnectService", @"firebasedataconnectTable"
+  ];
+  NSString *pathURITemplate = @"v1/{+firebasedataconnectService}/postgrest/{+firebasedataconnectTable}";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firebasedataconnectService = firebasedataconnectService;
+  query.firebasedataconnectTable = firebasedataconnectTable;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_HttpBody class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.postgrest.postgrestInsert";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestSelect
+
+@dynamic firebasedataconnectService, firebasedataconnectTable;
+
++ (instancetype)queryWithFirebasedataconnectService:(NSString *)firebasedataconnectService
+                           firebasedataconnectTable:(NSString *)firebasedataconnectTable {
+  NSArray *pathParams = @[
+    @"firebasedataconnectService", @"firebasedataconnectTable"
+  ];
+  NSString *pathURITemplate = @"v1/{+firebasedataconnectService}/postgrest/{+firebasedataconnectTable}";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestSelect *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.firebasedataconnectService = firebasedataconnectService;
+  query.firebasedataconnectTable = firebasedataconnectTable;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_HttpBody class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.postgrest.postgrestSelect";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpdate
+
+@dynamic firebasedataconnectService, firebasedataconnectTable;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+       firebasedataconnectTable:(NSString *)firebasedataconnectTable {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firebasedataconnectService", @"firebasedataconnectTable"
+  ];
+  NSString *pathURITemplate = @"v1/{+firebasedataconnectService}/postgrest/{+firebasedataconnectTable}";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firebasedataconnectService = firebasedataconnectService;
+  query.firebasedataconnectTable = firebasedataconnectTable;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_HttpBody class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.postgrest.postgrestUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpsert
+
+@dynamic firebasedataconnectService, firebasedataconnectTable;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+       firebasedataconnectTable:(NSString *)firebasedataconnectTable {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firebasedataconnectService", @"firebasedataconnectTable"
+  ];
+  NSString *pathURITemplate = @"v1/{+firebasedataconnectService}/postgrest/{+firebasedataconnectTable}";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestPostgrestUpsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firebasedataconnectService = firebasedataconnectService;
+  query.firebasedataconnectTable = firebasedataconnectTable;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_HttpBody class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.postgrest.postgrestUpsert";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestCallFunction
+
+@dynamic firebasedataconnectFunction, firebasedataconnectService;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_HttpBody *)object
+     firebasedataconnectService:(NSString *)firebasedataconnectService
+    firebasedataconnectFunction:(NSString *)firebasedataconnectFunction {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"firebasedataconnectFunction", @"firebasedataconnectService"
+  ];
+  NSString *pathURITemplate = @"v1/{+firebasedataconnectService}/postgrest/rpc/{+firebasedataconnectFunction}";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestCallFunction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firebasedataconnectService = firebasedataconnectService;
+  query.firebasedataconnectFunction = firebasedataconnectFunction;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_HttpBody class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.postgrest.rpc.postgrestCallFunction";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestQueryFunction
+
+@dynamic firebasedataconnectFunction, firebasedataconnectService;
+
++ (instancetype)queryWithFirebasedataconnectService:(NSString *)firebasedataconnectService
+                        firebasedataconnectFunction:(NSString *)firebasedataconnectFunction {
+  NSArray *pathParams = @[
+    @"firebasedataconnectFunction", @"firebasedataconnectService"
+  ];
+  NSString *pathURITemplate = @"v1/{+firebasedataconnectService}/postgrest/rpc/{+firebasedataconnectFunction}";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPostgrestRpcPostgrestQueryFunction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.firebasedataconnectService = firebasedataconnectService;
+  query.firebasedataconnectFunction = firebasedataconnectFunction;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_HttpBody class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.postgrest.rpc.postgrestQueryFunction";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesSchemasCreate
 
 @dynamic parent, requestId, schemaId, validateOnly;
@@ -705,6 +898,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRFirebaseDataConnect_ListSchemasResponse class];
   query.loggingName = @"firebasedataconnect.projects.locations.services.schemas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesSchemasMigrate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_MigrateSchemaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:migrate";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesSchemasMigrate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_Operation class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.schemas.migrate";
   return query;
 }
 

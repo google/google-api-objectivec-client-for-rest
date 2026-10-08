@@ -657,19 +657,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_Entity
 // GTLRDisplayVideo_AdAsset.syntheticContentAttestationStatus
 
 /**
- *  Is synthetic content.
+ *  Attested as created or edited using AI.
  *
  *  Value: "IS_SYNTHETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_IsSynthetic;
 /**
- *  Not synthetic content.
+ *  Attested as not created or edited using AI.
  *
  *  Value: "NOT_SYNTHETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_NotSynthetic;
 /**
- *  Attestation status is unspecified.
+ *  No attestation has been provided.
  *
  *  Value: "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED"
  */
@@ -5797,6 +5797,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion10;
 /**
+ *  SDF version 10.1.
+ *
+ *  Value: "SDF_VERSION_10_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion101;
+/**
  *  SDF version 3.1
  *
  *  Value: "SDF_VERSION_3_1"
@@ -6235,19 +6241,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_Host
 // GTLRDisplayVideo_Creative.syntheticContentAttestationStatus
 
 /**
- *  Is synthetic content.
+ *  Attested as created or edited using AI.
  *
  *  Value: "IS_SYNTHETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_IsSynthetic;
 /**
- *  Not synthetic content.
+ *  Attested as not created or edited using AI.
  *
  *  Value: "NOT_SYNTHETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_NotSynthetic;
 /**
- *  Attestation status is unspecified.
+ *  No attestation has been provided.
  *
  *  Value: "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED"
  */
@@ -7531,37 +7537,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDe
 // GTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails.excludedContentRatingTier
 
 /**
- *  Content suitable for family audiences. It is a subset of
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for family audiences. It is a subset of
  *  CONTENT_RATING_TIER_GENERAL. Only applicable to YouTube and Partners line
  *  items.
  *
  *  Value: "CONTENT_RATING_TIER_FAMILIES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierFamilies;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierFamilies GTLR_DEPRECATED;
 /**
- *  Content suitable for general audiences.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for general audiences.
  *
  *  Value: "CONTENT_RATING_TIER_GENERAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierGeneral;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierGeneral GTLR_DEPRECATED;
 /**
- *  Content suitable only for mature audiences.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable only for mature audiences.
  *
  *  Value: "CONTENT_RATING_TIER_MATURE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierMature;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierMature GTLR_DEPRECATED;
 /**
- *  Content suitable for most audiences with parental guidance.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for most audiences with parental guidance.
  *
  *  Value: "CONTENT_RATING_TIER_PARENTAL_GUIDANCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierParentalGuidance;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierParentalGuidance GTLR_DEPRECATED;
 /**
- *  Content suitable for teen and older audiences.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for teen and older audiences.
  *
  *  Value: "CONTENT_RATING_TIER_TEENS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierTeens;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierTeens GTLR_DEPRECATED;
 /**
  *  Content that has not been labeled.
  *
@@ -7580,37 +7591,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelAssigned
 // GTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails.contentRatingTier
 
 /**
- *  Content suitable for family audiences. It is a subset of
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for family audiences. It is a subset of
  *  CONTENT_RATING_TIER_GENERAL. Only applicable to YouTube and Partners line
  *  items.
  *
  *  Value: "CONTENT_RATING_TIER_FAMILIES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierFamilies;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierFamilies GTLR_DEPRECATED;
 /**
- *  Content suitable for general audiences.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for general audiences.
  *
  *  Value: "CONTENT_RATING_TIER_GENERAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierGeneral;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierGeneral GTLR_DEPRECATED;
 /**
- *  Content suitable only for mature audiences.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable only for mature audiences.
  *
  *  Value: "CONTENT_RATING_TIER_MATURE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierMature;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierMature GTLR_DEPRECATED;
 /**
- *  Content suitable for most audiences with parental guidance.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for most audiences with parental guidance.
  *
  *  Value: "CONTENT_RATING_TIER_PARENTAL_GUIDANCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierParentalGuidance;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierParentalGuidance GTLR_DEPRECATED;
 /**
- *  Content suitable for teen and older audiences.
+ *  Deprecated: This content rating tier is no longer supported. Content
+ *  suitable for teen and older audiences.
  *
  *  Value: "CONTENT_RATING_TIER_TEENS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierTeens;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierTeens GTLR_DEPRECATED;
 /**
  *  Content that has not been labeled.
  *
@@ -16196,6 +16212,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_Synta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion10;
 /**
+ *  SDF version 10.1.
+ *
+ *  Value: "SDF_VERSION_10_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion101;
+/**
  *  SDF version 3.1
  *
  *  Value: "SDF_VERSION_3_1"
@@ -16328,6 +16350,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion10;
 /**
+ *  SDF version 10.1.
+ *
+ *  Value: "SDF_VERSION_10_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion101;
+/**
  *  SDF version 3.1
  *
  *  Value: "SDF_VERSION_3_1"
@@ -16454,41 +16482,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.excludedSensitiveCategory
 
 /**
- *  Adult or pornographic text, image, or video content.
+ *  Deprecated: This sensitive category is no longer supported. Adult or
+ *  pornographic text, image, or video content.
  *
  *  Value: "SENSITIVE_CATEGORY_ADULT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryAdult;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryAdult GTLR_DEPRECATED;
 /**
- *  Contains content related to alcoholic beverages, alcohol brands, recipes,
- *  etc.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to alcoholic beverages, alcohol brands, recipes, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_ALCOHOL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryAlcohol;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryAlcohol GTLR_DEPRECATED;
 /**
- *  Content that may be construed as biased against individuals, groups, or
- *  organizations based on criteria such as race, religion, disability, sex,
- *  age, veteran status, sexual orientation, gender identity, or political
- *  affiliation. May also indicate discussion of such content, for instance, in
- *  an academic or journalistic context.
+ *  Deprecated: This sensitive category is no longer supported. Content that may
+ *  be construed as biased against individuals, groups, or organizations based
+ *  on criteria such as race, religion, disability, sex, age, veteran status,
+ *  sexual orientation, gender identity, or political affiliation. May also
+ *  indicate discussion of such content, for instance, in an academic or
+ *  journalistic context.
  *
  *  Value: "SENSITIVE_CATEGORY_DEROGATORY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDerogatory;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDerogatory GTLR_DEPRECATED;
 /**
- *  Content related to audio, video, or software downloads.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to audio, video, or software downloads.
  *
  *  Value: "SENSITIVE_CATEGORY_DOWNLOADS_SHARING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDownloadsSharing;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDownloadsSharing GTLR_DEPRECATED;
 /**
- *  Contains content related to the recreational use of legal or illegal drugs,
- *  as well as to drug paraphernalia or cultivation.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to the recreational use of legal or illegal drugs, as well as to
+ *  drug paraphernalia or cultivation.
  *
  *  Value: "SENSITIVE_CATEGORY_DRUGS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDrugs;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDrugs GTLR_DEPRECATED;
 /**
  *  YouTube videos embedded on websites outside of YouTube.com.
  *
@@ -16496,12 +16528,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryEmbeddedVideo;
 /**
- *  Contains content related to betting or wagering in a real-world or online
- *  setting.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to betting or wagering in a real-world or online setting.
  *
  *  Value: "SENSITIVE_CATEGORY_GAMBLING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling GTLR_DEPRECATED;
 /**
  *  Video of live events streamed over the internet.
  *
@@ -16509,132 +16541,144 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryLiveStreamingVideo;
 /**
- *  Political news and media, including discussions of social, governmental, and
- *  public policy.
+ *  Deprecated: This sensitive category is no longer supported. Political news
+ *  and media, including discussions of social, governmental, and public policy.
  *
  *  Value: "SENSITIVE_CATEGORY_POLITICS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryPolitics;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryPolitics GTLR_DEPRECATED;
 /**
- *  Prominent use of words considered indecent, such as curse words and sexual
- *  slang. Pages with only very occasional usage, such as news sites that might
- *  include such words in a quotation, are not included.
+ *  Deprecated: This sensitive category is no longer supported. Prominent use of
+ *  words considered indecent, such as curse words and sexual slang. Pages with
+ *  only very occasional usage, such as news sites that might include such words
+ *  in a quotation, are not included.
  *
  *  Value: "SENSITIVE_CATEGORY_PROFANITY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryProfanity;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryProfanity GTLR_DEPRECATED;
 /**
- *  Content related to religious thought or beliefs.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to religious thought or beliefs.
  *
  *  Value: "SENSITIVE_CATEGORY_RELIGION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryReligion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryReligion GTLR_DEPRECATED;
 /**
- *  Issues that evoke strong, opposing views and spark debate. These include
- *  issues that are controversial in most countries and markets (such as
- *  abortion), as well as those that are controversial in specific countries and
- *  markets (such as immigration reform in the United States).
+ *  Deprecated: This sensitive category is no longer supported. Issues that
+ *  evoke strong, opposing views and spark debate. These include issues that are
+ *  controversial in most countries and markets (such as abortion), as well as
+ *  those that are controversial in specific countries and markets (such as
+ *  immigration reform in the United States).
  *
  *  Value: "SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategorySensitiveSocialIssues;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategorySensitiveSocialIssues GTLR_DEPRECATED;
 /**
- *  Content which may be considered shocking or disturbing, such as violent news
- *  stories, stunts, or toilet humor.
+ *  Deprecated: This sensitive category is no longer supported. Content which
+ *  may be considered shocking or disturbing, such as violent news stories,
+ *  stunts, or toilet humor.
  *
  *  Value: "SENSITIVE_CATEGORY_SHOCKING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryShocking;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryShocking GTLR_DEPRECATED;
 /**
- *  Adult content, as well as suggestive content that's not explicitly
- *  pornographic. This category includes all pages categorized as adult.
+ *  Deprecated: This sensitive category is no longer supported. Adult content,
+ *  as well as suggestive content that's not explicitly pornographic. This
+ *  category includes all pages categorized as adult.
  *
  *  Value: "SENSITIVE_CATEGORY_SUGGESTIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategorySuggestive;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategorySuggestive GTLR_DEPRECATED;
 /**
- *  Contains content related to tobacco and tobacco accessories, including
- *  lighters, humidors, ashtrays, etc.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to tobacco and tobacco accessories, including lighters, humidors,
+ *  ashtrays, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_TOBACCO"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTobacco;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTobacco GTLR_DEPRECATED;
 /**
- *  Content related to death, disasters, accidents, war, etc.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to death, disasters, accidents, war, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_TRAGEDY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTragedy;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTragedy GTLR_DEPRECATED;
 /**
- *  Content related to motor vehicle, aviation or other transportation
- *  accidents.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to motor vehicle, aviation or other transportation accidents.
  *
  *  Value: "SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTransportationAccidents;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTransportationAccidents GTLR_DEPRECATED;
 /**
- *  This enum is only a placeholder and doesn't specify a DV360 sensitive
+ *  Serves as a placeholder and doesn't specify a Display & Video 360 sensitive
  *  category.
  *
  *  Value: "SENSITIVE_CATEGORY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryUnspecified;
 /**
- *  Content which may be considered graphically violent, gory, gruesome, or
- *  shocking, such as street fighting videos, accident photos, descriptions of
- *  torture, etc.
+ *  Deprecated: This sensitive category is no longer supported. Content which
+ *  may be considered graphically violent, gory, gruesome, or shocking, such as
+ *  street fighting videos, accident photos, descriptions of torture, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_VIOLENCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryViolence;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryViolence GTLR_DEPRECATED;
 /**
- *  Contains content related to personal weapons, including knives, guns, small
- *  firearms, and ammunition. Selecting either "weapons" or "sensitive social
- *  issues" will result in selecting both.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to personal weapons, including knives, guns, small firearms, and
+ *  ammunition. Selecting either "weapons" or "sensitive social issues" will
+ *  result in selecting both.
  *
  *  Value: "SENSITIVE_CATEGORY_WEAPONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryWeapons;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryWeapons GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails.sensitiveCategory
 
 /**
- *  Adult or pornographic text, image, or video content.
+ *  Deprecated: This sensitive category is no longer supported. Adult or
+ *  pornographic text, image, or video content.
  *
  *  Value: "SENSITIVE_CATEGORY_ADULT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAdult;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAdult GTLR_DEPRECATED;
 /**
- *  Contains content related to alcoholic beverages, alcohol brands, recipes,
- *  etc.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to alcoholic beverages, alcohol brands, recipes, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_ALCOHOL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAlcohol;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAlcohol GTLR_DEPRECATED;
 /**
- *  Content that may be construed as biased against individuals, groups, or
- *  organizations based on criteria such as race, religion, disability, sex,
- *  age, veteran status, sexual orientation, gender identity, or political
- *  affiliation. May also indicate discussion of such content, for instance, in
- *  an academic or journalistic context.
+ *  Deprecated: This sensitive category is no longer supported. Content that may
+ *  be construed as biased against individuals, groups, or organizations based
+ *  on criteria such as race, religion, disability, sex, age, veteran status,
+ *  sexual orientation, gender identity, or political affiliation. May also
+ *  indicate discussion of such content, for instance, in an academic or
+ *  journalistic context.
  *
  *  Value: "SENSITIVE_CATEGORY_DEROGATORY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDerogatory;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDerogatory GTLR_DEPRECATED;
 /**
- *  Content related to audio, video, or software downloads.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to audio, video, or software downloads.
  *
  *  Value: "SENSITIVE_CATEGORY_DOWNLOADS_SHARING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDownloadsSharing;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDownloadsSharing GTLR_DEPRECATED;
 /**
- *  Contains content related to the recreational use of legal or illegal drugs,
- *  as well as to drug paraphernalia or cultivation.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to the recreational use of legal or illegal drugs, as well as to
+ *  drug paraphernalia or cultivation.
  *
  *  Value: "SENSITIVE_CATEGORY_DRUGS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDrugs;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDrugs GTLR_DEPRECATED;
 /**
  *  YouTube videos embedded on websites outside of YouTube.com.
  *
@@ -16642,12 +16686,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryEmbeddedVideo;
 /**
- *  Contains content related to betting or wagering in a real-world or online
- *  setting.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to betting or wagering in a real-world or online setting.
  *
  *  Value: "SENSITIVE_CATEGORY_GAMBLING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling GTLR_DEPRECATED;
 /**
  *  Video of live events streamed over the internet.
  *
@@ -16655,92 +16699,100 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryLiveStreamingVideo;
 /**
- *  Political news and media, including discussions of social, governmental, and
- *  public policy.
+ *  Deprecated: This sensitive category is no longer supported. Political news
+ *  and media, including discussions of social, governmental, and public policy.
  *
  *  Value: "SENSITIVE_CATEGORY_POLITICS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryPolitics;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryPolitics GTLR_DEPRECATED;
 /**
- *  Prominent use of words considered indecent, such as curse words and sexual
- *  slang. Pages with only very occasional usage, such as news sites that might
- *  include such words in a quotation, are not included.
+ *  Deprecated: This sensitive category is no longer supported. Prominent use of
+ *  words considered indecent, such as curse words and sexual slang. Pages with
+ *  only very occasional usage, such as news sites that might include such words
+ *  in a quotation, are not included.
  *
  *  Value: "SENSITIVE_CATEGORY_PROFANITY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryProfanity;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryProfanity GTLR_DEPRECATED;
 /**
- *  Content related to religious thought or beliefs.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to religious thought or beliefs.
  *
  *  Value: "SENSITIVE_CATEGORY_RELIGION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryReligion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryReligion GTLR_DEPRECATED;
 /**
- *  Issues that evoke strong, opposing views and spark debate. These include
- *  issues that are controversial in most countries and markets (such as
- *  abortion), as well as those that are controversial in specific countries and
- *  markets (such as immigration reform in the United States).
+ *  Deprecated: This sensitive category is no longer supported. Issues that
+ *  evoke strong, opposing views and spark debate. These include issues that are
+ *  controversial in most countries and markets (such as abortion), as well as
+ *  those that are controversial in specific countries and markets (such as
+ *  immigration reform in the United States).
  *
  *  Value: "SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategorySensitiveSocialIssues;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategorySensitiveSocialIssues GTLR_DEPRECATED;
 /**
- *  Content which may be considered shocking or disturbing, such as violent news
- *  stories, stunts, or toilet humor.
+ *  Deprecated: This sensitive category is no longer supported. Content which
+ *  may be considered shocking or disturbing, such as violent news stories,
+ *  stunts, or toilet humor.
  *
  *  Value: "SENSITIVE_CATEGORY_SHOCKING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryShocking;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryShocking GTLR_DEPRECATED;
 /**
- *  Adult content, as well as suggestive content that's not explicitly
- *  pornographic. This category includes all pages categorized as adult.
+ *  Deprecated: This sensitive category is no longer supported. Adult content,
+ *  as well as suggestive content that's not explicitly pornographic. This
+ *  category includes all pages categorized as adult.
  *
  *  Value: "SENSITIVE_CATEGORY_SUGGESTIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategorySuggestive;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategorySuggestive GTLR_DEPRECATED;
 /**
- *  Contains content related to tobacco and tobacco accessories, including
- *  lighters, humidors, ashtrays, etc.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to tobacco and tobacco accessories, including lighters, humidors,
+ *  ashtrays, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_TOBACCO"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTobacco;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTobacco GTLR_DEPRECATED;
 /**
- *  Content related to death, disasters, accidents, war, etc.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to death, disasters, accidents, war, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_TRAGEDY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTragedy;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTragedy GTLR_DEPRECATED;
 /**
- *  Content related to motor vehicle, aviation or other transportation
- *  accidents.
+ *  Deprecated: This sensitive category is no longer supported. Content related
+ *  to motor vehicle, aviation or other transportation accidents.
  *
  *  Value: "SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTransportationAccidents;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTransportationAccidents GTLR_DEPRECATED;
 /**
- *  This enum is only a placeholder and doesn't specify a DV360 sensitive
+ *  Serves as a placeholder and doesn't specify a Display & Video 360 sensitive
  *  category.
  *
  *  Value: "SENSITIVE_CATEGORY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryUnspecified;
 /**
- *  Content which may be considered graphically violent, gory, gruesome, or
- *  shocking, such as street fighting videos, accident photos, descriptions of
- *  torture, etc.
+ *  Deprecated: This sensitive category is no longer supported. Content which
+ *  may be considered graphically violent, gory, gruesome, or shocking, such as
+ *  street fighting videos, accident photos, descriptions of torture, etc.
  *
  *  Value: "SENSITIVE_CATEGORY_VIOLENCE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryViolence;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryViolence GTLR_DEPRECATED;
 /**
- *  Contains content related to personal weapons, including knives, guns, small
- *  firearms, and ammunition. Selecting either "weapons" or "sensitive social
- *  issues" will result in selecting both.
+ *  Deprecated: This sensitive category is no longer supported. Contains content
+ *  related to personal weapons, including knives, guns, small firearms, and
+ *  ammunition. Selecting either "weapons" or "sensitive social issues" will
+ *  result in selecting both.
  *
  *  Value: "SENSITIVE_CATEGORY_WEAPONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryWeapons;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryWeapons GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_SessionPositionAssignedTargetingOptionDetails.sessionPosition
@@ -17805,6 +17857,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyUrl_Type_ThirdPar
 // GTLRDisplayVideo_ThirdPartyVendorConfig.vendor
 
 /**
+ *  Aquila.
+ *
+ *  Value: "THIRD_PARTY_VENDOR_AQUILA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorAquila;
+/**
  *  Audience Project.
  *
  *  Value: "THIRD_PARTY_VENDOR_AUDIENCE_PROJECT"
@@ -17997,19 +18055,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAsse
 // GTLRDisplayVideo_UploadAdAssetRequest.syntheticContentAttestationStatus
 
 /**
- *  Is synthetic content.
+ *  Attested as created or edited using AI.
  *
  *  Value: "IS_SYNTHETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_IsSynthetic;
 /**
- *  Not synthetic content.
+ *  Attested as not created or edited using AI.
  *
  *  Value: "NOT_SYNTHETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_NotSynthetic;
 /**
- *  Attestation status is unspecified.
+ *  No attestation has been provided.
  *
  *  Value: "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED"
  */
@@ -18815,16 +18873,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Whether the asset contains synthetic content or was created using
- *  AI.
+ *  Optional. Whether to add a label to the asset as created or edited using AI
+ *  when served in regions with local AI labeling regulations.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_IsSynthetic
- *        Is synthetic content. (Value: "IS_SYNTHETIC")
+ *        Attested as created or edited using AI. (Value: "IS_SYNTHETIC")
  *    @arg @c kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_NotSynthetic
- *        Not synthetic content. (Value: "NOT_SYNTHETIC")
+ *        Attested as not created or edited using AI. (Value: "NOT_SYNTHETIC")
  *    @arg @c kGTLRDisplayVideo_AdAsset_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified
- *        Attestation status is unspecified. (Value:
+ *        No attestation has been provided. (Value:
  *        "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *syntheticContentAttestationStatus;
@@ -18958,7 +19016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  A single ad associated with an ad group.
+ *  LINT: LEGACY_NAMES A single ad associated with an ad group.
  */
 @interface GTLRDisplayVideo_AdGroupAd : GTLRObject
 
@@ -18997,7 +19055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioAd *audioAd;
 
 /**
- *  Output only. Details of a [non-skippable short video
+ *  Optional. Details of a [non-skippable short video
  *  ad](//support.google.com/displayvideo/answer/6274216), equal to or less than
  *  6 seconds, used for reach.
  */
@@ -19010,25 +19068,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DcmTrackingInfo *dcmTrackingInfo;
 
 /**
- *  Details of a [Demand Gen carousel
+ *  Optional. Details of a [Demand Gen carousel
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd).
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenCarouselAd *demandGenCarouselAd;
 
 /**
- *  Details of a [Demand Gen image
+ *  Optional. Details of a [Demand Gen image
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd).
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenImageAd *demandGenImageAd;
 
 /**
- *  Details of a [Demand Gen product
+ *  Optional. Details of a [Demand Gen product
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#Product-onlyAd).
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenProductAd *demandGenProductAd;
 
 /**
- *  Details of a [Demand Gen video
+ *  Optional. Details of a [Demand Gen video
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#VideoAd).
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenVideoAd *demandGenVideoAd;
@@ -19071,7 +19129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
 /**
- *  Output only. Details of an [in-stream ad skippable after 5
+ *  Optional. Details of an [in-stream ad skippable after 5
  *  seconds](//support.google.com/displayvideo/answer/6274216), used for brand
  *  awareness or reach marketing objectives.
  */
@@ -19087,7 +19145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Details of a [non-skippable short in-stream video
+ *  Optional. Details of a [non-skippable short in-stream video
  *  ad](//support.google.com/displayvideo/answer/6274216), between 6 and 15
  *  seconds, used for reach marketing objectives.
  */
@@ -19101,7 +19159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoDiscoveryAd *videoDiscoverAd;
 
 /**
- *  Output only. Details of an [ad used in a video action
+ *  Optional. Details of an [ad used in a video action
  *  campaign](//support.google.com/google-ads/answer/10147229) to drive actions
  *  to the business, service or product.
  */
@@ -21945,7 +22003,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Inventory source details. This field will be populated when the
- *  targeting_type is `TARGETING_TYPE_INVENTORY_SOURCE`.
+ *  targeting_type is `TARGETING_TYPE_INVENTORY_SOURCE` or
+ *  `TARGETING_TYPE_INVENTORY_SOURCE_DEAL`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceAssignedTargetingOptionDetails *inventorySourceDetails;
 
@@ -23488,7 +23547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_BumperAd : GTLRObject
 
-/** Common ad attributes. */
+/** Required. Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
 @end
@@ -24334,27 +24393,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_CommonInStreamAttribute : GTLRObject
 
-/** The text on the call-to-action button. */
+/** Optional. The text on the call-to-action button. */
 @property(nonatomic, copy, nullable) NSString *actionButtonLabel;
 
-/** The headline of the call-to-action banner. */
+/** Optional. The headline of the call-to-action banner. */
 @property(nonatomic, copy, nullable) NSString *actionHeadline;
 
-/** The image which shows next to the video ad. */
+/** Optional. The image which shows next to the video ad. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ImageAsset *companionBanner;
 
-/** The webpage address that appears with the ad. */
+/** Required. The webpage address that appears with the ad. */
 @property(nonatomic, copy, nullable) NSString *displayUrl;
 
 /**
- *  The URL address of the webpage that people reach after they click the ad.
+ *  Required. The URL address of the webpage that people reach after they click
+ *  the ad.
  */
 @property(nonatomic, copy, nullable) NSString *finalUrl;
 
-/** The URL address loaded in the background for tracking purposes. */
+/**
+ *  Output only. The URL address loaded in the background for tracking purposes.
+ */
 @property(nonatomic, copy, nullable) NSString *trackingUrl;
 
-/** The YouTube video of the ad. */
+/** Required. Immutable. The YouTube video of the ad. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeVideoDetails *video;
 
 @end
@@ -24403,7 +24465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Optional. Country code of the member. Must also be set with the following
- *  fields: * country_code * hashed_first_name * hashed_last_name * zip_codes
+ *  fields: * hashed_first_name * hashed_last_name * zip_codes
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
@@ -25284,6 +25346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion10
  *        SDF version 10. (Value: "SDF_VERSION_10")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion101
+ *        SDF version 10.1. (Value: "SDF_VERSION_10_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion31
  *        SDF version 3.1 (Value: "SDF_VERSION_3_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion4
@@ -25799,16 +25863,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *skippable;
 
 /**
- *  Optional. Whether the creative contains synthetic content or was created
- *  using AI.
+ *  Optional. Whether to add a label to the creative as created or edited using
+ *  AI when served in regions with local AI labeling regulations.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_IsSynthetic
- *        Is synthetic content. (Value: "IS_SYNTHETIC")
+ *        Attested as created or edited using AI. (Value: "IS_SYNTHETIC")
  *    @arg @c kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_NotSynthetic
- *        Not synthetic content. (Value: "NOT_SYNTHETIC")
+ *        Attested as not created or edited using AI. (Value: "NOT_SYNTHETIC")
  *    @arg @c kGTLRDisplayVideo_Creative_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified
- *        Attestation status is unspecified. (Value:
+ *        No attestation has been provided. (Value:
  *        "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *syntheticContentAttestationStatus;
@@ -27439,13 +27503,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *deviceType;
 
 /**
- *  Output only. Bid multiplier allows you to show your ads more or less
- *  frequently based on the device type. It will apply a multiplier on the
- *  original bid price. When this field is 0, it indicates this field is not
- *  applicable instead of multiplying 0 on the original bid price. For example,
- *  if the bid price without multiplier is $10.0 and the multiplier is 1.5 for
- *  Tablet, the resulting bid price for Tablet will be $15.0. Only applicable to
- *  YouTube and Partners line items.
+ *  Optional. Bid multiplier allows you to show your ads more or less frequently
+ *  based on the device type. It will apply a multiplier on the original bid
+ *  price. When this field is 0, it indicates this field is not applicable
+ *  instead of multiplying 0 on the original bid price. For example, if the bid
+ *  price without multiplier is $10.0 and the multiplier is 1.5 for Tablet, the
+ *  resulting bid price for Tablet will be $15.0. Only applicable to YouTube and
+ *  Partners line items.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -27494,24 +27558,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. The display name of the digital content label rating tier to be
- *  EXCLUDED.
+ *  EXCLUDED. This field only accepts the value `CONTENT_RATING_TIER_UNRATED`.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierFamilies
- *        Content suitable for family audiences. It is a subset of
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for family audiences. It is a subset of
  *        CONTENT_RATING_TIER_GENERAL. Only applicable to YouTube and Partners
  *        line items. (Value: "CONTENT_RATING_TIER_FAMILIES")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierGeneral
- *        Content suitable for general audiences. (Value:
- *        "CONTENT_RATING_TIER_GENERAL")
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for general audiences. (Value: "CONTENT_RATING_TIER_GENERAL")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierMature
- *        Content suitable only for mature audiences. (Value:
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable only for mature audiences. (Value:
  *        "CONTENT_RATING_TIER_MATURE")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierParentalGuidance
- *        Content suitable for most audiences with parental guidance. (Value:
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for most audiences with parental guidance. (Value:
  *        "CONTENT_RATING_TIER_PARENTAL_GUIDANCE")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierTeens
- *        Content suitable for teen and older audiences. (Value:
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for teen and older audiences. (Value:
  *        "CONTENT_RATING_TIER_TEENS")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails_ExcludedContentRatingTier_ContentRatingTierUnrated
  *        Content that has not been labeled. (Value:
@@ -27538,20 +27606,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierFamilies
- *        Content suitable for family audiences. It is a subset of
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for family audiences. It is a subset of
  *        CONTENT_RATING_TIER_GENERAL. Only applicable to YouTube and Partners
  *        line items. (Value: "CONTENT_RATING_TIER_FAMILIES")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierGeneral
- *        Content suitable for general audiences. (Value:
- *        "CONTENT_RATING_TIER_GENERAL")
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for general audiences. (Value: "CONTENT_RATING_TIER_GENERAL")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierMature
- *        Content suitable only for mature audiences. (Value:
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable only for mature audiences. (Value:
  *        "CONTENT_RATING_TIER_MATURE")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierParentalGuidance
- *        Content suitable for most audiences with parental guidance. (Value:
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for most audiences with parental guidance. (Value:
  *        "CONTENT_RATING_TIER_PARENTAL_GUIDANCE")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierTeens
- *        Content suitable for teen and older audiences. (Value:
+ *        Deprecated: This content rating tier is no longer supported. Content
+ *        suitable for teen and older audiences. (Value:
  *        "CONTENT_RATING_TIER_TEENS")
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierUnrated
  *        Content that has not been labeled. (Value:
@@ -30943,11 +31015,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_InStreamAd : GTLRObject
 
-/** Common ad attributes. */
+/** Required. Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
 /**
- *  The custom parameters and accompanying values to add to the tracking URL.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InStreamAd_CustomParameters *customParameters;
 
@@ -30955,7 +31028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The custom parameters and accompanying values to add to the tracking URL.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -31646,8 +31720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Targeting details for inventory source. This will be populated in the
- *  details field of an AssignedTargetingOption when targeting_type is
- *  `TARGETING_TYPE_INVENTORY_SOURCE`.
+ *  details field of an AssignedTargetingOption when targeting_type is one of
+ *  `TARGETING_TYPE_INVENTORY_SOURCE` or `TARGETING_TYPE_INVENTORY_SOURCE_DEAL`.
  */
 @interface GTLRDisplayVideo_InventorySourceAssignedTargetingOptionDetails : GTLRObject
 
@@ -32486,7 +32560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *warningMessages;
 
-/** Output only. Settings specific to YouTube and Partners line items. */
+/** Optional. Settings specific to YouTube and Partners line items. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAndPartnersSettings *youtubeAndPartnersSettings;
 
 @end
@@ -34111,11 +34185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_NonSkippableAd : GTLRObject
 
-/** Common ad attributes. */
+/** Required. Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
 /**
- *  The custom parameters and accompanying values to add to the tracking URL.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_NonSkippableAd_CustomParameters *customParameters;
 
@@ -34123,7 +34198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The custom parameters and accompanying values to add to the tracking URL.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -36305,6 +36381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion10 SDF version 10.
  *        (Value: "SDF_VERSION_10")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion101 SDF version
+ *        10.1. (Value: "SDF_VERSION_10_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion31 SDF version 3.1
  *        (Value: "SDF_VERSION_3_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion4 SDF version 4
@@ -36393,6 +36471,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion10 SDF
  *        version 10. (Value: "SDF_VERSION_10")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion101
+ *        SDF version 10.1. (Value: "SDF_VERSION_10_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion31 SDF
  *        version 3.1 (Value: "SDF_VERSION_3_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion4 SDF
@@ -36583,86 +36663,104 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Required. An enum for the DV360 Sensitive category content classified to be
- *  EXCLUDED.
+ *  Required. An enum for the Display & Video 360 Sensitive category content
+ *  classified to be EXCLUDED. This field only accepts the following values: *
+ *  `SENSITIVE_CATEGORY_EMBEDDED_VIDEO` *
+ *  `SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryAdult
- *        Adult or pornographic text, image, or video content. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Adult or
+ *        pornographic text, image, or video content. (Value:
  *        "SENSITIVE_CATEGORY_ADULT")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryAlcohol
- *        Contains content related to alcoholic beverages, alcohol brands,
- *        recipes, etc. (Value: "SENSITIVE_CATEGORY_ALCOHOL")
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to alcoholic beverages, alcohol brands, recipes, etc.
+ *        (Value: "SENSITIVE_CATEGORY_ALCOHOL")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDerogatory
- *        Content that may be construed as biased against individuals, groups,
- *        or organizations based on criteria such as race, religion, disability,
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        that may be construed as biased against individuals, groups, or
+ *        organizations based on criteria such as race, religion, disability,
  *        sex, age, veteran status, sexual orientation, gender identity, or
  *        political affiliation. May also indicate discussion of such content,
  *        for instance, in an academic or journalistic context. (Value:
  *        "SENSITIVE_CATEGORY_DEROGATORY")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDownloadsSharing
- *        Content related to audio, video, or software downloads. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to audio, video, or software downloads. (Value:
  *        "SENSITIVE_CATEGORY_DOWNLOADS_SHARING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDrugs
- *        Contains content related to the recreational use of legal or illegal
- *        drugs, as well as to drug paraphernalia or cultivation. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to the recreational use of legal or illegal drugs, as
+ *        well as to drug paraphernalia or cultivation. (Value:
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryEmbeddedVideo
  *        YouTube videos embedded on websites outside of YouTube.com. (Value:
  *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling
- *        Contains content related to betting or wagering in a real-world or
- *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to betting or wagering in a real-world or online
+ *        setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryLiveStreamingVideo
  *        Video of live events streamed over the internet. (Value:
  *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryPolitics
- *        Political news and media, including discussions of social,
- *        governmental, and public policy. (Value:
- *        "SENSITIVE_CATEGORY_POLITICS")
+ *        Deprecated: This sensitive category is no longer supported. Political
+ *        news and media, including discussions of social, governmental, and
+ *        public policy. (Value: "SENSITIVE_CATEGORY_POLITICS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryProfanity
- *        Prominent use of words considered indecent, such as curse words and
- *        sexual slang. Pages with only very occasional usage, such as news
- *        sites that might include such words in a quotation, are not included.
- *        (Value: "SENSITIVE_CATEGORY_PROFANITY")
+ *        Deprecated: This sensitive category is no longer supported. Prominent
+ *        use of words considered indecent, such as curse words and sexual
+ *        slang. Pages with only very occasional usage, such as news sites that
+ *        might include such words in a quotation, are not included. (Value:
+ *        "SENSITIVE_CATEGORY_PROFANITY")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryReligion
- *        Content related to religious thought or beliefs. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to religious thought or beliefs. (Value:
  *        "SENSITIVE_CATEGORY_RELIGION")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategorySensitiveSocialIssues
- *        Issues that evoke strong, opposing views and spark debate. These
- *        include issues that are controversial in most countries and markets
- *        (such as abortion), as well as those that are controversial in
- *        specific countries and markets (such as immigration reform in the
- *        United States). (Value: "SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES")
+ *        Deprecated: This sensitive category is no longer supported. Issues
+ *        that evoke strong, opposing views and spark debate. These include
+ *        issues that are controversial in most countries and markets (such as
+ *        abortion), as well as those that are controversial in specific
+ *        countries and markets (such as immigration reform in the United
+ *        States). (Value: "SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryShocking
- *        Content which may be considered shocking or disturbing, such as
- *        violent news stories, stunts, or toilet humor. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        which may be considered shocking or disturbing, such as violent news
+ *        stories, stunts, or toilet humor. (Value:
  *        "SENSITIVE_CATEGORY_SHOCKING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategorySuggestive
- *        Adult content, as well as suggestive content that's not explicitly
+ *        Deprecated: This sensitive category is no longer supported. Adult
+ *        content, as well as suggestive content that's not explicitly
  *        pornographic. This category includes all pages categorized as adult.
  *        (Value: "SENSITIVE_CATEGORY_SUGGESTIVE")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTobacco
- *        Contains content related to tobacco and tobacco accessories, including
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to tobacco and tobacco accessories, including
  *        lighters, humidors, ashtrays, etc. (Value:
  *        "SENSITIVE_CATEGORY_TOBACCO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTragedy
- *        Content related to death, disasters, accidents, war, etc. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to death, disasters, accidents, war, etc. (Value:
  *        "SENSITIVE_CATEGORY_TRAGEDY")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryTransportationAccidents
- *        Content related to motor vehicle, aviation or other transportation
- *        accidents. (Value: "SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS")
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to motor vehicle, aviation or other transportation accidents.
+ *        (Value: "SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryUnspecified
- *        This enum is only a placeholder and doesn't specify a DV360 sensitive
- *        category. (Value: "SENSITIVE_CATEGORY_UNSPECIFIED")
+ *        Serves as a placeholder and doesn't specify a Display & Video 360
+ *        sensitive category. (Value: "SENSITIVE_CATEGORY_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryViolence
- *        Content which may be considered graphically violent, gory, gruesome,
- *        or shocking, such as street fighting videos, accident photos,
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        which may be considered graphically violent, gory, gruesome, or
+ *        shocking, such as street fighting videos, accident photos,
  *        descriptions of torture, etc. (Value: "SENSITIVE_CATEGORY_VIOLENCE")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryWeapons
- *        Contains content related to personal weapons, including knives, guns,
- *        small firearms, and ammunition. Selecting either "weapons" or
- *        "sensitive social issues" will result in selecting both. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to personal weapons, including knives, guns, small
+ *        firearms, and ammunition. Selecting either "weapons" or "sensitive
+ *        social issues" will result in selecting both. (Value:
  *        "SENSITIVE_CATEGORY_WEAPONS")
  */
 @property(nonatomic, copy, nullable) NSString *excludedSensitiveCategory;
@@ -36678,85 +36776,102 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. An enum for the DV360 Sensitive category content classifier.
+ *  Output only. An enum for the Display & Video 360 Sensitive category content
+ *  classifier.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAdult
- *        Adult or pornographic text, image, or video content. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Adult or
+ *        pornographic text, image, or video content. (Value:
  *        "SENSITIVE_CATEGORY_ADULT")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAlcohol
- *        Contains content related to alcoholic beverages, alcohol brands,
- *        recipes, etc. (Value: "SENSITIVE_CATEGORY_ALCOHOL")
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to alcoholic beverages, alcohol brands, recipes, etc.
+ *        (Value: "SENSITIVE_CATEGORY_ALCOHOL")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDerogatory
- *        Content that may be construed as biased against individuals, groups,
- *        or organizations based on criteria such as race, religion, disability,
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        that may be construed as biased against individuals, groups, or
+ *        organizations based on criteria such as race, religion, disability,
  *        sex, age, veteran status, sexual orientation, gender identity, or
  *        political affiliation. May also indicate discussion of such content,
  *        for instance, in an academic or journalistic context. (Value:
  *        "SENSITIVE_CATEGORY_DEROGATORY")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDownloadsSharing
- *        Content related to audio, video, or software downloads. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to audio, video, or software downloads. (Value:
  *        "SENSITIVE_CATEGORY_DOWNLOADS_SHARING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDrugs
- *        Contains content related to the recreational use of legal or illegal
- *        drugs, as well as to drug paraphernalia or cultivation. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to the recreational use of legal or illegal drugs, as
+ *        well as to drug paraphernalia or cultivation. (Value:
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryEmbeddedVideo
  *        YouTube videos embedded on websites outside of YouTube.com. (Value:
  *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling
- *        Contains content related to betting or wagering in a real-world or
- *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to betting or wagering in a real-world or online
+ *        setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryLiveStreamingVideo
  *        Video of live events streamed over the internet. (Value:
  *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryPolitics
- *        Political news and media, including discussions of social,
- *        governmental, and public policy. (Value:
- *        "SENSITIVE_CATEGORY_POLITICS")
+ *        Deprecated: This sensitive category is no longer supported. Political
+ *        news and media, including discussions of social, governmental, and
+ *        public policy. (Value: "SENSITIVE_CATEGORY_POLITICS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryProfanity
- *        Prominent use of words considered indecent, such as curse words and
- *        sexual slang. Pages with only very occasional usage, such as news
- *        sites that might include such words in a quotation, are not included.
- *        (Value: "SENSITIVE_CATEGORY_PROFANITY")
+ *        Deprecated: This sensitive category is no longer supported. Prominent
+ *        use of words considered indecent, such as curse words and sexual
+ *        slang. Pages with only very occasional usage, such as news sites that
+ *        might include such words in a quotation, are not included. (Value:
+ *        "SENSITIVE_CATEGORY_PROFANITY")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryReligion
- *        Content related to religious thought or beliefs. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to religious thought or beliefs. (Value:
  *        "SENSITIVE_CATEGORY_RELIGION")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategorySensitiveSocialIssues
- *        Issues that evoke strong, opposing views and spark debate. These
- *        include issues that are controversial in most countries and markets
- *        (such as abortion), as well as those that are controversial in
- *        specific countries and markets (such as immigration reform in the
- *        United States). (Value: "SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES")
+ *        Deprecated: This sensitive category is no longer supported. Issues
+ *        that evoke strong, opposing views and spark debate. These include
+ *        issues that are controversial in most countries and markets (such as
+ *        abortion), as well as those that are controversial in specific
+ *        countries and markets (such as immigration reform in the United
+ *        States). (Value: "SENSITIVE_CATEGORY_SENSITIVE_SOCIAL_ISSUES")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryShocking
- *        Content which may be considered shocking or disturbing, such as
- *        violent news stories, stunts, or toilet humor. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        which may be considered shocking or disturbing, such as violent news
+ *        stories, stunts, or toilet humor. (Value:
  *        "SENSITIVE_CATEGORY_SHOCKING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategorySuggestive
- *        Adult content, as well as suggestive content that's not explicitly
+ *        Deprecated: This sensitive category is no longer supported. Adult
+ *        content, as well as suggestive content that's not explicitly
  *        pornographic. This category includes all pages categorized as adult.
  *        (Value: "SENSITIVE_CATEGORY_SUGGESTIVE")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTobacco
- *        Contains content related to tobacco and tobacco accessories, including
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to tobacco and tobacco accessories, including
  *        lighters, humidors, ashtrays, etc. (Value:
  *        "SENSITIVE_CATEGORY_TOBACCO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTragedy
- *        Content related to death, disasters, accidents, war, etc. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to death, disasters, accidents, war, etc. (Value:
  *        "SENSITIVE_CATEGORY_TRAGEDY")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryTransportationAccidents
- *        Content related to motor vehicle, aviation or other transportation
- *        accidents. (Value: "SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS")
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        related to motor vehicle, aviation or other transportation accidents.
+ *        (Value: "SENSITIVE_CATEGORY_TRANSPORTATION_ACCIDENTS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryUnspecified
- *        This enum is only a placeholder and doesn't specify a DV360 sensitive
- *        category. (Value: "SENSITIVE_CATEGORY_UNSPECIFIED")
+ *        Serves as a placeholder and doesn't specify a Display & Video 360
+ *        sensitive category. (Value: "SENSITIVE_CATEGORY_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryViolence
- *        Content which may be considered graphically violent, gory, gruesome,
- *        or shocking, such as street fighting videos, accident photos,
+ *        Deprecated: This sensitive category is no longer supported. Content
+ *        which may be considered graphically violent, gory, gruesome, or
+ *        shocking, such as street fighting videos, accident photos,
  *        descriptions of torture, etc. (Value: "SENSITIVE_CATEGORY_VIOLENCE")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryWeapons
- *        Contains content related to personal weapons, including knives, guns,
- *        small firearms, and ammunition. Selecting either "weapons" or
- *        "sensitive social issues" will result in selecting both. (Value:
+ *        Deprecated: This sensitive category is no longer supported. Contains
+ *        content related to personal weapons, including knives, guns, small
+ *        firearms, and ammunition. Selecting either "weapons" or "sensitive
+ *        social issues" will result in selecting both. (Value:
  *        "SENSITIVE_CATEGORY_WEAPONS")
  */
 @property(nonatomic, copy, nullable) NSString *sensitiveCategory;
@@ -36950,7 +37065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  The unit of time in which the target frequency will be applied. The
- *  following time unit is applicable: * `TIME_UNIT_WEEKS`
+ *  following time unit is applicable: * `TIME_UNIT_WEEKS` * `TIME_UNIT_MONTHS`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitDays The
@@ -36980,7 +37095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The number of time_unit the target frequency will last. The following
  *  restrictions apply based on the value of time_unit: * `TIME_UNIT_WEEKS` -
- *  must be 1
+ *  must be 1 * `TIME_UNIT_MONTHS` - must be 1
  *
  *  Uses NSNumber of intValue.
  */
@@ -37594,6 +37709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The third-party measurement vendor.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorAquila
+ *        Aquila. (Value: "THIRD_PARTY_VENDOR_AQUILA")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorAudienceProject
  *        Audience Project. (Value: "THIRD_PARTY_VENDOR_AUDIENCE_PROJECT")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorComscore
@@ -37850,16 +37967,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *filename;
 
 /**
- *  Optional. Whether the asset contains synthetic content or was created using
- *  AI.
+ *  Optional. Whether to add a label to the asset as created or edited using AI
+ *  when served in regions with local AI labeling regulations.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_IsSynthetic
- *        Is synthetic content. (Value: "IS_SYNTHETIC")
+ *        Attested as created or edited using AI. (Value: "IS_SYNTHETIC")
  *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_NotSynthetic
- *        Not synthetic content. (Value: "NOT_SYNTHETIC")
+ *        Attested as not created or edited using AI. (Value: "NOT_SYNTHETIC")
  *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_SyntheticContentAttestationStatus_SyntheticContentAttestationStatusUnspecified
- *        Attestation status is unspecified. (Value:
+ *        No attestation has been provided. (Value:
  *        "SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *syntheticContentAttestationStatus;
@@ -38172,51 +38289,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_VideoPerformanceAd : GTLRObject
 
-/** The list of text assets shown on the call-to-action button. */
+/** Optional. The list of text assets shown on the call-to-action button. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *actionButtonLabels;
 
-/** The list of companion banners used by this ad. */
+/** Optional. The list of companion banners used by this ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ImageAsset *> *companionBanners;
 
 /**
- *  The custom parameters and accompanying values to add to the tracking URL.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoPerformanceAd_CustomParameters *customParameters;
 
-/** The list of descriptions shown on the call-to-action banner. */
+/** Optional. The list of descriptions shown on the call-to-action banner. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *descriptions;
 
-/** The first piece after the domain in the display URL. */
+/** Optional. The first piece after the domain in the display URL. */
 @property(nonatomic, copy, nullable) NSString *displayUrlBreadcrumb1;
 
-/** The second piece after the domain in the display URL. */
+/** Optional. The second piece after the domain in the display URL. */
 @property(nonatomic, copy, nullable) NSString *displayUrlBreadcrumb2;
 
-/** The domain of the display URL. */
+/** Output only. The domain of the display URL. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  The URL address of the webpage that people reach after they click the ad.
+ *  Required. The URL address of the webpage that people reach after they click
+ *  the ad.
  */
 @property(nonatomic, copy, nullable) NSString *finalUrl;
 
-/** The list of headlines shown on the call-to-action banner. */
+/** Optional. The list of headlines shown on the call-to-action banner. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headlines;
 
-/** The list of long headlines shown on the call-to-action banner. */
+/**
+ *  Optional. The list of long headlines shown on the call-to-action banner.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *longHeadlines;
 
-/** The URL address loaded in the background for tracking purposes. */
+/**
+ *  Output only. The URL address loaded in the background for tracking purposes.
+ */
 @property(nonatomic, copy, nullable) NSString *trackingUrl;
 
-/** The list of YouTube video assets used by this ad. */
+/** Required. The list of YouTube video assets used by this ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_YoutubeVideoDetails *> *videos;
 
 @end
 
 
 /**
- *  The custom parameters and accompanying values to add to the tracking URL.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -38995,7 +39119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The reason why the video data is not available.
+ *  Output only. The reason why the video data is not available.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUnavailableReasonDeleted

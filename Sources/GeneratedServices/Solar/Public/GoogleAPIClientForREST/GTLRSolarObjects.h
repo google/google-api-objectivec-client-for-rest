@@ -25,10 +25,13 @@
 @class GTLRSolar_LatLngBox;
 @class GTLRSolar_LeasingSavings;
 @class GTLRSolar_Money;
+@class GTLRSolar_Obstacle;
+@class GTLRSolar_Obstacle_PolygonGeojson;
 @class GTLRSolar_Panel;
 @class GTLRSolar_PanelConfig;
 @class GTLRSolar_Potential;
 @class GTLRSolar_RoofSegmentSizeAndSunshineStats;
+@class GTLRSolar_RoofSegmentSizeAndSunshineStats_PolygonGeojson;
 @class GTLRSolar_RoofSegmentSummary;
 @class GTLRSolar_SavingsOverTime;
 @class GTLRSolar_SizeAndSunshineStats;
@@ -774,6 +777,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
 
 
 /**
+ *  Details of a single detected obstacle.
+ */
+@interface GTLRSolar_Obstacle : GTLRObject
+
+/**
+ *  Output only. A GeoJSON representation of the obstacle. An obstacle is
+ *  defined as any non-buildable area where solar panels cannot be placed due to
+ *  physical barriers (vents, chimneys, dormers, etc.). The GeoJSON data must be
+ *  in RFC 7946 format and represent a Polygon for a single contiguous area. The
+ *  Polygon will be represented by several loops when it contains holes.
+ *  Example: { "type": "Polygon", "coordinates": [ [ [-1, -1, 0], [-1, 0, 0],
+ *  [0, 0, 0], [-1, -1, 0] ] ] }
+ */
+@property(nonatomic, strong, nullable) GTLRSolar_Obstacle_PolygonGeojson *polygonGeojson;
+
+@end
+
+
+/**
+ *  Output only. A GeoJSON representation of the obstacle. An obstacle is
+ *  defined as any non-buildable area where solar panels cannot be placed due to
+ *  physical barriers (vents, chimneys, dormers, etc.). The GeoJSON data must be
+ *  in RFC 7946 format and represent a Polygon for a single contiguous area. The
+ *  Polygon will be represented by several loops when it contains holes.
+ *  Example: { "type": "Polygon", "coordinates": [ [ [-1, -1, 0], [-1, 0, 0],
+ *  [0, 0, 0], [-1, -1, 0] ] ] }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSolar_Obstacle_PolygonGeojson : GTLRObject
+@end
+
+
+/**
  *  SolarPanel describes the position, orientation, and production of a single
  *  solar panel. See the panel_height_meters, panel_width_meters, and
  *  panel_capacity_watts fields in SolarPotential for information on the
@@ -914,6 +954,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
 @property(nonatomic, strong, nullable) NSNumber *maxSunshineHoursPerYear;
 
 /**
+ *  Details for each obstacle detected on the rooftop. An obstacle is defined as
+ *  any non-buildable area where solar panels cannot be placed due to physical
+ *  barriers (vents, chimneys, etc.). This field is only populated if
+ *  ROOF_GEOMETRY is included in the request's
+ *  FindClosestBuildingInsightsRequest.additional_insights.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSolar_Obstacle *> *obstacles;
+
+/**
  *  Capacity, in watts, of the panel used in the calculations.
  *
  *  Uses NSNumber of floatValue.
@@ -1011,9 +1060,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  */
 @property(nonatomic, strong, nullable) NSNumber *planeHeightAtCenterMeters;
 
+/**
+ *  Output only. A GeoJSON representation of the detailed geometry for the roof
+ *  segment plane. The polygon represents the physical roof facet, excluding
+ *  overlapping vegetation and internal cutouts (e.g., courtyards). This field
+ *  is only populated if ROOF_GEOMETRY is included in the request's
+ *  FindClosestBuildingInsightsRequest.additional_insights parameter. The
+ *  GeoJSON data must be in RFC 7946 format and represent a Polygon for a single
+ *  contiguous area. The Polygon will be represented by several loops when it
+ *  contains holes. Example: { "type": "Polygon", "coordinates": [ [ [-1, -1,
+ *  0], [-1, 0, 0], [0, 0, 0], [-1, -1, 0] ] ] }
+ */
+@property(nonatomic, strong, nullable) GTLRSolar_RoofSegmentSizeAndSunshineStats_PolygonGeojson *polygonGeojson;
+
 /** Total size and sunlight quantiles for the roof segment. */
 @property(nonatomic, strong, nullable) GTLRSolar_SizeAndSunshineStats *stats;
 
+@end
+
+
+/**
+ *  Output only. A GeoJSON representation of the detailed geometry for the roof
+ *  segment plane. The polygon represents the physical roof facet, excluding
+ *  overlapping vegetation and internal cutouts (e.g., courtyards). This field
+ *  is only populated if ROOF_GEOMETRY is included in the request's
+ *  FindClosestBuildingInsightsRequest.additional_insights parameter. The
+ *  GeoJSON data must be in RFC 7946 format and represent a Polygon for a single
+ *  contiguous area. The Polygon will be represented by several loops when it
+ *  contains holes. Example: { "type": "Polygon", "coordinates": [ [ [-1, -1,
+ *  0], [-1, 0, 0], [0, 0, 0], [-1, -1, 0] ] ] }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSolar_RoofSegmentSizeAndSunshineStats_PolygonGeojson : GTLRObject
 @end
 
 

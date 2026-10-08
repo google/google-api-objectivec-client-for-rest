@@ -23,6 +23,7 @@
 @class GTLRServiceControl_AuditLog_ResourceOriginalState;
 @class GTLRServiceControl_AuditLog_Response;
 @class GTLRServiceControl_AuditLog_ServiceData;
+@class GTLRServiceControl_AuditPamBindingId;
 @class GTLRServiceControl_Auth;
 @class GTLRServiceControl_Auth_Claims;
 @class GTLRServiceControl_AuthenticationInfo;
@@ -41,6 +42,7 @@
 @class GTLRServiceControl_Peer;
 @class GTLRServiceControl_Peer_Labels;
 @class GTLRServiceControl_PolicyViolationInfo;
+@class GTLRServiceControl_PrivilegedAccessManagerMetadata;
 @class GTLRServiceControl_ReportResponse_Extensions;
 @class GTLRServiceControl_Request;
 @class GTLRServiceControl_Request_Headers;
@@ -554,6 +556,31 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A composite unique identifier for a PAM Grant which is {Org/Folder/Project
+ *  identifier, grant Unique Identifier} tuple.
+ */
+@interface GTLRServiceControl_AuditPamBindingId : GTLRObject
+
+/**
+ *  Output only. GCP Project/Folder/Organization identifier to which the PAM
+ *  entitlement/grant is bound to. Container will be in the following form:
+ *  projects/$project_num or folders/$folder_num or organizations/$org
+ */
+@property(nonatomic, copy, nullable) NSString *container;
+
+/**
+ *  Output only. Represents the unique identifier for the PAM grant.
+ *  Full_resource_name_pattern for PAM Grant is:
+ *  //privilegedaccessmanager.googleapis.com/
+ *  (projects|folders|organizations)/$0/locations/$1/entitlements/$2/ grants/$3
+ *  where $3 is the grant_uuid.
+ */
+@property(nonatomic, copy, nullable) NSString *grantUuid;
+
+@end
+
+
+/**
  *  This message defines request authentication attributes. Terminology is based
  *  on the JSON Web Token (JWT) standard, but the terms also correlate to
  *  concepts in other standards.
@@ -782,6 +809,14 @@ GTLR_DEPRECATED
  *        Default. Should not be used. (Value: "PERMISSION_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *permissionType;
+
+/**
+ *  Output only. Metadata about the Privileged Access Manager (PAM) backed
+ *  authorization decisions. This field is populated if the access is granted
+ *  via an IAM policy with a binding which is managed by Privileged Access
+ *  Manager.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_PrivilegedAccessManagerMetadata *privilegedAccessManagerMetadata;
 
 /**
  *  The resource being accessed, as a REST-style or cloud resource string. For
@@ -1048,6 +1083,24 @@ GTLR_DEPRECATED
 
 /** Indicates the orgpolicy violations for this resource. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo *orgPolicyViolationInfo;
+
+@end
+
+
+/**
+ *  Metadata about the Privileged Access Manager (PAM) backed authorization
+ *  decisions.
+ */
+@interface GTLRServiceControl_PrivilegedAccessManagerMetadata : GTLRObject
+
+/**
+ *  Output only. If PAM is managing the elevated access, AuditPamBindingId is
+ *  written to an Identity and Access Management (IAM) policy, which specifies
+ *  access controls for resources. If the access is granted via an IAM policy
+ *  with a binding which is managed by Privileged Access Manager,
+ *  PrivilegedAccessManagerMetadata will contain the AuditPamBindingId.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_AuditPamBindingId *> *pamBindingIds;
 
 @end
 

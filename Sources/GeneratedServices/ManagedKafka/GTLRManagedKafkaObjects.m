@@ -107,7 +107,7 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 //
 
 @implementation GTLRManagedKafka_AccessConfig
-@dynamic networkConfigs;
+@dynamic networkConfigs, publicClusterConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -158,6 +158,16 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 @implementation GTLRManagedKafka_AddAclEntryResponse
 @dynamic acl, aclCreated;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_BrokerCapacityConfig
+//
+
+@implementation GTLRManagedKafka_BrokerCapacityConfig
+@dynamic diskSizeGib;
 @end
 
 
@@ -246,9 +256,10 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 //
 
 @implementation GTLRManagedKafka_Cluster
-@dynamic brokerDetails, capacityConfig, createTime, gcpConfig, kafkaVersion,
-         labels, name, rebalanceConfig, satisfiesPzi, satisfiesPzs, state,
-         tlsConfig, updateOptions, updateTime;
+@dynamic bootstrapAddress, brokerCapacityConfig, brokerDetails, capacityConfig,
+         createTime, effectiveCapacityConfig, gcpConfig, kafkaVersion, labels,
+         name, publicClusterDetails, rebalanceConfig, satisfiesPzi,
+         satisfiesPzs, state, tlsConfig, updateOptions, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -512,6 +523,16 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_EffectiveCapacityConfig
+//
+
+@implementation GTLRManagedKafka_EffectiveCapacityConfig
+@dynamic brokerCount, brokerDiskSizeGib;
 @end
 
 
@@ -893,6 +914,43 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 //
 
 @implementation GTLRManagedKafka_PauseConnectorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_PublicClusterConfig
+//
+
+@implementation GTLRManagedKafka_PublicClusterConfig
+@dynamic allowedSourceIpRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedSourceIpRanges" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_PublicClusterDetails
+//
+
+@implementation GTLRManagedKafka_PublicClusterDetails
+@dynamic discoveryDnsRecords, externalIpAddresses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discoveryDnsRecords" : [NSString class],
+    @"externalIpAddresses" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
