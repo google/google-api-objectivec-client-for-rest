@@ -66,6 +66,23 @@ final class CalendarAuthorizationTests: XCTestCase {
     XCTAssertFalse(authorization.isSigningIn)
   }
 
+  @MainActor
+  func testRejectedCallbackReportsConfigurationError() async {
+    let flow = CallbackSession()
+    let authorization = CalendarAuthorization(store: MemoryStore(), flow: flow)
+    authorization.resume(url: URL(string: "wrong-scheme:/oauthredirect")!)
+    XCTAssertNotNil(authorization.error)
+  }
+
+  @MainActor
+  func testAcceptedCallbackDoesNotReportError() async {
+    let flow = CallbackSession()
+    flow.acceptsURL = true
+    let authorization = CalendarAuthorization(store: MemoryStore(), flow: flow)
+    authorization.resume(url: URL(string: "com.googleusercontent.apps.fixture:/oauthredirect")!)
+    XCTAssertNil(authorization.error)
+  }
+
   private func fixtureSession() throws -> AuthSession {
     let request = OIDAuthorizationRequest(configuration: AuthSession.configurationForGoogle(),
       clientId: "123-example.apps.googleusercontent.com", clientSecret: nil,
@@ -93,4 +110,12 @@ private final class MemoryStore: NSObject, AuthSessionStore {
     guard let session else { throw KeychainStore.Error.passwordNotFound(forItemName: "fixture") }
     return session
   }
+}
+
+private final class CallbackSession: NSObject, OIDExternalUserAgentSession {
+  var acceptsURL = false
+  func cancel() {}
+  func cancel(completion: (() -> Void)?) { completion?() }
+  func resumeExternalUserAgentFlow(with url: URL) -> Bool { acceptsURL }
+  func failExternalUserAgentFlowWithError(_ error: Error) {}
 }

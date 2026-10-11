@@ -27,12 +27,12 @@ final class CalendarAuthorization: ObservableObject {
   @Published private(set) var error: String?
   private let store: AuthSessionStore
   private var requestID = UUID()
-#if canImport(UIKit)
   private var flow: OIDExternalUserAgentSession?
-#endif
 
-  init(store: AuthSessionStore = KeychainStore(itemName: "SwiftCalendarSample.CalendarAuthorization")) {
+  init(store: AuthSessionStore = KeychainStore(itemName: "SwiftCalendarSample.CalendarAuthorization"),
+       flow: OIDExternalUserAgentSession? = nil) {
     self.store = store
+    self.flow = flow
     do {
       let saved = try store.retrieveAuthSession()
       if saved.canAuthorize { session = saved }
@@ -87,22 +87,20 @@ final class CalendarAuthorization: ObservableObject {
     }
   }
 
+#endif
+
   func resume(url: URL) {
     guard let flow else { return }
-    do {
-      try flow.resumeExternalUserAgentFlow(with: url)
-    } catch {
+    // AppAuth 2.0 does not provide the optional error-returning variant.
+    if !flow.resumeExternalUserAgentFlow(with: url) {
       self.error = "Could not handle the sign-in callback. Check the URL scheme in Info.plist."
     }
   }
-#endif
 
   func signOut() {
     requestID = UUID()
-#if canImport(UIKit)
     flow?.cancel()
     flow = nil
-#endif
     isSigningIn = false
     session = nil
     error = nil
