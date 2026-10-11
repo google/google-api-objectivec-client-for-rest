@@ -24,7 +24,7 @@ final class CalendarModel: ObservableObject {
   }
 
   func refresh() {
-    ticket?.cancelTicket()
+    ticket?.cancel()
     events = []
     nextPageToken = nil
     startTime = now()
@@ -38,7 +38,7 @@ final class CalendarModel: ObservableObject {
 
   func clear() {
     requestID = UUID()
-    ticket?.cancelTicket()
+    ticket?.cancel()
     ticket = nil
     events = []
     nextPageToken = nil
@@ -76,5 +76,5 @@ final class CalendarModel: ObservableObject {
     }
   }
 
-  deinit { ticket?.cancelTicket() }
+  deinit { ticket?.cancel() }
 }
