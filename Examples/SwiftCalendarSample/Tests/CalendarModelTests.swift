@@ -120,6 +120,36 @@ final class CalendarModelTests: XCTestCase {
   }
 
   @MainActor
+  func testClearDiscardsAlreadyDeliveredCompletion() async {
+    let service = GTLRCalendarService()
+    service.callbackQueue = DispatchQueue(label: "CalendarModelTests.callback")
+    let model = CalendarModel(service: service)
+    let called = expectation(description: "Query reached service")
+    var response: GTLRServiceTestResponse?
+    service.testBlock = { _, respond in
+      response = respond
+      called.fulfill()
+    }
+    model.refresh()
+    await fulfillment(of: [called], timeout: 2)
+    let page = GTLRCalendar_Events()
+    page.items = [GTLRCalendar_Event()]
+    page.nextPageToken = "stale-page"
+    response?(page, nil)
+    // Deliver the callback while the main actor is occupied, then invalidate it
+    // before its queued task can update the model.
+    service.callbackQueue.sync {}
+    model.clear()
+    await withCheckedContinuation { continuation in
+      DispatchQueue.main.async { continuation.resume() }
+    }
+    XCTAssertTrue(model.events.isEmpty)
+    XCTAssertFalse(model.isLoading)
+    XCTAssertFalse(model.hasMore)
+    XCTAssertNil(model.error)
+  }
+
+  @MainActor
   func testRefreshReplacesEventsAndUsesNewTimeBoundary() async {
     let service = GTLRCalendarService()
     var now = Date(timeIntervalSince1970: 1_700_000_000)
