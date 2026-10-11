@@ -1,3 +1,15 @@
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import Combine
 import GoogleAPIClientForRESTCore
 import GoogleAPIClientForREST_Calendar
@@ -85,17 +97,22 @@ final class CalendarModelTests: XCTestCase {
     let model = CalendarModel(service: service)
     let called = expectation(description: "Query reached service")
     var response: GTLRServiceTestResponse?
-    service.testBlock = { _, respond in
+    var requestTicket: GTLRServiceTicket?
+    service.testBlock = { ticket, respond in
+      requestTicket = ticket
       response = respond
       called.fulfill()
     }
     model.refresh()
     await fulfillment(of: [called], timeout: 2)
     model.clear()
+    XCTAssertTrue(requestTicket?.isCancelled == true)
     let page = GTLRCalendar_Events()
     page.items = [GTLRCalendar_Event()]
     response?(page, nil)
-    await Task.yield()
+    let drained = expectation(description: "Callback queue drained")
+    DispatchQueue.main.async { drained.fulfill() }
+    await fulfillment(of: [drained], timeout: 2)
     XCTAssertTrue(model.events.isEmpty)
     XCTAssertFalse(model.isLoading)
     XCTAssertFalse(model.hasMore)
@@ -127,6 +144,23 @@ final class CalendarModelTests: XCTestCase {
     await finishRequest(model) { model.refresh() }
     XCTAssertTrue(model.events.isEmpty)
     XCTAssertFalse(model.hasMore)
+  }
+
+  @MainActor
+  func testAllDayDateDoesNotShiftAcrossTimeZones() async {
+    let event = GTLRCalendar_Event()
+    event.start = GTLRCalendar_EventDateTime()
+    event.start?.date = GTLRDateTime(rfc3339String: "2026-10-11")
+    for hours in [-12, 14] {
+      XCTAssertEqual(CalendarModel.startDescription(for: event,
+        timeZone: TimeZone(secondsFromGMT: hours * 3600)!, locale: Locale(identifier: "en_US")),
+        "All day · Oct 11, 2026")
+    }
+  }
+
+  @MainActor
+  func testMissingStartTimeHasReadableFallback() async {
+    XCTAssertEqual(CalendarModel.startDescription(for: GTLRCalendar_Event()), "No start time")
   }
 
   @MainActor

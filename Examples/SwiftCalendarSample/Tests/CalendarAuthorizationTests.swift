@@ -1,3 +1,15 @@
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import AppAuthCore
 import GTMAppAuth
 import GoogleAPIClientForREST_Calendar
@@ -60,10 +72,10 @@ final class CalendarAuthorizationTests: XCTestCase {
       scopes: ["https://www.googleapis.com/auth/calendar.readonly"],
       redirectURL: URL(string: "com.googleusercontent.apps.123-example:/oauthredirect")!,
       responseType: OIDResponseTypeCode, additionalParameters: nil)
-    let response = OIDAuthorizationResponse(request: request, parameters: ["code": "fixture-code"])
+    let response = OIDAuthorizationResponse(request: request, parameters: ["code": "fixture-code" as NSString])
     let tokenRequest = try XCTUnwrap(response.tokenExchangeRequest())
     let token = OIDTokenResponse(request: tokenRequest,
-      parameters: ["access_token": "fixture-token", "token_type": "Bearer", "expires_in": 3600])
+      parameters: ["access_token": "fixture-token" as NSString, "token_type": "Bearer" as NSString, "expires_in": NSNumber(value: 3600)])
     return AuthSession(authState: OIDAuthState(authorizationResponse: response, tokenResponse: token))
   }
 }

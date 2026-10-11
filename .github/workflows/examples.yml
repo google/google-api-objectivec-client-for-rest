@@ -54,3 +54,23 @@ jobs:
           -scheme "${{ matrix.SAMPLE }}Sample" \
           -configuration Release \
           build
+
+  swift-calendar:
+    runs-on: macos-26
+    strategy:
+      fail-fast: false
+      matrix:
+        CONFIGURATION: ["Debug", "Release"]
+    steps:
+    - uses: actions/checkout@v7
+    - name: Build and test Swift Calendar sample
+      run: |
+        set -eu
+        cd Examples/SwiftCalendarSample
+        xcodebuild \
+          -project SwiftCalendarSample.xcodeproj \
+          -scheme SwiftCalendarSample \
+          -configuration ${{ matrix.CONFIGURATION }} \
+          -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest' \
+          CODE_SIGNING_ALLOWED=NO \
+          build test
