@@ -29,6 +29,9 @@ on:
     # Run the first and fifteenth of every month at 6:22 UTC
     - cron:  '22 6 1,15 * *'
 
+permissions:
+  contents: read
+
 jobs:
   examples:
     runs-on: macos-26
@@ -37,7 +40,9 @@ jobs:
       matrix:
         SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
     - name: Build Debug
       run:  |
         set -eu
@@ -62,7 +67,9 @@ jobs:
       matrix:
         CONFIGURATION: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
     - name: Build and test Swift Calendar sample
       run: |
         set -eu
