@@ -1,5 +1,8 @@
 name: Embedded Framework
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [ main ]
