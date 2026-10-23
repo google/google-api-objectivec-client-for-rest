@@ -11,8 +11,8 @@
 // limitations under the License.
 
 import AppAuthCore
-import Combine
 import Foundation
+import Observation
 import GTMAppAuth
 import GoogleAPIClientForREST_Calendar
 #if canImport(UIKit)
@@ -21,13 +21,14 @@ import UIKit
 #endif
 
 @MainActor
-final class CalendarAuthorization: ObservableObject {
-  @Published private(set) var session: AuthSession?
-  @Published private(set) var isSigningIn = false
-  @Published private(set) var error: String?
+@Observable
+final class CalendarAuthorization {
+  private(set) var session: AuthSession?
+  private(set) var isSigningIn = false
+  private(set) var error: String?
   private let store: AuthSessionStore
-  private var requestID = UUID()
-  private var flow: OIDExternalUserAgentSession?
+  @ObservationIgnored private var requestID = UUID()
+  @ObservationIgnored private var flow: OIDExternalUserAgentSession?
 
   init(store: AuthSessionStore = KeychainStore(itemName: "SwiftCalendarSample.CalendarAuthorization"),
        flow: OIDExternalUserAgentSession? = nil) {

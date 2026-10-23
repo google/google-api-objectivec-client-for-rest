@@ -10,36 +10,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Combine
+import Observation
 import GoogleAPIClientForRESTCore
 import GoogleAPIClientForREST_Calendar
-import XCTest
+import Foundation
+import Testing
 @testable import SwiftCalendarSample
 
-final class CalendarModelTests: XCTestCase {
-  @MainActor
+@Suite(.timeLimit(.minutes(1)))
+@MainActor
+struct CalendarModelTests {
+  @Test
   func testRefreshBuildsBoundedPrimaryCalendarQuery() async {
     let service = GTLRCalendarService()
     let start = Date(timeIntervalSince1970: 1_700_000_000)
     let model = CalendarModel(service: service, now: { start })
     service.testBlock = { ticket, respond in
       let query = ticket.originalQuery as! GTLRCalendarQuery_EventsList
-      XCTAssertEqual(query.calendarId, "primary")
-      XCTAssertEqual(query.maxResults, 20)
-      XCTAssertTrue(query.singleEvents)
-      XCTAssertEqual(query.orderBy, "startTime")
-      XCTAssertEqual(query.timeMin?.date, start)
-      XCTAssertNil(query.pageToken)
-      XCTAssertFalse(service.shouldFetchNextPages)
+      #expect(query.calendarId == "primary")
+      #expect(query.maxResults == 20)
+      #expect(query.singleEvents)
+      #expect(query.orderBy == "startTime")
+      #expect(query.timeMin?.date == start)
+      #expect(query.pageToken == nil)
+      #expect(!service.shouldFetchNextPages)
       respond(GTLRCalendar_Events(), nil)
     }
     await finishRequest(model) { model.refresh() }
-    XCTAssertTrue(model.events.isEmpty)
-    XCTAssertNil(model.error)
-    XCTAssertFalse(model.hasMore)
+    #expect(model.events.isEmpty)
+    #expect(model.error == nil)
+    #expect(!model.hasMore)
   }
 
-  @MainActor
+  @Test
   func testNextPageKeepsStartTimeAndAppendsEvents() async {
     let service = GTLRCalendarService()
     var now = Date(timeIntervalSince1970: 1_700_000_000)
@@ -55,21 +58,21 @@ final class CalendarModelTests: XCTestCase {
         page.items = [first]
         page.nextPageToken = "page-2"
       } else {
-        XCTAssertEqual(query.pageToken, "page-2")
-        XCTAssertEqual(query.timeMin?.date, Date(timeIntervalSince1970: 1_700_000_000))
+        #expect(query.pageToken == "page-2")
+        #expect(query.timeMin?.date == Date(timeIntervalSince1970: 1_700_000_000))
         page.items = [second]
       }
       respond(page, nil)
     }
     await finishRequest(model) { model.refresh() }
-    XCTAssertTrue(model.hasMore)
+    #expect(model.hasMore)
     now = Date(timeIntervalSince1970: 1_800_000_000)
     await finishRequest(model) { model.loadMore() }
-    XCTAssertEqual(model.events.map(\.identifier), ["first", "second"])
-    XCTAssertFalse(model.hasMore)
+    #expect(model.events.map(\.identifier) == ["first", "second"])
+    #expect(!model.hasMore)
   }
 
-  @MainActor
+  @Test
   func testPageFailurePreservesEventsAndAllowsRetry() async {
     let service = GTLRCalendarService()
     let model = CalendarModel(service: service)
@@ -86,52 +89,52 @@ final class CalendarModelTests: XCTestCase {
       respond(nil, NSError(domain: NSURLErrorDomain, code: NSURLErrorTimedOut))
     }
     await finishRequest(model) { model.loadMore() }
-    XCTAssertEqual(model.events.map(\.identifier), ["first"])
-    XCTAssertNotNil(model.error)
-    XCTAssertTrue(model.hasMore)
+    #expect(model.events.map(\.identifier) == ["first"])
+    #expect(model.error != nil)
+    #expect(model.hasMore)
   }
 
-  @MainActor
+  @Test
   func testClearCancelsPendingRequestAndDropsState() async {
     let service = GTLRCalendarService()
     let model = CalendarModel(service: service)
-    let called = expectation(description: "Query reached service")
     var response: GTLRServiceTestResponse?
     var requestTicket: GTLRServiceTicket?
-    service.testBlock = { ticket, respond in
-      requestTicket = ticket
-      response = respond
-      called.fulfill()
+    await withCheckedContinuation { queryReached in
+      service.testBlock = { ticket, respond in
+        requestTicket = ticket
+        response = respond
+        queryReached.resume()
+      }
+      model.refresh()
     }
-    model.refresh()
-    await fulfillment(of: [called], timeout: 2)
     model.clear()
-    XCTAssertTrue(requestTicket?.isCancelled == true)
+    #expect(requestTicket?.isCancelled == true)
     let page = GTLRCalendar_Events()
     page.items = [GTLRCalendar_Event()]
     response?(page, nil)
-    let drained = expectation(description: "Callback queue drained")
-    DispatchQueue.main.async { drained.fulfill() }
-    await fulfillment(of: [drained], timeout: 2)
-    XCTAssertTrue(model.events.isEmpty)
-    XCTAssertFalse(model.isLoading)
-    XCTAssertFalse(model.hasMore)
-    XCTAssertNil(model.error)
+    await withCheckedContinuation { continuation in
+      DispatchQueue.main.async { continuation.resume() }
+    }
+    #expect(model.events.isEmpty)
+    #expect(!model.isLoading)
+    #expect(!model.hasMore)
+    #expect(model.error == nil)
   }
 
-  @MainActor
+  @Test
   func testClearDiscardsAlreadyDeliveredCompletion() async {
     let service = GTLRCalendarService()
     service.callbackQueue = DispatchQueue(label: "CalendarModelTests.callback")
     let model = CalendarModel(service: service)
-    let called = expectation(description: "Query reached service")
     var response: GTLRServiceTestResponse?
-    service.testBlock = { _, respond in
-      response = respond
-      called.fulfill()
+    await withCheckedContinuation { queryReached in
+      service.testBlock = { _, respond in
+        response = respond
+        queryReached.resume()
+      }
+      model.refresh()
     }
-    model.refresh()
-    await fulfillment(of: [called], timeout: 2)
     let page = GTLRCalendar_Events()
     page.items = [GTLRCalendar_Event()]
     page.nextPageToken = "stale-page"
@@ -143,21 +146,21 @@ final class CalendarModelTests: XCTestCase {
     await withCheckedContinuation { continuation in
       DispatchQueue.main.async { continuation.resume() }
     }
-    XCTAssertTrue(model.events.isEmpty)
-    XCTAssertFalse(model.isLoading)
-    XCTAssertFalse(model.hasMore)
-    XCTAssertNil(model.error)
+    #expect(model.events.isEmpty)
+    #expect(!model.isLoading)
+    #expect(!model.hasMore)
+    #expect(model.error == nil)
   }
 
-  @MainActor
+  @Test
   func testRefreshReplacesEventsAndUsesNewTimeBoundary() async {
     let service = GTLRCalendarService()
     var now = Date(timeIntervalSince1970: 1_700_000_000)
     let model = CalendarModel(service: service, now: { now })
     service.testBlock = { ticket, respond in
       let query = ticket.originalQuery as! GTLRCalendarQuery_EventsList
-      XCTAssertNil(query.pageToken)
-      XCTAssertEqual(query.timeMin?.date, now)
+      #expect(query.pageToken == nil)
+      #expect(query.timeMin?.date == now)
       let page = GTLRCalendar_Events()
       page.items = [GTLRCalendar_Event()]
       page.nextPageToken = "old-page"
@@ -167,38 +170,46 @@ final class CalendarModelTests: XCTestCase {
     now = Date(timeIntervalSince1970: 1_800_000_000)
     service.testBlock = { ticket, respond in
       let query = ticket.originalQuery as! GTLRCalendarQuery_EventsList
-      XCTAssertNil(query.pageToken)
-      XCTAssertEqual(query.timeMin?.date, now)
+      #expect(query.pageToken == nil)
+      #expect(query.timeMin?.date == now)
       respond(GTLRCalendar_Events(), nil)
     }
     await finishRequest(model) { model.refresh() }
-    XCTAssertTrue(model.events.isEmpty)
-    XCTAssertFalse(model.hasMore)
+    #expect(model.events.isEmpty)
+    #expect(!model.hasMore)
   }
 
-  @MainActor
+  @Test
   func testAllDayDateDoesNotShiftAcrossTimeZones() async {
     let event = GTLRCalendar_Event()
     event.start = GTLRCalendar_EventDateTime()
     event.start?.date = GTLRDateTime(rfc3339String: "2026-10-11")
     for hours in [-12, 14] {
-      XCTAssertEqual(CalendarModel.startDescription(for: event,
-        timeZone: TimeZone(secondsFromGMT: hours * 3600)!, locale: Locale(identifier: "en_US")),
+      #expect(CalendarModel.startDescription(for: event,
+        timeZone: TimeZone(secondsFromGMT: hours * 3600)!, locale: Locale(identifier: "en_US")) ==
         "All day · Oct 11, 2026")
     }
   }
 
-  @MainActor
+  @Test
   func testMissingStartTimeHasReadableFallback() async {
-    XCTAssertEqual(CalendarModel.startDescription(for: GTLRCalendar_Event()), "No start time")
+    #expect(CalendarModel.startDescription(for: GTLRCalendar_Event()) == "No start time")
   }
 
-  @MainActor
   private func finishRequest(_ model: CalendarModel, action: () -> Void) async {
-    let done = expectation(description: "Request finished")
-    let observation = model.$isLoading.dropFirst().filter { !$0 }.sink { _ in done.fulfill() }
     action()
-    await fulfillment(of: [done], timeout: 3)
-    withExtendedLifetime(observation) {}
+    await withCheckedContinuation { continuation in
+      guard model.isLoading else {
+        continuation.resume()
+        return
+      }
+      withObservationTracking {
+        _ = model.isLoading
+      } onChange: {
+        // Observation notifies before the write; resume after the model finishes it.
+        Task { @MainActor in continuation.resume() }
+      }
+    }
+    #expect(!model.isLoading)
   }
 }

@@ -361,7 +361,7 @@
 			"buildSettings" = {
 				"CLANG_ENABLE_MODULES" = "YES";
 				"CLANG_ENABLE_OBJC_ARC" = "YES";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "15.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
 				"SDKROOT" = "iphoneos";
 				"SWIFT_VERSION" = "5.0";
 				"TARGETED_DEVICE_FAMILY" = "1,2";
@@ -378,7 +378,7 @@
 			"buildSettings" = {
 				"CLANG_ENABLE_MODULES" = "YES";
 				"CLANG_ENABLE_OBJC_ARC" = "YES";
-				"IPHONEOS_DEPLOYMENT_TARGET" = "15.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "17.0";
 				"SDKROOT" = "iphoneos";
 				"SWIFT_VERSION" = "5.0";
 				"TARGETED_DEVICE_FAMILY" = "1,2";

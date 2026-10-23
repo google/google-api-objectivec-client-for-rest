@@ -10,24 +10,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Combine
 import Foundation
+import Observation
 import GoogleAPIClientForRESTCore
 import GoogleAPIClientForREST_Calendar
 
 @MainActor
-final class CalendarModel: ObservableObject {
-  @Published private(set) var events: [GTLRCalendar_Event] = []
-  @Published private(set) var isLoading = false
-  @Published private(set) var error: String?
-  @Published private var nextPageToken: String?
+@Observable
+final class CalendarModel {
+  private(set) var events: [GTLRCalendar_Event] = []
+  private(set) var isLoading = false
+  private(set) var error: String?
+  private var nextPageToken: String?
   var hasMore: Bool { nextPageToken != nil }
 
   private let service: GTLRCalendarService
   private let now: () -> Date
-  private var startTime: Date?
-  private var ticket: GTLRServiceTicket?
-  private var requestID = UUID()
+  @ObservationIgnored private var startTime: Date?
+  @ObservationIgnored private var ticket: GTLRServiceTicket?
+  @ObservationIgnored private var requestID = UUID()
 
   init(service: GTLRCalendarService, now: @escaping () -> Date = Date.init) {
     self.service = service

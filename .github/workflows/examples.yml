@@ -1,5 +1,8 @@
 name: Examples
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [ main ]
@@ -28,9 +31,6 @@ on:
   schedule:
     # Run the first and fifteenth of every month at 6:22 UTC
     - cron:  '22 6 1,15 * *'
-
-permissions:
-  contents: read
 
 jobs:
   examples:

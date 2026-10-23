@@ -1,5 +1,8 @@
 name: ServiceGenerator
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [ main ]
@@ -35,7 +38,7 @@ jobs:
       matrix:
         CONFIGURATION: ["debug", "release"]
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Build ServiceGenerator
       run:  |
         set -eu
@@ -49,7 +52,7 @@ jobs:
       matrix:
         CONFIGURATION: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Build ServiceGenerator
       run:  |
         set -eu

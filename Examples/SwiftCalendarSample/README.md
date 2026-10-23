@@ -24,7 +24,7 @@ calendar data. It is a teaching sample, not a production application.
 5. Tap **Sign In**, authorize read-only Calendar access, and view your upcoming
    events. Tap **Load More** for another page of up to 20 events.
 
-The app requires iOS 15 or later. Configuration placeholders are intentionally
+The app requires iOS 17 or later and uses Observation with main-actor models. Configuration placeholders are intentionally
 unusable until replaced. Client IDs are public identifiers; do not add a client
 secret, access token, or refresh token to the project or logs.
 
@@ -50,7 +50,7 @@ query with the current time; Load More follows the response's page token.
 
 ## Tests
 
-The tests use the library's documented `testBlock` hook for offline Calendar
+The Swift Testing tests use the library's documented `testBlock` hook for offline Calendar
 responses, and an in-memory implementation of its auth-session store for Keychain
 error cases. They do not call Google APIs or launch interactive sign-in.
 

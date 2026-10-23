@@ -13,74 +13,76 @@
 import AppAuthCore
 import GTMAppAuth
 import GoogleAPIClientForREST_Calendar
-import XCTest
+import Foundation
+import Testing
 @testable import SwiftCalendarSample
 
-final class CalendarAuthorizationTests: XCTestCase {
-  @MainActor
+@MainActor
+struct CalendarAuthorizationTests {
+  @Test
   func testRequestUsesReadOnlyScopeAndPKCEWithoutClientSecret() async throws {
     let config = try CalendarConfiguration(clientID: "123-example.apps.googleusercontent.com",
       registeredSchemes: ["com.googleusercontent.apps.123-example"])
     let request = CalendarAuthorization.authorizationRequest(configuration: config)
-    XCTAssertEqual(request.scope, "https://www.googleapis.com/auth/calendar.readonly")
-    XCTAssertEqual(request.redirectURL, config.redirectURL)
-    XCTAssertNil(request.clientSecret)
-    XCTAssertNotNil(request.codeVerifier)
-    XCTAssertEqual(request.codeChallengeMethod, "S256")
+    #expect(request.scope == "https://www.googleapis.com/auth/calendar.readonly")
+    #expect(request.redirectURL == config.redirectURL)
+    #expect(request.clientSecret == nil)
+    #expect(request.codeVerifier != nil)
+    #expect(request.codeChallengeMethod == "S256")
   }
 
-  @MainActor
+  @Test
   func testRestoresAuthorizedSession() async throws {
     let store = MemoryStore()
     store.session = try fixtureSession()
     let authorization = CalendarAuthorization(store: store)
-    XCTAssertTrue(authorization.session?.canAuthorize == true)
-    XCTAssertNil(authorization.error)
+    #expect(authorization.session?.canAuthorize == true)
+    #expect(authorization.error == nil)
   }
 
-  @MainActor
+  @Test
   func testMissingKeychainItemIsNormalSignedOutState() async {
     let authorization = CalendarAuthorization(store: MemoryStore())
-    XCTAssertNil(authorization.session)
-    XCTAssertNil(authorization.error)
+    #expect(authorization.session == nil)
+    #expect(authorization.error == nil)
   }
 
-  @MainActor
+  @Test
   func testKeychainFailureIsReported() async {
     let store = MemoryStore()
     store.failure = NSError(domain: NSOSStatusErrorDomain, code: -50)
     let authorization = CalendarAuthorization(store: store)
-    XCTAssertNil(authorization.session)
-    XCTAssertNotNil(authorization.error)
+    #expect(authorization.session == nil)
+    #expect(authorization.error != nil)
   }
 
-  @MainActor
+  @Test
   func testSignOutClearsSessionEvenIfKeychainRemovalFails() async throws {
     let store = MemoryStore()
     store.session = try fixtureSession()
     let authorization = CalendarAuthorization(store: store)
     store.failure = NSError(domain: NSOSStatusErrorDomain, code: -50)
     authorization.signOut()
-    XCTAssertNil(authorization.session)
-    XCTAssertNotNil(authorization.error)
-    XCTAssertFalse(authorization.isSigningIn)
+    #expect(authorization.session == nil)
+    #expect(authorization.error != nil)
+    #expect(!authorization.isSigningIn)
   }
 
-  @MainActor
+  @Test
   func testRejectedCallbackReportsConfigurationError() async {
     let flow = CallbackSession()
     let authorization = CalendarAuthorization(store: MemoryStore(), flow: flow)
     authorization.resume(url: URL(string: "wrong-scheme:/oauthredirect")!)
-    XCTAssertNotNil(authorization.error)
+    #expect(authorization.error != nil)
   }
 
-  @MainActor
+  @Test
   func testAcceptedCallbackDoesNotReportError() async {
     let flow = CallbackSession()
     flow.acceptsURL = true
     let authorization = CalendarAuthorization(store: MemoryStore(), flow: flow)
     authorization.resume(url: URL(string: "com.googleusercontent.apps.fixture:/oauthredirect")!)
-    XCTAssertNil(authorization.error)
+    #expect(authorization.error == nil)
   }
 
   private func fixtureSession() throws -> AuthSession {
@@ -90,7 +92,7 @@ final class CalendarAuthorizationTests: XCTestCase {
       redirectURL: URL(string: "com.googleusercontent.apps.123-example:/oauthredirect")!,
       responseType: OIDResponseTypeCode, additionalParameters: nil)
     let response = OIDAuthorizationResponse(request: request, parameters: ["code": "fixture-code" as NSString])
-    let tokenRequest = try XCTUnwrap(response.tokenExchangeRequest())
+    let tokenRequest = try #require(response.tokenExchangeRequest())
     let token = OIDTokenResponse(request: tokenRequest,
       parameters: ["access_token": "fixture-token" as NSString, "token_type": "Bearer" as NSString, "expires_in": NSNumber(value: 3600)])
     return AuthSession(authState: OIDAuthState(authorizationResponse: response, tokenResponse: token))

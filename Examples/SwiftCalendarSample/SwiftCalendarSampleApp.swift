@@ -16,21 +16,21 @@ import SwiftUI
 @main
 @MainActor
 struct SwiftCalendarSampleApp: App {
-  @StateObject private var authorization = CalendarAuthorization()
-  @StateObject private var model: CalendarModel
+  @State private var authorization = CalendarAuthorization()
+  @State private var model: CalendarModel
   private let service: GTLRCalendarService
 
   init() {
     let service = GTLRCalendarService()
     self.service = service
-    _model = StateObject(wrappedValue: CalendarModel(service: service))
+    _model = State(initialValue: CalendarModel(service: service))
   }
 
   var body: some Scene {
     WindowGroup {
       CalendarView(model: model, authorization: authorization)
         .onOpenURL { authorization.resume(url: $0) }
-        .onReceive(authorization.$session) { session in
+        .onChange(of: authorization.session, initial: true) { _, session in
           model.clear()
           service.authorizer = session
           if session != nil { model.refresh() }

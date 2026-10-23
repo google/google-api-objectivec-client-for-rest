@@ -1,5 +1,8 @@
 name: CocoaPods
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [ main ]
@@ -31,7 +34,7 @@ jobs:
         pod_configuration: ["Debug", "Release"]
         extra_flags: ["", "--use-static-frameworks"]
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: "iOS, macOS, tvOS, and visionOS"
       run:  |
         pod lib lint --verbose ${{ matrix.extra_flags }} \
@@ -61,7 +64,7 @@ jobs:
       matrix:
         pod_configuration: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: "macOS"
       run:  |
         pod lib lint --verbose \
