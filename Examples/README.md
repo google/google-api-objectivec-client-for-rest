@@ -20,3 +20,8 @@ These example apps need an oAuth2 Client key, which you can obtain from the [Goo
 5. Enter a memorable name for this key to help you identify it easily in the future.
 6. Copy the Bundle Identifier from your IOS App.  This is found in your main project target under the `General` tab
 7. Click the `Create` Button and your are complete.
+
+## Swift example
+
+[Swift Calendar sample for iOS](SwiftCalendarSample/README.md) demonstrates
+read-only Calendar queries, sign-in, pagination, and error handling from Swift.
