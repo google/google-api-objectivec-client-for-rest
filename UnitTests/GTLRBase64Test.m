@@ -95,4 +95,110 @@
   XCTAssertNil(data, @"invalid base64 encoding");
 }
 
+- (void)testQuantumLengthsAndMalformedInputs {
+  XCTAssertNil(GTLREncodeWebSafeBase64(nil));
+  XCTAssertNil(GTLRDecodeWebSafeBase64(nil));
+
+  // Round-trip payloads of lengths 0..8 across standard and web-safe (padded
+  // and unpadded) to cover all valid final-quantum sizes (0, 2, 3, and 4 chars)
+  // as well as table indices 62 ('+'/'-') and 63 ('/'/'_').
+  const uint8_t sampleBytes[] = { 0xFB, 0xFF, 0x00, 0x12, 0x34, 0x56, 0x78, 0x9A };
+  NSCharacterSet *equalsSet =
+      [NSCharacterSet characterSetWithCharactersInString:@"="];
+  for (NSUInteger len = 0; len <= sizeof(sampleBytes); ++len) {
+    NSData *expected = [NSData dataWithBytes:sampleBytes length:len];
+
+    NSString *stdEncoded = GTLREncodeBase64(expected);
+    XCTAssertEqualObjects(GTLRDecodeBase64(stdEncoded), expected,
+                          @"std len %lu", (unsigned long)len);
+
+    NSString *webEncoded = GTLREncodeWebSafeBase64(expected);
+    XCTAssertEqualObjects(GTLRDecodeWebSafeBase64(webEncoded), expected,
+                          @"web padded len %lu", (unsigned long)len);
+
+    NSString *webUnpadded =
+        [webEncoded stringByTrimmingCharactersInSet:equalsSet];
+    XCTAssertEqualObjects(GTLRDecodeWebSafeBase64(webUnpadded), expected,
+                          @"web unpadded len %lu", (unsigned long)len);
+  }
+
+  NSString *len65 = [@"" stringByPaddingToLength:65
+                                      withString:@"A"
+                                 startingAtIndex:0];
+  NSString *embeddedNul = [NSString stringWithFormat:@"YWJj%C", (unichar)0];
+  NSString *nonASCII1 = [NSString stringWithFormat:@"%C", (unichar)0x80];
+  NSString *nonASCII2 = [NSString stringWithFormat:@"YWJj%C", (unichar)0x80];
+
+  NSArray<NSString *> *invalidStdInputs = @[
+    // Unpadded non-multiples of 4
+    @"A",
+    @"YQ",
+    @"YQo",
+    @"AAAAA",
+    @"YWFhYQ",
+    @"YWFhYQo",
+    len65,
+    // Invalid or unaligned '=' padding
+    @"=",
+    @"==",
+    @"===",
+    @"====",
+    @"A=",
+    @"A==",
+    @"A===",
+    @"YQ=",
+    @"YQ===",
+    @"YQo==",
+    @"YWJj=",
+    @"YWJj==",
+    @"YWJj===",
+    @"YWJj====",
+    @"AAAAA=",
+    @"AAAAA==",
+    @"AAAAA===",
+    // Embedded NUL and non-ASCII
+    embeddedNul,
+    nonASCII1,
+    nonASCII2,
+  ];
+  for (NSString *input in invalidStdInputs) {
+    XCTAssertNil(GTLRDecodeBase64(input), @"Std input was \"%@\"", input);
+  }
+
+  NSArray<NSString *> *invalidWebSafeInputs = @[
+    // Unpadded length % 4 == 1 (1, 5, 9, 13, 65)
+    @"A",
+    @"AAAAA",
+    @"AAAAAAAAA",
+    @"AAAAAAAAAAAAA",
+    len65,
+    // Invalid or unaligned '=' padding
+    @"=",
+    @"==",
+    @"===",
+    @"====",
+    @"A=",
+    @"A==",
+    @"A===",
+    @"YQ=",
+    @"YQ===",
+    @"YQo==",
+    @"YWJj=",
+    @"YWJj==",
+    @"YWJj===",
+    @"YWJj====",
+    @"AAAAA=",
+    @"AAAAA==",
+    @"AAAAA===",
+    // Embedded NUL and non-ASCII
+    embeddedNul,
+    nonASCII1,
+    nonASCII2,
+  ];
+  for (NSString *input in invalidWebSafeInputs) {
+    XCTAssertNil(GTLRDecodeWebSafeBase64(input),
+                 @"WebSafe input was \"%@\"", input);
+  }
+}
+
 @end
