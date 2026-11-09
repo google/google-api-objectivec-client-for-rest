@@ -82,16 +82,21 @@ static NSData *DecodeBase64StringCommon(NSString *base64Str,
   if (cString == nil) return nil;
 
   NSInteger inputLength = (NSInteger)strlen(cString);
-  if (requirePadding && (inputLength % 4 != 0)) return nil;
+  if ((NSUInteger)inputLength != base64Str.length) return nil;  // embedded NUL
   if (inputLength == 0) return [NSData data];
+  if ((requirePadding || (cString[inputLength - 1] == '=')) &&
+      (inputLength % 4 != 0)) {
+    return nil;
+  }
 
   NSInteger numEquals = 0;
   while (inputLength > 0 && cString[inputLength - 1] == '=') {
     inputLength--;
     if (++numEquals > 2) return nil;  // malformed input
   }
+  if (inputLength % 4 == 1) return nil;  // malformed input
 
-  NSInteger outputLength = inputLength * 3 / 4;
+  NSInteger outputLength = (inputLength / 4) * 3 + ((inputLength % 4) * 3) / 4;
   NSMutableData* data = [NSMutableData dataWithLength:(NSUInteger)outputLength];
   uint8_t *output = data.mutableBytes;
 
@@ -121,7 +126,8 @@ NSData *GTLRDecodeBase64(NSString *base64Str) {
   static char decodingTable[128];
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    CreateDecodingTable(gStandardEncodingTable, sizeof(gStandardEncodingTable),
+    CreateDecodingTable(gStandardEncodingTable,
+                        sizeof(gStandardEncodingTable) - 1,
                         decodingTable);
   });
   return DecodeBase64StringCommon(base64Str, decodingTable, YES /* requirePadding */ );
@@ -131,7 +137,8 @@ NSData *GTLRDecodeWebSafeBase64(NSString *base64Str) {
   static char decodingTable[128];
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    CreateDecodingTable(gWebSafeEncodingTable, sizeof(gWebSafeEncodingTable),
+    CreateDecodingTable(gWebSafeEncodingTable,
+                        sizeof(gWebSafeEncodingTable) - 1,
                         decodingTable);
   });
   return DecodeBase64StringCommon(base64Str, decodingTable, NO /* requirePadding */);
